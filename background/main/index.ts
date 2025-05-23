@@ -44,7 +44,14 @@ const indexHtml = path.join(RENDERER_DIST, 'index.html')
 async function createWindow() {
   win = new BrowserWindow({
     title: 'Main window',
-    icon: path.join(process.env.VITE_PUBLIC, 'favicon.ico'),
+    autoHideMenuBar: true,
+    width: 1024,
+    height: 768,
+    useContentSize: true,
+    minWidth: 1024,
+    minHeight: 768,
+    frame: true,
+    icon: path.join(process.env.VITE_PUBLIC, 'sparkplate.png'),
     webPreferences: {
       preload,
       // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production

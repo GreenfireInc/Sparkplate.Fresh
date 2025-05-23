@@ -1,5 +1,5 @@
 {
-  "name": "electron-vue-vite",
+  "name": "sparkplate.fresh",
   "version": "28.1.0",
   "main": "dist/background/index.js",
   "description": "Really simple Electron + Vue + Vite boilerplate.",
