@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
+import NavBar from './components/global/NavBar.vue'
 </script>
 
 <template>
+  <NavBar />
+  
   <div>
     <a href="https://www.electronjs.org/" target="_blank">
       <img src="/assets/icons/electron.svg" class="logo electron" alt="Electron logo" />
@@ -14,7 +17,6 @@ import HelloWorld from './components/HelloWorld.vue'
       <img src="/assets/icons/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-
 
   <HelloWorld msg="Electron + Vite + Vue" />
   
