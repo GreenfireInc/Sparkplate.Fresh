@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Sparkplate
+Comment=Sparkplate application
+Exec=sparkplate
+Icon=com.sparkplate.app
+Terminal=false
+Categories=Office;Utility;
+StartupWMClass=Sparkplate
+X-GNOME-UsesNotifications=true 
