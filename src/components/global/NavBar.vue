@@ -34,11 +34,11 @@
         >Total Assets: {{ totalAssets }}</span
       > -->
     </div>
-    <!-- <div class="flex items-center">
+    <div class="flex items-center">
       <router-link to="/directories" class="mx-2 text-white hover:underline">Directories</router-link>
       <router-link to="/test" class="mx-2 text-white hover:underline">Test</router-link>
       <router-link to="/settings/general" class="mx-2 text-white hover:underline">Settings</router-link>
-    </div> -->
+    </div>
   </nav>
 </template>
 
@@ -116,24 +116,38 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .user-menu {
-  @apply flex items-center relative cursor-pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
 
-  .user-actions {
-    @apply bg-white shadow p-1 rounded absolute right-0 font-extrabold flex-col z-10 mt-0 hidden;
-    top: 100%;
-    width: max-content;
+.user-actions {
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  position: absolute;
+  right: 0;
+  font-weight: 800;
+  flex-direction: column;
+  z-index: 10;
+  margin-top: 0;
+  display: none;
+  top: 100%;
+  width: max-content;
+}
 
-    & > span {
-      @apply bg-gray-100 text-gray-700 px-3 py-1 block;
-    }
-  }
+.user-actions > span {
+  background-color: #f9f9f9;
+  color: #4a5568;
+  padding: 0.25rem 0.75rem;
+  display: block;
+}
 
-  &:hover {
-    .user-actions {
-      @apply flex;
-    }
-  }
+.user-menu:hover .user-actions {
+  display: flex;
 }
 </style>
