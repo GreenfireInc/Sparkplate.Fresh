@@ -29,7 +29,7 @@
   </nav>
 </template>
 
-<script>
+<script lang="ts">
 import { FolderIcon, TestTubeIcon, SettingsIcon } from 'lucide-vue-next'
 import { useRoute } from 'vue-router'
 import { useMenuState } from '@/composables/useMenuState'
@@ -45,7 +45,7 @@ export default {
     const route = useRoute()
     const { menuType } = useMenuState()
 
-    const pathColor = (path) => {
+    const pathColor = (path: string) => {
       return route.path === path ? '#3b82f6' : '#6b7280'
     }
 

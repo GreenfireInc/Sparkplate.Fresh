@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "lucide-vue-next": "^0.511.0",
+    "sass": "^1.89.0",
     "vue-router": "^4.5.1"
   }
 }

@@ -1,14 +1,10 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, type RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
-// import Directories from '../views/Directories.vue'
-// import Test from '../views/Test.vue'
-// import Settings from '../views/Settings.vue'
 
 /**
  * Application routes configuration
- * @type {import('vue-router').RouteRecordRaw[]}
  */
-export const routes = [
+export const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'Home',
@@ -33,7 +29,6 @@ export const routes = [
 
 /**
  * Vue Router instance configured with hash history
- * @type {import('vue-router').Router}
  */
 export const router = createRouter({
   history: createWebHashHistory(),
@@ -41,4 +36,4 @@ export const router = createRouter({
 })
 
 // For consistency with other modules
-export default router
+export default router 
