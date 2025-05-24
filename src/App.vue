@@ -36,13 +36,13 @@ const { menuType } = useMenuState()
 
 .view {
   height: 100%;
-  padding: 0.5rem 0.75rem;
+  padding: 0 0.75rem;
   overflow-y: auto;
 }
 
 .main-content {
   margin-top: 4rem; /* Account for navbar height */
-  padding: 0.1rem 2rem; /* Minimal top/bottom, existing L/R padding */
+  /* Removed all padding to give full height to content */
   transition: margin-left 0.3s ease;
   height: calc(100vh - 4rem);
   overflow-y: hidden;
