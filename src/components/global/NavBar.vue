@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="navbar-content">
       <div class="navbar-left">
-        <div class="menu-toggle" @click="changeMenuType(menuType === 'macro' ? 'micro' : 'macro')">
+        <div class="menu-toggle" @click="toggleMenuType">
           <svg
             v-if="menuType === 'macro'"
             xmlns="http://www.w3.org/2000/svg"
@@ -36,18 +36,14 @@
 </template>
 
 <script>
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
+import { useMenuState } from '@/composables/useMenuState.js'
 
-const menuType = ref('macro')
+const { menuType, toggleMenuType } = useMenuState()
 
 const totalAssets = computed(() => {
   return '$0.00' // Placeholder value
 })
-
-const changeMenuType = (type) => {
-  menuType.value = type
-  // Here you can emit an event or use a store to communicate with SideNav
-}
 
 export default {
   name: 'NavBar',
@@ -55,7 +51,7 @@ export default {
     return {
       menuType,
       totalAssets,
-      changeMenuType
+      toggleMenuType
     }
   }
 }
