@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 
 // Shared reactive state
-const menuType = ref('macro')
+const menuType = ref('micro')
 
 export function useMenuState() {
   const changeMenuType = (type) => {

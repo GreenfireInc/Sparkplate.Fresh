@@ -73,7 +73,7 @@ export default {
 }
 
 .side-nav.macro {
-  width: 16rem;
+  width: 12rem;
 }
 
 .side-nav.micro {
