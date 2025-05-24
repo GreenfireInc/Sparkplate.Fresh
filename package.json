@@ -1,9 +1,9 @@
 {
   "name": "sparkplate.fresh",
-  "version": "28.1.0",
+  "version": "2.0.0",
   "main": "dist/background/index.js",
-  "description": "Really simple Electron + Vue + Vite boilerplate.",
-  "author": "草鞋没号 <308487730@qq.com>",
+  "description": "A fresh take on the Electron + Vue + Vite boilerplate using Greenfire's Sparkplate and Greenery.",
+  "author": "Greenfire <hello@greenfire.io>",
   "license": "MIT",
   "private": true,
   "keywords": [
@@ -11,6 +11,9 @@
     "rollup",
     "vite",
     "vue3",
+    "greenfire",
+    "sparkplate",
+    "greenery",
     "vue"
   ],
   "debug": {
