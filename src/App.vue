@@ -1,17 +1,21 @@
 <script setup lang="ts">
 import NavBar from './components/global/NavBar.vue'
 import SideNav from './components/global/SideNav.vue'
+import { useMenuState } from '@/composables/useMenuState.js'
+
+const { menuType } = useMenuState()
 </script>
 
 <template>
   <div id="app">
     <NavBar />
     <SideNav />
-    <main class="main-content">
+    <main class="main-content" :class="menuType">
       <router-view />
     </main>
   </div>
 </template>
+
 <style>
 * {
   margin: 0;
@@ -28,16 +32,18 @@ import SideNav from './components/global/SideNav.vue'
 }
 
 .main-content {
-  margin-left: 240px; /* Account for macro sidebar width */
   margin-top: 4rem; /* Account for navbar height */
   padding: 2rem;
   min-height: calc(100vh - 4rem);
   transition: margin-left 0.3s ease;
 }
 
-/* Adjust for micro sidebar */
-.micro ~ .main-content {
-  margin-left: 80px;
+.main-content.macro {
+  margin-left: 16rem; /* Account for macro sidebar width */
+}
+
+.main-content.micro {
+  margin-left: 4rem; /* Account for micro sidebar width */
 }
 
 .flex-center {

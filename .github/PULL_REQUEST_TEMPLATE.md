@@ -7,6 +7,9 @@
 ### What is the purpose of this pull request? <!-- (put an "X" next to an item) -->
 
 - [ ] Bug fix
+- [ ] Build Out
+- [ ] Import (From old Sparkplate)
 - [ ] New Feature
+- [ ] New Function
 - [ ] Documentation update
 - [ ] Other
