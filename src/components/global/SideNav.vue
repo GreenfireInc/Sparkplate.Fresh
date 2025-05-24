@@ -32,7 +32,7 @@
 <script>
 import { FolderIcon, TestTubeIcon, SettingsIcon } from 'lucide-vue-next'
 import { useRoute } from 'vue-router'
-import { useMenuState } from '@/composables/useMenuState.js'
+import { useMenuState } from '@/composables/useMenuState'
 
 export default {
   name: 'SideNav',
