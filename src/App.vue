@@ -39,7 +39,7 @@ const { menuType } = useMenuState()
 }
 
 .main-content.macro {
-  margin-left: 16rem; /* Account for macro sidebar width */
+  margin-left: 12rem; /* Account for macro sidebar width */
 }
 
 .main-content.micro {
