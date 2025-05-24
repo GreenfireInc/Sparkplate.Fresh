@@ -1,29 +1,10 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
 import NavBar from './components/global/NavBar.vue'
 </script>
 
 <template>
   <NavBar />
-  
-  <div>
-    <a href="https://www.electronjs.org/" target="_blank">
-      <img src="/assets/icons/electron.svg" class="logo electron" alt="Electron logo" />
-    </a>
-    <a href="https://vitejs.dev/" target="_blank">
-      <img src="/assets/icons/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="/assets/icons/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-
-  <HelloWorld msg="Electron + Vite + Vue" />
-  
-  <div class="flex-center">
-    Place static files into the <code>/public</code> folder
-    <img style="width: 2.4em; margin-left: .4em;" src="/assets/icons/electron.vite.svg" alt="Logo">
-  </div>
+  <router-view />
 </template>
 
 <style>
