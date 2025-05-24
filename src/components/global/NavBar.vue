@@ -37,7 +37,7 @@
 
 <script>
 import { computed } from 'vue'
-import { useMenuState } from '@/composables/useMenuState.js'
+import { useMenuState } from '@/composables/useMenuState'
 
 const { menuType, toggleMenuType } = useMenuState()
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import NavBar from './components/global/NavBar.vue'
 import SideNav from './components/global/SideNav.vue'
-import { useMenuState } from '@/composables/useMenuState.js'
+import { useMenuState } from './composables/useMenuState'
 
 const { menuType } = useMenuState()
 </script>
@@ -28,14 +28,25 @@ const { menuType } = useMenuState()
   line-height: 1.5;
   color: #213547;
   background-color: #ffffff;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.view {
+  height: 100%;
+  padding: 0 0.75rem;
+  overflow-y: auto;
 }
 
 .main-content {
   margin-top: 4rem; /* Account for navbar height */
-  padding: 2rem;
-  min-height: calc(100vh - 4rem);
+  /* Removed all padding to give full height to content */
   transition: margin-left 0.3s ease;
+  height: calc(100vh - 4rem);
+  overflow-y: hidden;
+  flex: 1;
 }
 
 .main-content.macro {
