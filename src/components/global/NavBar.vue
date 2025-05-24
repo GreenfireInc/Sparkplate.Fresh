@@ -34,6 +34,11 @@
         >Total Assets: {{ totalAssets }}</span
       > -->
     </div>
+    <!-- <div class="flex items-center">
+      <router-link to="/directories" class="mx-2 text-white hover:underline">Directories</router-link>
+      <router-link to="/test" class="mx-2 text-white hover:underline">Test</router-link>
+      <router-link to="/settings/general" class="mx-2 text-white hover:underline">Settings</router-link>
+    </div> -->
   </nav>
 </template>
 
