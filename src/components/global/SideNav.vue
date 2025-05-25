@@ -1,12 +1,13 @@
 <template>
   <nav :class="['side-nav', menuType]">
     <router-link
-      to="/directories"
+      to="/keyfiles"
       class="nav-item"
-      :class="{ active: $route.path === '/directories' }"
+      :class="{ active: $route.path === '/keyfiles' }"
+      title="Key Files"
     >
-      <FolderIcon :size="20" :color="pathColor('/directories')" />
-      <span v-if="menuType === 'macro'" class="nav-text">Directories</span>
+      <FileTextIcon :size="20" :color="pathColor('/keyfiles')" />
+      <span v-if="menuType === 'macro'" class="nav-text">Key Files</span>
     </router-link>
     
     <router-link
@@ -30,16 +31,16 @@
 </template>
 
 <script lang="ts">
-import { FolderIcon, TestTubeIcon, SettingsIcon } from 'lucide-vue-next'
+import { TestTubeIcon, SettingsIcon, FileTextIcon } from 'lucide-vue-next'
 import { useRoute } from 'vue-router'
 import { useMenuState } from '@/composables/useMenuState'
 
 export default {
   name: 'SideNav',
   components: {
-    FolderIcon,
     TestTubeIcon,
-    SettingsIcon
+    SettingsIcon,
+    FileTextIcon
   },
   setup() {
     const route = useRoute()
