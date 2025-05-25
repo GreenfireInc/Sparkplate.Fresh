@@ -40,36 +40,41 @@
         <tbody class="container">
           <tr class="row">
             <td class="col">1</td>
+            <td class="col">./electron-builder.json5</td>
+            <td class="col">Electron Build Configuration</td>
+          </tr>
+          <tr class="row">
+            <td class="col">2</td>
             <td class="col">./index.html</td>
             <td class="col">Main HTML Entry Point</td>
           </tr>
           <tr class="row">
-            <td class="col">2</td>
+            <td class="col">3</td>
             <td class="col">./package.json</td>
             <td class="col">Project Dependencies and Scripts</td>
           </tr>
           <tr class="row">
-            <td class="col">3</td>
+            <td class="col">4</td>
             <td class="col">./background/index.js</td>
             <td class="col">Electron Background Process Entrypoint</td>
           </tr>
           <tr class="row">
-            <td class="col">4</td>
+            <td class="col">5</td>
             <td class="col">./src/main.ts</td>
             <td class="col">Vue Renderer Entrypoint</td>
           </tr>
           <tr class="row">
-            <td class="col">5</td>
+            <td class="col">6</td>
             <td class="col">./src/App.vue</td>
             <td class="col">Main Application Component</td>
           </tr>
           <tr class="row">
-            <td class="col">6</td>
+            <td class="col">7</td>
             <td class="col">./src/components/global/NavBar.vue</td>
             <td class="col">Top Navigation Header Component</td>
           </tr>
           <tr class="row">
-            <td class="col">7</td>
+            <td class="col">8</td>
             <td class="col">./src/components/global/SideNav.vue</td>
             <td class="col">Side Navigation Component</td>
           </tr>
@@ -95,31 +100,36 @@
           </tr>
           <tr class="row">
             <td class="col">2</td>
+            <td class="col">./dist_electron</td>
+            <td class="col">Output Folder for Electron Builder</td>
+          </tr>
+          <tr class="row">
+            <td class="col">3</td>
             <td class="col">./docs</td>
             <td class="col">Project Documentation (Progress Reports and Reasonings)</td>
           </tr>
           <tr class="row">
-            <td class="col">3</td>
+            <td class="col">4</td>
             <td class="col">./public</td>
             <td class="col">Static Assets Directory</td>
           </tr>
           <tr class="row">
-            <td class="col">4</td>
+            <td class="col">5</td>
             <td class="col">./.rules</td>
             <td class="col">Project Documentation and Configuration Rules</td>
           </tr>
           <tr class="row">
-            <td class="col">5</td>
+            <td class="col">6</td>
             <td class="col">./src/views</td>
             <td class="col">View Components (Pages)</td>
           </tr>
           <tr class="row">
-            <td class="col">6</td>
+            <td class="col">7</td>
             <td class="col">./src/composables</td>
             <td class="col">Vue Composition API Utilities</td>
           </tr>
           <tr class="row">
-            <td class="col">7</td>
+            <td class="col">8</td>
             <td class="col">./src/router</td>
             <td class="col">Vue Router Configuration</td>
           </tr>
@@ -164,7 +174,7 @@ export default {
 .tabs {
   display: flex;
   border-bottom: 2px solid #e2e8f0;
-  margin: 1rem 0;
+  margin: 0.25rem 0;
 }
 
 .tab-button {
@@ -190,7 +200,7 @@ export default {
 }
 
 .tab-content {
-  padding-top: 1rem;
+  padding-top: 0.25rem;
 }
 
 .table {
@@ -234,7 +244,7 @@ tbody .row:hover {
 }
 
 .logo {
-  width: 100px;
+  width: 90px;
   height: auto;
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
