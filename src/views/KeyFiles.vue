@@ -1,0 +1,142 @@
+<template>
+  <div class="view">
+    <h1 class="view-name">::Key Files::</h1>
+    <div class="d-flex justify-center m-2">
+      <img
+        src="/assets/icons/sparkplate.svg"
+        class="logo Greenfire"
+        alt="Sparkplate logo"
+      />
+    </div>
+    <table class="table">
+      <thead class="container">
+        <tr class="row">
+          <th class="col">No.</th>
+          <th class="col">File</th>
+          <th class="col">Description</th>
+        </tr>
+      </thead>
+      <tbody class="container">
+        <tr class="row">
+          <td class="col">1</td>
+          <td class="col">./index.html</td>
+          <td class="col">Main HTML Entry Point</td>
+        </tr>
+        <tr class="row">
+          <td class="col">2</td>
+          <td class="col">./package.json</td>
+          <td class="col">Project Dependencies and Scripts</td>
+        </tr>
+        <tr class="row">
+          <td class="col">3</td>
+          <td class="col">./public</td>
+          <td class="col">Static Assets Directory</td>
+        </tr>
+        <tr class="row">
+          <td class="col">4</td>
+          <td class="col">./background/index.js</td>
+          <td class="col">Electron Background Process Entrypoint</td>
+        </tr>
+        <tr class="row">
+          <td class="col">5</td>
+          <td class="col">./src/main.ts</td>
+          <td class="col">Vue Renderer Entrypoint</td>
+        </tr>
+        <tr class="row">
+          <td class="col">6</td>
+          <td class="col">./src/App.vue</td>
+          <td class="col">Main Application Component</td>
+        </tr>
+        <tr class="row">
+          <td class="col">7</td>
+          <td class="col">./src/components/global/NavBar.vue</td>
+          <td class="col">Top Navigation Header Component</td>
+        </tr>
+        <tr class="row">
+          <td class="col">8</td>
+          <td class="col">./src/components/global/SideNav.vue</td>
+          <td class="col">Side Navigation Component</td>
+        </tr>
+        <tr class="row">
+          <td class="col">9</td>
+          <td class="col">./src/views/</td>
+          <td class="col">Views Directory (Page Components)</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'KeyFilesPage'
+}
+</script>
+
+<style scoped>
+.view-name {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.m-2 {
+  margin: 0.5rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.container {
+  width: 100%;
+}
+
+.row {
+  display: table-row;
+}
+
+.col {
+  display: table-cell;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: top;
+}
+
+thead .col {
+  font-weight: 600;
+  background-color: #f8fafc;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+tbody .row:hover {
+  background-color: #f1f5f9;
+}
+
+.col:first-child {
+  width: 3rem;
+  text-align: center;
+}
+
+.col:nth-child(2) {
+  width: 20rem;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+</style> 

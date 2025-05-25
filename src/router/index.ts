@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory, type RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
+import KeyFiles from '../views/KeyFiles.vue'
 
 /**
  * Application routes configuration
@@ -9,6 +10,11 @@ export const routes: RouteRecordRaw[] = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/keyfiles',
+    name: 'KeyFiles',
+    component: KeyFiles
   }
   // {
   //   path: '/directories',
