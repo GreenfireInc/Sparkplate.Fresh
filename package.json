@@ -1,5 +1,5 @@
 {
-  "name": "sparkplate.fresh",
+  "name": "sparkplate-fresh",
   "version": "2.0.0",
   "main": "dist/background/index.js",
   "description": "A fresh take on the Electron + Vue + Vite boilerplate using Greenfire's Sparkplate and Greenery.",
