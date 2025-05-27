@@ -11,6 +11,16 @@
     </router-link>
     
     <router-link
+      to="/cryptocurrency"
+      class="nav-item"
+      :class="{ active: $route.path === '/cryptocurrency' }"
+      title="Cryptocurrency"
+    >
+      <CoinsIcon :size="20" :color="pathColor('/cryptocurrency')" />
+      <span v-if="menuType === 'macro'" class="nav-text">Cryptocurrency</span>
+    </router-link>
+    
+    <router-link
       to="/test"
       class="nav-item"
       :class="{ active: $route.path === '/test' }"
@@ -31,7 +41,7 @@
 </template>
 
 <script lang="ts">
-import { TestTubeIcon, SettingsIcon, FileTextIcon } from 'lucide-vue-next'
+import { TestTubeIcon, SettingsIcon, FileTextIcon, CoinsIcon } from 'lucide-vue-next'
 import { useRoute } from 'vue-router'
 import { useMenuState } from '../../composables/useMenuState'
 
@@ -40,7 +50,8 @@ export default {
   components: {
     TestTubeIcon,
     SettingsIcon,
-    FileTextIcon
+    FileTextIcon,
+    CoinsIcon
   },
   setup() {
     const route = useRoute()
