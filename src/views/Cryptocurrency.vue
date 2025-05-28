@@ -1,6 +1,7 @@
 <template>
-  <div class="container px-4 py-8 mx-auto">
+  <div class="view">
     <h1 class="view-name">::Cryptocurrency::</h1>
+<br>
 
     <!-- Tab Navigation -->
     <div class="mb-4 border-b border-gray-200">
