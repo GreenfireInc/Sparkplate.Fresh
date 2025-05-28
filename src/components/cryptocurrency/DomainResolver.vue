@@ -48,13 +48,17 @@
                     placeholder="Enter a domain (e.g., example.eth, name.crypto, domain.tez)" 
                     required 
                   />
-                  <button 
-                    type="submit" 
-                    class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                    </svg>
-                    <span class="sr-only">Search</span>
+                  <button
+                    class="absolute top-0 end-0 h-full text-sm font-medium transition-colors duration-200 flex items-center justify-center px-4 py-2.5 rounded-e-lg border"
+                    :class="{
+                      'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border-blue-700': isFormValid && !domainAddress.loading,
+                      'text-gray-500 bg-blue-300 cursor-not-allowed border-blue-300': !isFormValid || domainAddress.loading
+                    }"
+                    type="submit"
+                    :disabled="!isFormValid || domainAddress.loading"
+                  >
+                    <span v-if="domainAddress.loading" class="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-white mr-2"></span>
+                    {{ domainAddress.loading ? 'Resolving...' : 'Resolve' }}
                   </button>
                 </div>
               </div>
@@ -64,39 +68,26 @@
             
           </div> <!-- End of flex flex-col space-y-4 -->
           <br>
-          <button
-            class="max-w-sm py-3 px-5 mt-6 rounded text-black transition-colors duration-200 flex justify-center items-center"
-            :class="{
-              'bg-blue-600 hover:bg-blue-700': isFormValid && !domainAddress.loading,
-              'bg-blue-300 cursor-not-allowed': !isFormValid || domainAddress.loading
-            }"
-            type="submit"
-            :disabled="!isFormValid || domainAddress.loading"
-          >
-            <span v-if="domainAddress.loading" class="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-white mr-2"></span>
-            {{ domainAddress.loading ? 'Resolving...' : 'Resolve Address' }}
-          </button>
+          <!-- Domain Address Resolution Display Info -->
+          <domain-resolution-badge
+            v-if="domainAddress.enabled"
+            :domain-address="domainAddress"
+            :currency="coinTicker"
+          />
+          <br>
+          <!-- Information about domain name services -->
+          <div class="mt-8 bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <h3 class="text-lg font-medium mb-2">About Domain Resolution</h3>
+            <p class="text-sm text-gray-600 mb-2">
+              This tool resolves human-readable domain names to cryptocurrency addresses using various blockchain domain services.
+            </p>
+            <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
+              <li><span class="font-medium">.eth domains</span> - Resolved through Ethereum Name Service</li>
+              <li><span class="font-medium">.crypto, .wallet, .nft domains</span> - Resolved through Unstoppable Domains</li>
+              <li><span class="font-medium">.tez domains</span> - Resolved through Tezos Domains</li>
+            </ul>
+          </div>
         </form>
-        
-        <!-- Domain Address Resolution Display Info -->
-        <domain-resolution-badge
-          v-if="domainAddress.enabled"
-          :domain-address="domainAddress"
-          :currency="coinTicker"
-        />
-        <br>
-        <!-- Information about domain name services -->
-        <div class="mt-8 bg-gray-50 p-4 rounded-lg border border-gray-200">
-          <h3 class="text-lg font-medium mb-2">About Domain Resolution</h3>
-          <p class="text-sm text-gray-600 mb-2">
-            This tool resolves human-readable domain names to cryptocurrency addresses using various blockchain domain services.
-          </p>
-          <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
-            <li><span class="font-medium">.eth domains</span> - Resolved through Ethereum Name Service</li>
-            <li><span class="font-medium">.crypto, .wallet, .nft domains</span> - Resolved through Unstoppable Domains</li>
-            <li><span class="font-medium">.tez domains</span> - Resolved through Tezos Domains</li>
-          </ul>
-        </div>
       </div>
     </section>
   </div>
