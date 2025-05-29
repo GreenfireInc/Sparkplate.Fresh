@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory, type RouteRecordRaw } from 'vue-rou
 import Home from '../views/Home.vue'
 import KeyFiles from '../views/KeyFiles.vue'
 import Cryptocurrency from '../views/Cryptocurrency.vue'
+import Cryptography from '../views/Cryptography.vue'
 
 /**
  * Application routes configuration
@@ -21,6 +22,11 @@ export const routes: RouteRecordRaw[] = [
     path: '/cryptocurrency',
     name: 'Cryptocurrency',
     component: Cryptocurrency
+  },
+  {
+    path: '/cryptography',
+    name: 'Cryptography',
+    component: Cryptography
   }
   // {
   //   path: '/directories',
