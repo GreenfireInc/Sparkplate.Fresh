@@ -115,6 +115,19 @@
       <TestTubeIcon :size="20" :color="pathColor('/sandbox')" />
       <span v-if="menuType === 'macro'" class="nav-text">Sandbox</span>
     </router-link>
+
+    <!-- Divider -->
+    <div class="nav-divider"></div>
+    
+    <router-link
+      to="/settings"
+      class="nav-item"
+      :class="{ active: $route.path.startsWith('/settings') }"
+      title="Settings"
+    >
+      <SettingsIcon :size="20" :color="pathColor('/settings')" />
+      <span v-if="menuType === 'macro'" class="nav-text">Settings</span>
+    </router-link>
   </nav>
 </template>
 
@@ -130,7 +143,8 @@ import {
   HammerIcon,
   PackageIcon,
   UploadIcon,
-  GamepadIcon
+  GamepadIcon,
+  SettingsIcon
 } from 'lucide-vue-next'
 import { useRoute } from 'vue-router'
 import { useMenuState } from '../../composables/useMenuState'
@@ -148,14 +162,18 @@ export default {
     HammerIcon,
     PackageIcon,
     UploadIcon,
-    GamepadIcon
+    GamepadIcon,
+    SettingsIcon
   },
   setup() {
     const route = useRoute()
     const { menuType } = useMenuState()
 
     const pathColor = (path: string) => {
-      return route.path === path ? '#3b82f6' : '#6b7280'
+      const isActive = path === '/settings' 
+        ? route.path.startsWith('/settings')
+        : route.path === path
+      return isActive ? '#3b82f6' : '#6b7280'
     }
 
     return {

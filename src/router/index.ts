@@ -11,6 +11,7 @@ import Package from '../views/Package.vue'
 import Publish from '../views/Publish.vue'
 import Games from '../views/Games.vue'
 import Sandbox from '../views/Sandbox.vue'
+import Settings from '../views/Settings.vue'
 
 /**
  * Application routes configuration
@@ -75,6 +76,11 @@ export const routes: RouteRecordRaw[] = [
     path: '/sandbox',
     name: 'Sandbox',
     component: Sandbox
+  },
+  {
+    path: '/settings/:activeTab?',
+    name: 'Settings',
+    component: Settings
   }
   // {
   //   path: '/directories',
