@@ -29,29 +29,109 @@
       <LockIcon :size="20" :color="pathColor('/cryptography')" />
       <span v-if="menuType === 'macro'" class="nav-text">Cryptography</span>
     </router-link>
+
+    <!-- Divider -->
+    <div class="nav-divider"></div>
     
     <router-link
-      to="/test"
+      to="/networking"
       class="nav-item"
-      :class="{ active: $route.path === '/test' }"
+      :class="{ active: $route.path === '/networking' }"
+      title="Networking"
     >
-      <TestTubeIcon :size="20" :color="pathColor('/test')" />
-      <span v-if="menuType === 'macro'" class="nav-text">Test</span>
+      <NetworkIcon :size="20" :color="pathColor('/networking')" />
+      <span v-if="menuType === 'macro'" class="nav-text">Networking</span>
     </router-link>
     
     <router-link
-      to="/settings"
+      to="/techstack"
       class="nav-item"
-      :class="{ active: $route.path === '/settings' }"
+      :class="{ active: $route.path === '/techstack' }"
+      title="Tech Stack"
     >
-      <SettingsIcon :size="20" :color="pathColor('/settings')" />
-      <span v-if="menuType === 'macro'" class="nav-text">Settings</span>
+      <LayersIcon :size="20" :color="pathColor('/techstack')" />
+      <span v-if="menuType === 'macro'" class="nav-text">Tech Stack</span>
+    </router-link>
+    
+    <router-link
+      to="/repurposing"
+      class="nav-item"
+      :class="{ active: $route.path === '/repurposing' }"
+      title="Repurposing"
+    >
+      <RecycleIcon :size="20" :color="pathColor('/repurposing')" />
+      <span v-if="menuType === 'macro'" class="nav-text">Repurposing</span>
+    </router-link>
+    
+    <router-link
+      to="/build"
+      class="nav-item"
+      :class="{ active: $route.path === '/build' }"
+      title="Build"
+    >
+      <HammerIcon :size="20" :color="pathColor('/build')" />
+      <span v-if="menuType === 'macro'" class="nav-text">Build</span>
+    </router-link>
+    
+    <router-link
+      to="/package"
+      class="nav-item"
+      :class="{ active: $route.path === '/package' }"
+      title="Package"
+    >
+      <PackageIcon :size="20" :color="pathColor('/package')" />
+      <span v-if="menuType === 'macro'" class="nav-text">Package</span>
+    </router-link>
+    
+    <router-link
+      to="/publish"
+      class="nav-item"
+      :class="{ active: $route.path === '/publish' }"
+      title="Publish"
+    >
+      <UploadIcon :size="20" :color="pathColor('/publish')" />
+      <span v-if="menuType === 'macro'" class="nav-text">Publish</span>
+    </router-link>
+
+    <!-- Divider -->
+    <div class="nav-divider"></div>
+    
+    <router-link
+      to="/games"
+      class="nav-item"
+      :class="{ active: $route.path === '/games' }"
+      title="Games"
+    >
+      <GamepadIcon :size="20" :color="pathColor('/games')" />
+      <span v-if="menuType === 'macro'" class="nav-text">Games</span>
+    </router-link>
+    
+    <router-link
+      to="/sandbox"
+      class="nav-item"
+      :class="{ active: $route.path === '/sandbox' }"
+      title="Sandbox"
+    >
+      <TestTubeIcon :size="20" :color="pathColor('/sandbox')" />
+      <span v-if="menuType === 'macro'" class="nav-text">Sandbox</span>
     </router-link>
   </nav>
 </template>
 
 <script lang="ts">
-import { TestTubeIcon, SettingsIcon, FileTextIcon, CoinsIcon, LockIcon } from 'lucide-vue-next'
+import { 
+  TestTubeIcon, 
+  FileTextIcon, 
+  CoinsIcon, 
+  LockIcon,
+  NetworkIcon,
+  LayersIcon,
+  RecycleIcon,
+  HammerIcon,
+  PackageIcon,
+  UploadIcon,
+  GamepadIcon
+} from 'lucide-vue-next'
 import { useRoute } from 'vue-router'
 import { useMenuState } from '../../composables/useMenuState'
 
@@ -59,10 +139,16 @@ export default {
   name: 'SideNav',
   components: {
     TestTubeIcon,
-    SettingsIcon,
     FileTextIcon,
     CoinsIcon,
-    LockIcon
+    LockIcon,
+    NetworkIcon,
+    LayersIcon,
+    RecycleIcon,
+    HammerIcon,
+    PackageIcon,
+    UploadIcon,
+    GamepadIcon
   },
   setup() {
     const route = useRoute()
@@ -93,6 +179,7 @@ export default {
   padding: 1rem 0;
   z-index: 999;
   transition: width 0.3s ease;
+  overflow-y: auto;
 }
 
 .side-nav.macro {
@@ -107,35 +194,31 @@ export default {
   display: flex;
   align-items: center;
   padding: 0.75rem 1rem;
-  color: #374151;
   text-decoration: none;
-  transition: all 0.2s ease;
-  margin: 0.125rem 0.5rem;
-  border-radius: 0.375rem;
+  color: #6b7280;
+  transition: background-color 0.2s ease;
+  border-radius: 0.5rem;
+  margin: 0 0.5rem;
 }
 
 .nav-item:hover {
   background-color: #e2e8f0;
-  color: #1f2937;
 }
 
 .nav-item.active {
   background-color: #dbeafe;
-  color: #1d4ed8;
+  color: #3b82f6;
 }
 
 .nav-text {
   margin-left: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  white-space: nowrap;
 }
 
-.side-nav.micro .nav-item {
-  justify-content: center;
-  padding: 0.75rem;
-}
-
-.side-nav.micro .nav-text {
-  display: none;
+.nav-divider {
+  height: 1px;
+  background-color: #e2e8f0;
+  margin: 1rem 0.5rem;
 }
 </style>
