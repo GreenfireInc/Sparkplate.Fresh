@@ -3,6 +3,7 @@ import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 import os from 'node:os'
+import setAppMenu from '../functions/utils/electron/appMenu.js'
 
 const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -43,7 +44,7 @@ const indexHtml = path.join(RENDERER_DIST, 'index.html')
 
 async function createWindow() {
   win = new BrowserWindow({
-    title: 'Main window',
+    title: 'Sparkplate',
     autoHideMenuBar: true,
     width: 1024,
     height: 768,
@@ -62,6 +63,9 @@ async function createWindow() {
       // contextIsolation: false,
     },
   })
+
+  // Create the application menu
+  setAppMenu(win)
 
   if (VITE_DEV_SERVER_URL) { // #298
     win.loadURL(VITE_DEV_SERVER_URL)
