@@ -2,6 +2,7 @@
 import NavBar from './components/global/NavBar.vue'
 import SideNav from './components/global/SideNav.vue'
 import About from './components/global/About.vue'
+import KeyboardShortcuts from './components/global/KeyboardShortcuts.vue'
 import { useMenuState } from './composables/useMenuState'
 
 const { menuType } = useMenuState()
@@ -23,6 +24,7 @@ const { menuType } = useMenuState()
       <router-view />
     </main>
     <About />
+    <KeyboardShortcuts />
   </div>
 </template>
 
