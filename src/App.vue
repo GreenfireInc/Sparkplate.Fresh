@@ -1,9 +1,18 @@
 <script setup lang="ts">
 import NavBar from './components/global/NavBar.vue'
 import SideNav from './components/global/SideNav.vue'
+import About from './components/global/About.vue'
 import { useMenuState } from './composables/useMenuState'
 
 const { menuType } = useMenuState()
+
+// export default {
+//   name: 'SparkplateApp',
+//   components: {
+//     NavBar,
+//     SideNav
+//   },
+// }
 </script>
 
 <template>
@@ -13,6 +22,7 @@ const { menuType } = useMenuState()
     <main class="main-content" :class="menuType">
       <router-view />
     </main>
+    <About />
   </div>
 </template>
 
