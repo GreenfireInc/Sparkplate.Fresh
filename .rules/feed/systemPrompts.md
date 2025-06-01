@@ -84,6 +84,38 @@ src/
 └── types/         # TypeScript types
 ```
 
+### 4. Documentation Organization
+```
+docs/
+├── prRequests/     # PR request summaries
+├── progress/       # Progress documentation
+├── errorsIssues/   # Error reports and issues
+├── research/       # Research and analysis
+├── findings/       # Project findings
+└── reasonings/     # Decision reasoning
+```
+
+### 5. File Naming Conventions
+- **PR Request files**: 
+  - Location: `docs/prRequests/`
+  - Format: camelCase, no hyphens or underscores
+  - Style: camelCase, no hyphens or underscores
+  - Example: `06012025.prRequest.keyboardShortcuts.md`
+
+- **Progress Documentation**:
+  - Location: `docs/progress/`
+  - Format: `MMDDYYYY.progress.category.component.md`
+  - Style: Use dots as separators, lowercase
+  - Example: `06012025.progress.menumodal.keyboardshortcuts.md`
+
+- **Vue Components**:
+  - Format: PascalCase for component names
+  - Example: `KeyboardShortcuts.vue`
+
+- **Utility/Helper Files**:
+  - Format: camelCase
+  - Example: `useMenuState.ts`
+
 ## Documentation
 
 ### 1. File Headers
@@ -116,6 +148,40 @@ src/
  * @example
  * <ComponentName propName="value" @eventName="handler" />
  */
+```
+
+### 4. Progress Documentation Format
+```markdown
+# Component Name Progress Report
+
+**Date:** Month DD, YYYY  
+**Component:** `path/to/Component.vue`  
+**Type:** Component Type  
+**Status:** ✅ **Status Description**
+
+---
+
+## 🎯 **Overview**
+Brief description of the component and its purpose.
+
+### **Key Achievements**
+- ✅ **Achievement 1** - Description
+- ✅ **Achievement 2** - Description
+
+---
+
+## 🔧 **Technical Implementation**
+Technical details and code samples.
+
+---
+
+## 📊 **Testing Status**
+Testing information and checklist.
+
+---
+
+## 🚀 **Future Enhancements**
+Planned improvements and future work.
 ```
 
 ## Testing
@@ -228,4 +294,87 @@ function validateInput(input) {
 # .env file
 API_KEY=your_api_key
 NODE_ENV=development
+```
+
+## Common Patterns
+
+### 1. Keyboard Shortcuts
+```javascript
+// Implement keyboard shortcuts
+keyBoardShortcut(evt) {
+  const metaKey = isMac ? evt.metaKey : evt.ctrlKey
+  
+  // Handle keyboard event
+  if (metaKey && evt.keyCode === 9) { // Tab key
+    evt.preventDefault()
+    // Handle shortcut
+  } else if (metaKey && evt.shiftKey && evt.keyCode === 191) { // Ctrl+Shift+?
+    evt.preventDefault()
+    // Handle shortcut
+  }
+}
+
+// Register event listener
+created() {
+  document.addEventListener('keydown', this.keyBoardShortcut)
+}
+
+// Clean up event listener
+beforeUnmount() {
+  document.removeEventListener('keydown', this.keyBoardShortcut)
+}
+```
+
+### 2. Composable State Management
+```javascript
+// State management composable
+import { ref } from 'vue'
+
+export function useState() {
+  const state = ref(initialValue)
+  
+  const updateState = (newValue) => {
+    state.value = newValue
+  }
+  
+  return {
+    state,
+    updateState
+  }
+}
+
+// Usage in component
+import { useState } from '@/composables/useState'
+
+export default {
+  setup() {
+    const { state, updateState } = useState()
+    return { state, updateState }
+  }
+}
+```
+
+### 3. Platform Detection
+```javascript
+// Platform detection
+const isMac = window.app.platform === 'darwin'
+const metaKeyIdentifier = isMac ? '⌘' : 'Ctrl'
+```
+
+### 4. Modal Implementation
+```javascript
+// Modal implementation with teleport
+<template>
+  <Teleport to="body">
+    <div 
+      v-if="isOpen" 
+      class="modal-overlay"
+      @click.self="closeModal"
+    >
+      <div class="modal-content">
+        <!-- Modal content -->
+      </div>
+    </div>
+  </Teleport>
+</template>
 ``` 
