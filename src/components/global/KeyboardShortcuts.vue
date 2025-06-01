@@ -50,6 +50,7 @@ const shortcuts = [
   shortcut(`${metaKeyIdentifier} + Shift + Tab`, 'Go to Previous Page'),
   shortcut(`${metaKeyIdentifier} + Shift + ~`, 'Go to Home'),
   shortcut(`${metaKeyIdentifier} + ,`, 'Go to Settings'),
+  shortcut(`${metaKeyIdentifier} + .`, 'Toggle Sidebar'),
   shortcut(`${metaKeyIdentifier} + Shift + ←`, 'Go Back'),
   shortcut(`${metaKeyIdentifier} + Shift + ?`, 'Toggle Keyboard Shortcuts')
 ]
@@ -88,12 +89,18 @@ const pathMap = {
   settings: '/settings/user'
 }
 
+import { useMenuState } from '../../composables/useMenuState'
+
 export default {
   name: 'KeyboardShortcuts',
   data: () => ({
     keyboardShortcutsOpen: false,
     shortcuts
   }),
+  setup() {
+    const { toggleMenuType } = useMenuState()
+    return { toggleMenuType }
+  },
   methods: {
     showModal() {
       this.keyboardShortcutsOpen = true
@@ -129,6 +136,10 @@ export default {
         // Ctrl+Comma for settings
         evt.preventDefault()
         this.goToSettings()
+      } else if (metaKey && !evt.shiftKey && evt.keyCode === 190) {
+        // Ctrl+. (period) to toggle sidebar
+        evt.preventDefault()
+        this.toggleMenuType()
       } else if (metaKey && evt.shiftKey && evt.keyCode) {
         evt.preventDefault()
         switch (evt.keyCode) {
