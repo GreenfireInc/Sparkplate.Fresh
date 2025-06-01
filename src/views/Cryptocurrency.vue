@@ -4,40 +4,20 @@
 <br>
 
     <!-- Tab Navigation -->
-    <div class="mb-4 border-b border-gray-200">
-      <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" role="tablist">
-        <li class="mr-2" role="presentation">
-          <button
-            class="inline-block p-4 border-b-2 rounded-t-lg"
-            :class="{
-              'border-blue-600 text-blue-600': activeTab === 'resolver',
-              'hover:text-gray-600 hover:border-gray-300': activeTab !== 'resolver'
-            }"
-            @click="activeTab = 'resolver'"
-            role="tab"
-            aria-controls="resolver-content"
-            :aria-selected="activeTab === 'resolver'"
-          >
-            Human Readable Addresses
-          </button>
-        </li>
-        <li class="mr-2" role="presentation">
-          <button
-            class="inline-block p-4 border-b-2 rounded-t-lg"
-            :class="{
-              'border-blue-600 text-blue-600': activeTab === 'calculator',
-              'hover:text-gray-600 hover:border-gray-300': activeTab !== 'calculator'
-            }"
-            @click="activeTab = 'calculator'"
-            role="tab"
-            aria-controls="calculator-content"
-            :aria-selected="activeTab === 'calculator'"
-          >
-            Calculator
-          </button>
-        </li>
-      </ul>
-    </div>
+    <TabsWrapper class="tabs-container">
+      <TabComponent
+        :active="activeTab === 'resolver'"
+        :onClick="() => (activeTab = 'resolver')"
+      >
+        Human Readable Addresses
+      </TabComponent>
+      <TabComponent
+        :active="activeTab === 'calculator'"
+        :onClick="() => (activeTab = 'calculator')"
+      >
+        Calculator
+      </TabComponent>
+    </TabsWrapper>
 
     <!-- Tab Content -->
     <div id="tabContent">
@@ -58,6 +38,8 @@
 import { ref } from 'vue'
 import DomainResolver from '../components/cryptocurrency/DomainResolver.vue'
 import CryptocurrencyCalculator from '../components/cryptocurrency/Calculator.vue'
+import TabComponent from '@/components/global/TabComponent.vue'
+import TabsWrapper from '@/components/global/TabsWrapper.vue'
 
 // Define component name
 defineOptions({
@@ -74,5 +56,13 @@ const activeTab = ref('resolver') // Default to the resolver tab
   margin-bottom: 1rem;
   font-weight: 600;
   text-align: left;
+}
+
+.tabs-container {
+  margin-bottom: 1.5rem;
+  
+  :deep(.tabs-wrapper) {
+    gap: 0.5rem;
+  }
 }
 </style> 
