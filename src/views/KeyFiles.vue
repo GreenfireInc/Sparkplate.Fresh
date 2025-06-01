@@ -10,22 +10,20 @@
     </div>
     
     <!-- Tab Navigation -->
-    <div class="tabs">
-      <button 
-        class="tab-button" 
-        :class="{ active: activeTab === 'files' }"
-        @click="activeTab = 'files'"
+    <TabsWrapper class="tabs-container">
+      <TabComponent
+        :active="activeTab === 'files'"
+        :onClick="() => (activeTab = 'files')"
       >
         Files
-      </button>
-      <button 
-        class="tab-button" 
-        :class="{ active: activeTab === 'folders' }"
-        @click="activeTab = 'folders'"
+      </TabComponent>
+      <TabComponent
+        :active="activeTab === 'folders'"
+        :onClick="() => (activeTab = 'folders')"
       >
         Folders
-      </button>
-    </div>
+      </TabComponent>
+    </TabsWrapper>
     
     <!-- Files Tab Content -->
     <div v-if="activeTab === 'files'" class="tab-content">
@@ -140,8 +138,12 @@
 </template>
 
 <script>
+import TabComponent from '@/components/global/TabComponent.vue'
+import TabsWrapper from '@/components/global/TabsWrapper.vue'
+
 export default {
   name: 'KeyFilesPage',
+  components: { TabComponent, TabsWrapper },
   data() {
     return {
       activeTab: 'files'
@@ -170,43 +172,22 @@ export default {
   margin: 0.5rem;
 }
 
-/* Tabs Styling */
-.tabs {
-  display: flex;
-  border-bottom: 2px solid #e2e8f0;
-  margin: 0.25rem 0;
-}
-
-.tab-button {
-  padding: 0.5rem 1.5rem;
-  background: none;
-  border: none;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #64748b;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
-}
-
-.tab-button:hover {
-  color: #334155;
-}
-
-.tab-button.active {
-  color: #3b82f6;
-  border-bottom: 2px solid #3b82f6;
+.tabs-container {
+  margin-bottom: 1.5rem;
+  
+  :deep(.tabs-wrapper) {
+    gap: 0.5rem;
+  }
 }
 
 .tab-content {
-  padding-top: 0.25rem;
+  /* Removed padding-top to close gap with tabs */
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1rem;
+  /* Removed margin-top to close gap with tabs */
 }
 
 .container {
