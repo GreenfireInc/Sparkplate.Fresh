@@ -83,7 +83,10 @@ export default {
 
 <style lang="scss" scoped>
 .center-content {
-  @apply flex items-center justify-center h-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .logo {

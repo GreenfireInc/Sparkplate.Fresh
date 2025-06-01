@@ -1,0 +1,110 @@
+# Tailwind CSS v4 Error Resolution - 06/01/2025
+
+## Original Errors
+
+```
+[40966:0601/124749.139580:ERROR:CONSOLE(1)] "Request Autofill.enable failed. {"code":-32601,"message":"'Autofill.enable' wasn't found"}", source: devtools://devtools/bundled/core/protocol_client/protocol_client.js (1)
+Error: Cannot apply unknown utility class: px-2
+```
+
+## Summary of Actions Taken
+
+We resolved the "Cannot apply unknown utility class: px-2" error by:
+
+1. Updating the Tailwind CSS configuration to match v4 requirements
+2. Replacing `@apply` directives with vanilla CSS in component styles
+3. Setting up the Vite integration for Tailwind CSS v4
+
+## Detailed Explanation & Reasoning
+
+### 1. Understanding the Error
+
+The primary error "Cannot apply unknown utility class: px-2" occurred because of incompatibilities between Tailwind CSS v4 and the way the project was set up. This project was using:
+
+- Tailwind CSS v4.1.7
+- Vue.js
+- Vite as the build tool
+- SCSS in Vue components
+- `@apply` directives with Tailwind classes in component styles
+
+The "Autofill.enable failed" error is unrelated to Tailwind and is a Chrome DevTools message that can be safely ignored.
+
+### 2. Tailwind CSS v4 Configuration Changes
+
+Tailwind CSS v4 introduced several breaking changes in configuration:
+
+- Changed from `@tailwind` directives to a simpler `@import "tailwindcss"` syntax
+- Moved the PostCSS plugin to a separate package (`@tailwindcss/postcss`)
+- Added a dedicated Vite plugin for better integration (`@tailwindcss/vite`)
+
+Our solution implemented these changes by:
+
+1. Removing the old PostCSS configuration file in favor of the Vite plugin
+2. Installing the `@tailwindcss/vite` package for optimal Vite integration
+3. Updating the main CSS file to use the new import syntax
+4. Updating the Vite configuration to use the Tailwind CSS plugin
+
+The Vite plugin approach was chosen over the PostCSS plugin because:
+- It's the recommended approach for Vite projects in the Tailwind v4 documentation
+- It provides better performance and integration with Vite
+- It simplifies the configuration by not requiring a separate PostCSS config file
+
+### 3. Fixing `@apply` Directives
+
+Tailwind CSS v4 has changes in how `@apply` directives work with utility classes. In our specific case, the `px-2` class wasn't being recognized in `@apply` directives. 
+
+Rather than trying to troubleshoot the exact reason (which could be related to the new dynamic spacing system in v4), we took a more robust approach by replacing all `@apply` directives with vanilla CSS:
+
+1. In `src/components/about/Greenfire.vue`, we replaced:
+   ```scss
+   @apply px-2 text-green-600;
+   ```
+   with:
+   ```scss
+   color: var(--color-green-600);
+   padding-left: 0.5rem;
+   padding-right: 0.5rem;
+   ```
+
+2. We did the same for all other `@apply` directives in component files
+
+This approach:
+- Eliminated the dependency on Tailwind's utility classes in component styles
+- Made the CSS more explicit and maintainable
+- Leveraged Tailwind's CSS variables for colors while using standard CSS properties
+- Avoided potential future issues with changing utility class implementations
+
+### 4. Leveraging CSS Variables
+
+Tailwind CSS v4 automatically exposes all design tokens as CSS variables, which made it easier to replace the `@apply` directives with standard CSS using those variables (e.g., `var(--color-green-600)`).
+
+### 5. Testing the Solution
+
+After making all changes, we ran the development server and confirmed that the error was resolved. The terminal output showed:
+
+```
+vite v5.4.19  ready in 966 ms
+➜  Local:   http://localhost:5173/
+➜  Network: use --host to expose
+➜  press h + enter to show help
+```
+
+The only remaining error was the unrelated Chrome DevTools message about Autofill.enable.
+
+## Lessons & Best Practices
+
+1. **Follow Framework Recommendations**: When upgrading to a new major version of a framework, always follow the official migration guide and use the recommended integration methods.
+
+2. **Simplify When Possible**: Rather than fighting with complex compatibility issues, sometimes it's better to simplify by using more standard approaches (vanilla CSS vs. utility-first in complex cases).
+
+3. **CSS Variables Over Directives**: Tailwind CSS v4's CSS variables system provides a good alternative to `@apply` directives for component-specific styles.
+
+4. **Consider Build Tool Integration**: Different build tools have different optimal integration strategies. For Vite, using the dedicated plugin is preferable to the generic PostCSS approach.
+
+## Future Considerations
+
+1. Tailwind CSS v4 is still relatively new, and more stable patterns for usage may emerge over time.
+
+2. For larger projects, creating a reusable CSS theme file with your Tailwind configuration and importing it where needed could provide better organization.
+
+3. Consider using `theme(reference)` imports in individual component styles if you want to continue using `@apply` in component styles. 
