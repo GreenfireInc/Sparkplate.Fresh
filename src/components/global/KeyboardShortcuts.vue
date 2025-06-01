@@ -47,15 +47,45 @@ const shortcut = (key, action) => ({ key, action })
 const metaKeyIdentifier = isMac ? '⌘' : 'Ctrl'
 const shortcuts = [
   shortcut(`${metaKeyIdentifier} + Tab`, 'Go to Next Page'),
+  shortcut(`${metaKeyIdentifier} + Shift + Tab`, 'Go to Previous Page'),
   shortcut(`${metaKeyIdentifier} + Shift + ~`, 'Go to Home'),
-  shortcut(`${metaKeyIdentifier} + Shift + S`, 'Go to Settings'),
-  shortcut(`${metaKeyIdentifier} + Shift + ←`, 'Go Back')
+  shortcut(`${metaKeyIdentifier} + ,`, 'Go to Settings'),
+  shortcut(`${metaKeyIdentifier} + Shift + ←`, 'Go Back'),
+  shortcut(`${metaKeyIdentifier} + Shift + ?`, 'Toggle Keyboard Shortcuts')
 ]
 
-// pageMap will direct the route to the next tab based on current route
-const pageMap = {
-  home: '/settings/user', // from "home" we will go to "/settings/user"
-  settings: '/'
+// Complete list of pages in order for navigation
+const pageOrder = [
+  'home',
+  'keyfiles',
+  'cryptocurrency',
+  'cryptography',
+  'networking',
+  'techstack',
+  'repurposing',
+  'build',
+  'package',
+  'publish',
+  'games',
+  'sandbox',
+  'settings'
+]
+
+// Path map for each page
+const pathMap = {
+  home: '/',
+  keyfiles: '/keyfiles',
+  cryptocurrency: '/cryptocurrency',
+  cryptography: '/cryptography',
+  networking: '/networking',
+  techstack: '/techstack',
+  repurposing: '/repurposing',
+  build: '/build',
+  package: '/package',
+  publish: '/publish',
+  games: '/games',
+  sandbox: '/sandbox',
+  settings: '/settings/user'
 }
 
 export default {
@@ -76,29 +106,43 @@ export default {
     },
     keyBoardShortcut(evt) {
       const metaKey = isMac ? evt.metaKey : evt.ctrlKey
-      const isAuthenticated = this.accounts.authenticated
+      const isAuthenticated = this.accounts?.authenticated
+
+      // Close modal with Escape key
+      if (evt.keyCode === 27 && this.keyboardShortcutsOpen) {
+        this.hideModal()
+        evt.preventDefault()
+        return
+      }
 
       if (metaKey && evt.keyCode === 9) {
-        // Ctrl+Tab
-        this.nextPage()
         evt.preventDefault()
+        // Ctrl+Tab or Ctrl+Shift+Tab
+        if (evt.shiftKey) {
+          // Ctrl+Shift+Tab - Go to previous page
+          this.previousPage()
+        } else {
+          // Ctrl+Tab - Go to next page
+          this.nextPage()
+        }
+      } else if (metaKey && !evt.shiftKey && evt.keyCode === 188) {
+        // Ctrl+Comma for settings
+        evt.preventDefault()
+        this.goToSettings()
       } else if (metaKey && evt.shiftKey && evt.keyCode) {
         evt.preventDefault()
         switch (evt.keyCode) {
           case 192: // Ctrl+Shift+~
             this.goToHome()
             break
-          case 83: // Ctrl+Shift+S
-            this.goToSettings()
-            break
-          case 76: // Ctrl+Shift+L
-            this.logout(isAuthenticated)
-            break
           case 37: // Ctrl+Shift+LeftArrow
             this.goBack()
             break
-          case 191:
+          case 191: // Ctrl+Shift+? (191 is the keyCode for '/')
             this.toggleModal()
+            break
+          case 76: // Ctrl+Shift+L
+            this.logout(isAuthenticated)
             break
         }
       }
@@ -112,10 +156,43 @@ export default {
       if (this.$route.path !== path) this.$router.push(path)
     },
     nextPage() {
-      const currentPage = this.$route.name.toLowerCase()
-      const nextPageRoute = pageMap[currentPage]
-      if (!nextPageRoute) return // exit if next route not found
-      this.$router.push(nextPageRoute)
+      const currentRouteName = this.$route.name?.toLowerCase() || 'home'
+      
+      // Find current page index in the page order array
+      let currentIndex = pageOrder.findIndex(page => page === currentRouteName)
+      
+      // If current page not found in the array, default to first page
+      if (currentIndex === -1) currentIndex = 0
+      
+      // Get next page index (with circular navigation)
+      const nextIndex = (currentIndex + 1) % pageOrder.length
+      const nextPage = pageOrder[nextIndex]
+      const nextPath = pathMap[nextPage]
+      
+      // Navigate to the next page
+      if (nextPath && this.$route.path !== nextPath) {
+        this.$router.push(nextPath)
+      }
+    },
+    previousPage() {
+      const currentRouteName = this.$route.name?.toLowerCase() || 'home'
+      
+      // Find current page index in the page order array
+      let currentIndex = pageOrder.findIndex(page => page === currentRouteName)
+      
+      // If current page not found in the array, default to last page
+      if (currentIndex === -1) currentIndex = 0
+      
+      // Get previous page index (with circular navigation)
+      // Adding pageOrder.length ensures we don't get a negative index
+      const previousIndex = (currentIndex - 1 + pageOrder.length) % pageOrder.length
+      const previousPage = pageOrder[previousIndex]
+      const previousPath = pathMap[previousPage]
+      
+      // Navigate to the previous page
+      if (previousPath && this.$route.path !== previousPath) {
+        this.$router.push(previousPath)
+      }
     },
     logout(isAuthenticated) {
       if (isAuthenticated) this.$store.dispatch('accounts/logout')
@@ -125,10 +202,15 @@ export default {
     }
   },
   created() {
-    document.addEventListener('keyup', this.keyBoardShortcut)
+    // Change from keyup to keydown to prevent issues with key combinations
+    document.addEventListener('keydown', this.keyBoardShortcut)
     window.ipcRenderer.on('keyboard-shortcuts-modal-open', () => {
       this.toggleModal()
     })
+  },
+  beforeUnmount() {
+    // Clean up event listener when component is destroyed
+    document.removeEventListener('keydown', this.keyBoardShortcut)
   }
 }
 </script>
