@@ -5,6 +5,7 @@ import electron from 'vite-plugin-electron/simple'
 import pkg from './package.json'
 import path from 'node:path'
 import sass from 'sass'
+import tailwindcss from '@tailwindcss/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -24,10 +25,12 @@ export default defineConfig(({ command }) => {
       preprocessorOptions: {
         scss: {
           implementation: sass,
+          api: 'modern-compiler',
         },
       },
     },
     plugins: [
+      tailwindcss(),
       vue(),
       electron({
         main: {

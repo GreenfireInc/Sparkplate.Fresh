@@ -71,11 +71,15 @@ export default {
 }
 
 .footer {
-  @apply flex justify-center w-full;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   height: 1.5rem;
 
   .footer-link {
-    @apply px-2 text-green-600;
+    color: var(--color-green-600);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 
     &:not(:last-child) {
       border-right: 1px solid #1d1d1d;
@@ -84,7 +88,10 @@ export default {
 }
 
 .center-content {
-  @apply flex items-center justify-center h-auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
 }
 
 .logo {
