@@ -9,58 +9,70 @@
 
             <div> <!-- Wrapper for the domain input field and its description -->
               <label for="search-dropdown" class="block text-sm font-medium text-gray-700 mb-1">Domain Name</label>
-              <div class="flex max-w-lg"> <!-- Flex container for the dropdown button and the input field -->
-                <button 
-                  id="dropdown-button" 
-                  data-dropdown-toggle="dropdown"
-                  class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" 
-                  type="button">
-                  Networks   
-                  <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                  </svg>
-                </button>
-                <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                  <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">btc://</a>
-                    </li>
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">eth://</a>
-                    </li>
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">sol://</a>
-                    </li>
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">xtz://</a>
-                    </li>
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Unstoppable Domains</a>
-                    </li>
-                  </ul>
+              <div class="flex max-w-2xl"> <!-- Flex container for the dropdown button and the input field -->
+                <div class="relative">
+                  <button 
+                    id="dropdown-button" 
+                    @click="toggleDropdown"
+                    class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-600 border border-blue-600 rounded-s-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                    style="background-color: #2563eb !important; border-color: #2563eb !important; color: white !important;"
+                    type="button">
+                    {{ selectedNetwork || 'Networks' }}   
+                    <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                    </svg>
+                  </button>
+                  <div v-show="isDropdownOpen" class="absolute top-full left-0 z-20 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
+                      <li>
+                        <a href="#" @click.prevent="selectNetwork('Ada Domains')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ada Domains</a>
+                      </li>
+                      <li>
+                        <a href="#" @click.prevent="selectNetwork('Ethereum Name Service')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ethereum Name Service</a>
+                      </li>
+                      <li>
+                        <a href="#" @click.prevent="selectNetwork('Interchain Name Service')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Interchain Name Service</a>
+                      </li>
+                      <li>
+                        <a href="#" @click.prevent="selectNetwork('Solana Name Service')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Solana Name Service</a>
+                      </li>
+                      <li>
+                        <a href="#" @click.prevent="selectNetwork('Stacks')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Stacks</a>
+                      </li>
+                      <li>
+                        <a href="#" @click.prevent="selectNetwork('Terra Name Service')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Terra Name Service</a>
+                      </li>
+                      <li>
+                        <a href="#" @click.prevent="selectNetwork('Tezos Domains')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Tezos Domains</a>
+                      </li>
+                      <li>
+                        <a href="#" @click.prevent="selectNetwork('Unstoppable Domains')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Unstoppable Domains</a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <div class="relative w-full">
+                <div class="relative flex-grow">
                   <input 
                     type="search" 
                     id="search-dropdown" 
                     v-model="domainAddress.domain"
-                    class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" 
+                    class="block w-full py-2.5 px-3 text-sm text-gray-900 bg-gray-50 rounded-none border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500 -ml-px h-[42px]"
                     placeholder="Enter a domain (e.g., example.eth, name.crypto, domain.tez)" 
                     required 
                   />
-                  <button
-                    class="absolute top-0 end-0 h-full text-sm font-medium transition-colors duration-200 flex items-center justify-center px-4 py-2.5 rounded-e-lg border"
-                    :class="{
-                      'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border-blue-700': isFormValid && !domainAddress.loading,
-                      'text-gray-500 bg-blue-300 cursor-not-allowed border-blue-300': !isFormValid || domainAddress.loading
-                    }"
-                    type="submit"
-                    :disabled="!isFormValid || domainAddress.loading"
-                  >
-                    <span v-if="domainAddress.loading" class="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-white mr-2"></span>
-                    {{ domainAddress.loading ? 'Resolving...' : 'Resolve' }}
-                  </button>
                 </div>
+                <button
+                  class="flex-shrink-0 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center rounded-e-lg border border-blue-600 -ml-px"
+                  :class="{
+                    'text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800': isFormValid && !domainAddress.loading,
+                    'text-gray-500 bg-blue-300 cursor-not-allowed': !isFormValid || domainAddress.loading
+                  }"
+                  type="submit"
+                  :disabled="!isFormValid || domainAddress.loading"
+                >
+                  <span v-if="domainAddress.loading" class="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-white mr-2"></span>
+                  {{ domainAddress.loading ? 'Searching...' : 'Search' }}
+                </button>
               </div>
               <p class="mt-1 text-xs text-gray-500">Supported TLDs: .eth, .crypto, .wallet, .nft, .tez, and more</p>
             </div> <!-- End of wrapper for domain input section -->
@@ -110,6 +122,8 @@ onMounted(() => {
 })
 
 const coinTicker = ref('')
+const selectedNetwork = ref('')
+const isDropdownOpen = ref(false)
 const domainAddress = reactive({
   address: '',
   domain: '',
@@ -123,6 +137,17 @@ const domainAddress = reactive({
 const isFormValid = computed(() => {
   return domainAddress.domain.trim() !== '' && coinTicker.value !== '';
 })
+
+// Dropdown functions
+function toggleDropdown() {
+  isDropdownOpen.value = !isDropdownOpen.value
+}
+
+function selectNetwork(network: string) {
+  selectedNetwork.value = network
+  isDropdownOpen.value = false
+  // You can add logic here to handle the selected network
+}
 
 async function resolveAddress() {
   const domain = domainAddress.domain
