@@ -40,7 +40,7 @@
                     </div>
                   </div>
                   <div class="installer-item">
-                    <div class="installer-icon">📦</div>
+                    <img src="/assets/icons/operatingSystems/windows.svg" alt="MSI Package" class="installer-icon" />
                     <div>
                       <h4>MSI Package</h4>
                       <p>Enterprise-friendly installer format</p>
@@ -48,7 +48,7 @@
                     </div>
                   </div>
                   <div class="installer-item">
-                    <div class="installer-icon">🏪</div>
+                    <img src="/assets/icons/storesRepositories/appStore.microsoft.svg" alt="Microsoft Store" class="installer-icon" />
                     <div>
                       <h4>Microsoft Store</h4>
                       <p>MSIX package for store distribution</p>
@@ -142,7 +142,7 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
               <div class="card package-type">
-                <div class="package-icon">📦</div>
+                <img src="/assets/icons/packageFormats/packageFormat.debian.svg" alt="DEB Package" class="package-icon" />
                 <h3>DEB Package</h3>
                 <p>Debian, Ubuntu, and derivatives</p>
                 <ul class="features">
@@ -152,7 +152,7 @@
                 </ul>
               </div>
               <div class="card package-type">
-                <div class="package-icon">📦</div>
+                <img src="/assets/icons/operatingSystems/fedora.svg" alt="RPM Package" class="package-icon" />
                 <h3>RPM Package</h3>
                 <p>Red Hat, Fedora, openSUSE</p>
                 <ul class="features">
@@ -162,13 +162,13 @@
                 </ul>
               </div>
               <div class="card package-type">
-                <div class="package-icon">🎯</div>
+                <img src="/assets/icons/packageFormats/packageFormat.appimage.svg" alt="AppImage" class="package-icon" />
                 <h3>AppImage</h3>
-                <p>Universal Linux package</p>
+                <p>Portable Linux application</p>
                 <ul class="features">
                   <li>No installation required</li>
-                  <li>Portable execution</li>
-                  <li>Distribution agnostic</li>
+                  <li>Portable executable</li>
+                  <li>Works on most Linux distributions</li>
                 </ul>
               </div>
             </div>
@@ -222,7 +222,7 @@
                     </div>
                   </div>
                   <div class="dist-item">
-                    <div class="dist-icon">📦</div>
+                    <img src="/assets/icons/operatingSystems/apple.svg" alt="PKG Installer" class="dist-icon" />
                     <div>
                       <h4>PKG Installer</h4>
                       <p>System-level installation package</p>
@@ -230,7 +230,7 @@
                     </div>
                   </div>
                   <div class="dist-item">
-                    <div class="dist-icon">🏪</div>
+                    <img src="/assets/icons/storesRepositories/appStore.apple.svg" alt="Mac App Store" class="dist-icon" />
                     <div>
                       <h4>Mac App Store</h4>
                       <p>Sandboxed app for store</p>
@@ -379,9 +379,9 @@ const activePlatform = ref('windows')
 const activeWindowsConfig = ref('nsis')
 
 const platforms = [
-  { id: 'windows', name: 'Windows', icon: '/assets/icons/windows.svg' },
-  { id: 'linux', name: 'Linux', icon: '/assets/icons/linux.svg' },
-  { id: 'macos', name: 'macOS', icon: '/assets/icons/apple.svg' }
+  { id: 'windows', name: 'Windows', icon: '/assets/icons/operatingSystems/windows.svg' },
+  { id: 'linux', name: 'Linux', icon: '/assets/icons/operatingSystems/linux.svg' },
+  { id: 'macos', name: 'macOS', icon: '/assets/icons/operatingSystems/macos.svg' }
 ]
 
 const windowsConfigs = [
@@ -422,6 +422,8 @@ const copyCommand = async (command: string) => {
       
       .package-icon {
         font-size: 3rem;
+        width: 3rem;
+        height: 3rem;
         margin-bottom: 1rem;
       }
 
@@ -520,6 +522,7 @@ const copyCommand = async (command: string) => {
       .installer-icon {
         font-size: 2rem;
         width: 3rem;
+        height: 3rem;
         text-align: center;
       }
 
@@ -632,6 +635,7 @@ const copyCommand = async (command: string) => {
       .dist-icon {
         font-size: 2rem;
         width: 3rem;
+        height: 3rem;
         text-align: center;
       }
 

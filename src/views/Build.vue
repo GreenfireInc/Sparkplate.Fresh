@@ -42,7 +42,7 @@
                 <h3 class="text-xl font-semibold mb-4">Output Formats</h3>
                 <div class="format-grid">
                   <div class="format-item">
-                    <span class="format-icon">📦</span>
+                    <img src="/assets/icons/operatingSystems/windows.svg" alt="NSIS Installer" class="format-icon" />
                     <div>
                       <strong>NSIS Installer</strong>
                       <p class="text-sm text-gray-600">Self-extracting installer</p>
@@ -56,7 +56,7 @@
                     </div>
                   </div>
                   <div class="format-item">
-                    <span class="format-icon">🏪</span>
+                    <img src="/assets/icons/storesRepositories/appStore.microsoft.svg" alt="Microsoft Store" class="format-icon" />
                     <div>
                       <strong>Microsoft Store</strong>
                       <p class="text-sm text-gray-600">APPX package</p>
@@ -146,21 +146,21 @@
                 <h3 class="text-xl font-semibold mb-4">Output Formats</h3>
                 <div class="format-grid">
                   <div class="format-item">
-                    <span class="format-icon">📦</span>
+                    <img src="/assets/icons/packageFormats/packageFormat.debian.svg" alt="DEB Package" class="format-icon" />
                     <div>
                       <strong>DEB Package</strong>
                       <p class="text-sm text-gray-600">Debian/Ubuntu installer</p>
                     </div>
                   </div>
                   <div class="format-item">
-                    <span class="format-icon">📦</span>
+                    <img src="/assets/icons/operatingSystems/fedora.svg" alt="RPM Package" class="format-icon" />
                     <div>
                       <strong>RPM Package</strong>
                       <p class="text-sm text-gray-600">Red Hat/Fedora installer</p>
                     </div>
                   </div>
                   <div class="format-item">
-                    <span class="format-icon">🎯</span>
+                    <img src="/assets/icons/packageFormats/packageFormat.appimage.svg" alt="AppImage" class="format-icon" />
                     <div>
                       <strong>AppImage</strong>
                       <p class="text-sm text-gray-600">Universal Linux package</p>
@@ -272,21 +272,21 @@
                 <h3 class="text-xl font-semibold mb-4">Output Formats</h3>
                 <div class="format-grid">
                   <div class="format-item">
-                    <span class="format-icon">📱</span>
+                    <img src="/assets/icons/operatingSystems/macos.svg" alt="DMG" class="format-icon" />
                     <div>
                       <strong>DMG</strong>
                       <p class="text-sm text-gray-600">Disk image installer</p>
                     </div>
                   </div>
                   <div class="format-item">
-                    <span class="format-icon">📦</span>
+                    <img src="/assets/icons/operatingSystems/apple.svg" alt="PKG" class="format-icon" />
                     <div>
                       <strong>PKG</strong>
                       <p class="text-sm text-gray-600">Installer package</p>
                     </div>
                   </div>
                   <div class="format-item">
-                    <span class="format-icon">🏪</span>
+                    <img src="/assets/icons/storesRepositories/appStore.apple.svg" alt="Mac App Store" class="format-icon" />
                     <div>
                       <strong>Mac App Store</strong>
                       <p class="text-sm text-gray-600">MAS package</p>
@@ -385,15 +385,15 @@
               <span class="file-name">dist/</span>
             </div>
             <div class="file-item nested">
-              <span class="file-icon">📦</span>
+              <img src="/assets/icons/operatingSystems/windows.svg" alt="exe file" class="file-icon" />
               <span class="file-name">sparkplate-fresh-2.0.0.exe</span>
             </div>
             <div class="file-item nested">
-              <span class="file-icon">📦</span>
+              <img src="/assets/icons/operatingSystems/macos.svg" alt="dmg file" class="file-icon" />
               <span class="file-name">sparkplate-fresh-2.0.0.dmg</span>
             </div>
             <div class="file-item nested">
-              <span class="file-icon">📦</span>
+              <img src="/assets/icons/packageFormats/packageFormat.debian.svg" alt="deb file" class="file-icon" />
               <span class="file-name">sparkplate-fresh_2.0.0_amd64.deb</span>
             </div>
             <div class="file-item nested">
@@ -438,17 +438,17 @@ const platforms = [
   {
     id: 'windows',
     name: 'Windows',
-    icon: '/assets/icons/windows.svg'
+    icon: '/assets/icons/operatingSystems/windows.svg'
   },
   {
     id: 'linux',
     name: 'Linux',
-    icon: '/assets/icons/linux.svg'
+    icon: '/assets/icons/operatingSystems/linux.svg'
   },
   {
     id: 'macos',
     name: 'macOS',
-    icon: '/assets/icons/apple.svg'
+    icon: '/assets/icons/operatingSystems/macos.svg'
   }
 ]
 
@@ -589,6 +589,8 @@ const copyCommand = async (command: string) => {
 
       .format-icon {
         font-size: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
       }
 
       strong {
