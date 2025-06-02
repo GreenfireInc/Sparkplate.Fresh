@@ -43,10 +43,10 @@
                         <a href="#" @click.prevent="selectNetwork('Terra Name Service')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Terra Name Service</a>
                       </li>
                       <li>
-                        <a href="#" @click.prevent="selectNetwork('Tezos Domains')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Tezos Domains</a>
+                        <a href="#" class="block px-4 py-2 text-gray-400 cursor-not-allowed">Tezos Domains (Unavailable)</a>
                       </li>
                       <li>
-                        <a href="#" @click.prevent="selectNetwork('Unstoppable Domains')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Unstoppable Domains</a>
+                        <a href="#" class="block px-4 py-2 text-gray-400 cursor-not-allowed">Unstoppable Domains (Unavailable)</a>
                       </li>
                     </ul>
                   </div>
@@ -57,7 +57,7 @@
                     id="search-dropdown" 
                     v-model="domainAddress.domain"
                     class="block w-full py-2.5 px-3 text-sm text-gray-900 bg-gray-50 rounded-none border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500 -ml-px h-[42px]"
-                    placeholder="Enter a domain (e.g., example.eth, name.crypto, domain.tez)" 
+                    placeholder="Enter a domain (e.g., example.eth)" 
                     required 
                   />
                 </div>
@@ -74,7 +74,7 @@
                   {{ domainAddress.loading ? 'Searching...' : 'Search' }}
                 </button>
               </div>
-              <p class="mt-1 text-xs text-gray-500">Supported TLDs: .eth, .crypto, .wallet, .nft, .tez, and more</p>
+              <p class="mt-1 text-xs text-gray-500">Currently supporting: .eth domains</p>
             </div> <!-- End of wrapper for domain input section -->
             
             <!-- Cryptocurrency Ticker Selection -->
@@ -109,13 +109,13 @@
               </div>
             </div>
             
-            <!-- Tezos Domains Info -->
-            <div v-if="isTezosDomainsService" class="bg-purple-50 p-3 rounded-lg border border-purple-200">
+            <!-- Notice about unavailable services -->
+            <div class="bg-amber-50 p-3 rounded-lg border border-amber-200">
               <div class="flex items-center">
-                <svg class="w-5 h-5 text-purple-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-amber-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
                 </svg>
-                <span class="text-sm font-medium text-purple-800">Tezos Domains selected - will resolve to XTZ address</span>
+                <span class="text-sm font-medium text-amber-800">Notice: Tezos Domains and Unstoppable Domains services are temporarily unavailable</span>
               </div>
             </div>
             
@@ -136,8 +136,8 @@
             </p>
             <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
               <li><span class="font-medium">.eth domains</span> - Resolved through Ethereum Name Service (ETH addresses only)</li>
-              <li><span class="font-medium">.crypto, .wallet, .nft domains</span> - Resolved through Unstoppable Domains</li>
-              <li><span class="font-medium">.tez domains</span> - Resolved through Tezos Domains</li>
+              <li><span class="font-medium text-gray-400">.crypto, .wallet, .nft domains</span> - <span class="line-through">Resolved through Unstoppable Domains</span> (temporarily unavailable)</li>
+              <li><span class="font-medium text-gray-400">.tez domains</span> - <span class="line-through">Resolved through Tezos Domains</span> (temporarily unavailable)</li>
             </ul>
           </div>
         </form>
@@ -180,22 +180,21 @@ const isEthereumNameService = computed(() => {
   return selectedNetwork.value === 'Ethereum Name Service'
 })
 
-// Computed property to check if Tezos Domains is selected
+// Computed property to check if Tezos Domains is selected (always false now)
 const isTezosDomainsService = computed(() => {
-  return selectedNetwork.value === 'Tezos Domains'
+  return false // Disabled: selectedNetwork.value === 'Tezos Domains'
 })
 
 // Computed property for the effective coin ticker (ETH for ENS, otherwise the selected one)
 const effectiveCoinTicker = computed(() => {
   if (isEthereumNameService.value) return 'ETH'
-  if (isTezosDomainsService.value) return 'XTZ'
   return coinTicker.value
 })
 
 // Computed property to check if form is valid
 const isFormValid = computed(() => {
   const hasValidDomain = domainAddress.domain.trim() !== ''
-  const hasValidCurrency = isEthereumNameService.value || isTezosDomainsService.value || coinTicker.value !== ''
+  const hasValidCurrency = isEthereumNameService.value || coinTicker.value !== ''
   return hasValidDomain && hasValidCurrency
 })
 
@@ -205,17 +204,19 @@ function toggleDropdown() {
 }
 
 function selectNetwork(network: string) {
+  // Prevent selecting unavailable networks
+  if (network === 'Tezos Domains' || network === 'Unstoppable Domains') {
+    return;
+  }
+  
   selectedNetwork.value = network
   isDropdownOpen.value = false
   
   // If Ethereum Name Service is selected, automatically set coinTicker to ETH
   if (network === 'Ethereum Name Service') {
     coinTicker.value = 'ETH'
-  } else if (network === 'Tezos Domains') {
-    // If Tezos Domains is selected, automatically set coinTicker to XTZ
-    coinTicker.value = 'XTZ'
   } else {
-    // Reset coinTicker when switching away from ENS or Tezos Domains
+    // Reset coinTicker when switching away from ENS
     coinTicker.value = ''
   }
 }
@@ -257,6 +258,12 @@ async function resolveAddress() {
       })
       domainAddress.address = address
       domainAddress.service = 'ens'
+    } else if (domain.endsWith('.tez')) {
+      // Tezos domains - show error that it's temporarily unavailable
+      throw new Error('Tezos Domains resolution temporarily unavailable');
+    } else if (domain.endsWith('.crypto') || domain.endsWith('.wallet') || domain.endsWith('.nft')) {
+      // Unstoppable domains - show error that it's temporarily unavailable
+      throw new Error('Unstoppable Domains resolution temporarily unavailable');
     } else {
       // Use existing domain mixins for other domain types
       const { address, service } = await domainMixins.resolveAddressFromDomain({
