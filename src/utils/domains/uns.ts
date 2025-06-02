@@ -6,10 +6,10 @@
  * @see {@link https://github.com/unstoppabledomains/resolution|Resolution Docs}
  */
 
-import Resolution from '@unstoppabledomains/resolution';
+// import Resolution from '@unstoppabledomains/resolution';
 
 // Initialize resolution with default provider
-const resolution = new Resolution();
+// const resolution = new Resolution();
 
 /**
  * Resolves an Unstoppable Domain to an address for a given cryptocurrency
@@ -27,6 +27,11 @@ export async function getAddress({
   coinTicker: string;
 }): Promise<string> {
   try {
+    // REMOVED: Unstoppable Domains resolution dependency
+    // Using stub implementation instead
+    throw new Error('Unstoppable Domains resolution temporarily unavailable');
+    
+    /*
     // Use the resolution library to get the address
     const address = await resolution.addr(domain, coinTicker.toUpperCase());
     
@@ -35,6 +40,7 @@ export async function getAddress({
     }
     
     return address;
+    */
   } catch (error: any) {
     // Handle specific resolution errors
     if (error.code === 'RECORD_NOT_FOUND') {
