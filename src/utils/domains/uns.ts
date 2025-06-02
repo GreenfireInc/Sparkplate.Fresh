@@ -6,6 +6,11 @@
  * @see {@link https://github.com/unstoppabledomains/resolution|Resolution Docs}
  */
 
+import Resolution from '@unstoppabledomains/resolution';
+
+// Initialize resolution with default provider
+const resolution = new Resolution();
+
 /**
  * Resolves an Unstoppable Domain to an address for a given cryptocurrency
  *
@@ -21,24 +26,26 @@ export async function getAddress({
   domain: string; 
   coinTicker: string;
 }): Promise<string> {
-  // This is a simplified implementation for demonstration purposes
-  // In a real implementation, we would use the Unstoppable Domains resolution library
-  
-  // Simulate network delay
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  
-  // Create a deterministic but randomized address based on domain and coinTicker
-  const hash = Array.from(domain + coinTicker).reduce(
-    (acc, char) => (acc * 31 + char.charCodeAt(0)) & 0xFFFFFFFF, 0
-  );
-  
-  // Different format based on coinTicker
-  if (coinTicker.toLowerCase() === 'eth') {
-    return `0x${hash.toString(16).padStart(40, '0')}`;
-  } else if (coinTicker.toLowerCase() === 'btc') {
-    return `bc1${hash.toString(16).substring(0, 38)}`;
-  } else {
-    return `0x${hash.toString(16).padStart(8, '0')}...${Math.random().toString(16).slice(2, 10)}`;
+  try {
+    // Use the resolution library to get the address
+    const address = await resolution.addr(domain, coinTicker.toUpperCase());
+    
+    if (!address) {
+      throw new Error(`No ${coinTicker.toUpperCase()} address found for ${domain}`);
+    }
+    
+    return address;
+  } catch (error: any) {
+    // Handle specific resolution errors
+    if (error.code === 'RECORD_NOT_FOUND') {
+      throw new Error(`No ${coinTicker.toUpperCase()} address found for ${domain}`);
+    } else if (error.code === 'UNSUPPORTED_DOMAIN') {
+      throw new Error(`Domain ${domain} is not supported by Unstoppable Domains`);
+    } else if (error.code === 'UNREGISTERED_DOMAIN') {
+      throw new Error(`Domain ${domain} is not registered`);
+    } else {
+      throw new Error(`Failed to resolve ${domain}: ${error.message}`);
+    }
   }
 }
 

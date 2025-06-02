@@ -8,6 +8,7 @@
 import { ens } from './ens';
 import { uns } from './uns';
 import { tezosUtils as tezos } from './tezos';
+import { tezosDomainsProduction } from './tezosDomains';
 
 /**
  * Interface for domain resolution result
@@ -95,7 +96,8 @@ export async function resolveAddress({
   const serviceMap: ServiceMap = {
     ens,
     uns,
-    tezos
+    tezos,
+    tezosProduction: tezosDomainsProduction
   };
 
   // Make sure the service exists
@@ -124,9 +126,15 @@ export const domains = {
   ens,
   uns,
   tezos,
+  tezosProduction: tezosDomainsProduction,
   services,
   resolveAddress
 };
+
+/**
+ * Export individual services for direct access
+ */
+export { ens, uns, tezos, tezosDomainsProduction };
 
 /**
  * Default export for backward compatibility
