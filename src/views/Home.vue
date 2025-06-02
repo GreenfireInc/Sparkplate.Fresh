@@ -4,23 +4,23 @@
         <div class="flex-center">
           <a href="https://www.electronjs.org/" target="_blank">
             <img
-              src="/assets/icons/electron.svg"
+              src="/assets/icons/development/electron.svg"
               class="logo electron"
               alt="Electron logo"
             />
           </a>
           <a href="https://vitejs.dev/" target="_blank">
-            <img src="/assets/icons/vite.svg" class="logo" alt="Vite logo" />
+            <img src="/assets/icons/development/vite.svg" class="logo" alt="Vite logo" />
           </a>
           <a href="https://vuejs.org/" target="_blank">
-            <img src="/assets/icons/vue.svg" class="logo vue" alt="Vue logo" />
+            <img src="/assets/icons/development/vue.svg" class="logo vue" alt="Vue logo" />
           </a>
         </div>
   
         <div class="flex-center">
           <a href="http://greenfire.io/" target="_blank">
             <img
-              src="/assets/icons/greenfire.svg"
+              src="/assets/icons/greenfire/greenfire.svg"
               class="logo Greenfire"
               alt="Greenfire logo"
             />
@@ -30,7 +30,7 @@
   
         <div class="flex-center">
           Place static files into the <code>/public</code> folder
-          <img style="width: 5em" src="/assets/icons/node.svg" alt="Node logo" />
+          <img style="width: 5em" src="/assets/icons/development/node.svg" alt="Node logo" />
         </div>
       </div>
     </div>

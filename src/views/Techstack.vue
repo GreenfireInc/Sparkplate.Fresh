@@ -145,25 +145,25 @@ const coreTechnologies = ref<Technology[]>([
     name: 'Electron',
     version: '29.1.1',
     description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS',
-    icon: '/assets/icons/electron.svg'
+    icon: '/assets/icons/development/electron.svg'
   },
   {
     name: 'Vue 3',
     version: '3.4.21',
     description: 'Progressive JavaScript framework for building user interfaces',
-    icon: '/assets/icons/vue.svg'
+    icon: '/assets/icons/development/vue.svg'
   },
   {
     name: 'Vite',
     version: '5.1.5',
     description: 'Fast build tool and development server for modern web projects',
-    icon: '/assets/icons/vite.svg'
+    icon: '/assets/icons/development/vite.svg'
   },
   {
     name: 'TypeScript',
     version: '5.4.2',
     description: 'Typed superset of JavaScript that compiles to plain JavaScript',
-    icon: '/assets/icons/typescript.svg'
+    icon: '/assets/icons/development/typescript.svg'
   }
 ])
 
@@ -172,25 +172,25 @@ const developmentTools = ref<Technology[]>([
     name: 'Electron Builder',
     version: '24.13.3',
     description: 'Complete solution to package and build Electron apps',
-    icon: '/assets/icons/electron.svg'
+    icon: '/assets/icons/development/electron-builder.svg'
   },
   {
     name: 'Tailwind CSS',
     version: '4.1.7',
     description: 'Utility-first CSS framework for rapid UI development',
-    icon: '/assets/icons/tailwind.svg'
+    icon: '/assets/icons/development/tailwind.svg'
   },
   {
     name: 'PostCSS',
     version: '8.5.3',
     description: 'Tool for transforming CSS with JavaScript',
-    icon: '/assets/icons/postcss.svg'
+    icon: '/assets/icons/development/postcss.svg'
   },
   {
     name: 'Sass',
     version: '1.89.0',
     description: 'Syntactically awesome stylesheets preprocessor',
-    icon: '/assets/icons/sass.svg'
+    icon: '/assets/icons/development/sass.svg'
   }
 ])
 

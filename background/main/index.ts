@@ -52,7 +52,7 @@ async function createWindow() {
     minWidth: 1024,
     minHeight: 768,
     frame: true,
-    icon: path.join(process.env.VITE_PUBLIC, 'sparkplate.png'),
+    icon: path.join(process.env.VITE_PUBLIC, '/assets/icons/greenfire/sparkplate.png'),
     webPreferences: {
       preload,
       // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production
