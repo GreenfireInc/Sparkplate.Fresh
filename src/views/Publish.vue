@@ -30,7 +30,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
               <div class="card store-card">
                 <div class="store-header">
-                  <div class="store-icon">🏪</div>
+                  <img src="/assets/icons/storesRepositories/appStore.microsoft.svg" alt="Microsoft Store" class="store-icon" />
                   <h3>Microsoft Store</h3>
                   <span class="store-badge official">Official</span>
                 </div>
@@ -53,7 +53,7 @@
 
               <div class="card store-card">
                 <div class="store-header">
-                  <div class="store-icon">📦</div>
+                  <img src="/assets/icons/storesRepositories/appRepo.chocolatey.svg" alt="Chocolatey" class="store-icon" />
                   <h3>Chocolatey</h3>
                   <span class="store-badge community">Community</span>
                 </div>
@@ -154,7 +154,7 @@ $packageArgs = @{
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
               <div class="card store-card">
                 <div class="store-header">
-                  <div class="store-icon">📦</div>
+                  <img src="/assets/icons/packageFormats/packageFormat.debian.svg" alt="Ubuntu PPA" class="store-icon" />
                   <h3>Ubuntu PPA</h3>
                   <span class="store-badge official">Official</span>
                 </div>
@@ -168,7 +168,7 @@ $packageArgs = @{
 
               <div class="card store-card">
                 <div class="store-header">
-                  <div class="store-icon">📱</div>
+                  <img src="/assets/icons/storesRepositories/appRepo.snapcraft.svg" alt="Snap Store" class="store-icon" />
                   <h3>Snap Store</h3>
                   <span class="store-badge community">Universal</span>
                 </div>
@@ -182,7 +182,7 @@ $packageArgs = @{
 
               <div class="card store-card">
                 <div class="store-header">
-                  <div class="store-icon">📥</div>
+                  <img src="/assets/icons/storesRepositories/appRepo.flathub.svg" alt="Flatpak" class="store-icon" />
                   <h3>Flatpak</h3>
                   <span class="store-badge community">Universal</span>
                 </div>
@@ -233,7 +233,7 @@ $packageArgs = @{
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
               <div class="card store-card">
                 <div class="store-header">
-                  <div class="store-icon">🍎</div>
+                  <img src="/assets/icons/storesRepositories/appStore.apple.svg" alt="Mac App Store" class="store-icon" />
                   <h3>Mac App Store</h3>
                   <span class="store-badge official">Official</span>
                 </div>
@@ -256,7 +256,7 @@ $packageArgs = @{
 
               <div class="card store-card">
                 <div class="store-header">
-                  <div class="store-icon">🍺</div>
+                  <img src="/assets/icons/storesRepositories/appRepo.homebrew.svg" alt="Homebrew" class="store-icon" />
                   <h3>Homebrew</h3>
                   <span class="store-badge community">Community</span>
                 </div>
@@ -426,9 +426,9 @@ const activeWindowsPublishConfig = ref('store')
 const activeMacosPublishConfig = ref('appstore')
 
 const platforms = [
-  { id: 'windows', name: 'Windows', icon: '/assets/icons/windows.svg' },
-  { id: 'linux', name: 'Linux', icon: '/assets/icons/linux.svg' },
-  { id: 'macos', name: 'macOS', icon: '/assets/icons/apple.svg' }
+  { id: 'windows', name: 'Windows', icon: '/assets/icons/operatingSystems/windows.svg' },
+  { id: 'linux', name: 'Linux', icon: '/assets/icons/operatingSystems/linux.svg' },
+  { id: 'macos', name: 'macOS', icon: '/assets/icons/operatingSystems/macos.svg' }
 ]
 
 const windowsPublishConfigs = [
@@ -481,6 +481,8 @@ const copyCommand = async (command: string) => {
 
         .store-icon {
           font-size: 2.5rem;
+          width: 2.5rem;
+          height: 2.5rem;
         }
 
         h3 {

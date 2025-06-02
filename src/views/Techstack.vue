@@ -172,13 +172,13 @@ const developmentTools = ref<Technology[]>([
     name: 'Electron Builder',
     version: '24.13.3',
     description: 'Complete solution to package and build Electron apps',
-    icon: '/assets/icons/development/electron-builder.svg'
+    icon: '/assets/icons/development/electronbuilder.svg'
   },
   {
     name: 'Tailwind CSS',
     version: '4.1.7',
     description: 'Utility-first CSS framework for rapid UI development',
-    icon: '/assets/icons/development/tailwind.svg'
+    icon: '/assets/icons/development/tailwindcss.svg'
   },
   {
     name: 'PostCSS',
