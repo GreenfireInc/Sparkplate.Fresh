@@ -9,6 +9,8 @@
 - [ ] Bug fix
 - [ ] Build Out
 - [ ] Import (From old Sparkplate)
+- [ ] Import (From old Greenery)
+- [ ] Styling
 - [ ] New Feature
 - [ ] New Function
 - [ ] Documentation update

@@ -3,7 +3,7 @@
     <h1 class="view-name">::Key Files::</h1>
     <div class="d-flex justify-center m-2">
       <img
-        src="/assets/icons/sparkplate.svg"
+        src="/assets/icons/greenfire/sparkplate.svg"
         class="logo Greenfire"
         alt="Sparkplate logo"
       />
