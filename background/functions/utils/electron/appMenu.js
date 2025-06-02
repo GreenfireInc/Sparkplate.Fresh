@@ -74,13 +74,13 @@ function setAppMenu (browserWindow) {
           click: () => {
             browserWindow?.webContents.send('about-modal-open')
           }
-        },
-        {
-          label: 'Restore Backup',
-          click: () => {
-            browserWindow?.webContents.send('init-restore-backup')
-          }
         }
+        // {
+        //   label: 'Restore Backup',
+        //   click: () => {
+        //     browserWindow?.webContents.send('init-restore-backup')
+        //   }
+        // }
       ]
     }
   ]
