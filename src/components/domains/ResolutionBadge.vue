@@ -7,12 +7,21 @@
     <div v-else-if="domainAddress.address" class="text-sm">
       <div class="flex justify-between items-center mb-2">
         <span class="font-semibold">Resolved via:</span>
-        <span 
-          class="px-3 py-1 rounded-full text-xs font-medium"
-          :class="serviceClass"
-        >
-          {{ serviceName }}
-        </span>
+        <div class="flex items-center space-x-2">
+          <!-- ENS Icon -->
+          <img 
+            v-if="domainAddress.service === 'ens'" 
+            src="/assets/icons/domains/ens.svg" 
+            alt="ENS" 
+            class="w-6 h-6"
+          />
+          <span 
+            class="px-3 py-1 rounded-full text-xs font-medium"
+            :class="serviceClass"
+          >
+            {{ serviceName }}
+          </span>
+        </div>
       </div>
       <div class="flex flex-col">
         <span class="text-xs text-gray-500 mb-1">{{ domainAddress.domain }} → {{ currency }}</span>

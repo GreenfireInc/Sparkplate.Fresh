@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import electron from 'vite-plugin-electron/simple'
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import pkg from './package.json'
 import path from 'node:path'
 import sass from 'sass'
@@ -21,6 +22,9 @@ export default defineConfig(({ command }) => {
         '@': path.resolve(__dirname, 'src'),
       },
     },
+    define: {
+      global: 'globalThis',
+    },
     css: {
       preprocessorOptions: {
         scss: {
@@ -32,6 +36,16 @@ export default defineConfig(({ command }) => {
     plugins: [
       tailwindcss(),
       vue(),
+      nodePolyfills({
+        // Whether to polyfill `node:` protocol imports.
+        protocolImports: true,
+        // Whether to polyfill specific globals.
+        globals: {
+          Buffer: true,
+          global: true,
+          process: true,
+        },
+      }),
       electron({
         main: {
           entry: 'background/main/index.ts',

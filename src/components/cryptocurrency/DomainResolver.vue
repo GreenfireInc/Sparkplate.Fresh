@@ -77,6 +77,47 @@
               <p class="mt-1 text-xs text-gray-500">Supported TLDs: .eth, .crypto, .wallet, .nft, .tez, and more</p>
             </div> <!-- End of wrapper for domain input section -->
             
+            <!-- Cryptocurrency Ticker Selection -->
+            <div v-if="!isEthereumNameService && !isTezosDomainsService">
+              <label for="coin-ticker" class="block text-sm font-medium text-gray-700 mb-1">Cryptocurrency</label>
+              <select 
+                id="coin-ticker"
+                v-model="coinTicker"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required
+              >
+                <option value="">Select a cryptocurrency</option>
+                <option value="BTC">Bitcoin (BTC)</option>
+                <option value="ADA">Cardano (ADA)</option>
+                <option value="SOL">Solana (SOL)</option>
+                <option value="DOT">Polkadot (DOT)</option>
+                <option value="MATIC">Polygon (MATIC)</option>
+                <option value="AVAX">Avalanche (AVAX)</option>
+                <option value="LINK">Chainlink (LINK)</option>
+                <option value="UNI">Uniswap (UNI)</option>
+              </select>
+              <p class="mt-1 text-xs text-gray-500">Select the cryptocurrency you want to resolve the domain to</p>
+            </div>
+            
+            <!-- Ethereum Name Service Info -->
+            <div v-if="isEthereumNameService" class="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-blue-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-sm font-medium text-blue-800">Ethereum Name Service selected - will resolve to ETH address</span>
+              </div>
+            </div>
+            
+            <!-- Tezos Domains Info -->
+            <div v-if="isTezosDomainsService" class="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-purple-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-sm font-medium text-purple-800">Tezos Domains selected - will resolve to XTZ address</span>
+              </div>
+            </div>
             
           </div> <!-- End of flex flex-col space-y-4 -->
           <br>
@@ -84,7 +125,7 @@
           <domain-resolution-badge
             v-if="domainAddress.enabled"
             :domain-address="domainAddress"
-            :currency="coinTicker"
+            :currency="effectiveCoinTicker"
           />
           <br>
           <!-- Information about domain name services -->
@@ -94,7 +135,7 @@
               This tool resolves human-readable domain names to cryptocurrency addresses using various blockchain domain services.
             </p>
             <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
-              <li><span class="font-medium">.eth domains</span> - Resolved through Ethereum Name Service</li>
+              <li><span class="font-medium">.eth domains</span> - Resolved through Ethereum Name Service (ETH addresses only)</li>
               <li><span class="font-medium">.crypto, .wallet, .nft domains</span> - Resolved through Unstoppable Domains</li>
               <li><span class="font-medium">.tez domains</span> - Resolved through Tezos Domains</li>
             </ul>
@@ -108,7 +149,8 @@
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
-import domainMixins from '../../utils/mixins/domainMixins'
+import { domainMixins } from '../../utils/mixins/domainMixins'
+import { ens } from '../../../background/functions/utils/domains/ens'
 import DomainResolutionBadge from '../domains/ResolutionBadge.vue'
 
 // Define component name
@@ -121,7 +163,7 @@ onMounted(() => {
   initFlowbite()
 })
 
-const coinTicker = ref('')
+const coinTicker = ref('') // Start with empty selection
 const selectedNetwork = ref('')
 const isDropdownOpen = ref(false)
 const domainAddress = reactive({
@@ -133,9 +175,28 @@ const domainAddress = reactive({
   error: ''
 })
 
+// Computed property to check if Ethereum Name Service is selected
+const isEthereumNameService = computed(() => {
+  return selectedNetwork.value === 'Ethereum Name Service'
+})
+
+// Computed property to check if Tezos Domains is selected
+const isTezosDomainsService = computed(() => {
+  return selectedNetwork.value === 'Tezos Domains'
+})
+
+// Computed property for the effective coin ticker (ETH for ENS, otherwise the selected one)
+const effectiveCoinTicker = computed(() => {
+  if (isEthereumNameService.value) return 'ETH'
+  if (isTezosDomainsService.value) return 'XTZ'
+  return coinTicker.value
+})
+
 // Computed property to check if form is valid
 const isFormValid = computed(() => {
-  return domainAddress.domain.trim() !== '' && coinTicker.value !== '';
+  const hasValidDomain = domainAddress.domain.trim() !== ''
+  const hasValidCurrency = isEthereumNameService.value || isTezosDomainsService.value || coinTicker.value !== ''
+  return hasValidDomain && hasValidCurrency
 })
 
 // Dropdown functions
@@ -146,12 +207,27 @@ function toggleDropdown() {
 function selectNetwork(network: string) {
   selectedNetwork.value = network
   isDropdownOpen.value = false
-  // You can add logic here to handle the selected network
+  
+  // If Ethereum Name Service is selected, automatically set coinTicker to ETH
+  if (network === 'Ethereum Name Service') {
+    coinTicker.value = 'ETH'
+  } else if (network === 'Tezos Domains') {
+    // If Tezos Domains is selected, automatically set coinTicker to XTZ
+    coinTicker.value = 'XTZ'
+  } else {
+    // Reset coinTicker when switching away from ENS or Tezos Domains
+    coinTicker.value = ''
+  }
+}
+
+// Helper function to determine if domain is ENS (.eth)
+function isEthDomain(domain: string): boolean {
+  return domain.toLowerCase().endsWith('.eth')
 }
 
 async function resolveAddress() {
   const domain = domainAddress.domain
-  const ticker = coinTicker.value
+  const ticker = effectiveCoinTicker.value
 
   // Check if provided domain name is valid
   const isDomain = domainMixins.isDomain(domain)
@@ -170,12 +246,26 @@ async function resolveAddress() {
   try {
     domainAddress.loading = true
     domainAddress.enabled = true
-    const { address, service } = await domainMixins.resolveAddressFromDomain({
-      domain,
-      coinTicker: ticker
-    })
-    domainAddress.address = address
-    domainAddress.service = service
+    
+    // Check if it's an ENS domain (.eth) or if Ethereum Name Service is explicitly selected
+    if (isEthDomain(domain) || isEthereumNameService.value) {
+      // Use ENS service for .eth domains or when ENS is selected
+      const address = await ens.getAddress({
+        domain,
+        coinTicker: 'ETH', // Always use ETH for ENS
+        network: 'mainnet'
+      })
+      domainAddress.address = address
+      domainAddress.service = 'ens'
+    } else {
+      // Use existing domain mixins for other domain types
+      const { address, service } = await domainMixins.resolveAddressFromDomain({
+        domain,
+        coinTicker: ticker
+      })
+      domainAddress.address = address
+      domainAddress.service = service
+    }
   } catch (err: any) {
     domainAddress.error = err.message
   } finally {
