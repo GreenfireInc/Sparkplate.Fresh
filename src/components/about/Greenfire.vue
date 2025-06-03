@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full h-full container">
-    <div class="about-section row px-20">
+  <div class="w-full min-h-0 container flex flex-col">
+    <div class="about-section row px-20 flex-grow">
       <div class="col flex flex-col justify-center">
         <div class="mb-2">
           <label class="font-semibold"> Greenfire Management: </label>
@@ -33,7 +33,7 @@
         />
       </div>
     </div>
-    <div class="footer">
+    <div class="footer flex-shrink-0">
       <a
         v-for="link of links"
         :key="link.name + '-link'"
@@ -67,7 +67,7 @@ export default {
 
 <style lang="scss" scoped>
 .about-section {
-  height: calc(100% - 1.5rem);
+  /* height: calc(100% - 1.5rem); */
 }
 
 .footer {
