@@ -76,6 +76,10 @@
         "arch": ["x64"]
       },
       {
+        "target": "snap",
+        "arch": ["x64"]
+      },
+      {
         "target": "flatpak",
         "arch": ["x64"]
       }
@@ -95,5 +99,20 @@
       "--socket=x11",
       "--filesystem=home"
     ]
+  },
+  "snap": {
+    "base": "core22",
+    "stagePackages": [
+      "default",
+      "fontconfig",
+      "fonts-dejavu-core",
+      "fonts-noto",
+      "fonts-noto-cjk",
+      "fonts-liberation"
+    ],
+    "summary": "Electron Vue Vite boilerplate",
+    "description": "A fresh take on the Electron + Vue + Vite boilerplate using Greenfire's Greenery as reference",
+    "confinement": "strict",
+    "grade": "stable"
   }
 }

@@ -15,7 +15,7 @@
           </h4>
           <ul>
             <li v-if="hostname"><b>Hostname:</b> {{ hostname }}</li>
-            <NetworkStatus :vertical="true" :hideStatus="true" />
+            <!-- <NetworkStatus :vertical="true" :hideStatus="true" /> -->
             <li v-if="os"><b>OS:</b> {{ os }}</li>
             <li v-if="nodeVersion"><b>Node:</b> {{ nodeVersion }}</li>
             <li v-if="electronVersion">
@@ -36,11 +36,12 @@
 <script>
 import NetworkStatus from '@/components/settings/NetworkStatus.vue'
 // import { dbVersion } from '@/service/IdbService'
+import { version } from '../../../package.json'
 
 export default {
   name: 'AboutMain',
   data: () => ({
-    appVersion: import.meta.env.VITE_APP_VERSION,
+    appVersion: version,
     // dbVersion: dbVersion,
     datetime: '',
     electronVersion: '',
@@ -84,53 +85,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.main-content-wrapper {
-  padding: 1rem;
-  min-height: 400px;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.col-6 {
-  width: 50%;
-}
-
-.logo-column {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.info-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1rem;
-}
-
 .center-content {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
 .logo {
   max-width: 14rem;
-}
-
-h4 {
-  margin-bottom: 1.5rem;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  
-  li {
-    margin-bottom: 0.5rem;
-  }
 }
 </style> 
