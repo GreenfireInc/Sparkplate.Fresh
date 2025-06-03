@@ -117,15 +117,14 @@ export default {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   max-height: 90vh;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -149,16 +148,18 @@ export default {
 }
 
 .tabs-container {
-  margin-bottom: 1.5rem;
-  
+  margin-bottom: 0.5rem;
+  padding-bottom: 0;
+
   :deep(.tabs-wrapper) {
     gap: 0.5rem;
   }
 }
 
 .main-content {
-  flex: 1;
   overflow-y: auto;
-  min-height: 445px;
+  margin-top: 0;
+  padding-top: 0;
+  min-height: 0;
 }
 </style> 

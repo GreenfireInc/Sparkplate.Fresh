@@ -161,7 +161,6 @@ export default {
 <style lang="scss" scoped>
 .releaseNotes {
   height: 100%;
-  overflow: hidden;
 }
 
 .docs-container {
@@ -174,7 +173,9 @@ export default {
   width: 250px;
   border-right: 1px solid #e5e5e5;
   padding-right: 1rem;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
 }
 
 .sidebar-title {
@@ -188,6 +189,8 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  overflow-y: auto;
+  height: 350px; /* Fixed height that should work within modal */
 }
 
 .file-item {

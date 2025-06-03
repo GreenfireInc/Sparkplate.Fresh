@@ -1,31 +1,33 @@
 <template>
-  <div class="d-flex justify-around h-full">
-    <div class="col-6">
-      <div class="center-content">
-        <a href="https://www.greenfire.io" target="_blank">
-          <img class="logo" src="/assets/icons/greenfire/sparkplate.png" alt="sparkplate-logo" />
-        </a>
+  <div class="main-content-wrapper">
+    <div class="row">
+      <div class="col-6 logo-column">
+        <div class="center-content">
+          <a href="https://www.greenfire.io" target="_blank">
+            <img class="logo" src="/assets/icons/greenfire/sparkplate.png" alt="sparkplate-logo" />
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="col-6 flex flex-col items-center justify-center">
-      <div>
-        <h4 class="h3">
-          <b>Sparkplate v{{ appVersion }}</b>
-        </h4>
-        <ul>
-          <li v-if="hostname"><b>Hostname:</b> {{ hostname }}</li>
-          <NetworkStatus :vertical="true" :hideStatus="true" />
-          <li v-if="os"><b>OS:</b> {{ os }}</li>
-          <li v-if="nodeVersion"><b>Node:</b> {{ nodeVersion }}</li>
-          <li v-if="electronVersion">
-            <b>Electron:</b> v{{ electronVersion }}
-          </li>
-          <!-- <li v-if="dbVersion"><b>Database:</b> v{{ dbVersion }}</li> -->
-          <li v-if="memorySize"><b>Installed RAM:</b> {{ memorySize }}</li>
-          <li v-if="processor"><b>Processor:</b> {{ processor }}</li>
-          <li v-if="gpu"><b>GPU:</b> {{ gpu }}</li>
-          <li v-if="datetime"><b>Date/Time:</b> {{ datetime }}</li>
-        </ul>
+      <div class="col-6 info-column">
+        <div>
+          <h4 class="h3">
+            <b>Sparkplate {{ appVersion }}</b>
+          </h4>
+          <ul>
+            <li v-if="hostname"><b>Hostname:</b> {{ hostname }}</li>
+            <NetworkStatus :vertical="true" :hideStatus="true" />
+            <li v-if="os"><b>OS:</b> {{ os }}</li>
+            <li v-if="nodeVersion"><b>Node:</b> {{ nodeVersion }}</li>
+            <li v-if="electronVersion">
+              <b>Electron:</b> v{{ electronVersion }}
+            </li>
+            <!-- <li v-if="dbVersion"><b>Database:</b> v{{ dbVersion }}</li> -->
+            <li v-if="memorySize"><b>Installed RAM:</b> {{ memorySize }}</li>
+            <li v-if="processor"><b>Processor:</b> {{ processor }}</li>
+            <li v-if="gpu"><b>GPU:</b> {{ gpu }}</li>
+            <li v-if="datetime"><b>Date/Time:</b> {{ datetime }}</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -82,14 +84,53 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.main-content-wrapper {
+  padding: 1rem;
+  min-height: 400px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.logo-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+}
+
 .center-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
 }
 
 .logo {
   max-width: 14rem;
+}
+
+h4 {
+  margin-bottom: 1.5rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  
+  li {
+    margin-bottom: 0.5rem;
+  }
 }
 </style> 
