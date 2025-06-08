@@ -47,7 +47,7 @@
             @click.stop="handleCoinClick(coin)"
           >
             <img
-              :src="`/assets/icons/crypto/${coin.symbol.toLowerCase()}.svg`"
+              :src="`./assets/icons/crypto/${coin.symbol.toLowerCase()}.svg`"
               :alt="coin.symbol"
               class="coin-icon"
             />
@@ -73,7 +73,7 @@
       <div class="modal-content" @click.stop>
         <div class="modal-header">
           <img
-            :src="`/assets/icons/crypto/${selectedCoin.symbol.toLowerCase()}.svg`"
+            :src="`./assets/icons/crypto/${selectedCoin.symbol.toLowerCase()}.svg`"
             :alt="selectedCoin.symbol"
             class="modal-coin-icon"
           />

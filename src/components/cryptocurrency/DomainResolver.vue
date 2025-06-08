@@ -150,7 +150,7 @@
 import { ref, reactive, computed, onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
 import { domainMixins } from '../../utils/mixins/domainMixins'
-import { ens } from '../../../background/functions/utils/domains/ens'
+import { ens } from '@background/functions/utils/domains/ens'
 import DomainResolutionBadge from '../domains/ResolutionBadge.vue'
 
 // Define component name

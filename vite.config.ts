@@ -20,6 +20,7 @@ export default defineConfig(({ command }) => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
+        '@background': path.resolve(__dirname, 'background'),
       },
     },
     define: {
