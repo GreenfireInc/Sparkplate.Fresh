@@ -21,12 +21,13 @@
         <!-- Tab Selection -->
         <TabsWrapper class="tabs-container">
           <TabComponent
-            v-for="(name, mode) of modes"
+            v-for="(name, mode) in modes"
             :key="mode + 'tab'"
             :active="mode === activeMode"
-            :onClick="() => (activeMode = mode)"
-            >{{ name }}</TabComponent
+            :onClick="function() { setActiveMode(mode) }"
           >
+            {{ name }}
+          </TabComponent>
         </TabsWrapper>
 
         <!-- Tab Content -->
@@ -34,6 +35,7 @@
           <AboutMain v-if="activeMode === 'main'" />
           <Notes v-if="activeMode === 'notes'" />
           <Greenfire v-if="activeMode === 'greenfire'" />
+          <Contribute v-if="activeMode === 'contribute'" />
         </div>
       </div>
     </div>
@@ -44,22 +46,27 @@
 import AboutMain from '@/components/about/Main.vue'
 import Notes from '@/components/about/Notes.vue'
 import Greenfire from '@/components/about/Greenfire.vue'
+import Contribute from '@/components/about/Contribute.vue'
 import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
 
 export default {
   name: 'AboutView',
-  components: { AboutMain, Notes, Greenfire, TabComponent, TabsWrapper },
+  components: { AboutMain, Notes, Greenfire, Contribute, TabComponent, TabsWrapper },
   data: () => ({
     activeMode: 'main',
     modes: {
       main: 'Main',
       notes: 'Release Notes / Changelog',
-      greenfire: 'Greenfire'
+      greenfire: 'Greenfire',
+      contribute: 'Contribute'
     },
     isVisible: false
   }),
   methods: {
+    setActiveMode(mode) {
+      this.activeMode = mode
+    },
     onClose() {
       this.activeMode = 'main'
       this.isVisible = false
@@ -117,8 +124,8 @@ export default {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   max-height: 90vh;
   overflow: hidden;
-  display: grid;
-  grid-template-rows: auto auto 1fr;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-header {
@@ -161,5 +168,6 @@ export default {
   margin-top: 0;
   padding-top: 0;
   min-height: 0;
+  flex-grow: 1;
 }
 </style> 

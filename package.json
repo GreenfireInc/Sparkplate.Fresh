@@ -34,7 +34,7 @@
     "@vitejs/plugin-vue": "^5.0.4",
     "autoprefixer": "^10.4.21",
     "electron": "^37.1.0",
-    "electron-builder": "^24.13.3",
+    "electron-builder": "^26.0.12",
     "postcss": "^8.5.3",
     "sass-embedded": "^1.89.0",
     "tailwindcss": "^4.1.7",
