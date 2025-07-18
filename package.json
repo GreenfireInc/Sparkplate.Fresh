@@ -56,6 +56,7 @@
     "ethers": "^6.14.3",
     "flowbite": "^3.1.2",
     "lucide-vue-next": "^0.511.0",
+    "qrcode": "^1.5.4",
     "sass": "^1.89.0",
     "vue-router": "^4.5.1"
   }

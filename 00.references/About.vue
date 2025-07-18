@@ -33,9 +33,9 @@
 </template>
 
 <script>
-import AboutMain from '@/components/about/Main.vue'
-import Notes from '@/components/about/Notes.vue'
-import Greenfire from '@/components/about/Greenfire.vue'
+import AboutMain from '@/components/modals/about/Main.vue'
+import Notes from '@/components/modals/about/Notes.vue'
+import Greenfire from '@/components/modals/about/Greenfire.vue'
 
 export default {
   name: 'AboutView',
