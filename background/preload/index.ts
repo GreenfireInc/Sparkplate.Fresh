@@ -23,6 +23,13 @@ contextBridge.exposeInMainWorld('ipcRenderer', {
   // ...
 })
 
+contextBridge.exposeInMainWorld('app', {
+  getGPUInfo: () => ipcRenderer.invoke('appGetGPUInfo'),
+  getPreloadData: () => ipcRenderer.invoke('preloadAppData'),
+  electronVersion: process.versions.electron,
+  nodeVersion: process.versions.node
+});
+
 // --------- Preload scripts loading ---------
 function domReady(condition: DocumentReadyState[] = ['complete', 'interactive']) {
   return new Promise((resolve) => {

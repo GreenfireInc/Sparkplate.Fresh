@@ -12,4 +12,33 @@ declare module '@background/functions/utils/domains/ens' {
   export const ens: {
     getAddress: typeof getAddress;
   };
+}
+
+// Window extensions for Electron preload APIs
+declare global {
+  interface Window {
+    app: {
+      getPreloadData(): Promise<AppData>;
+      getGPUInfo(): Promise<{ auxAttributes: { glRenderer: string } }>;
+      electronVersion: string;
+      nodeVersion: string;
+    };
+    appData: AppData;
+  }
+
+  interface AppData {
+    hostname: string;
+    osVersion: string;
+    systemMemory: number;
+    processor: string;
+    electronVersion: string;
+    nodeVersion: string;
+  }
+}
+
+// Vue global properties
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties {
+    $moment: typeof import('moment');
+  }
 } 

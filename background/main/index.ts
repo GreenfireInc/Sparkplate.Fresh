@@ -128,3 +128,18 @@ ipcMain.handle('open-win', (_, arg) => {
     childWindow.loadFile(indexHtml, { hash: arg })
   }
 })
+
+ipcMain.handle('preloadAppData', () => {
+  return {
+    hostname: os.hostname(),
+    osVersion: os.release(),
+    systemMemory: os.totalmem(),
+    processor: os.cpus()[0].model,
+    electronVersion: process.versions.electron,
+    nodeVersion: process.versions.node,
+  }
+})
+
+ipcMain.handle('appGetGPUInfo', () => {
+  return app.getGPUInfo('complete')
+})

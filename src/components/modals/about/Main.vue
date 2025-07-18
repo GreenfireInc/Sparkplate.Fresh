@@ -1,32 +1,34 @@
 <template>
   <div class="main-content-wrapper">
-    <div class="row">
-      <div class="col-6 logo-column">
-        <div class="center-content">
-          <a href="https://www.greenfire.io" target="_blank">
-            <img class="logo" src="/assets/icons/greenfire/sparkplate.png" alt="sparkplate-logo" />
-          </a>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6 logo-column">
+          <div class="center-content">
+            <a href="https://www.greenfire.io" target="_blank">
+              <img class="logo" src="/assets/icons/greenfire/sparkplate.png" alt="sparkplate-logo" />
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="col-6 info-column">
-        <div>
-          <h4 class="h3">
-            <b>Sparkplate {{ appVersion }}</b>
-          </h4>
-          <ul>
-            <li v-if="hostname"><b>Hostname:</b> {{ hostname }}</li>
-            <!-- <NetworkStatus :vertical="true" :hideStatus="true" /> -->
-            <li v-if="os"><b>OS:</b> {{ os }}</li>
-            <li v-if="nodeVersion"><b>Node:</b> {{ nodeVersion }}</li>
-            <li v-if="electronVersion">
-              <b>Electron:</b> v{{ electronVersion }}
-            </li>
-            <!-- <li v-if="dbVersion"><b>Database:</b> v{{ dbVersion }}</li> -->
-            <li v-if="memorySize"><b>Installed RAM:</b> {{ memorySize }}</li>
-            <li v-if="processor"><b>Processor:</b> {{ processor }}</li>
-            <li v-if="gpu"><b>GPU:</b> {{ gpu }}</li>
-            <li v-if="datetime"><b>Date/Time:</b> {{ datetime }}</li>
-          </ul>
+        <div class="col-6 info-column">
+          <div>
+            <h4 class="h3">
+              <b>Sparkplate {{ appVersion }}</b>
+            </h4>
+            <ul>
+              <li v-if="hostname"><b>Hostname:</b> {{ hostname }}</li>
+              <!-- <NetworkStatus :vertical="true" :hideStatus="true" /> -->
+              <li v-if="os"><b>OS:</b> {{ os }}</li>
+              <li v-if="nodeVersion"><b>Node:</b> {{ nodeVersion }}</li>
+              <li v-if="electronVersion">
+                <b>Electron:</b> v{{ electronVersion }}
+              </li>
+              <!-- <li v-if="dbVersion"><b>Database:</b> v{{ dbVersion }}</li> -->
+              <li v-if="memorySize"><b>Installed RAM:</b> {{ memorySize }}</li>
+              <li v-if="processor"><b>Processor:</b> {{ processor }}</li>
+              <li v-if="gpu"><b>GPU:</b> {{ gpu }}</li>
+              <li v-if="datetime"><b>Date/Time:</b> {{ datetime }}</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -59,12 +61,12 @@ export default {
       this.gpu = res.auxAttributes.glRenderer
     })
     this.datetime = this.$moment().format('MMM Do, YYYY H:mm')
-    this.electronVersion = window.app.electronVersion
+    this.electronVersion = appData.electronVersion
     this.hostname = appData.hostname
     this.memorySize = appData.systemMemory
-      ? this.formatBytes(window.appData.systemMemory)
+      ? this.formatBytes(appData.systemMemory)
       : ''
-    this.nodeVersion = window.app.nodeVersion
+    this.nodeVersion = appData.nodeVersion
     this.os = appData.osVersion
     this.processor = appData.processor
   },
@@ -85,14 +87,37 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.main-content-wrapper {
+  @apply overflow-x-hidden w-full max-w-full;
+}
+
+.container-fluid {
+  @apply px-0 max-w-full;
+}
+
+.row {
+  @apply mx-0 max-w-full;
+}
+
+.col-6 {
+  @apply px-3 max-w-[50%] break-words;
+}
+
 .center-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+  @apply flex items-center justify-center h-full;
 }
 
 .logo {
-  max-width: 14rem;
+  @apply max-w-[14rem] h-auto;
+}
+
+.info-column {
+  ul {
+    @apply pl-4 m-0;
+    
+    li {
+      @apply mb-2 break-words;
+    }
+  }
 }
 </style> 
