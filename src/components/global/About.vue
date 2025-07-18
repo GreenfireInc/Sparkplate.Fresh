@@ -20,14 +20,14 @@
 
         <!-- Tab Selection -->
         <TabsWrapper class="tabs-container">
-          <TabComponent
+          <TabComponentJS
             v-for="(name, mode) in modes"
             :key="mode + 'tab'"
             :active="mode === activeMode"
-            :onClick="function() { setActiveMode(mode) }"
+            :onClick="createSetActiveMode(mode)"
           >
             {{ name }}
-          </TabComponent>
+          </TabComponentJS>
         </TabsWrapper>
 
         <!-- Tab Content -->
@@ -36,6 +36,7 @@
           <Notes v-if="activeMode === 'notes'" />
           <Greenfire v-if="activeMode === 'greenfire'" />
           <Contribute v-if="activeMode === 'contribute'" />
+          <Donations v-if="activeMode === 'donations'" />
         </div>
       </div>
     </div>
@@ -43,27 +44,32 @@
 </template>
 
 <script>
-import AboutMain from '@/components/about/Main.vue'
-import Notes from '@/components/about/Notes.vue'
-import Greenfire from '@/components/about/Greenfire.vue'
-import Contribute from '@/components/about/Contribute.vue'
-import TabComponent from '@/components/global/TabComponent.vue'
+import AboutMain from '@/components/modals/about/Main.vue'
+import Notes from '@/components/modals/about/Notes.vue'
+import Greenfire from '@/components/modals/about/Greenfire.vue'
+import Contribute from '@/components/modals/about/Contribute.vue'
+import Donations from '@/components/modals/about/Donations.vue'
+import TabComponentJS from '@/components/global/TabComponentJS.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
 
 export default {
   name: 'AboutView',
-  components: { AboutMain, Notes, Greenfire, Contribute, TabComponent, TabsWrapper },
+  components: { AboutMain, Notes, Greenfire, Contribute, Donations, TabComponentJS, TabsWrapper },
   data: () => ({
     activeMode: 'main',
     modes: {
       main: 'Main',
       notes: 'Release Notes / Changelog',
       greenfire: 'Greenfire',
-      contribute: 'Contribute'
+      contribute: 'Contribute',
+      donations: 'Donations'
     },
     isVisible: false
   }),
   methods: {
+    createSetActiveMode(mode) {
+      return () => this.setActiveMode(mode)
+    },
     setActiveMode(mode) {
       this.activeMode = mode
     },

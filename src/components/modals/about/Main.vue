@@ -36,10 +36,11 @@
 <script>
 import NetworkStatus from '@/components/settings/NetworkStatus.vue'
 // import { dbVersion } from '@/service/IdbService'
-import { version } from '../../../package.json'
+import { version } from '../../../../package.json'
 
 export default {
   name: 'AboutMain',
+  components: { NetworkStatus },
   data: () => ({
     appVersion: version,
     // dbVersion: dbVersion,
@@ -52,7 +53,6 @@ export default {
     os: '',
     processor: ''
   }),
-  components: { NetworkStatus },
   async created() {
     const appData = window.appData
     window.app.getGPUInfo().then((res) => {
