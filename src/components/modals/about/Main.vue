@@ -2,15 +2,10 @@
   <div class="main-content-wrapper">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-6 logo-column">
-          <div class="center-content">
-            <a href="https://www.greenfire.io" target="_blank">
-              <img class="logo" src="/assets/icons/greenfire/sparkplate.png" alt="sparkplate-logo" />
-            </a>
-          </div>
-        </div>
+        <!-- Info section on the left -->
         <div class="col-6 info-column">
           <div>
+            <br>
             <h4 class="h3">
               <b>Sparkplate {{ appVersion }}</b>
             </h4>
@@ -28,6 +23,19 @@
               <li v-if="gpu"><b>GPU:</b> {{ gpu }}</li>
               <li v-if="datetime"><b>Date/Time:</b> {{ datetime }}</li>
             </ul>
+          </div>
+        </div>
+        
+        <!-- Logo section on the right -->
+        <div class="col-6">
+          <div class="center-content">
+            <a href="https://www.greenfire.io" target="_blank">
+              <img 
+                src="/assets/icons/greenfire/sparkplate.png" 
+                alt="sparkplate-logo" 
+                style="width: 250px; height: auto;" 
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -99,19 +107,12 @@ export default {
   @apply mx-0 max-w-full;
 }
 
-.col-6 {
-  @apply px-3 max-w-[50%] break-words;
-}
-
 .center-content {
   @apply flex items-center justify-center h-full;
 }
 
-.logo {
-  @apply max-w-[14rem] h-auto;
-}
-
 .info-column {
+  @apply px-3;
   ul {
     @apply pl-4 m-0;
     
