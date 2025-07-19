@@ -10,13 +10,17 @@
     </div>
     
     <span v-if="ip" :class="{'ml-2': !vertical}">
-      <b>IP:</b> {{ ip }}
+      <b>Public IP:</b> {{ ip }}
     </span>
     
     <div v-if="country" class="flex items-center" :class="{'ml-2': !vertical && !hideStatus}">
       <span class="country-flag" :class="`flag-${country.sortname.toLowerCase()}`"></span>
       <span class="ml-1">{{ country.name }}</span>
     </div>
+    
+    <span v-if="localIp" :class="{'ml-2': !vertical}">
+      <b>Local IP:</b> {{ localIp }}
+    </span>
     
     <div v-if="!vertical" class="ml-auto flex items-center space-x-2">
       <!-- <span class="text-xs text-gray-600">{{ connectionType }}</span> -->
@@ -53,12 +57,17 @@ export default defineComponent({
     hideStatus: {
       type: Boolean,
       default: false
+    },
+    showLocalIp: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props) {
     const isOnlineStatus = ref(false)
     const connectionType = ref('Unknown')
     const ip = ref('')
+    const localIp = ref('')
     const country = ref<any>(null)
 
     const statusText = computed(() => {
@@ -75,14 +84,52 @@ export default defineComponent({
       return isOnlineStatus.value ? 'bg-green-500' : 'bg-red-500'
     })
 
-    const fetchIP = async () => {
+    const fetchPublicIP = async () => {
       try {
         const response = await fetch('https://api.ipify.org?format=json')
         const data = await response.json()
         return data.ip
       } catch (error) {
-        console.error('Error fetching IP:', error)
+        console.error('Error fetching public IP:', error)
         return null
+      }
+    }
+
+    const fetchLocalIP = async () => {
+      try {
+        // Use RTCPeerConnection to get local IP addresses
+        const pc = new RTCPeerConnection({ 
+          iceServers: [] 
+        })
+        
+        pc.createDataChannel('')
+        await pc.createOffer().then(offer => pc.setLocalDescription(offer))
+        
+        return new Promise<string>((resolve) => {
+          let localIPs: string[] = []
+          
+          pc.onicecandidate = (ice) => {
+            if (!ice || !ice.candidate || !ice.candidate.candidate) {
+              if (localIPs.length > 0) {
+                // Prefer IPv4 addresses
+                const ipv4 = localIPs.find(ip => ip.includes('.'))
+                resolve(ipv4 || localIPs[0])
+              } else {
+                resolve('')
+              }
+              pc.close()
+              return
+            }
+            
+            const match = ice.candidate.candidate.match(/(([0-9]{1,3}\.){3}[0-9]{1,3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/i)
+            if (match && match[1] && !localIPs.includes(match[1]) && !match[1].startsWith('0.0.0.0') && !match[1].startsWith('127.')) {
+              localIPs.push(match[1])
+            }
+          }
+        })
+      } catch (error) {
+        console.error('Error fetching local IP:', error)
+        return ''
       }
     }
 
@@ -108,7 +155,13 @@ export default defineComponent({
         isOnlineStatus.value = await isOnline()
         
         if (isOnlineStatus.value) {
-          ip.value = await fetchIP() || '';
+          // Get public IP
+          ip.value = await fetchPublicIP() || '';
+          
+          // Get local IP if requested
+          if (props.showLocalIp) {
+            localIp.value = await fetchLocalIP() || '';
+          }
           
           if (ip.value) {
             const geo = await fetchCountryFromIP(ip.value);
@@ -118,6 +171,7 @@ export default defineComponent({
           }
         } else {
           ip.value = ''
+          localIp.value = ''
           country.value = null
         }
         
@@ -150,6 +204,7 @@ export default defineComponent({
       connectionType,
       checkConnection,
       ip,
+      localIp,
       country
     }
   }
