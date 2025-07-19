@@ -26,7 +26,10 @@
             :active="mode === activeMode"
             :onClick="createSetActiveMode(mode)"
           >
-            {{ name }}
+            <span v-if="mode === 'universe'" class="universe-tab">
+              <img src="/assets/icons/greenfire/greenfire.svg" class="tab-icon" style="display: inline-block; vertical-align: middle; margin-right: 4px; margin-top: -2px;" />Universe
+            </span>
+            <template v-else>{{ name }}</template>
           </TabComponentJS>
         </TabsWrapper>
 
@@ -35,6 +38,7 @@
           <AboutMain v-if="activeMode === 'main'" />
           <Notes v-if="activeMode === 'notes'" />
           <Greenfire v-if="activeMode === 'greenfire'" />
+          <Universe v-if="activeMode === 'universe'" />
           <Contribute v-if="activeMode === 'contribute'" />
           <Donations v-if="activeMode === 'donations'" />
         </div>
@@ -47,6 +51,7 @@
 import AboutMain from '@/components/modals/about/Main.vue'
 import Notes from '@/components/modals/about/Notes.vue'
 import Greenfire from '@/components/modals/about/Greenfire.vue'
+import Universe from '@/components/modals/about/Universe.vue'
 import Contribute from '@/components/modals/about/Contribute.vue'
 import Donations from '@/components/modals/about/Donations.vue'
 import TabComponentJS from '@/components/global/TabComponentJS.vue'
@@ -54,13 +59,23 @@ import TabsWrapper from '@/components/global/TabsWrapper.vue'
 
 export default {
   name: 'AboutView',
-  components: { AboutMain, Notes, Greenfire, Contribute, Donations, TabComponentJS, TabsWrapper },
+  components: { 
+    AboutMain, 
+    Notes, 
+    Greenfire, 
+    Universe,
+    Contribute, 
+    Donations, 
+    TabComponentJS, 
+    TabsWrapper 
+  },
   data: () => ({
     activeMode: 'main',
     modes: {
       main: 'Main',
       notes: 'Release Notes / Changelog',
       greenfire: 'Greenfire',
+      universe: 'Universe',
       contribute: 'Contribute',
       donations: 'Donations'
     },
@@ -165,7 +180,23 @@ export default {
   padding-bottom: 0;
 
   :deep(.tabs-wrapper) {
-    gap: 0.5rem;
+    gap: 0.25rem;
+    justify-content: space-between;
+  }
+  
+  :deep(.tab-icon) {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 4px;
+    margin-top: -2px;
+    display: inline-block;
+  }
+  
+  .universe-tab {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
   }
 }
 
