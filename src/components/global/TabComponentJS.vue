@@ -35,10 +35,12 @@ export default {
 
 <style lang="scss" scoped>
 .tab-component {
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.25rem;
   cursor: pointer;
   border-bottom: 2px solid transparent;
   transition: all 0.3s ease;
+  font-size: 0.9rem;
+  white-space: nowrap;
   
   &:hover {
     background-color: #f3f4f6;
