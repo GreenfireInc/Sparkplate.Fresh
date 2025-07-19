@@ -1,6 +1,12 @@
 <template>
   <div class="donations-container">
-    <h3 class="text-lg font-semibold text-center mb-4">Cryptocurrency Donations</h3>
+    <div class="text-center mb-6">
+      <h2 class="text-xl font-bold">Support Sparkplate</h2>
+      <p class="text-sm text-muted">
+        Your donations help us maintain and improve this free resource for everyone.
+      </p>
+    </div>
+    <!-- <h3 class="text-md font-semibold text-center mb-4">Cryptocurrency Donations</h3> -->
     
     <!-- Hover overlay for centered QR codes -->
     <div 
@@ -84,6 +90,7 @@
     </div>
 
     <div class="other-support mt-6">
+      <br>
       <h3 class="text-lg font-semibold mb-2">Other Ways to Support</h3>
       <p class="text-sm text-muted">
         You can also support us by sharing Sparkplate with others who might find it useful,

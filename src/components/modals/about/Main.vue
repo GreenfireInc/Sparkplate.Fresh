@@ -11,7 +11,7 @@
             </h4>
             <ul>
               <li v-if="hostname"><b>Hostname:</b> {{ hostname }}</li>
-              <!-- <NetworkStatus :vertical="true" :hideStatus="true" /> -->
+              <NetworkStatus :vertical="true" :hideStatus="true" />
               <li v-if="os"><b>OS:</b> {{ os }}</li>
               <li v-if="nodeVersion"><b>Node:</b> {{ nodeVersion }}</li>
               <li v-if="electronVersion">
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import NetworkStatus from '@/components/settings/NetworkStatus.vue'
+import NetworkStatus from '@/components/global/NetworkStatus.vue'
 // import { dbVersion } from '@/service/IdbService'
 import { version } from '../../../../package.json'
 
