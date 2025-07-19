@@ -1,5 +1,6 @@
 <template>
   <div class="view settings">
+    <br>
     <h1 class="view-name">Settings</h1>
     <network-status />
     
@@ -43,7 +44,7 @@ import UserProfile from '@/components/settings/UserProfile.vue'
 import Misc from '@/components/settings/Misc.vue'
 import SecuritySettings from '@/components/settings/SecuritySettings.vue'
 import EmailSettings from '@/components/settings/EmailSettings.vue'
-import NetworkStatus from '@/components/settings/NetworkStatus.vue'
+import NetworkStatus from '@/components/global/NetworkStatus.vue'
 import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
 
