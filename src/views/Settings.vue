@@ -19,18 +19,38 @@
 
     <div class="bg-white shadow py-5 px-4 mt-4 rounded-lg">
       <!-- user content -->
-      <user-profile v-if="activeTab === 'user'" />
+      <user-profile v-if="activeTab === 'User'" />
       <!-- user content -->
 
       <!-- security content -->
-      <security-settings v-if="activeTab === 'security'" />
+      <security-settings v-if="activeTab === 'Security'" />
       <!-- security content -->
 
       <!-- email content -->
-      <email-settings v-if="activeTab === 'email'" />
+      <email-settings v-if="activeTab === 'Email'" />
       <!-- email content -->
 
-      <misc v-if="activeTab === 'misc'" />
+      <!-- application content -->
+      <application-settings v-if="activeTab === 'Application'" />
+      <!-- application content -->
+
+      <!-- backup content -->
+      <backup-settings v-if="activeTab === 'Backup'" />
+      <!-- backup content -->
+
+      <!-- network content -->
+      <network-settings v-if="activeTab === 'Network'" />
+      <!-- network content -->
+
+      <!-- notifications content -->
+      <notifications-settings v-if="activeTab === 'Notifications'" />
+      <!-- notifications content -->
+
+      <!-- hardware content -->
+      <hardware-settings v-if="activeTab === 'Hardware'" />
+      <!-- hardware content -->
+
+      <misc v-if="activeTab === 'Misc'" />
     </div>
   </div>
 </template>
@@ -40,10 +60,15 @@ import { defineComponent, ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 // Components
-import UserProfile from '@/components/settings/UserProfile.vue'
-import Misc from '@/components/settings/Misc.vue'
-import SecuritySettings from '@/components/settings/SecuritySettings.vue'
-import EmailSettings from '@/components/settings/EmailSettings.vue'
+import UserProfile from '@/components/pages/settings/UserProfile.vue'
+import Misc from '@/components/pages/settings/Misc.vue'
+import SecuritySettings from '@/components/pages/settings/SecuritySettings.vue'
+import EmailSettings from '@/components/pages/settings/EmailSettings.vue'
+import ApplicationSettings from '@/components/pages/settings/ApplicationSettings.vue'
+import BackupSettings from '@/components/pages/settings/BackupSettings.vue'
+import NetworkSettings from '@/components/pages/settings/NetworkSettings.vue'
+import NotificationsSettings from '@/components/pages/settings/NotificationsSettings.vue'
+import HardwareSettings from '@/components/pages/settings/HardwareSettings.vue'
 import NetworkStatus from '@/components/global/NetworkStatus.vue'
 import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
@@ -55,18 +80,25 @@ export default defineComponent({
     EmailSettings,
     SecuritySettings,
     Misc,
+    ApplicationSettings,
+    BackupSettings,
+    NetworkSettings,
+    NotificationsSettings,
+    HardwareSettings,
     NetworkStatus,
     TabComponent,
     TabsWrapper
   },
   setup() {
     const route = useRoute()
-    const activeTab = ref('user')
-    const tabs = ref(['user', 'security', 'email', 'misc'])
+    const activeTab = ref('User')
+    const tabs = ref(['User', 'Security', 'Email', 'Application', 'Backup', 'Network', 'Notifications', 'Hardware', 'Misc'])
 
     onMounted(() => {
       if (route.params.activeTab) {
-        activeTab.value = route.params.activeTab as string
+        activeTab.value = (route.params.activeTab as string).charAt(0).toUpperCase() + (route.params.activeTab as string).slice(1)
+      } else {
+        activeTab.value = 'User'
       }
     })
 
