@@ -20,7 +20,7 @@
 
         <!-- Tab Selection -->
         <TabsWrapper class="tabs-container">
-          <TabComponentJS
+          <TabComponent
             v-for="(name, mode) in modes"
             :key="mode + 'tab'"
             :active="mode === activeMode"
@@ -30,7 +30,7 @@
               <img src="/assets/icons/greenfire/greenfire.svg" class="tab-icon" style="display: inline-block; vertical-align: middle; margin-right: 4px; margin-top: -2px;" />Universe
             </span>
             <template v-else>{{ name }}</template>
-          </TabComponentJS>
+          </TabComponent>
         </TabsWrapper>
 
         <!-- Tab Content -->
@@ -54,7 +54,7 @@ import Greenfire from '@/components/modals/about/Greenfire.vue'
 import Universe from '@/components/modals/about/Universe.vue'
 import Contribute from '@/components/modals/about/Contribute.vue'
 import Donations from '@/components/modals/about/Donations.vue'
-import TabComponentJS from '@/components/global/TabComponentJS.vue'
+import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
 
 export default {
@@ -66,7 +66,7 @@ export default {
     Universe,
     Contribute, 
     Donations, 
-    TabComponentJS, 
+    TabComponent, 
     TabsWrapper 
   },
   data: () => ({
