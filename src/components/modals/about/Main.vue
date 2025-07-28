@@ -19,7 +19,7 @@
               </li>
               <!-- <li v-if="dbVersion"><b>Database:</b> v{{ dbVersion }}</li> -->
               <li v-if="memorySize"><b>Installed RAM:</b> {{ memorySize }}</li>
-              <li v-if="processor"><b>Processor:</b> {{ processor }}</li>
+              <li v-if="processor"><b>CPU:</b> {{ processor }}</li>
               <li v-if="gpu"><b>GPU:</b> {{ gpu }}</li>
               <li v-if="datetime"><b>Date/Time:</b> {{ datetime }}</li>
             </ul>
