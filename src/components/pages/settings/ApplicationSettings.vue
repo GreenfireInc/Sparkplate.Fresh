@@ -2,7 +2,7 @@
   <div class="application-settings">
     <h3 class="text-lg font-semibold mb-4">Application Settings</h3>
     
-    <div class="grid grid-cols-3 gap-6">
+    <div class="grid grid-cols-2 gap-6">
       <!-- First Column: Theme and Language -->
       <div class="space-y-4">
         <div>
@@ -23,30 +23,6 @@
             <option>German</option>
           </select>
         </div>
-      </div>
-
-      <!-- Second Column: Empty -->
-      <div>
-        <!-- Intentionally left empty -->
-      </div>
-
-      <!-- Third Column: Servers -->
-      <div class="space-y-4">
-        <h4 class="text-md font-medium text-gray-700">Servers</h4>
-        
-        <div class="flex items-center">
-          <input id="blessed-server" type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
-          <label for="blessed-server" class="ml-2 block text-sm text-gray-900">
-            Blessed
-          </label>
-        </div>
-        
-        <div class="flex items-center">
-          <input id="express-server" type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
-          <label for="express-server" class="ml-2 block text-sm text-gray-900">
-            Express (Access via {{ localIp }}:3000)
-          </label>
-        </div>
 
         <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
           <div>
@@ -55,6 +31,32 @@
           </div>
           <label class="relative inline-flex items-center cursor-pointer">
             <input type="checkbox" v-model="closeToTray" class="sr-only peer">
+            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Second Column: Servers -->
+      <div class="space-y-4">
+        <h4 class="text-md font-medium text-gray-700">Servers</h4>
+        
+        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+          <div>
+            <p class="font-medium">Blessed</p>
+          </div>
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" v-model="blessedServer" class="sr-only peer">
+            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+          </label>
+        </div>
+        
+        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+          <div>
+            <p class="font-medium">Express</p>
+            <p class="text-sm text-gray-600">Access via {{ localIp }}:3000</p>
+          </div>
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" v-model="expressServer" class="sr-only peer">
             <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
           </label>
         </div>
@@ -69,7 +71,9 @@ export default {
   data() {
     return {
       localIp: '',
-      closeToTray: false
+      closeToTray: false,
+      blessedServer: false,
+      expressServer: false
     }
   },
   mounted() {
