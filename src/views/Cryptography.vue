@@ -41,9 +41,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import HashTool from '../components/cryptography/HashTool.vue'
-import VerifyTool from '../components/cryptography/VerifyTool.vue'
-import EncryptDecryptTool from '../components/cryptography/EncryptDecryptTool.vue'
+import HashTool from '../components/pages/cryptography/HashTool.vue'
+import VerifyTool from '../components/pages/cryptography/VerifyTool.vue'
+import EncryptDecryptTool from '../components/pages/cryptography/EncryptDecryptTool.vue'
 import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
 
