@@ -36,8 +36,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import DomainResolver from '../components/cryptocurrency/DomainResolver.vue'
-import CryptocurrencyCalculator from '../components/cryptocurrency/Calculator.vue'
+import DomainResolver from '../components/pages/cryptocurrency/DomainResolver.vue'
+import CryptocurrencyCalculator from '../components/pages/cryptocurrency/Calculator.vue'
 import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
 
