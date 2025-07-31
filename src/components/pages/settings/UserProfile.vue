@@ -1,5 +1,9 @@
 <template>
   <div class="user-profile -mt-8">
+    <DomainsAndSocialMedia 
+      ref="domainsModal"
+      @save="handleDomainsModalSave"
+    />
     <div class="flex justify-between items-center mb-3">
       <h2 class="text-2xl font-bold">User Profile</h2>
       <button class="px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600">Save Changes</button>
@@ -17,8 +21,10 @@
           <input type="text" v-model="profile.company" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter company name" />
         </div>
         <div class="form-group">
-          <label class="block text-sm font-medium text-gray-700 mb-2">Human Readable Domain(s)</label>
-          <input type="text" v-model="profile.domains" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g., example.eth, example.sol" />
+          <label class="block text-sm font-medium text-gray-700 mb-2 cursor-pointer hover:text-blue-600" @click="showDomainsModal('domains')">
+            Human Readable Domain(s) <span class="text-xs text-blue-600">(click to edit)</span>
+          </label>
+          <input type="text" v-model="profile.domains" disabled class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500 cursor-not-allowed" placeholder="e.g., example.eth, example.sol" @click="showDomainsModal('domains')" />
         </div>
       </div>
       
@@ -33,8 +39,10 @@
           <input type="text" v-model="profile.website" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="https://example.com" />
         </div>
         <div class="form-group">
-          <label class="block text-sm font-medium text-gray-700 mb-2">Sociale Media Presence</label>
-          <input type="text" v-model="profile.website" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Instagram, Twitter, LinkedIn, etc." />
+          <label class="block text-sm font-medium text-gray-700 mb-2 cursor-pointer hover:text-blue-600" @click="showDomainsModal('social')">
+            Social Media Presence <span class="text-xs text-blue-600">(click to edit)</span>
+          </label>
+          <input type="text" v-model="profile.website" disabled class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500 cursor-not-allowed" placeholder="Instagram, Twitter, LinkedIn, etc." @click="showDomainsModal('social')" />
         </div>
       </div>
       
@@ -95,9 +103,13 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+import DomainsAndSocialMedia from '@/components/modals/settings/userprofile/DomainsAndSocialMedia.vue'
 
 export default defineComponent({
   name: 'UserProfile',
+  components: {
+    DomainsAndSocialMedia
+  },
   setup() {
     const profile = ref({
       firstName: '',
@@ -114,8 +126,43 @@ export default defineComponent({
       bio: ''
     })
 
+    const domainsModal = ref(null)
+    
+    const showDomainsModal = (activeTab) => {
+      if (domainsModal.value) {
+        domainsModal.value.activeMode = activeTab
+        domainsModal.value.showModal()
+      }
+    }
+    
+    const handleDomainsModalSave = (data) => {
+      // Update profile with data from modal
+      if (data.domains) {
+        // Format domains as comma-separated list
+        const domainsList = Object.values(data.domains).filter(Boolean)
+        profile.value.domains = domainsList.join(', ')
+      }
+      
+      if (data.social) {
+        // Update social media accounts
+        profile.value.twitter = data.social.twitter || ''
+        profile.value.instagram = data.social.instagram || ''
+        profile.value.linkedin = data.social.linkedin || ''
+        profile.value.github = data.social.github || ''
+        
+        // Format social media as comma-separated list for display
+        const socialList = Object.entries(data.social)
+          .filter(([_, value]) => value)
+          .map(([key, _]) => key)
+        profile.value.website = socialList.length ? socialList.join(', ') : ''
+      }
+    }
+
     return {
-      profile
+      profile,
+      domainsModal,
+      showDomainsModal,
+      handleDomainsModalSave
     }
   }
 })
