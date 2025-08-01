@@ -46,7 +46,7 @@
     "vite-plugin-electron-renderer": "^0.14.5",
     "vite-plugin-node-polyfills": "^0.23.0",
     "vue": "^3.4.21",
-    "vue-tsc": "^2.0.6"
+    "vue-tsc": "^3.0.4"
   },
   "dependencies": {
     "@ensdomains/ensjs": "^4.0.2",
