@@ -25,7 +25,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build && electron-builder",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "icons": "node scripts/generateTrayIcons.js"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.7",
@@ -37,6 +38,7 @@
     "electron-builder": "^26.0.12",
     "postcss": "^8.5.3",
     "sass-embedded": "^1.89.0",
+    "sharp": "^0.33.2",
     "tailwindcss": "^4.1.7",
     "typescript": "^5.4.2",
     "vite": "^6.0.0",
