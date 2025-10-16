@@ -3,28 +3,24 @@ import NavBar from './components/global/NavBar.vue'
 import SideNav from './components/global/SideNav.vue'
 import About from './components/global/About.vue'
 import KeyboardShortcuts from './components/global/KeyboardShortcuts.vue'
+import LoginStandard from './components/authentication/loginStandard/LoginStandard.vue'
 import { useMenuState } from './composables/useMenuState'
+import { useAuth } from './composables/useAuth'
 
 const { menuType } = useMenuState()
-
-// export default {
-//   name: 'SparkplateApp',
-//   components: {
-//     NavBar,
-//     SideNav
-//   },
-// }
+const { isAuthenticated } = useAuth()
 </script>
 
 <template>
   <div id="app">
-    <NavBar />
-    <SideNav />
-    <main class="main-content" :class="menuType">
+    <NavBar v-if="isAuthenticated" />
+    <SideNav v-if="isAuthenticated" />
+    <main v-if="isAuthenticated" class="main-content" :class="menuType">
       <router-view />
     </main>
-    <About />
-    <KeyboardShortcuts />
+    <LoginStandard v-if="!isAuthenticated" />
+    <About v-if="isAuthenticated" />
+    <KeyboardShortcuts v-if="isAuthenticated" />
   </div>
 </template>
 
