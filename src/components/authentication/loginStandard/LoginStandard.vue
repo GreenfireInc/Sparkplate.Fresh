@@ -27,8 +27,8 @@
       </div>
     </div>
 
-    <!-- User Selection - Left Side -->
-    <div class="absolute left-8 top-1/2 transform -translate-y-1/2 z-20">
+    <!-- User Selection - Bottom Left -->
+    <div class="absolute bottom-24 left-8 z-20">
       <div class="space-y-3">
         <UserCard
           v-for="user in displayUsers"
@@ -59,10 +59,10 @@
     <div class="absolute bottom-8 right-8 flex flex-col items-end gap-2 z-10">
       <div class="flex items-center gap-2">
         <!-- Language Selector -->
-        <div class="relative">
+        <div class="relative" ref="languageSelector">
           <button
             @click="showLanguageMenu = !showLanguageMenu"
-            class="h-8 w-8 flex items-center justify-center text-white hover:bg-white/10 rounded transition-colors"
+            class="h-8 w-8 flex items-center justify-center text-white bg-transparent rounded transition-colors"
           >
             <span class="text-lg">{{ currentLanguageFlag }}</span>
           </button>
@@ -98,12 +98,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import UserCard from '../user/UserCard.vue'
 import SignupModal from '../registration/SignupModal.vue'
 import UserModal from '../user/UserModal.vue'
 import { useI18n } from '@/composables/useI18n'
 import { useAuth } from '@/composables/useAuth'
+import packageJson from '../../../../package.json'
+
+const version = packageJson.version
 
 const { t, locale, setLocale, languages } = useI18n()
 const { mockUsers } = useAuth()
@@ -113,8 +116,7 @@ const selectedUserEmail = ref('')
 const showSignupModal = ref(false)
 const showUserModal = ref(false)
 const showLanguageMenu = ref(false)
-
-const version = '2.0.0'
+const languageSelector = ref<HTMLElement | null>(null)
 
 const displayUsers = computed(() => [
   ...mockUsers,
@@ -141,6 +143,20 @@ const selectLanguage = (langCode: typeof locale.value) => {
   setLocale(langCode)
   showLanguageMenu.value = false
 }
+
+const handleClickOutside = (event: Event) => {
+  if (languageSelector.value && !languageSelector.value.contains(event.target as Node)) {
+    showLanguageMenu.value = false
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <style scoped>

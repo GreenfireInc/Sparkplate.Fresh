@@ -22,6 +22,7 @@
               <li v-if="processor"><b>CPU:</b> {{ processor }}</li>
               <li v-if="gpu"><b>GPU:</b> {{ gpu }}</li>
               <li v-if="datetime"><b>Date/Time:</b> {{ datetime }}</li>
+              <li><b>Uptime:</b> {{ uptime }}</li>
             </ul>
           </div>
         </div>
@@ -61,7 +62,10 @@ export default {
     memorySize: '',
     nodeVersion: '',
     os: '',
-    processor: ''
+    processor: '',
+    uptime: '0:00:00',
+    uptimeInterval: null,
+    startTime: Date.now()
   }),
   async created() {
     const appData = window.appData
@@ -77,6 +81,17 @@ export default {
     this.nodeVersion = appData.nodeVersion
     this.os = appData.osVersion
     this.processor = appData.processor
+    
+    // Set up uptime counter
+    this.updateUptime()
+    this.uptimeInterval = setInterval(this.updateUptime, 1000)
+  },
+  
+  beforeUnmount() {
+    // Clear the interval when component is destroyed
+    if (this.uptimeInterval) {
+      clearInterval(this.uptimeInterval)
+    }
   },
   methods: {
     formatBytes(bytes, decimals = 0) {
@@ -89,6 +104,19 @@ export default {
       const i = Math.floor(Math.log(bytes) / Math.log(kb))
 
       return `${parseFloat((bytes / Math.pow(kb, i)).toFixed(dm))} ${sizes[i]}`
+    },
+    
+    updateUptime() {
+      const now = Date.now()
+      const uptimeMs = now - this.startTime
+      
+      // Calculate hours, minutes, seconds
+      const seconds = Math.floor((uptimeMs / 1000) % 60)
+      const minutes = Math.floor((uptimeMs / (1000 * 60)) % 60)
+      const hours = Math.floor(uptimeMs / (1000 * 60 * 60))
+      
+      // Format as HH:MM:SS
+      this.uptime = `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
     }
   }
 }

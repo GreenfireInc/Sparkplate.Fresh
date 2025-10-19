@@ -23,10 +23,10 @@ export function useAuth() {
   }
   
   const mockUsers: User[] = [
-    { id: 1, name: 'Guest', email: 'guest@greenfire.io' },
+    { id: 1, name: 'Goldie', email: 'goldie@greenfire.io' },
     { id: 2, name: 'Francis', email: 'francis@greenfire.io' },
     { id: 3, name: 'Elizabeth', email: 'elizabeth@greenfire.io' },
-    { id: 4, name: 'Goldie', email: 'goldie@greenfire.io' }
+    { id: 4, name: 'Guest', email: 'guest@greenfire.io' }
   ]
   
   return {
