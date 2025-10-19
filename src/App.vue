@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, provide } from 'vue'
 import NavBar from './components/global/NavBar.vue'
 import SideNav from './components/global/SideNav.vue'
 import About from './components/global/About.vue'
@@ -10,6 +11,10 @@ import { useAuth } from './composables/useAuth'
 
 const { menuType } = useMenuState()
 const { isAuthenticated } = useAuth()
+
+// App start time - set when the app initializes
+const appStartTime = ref(Date.now())
+provide('appStartTime', appStartTime)
 </script>
 
 <template>
