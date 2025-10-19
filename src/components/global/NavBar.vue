@@ -30,6 +30,10 @@
       </div>
       <div class="navbar-right">
         <!-- <span class="total-assets">Total Assets: {{ totalAssets }}</span> -->
+        <button @click="handleLogout" class="logout-button" title="Logout">
+          <LogOut :size="20" />
+          <span class="logout-text">Logout</span>
+        </button>
       </div>
     </div>
   </nav>
@@ -37,21 +41,34 @@
 
 <script>
 import { computed } from 'vue'
+import { LogOut } from 'lucide-vue-next'
 import { useMenuState } from '@/composables/useMenuState'
+import { useAuth } from '@/composables/useAuth'
 
 const { menuType, toggleMenuType } = useMenuState()
+const { logout } = useAuth()
 
 const totalAssets = computed(() => {
   return '$0.00' // Placeholder value
 })
 
+const handleLogout = () => {
+  if (confirm('Are you sure you want to logout?')) {
+    logout()
+  }
+}
+
 export default {
   name: 'NavBar',
+  components: {
+    LogOut
+  },
   setup() {
     return {
       menuType,
       totalAssets,
-      toggleMenuType
+      toggleMenuType,
+      handleLogout
     }
   }
 }
@@ -114,5 +131,38 @@ export default {
 .total-assets {
   font-size: 0.875rem;
   margin-left: 2.5rem;
+}
+
+.logout-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.375rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.logout-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.logout-text {
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .logout-text {
+    display: none;
+  }
+  
+  .logout-button {
+    padding: 0.5rem;
+  }
 }
 </style>

@@ -3,26 +3,28 @@ import NavBar from './components/global/NavBar.vue'
 import SideNav from './components/global/SideNav.vue'
 import About from './components/global/About.vue'
 import KeyboardShortcuts from './components/global/KeyboardShortcuts.vue'
+import LoginStandard from './components/authentication/loginStandard/LoginStandard.vue'
+import MarqueeTicker from './components/partials/marqueeTicker/MarqueeTicker.vue'
 import { useMenuState } from './composables/useMenuState'
+import { useAuth } from './composables/useAuth'
 
 const { menuType } = useMenuState()
-
-// export default {
-//   name: 'SparkplateApp',
-//   components: {
-//     NavBar,
-//     SideNav
-//   },
-// }
+const { isAuthenticated } = useAuth()
 </script>
 
 <template>
   <div id="app">
-    <NavBar />
-    <SideNav />
-    <main class="main-content" :class="menuType">
+    <!-- MarqueeTicker at the top - only when not authenticated -->
+    <div v-if="!isAuthenticated" class="w-full z-30 relative">
+      <MarqueeTicker />
+    </div>
+    
+    <NavBar v-if="isAuthenticated" />
+    <SideNav v-if="isAuthenticated" />
+    <main v-if="isAuthenticated" class="main-content" :class="menuType">
       <router-view />
     </main>
+    <LoginStandard v-if="!isAuthenticated" />
     <About />
     <KeyboardShortcuts />
   </div>
@@ -56,7 +58,7 @@ const { menuType } = useMenuState()
   margin-top: 4rem; /* Account for navbar height */
   /* Removed all padding to give full height to content */
   transition: margin-left 0.3s ease;
-  height: calc(100vh - 4rem);
+  height: calc(100vh - 4rem); /* Account for navbar height only */
   overflow-y: hidden;
   flex: 1;
 }
