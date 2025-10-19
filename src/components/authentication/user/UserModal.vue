@@ -17,6 +17,7 @@
             <!-- Password -->
             <div class="space-y-2 mt-8">
               <!-- <label for="password" class="text-sm font-medium text-gray-700">{{ t('password') }}</label> -->
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-3">
               <div class="relative">
                 <Lock :size="16" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
                 <input
@@ -27,7 +28,7 @@
                   v-model="password"
                   @keyup.enter="handleSignIn"
                   style="padding-left: 2.5rem;"
-                  class="w-full bg-gray-50 border border-gray-300 text-gray-900 placeholder:text-gray-400 rounded h-10 pr-10 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all duration-200 outline-none"
+                  class="w-full bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 rounded h-10 pr-10 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all duration-200 outline-none"
                 />
                 <button
                   type="button"
@@ -40,19 +41,22 @@
                 </button>
               </div>
             </div>
-
-            <button
-              @click="handleSignIn"
-              :disabled="!password"
-              style="background-color: #2563eb;"
-              class="w-full hover:bg-blue-700 text-white font-medium rounded h-10 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {{ t('signIn') }}
-            </button>
+            </div>
+            <!-- Sign In Button -->
+            <div class="bg-gray-50 rounded-lg p-3">
+              <button
+                @click="handleSignIn"
+                :disabled="!password"
+                style="background-color: #2563eb;"
+                class="w-full hover:bg-blue-700 text-white font-medium rounded h-10 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {{ t('signIn') }}
+              </button>
+            </div>
 
             <!-- Footer Links -->
             <div class="mt-6 text-center">
-              <button class="text-blue-600 hover:underline text-sm font-medium">
+              <button class="text-blue-600 hover:underline text-sm font-medium focus:outline-none focus:ring-0 border-0">
                 {{ t('forgotPassword') }}
               </button>
             </div>

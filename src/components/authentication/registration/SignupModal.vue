@@ -17,81 +17,91 @@
           <div class="px-8 py-6 space-y-4">
             <!-- First Name -->
             <div class="space-y-2">
-              <label for="firstName" class="text-sm font-medium text-gray-700">{{ t('firstName') }}</label>
+              <label for="firstName" class="text-sm font-medium text-gray-700 pl-3">{{ t('firstName') }}</label>
               <div class="relative">
-                <User :size="16" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                <User :size="16" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
                 <input
                   id="firstName"
                   type="text"
                   :placeholder="t('firstName')"
                   v-model="firstName"
-                  class="w-full bg-gray-50 border border-gray-300 text-gray-900 rounded h-10 pl-10 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all duration-200 outline-none"
+                  style="padding-left: 2.5rem;"
+                  class="w-full bg-gray-50 border border-gray-300 text-gray-900 placeholder:text-gray-400 rounded h-10 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all duration-200 outline-none"
                 />
               </div>
             </div>
 
             <!-- Last Name -->
             <div class="space-y-2">
-              <label for="lastName" class="text-sm font-medium text-gray-700">{{ t('lastName') }}</label>
+              <label for="lastName" class="text-sm font-medium text-gray-700 pl-3">{{ t('lastName') }}</label>
               <div class="relative">
-                <User :size="16" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                <User :size="16" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
                 <input
                   id="lastName"
                   type="text"
                   :placeholder="t('lastName')"
                   v-model="lastName"
-                  class="w-full bg-gray-50 border border-gray-300 text-gray-900 rounded h-10 pl-10 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all duration-200 outline-none"
+                  style="padding-left: 2.5rem;"
+                  class="w-full bg-gray-50 border border-gray-300 text-gray-900 placeholder:text-gray-400 rounded h-10 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all duration-200 outline-none"
                 />
               </div>
             </div>
 
             <!-- Email -->
             <div class="space-y-2">
-              <label for="email" class="text-sm font-medium text-gray-700">{{ t('email') }}</label>
+              <label for="email" class="text-sm font-medium text-gray-700 pl-3">{{ t('email') }}</label>
               <div class="relative">
-                <Mail :size="16" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                <Mail :size="16" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
                 <input
                   id="email"
                   type="email"
                   :placeholder="t('emailAddress')"
                   v-model="email"
                   @input="handleEmailChange"
-                  class="w-full bg-gray-50 border border-gray-300 text-gray-900 rounded h-10 pl-10 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all duration-200 outline-none"
+                  style="padding-left: 2.5rem;"
+                  class="w-full bg-gray-50 border border-gray-300 text-gray-900 placeholder:text-gray-400 rounded h-10 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all duration-200 outline-none"
                 />
               </div>
             </div>
 
             <!-- Password -->
             <div class="space-y-2">
-              <label for="password" class="text-sm font-medium text-gray-700">{{ t('password') }}</label>
-              <div class="relative">
-                <Lock :size="16" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                <input
-                  id="password"
-                  :type="showPassword ? 'text' : 'password'"
-                  :placeholder="t('password')"
-                  v-model="password"
-                  @keyup.enter="handleSignup"
-                  class="w-full bg-gray-50 border border-gray-300 text-gray-900 rounded h-10 pl-10 pr-10 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all duration-200 outline-none"
-                />
-                <button
-                  type="button"
-                  @click="showPassword = !showPassword"
-                  class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
-                >
-                  <EyeOff v-if="showPassword" :size="16" />
-                  <Eye v-else :size="16" />
-                </button>
+              <label for="password" class="text-sm font-medium text-gray-700 pl-3">{{ t('password') }}</label>
+              <div class="bg-gray-50 border border-gray-200 rounded-lg p-3">
+                <div class="relative">
+                  <Lock :size="16" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
+                  <input
+                    id="password"
+                    :type="showPassword ? 'text' : 'password'"
+                    :placeholder="t('password')"
+                    v-model="password"
+                    @keyup.enter="handleSignup"
+                    style="padding-left: 2.5rem;"
+                    class="w-full bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 rounded h-10 pr-10 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all duration-200 outline-none"
+                  />
+                  <button
+                    type="button"
+                    @click="showPassword = !showPassword"
+                    style="outline: none; border: none; box-shadow: none;"
+                    class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                  >
+                    <EyeOff v-if="showPassword" :size="16" />
+                    <Eye v-else :size="16" />
+                  </button>
+                </div>
               </div>
             </div>
 
-            <button
-              @click="handleSignup"
-              :disabled="!firstName || !lastName || !email || !password"
-              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium rounded h-10 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {{ t('createAccount') }}
-            </button>
+            <!-- Create Account Button -->
+            <div class="bg-gray-50 rounded-lg p-3">
+              <button
+                @click="handleSignup"
+                :disabled="!firstName || !lastName || !email || !password"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium rounded h-10 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {{ t('createAccount') }}
+              </button>
+            </div>
           </div>
         </div>
       </div>
