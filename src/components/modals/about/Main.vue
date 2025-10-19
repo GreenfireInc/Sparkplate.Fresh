@@ -20,9 +20,9 @@
               <!-- <li v-if="dbVersion"><b>Database:</b> v{{ dbVersion }}</li> -->
               <li v-if="memorySize"><b>Installed RAM:</b> {{ memorySize }}</li>
               <li v-if="processor"><b>CPU:</b> {{ processor }}</li>
-              <li v-if="gpu"><b>GPU:</b> {{ gpu }}</li>
-              <li v-if="datetime"><b>Date/Time:</b> {{ datetime }}</li>
-              <li><b>Uptime:</b> {{ uptime }}</li>
+              <GpuInfo />
+              <LiveDateTime />
+              <UptimeCounter />
             </ul>
           </div>
         </div>
@@ -46,33 +46,27 @@
 
 <script>
 import NetworkStatus from '@/components/global/NetworkStatus.vue'
+import UptimeCounter from '@/components/partials/time/UptimeCounter.vue'
+import LiveDateTime from '@/components/partials/time/LiveDateTime.vue'
+import GpuInfo from '@/components/partials/hardware/GpuInfo.vue'
 // import { dbVersion } from '@/service/IdbService'
 import { version } from '../../../../package.json'
 
 export default {
   name: 'AboutMain',
-  components: { NetworkStatus },
+  components: { NetworkStatus, UptimeCounter, LiveDateTime, GpuInfo },
   data: () => ({
     appVersion: version,
     // dbVersion: dbVersion,
-    datetime: '',
     electronVersion: '',
-    gpu: '',
     hostname: '',
     memorySize: '',
     nodeVersion: '',
     os: '',
-    processor: '',
-    uptime: '0:00:00',
-    uptimeInterval: null,
-    startTime: Date.now()
+    processor: ''
   }),
   async created() {
     const appData = window.appData
-    window.app.getGPUInfo().then((res) => {
-      this.gpu = res.auxAttributes.glRenderer
-    })
-    this.datetime = this.$moment().format('MMM Do, YYYY H:mm')
     this.electronVersion = appData.electronVersion
     this.hostname = appData.hostname
     this.memorySize = appData.systemMemory
@@ -81,17 +75,6 @@ export default {
     this.nodeVersion = appData.nodeVersion
     this.os = appData.osVersion
     this.processor = appData.processor
-    
-    // Set up uptime counter
-    this.updateUptime()
-    this.uptimeInterval = setInterval(this.updateUptime, 1000)
-  },
-  
-  beforeUnmount() {
-    // Clear the interval when component is destroyed
-    if (this.uptimeInterval) {
-      clearInterval(this.uptimeInterval)
-    }
   },
   methods: {
     formatBytes(bytes, decimals = 0) {
@@ -104,19 +87,6 @@ export default {
       const i = Math.floor(Math.log(bytes) / Math.log(kb))
 
       return `${parseFloat((bytes / Math.pow(kb, i)).toFixed(dm))} ${sizes[i]}`
-    },
-    
-    updateUptime() {
-      const now = Date.now()
-      const uptimeMs = now - this.startTime
-      
-      // Calculate hours, minutes, seconds
-      const seconds = Math.floor((uptimeMs / 1000) % 60)
-      const minutes = Math.floor((uptimeMs / (1000 * 60)) % 60)
-      const hours = Math.floor(uptimeMs / (1000 * 60 * 60))
-      
-      // Format as HH:MM:SS
-      this.uptime = `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
     }
   }
 }
