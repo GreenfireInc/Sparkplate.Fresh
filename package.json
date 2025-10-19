@@ -58,7 +58,7 @@
     "@unstoppabledomains/resolution": "^9.3.3",
     "bignumber.js": "^9.3.0",
     "buffer": "^6.0.3",
-    "country-state-city": "^1.0.5",
+    "country-state-city": "^3.2.1",
     "crypto-js": "^4.2.0",
     "currency-codes": "^2.2.0",
     "currency-symbol-map": "^5.1.0",
