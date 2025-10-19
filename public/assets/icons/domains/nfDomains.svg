@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="2000"
+   height="2000"
+   viewBox="0 0 2000 2000"
+   sodipodi:docname="Oct9.Art.Recreation.NFDomains.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="true"
+     inkscape:zoom="0.32589752"
+     inkscape:cx="2065.0663"
+     inkscape:cy="935.87702"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g8">
+    <inkscape:grid
+       type="xygrid"
+       id="grid64024" />
+  </sodipodi:namedview>
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g8">
+    <ellipse
+       style="fill:#ff602e;fill-opacity:1;stroke-width:2.49103"
+       id="path34"
+       cx="998.83691"
+       cy="1002.5331"
+       rx="998.59039"
+       ry="1000.9545" />
+    <polygon
+       class="st0"
+       points="199.7,0.4 199.7,200.4 -0.3,0.4 -0.3,400.4 199.7,400.4 399.7,400.4 399.7,200.4 399.7,0.4 "
+       id="polygon6"
+       style="fill:#ffffff"
+       transform="matrix(1.884238,0,0,1.884238,592.87007,604.27519)" />
+  </g>
+</svg>

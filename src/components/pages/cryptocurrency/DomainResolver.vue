@@ -17,36 +17,45 @@
                     class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-600 border border-blue-600 rounded-s-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300"
                     style="background-color: #2563eb !important; border-color: #2563eb !important; color: white !important;"
                     type="button">
-                    {{ selectedNetwork || 'Networks' }}   
+                    {{ selectedNetwork || 'Networks ' }}   
                     <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                     </svg>
                   </button>
-                  <div v-show="isDropdownOpen" class="absolute top-full left-0 z-20 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                  <div v-show="isDropdownOpen" class="absolute top-full left-0 z-20 bg-white divide-y divide-gray-100 rounded-lg shadow w-64 dark:bg-gray-700">
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
-                      <li>
-                        <a href="#" @click.prevent="selectNetwork('Ada Domains')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ada Domains</a>
+                      <!-- Available services -->
+                      <li v-for="service in availableDomainServices" :key="service.name">
+                        <a 
+                          href="#" 
+                          @click.prevent="selectNetwork(service.displayName)" 
+                          class="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          :title="service.description"
+                        >
+                          <img 
+                            v-if="getServiceIcon(service.name)"
+                            :src="getServiceIcon(service.name)" 
+                            :alt="service.displayName" 
+                            class="w-5 h-5 flex-shrink-0"
+                          />
+                          <span>{{ service.displayName }}</span>
+                        </a>
                       </li>
-                      <li>
-                        <a href="#" @click.prevent="selectNetwork('Ethereum Name Service')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ethereum Name Service</a>
-                      </li>
-                      <li>
-                        <a href="#" @click.prevent="selectNetwork('Interchain Name Service')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Interchain Name Service</a>
-                      </li>
-                      <li>
-                        <a href="#" @click.prevent="selectNetwork('Solana Name Service')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Solana Name Service</a>
-                      </li>
-                      <li>
-                        <a href="#" @click.prevent="selectNetwork('Stacks')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Stacks</a>
-                      </li>
-                      <li>
-                        <a href="#" @click.prevent="selectNetwork('Terra Name Service')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Terra Name Service</a>
-                      </li>
-                      <li>
-                        <a href="#" class="block px-4 py-2 text-gray-400 cursor-not-allowed">Tezos Domains (Unavailable)</a>
-                      </li>
-                      <li>
-                        <a href="#" class="block px-4 py-2 text-gray-400 cursor-not-allowed">Unstoppable Domains (Unavailable)</a>
+                      <!-- Unavailable services -->
+                      <li v-for="service in unavailableDomainServices" :key="service.name">
+                        <a 
+                          href="#" 
+                          class="flex items-center gap-3 px-4 py-2 text-gray-400 cursor-not-allowed"
+                          :title="service.description"
+                        >
+                          <img 
+                            v-if="getServiceIcon(service.name)"
+                            :src="getServiceIcon(service.name)" 
+                            :alt="service.displayName" 
+                            class="w-5 h-5 flex-shrink-0 opacity-50"
+                          />
+                          <span>{{ service.displayName }} (Unavailable)</span>
+                        </a>
                       </li>
                     </ul>
                   </div>
@@ -74,12 +83,14 @@
                   {{ domainAddress.loading ? 'Searching...' : 'Search' }}
                 </button>
               </div>
-              <p class="mt-1 text-xs text-gray-500">Currently supporting: .eth domains</p>
+              <p class="mt-1 text-xs text-gray-500">
+                Currently supporting: {{ availableDomainServices.map((s: DomainServiceMetadata) => s.extensions.map((e: string) => `.${e}`).join(', ')).join(', ') }} domains
+              </p>
             </div> <!-- End of wrapper for domain input section -->
             
             <!-- Cryptocurrency Ticker Selection -->
             <div v-if="!isEthereumNameService && !isTezosDomainsService">
-              <label for="coin-ticker" class="block text-sm font-medium text-gray-700 mb-1">Cryptocurrency</label>
+              <label for="coin-ticker" class="block text-sm font-medium text-gray-700 mb-1">Query an address for a Domain</label>
               <select 
                 id="coin-ticker"
                 v-model="coinTicker"
@@ -109,16 +120,6 @@
               </div>
             </div>
             
-            <!-- Notice about unavailable services -->
-            <div class="bg-amber-50 p-3 rounded-lg border border-amber-200">
-              <div class="flex items-center">
-                <svg class="w-5 h-5 text-amber-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
-                </svg>
-                <span class="text-sm font-medium text-amber-800">Notice: Tezos Domains and Unstoppable Domains services are temporarily unavailable</span>
-              </div>
-            </div>
-            
           </div> <!-- End of flex flex-col space-y-4 -->
           <br>
           <!-- Domain Address Resolution Display Info -->
@@ -135,9 +136,16 @@
               This tool resolves human-readable domain names to cryptocurrency addresses using various blockchain domain services.
             </p>
             <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
-              <li><span class="font-medium">.eth domains</span> - Resolved through Ethereum Name Service (ETH addresses only)</li>
-              <li><span class="font-medium text-gray-400">.crypto, .wallet, .nft domains</span> - <span class="line-through">Resolved through Unstoppable Domains</span> (temporarily unavailable)</li>
-              <li><span class="font-medium text-gray-400">.tez domains</span> - <span class="line-through">Resolved through Tezos Domains</span> (temporarily unavailable)</li>
+              <!-- Available services -->
+              <li v-for="service in availableDomainServices" :key="service.name">
+                <span class="font-medium">{{ service.extensions.map((e: string) => `.${e}`).join(', ') }} domains</span> - 
+                {{ service.description }}
+              </li>
+              <!-- Unavailable services -->
+              <li v-for="service in unavailableDomainServices" :key="service.name" class="text-gray-400">
+                <span class="font-medium">{{ service.extensions.map((e: string) => `.${e}`).join(', ') }} domains</span> - 
+                <span class="line-through">{{ service.description }}</span> (temporarily unavailable)
+              </li>
             </ul>
           </div>
         </form>
@@ -150,8 +158,9 @@
 import { ref, reactive, computed, onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
 import { domainMixins } from '../../../utils/mixins/domainMixins'
-import { ens } from '@background/functions/utils/domains/ens'
-import DomainResolutionBadge from '../../domains/ResolutionBadge.vue'
+import ens from '@/utils/currencyCore/domains/ens'
+import DomainResolutionBadge from '@/utils/currencyCore/domains/domainRouter.vue'
+import { getDomainServices, type DomainServiceMetadata } from '@/utils/currencyCore/domains/index'
 
 // Define component name
 defineOptions({
@@ -174,6 +183,11 @@ const domainAddress = reactive({
   service: '',
   error: ''
 })
+
+// Get available domain services dynamically
+const domainServices = getDomainServices()
+const availableDomainServices = computed(() => domainServices.filter(service => service.available))
+const unavailableDomainServices = computed(() => domainServices.filter(service => !service.available))
 
 // Computed property to check if Ethereum Name Service is selected
 const isEthereumNameService = computed(() => {
@@ -204,8 +218,11 @@ function toggleDropdown() {
 }
 
 function selectNetwork(network: string) {
+  // Find the service by display name
+  const service = domainServices.find(s => s.displayName === network)
+  
   // Prevent selecting unavailable networks
-  if (network === 'Tezos Domains' || network === 'Unstoppable Domains') {
+  if (!service || !service.available) {
     return;
   }
   
@@ -219,6 +236,24 @@ function selectNetwork(network: string) {
     // Reset coinTicker when switching away from ENS
     coinTicker.value = ''
   }
+}
+
+// Get icon path for each service
+function getServiceIcon(serviceName: string): string | null {
+  const iconMap: Record<string, string> = {
+    'ens': '/assets/icons/domains/ethereumNameService.svg',
+    'uns': '/assets/icons/domains/unstoppableDomains.svg',
+    'tezos': '/assets/icons/domains/tezosDomains.svg',
+    'sol': '/assets/icons/domains/solanaNameService.svg',
+    'sns': '/assets/icons/domains/solanaNameService.svg',
+    'algo': '/assets/icons/domains/nfDomains.svg',
+    'stx': '/assets/icons/domains/bitcoinNameService.svg',
+    'stacks': '/assets/icons/domains/bitcoinNameService.svg',
+    'icns': '/assets/icons/domains/icns.svg',
+    'tns': '/assets/icons/domains/tezosDomains.svg'
+  }
+  
+  return iconMap[serviceName.toLowerCase()] || null
 }
 
 // Helper function to determine if domain is ENS (.eth)
@@ -253,8 +288,7 @@ async function resolveAddress() {
       // Use ENS service for .eth domains or when ENS is selected
       const address = await ens.getAddress({
         domain,
-        coinTicker: 'ETH', // Always use ETH for ENS
-        network: 'mainnet'
+        coinTicker: 'ETH' // Always use ETH for ENS
       })
       domainAddress.address = address
       domainAddress.service = 'ens'

@@ -51,4 +51,4 @@ export const tezosUtils = {
 /**
  * Default export for backward compatibility
  */
-export default tezosUtils; 
+export default tezosUtils;
