@@ -5,7 +5,7 @@
  * @description Domain resolution methods for usage in Vue components
  */
 
-import { domains, type DomainResolutionResult } from '../domains/index';
+import { domains, type DomainResolutionResult } from '../currencyCore/domains/index';
 
 /**
  * Domain resolution methods

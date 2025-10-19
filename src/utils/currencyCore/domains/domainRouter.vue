@@ -8,11 +8,11 @@
       <div class="flex justify-between items-center mb-2">
         <span class="font-semibold">Resolved via:</span>
         <div class="flex items-center space-x-2">
-          <!-- ENS Icon -->
+          <!-- Service Icons -->
           <img 
-            v-if="domainAddress.service === 'ens'" 
-            src="/assets/icons/domains/ens.svg" 
-            alt="ENS" 
+            v-if="serviceIcon"
+            :src="serviceIcon" 
+            :alt="serviceName" 
             class="w-6 h-6"
           />
           <span 
@@ -68,8 +68,25 @@ const serviceName = computed(() => {
   if (service === 'ens') return 'Ethereum Name Service';
   if (service === 'uns') return 'Unstoppable Domains';
   if (service === 'tezos') return 'Tezos Domains';
+  if (service === 'sol') return 'Solana Name Service';
+  if (service === 'algo') return 'Algorand NF Domains';
+  if (service === 'stx') return 'Stacks BNS';
   
   return service || '';
+});
+
+// Get icon path for each service
+const serviceIcon = computed(() => {
+  const service = props.domainAddress.service;
+  
+  if (service === 'ens') return '/assets/icons/domains/ethereumNameService.svg';
+  if (service === 'uns') return '/assets/icons/domains/unstoppableDomains.svg';
+  if (service === 'tezos') return '/assets/icons/domains/tezosDomains.svg';
+  if (service === 'sol') return '/assets/icons/domains/solanaNameService.svg';
+  if (service === 'algo') return '/assets/icons/domains/nfDomains.svg';
+  if (service === 'stx') return '/assets/icons/domains/bitcoinNameService.svg';
+  
+  return null;
 });
 
 // Service-specific styling
@@ -79,13 +96,16 @@ const serviceClass = computed(() => {
   if (service === 'ens') return 'bg-blue-100 text-blue-800';
   if (service === 'uns') return 'bg-purple-100 text-purple-800';
   if (service === 'tezos') return 'bg-teal-100 text-teal-800';
+  if (service === 'sol') return 'bg-violet-100 text-violet-800';
+  if (service === 'algo') return 'bg-cyan-100 text-cyan-800';
+  if (service === 'stx') return 'bg-orange-100 text-orange-800';
   
   return 'bg-gray-100 text-gray-800';
 });
 
 // Define component name
 defineOptions({
-  name: 'DomainResolutionBadge'
+  name: 'DomainRouter'
 });
 </script>
 
@@ -95,4 +115,5 @@ defineOptions({
   word-break: break-all;
   transition: all 0.2s ease;
 }
-</style> 
+</style>
+
