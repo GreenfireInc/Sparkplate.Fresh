@@ -2,10 +2,10 @@
   <Teleport to="body">
     <Transition name="modal">
       <div v-if="open" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50" @click.self="closeModal">
-        <div class="w-full max-w-sm bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="w-full max-w-sm bg-blue-600 rounded-2xl shadow-xl overflow-hidden">
           <!-- Blue Header Section -->
-          <div class="bg-blue-600 px-8 py-8 text-center">
-            <div class="w-16 h-16 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden">
+          <div class="bg-blue-600 px-8 pt-16 pb-10 text-center rounded-t-2xl">
+            <div class="w-16 h-16 bg-white/20 rounded-full mx-auto mt-4 mb-4 flex items-center justify-center overflow-hidden">
               <img v-if="avatarUrl" :src="avatarUrl" alt="Avatar" class="w-16 h-16 object-cover" />
               <User v-else :size="32" class="text-white" />
             </div>
@@ -14,7 +14,7 @@
           </div>
 
           <!-- White Content Section -->
-          <div class="px-8 py-6 space-y-4">
+          <div class="px-8 pt-12 pb-8 space-y-4 bg-white">
             <!-- First Name -->
             <div class="space-y-2">
               <label for="firstName" class="text-sm font-medium text-gray-700 pl-3">{{ t('firstName') }}</label>
@@ -67,7 +67,7 @@
             <!-- Password -->
             <div class="space-y-2">
               <label for="password" class="text-sm font-medium text-gray-700 pl-3">{{ t('password') }}</label>
-              <div class="bg-gray-50 border border-gray-200 rounded-lg p-3">
+              <div class="bg-gradient-to-br from-gray-50 to-gray-100/50 border border-gray-200 rounded-lg p-3 shadow-sm hover:shadow-md transition-all duration-200">
                 <div class="relative">
                   <Lock :size="16" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
                   <input
@@ -77,7 +77,7 @@
                     v-model="password"
                     @keyup.enter="handleSignup"
                     style="padding-left: 2.5rem;"
-                    class="w-full bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 rounded h-10 pr-10 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all duration-200 outline-none"
+                    class="w-full bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 rounded-lg h-10 pr-10 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all duration-200 outline-none shadow-sm"
                   />
                   <button
                     type="button"
@@ -97,7 +97,8 @@
               <button
                 @click="handleSignup"
                 :disabled="!firstName || !lastName || !email || !password"
-                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium rounded h-10 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                style="background-color: #2563eb;"
+                class="w-full hover:bg-blue-700 text-white font-medium rounded h-10 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {{ t('createAccount') }}
               </button>
