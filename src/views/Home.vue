@@ -29,7 +29,7 @@
         <hello-world msg="Electron + Vite + Vue" />
   
         <div class="flex-center">
-          Place static files into the <code>/public</code> folder
+          {{ t('placeStaticFiles') }} <code>{{ t('publicFolder') }}</code> {{ t('folder') }}
           <img style="width: 5em" src="/assets/icons/development/node.svg" alt="Node logo" />
         </div>
       </div>
@@ -38,10 +38,15 @@
   
   <script>
   import HelloWorld from '../components/HelloWorld.vue'
+  import { useI18n } from '@/composables/useI18n'
   
   export default {
     name: 'HomeView',
-    components: { HelloWorld }
+    components: { HelloWorld },
+    setup() {
+      const { t } = useI18n()
+      return { t }
+    }
   }
   </script>
   
