@@ -61,6 +61,14 @@ export default defineComponent({
     showLocalIp: {
       type: Boolean,
       default: false
+    },
+    showPublicIp: {
+      type: Boolean,
+      default: true
+    },
+    showCountry: {
+      type: Boolean,
+      default: true
     }
   },
   setup(props) {
@@ -155,15 +163,15 @@ export default defineComponent({
         isOnlineStatus.value = await isOnline()
         
         if (isOnlineStatus.value) {
-          // Get public IP
-          ip.value = await fetchPublicIP() || '';
+          // Get public IP (if enabled)
+          ip.value = props.showPublicIp ? (await fetchPublicIP() || '') : '';
           
           // Get local IP if requested
           if (props.showLocalIp) {
             localIp.value = await fetchLocalIP() || '';
           }
           
-          if (ip.value) {
+          if (props.showCountry && ip.value) {
             const geo = await fetchCountryFromIP(ip.value);
             if (geo && geo.country) {
               country.value = csc.getCountryByCode(geo.country);

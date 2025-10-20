@@ -9,18 +9,11 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div class="card">
           <h3 class="text-xl font-semibold mb-4">Network Status</h3>
-          <div class="status-item">
-            <span class="label">Connection:</span>
-            <span class="status connected">{{ networkStatus.connected ? 'Connected' : 'Disconnected' }}</span>
-          </div>
-          <div class="status-item">
-            <span class="label">Local IP:</span>
-            <span class="value">{{ networkStatus.localIP }}</span>
-          </div>
-          <div class="status-item">
+          <NetworkStatus :vertical="true" :showLocalIp="true" :showPublicIp="true" :showCountry="false" />
+          <!-- <div class="status-item">
             <span class="label">Port:</span>
             <span class="value">{{ networkStatus.port }}</span>
-          </div>
+          </div> -->
         </div>
 
         <div class="card">
@@ -120,6 +113,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import NetworkStatus from '@/components/global/NetworkStatus.vue'
 
 interface NetworkInstance {
   id: string
