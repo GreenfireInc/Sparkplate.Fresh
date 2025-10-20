@@ -29,10 +29,10 @@
         </router-link>
       </div>
       <div class="navbar-right">
-        <!-- <span class="total-assets">Total Assets: {{ totalAssets }}</span> -->
-        <button @click="handleLogout" class="logout-button" title="Logout">
+        <!-- <span class="total-assets">{{ t('totalAssets') }} {{ totalAssets }}</span> -->
+        <button @click="handleLogout" class="logout-button" :title="t('logout')">
           <LogOut :size="20" />
-          <span class="logout-text">Logout</span>
+          <span class="logout-text">{{ t('logout') }}</span>
         </button>
       </div>
     </div>
@@ -44,16 +44,18 @@ import { computed } from 'vue'
 import { LogOut } from 'lucide-vue-next'
 import { useMenuState } from '@/composables/useMenuState'
 import { useAuth } from '@/composables/useAuth'
+import { useI18n } from '@/composables/useI18n'
 
 const { menuType, toggleMenuType } = useMenuState()
 const { logout } = useAuth()
+const { t } = useI18n()
 
 const totalAssets = computed(() => {
   return '$0.00' // Placeholder value
 })
 
 const handleLogout = () => {
-  if (confirm('Are you sure you want to logout?')) {
+  if (confirm(t('logoutConfirm'))) {
     logout()
   }
 }
@@ -68,7 +70,8 @@ export default {
       menuType,
       totalAssets,
       toggleMenuType,
-      handleLogout
+      handleLogout,
+      t
     }
   }
 }

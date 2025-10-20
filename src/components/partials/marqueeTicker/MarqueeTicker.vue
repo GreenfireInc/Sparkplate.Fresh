@@ -82,31 +82,33 @@
           </div>
         </div>
         <div class="coin-metrics">
-          <p>Current Price: ${{ formatPrice(selectedCoin.price) }}</p>
+          <p>{{ t('currentPrice') }} ${{ formatPrice(selectedCoin.price) }}</p>
           <p>
-            24h Change:
+            {{ t('change24h') }}
             <span
               :class="selectedCoin.priceChange > 0 ? 'price-up' : 'price-down'"
               >{{ selectedCoin.priceChange > 0 ? '+' : ''
               }}{{ selectedCoin.priceChange.toFixed(2) }}%</span
             >
           </p>
-          <p>Market Cap: ${{ formatMarketCap(selectedCoin.marketCap) }}</p>
+          <p>{{ t('marketCap') }} ${{ formatMarketCap(selectedCoin.marketCap) }}</p>
         </div>
         <a
           :href="`https://gemini.com/share/jwqzg5fe`"
           target="_blank"
           class="gemini-link"
         >
-          Trade on Gemini
+          {{ t('tradeOnGemini') }}
         </a>
-        <button @click="closeModal">Close</button>
+        <button @click="closeModal">{{ t('close') }}</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { useI18n } from '@/composables/useI18n'
+
 // Filter COINBASE50 to only include currencies for which we have icons
 const COINBASE50 = [
   { id: 'bitcoin', symbol: 'BTC', name: 'Bitcoin' },
@@ -164,6 +166,10 @@ const COINBASE50 = [
 
 export default {
   name: 'MarqueeTicker',
+  setup() {
+    const { t } = useI18n()
+    return { t }
+  },
   data() {
     return {
       coins: [],
@@ -220,7 +226,7 @@ export default {
         this.isLoading = false
       } catch (error) {
         console.error('Error fetching coin prices:', error)
-        this.loadingError = 'Please check internet connection'
+        this.loadingError = this.t('checkInternetConnection')
         this.isLoading = false
         this.coins = []
       }
