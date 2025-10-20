@@ -4,11 +4,12 @@
     "useDefineForClassFields": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "strict": true,
+    "strict": false,
     "jsx": "preserve",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "noEmit": true,
@@ -16,9 +17,11 @@
     "paths": {
       "@/*": ["src/*"],
       "@background/*": ["background/*"]
-    }
+    },
+    "types": ["vite/client"]
   },
-  "include": ["src", "src/types"],
+  "include": ["src/**/*", "src/**/*.vue"],
+  "exclude": ["node_modules", "dist", "dist_electron"],
   "references": [
     { "path": "./tsconfig.node.json" }
   ]

@@ -6,8 +6,11 @@
  */
 
 import ens from './ens';
-import uns from './uns';
-import { tezosUtils as tezos } from './tezosDomains';
+// Temporarily disabled due to browser bundling issues (October 20, 2025)
+// See: docs/findings/10202025.sparkplate.findings.rollup.commonjs.identifier.conflict.md
+// TODO: Re-enable via Electron main process IPC
+// import uns from './uns';
+// import { tezosUtils as tezos } from './tezosDomains';
 
 /**
  * Interface for domain resolution result
@@ -42,27 +45,29 @@ type ServiceMap = {
  */
 export function configExtensionServices(): Record<string, string> {
   // Create an object with key value pairs pointing to each domain service
+  // Currently only ENS is enabled (October 20, 2025)
   const services: Record<string, string> = {
     eth: 'ens',
-    tez: 'tezos'
+    // tez: 'tezos'  // Disabled temporarily
   };
 
-  const unstoppabledomains = [
-    'x',
-    'crypto',
-    'coin',
-    'wallet',
-    'bitcoin',
-    '888',
-    'nft',
-    'dao',
-    'zil',
-    'blockchain'
-  ];
+  // Unstoppable Domains temporarily disabled due to bundling issues
+  // const unstoppabledomains = [
+  //   'x',
+  //   'crypto',
+  //   'coin',
+  //   'wallet',
+  //   'bitcoin',
+  //   '888',
+  //   'nft',
+  //   'dao',
+  //   'zil',
+  //   'blockchain'
+  // ];
 
-  unstoppabledomains.forEach((ext) => {
-    services[ext] = 'uns';
-  });
+  // unstoppabledomains.forEach((ext) => {
+  //   services[ext] = 'uns';
+  // });
 
   return services;
 }
@@ -94,8 +99,8 @@ export async function resolveAddress({
 
   const serviceMap: ServiceMap = {
     ens,
-    uns,
-    tezos
+    // uns,    // Temporarily disabled
+    // tezos   // Temporarily disabled
   };
 
   // Make sure the service exists
@@ -195,11 +200,12 @@ export function getDomainServices(): DomainServiceMetadata[] {
 
 /**
  * Domain services object with all available resolvers
+ * Note: Only ENS is currently enabled (October 20, 2025)
  */
 export const domains = {
   ens,
-  uns,
-  tezos,
+  // uns,     // Temporarily disabled - bundling issues
+  // tezos,   // Temporarily disabled - bundling issues
   services,
   resolveAddress,
   getDomainServices

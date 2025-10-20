@@ -178,7 +178,7 @@ export default {
 
     const getLogoPath = (symbol) => {
       const symbolLower = symbol.toLowerCase();
-      return `/assets/icons/crypto/${symbolLower}.svg`;
+      return `./assets/icons/crypto/${symbolLower}.svg`;
     };
 
     const shouldCenterMagnify = (address) => {
