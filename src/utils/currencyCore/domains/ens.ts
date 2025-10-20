@@ -49,6 +49,10 @@ const ensResolver: ENSResolver = {
     try {
       const provider = getProvider();
       
+      if (!provider) {
+        throw new Error('ENS provider not available. Please configure API keys.');
+      }
+      
       // Resolve the ENS domain to an Ethereum address
       const address = await provider.resolveName(domain);
 

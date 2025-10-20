@@ -3,6 +3,8 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import electron from 'vite-plugin-electron/simple'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import commonjs from '@rollup/plugin-commonjs'
+import nodeResolve from '@rollup/plugin-node-resolve'
 import pkg from './package.json'
 import path from 'node:path'
 import sass from 'sass'
@@ -17,14 +19,44 @@ export default defineConfig(({ command }) => {
   const sourcemap = isServe || !!process.env.VSCODE_DEBUG
 
   return {
+    base: './',  // Use relative paths for Electron production builds
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
         '@background': path.resolve(__dirname, 'background'),
+        // Alias buffer to use the polyfill
+        'buffer': 'buffer/',
+        'stream': 'stream-browserify',
       },
     },
     define: {
       global: 'globalThis',
+    },
+    optimizeDeps: {
+      include: [
+        'buffer',
+        'process',
+        'stream-browserify',
+        '@solana/web3.js',
+        '@bonfida/spl-name-service',
+        '@taquito/taquito',
+        '@taquito/tzip16',
+      ],
+      esbuildOptions: {
+        define: {
+          global: 'globalThis'
+        },
+      },
+    },
+    build: {
+      commonjsOptions: {
+        include: [/node_modules/],
+        transformMixedEsModules: true,
+      },
+      rollupOptions: {
+        // Removed problematic CommonJS and Node Resolve plugins
+        // Will use lazy loading for blockchain libraries instead
+      },
     },
     css: {
       preprocessorOptions: {
@@ -45,6 +77,20 @@ export default defineConfig(({ command }) => {
           Buffer: true,
           global: true,
           process: true,
+        },
+        // Polyfill Node.js built-in modules
+        include: [
+          'buffer',
+          'process',
+          'util',
+          'stream',
+          'events',
+          'string_decoder',
+          'crypto'
+        ],
+        // Override specific modules
+        overrides: {
+          fs: 'memfs',
         },
       }),
       electron({

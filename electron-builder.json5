@@ -74,26 +74,9 @@
       {
         "target": "AppImage",
         "arch": ["x64"]
-      },
-      {
-        "target": "flatpak",
-        "arch": ["x64"]
       }
     ],
     "artifactName": "${productName}.${version}.${ext}",
     "icon": "./icons/"
-  },
-  "flatpak": {
-    "runtimeVersion": "23.08",
-    "baseVersion": "23.08",
-    "runtime": "org.freedesktop.Platform",
-    "sdk": "org.freedesktop.Sdk",
-    "finishArgs": [
-      "--share=network",
-      "--socket=pulseaudio",
-      "--socket=wayland",
-      "--socket=x11",
-      "--filesystem=home"
-    ]
   }
 }

@@ -67,7 +67,7 @@
                 <div class="flex items-center space-x-2">
                   <img
                     v-if="!fromIsFiat && args.from.symbol"
-                    :src="`/assets/icons/crypto/${args.from.symbol.toLowerCase()}.svg`"
+                    :src="`./assets/icons/crypto/${args.from.symbol.toLowerCase()}.svg`"
                     :alt="args.from.symbol"
                     class="w-6 h-6 rounded-full shadow-sm"
                   />
@@ -178,7 +178,7 @@
                 <div class="flex items-center space-x-2">
                   <img
                     v-if="toIsCrypto && args.to.symbol"
-                    :src="`/assets/icons/crypto/${args.to.symbol.toLowerCase()}.svg`"
+                    :src="`./assets/icons/crypto/${args.to.symbol.toLowerCase()}.svg`"
                     :alt="args.to.symbol"
                     class="w-6 h-6 rounded-full shadow-sm"
                   />

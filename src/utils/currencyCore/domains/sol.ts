@@ -204,7 +204,8 @@ const solanaDomainsResolver: SolanaDomainsResolver = {
                 ? favoriteResult.reverse 
                 : `${favoriteResult.reverse}.sol`;
               console.log(`✅ [Solana Name Service] Found favorite domain: ${address} → ${fullDomain}`);
-              if (favoriteResult.stale) {
+              // Note: favoriteResult.stale property may not exist in all versions
+              if ('stale' in favoriteResult && favoriteResult.stale) {
                 console.log(`⚠️ [Solana Name Service] Note: Favorite domain record may be stale`);
               }
               return fullDomain;

@@ -20,7 +20,7 @@
           >
             <!-- This is the coin icon, had to prepend ./assets/cryptoicons/ to the path because it was not loading the icons -->
             <img
-              :src="`/assets/icons/crypto/${coin.symbol.toLowerCase()}.svg`"
+              :src="`./assets/icons/crypto/${coin.symbol.toLowerCase()}.svg`"
               :alt="coin.symbol"
               class="coin-icon"
             />
