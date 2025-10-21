@@ -48,6 +48,19 @@
         </div>
       </div>
     </Transition>
+
+    <!-- Modals -->
+    <TemporaryKeyModal
+      :is-open="showTemporaryKeyModal"
+      @update:open="showTemporaryKeyModal = $event"
+      @derive="handleKeyDerive"
+    />
+    
+    <ServerSelectionModal
+      :open="showServerSelectionModal"
+      @update:open="showServerSelectionModal = $event"
+      @connect="handleServerConnect"
+    />
   </div>
 </template>
 
@@ -55,6 +68,8 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { Fingerprint, Key, Server } from 'lucide-vue-next'
 import { useI18n } from '@/composables/useI18n'
+import TemporaryKeyModal from '@/components/modals/loginOptions/TemporaryKeyModal.vue'
+import ServerSelectionModal from '@/components/modals/loginOptions/ServerSelectionModal.vue'
 
 interface LoginOptionsProps {
   onTemporaryKeyClick?: () => void
@@ -68,6 +83,8 @@ const { t } = useI18n()
 const isOpen = ref(false)
 const showTooltip = ref(false)
 const loginOptionsRef = ref<HTMLElement | null>(null)
+const showTemporaryKeyModal = ref(false)
+const showServerSelectionModal = ref(false)
 
 const toggleMenu = () => {
   isOpen.value = !isOpen.value
@@ -77,13 +94,27 @@ const toggleMenu = () => {
 const handleTemporaryKeyClick = () => {
   console.log('Selected login option: Temporary Private Key')
   isOpen.value = false
+  showTemporaryKeyModal.value = true
   props.onTemporaryKeyClick?.()
 }
 
 const handleServerSelectionClick = () => {
   console.log('Selected login option: Connect to Server')
   isOpen.value = false
+  showServerSelectionModal.value = true
   props.onServerSelectionClick?.()
+}
+
+
+
+const handleKeyDerive = (ticker: string, privateKey: string) => {
+  console.log('Key derived:', { ticker, privateKey })
+  // Handle the derived key - could emit to parent or store in state
+}
+
+const handleServerConnect = (serverUrl: string, connectionType: string) => {
+  console.log('Server connection:', { serverUrl, connectionType })
+  // Handle server connection - could emit to parent or store in state
 }
 
 const handleClickOutside = (event: Event) => {
