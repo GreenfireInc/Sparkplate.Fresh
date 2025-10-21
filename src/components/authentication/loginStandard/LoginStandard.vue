@@ -83,6 +83,18 @@
             </div>
           </Transition>
         </div>
+        
+        <!-- Login Options -->
+        <LoginOptions
+          :onTemporaryKeyClick="handleTemporaryKeyClick"
+          :onServerSelectionClick="handleServerSelectionClick"
+        />
+        <!-- <img 
+          src="/assets/icons/greenfire/loginStandard/loginStandard.svg" 
+          alt="Login Options"
+          class="w-4 h-4"
+        /> -->
+        <!-- <Fingerprint :size="16" class="text-white" /> -->
       </div>
       <p class="text-white/60 text-xs">Ver. {{ version }}</p>
     </div>
@@ -99,9 +111,11 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { Fingerprint } from 'lucide-vue-next'
 import UserCard from '../user/UserCard.vue'
 import SignupModal from '../registration/SignupModal.vue'
 import UserModal from '../user/UserModal.vue'
+import LoginOptions from './LoginOptions.vue'
 import { useI18n } from '@/composables/useI18n'
 import { useAuth } from '@/composables/useAuth'
 import packageJson from '../../../../package.json'
@@ -142,6 +156,16 @@ const onUserSelect = (userName: string) => {
 const selectLanguage = (langCode: typeof locale.value) => {
   setLocale(langCode)
   showLanguageMenu.value = false
+}
+
+const handleTemporaryKeyClick = () => {
+  console.log('Temporary Key option selected')
+  // TODO: Implement temporary key modal or functionality
+}
+
+const handleServerSelectionClick = () => {
+  console.log('Server Selection option selected')
+  // TODO: Implement server selection modal or functionality
 }
 
 const handleClickOutside = (event: Event) => {
