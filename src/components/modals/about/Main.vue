@@ -6,9 +6,9 @@
         <div class="col-6 info-column">
           <div>
             <br>
-            <h4 class="h3">
+            <!-- <h4 class="h3">
               <b>Sparkplate {{ appVersion }}</b>
-            </h4>
+            </h4> -->
             <ul>
               <li v-if="hostname"><b>Hostname:</b> {{ hostname }}</li>
               <NetworkStatus :vertical="true" :hideStatus="true" :showLocalIp="true" />

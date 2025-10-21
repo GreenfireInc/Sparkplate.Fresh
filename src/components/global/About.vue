@@ -14,8 +14,8 @@
         }"
       >
         <div class="modal-header">
-          <h4 class="h4 font-semibold mb-0">About</h4>
-          <button @click="hideModal" class="close-btn">&times;</button>
+          <h4 class="h4 font-semibold mb-0">Sparkplate {{ version }}</h4>
+          <!-- <button @click="hideModal" class="close-btn">&times;</button> -->
         </div>
 
         <!-- Tab Selection -->
@@ -42,6 +42,11 @@
           <Contribute v-if="activeMode === 'contribute'" />
           <Donations v-if="activeMode === 'donations'" />
         </div>
+
+        <!-- Clear Store Button -->
+        <button @click="clearStore" class="clear-store-btn">
+          Clear Store
+        </button>
       </div>
     </div>
   </Teleport>
@@ -56,6 +61,7 @@ import Contribute from '@/components/modals/about/Contribute.vue'
 import Donations from '@/components/modals/about/Donations.vue'
 import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
+import { version } from '../../../package.json'
 
 export default {
   name: 'AboutView',
@@ -79,7 +85,8 @@ export default {
       contribute: 'Contribute',
       donations: 'Donations'
     },
-    isVisible: false
+    isVisible: false,
+    version
   }),
   methods: {
     createSetActiveMode(mode) {
@@ -109,6 +116,19 @@ export default {
       } else {
         this.showModal()
       }
+    },
+    clearStore() {
+      // Clear localStorage
+      localStorage.clear()
+      
+      // Clear sessionStorage
+      sessionStorage.clear()
+      
+      // You can add more store clearing logic here if needed
+      console.log('Store cleared successfully')
+      
+      // Optional: Show confirmation or close modal
+      // this.hideModal()
     }
   },
   watch: {
@@ -147,6 +167,7 @@ export default {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .modal-header {
@@ -206,5 +227,32 @@ export default {
   padding-top: 0;
   min-height: 0;
   flex-grow: 1;
+}
+
+.clear-store-btn {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  &:hover {
+    background: #b91c1c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
 }
 </style> 
