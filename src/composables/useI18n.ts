@@ -1,4 +1,5 @@
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { getTranslation, getLanguageTranslations, availableLanguages, type SupportedLanguage } from '@/locales/menuTranslations'
 
 export type LocaleCode = 'en' | 'es' | 'fr' | 'de' | 'pt'
 
@@ -477,11 +478,29 @@ export function useI18n() {
   
   const setLocale = (newLocale: LocaleCode) => {
     currentLocale.value = newLocale
+    
+    // Update the centralized menu translation system
+    if (window.ipcRenderer) {
+      window.ipcRenderer.invoke('change-language', newLocale)
+    }
+    
+    // Save language preference
+    localStorage.setItem('sparkplate-language', newLocale)
   }
   
   const t = (key: string): string => {
     return translations[currentLocale.value]?.[key] || translations.en[key] || key
   }
+  
+  // Get menu translations using the centralized system
+  const getMenuTranslation = (key: string): string => {
+    return getTranslation(key as any, currentLocale.value as SupportedLanguage)
+  }
+  
+  // Get all menu translations for current language
+  const menuTranslations = computed(() => {
+    return getLanguageTranslations(currentLocale.value as SupportedLanguage)
+  })
   
   const languages = [
     { code: 'en' as LocaleCode, name: 'English', flag: '🇬🇧' },
@@ -491,11 +510,22 @@ export function useI18n() {
     { code: 'pt' as LocaleCode, name: 'Português', flag: '🇵🇹' },
   ]
   
+  // Load saved language preference on initialization
+  const loadSavedLanguage = () => {
+    const saved = localStorage.getItem('sparkplate-language') as LocaleCode
+    if (saved && languages.some(lang => lang.code === saved)) {
+      setLocale(saved)
+    }
+  }
+  
   return {
     locale,
     setLocale,
     t,
     languages,
+    getMenuTranslation,
+    menuTranslations,
+    loadSavedLanguage,
   }
 }
 
