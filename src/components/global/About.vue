@@ -14,8 +14,20 @@
         }"
       >
         <div class="modal-header">
-          <h4 class="h4 font-semibold mb-0">Sparkplate {{ version }}</h4>
-          <!-- <button @click="hideModal" class="close-btn">&times;</button> -->
+          <h4 class="h4 font-semibold mb-0">{{ tAbout('sparkplate') }} {{ version }}</h4>
+          
+          <!-- Language Selector -->
+          <!-- <div class="language-selector">
+            <select 
+              v-model="currentLanguage" 
+              @change="changeLanguage(currentLanguage)"
+              class="language-select"
+            >
+              <option v-for="lang in languages" :key="lang.code" :value="lang.code">
+                {{ lang.flag }} {{ lang.name }}
+              </option>
+            </select>
+          </div> -->
         </div>
 
         <!-- Tab Selection -->
@@ -27,7 +39,7 @@
             :onClick="createSetActiveMode(mode)"
           >
             <span v-if="mode === 'universe'" class="universe-tab">
-              <img src="/assets/icons/greenfire/greenfire.svg" class="tab-icon" style="display: inline-block; vertical-align: middle; margin-right: 4px; margin-top: -2px;" />Universe
+              <img src="/assets/icons/greenfire/greenfire.svg" class="tab-icon" style="display: inline-block; vertical-align: middle; margin-right: 4px; margin-top: -2px;" />{{ tAbout('universe') }}
             </span>
             <template v-else>{{ name }}</template>
           </TabComponent>
@@ -56,6 +68,7 @@ import Contribute from '@/components/modals/about/Contribute.vue'
 import Donations from '@/components/modals/about/Donations.vue'
 import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
+import { useUnifiedTranslations } from '@/composables/useUnifiedTranslations'
 import { version } from '../../../package.json'
 
 export default {
@@ -70,19 +83,31 @@ export default {
     TabComponent, 
     TabsWrapper 
   },
-  data: () => ({
-    activeMode: 'main',
-    modes: {
-      main: 'Main',
-      notes: 'Release Notes / Changelog',
-      greenfire: 'Greenfire',
-      universe: 'Universe',
-      contribute: 'Contribute',
-      donations: 'Donations'
-    },
-    isVisible: false,
-    version
-  }),
+  setup() {
+    const { 
+      tAbout, 
+      locale, 
+      changeLanguage, 
+      languages, 
+      currentLanguageInfo 
+    } = useUnifiedTranslations()
+    
+    return {
+      tAbout,
+      currentLanguage: locale,
+      changeLanguage,
+      languages,
+      currentLanguageInfo
+    }
+  },
+  data() {
+    return {
+      activeMode: 'main',
+      modes: {},
+      isVisible: false,
+      version
+    }
+  },
   methods: {
     createSetActiveMode(mode) {
       return () => this.setActiveMode(mode)
@@ -121,7 +146,30 @@ export default {
     }
   },
   created() {
+    // Populate modes with translated values
+    this.modes = {
+      main: this.tAbout('main'),
+      notes: this.tAbout('releaseNotes'),
+      greenfire: this.tAbout('greenfire'),
+      universe: this.tAbout('universe'),
+      contribute: this.tAbout('contribute'),
+      donations: this.tAbout('donations')
+    }
+    
     window.ipcRenderer.on('about-modal-open', this.toggleModal)
+  },
+  watch: {
+    currentLanguage() {
+      // Update modes when language changes
+      this.modes = {
+        main: this.tAbout('main'),
+        notes: this.tAbout('releaseNotes'),
+        greenfire: this.tAbout('greenfire'),
+        universe: this.tAbout('universe'),
+        contribute: this.tAbout('contribute'),
+        donations: this.tAbout('donations')
+      }
+    }
   }
 }
 </script>
@@ -158,6 +206,22 @@ export default {
   align-items: center;
   padding-bottom: 1rem;
   border-bottom: 1px solid #e5e5e5;
+}
+
+.language-selector {
+  .language-select {
+    @apply px-3 py-1 border border-gray-300 rounded text-sm bg-white;
+    min-width: 140px;
+    font-size: 0.875rem;
+    
+    &:focus {
+      @apply outline-none ring-2 ring-blue-500 border-blue-500;
+    }
+    
+    &:hover {
+      @apply border-gray-400;
+    }
+  }
 }
 
 .close-btn {

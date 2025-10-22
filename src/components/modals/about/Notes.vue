@@ -3,7 +3,7 @@
     <div class="docs-container">
       <!-- File Navigation -->
       <div class="docs-sidebar">
-        <h3 class="sidebar-title">Documentation</h3>
+        <h3 class="sidebar-title">{{ tAbout('documentation') }}</h3>
         <div class="file-list">
           <button 
             v-for="file in docFiles" 
@@ -29,14 +29,14 @@
         
         <div v-if="loading" class="loading-state">
           <div class="spinner"></div>
-          <p>Loading documentation...</p>
+          <p>{{ tAbout('loadingDocumentation') }}</p>
         </div>
         
         <div v-else-if="selectedFile" class="markdown-content" v-html="renderedContent"></div>
         
         <div v-else class="empty-state">
-          <h3>Select a document to view</h3>
-          <p>Choose a file from the sidebar to view its contents.</p>
+          <h3>{{ tAbout('selectDocumentToView') }}</h3>
+          <p>{{ tAbout('chooseFileFromSidebar') }}</p>
         </div>
       </div>
     </div>
@@ -44,8 +44,14 @@
 </template>
 
 <script>
+import { useUnifiedTranslations } from '@/composables/useUnifiedTranslations'
+
 export default {
   name: 'AboutNotes',
+  setup() {
+    const { tAbout } = useUnifiedTranslations()
+    return { tAbout }
+  },
   data() {
     return {
       docFiles: [],
