@@ -30,6 +30,11 @@ process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL
 // Disable GPU Acceleration for Windows 7
 if (os.release().startsWith('6.1')) app.disableHardwareAcceleration()
 
+// Add GPU troubleshooting flags for rendering issues
+app.commandLine.appendSwitch('--disable-gpu-sandbox')
+app.commandLine.appendSwitch('--disable-software-rasterizer')
+app.commandLine.appendSwitch('--disable-gpu-compositing')
+
 // Set application name for Windows 10+ notifications
 if (process.platform === 'win32') app.setAppUserModelId(app.getName())
 
@@ -61,6 +66,10 @@ async function createWindow() {
       // Consider using contextBridge.exposeInMainWorld
       // Read more on https://www.electronjs.org/docs/latest/tutorial/context-isolation
       // contextIsolation: false,
+      
+      // Additional flags to help with rendering issues
+      offscreen: false,
+      backgroundThrottling: false,
     },
   })
 
