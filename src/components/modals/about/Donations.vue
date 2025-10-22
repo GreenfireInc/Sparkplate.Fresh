@@ -1,9 +1,9 @@
 <template>
   <div class="donations-container">
     <div class="text-center mb-6">
-      <h2 class="text-xl font-bold">Support Sparkplate</h2>
+      <h2 class="text-xl font-bold">{{ tAbout('supportSparkplate') }}</h2>
       <p class="text-sm text-muted">
-        Your donations help us maintain and improve this free resource for everyone.
+        {{ tAbout('donationsHelpMaintainFree') }}
       </p>
     </div>
     <!-- <h3 class="text-md font-semibold text-center mb-4">Cryptocurrency Donations</h3> -->
@@ -19,14 +19,14 @@
         <button @click="hoveredQR = null" class="close-btn">&times;</button>
         <img 
           :src="generateQRCode(getAddressWithoutPrefix(hoveredQR))" 
-          :alt="`QR code for ${getSymbolFromAddress(hoveredQR)}`" 
+          :alt="`${tAbout('qrCodeFor')} ${getSymbolFromAddress(hoveredQR)}`" 
           class="magnified-qr-code"
         />
         <div class="magnified-logo-overlay">
           <div class="magnified-logo-container">
             <img 
               :src="getLogoPath(getSymbolFromAddress(hoveredQR))" 
-              :alt="`${getSymbolFromAddress(hoveredQR)} logo`" 
+              :alt="`${getSymbolFromAddress(hoveredQR)} ${tAbout('logo')}`" 
               class="magnified-crypto-logo"
             />
           </div>
@@ -55,14 +55,14 @@
         >
           <img 
             :src="generateQRCode(getAddressWithoutPrefix(wallet.address))" 
-            :alt="`QR code for ${wallet.name}`" 
+            :alt="`${tAbout('qrCodeFor')} ${wallet.name}`" 
             class="qr-code"
           />
           <div class="logo-overlay">
             <div class="logo-container">
               <img 
                 :src="getLogoPath(getSymbolFromAddress(wallet.address))" 
-                :alt="`${wallet.name} logo`" 
+                :alt="`${wallet.name} ${tAbout('logo')}`" 
                 class="crypto-logo"
               />
             </div>
@@ -79,7 +79,7 @@
             <button 
               @click="copyToClipboard(wallet.address)"
               class="copy-button"
-              :title="'Copy address'"
+              :title="tAbout('copyAddress')"
             >
               <span v-if="copiedAddress === wallet.address" class="checkmark">✓</span>
               <span v-else class="copy-icon">📋</span>
@@ -110,10 +110,12 @@
 <script>
 import { ref, onUnmounted } from 'vue';
 import QRCode from 'qrcode';
+import { useUnifiedTranslations } from '@/composables/useUnifiedTranslations'
 
 export default {
   name: 'DonationsView',
   setup() {
+    const { tAbout } = useUnifiedTranslations()
     const cryptoWallets = [
       {
         name: "Bitcoin Cash",
@@ -253,6 +255,7 @@ export default {
     });
 
     return {
+      tAbout,
       cryptoWallets,
       copiedAddress,
       hoveredQR,

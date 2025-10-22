@@ -10,16 +10,16 @@
               <b>Sparkplate {{ appVersion }}</b>
             </h4> -->
             <ul>
-              <li v-if="hostname"><b>Hostname:</b> {{ hostname }}</li>
+              <li v-if="hostnameValue"><b>{{ tAbout('hostname') }}:</b> {{ hostnameValue }}</li>
               <NetworkStatus :vertical="true" :hideStatus="true" :showLocalIp="true" />
-              <li v-if="os"><b>OS:</b> {{ os }}</li>
-              <li v-if="nodeVersion"><b>Node:</b> {{ nodeVersion }}</li>
-              <li v-if="electronVersion">
-                <b>Electron:</b> v{{ electronVersion }}
+              <li v-if="osValue"><b>{{ tAbout('os') }}:</b> {{ osValue }}</li>
+              <li v-if="nodeVersionValue"><b>{{ tAbout('node') }}:</b> {{ nodeVersionValue }}</li>
+              <li v-if="electronVersionValue">
+                <b>{{ tAbout('electron') }}:</b> v{{ electronVersionValue }}
               </li>
               <!-- <li v-if="dbVersion"><b>Database:</b> v{{ dbVersion }}</li> -->
-              <li v-if="memorySize"><b>Installed RAM:</b> {{ memorySize }}</li>
-              <li v-if="processor"><b>CPU:</b> {{ processor }}</li>
+              <li v-if="memorySizeValue"><b>{{ tAbout('installedRAM') }}:</b> {{ memorySizeValue }}</li>
+              <li v-if="processorValue"><b>{{ tAbout('cpu') }}:</b> {{ processorValue }}</li>
               <GpuInfo />
               <LiveDateTime />
               <UptimeCounter />
@@ -33,7 +33,7 @@
             <a href="https://www.greenfire.io" target="_blank">
               <img 
                 src="/assets/icons/greenfire/sparkplate.png" 
-                alt="sparkplate-logo" 
+                :alt="tAbout('sparkplateLogo')" 
                 style="width: 250px; height: auto;" 
               />
             </a>
@@ -44,7 +44,7 @@
       <!-- Clear Store Button -->
       <div class="clear-store-container">
         <button @click="clearStore" class="clear-store-btn">
-          Clear Store
+          {{ tAbout('clearStore') }}
         </button>
       </div>
     </div>
@@ -56,32 +56,37 @@ import NetworkStatus from '@/components/global/NetworkStatus.vue'
 import UptimeCounter from '@/components/partials/time/UptimeCounter.vue'
 import LiveDateTime from '@/components/partials/time/LiveDateTime.vue'
 import GpuInfo from '@/components/partials/hardware/GpuInfo.vue'
+import { useUnifiedTranslations } from '@/composables/useUnifiedTranslations'
 // import { dbVersion } from '@/service/IdbService'
 import { version } from '../../../../package.json'
 
 export default {
   name: 'AboutMain',
   components: { NetworkStatus, UptimeCounter, LiveDateTime, GpuInfo },
+  setup() {
+    const { tAbout } = useUnifiedTranslations()
+    return { tAbout }
+  },
   data: () => ({
     appVersion: version,
     // dbVersion: dbVersion,
-    electronVersion: '',
-    hostname: '',
-    memorySize: '',
-    nodeVersion: '',
-    os: '',
-    processor: ''
+    electronVersionValue: '',
+    hostnameValue: '',
+    memorySizeValue: '',
+    nodeVersionValue: '',
+    osValue: '',
+    processorValue: ''
   }),
   async created() {
     const appData = window.appData
-    this.electronVersion = appData.electronVersion
-    this.hostname = appData.hostname
-    this.memorySize = appData.systemMemory
+    this.electronVersionValue = appData.electronVersion
+    this.hostnameValue = appData.hostname
+    this.memorySizeValue = appData.systemMemory
       ? this.formatBytes(appData.systemMemory)
       : ''
-    this.nodeVersion = appData.nodeVersion
-    this.os = appData.osVersion
-    this.processor = appData.processor
+    this.nodeVersionValue = appData.nodeVersion
+    this.osValue = appData.osVersion
+    this.processorValue = appData.processor
   },
   methods: {
     formatBytes(bytes, decimals = 0) {

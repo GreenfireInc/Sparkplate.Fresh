@@ -3,7 +3,7 @@
     <div class="about-section row px-20 flex-grow">
       <div class="col flex flex-col justify-center">
         <div class="mb-2">
-          <label class="font-semibold"> Greenfire Management: </label>
+          <label class="font-semibold">{{ tAbout('greenfireManagement') }}: </label>
           <ul class="ml-4">
             <li>Corey S.</li>
             <li>Nicole L.</li>
@@ -11,17 +11,17 @@
           </ul>
         </div>
         <div class="mb-2">
-          <label class="font-semibold"> Developers: </label>
+          <label class="font-semibold">{{ tAbout('developers') }}: </label>
           <ul class="ml-4">
             <li>Aciel O.</li>
             <li>Tim R.</li>
           </ul>
         </div>
         <div class="mb-2">
-          <label class="font-semibold"> Special Thanks To: </label>
+          <label class="font-semibold">{{ tAbout('specialThanksTo') }}: </label>
           <ul class="ml-4">
-            <li>Past Developers</li>
-            <li>Past Graphic Designers</li>
+            <li>{{ tAbout('pastDevelopers') }}</li>
+            <li>{{ tAbout('pastGraphicDesigners') }}</li>
           </ul>
         </div>
       </div>
@@ -29,7 +29,7 @@
         <img
           src="/assets/icons/greenfire/greenfire.svg"
           class="logo"
-          alt="greenfire-logo"
+          :alt="tAbout('greenfireLogo')"
         />
       </div>
     </div>
@@ -40,17 +40,23 @@
         class="footer-link"
         :href="link.url"
         target="_blank"
-        >{{ link.name }}</a
+        >{{ getTranslatedLinkName(link.name) }}</a
       >
     </div>
   </div>
 </template>
 
 <script>
+import { useUnifiedTranslations } from '@/composables/useUnifiedTranslations'
+
 const link = (name, url) => ({ name, url })
 
 export default {
   name: 'AboutGreenfire',
+  setup() {
+    const { tAbout } = useUnifiedTranslations()
+    return { tAbout }
+  },
   data: () => ({
     links: [
       link('Website', 'https://www.greenfire.io'),
@@ -61,7 +67,21 @@ export default {
       link('Github', 'https://github.com/greenfireinc'),
       link('Medium', '#')
     ]
-  })
+  }),
+  methods: {
+    getTranslatedLinkName(name) {
+      const linkTranslations = {
+        'Website': this.tAbout('website'),
+        'Twitter': this.tAbout('twitter'),
+        'Instagram': this.tAbout('instagram'),
+        'LinkedIn': this.tAbout('linkedin'),
+        'Keybase': this.tAbout('keybase'),
+        'Github': this.tAbout('github'),
+        'Medium': this.tAbout('medium')
+      }
+      return linkTranslations[name] || name
+    }
+  }
 }
 </script>
 

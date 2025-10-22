@@ -1,16 +1,16 @@
 <template>
   <div class="universe-container">
-    <h3 class="text-lg font-semibold text-center mb-4">Greenfire Universe</h3>
+    <h3 class="text-lg font-semibold text-center mb-4">{{ tAbout('greenfireUniverse') }}</h3>
     
     <div class="projects-grid">
       <!-- Greenfire -->
       <div class="project-card" @click="openUrl('https://greenfire.io')">
         <div class="logo-container">
-          <img src="/assets/icons/greenfire/greenfire.svg" alt="Greenfire Logo" class="project-logo" />
+          <img src="/assets/icons/greenfire/greenfire.svg" :alt="tAbout('greenfireLogo')" class="project-logo" />
         </div>
         <div class="project-info">
           <h4 class="project-title">Greenfire</h4>
-          <p class="project-description">Bridging the cryptocurrency ecosystem with the real world</p>
+          <p class="project-description">{{ tAbout('bridgingCryptocurrencyEcosystem') }}</p>
           <div class="project-url">https://greenfire.io</div>
         </div>
       </div>
@@ -18,11 +18,11 @@
       <!-- Greenery -->
       <div class="project-card" @click="openUrl('https://greenery.finance')">
         <div class="logo-container">
-          <img src="/assets/icons/greenfire/greenery.svg" alt="Greenery Logo" class="project-logo" />
+          <img src="/assets/icons/greenfire/greenery.svg" :alt="tAbout('greeneryLogo')" class="project-logo" />
         </div>
         <div class="project-info">
           <h4 class="project-title">Greenery</h4>
-          <p class="project-description">A cryptocurrency bookkeeping and accounting wallet</p>
+          <p class="project-description">{{ tAbout('cryptocurrencyBookkeepingWallet') }}</p>
           <div class="project-url">https://greenery.finance</div>
         </div>
       </div>
@@ -30,11 +30,11 @@
       <!-- Techmarkets -->
       <div class="project-card" @click="openUrl('https://techmarkets.io')">
         <div class="logo-container">
-          <img src="/assets/icons/greenfire/greenfire.svg" alt="Techmarkets Logo" class="project-logo" />
+          <img src="/assets/icons/greenfire/greenfire.svg" :alt="tAbout('techmarketsLogo')" class="project-logo" />
         </div>
         <div class="project-info">
           <h4 class="project-title">Techmarkets</h4>
-          <p class="project-description">A marketplace to buy and sell electronics with crypto</p>
+          <p class="project-description">{{ tAbout('marketplaceElectronicsCrypto') }}</p>
           <div class="project-url">https://techmarkets.io</div>
         </div>
       </div>
@@ -45,9 +45,9 @@
           <div class="redacted-logo">?</div>
         </div>
         <div class="project-info">
-          <h4 class="project-title">*Redacted*</h4>
-          <p class="project-description">Coming soon...</p>
-          <div class="project-url">*Redacted*</div>
+          <h4 class="project-title">{{ tAbout('redacted') }}</h4>
+          <p class="project-description">{{ tAbout('comingSoon') }}</p>
+          <div class="project-url">{{ tAbout('redacted') }}</div>
         </div>
       </div>
     </div>
@@ -55,8 +55,14 @@
 </template>
 
 <script>
+import { useUnifiedTranslations } from '@/composables/useUnifiedTranslations'
+
 export default {
   name: 'UniverseView',
+  setup() {
+    const { tAbout } = useUnifiedTranslations()
+    return { tAbout }
+  },
   methods: {
     openUrl(url) {
       // Use electron shell to open external URL
