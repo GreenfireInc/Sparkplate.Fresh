@@ -3,7 +3,7 @@ import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 import os from 'node:os'
-import setAppMenu from '../functions/utils/electron/appMenu.js'
+import setAppMenu, { updateLanguage } from '../functions/utils/electron/appMenu.js'
 
 const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -143,4 +143,13 @@ ipcMain.handle('preloadAppData', () => {
 
 ipcMain.handle('appGetGPUInfo', () => {
   return app.getGPUInfo('complete')
+})
+
+// Handle language changes from renderer process
+ipcMain.handle('change-language', (event, language) => {
+  if (win) {
+    updateLanguage(language, win)
+    return { success: true, language }
+  }
+  return { success: false, error: 'No window available' }
 })

@@ -11,7 +11,7 @@ let currentLanguage = 'en'
 // Function to get translation
 const t = (key) => getTranslation(key, currentLanguage)
 
-function setAppMenu (browserWindow) {
+function setAppMenu(browserWindow) {
   const template = [
     ...(isMac ? [{
       label: app.name,
@@ -84,6 +84,7 @@ function setAppMenu (browserWindow) {
             browserWindow?.webContents.send('about-modal-open')
           }
         }
+        // Uncomment when restore backup is implemented
         // {
         //   label: t('restoreBackup'),
         //   click: () => {
@@ -99,9 +100,10 @@ function setAppMenu (browserWindow) {
 }
 
 // Function to update language and refresh menu
-function updateLanguage(language, browserWindow) {
+function updateLanguage(language) {
   currentLanguage = language
-  setAppMenu(browserWindow)
+  // Note: You'll need to call setAppMenu again after updating the language
+  // This should be called from the main process when language changes
 }
 
 // Function to get current language

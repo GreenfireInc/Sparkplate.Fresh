@@ -116,13 +116,13 @@ import UserCard from '../user/UserCard.vue'
 import SignupModal from '../registration/SignupModal.vue'
 import UserModal from '../user/UserModal.vue'
 import LoginOptions from './LoginOptions.vue'
-import { useI18n } from '@/composables/useI18n'
+import { useUnifiedTranslations } from '@/composables/useUnifiedTranslations'
 import { useAuth } from '@/composables/useAuth'
 import packageJson from '../../../../package.json'
 
 const version = packageJson.version
 
-const { t, locale, setLocale, languages } = useI18n()
+const { t, locale, changeLanguage, languages, currentLanguageInfo } = useUnifiedTranslations()
 const { mockUsers } = useAuth()
 
 const selectedUser = ref('')
@@ -138,8 +138,7 @@ const displayUsers = computed(() => [
 ])
 
 const currentLanguageFlag = computed(() => {
-  const currentLang = languages.find(l => l.code === locale.value)
-  return currentLang?.flag || '🇬🇧'
+  return currentLanguageInfo.value?.flag || '🇬🇧'
 })
 
 const onUserSelect = (userName: string) => {
@@ -154,7 +153,7 @@ const onUserSelect = (userName: string) => {
 }
 
 const selectLanguage = (langCode: typeof locale.value) => {
-  setLocale(langCode)
+  changeLanguage(langCode)
   showLanguageMenu.value = false
 }
 

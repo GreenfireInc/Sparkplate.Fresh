@@ -1,18 +1,24 @@
+/**
+ * Electron Menu Integration Utility
+ * Shows how to integrate translations into the existing appMenu.js
+ */
+
 import { app, Menu } from 'electron'
-import { getTranslation } from '../../../../src/locales/menuTranslations'
+import { getTranslation, type SupportedLanguage } from './menuTranslations'
 
 const isMac = process.platform === 'darwin'
 const isDevelopment = import.meta.env.DEV
 
-// Get current language from user settings or default to English
-// This should be loaded from user preferences in a real implementation
-let currentLanguage = 'en'
-
-// Function to get translation
-const t = (key) => getTranslation(key, currentLanguage)
-
-function setAppMenu (browserWindow) {
-  const template = [
+/**
+ * Create localized menu template
+ * @param language - The language code for translations
+ * @param browserWindow - The browser window instance
+ * @returns Menu template with translations
+ */
+export function createLocalizedMenuTemplate(language: SupportedLanguage = 'en', browserWindow: any) {
+  const t = (key: string) => getTranslation(key as any, language)
+  
+  return [
     ...(isMac ? [{
       label: app.name,
       submenu: [
@@ -84,6 +90,7 @@ function setAppMenu (browserWindow) {
             browserWindow?.webContents.send('about-modal-open')
           }
         }
+        // Uncomment when restore backup is implemented
         // {
         //   label: t('restoreBackup'),
         //   click: () => {
@@ -93,21 +100,46 @@ function setAppMenu (browserWindow) {
       ]
     }
   ]
+}
 
+/**
+ * Set application menu with translations
+ * @param browserWindow - The browser window instance
+ * @param language - The language code for translations
+ */
+export function setLocalizedAppMenu(browserWindow: any, language: SupportedLanguage = 'en') {
+  const template = createLocalizedMenuTemplate(language, browserWindow)
   const menu = Menu.buildFromTemplate(template)
   Menu.setApplicationMenu(menu)
 }
 
-// Function to update language and refresh menu
-function updateLanguage(language, browserWindow) {
-  currentLanguage = language
-  setAppMenu(browserWindow)
+/**
+ * Update menu language dynamically
+ * @param browserWindow - The browser window instance
+ * @param language - The new language code
+ */
+export function updateMenuLanguage(browserWindow: any, language: SupportedLanguage) {
+  setLocalizedAppMenu(browserWindow, language)
 }
 
-// Function to get current language
-function getCurrentLanguage() {
-  return currentLanguage
+// Example usage in your main process:
+/*
+import { setLocalizedAppMenu, updateMenuLanguage } from './menuTranslations'
+
+// In your createWindow function:
+export async function createWindow() {
+  win = new BrowserWindow({
+    // ... your window options
+  })
+  
+  // Set initial menu with English translations
+  setLocalizedAppMenu(win, 'en')
+  
+  // ... rest of your window setup
 }
 
-export default setAppMenu
-export { updateLanguage, getCurrentLanguage }
+// To change language dynamically (e.g., from renderer process):
+ipcMain.handle('change-language', (event, language) => {
+  updateMenuLanguage(win, language)
+})
+*/
