@@ -1,0 +1,122 @@
+/**
+ * Random List Via Media Press Kit Index - Curated list of cryptocurrencies from media press kit
+ * 
+ * This list contains cryptocurrencies organized from a media press kit source.
+ * These currencies are commonly featured in press releases, media kits, and
+ * marketing materials for cryptocurrency projects.
+ * 
+ * This index is used for media-related displays, press kit integrations, and
+ * marketing-focused currency selection interfaces.
+ */
+
+export interface RandomListViaMediaPressKitItem {
+  id: string;
+  symbol: string;
+  name: string;
+}
+
+export const RANDOM_LIST_VIA_MEDIA_PRESS_KIT: RandomListViaMediaPressKitItem[] = [
+  { id: 'aave', symbol: 'AAVE', name: 'AAVE' },
+  { id: 'aioz-network', symbol: 'AIOZ', name: 'AIOZ Network' },
+  { id: 'akash-network', symbol: 'AKT', name: 'Akash' },
+  { id: 'algorand', symbol: 'ALGO', name: 'Algorand' },
+  { id: 'apecoin', symbol: 'APE', name: 'APECoin' },
+  { id: 'aragon', symbol: 'ANT', name: 'Aragon' },
+  { id: 'arweave', symbol: 'AR', name: 'Arweave' },
+  { id: 'audius', symbol: 'AUDIO', name: 'Audius' },
+  { id: 'avalanche-2', symbol: 'AVAX', name: 'Avalanche' },
+  { id: 'axelar', symbol: 'AXL', name: 'Axelar' },
+  { id: 'balancer', symbol: 'BAL', name: 'Balancer' },
+  { id: 'band-protocol', symbol: 'BAND', name: 'Band Protocol' },
+  { id: 'biconomy', symbol: 'BICO', name: 'Biconomy' },
+  { id: 'cardano', symbol: 'ADA', name: 'Cardano' },
+  { id: 'casper-network', symbol: 'CSPR', name: 'Casper' },
+  { id: 'celo', symbol: 'CELO', name: 'Celo' },
+  { id: 'centrifuge', symbol: 'CFG', name: 'Centrifuge' },
+  { id: 'chainlink', symbol: 'LINK', name: 'Chainlink' },
+  { id: 'chia', symbol: 'XCH', name: 'Chia' },
+  { id: 'cosmos', symbol: 'ATOM', name: 'Cosmos' },
+  { id: 'cream-2', symbol: 'CREAM', name: 'Cream Finance' },
+  { id: 'decentraland', symbol: 'MANA', name: 'Decentraland' },
+  { id: 'dash', symbol: 'DASH', name: 'Dash' },
+  { id: 'decred', symbol: 'DCR', name: 'Decred' },
+  { id: 'ecash', symbol: 'XEC', name: 'eCash' },
+  { id: 'enjincoin', symbol: 'ENJ', name: 'Enjin' },
+  { id: 'eos', symbol: 'EOS', name: 'EOS' },
+  { id: 'ethereum', symbol: 'ETH', name: 'Ethereum' },
+  { id: 'fantom', symbol: 'FTM', name: 'Fantom' },
+  { id: 'flare-networks', symbol: 'FLR', name: 'Flare' },
+  { id: 'flow', symbol: 'FLOW', name: 'Flow' },
+  { id: 'golem', symbol: 'GLM', name: 'Golem' },
+  { id: 'the-graph', symbol: 'GRT', name: 'Graph, The' },
+  { id: 'harmony', symbol: 'ONE', name: 'Harmony' },
+  { id: 'hedera-hashgraph', symbol: 'HBAR', name: 'Hedera Hashgraph' },
+  { id: 'holo', symbol: 'HOT', name: 'Holochain' },
+  { id: 'zencash', symbol: 'ZEN', name: 'Horizen' },
+  { id: 'illuvium', symbol: 'ILV', name: 'Illuvium' },
+  { id: 'injective-protocol', symbol: 'INJ', name: 'Injective' },
+  { id: 'internet-computer', symbol: 'ICP', name: 'Internet Computer' },
+  { id: 'iota', symbol: 'IOTA', name: 'Iota' },
+  { id: 'jito-governance-token', symbol: 'JTO', name: 'Jito' },
+  { id: 'kaspa', symbol: 'KAS', name: 'Kaspa' },
+  { id: 'kava', symbol: 'KAVA', name: 'Kava' },
+  { id: 'kusama', symbol: 'KSM', name: 'Kusama' },
+  { id: 'lido-dao', symbol: 'LDO', name: 'Lido DAO' },
+  { id: 'lisk', symbol: 'LSK', name: 'Lisk' },
+  { id: 'livepeer', symbol: 'LPT', name: 'Livepeer' },
+  { id: 'maker', symbol: 'MKR', name: 'Maker' },
+  { id: 'mantle', symbol: 'MNT', name: 'Mantle' },
+  { id: 'mask-network', symbol: 'MASK', name: 'Mask' },
+  { id: 'meson-network', symbol: 'MSN', name: 'Meson Network' },
+  { id: 'monero', symbol: 'XMR', name: 'Monero' },
+  { id: 'near', symbol: 'NEAR', name: 'Near' },
+  { id: 'neo', symbol: 'NEO', name: 'NEO' },
+  { id: 'oasis-network', symbol: 'ROSE', name: 'Oasis' },
+  { id: 'ocean-protocol', symbol: 'OCEAN', name: 'Ocean Protocol' },
+  { id: 'octopus-network', symbol: 'OCT', name: 'Octopus Network' },
+  { id: 'ontology', symbol: 'ONT', name: 'Ontology' },
+  { id: 'optimism', symbol: 'OP', name: 'Optimism' },
+  { id: 'pancakeswap-token', symbol: 'CAKE', name: 'Pancakeswap' },
+  { id: 'polkadot', symbol: 'DOT', name: 'Polkadot' },
+  { id: 'matic-network', symbol: 'MATIC', name: 'Polygon' },
+  { id: 'qtum', symbol: 'QTUM', name: 'Qtum' },
+  { id: 'quant-network', symbol: 'QNT', name: 'Quant' },
+  { id: 'quantum-resistant-ledger', symbol: 'QRL', name: 'Quantum Resistance Ledger' },
+  { id: 'radix', symbol: 'XRD', name: 'Radix' },
+  { id: 'radworks', symbol: 'RAD', name: 'Radworks' },
+  { id: 'reddcoin', symbol: 'RDD', name: 'Reddcoin' },
+  { id: 'request-network', symbol: 'REQ', name: 'Request' },
+  { id: 'reserve-rights-token', symbol: 'RSR', name: 'Reserve Rights' },
+  { id: 'revain', symbol: 'REV', name: 'Revain' },
+  { id: 'ribbon-finance', symbol: 'RBN', name: 'Ribbon Finance' },
+  { id: 'ronin', symbol: 'RON', name: 'Ronin' },
+  { id: 'the-sandbox', symbol: 'SAND', name: 'Sandbox, The' },
+  { id: 'salt', symbol: 'SALT', name: 'Salt Lending' },
+  { id: 'secret', symbol: 'SCRT', name: 'Secret' },
+  { id: 'sei-network', symbol: 'SEI', name: 'Sei' },
+  { id: 'siacoin', symbol: 'SC', name: 'Siacoin' },
+  { id: 'solana', symbol: 'SOL', name: 'Solana' },
+  { id: 'starknet', symbol: 'STRK', name: 'Starknet' },
+  { id: 'stellar', symbol: 'XLM', name: 'Stellar' },
+  { id: 'sui', symbol: 'SUI', name: 'Sui' },
+  { id: 'terra-luna', symbol: 'LUNA', name: 'Terra' },
+  { id: 'tezos', symbol: 'XTZ', name: 'Tezos' },
+  { id: 'the-open-network', symbol: 'TON', name: 'TON' },
+  { id: 'trust-wallet-token', symbol: 'TWT', name: 'Trust Token' },
+  { id: 'usd-coin', symbol: 'USDC', name: 'USDC' },
+  { id: 'vechain', symbol: 'VET', name: 'VeChain' },
+  { id: 'verge', symbol: 'XVG', name: 'Verge' },
+  { id: 'velas', symbol: 'VLX', name: 'Velas' },
+  { id: 'wing-finance', symbol: 'WING', name: 'Wing Finance' },
+  { id: 'woo-network', symbol: 'WOO', name: 'Woo' },
+  { id: 'wormhole', symbol: 'W', name: 'Wormhole' },
+  { id: 'xdce-crowd-sale', symbol: 'XDC', name: 'XDC Network' },
+  { id: 'ripple', symbol: 'XRP', name: 'XRP' },
+  { id: 'xyo-network', symbol: 'XYO', name: 'XYO' },
+  { id: 'yearn-finance', symbol: 'YFI', name: 'Yearn Finance' },
+  { id: 'zcash', symbol: 'ZEC', name: 'ZCash' },
+  { id: 'zilliqa', symbol: 'ZIL', name: 'Zilliqa' }
+];
+
+export default RANDOM_LIST_VIA_MEDIA_PRESS_KIT;
+
