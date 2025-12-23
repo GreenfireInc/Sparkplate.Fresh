@@ -109,6 +109,7 @@
 <script>
 import { useI18n } from '@/composables/useI18n'
 import { COINBASE50 } from '@/lib/currencyCore/indexComposites/coinbase50'
+import { coinGeckoAPI } from '@/lib/currencyCore/aggregators/coinGeckoAPI'
 
 export default {
   name: 'MarqueeTicker',
@@ -146,17 +147,17 @@ export default {
         // Randomize the coin list order before fetching
         const randomizedCoins = this.shuffleArray(COINBASE50)
 
-        // Use CoinGecko API with proper coin IDs
-        const coinIds = randomizedCoins.map((coin) => coin.id).join(',')
-        const response = await fetch(
-          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${coinIds}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=24h`
-        )
-
-        if (!response.ok) {
-          throw new Error(`API responded with status: ${response.status}`)
-        }
-
-        const data = await response.json()
+        // Use CoinGecko API module
+        const coinIds = randomizedCoins.map((coin) => coin.id)
+        const data = await coinGeckoAPI.utils.fetchMarketData({
+          ids: coinIds,
+          vs_currency: 'usd',
+          order: 'market_cap_desc',
+          per_page: 50,
+          page: 1,
+          sparkline: false,
+          price_change_percentage: '24h'
+        })
 
         // Map the data to our coins array, using only local icons
         this.coins = randomizedCoins.map((coin) => {
