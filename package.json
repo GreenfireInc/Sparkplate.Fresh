@@ -55,7 +55,7 @@
     "vue-tsc": "^3.1.1"
   },
   "dependencies": {
-    "@bonfida/spl-name-service": "^0.1.51",
+    "@bonfida/spl-name-service": "^3.0.16",
     "@ensdomains/ensjs": "^4.0.2",
     "@solana/web3.js": "^1.95.5",
     "@taquito/taquito": "^23.0.2",
