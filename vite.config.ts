@@ -11,6 +11,45 @@ import pkg from './package.json'
 import path from 'node:path'
 import sass from 'sass'
 import tailwindcss from '@tailwindcss/vite'
+import { createRequire } from 'node:module'
+
+const require = createRequire(import.meta.url)
+
+// Plugin to resolve @noble packages that export with .js extension
+function nobleResolver() {
+  return {
+    name: 'noble-resolver',
+    enforce: 'pre' as const,
+    resolveId(source: string, importer?: string) {
+      // IMPORTANT:
+      // Do NOT rewrite noble imports coming from node_modules.
+      // Several deps (ethers, stacks, etc) depend on older @noble/hashes layouts
+      // and must resolve their own nested versions.
+      if (!importer || importer.includes('node_modules')) return null
+
+      // Only help *our* source files that import noble subpaths without `.js`
+      if (source.startsWith('@noble/hashes/') && !source.endsWith('.js')) {
+        const subpath = source.replace('@noble/hashes/', '')
+        try {
+          return require.resolve(`@noble/hashes/${subpath}.js`)
+        } catch {
+          return null
+        }
+      }
+
+      if (source.startsWith('@noble/curves/') && !source.endsWith('.js')) {
+        const subpath = source.replace('@noble/curves/', '')
+        try {
+          return require.resolve(`@noble/curves/${subpath}.js`)
+        } catch {
+          return null
+        }
+      }
+
+      return null
+    }
+  }
+}
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -41,11 +80,16 @@ export default defineConfig(({ command }) => {
         'process',
         'stream-browserify',
         'bn.js',
+        '@noble/hashes',
+        '@noble/curves',
+        '@noble/secp256k1',
       ],
       exclude: [
         'argon2-browser',
         'argon2-wasm-pro',
         'hash-wasm',
+        // Exclude @noble/ed25519 so its etc object remains mutable for sha512Sync configuration
+        '@noble/ed25519',
       ],
       esbuildOptions: {
         define: {
@@ -77,6 +121,7 @@ export default defineConfig(({ command }) => {
       },
     },
     plugins: [
+      nobleResolver(),
       wasm(),
       topLevelAwait(),
       tailwindcss(),
