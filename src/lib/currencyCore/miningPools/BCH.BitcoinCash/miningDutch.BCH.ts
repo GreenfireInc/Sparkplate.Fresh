@@ -178,7 +178,7 @@ export const MiningDutch = {
    * TypeScript integration example
    */
   integrationExample: `
-import { MiningDutch } from '@/components/currencyCore/miningPools/BCH.BitcoinCash/MiningDutch';
+import { MiningDutch } from '@/lib/currencyCore/miningPools/BCH.BitcoinCash/MiningDutch';
 
 // Fetch pool statistics (public endpoint)
 const poolStats = await MiningDutch.fetchPoolStats();

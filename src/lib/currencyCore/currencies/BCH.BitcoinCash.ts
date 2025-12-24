@@ -28,7 +28,7 @@ export const bitcoinCashData = {
     privateKeyFormat: "64-character hexadecimal (32 bytes) or WIF (Wallet Import Format)",
     privateKeyToPublicKeyCurve: "secp256k1",
     publicKeyToPublicWalletAddressHashing: "SHA-256 + RIPEMD-160 + Base58Check / CashAddr encoding",
-    NPMLibraryHashing: "@noble/hashes/sha256",
+    NPMLibraryHashing: "@noble/hashes/sha2.js",
     NPMLibrarySigning: "bitcoinjs-lib",
     keyStoreFormat: "Bitcoin Cash JSON Keystore (AES-128-CTR with scrypt)",
     jsonFormat: "Bitcoin Core compatible JSON",
@@ -455,8 +455,8 @@ export const bitcoinCashData = {
       const trimmedPriv = privateKey.trim();
 
       // Import dependencies for BCH address generation
-      const { sha256 } = await import('@noble/hashes/sha256');
-      const { ripemd160 } = await import('@noble/hashes/ripemd160');
+      const { sha256 } = await import('@noble/hashes/sha2.js');
+      const { ripemd160 } = await import('@noble/hashes/legacy.js');
       const secp = await import('@noble/secp256k1');
       const { decode: wifDecode } = await import('wif');
       const bs58 = await import('bs58');
@@ -758,7 +758,7 @@ export const bitcoinCashData = {
       }
       
       // Sign inputs (simplified - production would use proper BCH signing)
-      const { sha256 } = await import('@noble/hashes/sha256');
+      const { sha256 } = await import('@noble/hashes/sha2.js');
       for (let i = 0; i < utxos.length; i++) {
         const scriptPubKey = Buffer.from(utxos[i].scriptPubKey || '', 'hex');
         const signatureHash = tx.hashForSignature(i, scriptPubKey, bitcoin.Transaction.SIGHASH_ALL);
@@ -824,7 +824,7 @@ export const bitcoinCashData = {
     confirmations: number;
   }>> => {
     try {
-      const { BlockchairAPI } = await import('@/components/currencyCore/blockchainAPIs/BCH.BitcoinCash/index.BCH');
+      const { BlockchairAPI } = await import('@/lib/currencyCore/blockchainAPIs/BCH.BitcoinCash/index.BCH');
       const api = new BlockchairAPI(network);
       return await api.fetchUTXOs(address);
     } catch (error) {
@@ -839,7 +839,7 @@ export const bitcoinCashData = {
     txCount: number;
   }> => {
     try {
-      const { BlockchairAPI } = await import('@/components/currencyCore/blockchainAPIs/BCH.BitcoinCash/index.BCH');
+      const { BlockchairAPI } = await import('@/lib/currencyCore/blockchainAPIs/BCH.BitcoinCash/index.BCH');
       const api = new BlockchairAPI(network);
       return await api.getBalance(address);
     } catch (error) {
@@ -854,7 +854,7 @@ export const bitcoinCashData = {
     message?: string;
   }> => {
     try {
-      const { BlockchairAPI } = await import('@/components/currencyCore/blockchainAPIs/BCH.BitcoinCash/index.BCH');
+      const { BlockchairAPI } = await import('@/lib/currencyCore/blockchainAPIs/BCH.BitcoinCash/index.BCH');
       const api = new BlockchairAPI(network);
       return await api.broadcastTransaction(txHex);
     } catch (error) {
@@ -876,7 +876,7 @@ export const bitcoinCashData = {
     confirmations: number;
   }>> => {
     try {
-      const { BlockchairAPI } = await import('@/components/currencyCore/blockchainAPIs/BCH.BitcoinCash/index.BCH');
+      const { BlockchairAPI } = await import('@/lib/currencyCore/blockchainAPIs/BCH.BitcoinCash/index.BCH');
       const api = new BlockchairAPI(network);
       return await api.getTransactionHistory(address, limit);
     } catch (error) {

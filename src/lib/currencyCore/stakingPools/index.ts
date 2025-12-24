@@ -50,7 +50,7 @@ export { ALGO, ATOM, BNB, DOT, ETH, LUNA, LUNC, SOL, STX, TRX, WAVES, XLM, XRP, 
  * Usage:
  * 
  * ```typescript
- * import { ALGO, ATOM, BNB, DOT, ETH, LUNA, LUNC, SOL, STX, TRX, WAVES, XLM, XRP, XTZ } from '@/components/currencyCore/stakingPools';
+ * import { ALGO, ATOM, BNB, DOT, ETH, LUNA, LUNC, SOL, STX, TRX, WAVES, XLM, XRP, XTZ } from '@/lib/currencyCore/stakingPools';
  * 
  * // Algorand
  * const algoPrice = await ALGO.getALGOPrice();

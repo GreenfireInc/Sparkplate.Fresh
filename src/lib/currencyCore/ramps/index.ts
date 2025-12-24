@@ -126,7 +126,7 @@ export { ZKP2PRamp } from './zkp2p';
  * Usage Example:
  * 
  * ```typescript
- * import { MoonPayRamp, RampRamp, TransakRamp } from '@/components/currencyCore/ramps';
+ * import { MoonPayRamp, RampRamp, TransakRamp } from '@/lib/currencyCore/ramps';
  * 
  * // Get buy quotes from multiple ramps
  * const moonpayQuote = await MoonPayRamp.getBuyQuote('BTC', 'USD', 100);

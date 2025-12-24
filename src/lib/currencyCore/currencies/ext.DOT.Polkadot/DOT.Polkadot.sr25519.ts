@@ -19,7 +19,7 @@ import {
   POLKADOT_TEST_KEYS, 
   POLKADOT_TEST_ADDRESSES, 
   getKnownKeystorePublicKeys 
-} from '@/components/currencyCore/currencies/ext';
+} from '@/lib/currencyCore/currencies/ext';
 
 // Import specialized keystore handlers
 import { 
@@ -33,7 +33,7 @@ import {
 
 // SS58 encoding function (exactly like Talisman implementation)
 async function encodeAddressSs58(publicKey: Uint8Array, prefix = 42): Promise<string> {
-  const { blake2b } = await import('@noble/hashes/blake2b');
+  const { blake2b } = await import('@noble/hashes/blake2.js');
   const { base58 } = await import('@scure/base');
 
   // Constants from SS58 specification (exactly like Talisman)
@@ -107,7 +107,7 @@ export const polkadotSr25519Data: CurrencyData = {
     librarySigning: "Schnorrkel/Ristretto",
     privateKeyToPublicKeyCurve: "sr25519",
     publicKeyToPublicWalletAddressHashing: "SS58 encoding",
-    NPMLibraryHashing: "@noble/hashes/blake2b",
+    NPMLibraryHashing: "@noble/hashes/blake2.js",
     NPMLibrarySigning: "@polkadot/util-crypto",
   },
 

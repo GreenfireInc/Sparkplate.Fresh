@@ -99,7 +99,7 @@ export { BinanceExchange, BitfinexExchange, BitflyerExchange, BitgetExchange, Bi
  * Usage Example:
  * 
  * ```typescript
- * import { BinanceExchange, KrakenExchange } from '@/components/currencyCore/exchanges';
+ * import { BinanceExchange, KrakenExchange } from '@/lib/currencyCore/exchanges';
  * 
  * // Get BTC price from multiple exchanges
  * const binancePrice = await BinanceExchange.getTickerPrice('BTCUSDT');

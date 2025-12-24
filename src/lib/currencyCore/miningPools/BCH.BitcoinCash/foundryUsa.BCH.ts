@@ -192,7 +192,7 @@ export const FoundryUSA = {
    * TypeScript integration example
    */
   integrationExample: `
-import { FoundryUSA } from '@/components/currencyCore/miningPools/BCH.BitcoinCash/FoundryUSA';
+import { FoundryUSA } from '@/lib/currencyCore/miningPools/BCH.BitcoinCash/FoundryUSA';
 
 // Setup API credentials (enterprise-level)
 const apiKey = 'your_foundry_usa_api_key';

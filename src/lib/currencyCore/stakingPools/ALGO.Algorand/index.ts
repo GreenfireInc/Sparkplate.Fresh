@@ -62,7 +62,7 @@ export { FolksFinancePool, TinymanPool, AlgorandFoundationGovernance, PactPool, 
  * Usage Example:
  * 
  * ```typescript
- * import { FolksFinancePool, TinymanPool, getALGOPrice } from '@/components/currencyCore/stakingPools/ALGO.Algorand';
+ * import { FolksFinancePool, TinymanPool, getALGOPrice } from '@/lib/currencyCore/stakingPools/ALGO.Algorand';
  * 
  * // Fetch ALGO price
  * const algoPrice = await getALGOPrice();

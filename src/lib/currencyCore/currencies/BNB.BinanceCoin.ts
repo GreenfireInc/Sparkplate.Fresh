@@ -29,7 +29,7 @@ export const binanceCoinData: CurrencyData = {
     privateKeyFormat: "64-character hexadecimal (32 bytes) with optional 0x prefix",
     privateKeyToPublicKeyCurve: "secp256k1",
     publicKeyToPublicWalletAddressHashing: "Keccak-256 (last 20 bytes)",
-    NPMLibraryHashing: "@noble/hashes/sha3",
+    NPMLibraryHashing: "@noble/hashes/sha3.js",
     NPMLibrarySigning: "ethers",
     keyStoreFormat: "Ethereum-compatible JSON Keystore (Web3 Secret Storage)",
     jsonFormat: "EVM-compatible JSON (BEP-20)",

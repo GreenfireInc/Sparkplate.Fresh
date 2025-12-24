@@ -67,7 +67,7 @@ export { KrakenStaking, BinanceStaking, CoinbaseStaking, AcalaLiquidStaking, Par
  * Usage Example:
  * 
  * ```typescript
- * import { KrakenStaking, AcalaLiquidStaking, getDOTPrice } from '@/components/currencyCore/stakingPools/DOT.Polkadot';
+ * import { KrakenStaking, AcalaLiquidStaking, getDOTPrice } from '@/lib/currencyCore/stakingPools/DOT.Polkadot';
  * 
  * // Fetch DOT price
  * const dotPrice = await getDOTPrice();

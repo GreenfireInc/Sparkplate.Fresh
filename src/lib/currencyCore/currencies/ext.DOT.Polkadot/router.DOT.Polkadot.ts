@@ -6,7 +6,7 @@
 
 import { polkadotSr25519Data } from './DOT.Polkadot.sr25519';
 import { polkadotEd25519Data } from './DOT.Polkadot.ed25519';
-import { getKnownKeystorePublicKeys } from '@/components/currencyCore/currencies/ext';
+import { getKnownKeystorePublicKeys } from '@/lib/currencyCore/currencies/ext';
 
 // Re-export all Polkadot cryptographic implementations
 export { polkadotSr25519Data } from './DOT.Polkadot.sr25519';

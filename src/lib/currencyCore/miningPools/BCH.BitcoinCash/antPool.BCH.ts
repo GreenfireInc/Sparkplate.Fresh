@@ -163,7 +163,7 @@ export const AntPool = {
    * TypeScript integration example
    */
   integrationExample: `
-import { AntPool } from '@/components/currencyCore/miningPools/BCH.BitcoinCash/AntPool';
+import { AntPool } from '@/lib/currencyCore/miningPools/BCH.BitcoinCash/AntPool';
 import * as crypto from 'crypto';
 
 // Setup API credentials

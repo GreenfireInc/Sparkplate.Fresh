@@ -28,7 +28,7 @@ export const algorandData: CurrencyData = {
     privateKeyFormat: "64-character hexadecimal (32 bytes)",
     privateKeyToPublicKeyCurve: "Ed25519",
     publicKeyToPublicWalletAddressHashing: "Base32 encoding with checksum",
-    NPMLibraryHashing: "@noble/hashes/sha512",
+    NPMLibraryHashing: "@noble/hashes/sha2.js",
     NPMLibrarySigning: "@noble/ed25519",
     keyStoreFormat: "Algorand JSON Keystore",
     jsonFormat: "Algorand Standard Asset (ASA) JSON",
@@ -405,7 +405,7 @@ export const algorandData: CurrencyData = {
     // Import dependencies when needed to avoid loading them if not used
     const algosdk = await import('algosdk');
     const nacl = await import('tweetnacl');
-    const { sha512_256 } = await import('@noble/hashes/sha512');
+    const { sha512_256 } = await import('@noble/hashes/sha2.js');
     const { base32 } = await import('@scure/base');
     
     let secretKey: Uint8Array;

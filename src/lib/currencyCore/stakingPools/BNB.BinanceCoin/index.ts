@@ -62,7 +62,7 @@ export { AnkrPool, PStakeBNBPool, StaderPool, BinanceValidators, BinanceExchange
  * Usage Example:
  * 
  * ```typescript
- * import { AnkrPool, BinanceValidators, getBNBPrice } from '@/components/currencyCore/stakingPools/BNB.BinanceCoin';
+ * import { AnkrPool, BinanceValidators, getBNBPrice } from '@/lib/currencyCore/stakingPools/BNB.BinanceCoin';
  * 
  * // Fetch BNB price
  * const bnbPrice = await getBNBPrice();

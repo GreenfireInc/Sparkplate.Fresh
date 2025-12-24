@@ -11,8 +11,8 @@ import { bitcoin } from './router.BTC.Bitcoin';
 export const bitcoinP2SHData = {
   deriveFromPrivateKey: async (privateKey: string): Promise<DerivedInfo> => {
     // Import dependencies when needed to avoid loading them if not used
-    const { sha256 } = await import('@noble/hashes/sha256');
-    const { ripemd160 } = await import('@noble/hashes/ripemd160');
+    const { sha256 } = await import('@noble/hashes/sha2.js');
+    const { ripemd160 } = await import('@noble/hashes/legacy.js');
     const secp = await import('@noble/secp256k1');
     const { decode: wifDecode } = await import('wif');
     const bs58 = await import('bs58');

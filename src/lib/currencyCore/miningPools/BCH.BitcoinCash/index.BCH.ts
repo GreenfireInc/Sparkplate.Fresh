@@ -68,7 +68,7 @@ export { ViaBTCPool, AntPool, F2Pool, BTCcom, Poolin, MiningDutch, HuobiPool, Fo
  * Usage Example:
  * 
  * ```typescript
- * import { ViaBTCPool, F2Pool, BTCcom } from '@/components/currencyCore/miningPools/BCH.BitcoinCash';
+ * import { ViaBTCPool, F2Pool, BTCcom } from '@/lib/currencyCore/miningPools/BCH.BitcoinCash';
  * 
  * // Fetch pool statistics from multiple pools
  * const viaBtcStats = await ViaBTCPool.fetchPoolStats();

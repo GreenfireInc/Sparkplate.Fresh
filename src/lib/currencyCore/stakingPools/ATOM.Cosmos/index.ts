@@ -62,7 +62,7 @@ export { StridePool, PStakePool, CosmosValidators, ChorusOneValidator, FigmentVa
  * Usage Example:
  * 
  * ```typescript
- * import { StridePool, CosmosValidators, getATOMPrice } from '@/components/currencyCore/stakingPools/ATOM.Cosmos';
+ * import { StridePool, CosmosValidators, getATOMPrice } from '@/lib/currencyCore/stakingPools/ATOM.Cosmos';
  * 
  * // Fetch ATOM price
  * const atomPrice = await getATOMPrice();

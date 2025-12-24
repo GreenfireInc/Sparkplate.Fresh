@@ -28,7 +28,7 @@ export const solanaData: CurrencyData = {
     privateKeyFormat: "32-byte Ed25519 seed (Base58, hex, or JSON array)",
     privateKeyToPublicKeyCurve: "Ed25519",
     publicKeyToPublicWalletAddressHashing: "Base58 encoding (public key is the address)",
-    NPMLibraryHashing: "@noble/hashes/sha256",
+    NPMLibraryHashing: "@noble/hashes/sha2.js",
     NPMLibrarySigning: "@noble/ed25519",
     keyStoreFormat: "Solana JSON array format (64-byte keypair)",
     jsonFormat: "Solana Program Library (SPL) JSON",
@@ -325,7 +325,7 @@ export const solanaData: CurrencyData = {
     // Import dependencies when needed to avoid loading them if not used
     const bs58 = await import('bs58');
     const solanaWeb3 = await import('@solana/web3.js');
-    const { sha512 } = await import('@noble/hashes/sha512');
+    const { sha512 } = await import('@noble/hashes/sha2.js');
     
     // Import and configure noble/ed25519 with required hash function
     const ed25519Module = await import('@noble/ed25519');

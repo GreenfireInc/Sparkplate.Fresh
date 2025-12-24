@@ -147,7 +147,7 @@ export const ViaBTCPool = {
    * TypeScript integration example
    */
   integrationExample: `
-import { ViaBTCPool } from '@/components/currencyCore/miningPools/BCH.BitcoinCash/ViaBTC';
+import { ViaBTCPool } from '@/lib/currencyCore/miningPools/BCH.BitcoinCash/ViaBTC';
 
 // Fetch pool statistics
 const poolStats = await ViaBTCPool.fetchPoolStats();

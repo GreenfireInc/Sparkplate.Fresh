@@ -32,7 +32,7 @@
  * Usage Examples:
  * 
  * ```typescript
- * import { BlockchainAPIs } from '@/components/currencyCore/blockchainAPIs';
+ * import { BlockchainAPIs } from '@/lib/currencyCore/blockchainAPIs';
  * 
  * // Access Arweave APIs
  * const arAPIs = await BlockchainAPIs.AR;

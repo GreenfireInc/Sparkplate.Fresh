@@ -170,7 +170,7 @@ export { WizardSwapExchange } from './wizardswap';
  * Usage Example:
  * 
  * ```typescript
- * import { ChangellyExchange, SimpleswapExchange } from '@/components/currencyCore/quickExchanges';
+ * import { ChangellyExchange, SimpleswapExchange } from '@/lib/currencyCore/quickExchanges';
  * 
  * // Get exchange rate from multiple services
  * const changellyRate = await ChangellyExchange.getExchangeAmount('btc', 'eth', 1);

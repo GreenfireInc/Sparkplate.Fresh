@@ -5,9 +5,9 @@
  * and copy functionality
  */
 
-import { Copy } from "lucide-react";
+import { Copy } from "lucide-vue-next";
 import { getTranslation, type LocaleCode } from "@/lib/i18n";
-import { resolveDomainForAddress } from '@/components/currencyCore/domains';
+import { resolveDomainForAddress } from '@/lib/currencyCore/domains';
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 

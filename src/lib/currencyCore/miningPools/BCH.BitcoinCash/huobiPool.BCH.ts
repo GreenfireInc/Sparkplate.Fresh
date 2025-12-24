@@ -204,7 +204,7 @@ export const HuobiPool = {
    * TypeScript integration example
    */
   integrationExample: `
-import { HuobiPool } from '@/components/currencyCore/miningPools/BCH.BitcoinCash/HuobiPool';
+import { HuobiPool } from '@/lib/currencyCore/miningPools/BCH.BitcoinCash/HuobiPool';
 import * as crypto from 'crypto';
 
 // Setup API credentials

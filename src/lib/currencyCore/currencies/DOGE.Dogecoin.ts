@@ -28,7 +28,7 @@ export const dogecoinData: CurrencyData = {
     privateKeyFormat: "64-character hexadecimal (32 bytes) or WIF (Wallet Import Format)",
     privateKeyToPublicKeyCurve: "secp256k1",
     publicKeyToPublicWalletAddressHashing: "SHA-256 + RIPEMD-160 + Base58Check",
-    NPMLibraryHashing: "@noble/hashes/sha256",
+    NPMLibraryHashing: "@noble/hashes/sha2.js",
     NPMLibrarySigning: "@noble/secp256k1",
     keyStoreFormat: "Dogecoin Core wallet.dat (Berkeley DB) / WIF / AES-256-CBC",
     jsonFormat: "Dogecoin Core JSON-RPC (Bitcoin-compatible)",
@@ -397,8 +397,8 @@ export const dogecoinData: CurrencyData = {
 
   deriveFromPrivateKey: async (privateKey: string): Promise<DerivedInfo> => {
     // Import dependencies when needed to avoid loading them if not used
-    const { sha256 } = await import('@noble/hashes/sha256');
-    const { ripemd160 } = await import('@noble/hashes/ripemd160');
+    const { sha256 } = await import('@noble/hashes/sha2.js');
+    const { ripemd160 } = await import('@noble/hashes/legacy.js');
     const secp = await import('@noble/secp256k1');
     const { decode: wifDecode } = await import('wif');
     const bs58 = await import('bs58');

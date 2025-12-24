@@ -83,7 +83,7 @@ export { LidoStaking, RocketPoolStaking, CoinbaseStaking, KrakenStaking, Binance
  * Usage Example:
  * 
  * ```typescript
- * import { LidoStaking, RocketPoolStaking, getETHPrice } from '@/components/currencyCore/stakingPools/ETH.Ethereum';
+ * import { LidoStaking, RocketPoolStaking, getETHPrice } from '@/lib/currencyCore/stakingPools/ETH.Ethereum';
  * 
  * // Fetch ETH price
  * const ethPrice = await getETHPrice();
