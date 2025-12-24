@@ -1,0 +1,1194 @@
+9/1/2025
+
+LoginStandard.Development: TemporaryPrivateKeyMounting.Polkadot
+
+
+
+
+
+
+Address	
+138L1m4rgDPgneujUrntWCtibXgjMxjZMv9NL8HQKeEedUWb	
+
+
+Path
+m/0'/0'
+
+Private Key
+3726aca4a2ea17a636741a8094b78356eed4f14be9de2d82bccb4f9e05119073
+
+
+ECDSA
+ED25519
+SR25519
+
+
+
+privateKEy/RawSeed Inputs:
+
+    privateKEy
+    Hex
+    json
+    Keystore
+
+
+
+publicKey Output:
+
+    publicKey always prefix it with 0x
+
+
+
+publicWalletAddress Outputs:
+
+    Kusama      // Kusama prefix 2 / always starting with a capital letter, such as C, D, E, F, G, H, J.
+    Polkadot    // Polkadot prefix 0 /  always starts with the number 1.
+    Substrate   // Generic Substrate prefix 42 / always starting with the number 5.
+    Ethereum    // Generic Ethereum Address prefixed as it should be with 0x
+
+
+
+
+GEnerate a publicKey
+
+
+And present options for Polkadot, Substrate and Kusama 
+which would change the publicWalletAddress presentation
+
+
+for the publicKey always prefix it with 0x
+
+
+
+Identify the SS58 prefix for:
+
+    Kusama
+    Polkadot
+    Substrate
+
+
+
+
+1n5oRFPd4PBg3eKf7ky5hyPgkCG7qMJ2m85F3eXCVrSfAdy
+
+
+Still not working, please correct using @enKrypt-main/ @SubWallet-Extension-master/ @talisman-dev/ so that when I decrypt @Exodus.json  with the password of @August#2o25! it generates the proper publicKey and that it then generates publicWalletAddresses for Substrate, Kusama and Polkadot
+
+
+
+#####################Prompt:
+
+I want to generate a publicKey from a raw seed/privateKey to then generate publicWalletAddresses/Accounts for Polkadot, Substrate and Kusama using typscript, please provide code
+
+
+################Response:
+
+This is an AI chatbot trained to answer questions about Polkadot. As such, the answers it provides might not always be accurate or up-to-date. Please use your best judgement when evaluating its responses. Also, please refrain from sharing any personal or private information with the bot. By submitting a query, you agree that you have read and understood these conditions. If you need further assistance, you can reach out to Polkadot Support.
+I want to generate a publicKey from a raw seed/privateKey to then generate publicWalletAddresses/Accounts for Polkadot, Substrate and Kusama using typscript, please provide code
+
+Below are TypeScript snippets (directly derived from the cited docs) to derive public keys and create Polkadot/Kusama/Substrate SS58 addresses from a raw private key/seed.
+
+    Using sr25519 (recommended for most Substrate chains)
+
+import { sr25519 } from "@polkadot-labs/hdkd-helpers";
+import { encodeAddress } from "@polkadot/keyring";
+
+// Input: 32-byte private key (mini-secret) as Uint8Array or hex
+const privHex = "0xYOUR_32BYTE_PRIVATE_KEY_HEX";
+const priv = Uint8Array.from(Buffer.from(privHex.replace(/^0x/, ""), "hex"));
+
+// 1) Get public key (AccountId32)
+const publicKey = sr25519.getPublicKey(priv); // Uint8Array (32 bytes)
+
+// 2) Encode to SS58 addresses:
+// Polkadot prefix = 0, Kusama prefix = 2, generic Substrate/dev = 42
+const polkadotAddress = encodeAddress(publicKey, 0);
+const kusamaAddress = encodeAddress(publicKey, 2);
+const substrateAddress = encodeAddress(publicKey, 42);
+
+console.log({
+  publicKeyHex: "0x" + Buffer.from(publicKey).toString("hex"),
+  polkadotAddress,
+  kusamaAddress,
+  substrateAddress,
+});
+
+(Uses sr25519 key derivation/signing helpers and SS58 encoding as shown in Polkadot-API signer docs and Polkadot.js address validation examples. Address-type prefixes: Polkadot=0, Kusama=2, generic Substrate commonly 42) (Signers, Validating addresses (encodeAddress), Address formats and prefixes).
+
+    Using ed25519
+
+import { ed25519 } from "@noble/curves/ed25519";
+import { encodeAddress } from "@polkadot/keyring";
+
+const privHex = "0xYOUR_32BYTE_PRIVATE_KEY_HEX";
+const priv = Uint8Array.from(Buffer.from(privHex.replace(/^0x/, ""), "hex"));
+
+// 1) Public key
+const publicKey = ed25519.getPublicKey(priv);
+
+// 2) SS58 addresses
+const polkadotAddress = encodeAddress(publicKey, 0);
+const kusamaAddress = encodeAddress(publicKey, 2);
+const substrateAddress = encodeAddress(publicKey, 42);
+
+console.log({
+  publicKeyHex: "0x" + Buffer.from(publicKey).toString("hex"),
+  polkadotAddress,
+  kusamaAddress,
+  substrateAddress,
+});
+
+(Derivation interface per Polkadot-API signer docs and SS58 encoding via Polkadot.js utilities) (Signers, Validating addresses (encodeAddress)).
+
+Notes
+
+    SS58 encoding ensures network-specific addresses; see the SS58 registry for full prefix list (Polkadot=0, Kusama=2) (Address formats).
+    If starting from a mnemonic, you can derive a mini-secret then a keypair (sr25519) as shown in the Polkadot-API signer docs (hdkd helpers) (Signers).
+
+All feedback is reviewed by the team.
+
+Answer based on the following sources:
+Address Formats
+docs.polkadot.com/polkadot-protocol
+
+Accounts
+`PolkadotSigner`
+papi.how/signers
+
+Signers
+Validating Addresses
+docs.polkadot.com/polkadot-protocol
+
+Accounts
+
+
+
+
+############################
+
+
+
+###################33
+
+How to convert a Substrate address to an Etherum address? [duplicate]
+Asked 3 years, 4 months ago
+Modified 2 years, 10 months ago
+Viewed 774 times
+3
+This question already has answers here:
+How to bind an Ethereum H160 address with a Substrate H256 address? (3 answers)
+Closed 3 years ago.
+
+How can I convert a Substrate address to an Etherum address?
+
+There is an EVM to substrate address conversion that Edgeware provides: https://edgewa.re/keygen
+
+    accountethereum
+
+Share
+Improve this question
+Follow
+edited Oct 28, 2022 at 11:05
+Bruno's user avatar
+Bruno♦
+8,49711 gold badge1414 silver badges3737 bronze badges
+asked Apr 8, 2022 at 15:46
+Ayush Mishra's user avatar
+Ayush Mishra
+93055 silver badges1313 bronze badges
+
+    2
+    Please provide more context and explain the question in more detail: Which address formats? Do you want to do it in code or just in general?. Also, it's best not to repeat the title of the question in the question body. – 
+    Dcompoze
+    Commented Apr 9, 2022 at 19:47
+
+Add a comment
+1 Answer
+Sorted by:
+10
+
+The Ethereum address correspond to the last 20 bytes of the keccak-256 hash of the (decompressed) secp256k1 public key.
+
+For example, given the following key generated via subkey tool:
+
+❯ subkey generate --scheme Ecdsa
+Secret phrase `normal whale earth envelope wash bench drip latin please inform crisp congress` is account:
+Secret seed:      0x6c51a7f71537a60e666288a292ceabf322202af75e39bc34fd10f576cee489a5
+Public key (hex): 0x025f13d211338f64fcc941e80b9d71929c38a7147762541da4123de45cedb0b312
+Account ID:       0x211e23eda1f535feb3abd690513a0c2731c4bb9940aad59f0fb3c8abe89308e1
+SS58 Address:     5Cp8PdGYPGe2Vc5WLb4eUmbeuhxuDjPSQcpyWgVSjh97D9sR
+
+Public key is given in compressed form:
+
+Compressed:         0x025f13d211338f64fcc941e80b9d71929c38a7147762541da4123de45cedb0b312
+
+Decompress it
+
+Decompressed:       0x045f13d211338f64fcc941e80b9d71929c38a7147762541da4123de45cedb0b31290c16565dbc3c937fd1d9cf4ecc8ad489551a7d608ec5c649bec747183334754
+
+Compute the Keccak-256 of the decompressed key (excluded the first byte (0x04))
+
+Keccak-256:         0x09ed410a80b44d0a8c3e7e1fd924abdb51e253b19f69fd8114fe6d9a1794d2cf
+
+The last 20 bytes is the Ethereum address
+
+Eth Address:        0xd924abdb51e253b19f69fd8114fe6d9a1794d2cf
+
+Said that, if instead you only have a Substrate AccountId (without the public key) it is not possible to convert it to the corresponding ETH address.
+
+The reason is that the AccountId is the result of a hash applied to the PublicKey (+ some other data) and thus it is not possible to revert it in order to recover the public key (and apply the procedure I've described above).
+
+Here is a code snip doing the conversion in the Substrate Beefy pallet:
+
+https://github.com/paritytech/substrate/blob/87ebfdbcf8242c04856e3881a78ea0bc369d77a2/frame/beefy-mmr/src/lib.rs#L70-L89
+
+
+
+##############################3
+
+
+
+################3
+import {
+  blake2AsU8a,
+  encodeAddress,
+} from "https://esm.sh/@polkadot/util-crypto";
+import {
+  hexToU8a,
+  stringToU8a,
+  u8aConcat,
+} from "https://esm.sh/@polkadot/util";
+
+const input = Deno.args[0];
+if (!input) {
+  console.error("usage: deno run evmToSubstrate.ts <ETH_ADDRESS_HERE>");
+  Deno.exit(1);
+}
+const addr = hexToU8a(input);
+const data = stringToU8a("evm:");
+const res = blake2AsU8a(u8aConcat(data, addr));
+const output = encodeAddress(res, 42);
+console.log({ input, output });
+// run using:
+// $ deno run evmToSubstrate.ts <ETH_ADDRESS_HERE>
+#############3
+
+
+
+#####################3
+How to get the Polkadot address from the polkadot public key? Polkadot.js
+Asked 4 years, 11 months ago
+Modified 1 year, 6 months ago
+Viewed 3k times
+3
+
+I tried @polkadot/util-crypto lib and @polkadot/keyring to convert, public key to polkadot address but no help.
+
+Is there any method provided by the polkadot.js?
+
+Steps on how to get the address will also work great.
+
+Thank you
+
+    cryptographyblockchainsubstratepolkadotpolkadot-js
+
+Share
+Improve this question
+Follow
+asked Sep 15, 2020 at 9:37
+Shubham Chadokar's user avatar
+Shubham Chadokar
+2,85311 gold badge2828 silver badges4747 bronze badges
+Add a comment
+1 Answer
+Sorted by:
+7
+
+@polkadot/util-crypto exposes the function encodeAddress which can input your public key bytes/hex and output an SS58 encoded address. If you want to get the address for a specific network, like Polkadot, you need to provide a secondary parameter which is the SS58 Prefix for that network. In the case of Polkadot it is 0.
+
+https://docs.substrate.io/reference/address-formats/#address-type
+
+For example:
+
+let address = util_crypto.encodeAddress("0x263158a10b39debac59bd1239bc64fb4bd678f507814d24f59efd46279111c71", 0)
+
+document.getElementById("output").innerText = address;
+
+<script src="//unpkg.com/polkadot-js-bundle/polkadot.js"></script>
+
+<div id="output"></output>
+
+
+###################33
+
+
+
+######################################PolkdaDotChatbot:
+
+Polkadot AI Chatbot
+
+This is an AI chatbot trained to answer questions about Polkadot. As such, the answers it provides might not always be accurate or up-to-date. Please use your best judgement when evaluating its responses. Also, please refrain from sharing any personal or private information with the bot. By submitting a query, you agree that you have read and understood these conditions. If you need further assistance, you can reach out to Polkadot Support.
+I want to generate a publicKey from a raw seed/privateKey to then generate publicWalletAddresses/Accounts for Polkadot, Substrate and Kusama using typscript, please provide code
+
+Below are TypeScript snippets (directly derived from the cited docs) to derive public keys and create Polkadot/Kusama/Substrate SS58 addresses from a raw private key/seed.
+
+    Using sr25519 (recommended for most Substrate chains)
+
+import { sr25519 } from "@polkadot-labs/hdkd-helpers";
+import { encodeAddress } from "@polkadot/keyring";
+
+// Input: 32-byte private key (mini-secret) as Uint8Array or hex
+const privHex = "0xYOUR_32BYTE_PRIVATE_KEY_HEX";
+const priv = Uint8Array.from(Buffer.from(privHex.replace(/^0x/, ""), "hex"));
+
+// 1) Get public key (AccountId32)
+const publicKey = sr25519.getPublicKey(priv); // Uint8Array (32 bytes)
+
+// 2) Encode to SS58 addresses:
+// Polkadot prefix = 0, Kusama prefix = 2, generic Substrate/dev = 42
+const polkadotAddress = encodeAddress(publicKey, 0);
+const kusamaAddress = encodeAddress(publicKey, 2);
+const substrateAddress = encodeAddress(publicKey, 42);
+
+console.log({
+  publicKeyHex: "0x" + Buffer.from(publicKey).toString("hex"),
+  polkadotAddress,
+  kusamaAddress,
+  substrateAddress,
+});
+
+(Uses sr25519 key derivation/signing helpers and SS58 encoding as shown in Polkadot-API signer docs and Polkadot.js address validation examples. Address-type prefixes: Polkadot=0, Kusama=2, generic Substrate commonly 42) (Signers, Validating addresses (encodeAddress), Address formats and prefixes).
+
+    Using ed25519
+
+import { ed25519 } from "@noble/curves/ed25519";
+import { encodeAddress } from "@polkadot/keyring";
+
+const privHex = "0xYOUR_32BYTE_PRIVATE_KEY_HEX";
+const priv = Uint8Array.from(Buffer.from(privHex.replace(/^0x/, ""), "hex"));
+
+// 1) Public key
+const publicKey = ed25519.getPublicKey(priv);
+
+// 2) SS58 addresses
+const polkadotAddress = encodeAddress(publicKey, 0);
+const kusamaAddress = encodeAddress(publicKey, 2);
+const substrateAddress = encodeAddress(publicKey, 42);
+
+console.log({
+  publicKeyHex: "0x" + Buffer.from(publicKey).toString("hex"),
+  polkadotAddress,
+  kusamaAddress,
+  substrateAddress,
+});
+
+(Derivation interface per Polkadot-API signer docs and SS58 encoding via Polkadot.js utilities) (Signers, Validating addresses (encodeAddress)).
+
+Notes
+
+    SS58 encoding ensures network-specific addresses; see the SS58 registry for full prefix list (Polkadot=0, Kusama=2) (Address formats).
+    If starting from a mnemonic, you can derive a mini-secret then a keypair (sr25519) as shown in the Polkadot-API signer docs (hdkd helpers) (Signers).
+
+All feedback is reviewed by the team.
+
+Answer based on the following sources:
+Address Formats
+docs.polkadot.com/polkadot-protocol
+
+Accounts
+`PolkadotSigner`
+papi.how/signers
+
+Signers
+Validating Addresses
+docs.polkadot.com/polkadot-protocol
+
+Accounts
+What is wrong with this code:
+
+
+      // Follow SubWallet's exact approach: create pair, decrypt, then get seed from toJson
+      const cryptoType = Array.isArray(keystoreObj.encoding.content) ? keystoreObj.encoding.content[1] : "ed25519";
+      const encType = (Array.isArray(keystoreObj.encoding.type) ? keystoreObj.encoding.type : [keystoreObj.encoding.type]) as EncryptedJsonEncoding[];
+      
+      console.log(`🔧 Detected crypto type: ${cryptoType}`);
+      console.log(`📍 Original keystore address: ${keystoreObj.address}`);
+      
+      // Create the pair exactly like SubWallet does
+      const pair = createPair(
+        { toSS58: encodeAddress, type: cryptoType as KeypairType },
+        { publicKey: decodeAddress(keystoreObj.address, true) },
+        keystoreObj.meta || {},
+        isHex(keystoreObj.encoded) ? hexToU8a(keystoreObj.encoded) : base64Decode(keystoreObj.encoded),
+        encType,
+      );
+      
+      console.log('✅ Created pair from JSON');
+      console.log(`📍 Pair address from keystore: ${pair.address}`);
+      
+      // Decrypt like SubWallet
+      pair.decodePkcs8(password);
+      
+      if (pair.isLocked) {
+        throw new Error('Pair is still locked after decryption');
+      }
+      
+      console.log('✅ Keystore decrypted successfully');
+      
+      // Get the full PKCS#8 encoded private key
+      const unlockedJson = pair.toJson();
+      const encodedPkcs8 = unlockedJson.encoded;
+      
+      console.log(`✅ Extracted full PKCS#8 encoded private key, length: ${encodedPkcs8.length}`);
+      
+      // Extract the actual seed from the PKCS#8 data for proper derivation
+      // The last 32 bytes of the PKCS#8 structure contain the raw seed
+      const pkcs8Bytes = base64Decode(encodedPkcs8);
+      const seed = pkcs8Bytes.slice(-32);
+      const seedHex = u8aToHex(seed).slice(2); // Remove '0x' prefix
+      
+      console.log(`✅ Extracted 32-byte seed from PKCS#8, length: ${seedHex.length}`);
+      console.log(`🔑 Seed preview: ${seedHex.substring(0, 16)}...`);
+      
+      return seedHex;
+      
+    } catch (error) {
+      console.error('Polkadot keystore decryption error:', error);
+      throw new Error(`Failed to decrypt Polkadot keystore: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+  },
+
+  deriveFromPrivateKey: async (privateKey: string) => {
+    try {
+      console.log('🔧 DOT deriving addresses from private key...');
+      
+      // Wait for crypto to be ready
+      await cryptoWaitReady();
+      
+      // The privateKey is now the hex-encoded seed (64 characters)
+      if (privateKey.length !== 64) {
+        throw new Error(`Invalid seed length: expected 64 hex characters, got ${privateKey.length}`);
+      }
+      
+      console.log(`🔑 Using seed: ${privateKey.substring(0, 16)}...`);
+      
+      // Create keyring and derive the keypair
+      const keyring = new Keyring({ type: 'sr25519' });
+      const seed = hexToU8a(`0x${privateKey}`);
+      const pair = keyring.addFromSeed(seed);
+      
+      const publicKey = u8aToHex(pair.publicKey).slice(2); // Remove '0x' prefix
+      console.log(`🔧 Derived public key: ${publicKey}`);
+      
+      // Generate addresses for all three networks
+      const polkadotAddress = await generatePolkadotAddress(pair.publicKey);
+      const kusamaAddress = await generateKusamaAddress(pair.publicKey);
+      const substrateAddress = await generateSubstrateAddress(pair.publicKey);
+      
+      console.log('✅ DOT derivation successful');
+      console.log(`📍 Polkadot address (prefix 0): ${polkadotAddress}`);
+      console.log(`📍 Kusama address (prefix 2): ${kusamaAddress}`);
+      console.log(`📍 Substrate address (prefix 42): ${substrateAddress}`);
+      console.log(`🔧 Expected Polkadot address: 5CcEfDpDkMfmx4TtKH2XFBUWcSsF6Ej3KyQs85MWPB9gfR6g`);
+      console.log(`🔧 Address match: ${polkadotAddress === '5CcEfDpDkMfmx4TtKH2XFBUWcSsF6Ej3KyQs85MWPB9gfR6g'}`);
+      
+      // Return the Polkadot address as the primary address
+      return { 
+        publicKey, 
+        address: polkadotAddress,
+        // Include all network addresses for reference
+        polkadotAddress,
+        kusamaAddress,
+        substrateAddress
+      };
+      
+    } catch (error) {
+      console.error('DOT derivation error:', error);
+      throw new Error(`Polkadot derivation failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+  },
+};
+
+Short answer: you’re extracting “the seed” incorrectly and mixing key types.
+
+What’s wrong
+
+    Assuming PKCS#8 ends with a 32‑byte seed: PKCS#8 is an encoding for private keys; its layout is not “seed at the last 32 bytes.” Slicing the last 32 bytes will often give you garbage, not the mini‑secret/private key you expect. The docs do not specify any rule that the seed is in the last 32 bytes, so this extraction is unreliable (there’s no support in the sources for this pattern).
+
+    Mixing crypto types vs derivation: you read the keystore’s crypto type dynamically (ed25519/sr25519), but later you always derive with a Keyring({ type: 'sr25519' }) and addFromSeed. If the original pair is ed25519 (or ecdsa), deriving as sr25519 will yield a different public key/address. You must honor the original KeypairType when deriving (the sources show ed25519 and sr25519 have different public key derivation functions) (Signers).
+
+    SS58 address generation is fine only if the public key is correct: address encoding uses the public key plus the network prefix (e.g., Polkadot=0, Kusama=2, Substrate=42). If the public key is wrong (due to bad seed extraction or wrong scheme), all SS58 addresses will be wrong even if encodeAddress runs without error (Validating addresses, Address formats).
+
+How to fix
+
+    Do not try to peel a 32‑byte “seed” from PKCS#8. After decrypting the pair, use the pair’s publicKey directly to encode SS58 for each network prefix (0, 2, 42). SS58 encoding is deterministic from the public key plus prefix (Validating addresses, Address formats).
+
+    If you truly need a seed, you must rely on what the keystore provides (mnemonic/seed, or the decrypted private key as dictated by the crypto type), not by slicing PKCS#8. The knowledge sources don’t document a supported way to extract a “seed” from PKCS#8.
+
+    When deriving from a private key/seed, pick the correct scheme:
+        ed25519: use ed25519.getPublicKey and then encodeAddress with prefixes (Signers, Validating addresses).
+        sr25519: use sr25519.getPublicKey similarly (Signers).
+
+    Validate addresses with encodeAddress/decodeAddress to ensure proper SS58 formatting for each network (Validating addresses, SS58 format).
+
+If you want, I can provide a minimal snippet that:
+
+    decrypts the keystore,
+    reads pair.publicKey,
+    outputs Polkadot/Kusama/Substrate SS58 addresses using the correct prefix, without attempting to extract a seed from PKCS#8.
+
+All feedback is reviewed by the team.
+
+Answer based on the following sources:
+SS58 Address Format
+docs.polkadot.com/polkadot-protocol
+
+Glossary
+`PolkadotSigner`
+papi.how/signers
+
+Signers
+Validating Addresses
+docs.polkadot.com/polkadot-protocol
+
+Accounts
+Address Formats
+docs.polkadot.com/polkadot-protocol
+
+Accounts
+Please provide code that decrypts a keystore and then outputs corresponding addresses with their proper prefix for Polkadot/Kusama/Substrate 
+
+Below is a minimal TypeScript example that:
+
+    loads a Polkadot.js-compatible JSON keystore,
+    decrypts it with a password,
+    derives SS58 addresses for Polkadot (0), Kusama (2), and generic Substrate (42).
+
+Note: We use Polkadot.js utilities for SS58 encoding/decoding as documented (encodeAddress/decodeAddress) and simply read pair.publicKey after decryption. The sources document validating/encoding addresses and SS58 prefixes but do not prescribe extracting seeds from PKCS#8, so we avoid that and rely on the decrypted keypair to get the public key and addresses (Validating addresses, Address formats).
+import { cryptoWaitReady } from '@polkadot/util-crypto';
+import { Keyring } from '@polkadot/keyring';
+import { encodeAddress, decodeAddress } from '@polkadot/keyring';
+import { isHex, hexToU8a } from '@polkadot/util';
+
+type EncryptedJsonEncoding = 'scrypt' | 'xsalsa20-poly1305' | 'pbkdf2';
+
+interface KeystoreJson {
+  address: string; // SS58 address stored in the keystore
+  encoded: string; // base64 or hex-encoded encrypted secret
+  meta?: Record<string, unknown>;
+  encoding: {
+    content: string | [string, string]; // e.g. ["pkcs8", "sr25519"]
+    type: EncryptedJsonEncoding | EncryptedJsonEncoding[];
+    version: string | number;
+  };
+}
+
+async function decryptKeystoreAndGetAddresses(keystoreObj: KeystoreJson, password: string) {
+  await cryptoWaitReady();
+
+  // Detect key type from the keystore
+  const cryptoType =
+    Array.isArray(keystoreObj.encoding.content)
+      ? (keystoreObj.encoding.content[1] as 'sr25519' | 'ed25519' | 'ecdsa')
+      : ('sr25519' as const); // default if content not an array
+
+  // Create a keyring with the appropriate type
+  const keyring = new Keyring({ type: cryptoType });
+
+  // Add the account from JSON and decrypt with password
+  const pair = keyring.addFromJson(keystoreObj);
+  pair.decodePkcs8(password);
+
+  if (pair.isLocked) {
+    throw new Error('Failed to decrypt: keypair is still locked');
+  }
+
+  // Use the decrypted public key to produce SS58 addresses per network
+  const publicKey = pair.publicKey;
+  const polkadotAddress = encodeAddress(publicKey, 0);   // Polkadot prefix 0
+  const kusamaAddress = encodeAddress(publicKey, 2);     // Kusama prefix 2
+  const substrateAddress = encodeAddress(publicKey, 42); // Generic Substrate prefix 42
+
+  return {
+    cryptoType,
+    publicKeyHex: `0x${Buffer.from(publicKey).toString('hex')}`,
+    polkadotAddress,
+    kusamaAddress,
+    substrateAddress,
+  };
+}
+
+// Example usage:
+// const keystore: KeystoreJson = JSON.parse(fs.readFileSync('account.json','utf8'));
+// decryptKeystoreAndGetAddresses(keystore, 'your_password').then(console.log).catch(console.error);
+
+    SS58 address encoding/validation uses Polkadot.js API helpers as shown (encodeAddress/decodeAddress) (Validating addresses).
+    Network-specific prefixes (Polkadot=0, Kusama=2, Substrate=42) are per the SS58 address format description (Address formats).
+
+
+Please provide code that decrypts a keystore and then outputs corresponding addresses with their proper prefix for Polkadot/Kusama/Substrate 
+
+Below is a minimal TypeScript example that:
+
+    loads a Polkadot.js-compatible JSON keystore,
+    decrypts it with a password,
+    derives SS58 addresses for Polkadot (0), Kusama (2), and generic Substrate (42).
+
+Note: We use Polkadot.js utilities for SS58 encoding/decoding as documented (encodeAddress/decodeAddress) and simply read pair.publicKey after decryption. The sources document validating/encoding addresses and SS58 prefixes but do not prescribe extracting seeds from PKCS#8, so we avoid that and rely on the decrypted keypair to get the public key and addresses (Validating addresses, Address formats).
+import { cryptoWaitReady } from '@polkadot/util-crypto';
+import { Keyring } from '@polkadot/keyring';
+import { encodeAddress, decodeAddress } from '@polkadot/keyring';
+import { isHex, hexToU8a } from '@polkadot/util';
+
+type EncryptedJsonEncoding = 'scrypt' | 'xsalsa20-poly1305' | 'pbkdf2';
+
+interface KeystoreJson {
+  address: string; // SS58 address stored in the keystore
+  encoded: string; // base64 or hex-encoded encrypted secret
+  meta?: Record<string, unknown>;
+  encoding: {
+    content: string | [string, string]; // e.g. ["pkcs8", "sr25519"]
+    type: EncryptedJsonEncoding | EncryptedJsonEncoding[];
+    version: string | number;
+  };
+}
+
+async function decryptKeystoreAndGetAddresses(keystoreObj: KeystoreJson, password: string) {
+  await cryptoWaitReady();
+
+  // Detect key type from the keystore
+  const cryptoType =
+    Array.isArray(keystoreObj.encoding.content)
+      ? (keystoreObj.encoding.content[1] as 'sr25519' | 'ed25519' | 'ecdsa')
+      : ('sr25519' as const); // default if content not an array
+
+  // Create a keyring with the appropriate type
+  const keyring = new Keyring({ type: cryptoType });
+
+  // Add the account from JSON and decrypt with password
+  const pair = keyring.addFromJson(keystoreObj);
+  pair.decodePkcs8(password);
+
+  if (pair.isLocked) {
+    throw new Error('Failed to decrypt: keypair is still locked');
+  }
+
+  // Use the decrypted public key to produce SS58 addresses per network
+  const publicKey = pair.publicKey;
+  const polkadotAddress = encodeAddress(publicKey, 0);   // Polkadot prefix 0
+  const kusamaAddress = encodeAddress(publicKey, 2);     // Kusama prefix 2
+  const substrateAddress = encodeAddress(publicKey, 42); // Generic Substrate prefix 42
+
+  return {
+    cryptoType,
+    publicKeyHex: `0x${Buffer.from(publicKey).toString('hex')}`,
+    polkadotAddress,
+    kusamaAddress,
+    substrateAddress,
+  };
+}
+
+// Example usage:
+// const keystore: KeystoreJson = JSON.parse(fs.readFileSync('account.json','utf8'));
+// decryptKeystoreAndGetAddresses(keystore, 'your_password').then(console.log).catch(console.error);
+
+    SS58 address encoding/validation uses Polkadot.js API helpers as shown (encodeAddress/decodeAddress) (Validating addresses).
+    Network-specific prefixes (Polkadot=0, Kusama=2, Substrate=42) are per the SS58 address format description (Address formats).
+
+
+
+
+
+#########################3
+
+This is an AI chatbot trained to answer questions about Polkadot. As such, the answers it provides might not always be accurate or up-to-date. Please use your best judgement when evaluating its responses. Also, please refrain from sharing any personal or private information with the bot. By submitting a query, you agree that you have read and understood these conditions. If you need further assistance, you can reach out to Polkadot Support.
+I want to generate a publicKey from a raw seed/privateKey to then generate publicWalletAddresses/Accounts for Polkadot, Substrate and Kusama using typscript, please provide code
+
+Below are TypeScript snippets (directly derived from the cited docs) to derive public keys and create Polkadot/Kusama/Substrate SS58 addresses from a raw private key/seed.
+
+    Using sr25519 (recommended for most Substrate chains)
+import { sr25519 } from "@polkadot-labs/hdkd-helpers";
+import { encodeAddress } from "@polkadot/keyring";
+
+// Input: 32-byte private key (mini-secret) as Uint8Array or hex
+const privHex = "0xYOUR_32BYTE_PRIVATE_KEY_HEX";
+const priv = Uint8Array.from(Buffer.from(privHex.replace(/^0x/, ""), "hex"));
+
+// 1) Get public key (AccountId32)
+const publicKey = sr25519.getPublicKey(priv); // Uint8Array (32 bytes)
+
+// 2) Encode to SS58 addresses:
+// Polkadot prefix = 0, Kusama prefix = 2, generic Substrate/dev = 42
+const polkadotAddress = encodeAddress(publicKey, 0);
+const kusamaAddress = encodeAddress(publicKey, 2);
+const substrateAddress = encodeAddress(publicKey, 42);
+
+console.log({
+  publicKeyHex: "0x" + Buffer.from(publicKey).toString("hex"),
+  polkadotAddress,
+  kusamaAddress,
+  substrateAddress,
+});
+
+(Uses sr25519 key derivation/signing helpers and SS58 encoding as shown in Polkadot-API signer docs and Polkadot.js address validation examples. Address-type prefixes: Polkadot=0, Kusama=2, generic Substrate commonly 42) (Signers, Validating addresses (encodeAddress), Address formats and prefixes).
+
+    Using ed25519
+
+import { ed25519 } from "@noble/curves/ed25519";
+import { encodeAddress } from "@polkadot/keyring";
+
+const privHex = "0xYOUR_32BYTE_PRIVATE_KEY_HEX";
+const priv = Uint8Array.from(Buffer.from(privHex.replace(/^0x/, ""), "hex"));
+
+// 1) Public key
+const publicKey = ed25519.getPublicKey(priv);
+
+// 2) SS58 addresses
+const polkadotAddress = encodeAddress(publicKey, 0);
+const kusamaAddress = encodeAddress(publicKey, 2);
+const substrateAddress = encodeAddress(publicKey, 42);
+
+console.log({
+  publicKeyHex: "0x" + Buffer.from(publicKey).toString("hex"),
+  polkadotAddress,
+  kusamaAddress,
+  substrateAddress,
+});
+
+(Derivation interface per Polkadot-API signer docs and SS58 encoding via Polkadot.js utilities) (Signers, Validating addresses (encodeAddress)).
+
+Notes
+
+    SS58 encoding ensures network-specific addresses; see the SS58 registry for full prefix list (Polkadot=0, Kusama=2) (Address formats).
+    If starting from a mnemonic, you can derive a mini-secret then a keypair (sr25519) as shown in the Polkadot-API signer docs (hdkd helpers) (Signers).
+
+
+What is wrong with this code:
+
+
+      // Follow SubWallet's exact approach: create pair, decrypt, then get seed from toJson
+      const cryptoType = Array.isArray(keystoreObj.encoding.content) ? keystoreObj.encoding.content[1] : "ed25519";
+      const encType = (Array.isArray(keystoreObj.encoding.type) ? keystoreObj.encoding.type : [keystoreObj.encoding.type]) as EncryptedJsonEncoding[];
+      
+      console.log(`🔧 Detected crypto type: ${cryptoType}`);
+      console.log(`📍 Original keystore address: ${keystoreObj.address}`);
+      
+      // Create the pair exactly like SubWallet does
+      const pair = createPair(
+        { toSS58: encodeAddress, type: cryptoType as KeypairType },
+        { publicKey: decodeAddress(keystoreObj.address, true) },
+        keystoreObj.meta || {},
+        isHex(keystoreObj.encoded) ? hexToU8a(keystoreObj.encoded) : base64Decode(keystoreObj.encoded),
+        encType,
+      );
+      
+      console.log('✅ Created pair from JSON');
+      console.log(`📍 Pair address from keystore: ${pair.address}`);
+      
+      // Decrypt like SubWallet
+      pair.decodePkcs8(password);
+      
+      if (pair.isLocked) {
+        throw new Error('Pair is still locked after decryption');
+      }
+      
+      console.log('✅ Keystore decrypted successfully');
+      
+      // Get the full PKCS#8 encoded private key
+      const unlockedJson = pair.toJson();
+      const encodedPkcs8 = unlockedJson.encoded;
+      
+      console.log(`✅ Extracted full PKCS#8 encoded private key, length: ${encodedPkcs8.length}`);
+      
+      // Extract the actual seed from the PKCS#8 data for proper derivation
+      // The last 32 bytes of the PKCS#8 structure contain the raw seed
+      const pkcs8Bytes = base64Decode(encodedPkcs8);
+      const seed = pkcs8Bytes.slice(-32);
+      const seedHex = u8aToHex(seed).slice(2); // Remove '0x' prefix
+      
+      console.log(`✅ Extracted 32-byte seed from PKCS#8, length: ${seedHex.length}`);
+      console.log(`🔑 Seed preview: ${seedHex.substring(0, 16)}...`);
+      
+      return seedHex;
+      
+    } catch (error) {
+      console.error('Polkadot keystore decryption error:', error);
+      throw new Error(`Failed to decrypt Polkadot keystore: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+  },
+
+  deriveFromPrivateKey: async (privateKey: string) => {
+    try {
+      console.log('🔧 DOT deriving addresses from private key...');
+      
+      // Wait for crypto to be ready
+      await cryptoWaitReady();
+      
+      // The privateKey is now the hex-encoded seed (64 characters)
+      if (privateKey.length !== 64) {
+        throw new Error(`Invalid seed length: expected 64 hex characters, got ${privateKey.length}`);
+      }
+      
+      console.log(`🔑 Using seed: ${privateKey.substring(0, 16)}...`);
+      
+      // Create keyring and derive the keypair
+      const keyring = new Keyring({ type: 'sr25519' });
+      const seed = hexToU8a(`0x${privateKey}`);
+      const pair = keyring.addFromSeed(seed);
+      
+      const publicKey = u8aToHex(pair.publicKey).slice(2); // Remove '0x' prefix
+      console.log(`🔧 Derived public key: ${publicKey}`);
+      
+      // Generate addresses for all three networks
+      const polkadotAddress = await generatePolkadotAddress(pair.publicKey);
+      const kusamaAddress = await generateKusamaAddress(pair.publicKey);
+      const substrateAddress = await generateSubstrateAddress(pair.publicKey);
+      
+      console.log('✅ DOT derivation successful');
+      console.log(`📍 Polkadot address (prefix 0): ${polkadotAddress}`);
+      console.log(`📍 Kusama address (prefix 2): ${kusamaAddress}`);
+      console.log(`📍 Substrate address (prefix 42): ${substrateAddress}`);
+      console.log(`🔧 Expected Polkadot address: 5CcEfDpDkMfmx4TtKH2XFBUWcSsF6Ej3KyQs85MWPB9gfR6g`);
+      console.log(`🔧 Address match: ${polkadotAddress === '5CcEfDpDkMfmx4TtKH2XFBUWcSsF6Ej3KyQs85MWPB9gfR6g'}`);
+      
+      // Return the Polkadot address as the primary address
+      return { 
+        publicKey, 
+        address: polkadotAddress,
+        // Include all network addresses for reference
+        polkadotAddress,
+        kusamaAddress,
+        substrateAddress
+      };
+      
+    } catch (error) {
+      console.error('DOT derivation error:', error);
+      throw new Error(`Polkadot derivation failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+  },
+};
+
+Short answer: you’re extracting “the seed” incorrectly and mixing key types.
+
+What’s wrong
+
+    Assuming PKCS#8 ends with a 32‑byte seed: PKCS#8 is an encoding for private keys; its layout is not “seed at the last 32 bytes.” Slicing the last 32 bytes will often give you garbage, not the mini‑secret/private key you expect. The docs do not specify any rule that the seed is in the last 32 bytes, so this extraction is unreliable (there’s no support in the sources for this pattern).
+
+    Mixing crypto types vs derivation: you read the keystore’s crypto type dynamically (ed25519/sr25519), but later you always derive with a Keyring({ type: 'sr25519' }) and addFromSeed. If the original pair is ed25519 (or ecdsa), deriving as sr25519 will yield a different public key/address. You must honor the original KeypairType when deriving (the sources show ed25519 and sr25519 have different public key derivation functions) (Signers).
+
+    SS58 address generation is fine only if the public key is correct: address encoding uses the public key plus the network prefix (e.g., Polkadot=0, Kusama=2, Substrate=42). If the public key is wrong (due to bad seed extraction or wrong scheme), all SS58 addresses will be wrong even if encodeAddress runs without error (Validating addresses, Address formats).
+
+How to fix
+
+    Do not try to peel a 32‑byte “seed” from PKCS#8. After decrypting the pair, use the pair’s publicKey directly to encode SS58 for each network prefix (0, 2, 42). SS58 encoding is deterministic from the public key plus prefix (Validating addresses, Address formats).
+
+    If you truly need a seed, you must rely on what the keystore provides (mnemonic/seed, or the decrypted private key as dictated by the crypto type), not by slicing PKCS#8. The knowledge sources don’t document a supported way to extract a “seed” from PKCS#8.
+
+    When deriving from a private key/seed, pick the correct scheme:
+        ed25519: use ed25519.getPublicKey and then encodeAddress with prefixes (Signers, Validating addresses).
+        sr25519: use sr25519.getPublicKey similarly (Signers).
+
+    Validate addresses with encodeAddress/decodeAddress to ensure proper SS58 formatting for each network (Validating addresses, SS58 format).
+
+If you want, I can provide a minimal snippet that:
+
+    decrypts the keystore,
+    reads pair.publicKey,
+    outputs Polkadot/Kusama/Substrate SS58 addresses using the correct prefix, without attempting to extract a seed from PKCS#8.
+
+
+Please provide code that decrypts a keystore and then outputs corresponding addresses with their proper prefix for Polkadot/Kusama/Substrate 
+
+Below is a minimal TypeScript example that:
+
+    loads a Polkadot.js-compatible JSON keystore,
+    decrypts it with a password,
+    derives SS58 addresses for Polkadot (0), Kusama (2), and generic Substrate (42).
+
+Note: We use Polkadot.js utilities for SS58 encoding/decoding as documented (encodeAddress/decodeAddress) and simply read pair.publicKey after decryption. The sources document validating/encoding addresses and SS58 prefixes but do not prescribe extracting seeds from PKCS#8, so we avoid that and rely on the decrypted keypair to get the public key and addresses (Validating addresses, Address formats).
+
+import { cryptoWaitReady } from '@polkadot/util-crypto';
+import { Keyring } from '@polkadot/keyring';
+import { encodeAddress, decodeAddress } from '@polkadot/keyring';
+import { isHex, hexToU8a } from '@polkadot/util';
+
+type EncryptedJsonEncoding = 'scrypt' | 'xsalsa20-poly1305' | 'pbkdf2';
+
+interface KeystoreJson {
+  address: string; // SS58 address stored in the keystore
+  encoded: string; // base64 or hex-encoded encrypted secret
+  meta?: Record<string, unknown>;
+  encoding: {
+    content: string | [string, string]; // e.g. ["pkcs8", "sr25519"]
+    type: EncryptedJsonEncoding | EncryptedJsonEncoding[];
+    version: string | number;
+  };
+}
+
+async function decryptKeystoreAndGetAddresses(keystoreObj: KeystoreJson, password: string) {
+  await cryptoWaitReady();
+
+  // Detect key type from the keystore
+  const cryptoType =
+    Array.isArray(keystoreObj.encoding.content)
+      ? (keystoreObj.encoding.content[1] as 'sr25519' | 'ed25519' | 'ecdsa')
+      : ('sr25519' as const); // default if content not an array
+
+  // Create a keyring with the appropriate type
+  const keyring = new Keyring({ type: cryptoType });
+
+  // Add the account from JSON and decrypt with password
+  const pair = keyring.addFromJson(keystoreObj);
+  pair.decodePkcs8(password);
+
+  if (pair.isLocked) {
+    throw new Error('Failed to decrypt: keypair is still locked');
+  }
+
+  // Use the decrypted public key to produce SS58 addresses per network
+  const publicKey = pair.publicKey;
+  const polkadotAddress = encodeAddress(publicKey, 0);   // Polkadot prefix 0
+  const kusamaAddress = encodeAddress(publicKey, 2);     // Kusama prefix 2
+  const substrateAddress = encodeAddress(publicKey, 42); // Generic Substrate prefix 42
+
+  return {
+    cryptoType,
+    publicKeyHex: `0x${Buffer.from(publicKey).toString('hex')}`,
+    polkadotAddress,
+    kusamaAddress,
+    substrateAddress,
+  };
+}
+
+// Example usage:
+// const keystore: KeystoreJson = JSON.parse(fs.readFileSync('account.json','utf8'));
+// decryptKeystoreAndGetAddresses(keystore, 'your_password').then(console.log).catch(console.error);
+
+
+    SS58 address encoding/validation uses Polkadot.js API helpers as shown (encodeAddress/decodeAddress) (Validating addresses).
+    Network-specific prefixes (Polkadot=0, Kusama=2, Substrate=42) are per the SS58 address format description (Address formats).
+
+
+I have a raw privateKey of 3726aca4a2ea17a636741a8094b78356eed4f14be9de2d82bccb4f9e05119073 and its supposed to generate a publicWalletAddress of 138L1m4rgDPgneujUrntWCtibXgjMxjZMv9NL8HQKeEedUWb, the code I have isnt do that, please provide code that would accurately convert the privateKey of 3726aca4a2ea17a636741a8094b78356eed4f14be9de2d82bccb4f9e05119073 to the publicWalletAddress of  138L1m4rgDPgneujUrntWCtibXgjMxjZMv9NL8HQKeEedUWb
+
+I’m sorry, but the knowledge sources do not provide a deterministic mapping from an arbitrary 32-byte private key to the exact SS58 address you specified. They do show how to derive a public key from a private/seed for specific schemes (sr25519/ed25519/ecdsa) and then encode it to SS58 with the proper network prefix. Without knowing the correct crypto scheme and any derivation path used for that private key, I cannot guarantee it will produce the given address.
+
+Below is TypeScript that tries both ed25519 and sr25519, then encodes the public key as SS58 with the Polkadot prefix (0). If the address was produced with a different scheme or derivation, it won’t match. You can change the prefix to target Kusama (2) or generic Substrate (42) as needed (Polkadot=0, Kusama=2, Substrate=42) (Address formats). SS58 encoding/validation uses Polkadot.js utilities (Validating addresses).
+
+import { encodeAddress } from '@polkadot/keyring';
+import { hexToU8a, u8aToHex } from '@polkadot/util';
+import { ed25519 } from '@noble/curves/ed25519';
+import { sr25519 } from '@polkadot-labs/hdkd-helpers';
+
+const PRIVATE_HEX = '3726aca4a2ea17a636741a8094b78356eed4f14be9de2d82bccb4f9e05119073';
+const PREFIX_POLKADOT = 0; // Kusama=2, Substrate=42
+
+function tryEd25519(priv: Uint8Array) {
+  const pub = ed25519.getPublicKey(priv);
+  const addr = encodeAddress(pub, PREFIX_POLKADOT);
+  return { scheme: 'ed25519', publicKeyHex: u8aToHex(pub), address: addr };
+}
+
+function trySr25519(priv: Uint8Array) {
+  const pub = sr25519.getPublicKey(priv);
+  const addr = encodeAddress(pub, PREFIX_POLKADOT);
+  return { scheme: 'sr25519', publicKeyHex: u8aToHex(pub), address: addr };
+}
+
+function main() {
+  const priv = hexToU8a('0x' + PRIVATE_HEX);
+
+  const ed = tryEd25519(priv);
+  const sr = trySr25519(priv);
+
+  console.log('ed25519 ->', ed);
+  console.log('sr25519  ->', sr);
+
+  // If your expected address uses another prefix, also print:
+  const prefixes = [0, 2, 42];
+  for (const p of prefixes) {
+    console.log(`\nAddresses with prefix ${p}:`);
+    console.log('ed25519:', encodeAddress(hexToU8a(ed.publicKeyHex), p));
+    console.log('sr25519:', encodeAddress(hexToU8a(sr.publicKeyHex), p));
+  }
+}
+
+main();
+
+Notes:
+
+    SS58 address = encodeAddress(publicKey, prefix). If your expected address uses a different prefix, change PREFIX_POLKADOT accordingly (Address formats).
+    This code follows the documented approach: derive public key from the private/seed with the correct scheme, then SS58-encode it (Signers, Validating addresses). If it still doesn’t match, the original address likely came from a different scheme, derivation path, or not from a raw 32-byte private key.
+
+
+I have this Mnemonic: vault hungry cliff cause list initial advance release milk bunker grocery grab
+
+For Talisman it generates the following:
+Talisman:
+
+Public Key
+0x3e62924874571ed00afc7f7331fadcb7a4382f5b10584f1f98c571685908c347
+H160
+0x3e62924874571ed00AFc7f7331FaDcb7a4382F5B
+polkadot
+polkadot (Prefix: 0)
+12QoFYHWpriH7eXAuY7YfsdZGWdXzY8iumV9HSUbhGB17D9g
+kusama
+kusama (Prefix: 2)
+Dz7mXNKbSTjRmL6ibsbRgAQZUv86uPmHebQWomCcyMyfsrG
+substrate
+5DUW7D2Sy5Sog7Wewu4YXioQQtdtJEaaqGkf89VF9B9Uvt1b
+
+For Exodus, a multichain wallet,  it generates the following:
+Exodus:
+
+Path:
+    m/0'/0'
+
+privateKey:
+    3726aca4a2ea17a636741a8094b78356eed4f14be9de2d82bccb4f9e05119073
+
+publicWalletAddress:
+    138L1m4rgDPgneujUrntWCtibXgjMxjZMv9NL8HQKeEedUWb    
+
+Using typescript, how can we cretae code that when given the privateKey of 3726aca4a2ea17a636741a8094b78356eed4f14be9de2d82bccb4f9e05119073
+
+generates the publicWalletAddress:
+    138L1m4rgDPgneujUrntWCtibXgjMxjZMv9NL8HQKeEedUWb    
+
+I can’t deterministically reproduce Exodus’ address from that private key using the provided knowledge sources. The sources explain how to derive addresses from a key for specific schemes (sr25519/ed25519/ECDSA) and how to SS58‑encode with a given prefix, but they do not document Exodus’ derivation (curve, hashing, or path transformation) for Substrate/Polkadot. Without the exact scheme and derivation used by Exodus (it shows a BIP32 path m/0'/0', possibly ECDSA/ed25519 rather than sr25519), I can’t guarantee the exact SS58 address 138L1m4… will result.
+
+Below is TypeScript that, given a 32‑byte private key, derives a public key with common schemes and encodes SS58 with selectable prefixes. You can test which combination matches your target. SS58 encoding/prefixes are per the docs (Polkadot=0, Kusama=2, Substrate=42) and address validation/encoding uses Polkadot.js utilities (Address formats, Validating addresses).
+
+import { encodeAddress } from '@polkadot/keyring';
+import { hexToU8a, u8aToHex } from '@polkadot/util';
+import { ed25519 } from '@noble/curves/ed25519';
+import { sr25519 } from '@polkadot-labs/hdkd-helpers';
+import { secp256k1 } from '@noble/curves/secp256k1';
+
+// Input private key (32 bytes hex, no 0x)
+const PRIV_HEX = '3726aca4a2ea17a636741a8094b78356eed4f14be9de2d82bccb4f9e05119073';
+
+// Try SS58 prefixes that commonly matter: Polkadot=0, Kusama=2, Substrate=42
+const PREFIXES = [0, 2, 42];
+
+function addressesFromEd25519(priv: Uint8Array) {
+  const pub = ed25519.getPublicKey(priv); // 32 bytes
+  return PREFIXES.map((p) => ({ prefix: p, addr: encodeAddress(pub, p) }));
+}
+
+function addressesFromSr25519(priv: Uint8Array) {
+  const pub = sr25519.getPublicKey(priv); // 32 bytes
+  return PREFIXES.map((p) => ({ prefix: p, addr: encodeAddress(pub, p) }));
+}
+
+function addressesFromEcdsa(priv: Uint8Array) {
+  // Substrate ECDSA AccountId32 uses blake2b(pubkey) as account id on Polkadot-like chains (see signer guidance)
+  // Here we encode the raw uncompressed pubkey (without 0x04) hashed to 32 bytes is NOT implemented in the sources,
+  // so we only try encoding the 33-byte compressed key directly won’t be valid for SS58 AccountId32.
+  // Therefore, we focus on ed25519/sr25519 which are standard per docs.
+  const pub = secp256k1.getPublicKey(priv, true); // compressed 33 bytes (not directly AccountId32)
+  return { note: 'ECDSA AccountId32 mapping not covered in sources; focus on sr25519/ed25519.' };
+}
+
+function main() {
+  const priv = hexToU8a('0x' + PRIV_HEX);
+
+  const ed = addressesFromEd25519(priv);
+  const sr = addressesFromSr25519(priv);
+  const ec = addressesFromEcdsa(priv);
+
+  console.log('ed25519 addresses:', ed);
+  console.log('sr25519 addresses:', sr);
+  console.log('ecdsa (note):', ec);
+}
+
+main();
+
+Why this limitation:
+
+    The docs show how to derive public keys from a seed/private key for ed25519/sr25519 and then SS58‑encode with a chosen prefix (Signers; Validating addresses). They don’t specify Exodus’ derivation path handling for Substrate accounts, nor how it maps BIP32 EVM paths to Substrate keys.
+    SS58 is just encoding of the public key plus a network prefix; matching your exact address requires the same curve and derivation that Exodus used (SS58 Address Format, Address formats).
+
+If you can confirm which crypto scheme Exodus used (sr25519 vs ed25519 vs ECDSA) and whether it applied any derivation from the mnemonic to that private key beyond a raw 32‑byte seed, I can adjust the snippet accordingly.
+
+
+########################
+
+I have this Mnemonic: vault hungry cliff cause list initial advance release milk bunker grocery grab
+
+For Talisman it generates the following:
+Talisman:
+
+Public Key
+0x3e62924874571ed00afc7f7331fadcb7a4382f5b10584f1f98c571685908c347
+H160
+0x3e62924874571ed00AFc7f7331FaDcb7a4382F5B
+polkadot
+polkadot (Prefix: 0)
+12QoFYHWpriH7eXAuY7YfsdZGWdXzY8iumV9HSUbhGB17D9g
+kusama
+kusama (Prefix: 2)
+Dz7mXNKbSTjRmL6ibsbRgAQZUv86uPmHebQWomCcyMyfsrG
+substrate
+5DUW7D2Sy5Sog7Wewu4YXioQQtdtJEaaqGkf89VF9B9Uvt1b
+
+For Exodus, a multichain wallet,  it generates the following:
+Exodus:
+
+Path:
+    m/0'/0'
+
+privateKey:
+    3726aca4a2ea17a636741a8094b78356eed4f14be9de2d82bccb4f9e05119073
+
+publicWalletAddress:
+    138L1m4rgDPgneujUrntWCtibXgjMxjZMv9NL8HQKeEedUWb    
+
+Using typescript, how can we cretae code that when given the privateKey of 3726aca4a2ea17a636741a8094b78356eed4f14be9de2d82bccb4f9e05119073
+
+generates the publicWalletAddress:
+    138L1m4rgDPgneujUrntWCtibXgjMxjZMv9NL8HQKeEedUWb    
+
+
+##############3
+
+
+I have this privateKey:
+3ad9658d708d89b4212dbaed4e1e65358aafbf8243d89493708df9e9921ebdc1
+
+but it is generating the wrong publicKey and thus the wrong publicWalletAddress
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#####################3Links:
+
+https://wiki.polkadot.com/learn/learn-account-advanced/
+
+https://polkadot.subscan.io/tools/format_transform
+
+https://gist.github.com/shekohex/4f04f221af64481992d2fa42feec58b0
+
+https://stackoverflow.com/questions/63899101/how-to-get-the-polkadot-address-from-the-polkadot-public-key-polkadot-js
+
+
+https://github.com/shamilsan/ss58.org
+https://namespaces.chainagnostic.org/polkadot/caip10
+https://github.com/paritytech/substrate/blob/87ebfdbcf8242c04856e3881a78ea0bc369d77a2/frame/beefy-mmr/src/lib.rs#L70-L89
+
+https://docs.polkadot.com/#
+
+

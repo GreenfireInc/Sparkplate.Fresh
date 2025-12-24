@@ -1,0 +1,1022 @@
+7/12/2025
+
+Research.Cryptocurrency: PriceSources
+
+
+
+
+
+
+###################3
+
+Please find the pricing sources listed in  @Oct12.Research.Cryptocurrency.PriceSources       and create files for ALL of them in     src/components/currencyCore/pricingSources and include in these files, their API endpoints, npm SDK (if available), and subgraph link, along with links to their API documentation and social media links (Telegram, Twitter, etc) please
+
+
+
+
+
+##################
+
+
+
+
+Prompts.Claude:
+#
+P/R
+Prompt / Response
+1
+P
+Of all these cryptocurrency pricing sources:
+
+BitDataset
+Blockmarkets
+BraveNewCoin
+CoinAPI
+CoinCap 
+Coindar
+CoinGecko 
+Coinigy 
+Coinlayer 
+Coinlib 
+CoinMarketCap 
+Coinograph 
+Coinpaprika 
+Coinscious
+CryptoCompare 
+Cryptonator
+DataLight
+Delta 
+Kaiko 
+Nomics 
+Zloadr 
+
+which of them offer free API calls and by scanning the internet, which ones am I missing? Please provide links to the API endpoints along with a link to their API documentation
+2
+R
+I'll search for detailed information about free API access, endpoints, and documentation for these cryptocurrency pricing sources.Let me fetch some of these documentation pages to get the exact endpoint information.Based on my research, here's a comprehensive breakdown of cryptocurrency pricing sources with free API access, their endpoints, and documentation:
+FROM YOUR LIST - WITH FREE API ACCESS:
+✅ CoinGecko
+    • API Endpoint: https://api.coingecko.com/api/v3/ 
+    • Documentation: https://docs.coingecko.com/ 
+    • Free Tier: 30 calls/minute, 10,000 calls/month, no API key required 
+✅ CoinMarketCap
+    • API Endpoint: https://pro-api.coinmarketcap.com/v1/ 
+    • Documentation: https://coinmarketcap.com/api/documentation/v1/ 
+    • Free Tier: Requires API key, limited calls (specific limits not listed publicly) 
+✅ Coinpaprika
+    • API Endpoint: https://api.coinpaprika.com/v1/ 
+    • Documentation: https://docs.coinpaprika.com/ 
+    • Free Tier: Free access to real-time market data 
+✅ CryptoCompare
+    • API Endpoint: https://min-api.cryptocompare.com/data/ 
+    • Documentation: https://min-api.cryptocompare.com/documentation 
+    • Free Tier: Available with API key 
+✅ CoinCap
+    • API Endpoint: https://api.coincap.io/v2/ 
+    • Documentation: https://docs.coincap.io/ 
+    • Free Tier: Free access to real-time data for over 1,000 cryptocurrencies from thousands of markets 
+✅ Coinlayer
+    • API Endpoint: https://api.coinlayer.com/ 
+    • Documentation: https://coinlayer.com/documentation 
+    • Free Tier: Free plan available with API key 
+✅ Nomics (Note: Service status unclear)
+    • API Endpoint: https://api.nomics.com/v1/ 
+    • Documentation: Previous documentation available 
+    • Free Tier: Free API access was available 
+✅ CoinAPI
+    • API Endpoint: https://rest.coinapi.io/v1/ 
+    • Documentation: https://docs.coinapi.io/ 
+    • Free Tier: Free tier with limited calls 
+✅ Cryptonator
+    • API Endpoint: https://api.cryptonator.com/api/ 
+    • Documentation: https://www.cryptonator.com/api 
+    • Free Tier: Free public API 
+FROM YOUR LIST - LIMITED/UNVERIFIED:
+⚠️ Kaiko - Enterprise/Premium only ⚠️ BraveNewCoin - Primarily paid service ⚠️ Coinigy - Trading platform with limited API ⚠️ Delta - Portfolio app with limited API ⚠️ BitDataset, Blockmarkets, Coindar, Coinlib, Coinograph, Coinscious, DataLight, Zloadr - Unable to verify free API availability
+
+MAJOR SOURCES YOU'RE MISSING:
+📍 Binance API
+    • API Endpoint: https://api.binance.com/api/v3/ 
+    • Documentation: https://binance-docs.github.io/apidocs/ 
+    • Free Tier: Free access, no API key needed for public endpoints 
+📍 Coinbase API
+    • API Endpoint: https://api.coinbase.com/v2/ 
+    • Documentation: https://docs.cloud.coinbase.com/ 
+    • Free Tier: Free tier available 
+📍 Kraken API
+    • API Endpoint: https://api.kraken.com/0/public/ 
+    • Documentation: https://docs.kraken.com/rest/ 
+    • Free Tier: Free public endpoints 
+📍 Messari
+    • API Endpoint: https://data.messari.io/api/v1/ 
+    • Documentation: https://messari.io/api/docs 
+    • Free Tier: Free API suite with real-time structured data 
+📍 CoinLore
+    • API Endpoint: https://api.coinlore.net/api/ 
+    • Documentation: https://www.coinlore.com/cryptocurrency-data-api 
+    • Free Tier: Completely free, no API key required 
+📍 Bitquery
+    • API Endpoint: https://graphql.bitquery.io/ 
+    • Documentation: https://docs.bitquery.io/ 
+    • Free Tier: Free tier with GraphQL API 
+📍 CoinStats
+    • API Endpoint: https://api.coinstats.app/public/v1/ 
+    • Documentation: https://documenter.getpostman.com/view/5734027/ 
+    • Free Tier: Free public API 
+📍 LunarCrush
+    • API Endpoint: https://api.lunarcrush.com/v2 
+    • Documentation: https://lunarcrush.com/developers/docs 
+    • Free Tier: Free tier with social metrics 
+Recommendation: For the most reliable free access with comprehensive data, I recommend CoinGecko, CoinMarketCap, Coinpaprika, and Binance API as your primary sources.
+
+3
+P
+
+4
+R
+
+5
+P
+
+6
+R
+
+7
+P
+
+8
+R
+
+9
+P
+
+10
+R
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Prompts.ChatGPT:
+#
+P/R
+Prompt / Response
+1
+P
+Of all these cryptocurrency pricing sources:
+
+BitDataset
+Blockmarkets
+BraveNewCoin
+CoinAPI
+CoinCap 
+Coindar
+CoinGecko 
+Coinigy 
+Coinlayer 
+Coinlib 
+CoinMarketCap 
+Coinograph 
+Coinpaprika 
+Coinscious
+CryptoCompare 
+Cryptonator
+DataLight
+Delta 
+Kaiko 
+Nomics 
+Zloadr 
+
+which of them offer free API calls and by scanning the internet, which ones am I missing? Please provide links to the API endpoints along with a link to their API documentation
+2
+R
+I did a deeper scan. Below is a more detailed breakdown of which of your listed crypto / pricing data providers are known to offer free or freemium API access, what I found (endpoints, docs, usage limits), and some additional ones you’re likely missing.
+
+✅ From your list: which ones have free / freemium API access (or “get started for free”)
+Here’s what I found for each, with links:
+Provider Free / Freemium Access? Notes, Endpoints & Documentation Links Blockmarkets Yes They claim a free cryptocurrency API with unlimited monthly requests, including real-time and historical data. (Traders Magazine) I did not find a fully detailed public API docs page in the scan, but the offer is described in press / announcements. Coindar Yes (for event data) Coindar has an API 2.0 for crypto event / calendar data. You need to register to get an access token. (Coindar — Cryptocurrency Calendar) Example: https://coindar.org/api/v2/coins?access_token={token} (Coindar — Cryptocurrency Calendar) They also provide a widget API for events: https://coindar.org/api/widget_events?... (Coindar — Cryptocurrency Calendar) CoinAPI Freemium / start free Their site offers unified real-time & historical crypto data APIs. (CoinAPI) Documentation: https://docs.coinapi.io/ (docs.coinapi.io) CoinCap Yes (freemium / “PRO” model) They provide real-time pricing, market data APIs. (pro.coincap.io) Docs: https://pro.coincap.io/api-docs/ (pro.coincap.io) Their “Quickstart” page: https://coincapapi.mintlify.app/quickstart (coincapapi.mintlify.app) CoinGecko Yes (free tier) They have generous free API access (rate limited) for live & historical data. (CoinGecko API) Docs: https://docs.coingecko.com/ (CoinGecko API) Coinigy Likely (for account / exchange integration) They provide an API for interacting with your Coinigy account and tied exchanges. (Coinigy) Docs: https://www.coinigy.com/en/platform/api/ and https://coinigy.docs.apiary.io/ (coinigy.docs.apiary.io) Coinlayer Yes (free plan) Their site states “Get a free API access key” to start using their API. (coinlayer.com) Pricing page: free plan allows 100 requests/month. (coinlayer.com) Docs: https://coinlayer.com/documentation (coinlayer.com) CoinMarketCap Yes (free / “Starter” tier) They allow developers to “Get started for free” in their API offering. (CoinMarketCap) Their API documentation is accessible via their site. (CoinMarketCap) CryptoCompare Yes (free / basic tier) Their API is widely known and used with a free/basic plan. (Bitcoin Stack Exchange) Their API is called “min-api” in many usages (https://min-api.cryptocompare.com) (Bitcoin Stack Exchange) 
+For the others in your list — BitDataset, BraveNewCoin, CoinCap, CoinLib, CoinPaprika, Coinograph, Coinscious, Cryptonator, DataLight, Delta, Kaiko, Nomics, Zloadr — I either found no clear free-tier API advertised in the scan, or evidence was insufficient / ambiguous. (They may offer private or paid APIs, or limited trial access.)
+
+🔍 Additional crypto pricing / market data APIs I discovered
+While scanning, I also found several other providers / APIs that are good candidates (some free or freemium) not in your original list:
+    • CoinLore — a public, free crypto API with no registration required. Covers many coins & exchanges.
+        ◦ Docs / site: https://www.coinlore.com/cryptocurrency-data-api (CoinLore)
+    • DIA (Decentralised Information Asset) — offers free crypto market data via GraphQL / REST. (Mentioned via “Power your application with free crypto API” by DIADATA) (DIA)
+    • Amberdata — institutional-grade market + blockchain data; may have free or trial tiers. (Amberdata)
+    • Crypto APIs (CryptoAPIs.io) — infrastructure + market data suite. They may have free/low-tier plans. (Crypto APIs)
+    • FinancialDatasets.ai — offers “Crypto Prices API” (historical + real-time) with tiered access. (Financial Datasets)
+
+📋 Summary Table (with known free / freemium ones & docs)
+Here’s a polished summary:
+Provider Free / Freemium? API / Endpoint / Base URL Documentation / API docs link Blockmarkets Yes (free) RESTful / normalized pricing, unlimited requests (as claimed) (Traders Magazine) (No clear public docs found in scan) Coindar Yes (for events) https://coindar.org/api/v2/…?access_token={token} (Coindar — Cryptocurrency Calendar) Coindar API docs: “Cryptocurrency Calendar API 2.0 Documentation” (Coindar — Cryptocurrency Calendar) CoinAPI Yes (freemium) Market / historical unified API (base paths via their docs) (CoinAPI) https://docs.coinapi.io/ (docs.coinapi.io) CoinCap Yes (freemium / “PRO”) https://api.coincap.io/v2/... etc. (pro.coincap.io) CoinCap API docs: https://pro.coincap.io/api-docs/ (pro.coincap.io) CoinGecko Yes (free tier) Many endpoints like /simple/price, /coins/markets, etc. (CoinGecko) https://docs.coingecko.com/ (CoinGecko API) Coinigy Likely (account / exchange interface) API to interact with user’s Coinigy account & exchanges (authenticated) (coinigy.docs.apiary.io) Coinigy API docs: https://coinigy.docs.apiary.io/ (coinigy.docs.apiary.io) Coinlayer Yes (free plan) Base: https://api.coinlayer.com/ with access_key parameter (coinlayer.com) Documentation: https://coinlayer.com/documentation (coinlayer.com) CoinMarketCap Yes (starter / free tier) Various endpoints for price, historical, exchange data (CoinMarketCap) API docs accessible via their site (CMC API section) (CoinMarketCap) CryptoCompare Yes (basic / free) min-api.cryptocompare.com etc. (Bitcoin Stack Exchange) CryptoCompare API docs (on their site) (Bitcoin Stack Exchange) 
+
+If you like, I can try to pull up live working free API keys / endpoints for as many of these as possible (for your development), and also check exactly which of the “unknown ones” (BitDataset, BraveNewCoin, etc.) truly do or don’t have free plans. Do you want me to do that next?
+
+3
+P
+Yes please
+4
+R
+Certainly! Here's an updated overview of cryptocurrency pricing APIs, focusing on those offering free or freemium access, along with their documentation links:
+
+✅ Cryptocurrency Pricing APIs with Free or Freemium Access
+Provider Free/Freemium Access Documentation & API Links CoinGecko Yes API Documentation CoinCap Yes API Documentation CoinPaprika Yes API Documentation CoinMarketCap Yes (Starter Plan) API Documentation CryptoCompare Yes API Documentation CoinAPI Yes (Free Tier) API Documentation Coinlib Yes API Documentation Crypto API Yes API Documentation CryptoNator Yes API Documentation CoinPaprika Yes API Documentation 
+
+🔍 Additional Cryptocurrency APIs to Explore
+    • CoinGecko: Offers comprehensive data including live prices, historical data, and more. API Documentation
+    • CoinCap: Provides real-time pricing and market activity for over 1,000 cryptocurrencies. API Documentation
+    • CoinPaprika: Delivers free and frequently updated market data from the world of crypto. API Documentation
+    • CoinMarketCap: Offers both free and paid plans with access to a wide range of cryptocurrency data. API Documentation
+    • CryptoCompare: Provides comprehensive free APIs for cryptocurrency market data. API Documentation
+    • CoinAPI: Offers unified real-time and historical crypto data in one low-latency API. API Documentation
+    • Coinlib: Provides live and historic cryptocurrency prices, portfolio, alerts, news, charts, and detailed coin data. API Documentation
+    • Crypto API: Offers live crypto data, effortless conversion, and unified exchange data. API Documentation
+    • CryptoNator: Provides exchange rates API. API Documentation
+    • CoinPaprika: Delivers free & frequently updated market data from the world of crypto. API Documentation
+
+If you need further assistance or a more detailed comparison of these APIs, feel free to ask!
+
+5
+P
+
+6
+R
+
+7
+P
+
+8
+R
+
+9
+P
+
+10
+R
+
+
+
+
+
+
+
+
+
+
+
+
+##############
+
+
+
+Coingecko
+
+
+
+Cryptocompare?
+
+Coinpaprika
+
+Coincap?
+
+Cryptocurrency general data
+
+Coinpaprika Provides extensive data for free.
+
+CoinAPI – Advertises itself as a "one-stop solutin market data provider for cryptocurrency markets."
+
+CryptoCompare "The ultimate API solution."
+
+CoinMarketCap Live price streaming, whitepaper search, charts snapshot and more.
+
+Nomics Claims to be the best API for cryptocurrency market data.
+
+Coinlayer Real-time cryptocurrency exchange reates
+
+CoinGecko Advertises itself as "The world's most comprehensive cryptocurrency data API."
+
+Cryptonator Exchange rates API.
+
+BraveNewCoin Provides exchange-level, standardised raw data via a single websocket API, offering near real-time streaming of price and volume data from over 240 exchanges.
+
+Coinigy Advertises itself as the "The All-In-One Cryptocurrency API."
+
+Coinograph Provides real-time and historical cryptocurrency market data.
+
+Kaiko Claims to be "the leading provider of institutional grade cryptocurrency market data."
+
+Blockmarkets Advertises itself as providing "institutional-grade cryptocurrency market data to funds, investment professionals, and application developers."
+
+Coinlib Simple API for fetching coin prices and global market data.
+
+Coinscious Claims to be the "The Most Accurate Cryptocurrency Market Data API."
+
+Coindar Provides an API for fetching events.
+
+CoinCap Real-time pricing and market activity API.
+
+BitDataset Provides cryptocurrency trade/quote/order book historical data.
+
+Zloadr Paid plans provide due diligence scoring, real time news and historical data up to 5 years.
+
+DataLight Extensive amount of coins, allows you to fetch it all in one HTTP request.
+
+Delta Real-time pricing API.
+
+
+Coinpaprika Provides extensive data for free.
+
+CoinAPI – Advertises itself as a "one-stop solutin market data provider for cryptocurrency markets."
+
+CryptoCompare "The ultimate API solution."
+
+CoinMarketCap Live price streaming, whitepaper search, charts snapshot and more.
+
+Nomics Claims to be the best API for cryptocurrency market data.
+
+Coinlayer Real-time cryptocurrency exchange reates
+
+CoinGecko Advertises itself as "The world's most comprehensive cryptocurrency data API."
+
+Cryptonator Exchange rates API.
+
+BraveNewCoin Provides exchange-level, standardised raw data via a single websocket API, offering near real-time streaming of price and volume data from over 240 exchanges.
+
+Coinigy Advertises itself as the "The All-In-One Cryptocurrency API."
+
+Coinograph Provides real-time and historical cryptocurrency market data.
+
+Kaiko Claims to be "the leading provider of institutional grade cryptocurrency market data."
+
+Blockmarkets Advertises itself as providing "institutional-grade cryptocurrency market data to funds, investment professionals, and application developers."
+
+Coinlib Simple API for fetching coin prices and global market data.
+
+Coinscious Claims to be the "The Most Accurate Cryptocurrency Market Data API."
+
+Coindar Provides an API for fetching events.
+
+CoinCap Real-time pricing and market activity API.
+
+BitDataset Provides cryptocurrency trade/quote/order book historical data.
+
+Zloadr Paid plans provide due diligence scoring, real time news and historical data up to 5 years.
+
+DataLight Extensive amount of coins, allows you to fetch it all in one HTTP request.
+
+Delta Real-time pricing API.desk.com/
+
+
+
+
+
+
+
+######################
+
+Cors
+HTTPS
+Featured
+Voiden's website screenshot
+Voiden
+
+API Building/
+Documentation
+
+100% offline API client, free, no account required. Build and test APIs without the bloat.
+Featured
+SerpApi's website screenshot
+SerpApi
+
+Development
+
+SerpApi's Search API makes it easy and fast to scrape Google and other search engines.
+MercadoBitcoin's website screenshot
+MercadoBitcoin
+
+Cryptocurrency
+
+Brazilian Cryptocurrency Information.
+No auth
+CORS
+HTTPS
+INFURA Ethereum's website screenshot
+INFURA Ethereum
+
+Cryptocurrency
+
+Interaction with the Ethereum mainnet and several testnets.
+API key
+CORS
+HTTPS
+Bybit's website screenshot
+Bybit
+
+Cryptocurrency
+
+Cryptocurrency data feed and algorithmic trading.
+API key
+CORS
+HTTPS
+1inch's website screenshot
+1inch
+
+Cryptocurrency
+
+API for querying decentralize exchange.
+No auth
+CORS
+HTTPS
+OKEx's website screenshot
+OKEx
+
+Cryptocurrency
+
+Cryptocurrency exchange based in Seychelles.
+API key
+CORS
+HTTPS
+OpenSea's website screenshot
+OpenSea
+
+Cryptocurrency
+
+The Largest NFT Marketplace.
+API key
+CORS
+HTTPS
+BlockBee's website screenshot
+BlockBee
+
+Cryptocurrency
+
+Cryptocurrency Payment Processor.
+API key
+CORS
+HTTPS
+Trading View's website screenshot
+Trading View
+
+Cryptocurrency
+
+Market price, data, graph for brokers and traders.
+OAuth
+CORS
+HTTPS
+ZMOK's website screenshot
+ZMOK
+
+Cryptocurrency
+
+Ethereum JSON RPC API and Web3 provider.
+No auth
+CORS
+HTTPS
+Tron Network's website screenshot
+Tron Network
+
+Cryptocurrency
+
+Provides various endpoints to interact with the Tron Blockchain.
+No auth
+CORS
+HTTPS
+WorldCoinIndex's website screenshot
+WorldCoinIndex
+
+Cryptocurrency
+
+Cryptocurrencies Prices.
+API key
+CORS
+HTTPS
+VALR's website screenshot
+VALR
+
+Cryptocurrency
+
+Cryptocurrency Exchange based in South Africa.
+API key
+CORS
+HTTPS
+Technical Analysis's website screenshot
+Technical Analysis
+
+Cryptocurrency
+
+Cryptocurrency prices and technical analysis.
+API key
+CORS
+HTTPS
+Solana JSON RPC's website screenshot
+Solana JSON RPC
+
+Cryptocurrency
+
+Provides various endpoints to interact with the Solana Blockchain.
+No auth
+CORS
+HTTPS
+Poloniex's website screenshot
+Poloniex
+
+Cryptocurrency
+
+US based digital asset exchange.
+API key
+CORS
+HTTPS
+NovaDax's website screenshot
+NovaDax
+
+Cryptocurrency
+
+NovaDAX API to access all market data, trading management endpoints.
+API key
+CORS
+HTTPS
+Nexchange's website screenshot
+Nexchange
+
+Cryptocurrency
+
+Automated cryptocurrency exchange service.
+No auth
+CORS
+HTTPS
+Messari's website screenshot
+Messari
+
+Cryptocurrency
+
+Provides API endpoints for thousands of crypto assets.
+No auth
+CORS
+HTTPS
+Mempool's website screenshot
+Mempool
+
+Cryptocurrency
+
+Bitcoin API Service focusing on the transaction fee.
+No auth
+CORS
+HTTPS
+KuCoin's website screenshot
+KuCoin
+
+Cryptocurrency
+
+Cryptocurrency Trading Platform.
+API key
+CORS
+HTTPS
+Kraken's website screenshot
+Kraken
+
+Cryptocurrency
+
+Cryptocurrencies Exchange.
+API key
+CORS
+HTTPS
+Indodax's website screenshot
+Indodax
+
+Cryptocurrency
+
+Trade your Bitcoin and other assets with rupiah.
+API key
+CORS
+HTTPS
+Huobi's website screenshot
+Huobi
+
+Cryptocurrency
+
+Seychelles based cryptocurrency exchange.
+API key
+CORS
+HTTPS
+Gemini's website screenshot
+Gemini
+
+Cryptocurrency
+
+Cryptocurrencies Exchange.
+No auth
+CORS
+HTTPS
+Gateio's website screenshot
+Gateio
+
+Cryptocurrency
+
+API provides spot, margin and futures trading operations.
+API key
+CORS
+HTTPS
+EXMO's website screenshot
+EXMO
+
+Cryptocurrency
+
+Cryptocurrencies exchange based in UK.
+API key
+CORS
+HTTPS
+Ethplorer's website screenshot
+Ethplorer
+
+Cryptocurrency
+
+Ethereum tokens, balances, addresses, history of transactions, contracts, and custom structures.
+API key
+CORS
+HTTPS
+dYdX's website screenshot
+dYdX
+
+Cryptocurrency
+
+Decentralized cryptocurrency exchange.
+API key
+CORS
+HTTPS
+CryptoMarket's website screenshot
+CryptoMarket
+
+Cryptocurrency
+
+Cryptocurrencies Trading platform.
+API key
+CORS
+HTTPS
+CryptoCompare's website screenshot
+CryptoCompare
+
+Cryptocurrency
+
+Cryptocurrencies Comparison.
+No auth
+CORS
+HTTPS
+CryptAPI's website screenshot
+CryptAPI
+
+Cryptocurrency
+
+Cryptocurrency Payment Processor.
+No auth
+CORS
+HTTPS
+Coinremitter's website screenshot
+Coinremitter
+
+Cryptocurrency
+
+Cryptocurrencies Payment & Prices.
+API key
+CORS
+HTTPS
+CoinRanking's website screenshot
+CoinRanking
+
+Cryptocurrency
+
+Live Cryptocurrency data.
+API key
+CORS
+HTTPS
+Coinpaprika's website screenshot
+Coinpaprika
+
+Cryptocurrency
+
+Cryptocurrencies prices, volume and more.
+No auth
+CORS
+HTTPS
+CoinMarketCap's website screenshot
+CoinMarketCap
+
+Cryptocurrency
+
+Cryptocurrencies Prices.
+API key
+CORS
+HTTPS
+Coinlore's website screenshot
+Coinlore
+
+Cryptocurrency
+
+Cryptocurrencies prices, volume and more.
+No auth
+CORS
+HTTPS
+Coinlib's website screenshot
+Coinlib
+
+Cryptocurrency
+
+Crypto Currency Prices.
+API key
+CORS
+HTTPS
+Coinigy's website screenshot
+Coinigy
+
+Cryptocurrency
+
+Interacting with Coinigy Accounts and Exchange Directly.
+API key
+CORS
+HTTPS
+CoinGecko's website screenshot
+CoinGecko
+
+Cryptocurrency
+
+Cryptocurrency Price, Market, and Developer/Social Data.
+No auth
+CORS
+HTTPS
+CoinDCX's website screenshot
+CoinDCX
+
+Cryptocurrency
+
+Cryptocurrency Trading Platform.
+API key
+CORS
+HTTPS
+CoinCap's website screenshot
+CoinCap
+
+Cryptocurrency
+
+Real time Cryptocurrency prices through a RESTful API.
+No auth
+CORS
+HTTPS
+Coinbase Pro's website screenshot
+Coinbase Pro
+
+Cryptocurrency
+
+Cryptocurrency Trading Platform.
+API key
+CORS
+HTTPS
+Coinbase's website screenshot
+Coinbase
+
+Cryptocurrency
+
+Bitcoin, Bitcoin Cash, Litecoin and Ethereum Prices.
+API key
+CORS
+HTTPS
+CoinAPI's website screenshot
+CoinAPI
+
+Cryptocurrency
+
+All Currency Exchanges integrate under a single api.
+API key
+CORS
+HTTPS
+BtcTurk's website screenshot
+BtcTurk
+
+Cryptocurrency
+
+Real-time cryptocurrency data, graphs and API that allows buy&sell.
+API key
+CORS
+HTTPS
+Brave NewCoin's website screenshot
+Brave NewCoin
+
+Cryptocurrency
+
+Real-time and historic crypto data from more than 200+ exchanges.
+API key
+CORS
+HTTPS
+blockfrost Cardano's website screenshot
+blockfrost Cardano
+
+Cryptocurrency
+
+Interaction with the Cardano mainnet and several testnets.
+API key
+CORS
+HTTPS
+Blockchain's website screenshot
+Blockchain
+
+Cryptocurrency
+
+Bitcoin Payment, Wallet & Transaction Data.
+API key
+CORS
+HTTPS
+Block's website screenshot
+Block
+
+Cryptocurrency
+
+Bitcoin Payment, Wallet & Transaction Data.
+API key
+CORS
+HTTPS
+Bitmex's website screenshot
+Bitmex
+
+Cryptocurrency
+
+Real-Time Cryptocurrency derivatives trading platform based in Hong Kong.
+API key
+CORS
+HTTPS
+Bitfinex's website screenshot
+Bitfinex
+
+Cryptocurrency
+
+Cryptocurrency Trading Platform.
+API key
+CORS
+HTTPS
+BitcoinAverage's website screenshot
+BitcoinAverage
+
+Cryptocurrency
+
+Digital Asset Price Data for the blockchain industry.
+API key
+CORS
+HTTPS
+Binance's website screenshot
+Binance
+
+Cryptocurrency
+
+Exchange for Trading Cryptocurrencies based in China.
+API key
+CORS
+HTTPS
+Alchemy Ethereum's website screenshot
+Alchemy Ethereum
+
+Cryptocurrency
+
+Ethereum Node-as-a-Service Provider.
+API key
+CORS
+HTTPS
+
+###################
+
+
+#################
+
+Show
+1-25
+1-50
+1-100
+of 12 results
+
+    CoinGecko API LogoCoinGecko API
+    Token Price APIs
+    The CoinGecko data market APIs are a set of robust APIs.
+    Bitcoin Logo
+    Ethereum Logo
+
+Alchemy Prices API LogoAlchemy Prices API
+Token Price APIs
+Access real-time and historical token prices instantly. 
+Base Logo
+Fantom Logo
+Linea Logo
++12
+Portals.fi LogoPortals.fi
+Amplify WinnersWeb3 SDKs
+Portals API provides transaction bundling, any-to-any swaps, and real-time data for DeFi assets.
+Fantom Logo
+Ethereum Logo
+Polygon Logo
++4
+CoinAPI LogoCoinAPI
+Free CustomersToken Price APIs
+Access fast, reliable, and unified data APIs for cryptocurrency markets. 
+Bitcoin Logo
+Ethereum Logo
+CoinMarketCap API LogoCoinMarketCap API
+Token Price APIs
+The CoinMarketCap API is our enterprise-grade cryptocurrency API for all crypto data use cases. 
+Bitcoin Logo
+Tron Logo
+Ethereum Logo
++4
+Book a meeting
+Contact sales to learn how we can help your company scale onchain
+Coincap LogoCoincap
+Token Price APIs
+Real-time crypto market data & altfolio tracking.
+Ethereum Logo
+Polygon Logo
+OP Mainnet Logo
++3
+Coinlayer LogoCoinlayer
+Token Price APIs
+Real-time cryptocurrency token price API for more than 25 exchanges and 385 coins worldwide.
+Bitcoin Logo
+Ethereum Logo
+Dexed LogoDexed
+Analytics Tools
+All in one token explorer.
+Base Logo
+Ethereum Logo
+Arbitrum Logo
++1
+Solana Tracker LogoSolana Tracker
+Crypto Trading Tools
+Solana Tracker is an all in one platform for everything Solana for users and developers.
+Solana Logo
+ArbitrageScanner API LogoArbitrageScanner API
+Web3 Data Tools
+Unique API for cryptocurrency services from ArbitrageScanner.
+Ethereum Logo
+Uniblock LogoUniblock
+RPC Node Providers
+Uniblock is Web3's first orchestration layer unifying 1,500+ APIs across 50+ providers.
+Base Logo
+Celo Logo
+Fantom Logo
++7
+Ripio LogoRipio
+Enterprise CustomersFiat Onramps
+Ripio provides secure, certified infrastructure for institutions to integrate scalable crypto solutions. 
+
+##############
+
+
+
+
+
+######################3Links:
+
+https://www.coinapi.io/products/market-data-api/pricing
+
+
+https://api-ninjas.com/api/cryptoprice
+
+https://developers.coinCryptocurrency general data
+
+
+https://cryptoapis.io/pricing
+
+https://cryptoapis.io/pricing
+
+https://moralis.com/api/price/
+
+https://moralis.com/pricing/
+
+https://api.coinpaprika.com/#section/Standards-and-conventions/Errors
+
+https://developers.coinranking.com/api/pricing
+
+https://github.com/CoinQuanta/awesome-crypto-api
+
+https://developers.coindesk.com/pricing/
+
+https://publicapis.dev/category/cryptocurrency
+
+https://coinlayer.com/
+
+https://www.tiingo.com/documentation/crypto
+
+https://docs.coingecko.com/reference/introduction
+
+https://docs.alpaca.markets/docs/crypto-pricing-data
+
+https://www.alchemy.com/dapps/best/token-price-apis
+
+

@@ -1,0 +1,246 @@
+# 9/29/2025
+
+Research.Cryptocurrency: Bitcoin Wallet.dat Import Methods
+
+## Overview
+Analysis of Bitcoin Core wallet.dat file format and import methods for LoginStandard compatibility. Wallet.dat files contain encrypted private keys and transaction data in Berkeley DB format.
+
+## Wallet.dat File Structure
+
+### **File Format**
+**Type**: Berkeley DB (BDB) database file
+**Encryption**: AES-256-CBC (when encrypted)
+**Contents**: Private keys, addresses, transactions, metadata
+
+### **Key Components**
+```
+wallet.dat structure:
+├── mkey (Master key for encryption)
+├── keys (Encrypted private keys)
+├── ckeys (Encrypted change keys)
+├── pool (Key pool for address generation)
+├── tx (Transaction records)
+├── names (Address labels/bookmarks)
+└── metadata (Wallet settings, version info)
+```
+
+## Import Methods
+
+### **Method 1: Bitcoin Core Import**
+**Tool**: `bitcoin-cli` or Bitcoin Core GUI
+**Process**:
+```bash
+# Backup existing wallet first
+cp ~/.bitcoin/wallet.dat ~/.bitcoin/wallet.dat.backup
+
+# Stop Bitcoin Core
+bitcoin-cli stop
+
+# Replace wallet.dat file
+cp source_wallet.dat ~/.bitcoin/wallet.dat
+
+# Restart Bitcoin Core
+bitcoind -daemon
+
+# Rescan blockchain
+bitcoin-cli rescanblockchain
+```
+
+**Pros**: Native support, maintains all metadata
+**Cons**: Requires full node, slow rescan process
+
+### **Method 2: PyWallet Tool**
+**Tool**: pywallet.py (Python script)
+**Process**:
+```python
+from pywallet import wallet
+
+# Load wallet.dat
+wd = wallet.WalletDump('wallet.dat')
+
+# Extract private keys
+for key in wd.keys:
+    print(f"Address: {key.address}")
+    print(f"WIF: {key.wif}")
+    print(f"Private Key: {key.private_key}")
+```
+
+**Pros**: Extracts keys without full blockchain
+**Cons**: Requires Python environment, handles encryption manually
+
+### **Method 3: Wallet Recovery Tools**
+**Tools**: 
+- `wallet-tools` (btcdrak)
+- `bitcoin-wallet-recover` (GitHub)
+- Online wallet converters
+
+**Process**:
+1. Load wallet.dat file
+2. Decrypt if password protected
+3. Extract private keys and addresses
+4. Convert to target format (WIF, hex, etc.)
+
+### **Method 4: Library-Based Import**
+**Libraries**:
+- `bitcoinlib` (Python)
+- `bitcore-lib` (Node.js)
+- `btcd` (Go)
+
+**Example (bitcoinlib)**:
+```python
+from bitcoinlib.wallets import Wallet
+
+# Import from wallet.dat
+wallet = Wallet.import_wallet('wallet.dat', password='wallet_password')
+
+# Export private keys
+for key in wallet.keys():
+    print(f"WIF: {key.wif}")
+```
+
+## Security Considerations
+
+### **Encryption Handling**
+- **Unencrypted wallets**: Immediate access to private keys
+- **Encrypted wallets**: Require password/PBKDF2 decryption
+- **Master Key**: AES-256-CBC encrypted master key in mkey record
+
+### **Key Derivation**
+```
+PBKDF2 Parameters (typical):
+- Iterations: 50,000 - 100,000
+- Hash: SHA-512
+- Salt: Random 32 bytes
+- Output: 64 bytes (split for AES key + IV)
+```
+
+### **Risks**
+1. **Plaintext Exposure**: Unencrypted keys in memory during import
+2. **File Corruption**: BDB format susceptible to corruption
+3. **Version Compatibility**: Different Bitcoin Core versions use different formats
+4. **Key Loss**: Failed import can result in permanent key loss
+
+## LoginStandard Integration
+
+### **Import Workflow**
+1. **File Upload**: Accept wallet.dat file upload
+2. **Password Prompt**: Request wallet password if encrypted
+3. **Key Extraction**: Decrypt and extract private keys
+4. **Format Conversion**: Convert to internal key format
+5. **Validation**: Verify keys against blockchain (optional)
+6. **Storage**: Secure temporary storage with encryption
+
+### **Supported Conversions**
+- **Bitcoin Core Format**: Direct import
+- **Output Formats**:
+  - WIF (Wallet Import Format)
+  - Hex private keys
+  - Extended private keys (xprv)
+  - BIP-39 seed phrases (if deterministic)
+
+### **Error Handling**
+- **Corrupt Files**: Detect BDB corruption
+- **Wrong Password**: Multiple attempt protection
+- **Unsupported Versions**: Version compatibility checking
+- **Large Files**: Progress indicators for large wallets
+
+## Tools and Dependencies
+
+### **Required Libraries**
+```json
+{
+  "python": {
+    "pywallet": "0.1.0",
+    "bitcoinlib": "0.6.0",
+    "bsddb3": "6.2.9"
+  },
+  "node": {
+    "bitcore-lib": "8.25.0",
+    "bitcoin-core": "3.0.0"
+  }
+}
+```
+
+### **System Requirements**
+- **Berkeley DB**: libdb-dev (Ubuntu/Debian)
+- **Python**: 3.6+ with pip packages
+- **Node.js**: 14+ for JavaScript tools
+- **Bitcoin Core**: Optional for native import
+
+## Best Practices
+
+### **Security Measures**
+1. **Temporary Files**: Use encrypted temporary storage
+2. **Memory Clearing**: Zero-out sensitive data after use
+3. **Password Validation**: Rate limiting for decryption attempts
+4. **File Validation**: Check file integrity before processing
+
+### **User Experience**
+1. **Progress Indicators**: Show import progress for large files
+2. **Error Messages**: Clear, actionable error descriptions
+3. **Backup Warnings**: Prompt users to backup before import
+4. **Format Options**: Allow users to choose output format
+
+### **Compatibility Testing**
+- **Test Files**: Use known test wallets for validation
+- **Version Matrix**: Test across Bitcoin Core versions
+- **Edge Cases**: Handle corrupted, empty, and very old wallets
+
+## Implementation Priority
+
+### **Phase 1: Basic Import**
+- [ ] File upload interface
+- [ ] Basic wallet.dat parsing
+- [ ] Key extraction (unencrypted)
+- [ ] Error handling
+
+### **Phase 2: Enhanced Security**
+- [ ] Encrypted wallet support
+- [ ] Password validation
+- [ ] Secure memory handling
+- [ ] File integrity checks
+
+### **Phase 3: Advanced Features**
+- [ ] Multi-format export
+- [ ] Batch import
+- [ ] Transaction history import
+- [ ] Address book migration
+
+## Reference Implementation
+
+### **Python Import Function**
+```python
+def import_wallet_dat(file_path, password=None):
+    """
+    Import Bitcoin wallet.dat file and extract private keys
+
+    Args:
+        file_path (str): Path to wallet.dat file
+        password (str): Wallet password (optional)
+
+    Returns:
+        dict: Extracted wallet data
+    """
+    try:
+        # Load and parse wallet.dat
+        wallet_data = parse_wallet_dat(file_path, password)
+
+        # Extract keys and metadata
+        keys = extract_private_keys(wallet_data)
+        metadata = extract_metadata(wallet_data)
+
+        return {
+            'keys': keys,
+            'metadata': metadata,
+            'format': 'bitcoin-core'
+        }
+    except Exception as e:
+        raise WalletImportError(f"Failed to import wallet: {str(e)}")
+```
+
+---
+
+*Research completed for Bitcoin wallet.dat import functionality in LoginStandard. Compatible with reference file: Feb28.Cores.Credentials.Dogecoin.2014 (similar encrypted credential format).*
+
+
+

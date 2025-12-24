@@ -1,0 +1,47 @@
+10/1/2025
+
+Research.Cryptocurrency: PublicWalletAddressGeneration.Polkadot
+
+
+
+
+
+There seems to be two different mechanisms to generate
+publicKeys from the same privateKey thus resulting in 
+the different publicWalletAddresses for Polkadot, Kusama and Substrate
+
+This is predicated on the difference in addresses generated from
+Exodus versus https://polkadot.subscan.io/tools/format_transform
+
+
+This is a Polkadot (DOT) privateKey:
+
+    c4c9a890f5b53f1091b74ff80f44b43d0e43d9674d605d0c806ec4ffe82f82bd
+
+on Exodus its corresponding publicWalletAddress is:
+
+    12aeeQ2NZzAUMUkpFTyiQNnjAVLj2rqZFjyw8ZN83GKdkhd
+
+However putting this same privateKey into 
+https://polkadot.subscan.io/tools/format_transform, we get the following publicWalletAddresses:
+
+    Public Key: 
+    0xc4c9a890f5b53f1091b74ff80f44b43d0e43d9674d605d0c806ec4ffe82f82bd
+
+    H160 (Ethereum):    
+    0xc4c9a890f5B53F1091b74fF80f44b43d0e43d967
+
+    Polkadot (DOT):
+    15T2HrAmUE7avgZHTKCNDpWrqziJNHKTzUMCtiDkxSn5uP9H
+    
+    Kusama (KSM)
+    H2LoqFaEos3EoNDGNxQyd3i8xztUeaWNMTU85WMt9y4Tqv2
+
+    Substrate:
+    5GWj9WuhcSr7V9YmVg9N5fghzNiefymKuycijREQQMkZipcg
+
+
+
+Why is there a discrepancy? What mechanisms are being used for each 
+publicWalletAddress types (Exodus versus native Polkadot.js)
+    

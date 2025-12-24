@@ -1,0 +1,727 @@
+11/28/2025
+
+currencyCore.Development: Strategies.IPFSServicesAndEndpoints
+
+
+
+Objective:
+
+    Curate as many IPFS services and their endpoints and direct
+    interaction with IPFS for use by the minting component
+
+
+
+
+
+nftMinting/IPFS/***
+
+
+
+#################3ToParse:
+
+Question:
+Please provide NPM packages and API Endpoints for the following IPFS services:
+Dcent, Filebase, fly, Lighthouse, nft.storage, Pinata, storacha and web3.storage. Also from searching the internet, please include any that are missing from the list.
+AI
+Answer
+ChatGPT
+Here’s a summary of known IPFS‑based storage / pinning services (from your list + a few more) — along with their publicly available NPM packages (SDK/clients) and main API endpoints (or how you interface with them). Where a service seems deprecated or changed, I point that out.
+
+✅ Services from your list — with packages & endpoints
+Service NPM / JS package (or SDK) API / endpoint (or how to use) Filebase Via unified libraries such as ipfs-storage or ipfs-free (see below) (npm) IPFS Pinning Service API: https://api.filebase.io/v1/ipfs/pins (docs.filebase.com) Authenticated via Authorization: Bearer <access-token> (docs.filebase.com) Support for pinning/unpinning, listing pins, etc. (docs.filebase.com) Also recently Filebase offers a hosted IPFS RPC‑compatible API (so you can use /add, /pin/add, /cat etc) — a hosted alternative to running your own IPFS node. (Reddit) Pinata Official SDK has evolved; use pinata-web3 (or now the updated [email protected]) per their migration guide. (docs.pinata.cloud) IPFS Pinning Services API endpoint: https://api.pinata.cloud/psa (docs.pinata.cloud) Requires JWT access token (created in Pinata dashboard) for authentication. (docs.pinata.cloud) Lighthouse (often Lighthouse.storage) Official package: @lighthouse‑web3/sdk (docs.lighthouse.storage) Use Lighthouse API to upload content. Example via SDK: lighthouse.upload(...) after obtaining API key. (docs.lighthouse.storage) For “Filecoin-first” mode (pinning existing CID to Filecoin via Lighthouse), there is an endpoint like https://filecoin-first.lighthouse.storage/api/v1/pin/add_cid?cid=... with Bearer token auth. (docs.lighthouse.storage) Storacha (formerly web3.storage) JS client: @storacha/client (npm.io) (older package: @web3-storage/upload-api, but that is now deprecated) (npm) Use the Storacha JS client (or CLI) to upload files / directories. The service is IPFS‑compatible; contents are retrievable via public IPFS gateways given the CID. (docs.storacha.network) Storacha uses UCAN-based auth, not just bearer tokens. (npm.io) NFT.Storage Official npm package (historically) — but note: their Classic upload & pinning APIs were decommissioned as of 30 June 2024. (GitHub) Their “Pinning Service API” (for re‑pinning existing CIDs) was at https://api.nft.storage/pins (dev.nft.storage) But this is now of limited use, mainly for migrating old data. (NFT.storage) (Implicit) multiprovider abstraction libraries ipfs-free — supports multiple platforms (Pinata, Filebase, Lighthouse, Storacha/web3, Infura, etc.) (npm) ipfs-storage — unified API for Filebase, Storacha, Pinata, Lighthouse (npm) These libraries abstract away provider‑specific SDKs/APIs — great if you want a unified interface across multiple IPFS storage providers. (npm) 
+
+⚠️ Important notes / caveats
+    • NFT.Storage is deprecated for new uploads: As of June 30, 2024 — the “Classic” upload/pin API of NFT.Storage is no longer accepting new uploads. Existing data remains accessible, but they encourage migration to other “hot storage” providers like Pinata or Lighthouse. (GitHub)
+    • Storacha replaces web3.storage: The older @web3-storage/upload-api is deprecated; the recommended SDK is now @storacha/client. (npm)
+    • Pinning API compliance matters: If you want to integrate with the standard IPFS tooling (e.g., ipfs pin remote via CLI or IPFS Desktop), services that implement the standardized IPFS Pinning Services API — such as Pinata and Filebase — are easiest to integrate. (docs.pinata.cloud)
+    • Storacha (and similar newer services) may forego “Pinning API spec” support: For example, Storacha does not support the Pinning API spec in the same way as older “pinning service” providers — they tend to expect CAR‑file uploads or their own protocol via UCANs. (IPFS Forums)
+
+🔎 Services you asked about but with limited/no clear public documentation (or possibly not existing)
+    • Dcent — I found no credible public documentation indicating that “Dcent” provides an IPFS pinning/storage service (nor NPM packages, nor an official API endpoint). It may be that the name is misspelled, conflated, or refers to a private/self‑hosted solution.
+    • “fly” — similarly, I could not find a mainstream IPFS pinning/storage service named “fly” with public NPM SDK/API endpoints. There are many “fly”-prefixed or suffixed services in Web3/hosted infra, but none clearly matching “fly IPFS service.”
+
+🧠 Recommendations / What I suggest doing now (if you’re building something)
+    • If you want stable, well-documented, pinning‑service‑compliant storage: use Filebase or Pinata. They support the standard IPFS Pinning Services API and integrate smoothly with IPFS CLI or Desktop.
+    • If you want a modern, decentralized/hot storage + Filecoin‑backed storage with more web3‑native auth: consider Storacha — using @storacha/client.
+    • If you want a “pay‑once, store permanently / Filecoin‑backed + IPFS + flexibility” model: Lighthouse is a strong candidate.
+    • If you want a single unified interface for many providers (especially if you plan to support multiple options): consider using ipfs-storage or ipfs-free — these abstract over provider differences and let you switch providers with minimal code changes.
+
+If you like — I can build a full JSON table of ~ 15–20 IPFS storage / pinning services (public + community ones), with their NPM packages, endpoints, free tier limits (if any), and notes (deprecated / active / special auth).
+Do you want me to build that for you now?
+
+Claude
+I'll search for information about IPFS services, their NPM packages, and API endpoints.Now let me search for specific services mentioned:Now let me search for additional IPFS services that might be missing:Let me search for more information about specific services and their APIs:Based on my research, I now have comprehensive information about IPFS services and their NPM packages and API endpoints. Let me compile this information for you.
+IPFS Pinning Services - NPM Packages and API Endpoints
+Here's a comprehensive list of IPFS pinning services with their NPM packages and API endpoints:
+1. Pinata
+    • NPM Packages: 
+        ◦ @pinata/sdk (official SDK, legacy - v4.1.0) 
+        ◦ pinata-web3 (new IPFS SDK - recommended) 
+        ◦ @pinata/ipfs-gateway-tools 
+        ◦ cf-workers-pinata-api (for Cloudflare Workers) 
+    • API Endpoint: https://api.pinata.cloud/ 
+    • Pinning Service API: https://api.pinata.cloud/psa (IPFS Pinning Service API compliant) 
+    • Documentation: https://docs.pinata.cloud/ 
+2. Filebase
+    • NPM Packages: 
+        ◦ @filebase/client (for IPFS pinning) 
+        ◦ @filebase/sdk (full SDK with S3, IPFS, IPNS support) 
+    • API Endpoint: https://api.filebase.io/v1/ipfs/pins 
+    • Pinning Service API: Fully compliant with IPFS PSA 
+    • S3 Compatible: Yes (AWS S3 API compatible) 
+    • Documentation: https://docs.filebase.com/ 
+3. Lighthouse
+    • NPM Packages: 
+        ◦ @lighthouse-web3/sdk 
+        ◦ lighthouse-web3 (deprecated - use @lighthouse-web3/sdk) 
+    • API Endpoint: https://api.lighthouse.storage/ 
+    • Gateway: https://gateway.lighthouse.storage/ipfs/ 
+    • Features: Supports encryption, Filecoin deals, PoDSI (Proof of Data Segment Inclusion) 
+    • Documentation: https://docs.lighthouse.storage/ 
+4. nft.storage
+    • NPM Packages: 
+        ◦ nft.storage 
+        ◦ @nftstorage/metaplex-auth (for Solana/Metaplex) 
+        ◦ @metaplex-foundation/js-plugin-nft-storage 
+    • API Endpoint: https://api.nft.storage/ 
+    • Features: Free NFT-specific storage backed by Filecoin 
+    • Documentation: https://nft.storage/docs/ 
+5. web3.storage / Storacha
+Note: web3.storage has transitioned to Storacha Network
+    • NPM Packages: 
+        ◦ @web3-storage/w3up-client (new client) 
+        ◦ @web3-storage/access 
+        ◦ @web3-storage/upload-api 
+        ◦ @web3-storage/w3cli (CLI tool) 
+        ◦ web3.storage (deprecated - old API sunset Jan 9, 2024) 
+    • API Endpoint: https://up.web3.storage 
+    • Gateway: https://w3s.link/ipfs/ 
+    • Features: Uses UCANs for authorization, backed by Filecoin 
+    • Documentation: https://docs.storacha.network/ 
+6. Fleek
+    • NPM Packages: 
+        ◦ @fleek-platform/sdk (current - for Node and Browser) 
+        ◦ @fleekhq/fleek-storage-js (deprecated) 
+        ◦ @fleekxyz/sdk (deprecated) 
+    • API Endpoints: 
+        ◦ Storage: https://storage-ipfs.service.fleek.xyz 
+        ◦ GraphQL: https://graphql.service.fleek.xyz/graphql 
+        ◦ Uploads: https://uploads.service.fleek.xyz 
+    • Features: Comprehensive web3 platform with IPFS, IPNS, and hosting 
+    • Documentation: https://fleek.xyz/docs/ 
+7. Infura
+    • NPM Package: Uses standard IPFS HTTP client 
+    • API Endpoint: https://ipfs.infura.io:5001/api/v0/ 
+    • Dedicated Gateway: Project-specific gateways available 
+    • Features: Enterprise-grade infrastructure, Ethereum integration 
+    • Authentication: Project ID and Secret required 
+8. 4EVERLAND
+    • NPM Package: AWS S3 SDK compatible 
+    • Features: S3-compatible API, IPFS pinning with Arweave sync option 
+    • Gateway: https://4everland.io/ipfs/ 
+    • Free Tier: 6GB free IPFS storage, 100GB/month gateway 
+Additional Services (Less common/specialized):
+9. Temporal (temporalstorage.com)
+    • Pay-as-you-go model 
+    • Temporary pinning service 
+    • S3 API on top of IPFS 
+10. IPFS Cluster
+    • NPM Package: ipfs-cluster-api 
+    • Self-hosted pinning orchestration 
+    • Documentation: https://github.com/ipfs/ipfs-cluster 
+11. Eternum
+    • User-friendly pinning service 
+    • API integration available 
+    • Focus on perpetual accessibility 
+12. Scaleway IPFS Pinning
+    • Status: Discontinued (ended November 27, 2024) 
+Generic/Universal Packages:
+IPFS Pinning Service Client:
+    • NPM Package: @ipfs-shipyard/pinning-service-client 
+    • Universal client for any IPFS Pinning Service API compliant service 
+    • Works with Pinata, Filebase, and any PSA-compliant service 
+IPFS Storage Unified Interface:
+    • NPM Package: ipfs-storage 
+    • Provides unified interface for multiple providers: 
+        ◦ Filebase 
+        ◦ Storacha (web3.storage) 
+        ◦ Pinata 
+        ◦ Lighthouse 
+Testing/Development:
+    • NPM Package: mock-ipfs-pinning-service 
+    • In-memory IPFS Pinning Service API for testing 
+Standard IPFS Pinning Service API Specification:
+All compliant services follow the spec at: https://ipfs.github.io/pinning-services-api-spec/
+This allows tools like IPFS Desktop, IPFS CLI, and other clients to work with any compliant pinning service using the ipfs pin remote commands.
+
+DeepSeek
+Of course! Here is a comprehensive list of NPM packages and API endpoints for the IPFS services you mentioned, along with other major players in the space that were missing from your list.
+
+### Summary Table
+
+| Service Name | NPM Package / Client Library | Primary API Endpoint(s) | Service Type |
+| :--- | :--- | :--- | :--- |
+| **Pinata** | `@pinata/sdk` | `https://api.pinata.cloud` | Pinning Service / Gateway |
+| **web3.storage** | `web3.storage` | `https://api.web3.storage` | Storage Service / Gateway |
+| **nft.storage** | `nft.storage` | `https://api.nft.storage` | NFT-focused Storage |
+| **Filebase** | `aws-sdk` (S3) | `https://s3.filebase.com` | S3-Compatible / Gateway |
+| **Lighthouse** | `@lighthouse-web3/sdk` | `https://api.lighthouse.storage` | Storage Service / Gateway |
+| **Fleek** | `@fleekhq/fleek-storage-js` (Legacy) | `https://api.fleek.co` (Legacy) | Storage & Hosting |
+| **Storacha** | Custom HTTP requests | `https://api.storacha.com/v1` | Pinning Service |
+| **Dcent** | Not Applicable (Hardware Wallet) | Not Applicable | Hardware Wallet |
+| **Infura** | `ipfs-http-client` | `https://ipfs.infura.io:5001` | IPFS Node Provider |
+| **Moralis** | `moralis` | `https://deep-index.moralis.io/api/v2/ipfs` | Web3 API Suite |
+| **4EVERLAND** | `@4everland/ipfs` | `https://ipfs.4everland.io` | Storage & Hosting |
+| **Crust Network** | `@crustio/crust-pin` | Custom (decentralized) | Decentralized Pinning |
+| **Estuary** | Custom HTTP requests | `https://api.estuary.tech` | Pinning Service |
+| **Filecoin** | Multiple (Lotus, FFS) | Varies by node | Blockchain / Decentralized Storage |
+
+---
+
+### Detailed Breakdown
+
+#### 1. Pinata
+One of the most popular dedicated pinning services.
+- **NPM Package:** `@pinata/sdk`
+  ```bash
+  npm install @pinata/sdk
+  ```
+- **API Endpoint:** `https://api.pinata.cloud`
+- **Documentation:** [Pinata Docs](https://docs.pinata.cloud/)
+
+#### 2. web3.storage
+A simple service built by Protocol Labs for storing data on Filecoin and IPFS.
+- **NPM Package:** `web3.storage`
+  ```bash
+  npm install web3.storage
+  ```
+- **API Endpoint:** `https://api.web3.storage`
+- **Documentation:** [web3.storage Docs](https://web3.storage/docs/)
+
+#### 3. NFT.Storage
+Also from Protocol Labs, specifically optimized for storing NFT assets permanently.
+- **NPM Package:** `nft.storage`
+  ```bash
+  npm install nft.storage
+  ```
+- **API Endpoint:** `https://api.nft.storage`
+- **Documentation:** [nft.storage Docs](https://nft.storage/docs/)
+
+#### 4. Filebase
+An S3-compatible object storage platform that supports IPFS.
+- **NPM Package:** Use the standard `aws-sdk` configured for Filebase's endpoint.
+  ```bash
+  npm install aws-sdk
+  ```
+- **API Endpoint:** `https://s3.filebase.com`
+- **Documentation:** [Filebase IPFS Docs](https://docs.filebase.com/ipfs)
+
+#### 5. Lighthouse
+A protocol for verifiable and decentralized data storage.
+- **NPM Package:** `@lighthouse-web3/sdk`
+  ```bash
+  npm install @lighthouse-web3/sdk
+  ```
+- **API Endpoint:** `https://api.lighthouse.storage`
+- **Documentation:** [Lighthouse Docs](https://docs.lighthouse.storage/)
+
+#### 6. Fleek
+Focuses on hosting and storage for the decentralized web. (Note: Their legacy storage API is being phased out in favor of a new product suite).
+- **Legacy NPM Package:** `@fleekhq/fleek-storage-js`
+- **Legacy API Endpoint:** `https://api.fleek.co`
+- **New Service:** Fleek Network is their upcoming decentralized offering. For current hosting, their CLI and GitHub integration are the primary tools.
+- **Documentation:** [Fleek Docs](https://docs.fleek.xyz/)
+
+#### 7. Storacha
+A pinning service focused on NFT projects.
+- **NPM Package:** No official SDK. Use standard HTTP client libraries like `axios` or `fetch`.
+- **API Endpoint:** `https://api.storacha.com/v1`
+- **Documentation:** [Storacha Docs](https://docs.storacha.com/)
+
+#### 8. D'CENT
+This is a hardware wallet (like Ledger) with Biometric, Bluetooth, and other features. It is **not** an IPFS pinning/storage service. It can be used to manage keys for Web3, but does not provide an API for IPFS operations.
+
+---
+
+### Notable Missing Services (Added from Search)
+
+#### 9. Infura (by ConsenSys)
+A core infrastructure provider for Ethereum and IPFS. Offers reliable, managed IPFS nodes.
+- **NPM Package:** Use the generic `ipfs-http-client` to connect to Infura's endpoint.
+  ```bash
+  npm install ipfs-http-client
+  ```
+- **API Endpoint:**
+  - **HTTP:** `https://ipfs.infura.io:5001`
+  - **Gateway:** `https://infura-ipfs.io`
+- **Documentation:** [Infura IPFS Docs](https://docs.infura.io/infura/networks/ipfs)
+
+#### 10. Moralis
+A full-featured Web3 development platform that includes an IPFS API as part of its suite.
+- **NPM Package:** `moralis`
+  ```bash
+  npm install moralis
+  ```
+- **API Endpoint:** `https://deep-index.moralis.io/api/v2/ipfs`
+- **Documentation:** [Moralis IPFS Docs](https://docs.moralis.io/reference/uploadfolder)
+
+#### 11. 4EVERLAND
+A Web 3.0 cloud computing platform that integrates IPFS, Arweave, and other technologies.
+- **NPM Package:** `@4everland/ipfs` (for their storage CLI/API)
+  ```bash
+  npm install @4everland/ipfs
+  ```
+- **API Endpoint:** `https://ipfs.4everland.io` (for uploads via CLI/SDK)
+- **Documentation:** [4EVERLAND Docs](https://docs.4everland.org/)
+
+#### 12. Crust Network
+A decentralized storage network that supports IPFS pinning.
+- **NPM Package:** `@crustio/crust-pin`
+  ```bash
+  npm install @crustio/crust-pin
+  ```
+- **API Endpoint:** Interacts with the decentralized Crust network, not a single endpoint.
+- **Documentation:** [Crust Wiki](https://wiki.crust.network/)
+
+#### 13. Estuary
+A simple service by Application Researchers to make data stored on Filecoin more accessible. It pins data to many Storage Providers.
+- **NPM Package:** No official SDK. Use standard HTTP client libraries.
+- **API Endpoint:** `https://api.estuary.tech`
+- **Documentation:** [Estuary Tech Docs](https://docs.estuary.tech/)
+
+#### 14. Filecoin
+The decentralized storage network itself. While you can run a node and use its APIs directly, developers typically interact with it through services like web3.storage, nft.storage, or Estuary, or by using the Lotus client.
+- **Primary Client:** Lotus (Go implementation). Interacting directly is more complex than using a pinning service API.
+
+### Key Takeaways
+
+- **For Ease of Use:** Services like **Pinata**, **web3.storage**, and **nft.storage** provide excellent, developer-friendly SDKs.
+- **For S3 Compatibility:** **Filebase** is the best choice if you are already familiar with AWS S3.
+- **For Broader Web3 Suites:** **Infura** and **Moralis** offer IPFS as part of a larger infrastructure toolkit.
+- **For Decentralization:** **Lighthouse** and **Crust Network** are built with a decentralized ethos.
+- **For Cost-Effectiveness:** Many services like **web3.storage**, **nft.storage**, and **Estuary** offer generous free tiers.
+
+Always check the official documentation for the most up-to-date information on API keys, rate limits, and pricing.
+Gemini
+The list below details the NPM packages and API endpoints for the requested IPFS pinning services, including an additional relevant service found during the search.
+
+💾 IPFS Pinning Service Packages and Endpoints
+ServiceNPM Package(s)REST API Endpoint(s)Notesweb3.storageweb3.storage (Deprecated - Use @web3-storage/w3up-client)Old API: https://api.web3.storage/uploadThe web3.storage package is for the older API, which was sunset in Jan 2024. The new client is @web3-storage/w3up-client.Pinata@pinata/sdk (Deprecated - Use pinata-web3)Standard API: https://api.pinata.cloud/pinning/ Pinning Service API: https://api.pinata.cloud/psaThe @pinata/sdk package is deprecated in favor of a newer IPFS SDK named pinata-web3. Pinata supports the standard IPFS Pinning Service API specification (/psa endpoint).nft.storagenft.storageThe client uses a raw HTTP API. The underlying API base is typically https://api.nft.storage/This service is for storing NFT assets and metadata on IPFS. The NPM client abstracts the API calls.storacha@storacha/clientUses a client-based API for decentralized storage (built on the $\text{w3up}$ platform). It supports HTTP interface.Storacha is built on top of the $\text{w3up}$ platform, which is an evolution of web3.storage. The NPM client is the primary way to interact.Filebase@filebase/clientRaw HTTP API for storing content (e.g., in IPFS buckets).The NPM client provides a convenient interface for the Raw HTTP API.LighthouseLighthouse provides a dedicated SDK and CLI for integration.Specific REST API endpoints are available through their documentation. The service base is typically used for pin, deal, and encryption management.The general-purpose lighthouse NPM package is for a web performance tool and is not the IPFS service client. Use the Lighthouse SDK as per their documentation.flyNo dedicated NPM package found.No dedicated REST API endpoint found."fly" is very generic and may refer to Fly.io, which offers compute, not a dedicated IPFS pinning service with an associated NPM package/API endpoint like the others listed. If you were thinking of a specific IPFS-related service named "fly," please clarify.DcentNo dedicated NPM package found.No dedicated REST API endpoint found.Dcent appears to be a hardware wallet provider. No relevant, dedicated IPFS pinning service NPM package or public API endpoint was found.QuickNode (Missing from your list)Uses a general HTTP client like axios or fetchhttps://api.quicknode.com/ipfs/restThis is a cloud provider offering a decentralized storage solution with a dedicated IPFS REST API for pinning and gateway services.
+
+🛠️ General IPFS Interaction
+Many IPFS services also work with the generic, low-level IPFS clients, especially if they support the standard IPFS Pinning Services API Spec.
+    • ipfs-http-client (Deprecated in favor of Helia): This legacy package was used to interact with any IPFS node's HTTP RPC API (default local endpoint: http://localhost:5001/api/v0).
+    • @ipfs-shipyard/pinning-service-client: A client specifically designed to interact with any service that conforms to the official IPFS Pinning Services API Specification. This is a powerful, generic way to integrate with services like Pinata, which support this specification.
+
+Would you like a brief explanation of the IPFS Pinning Services API Specification?
+
+Grok
+
+Kimi
+I'll search for the NPM packages and API endpoints for the IPFS services you listed, and also look for any additional IPFS services that might be missing.
+Let me search for more specific information about the remaining services and their NPM packages.
+Let me search for more information about Dcent and any other IPFS services that might be missing from the list.
+Based on my research, here's a comprehensive list of NPM packages and API endpoints for IPFS services, including the ones you requested and additional services I found:
+
+## IPFS Services NPM Packages and API Endpoints
+
+### **Requested Services:**
+
+#### **1. Pinata**
+- **NPM Package**: `@pinata/sdk` (deprecated), use direct API calls
+- **API Endpoint**: `https://api.pinata.cloud/pinning/pinFileToIPFS`
+- **Documentation**: https://docs.pinata.cloud/
+- **Alternative NPM**: `ipfs-storage` (unified interface)
+
+#### **2. Filebase**
+- **NPM Package**: `@filebase/client` or `@filebase/sdk`
+- **Installation**: `npm install @filebase/client`
+- **API Endpoint**: S3-compatible API
+- **Documentation**: https://filebase.github.io/filebase-sdk/
+
+#### **3. Lighthouse**
+- **NPM Package**: `@lighthouse-web3/sdk`
+- **Installation**: `npm install @lighthouse-web3/sdk`
+- **API Endpoint**: `https://api.lighthouse.storage`
+- **Documentation**: https://docs.lighthouse.storage/
+
+#### **4. nft.storage** ⚠️
+- **NPM Package**: `nft.storage`
+- **Status**: Upload functionality decommissioned (as of 2024)
+- **Note**: Package no longer functions for uploads
+- **Alternative**: Users need to migrate to other providers
+
+#### **5. Storacha** (formerly web3.storage)
+- **NPM Package**: `@storacha/client` or `@storacha/upload-api`
+- **CLI Package**: `@storacha/cli`
+- **Installation**: `npm install @storacha/client`
+- **API Endpoint**: `https://up.storacha.network`
+- **Documentation**: https://docs.storacha.network/
+
+#### **6. web3.storage** (now Storacha)
+- **NPM Package**: `@web3-storage/w3cli` or `@web3-storage/upload-api`
+- **Note**: This service has been rebranded to Storacha
+- **Migration**: Users should migrate to `@storacha/client`
+
+#### **7. Dcent**
+- **Status**: Could not find specific NPM package or detailed API documentation
+- **Service**: Provides decentralized WEB3 storage solutions
+- **Note**: Limited public API information available
+
+#### **8. Fly**
+- **Status**: Could not find specific IPFS-related NPM package
+- **Note**: May refer to different services, unclear IPFS focus
+
+### **Additional IPFS Services Found:**
+
+#### **9. Infura**
+- **NPM Package**: `ipfs-http-client` or `kubo-rpc-client`
+- **Installation**: `npm install kubo-rpc-client`
+- **API Endpoint**: `https://ipfs.infura.io:5001/api/v0`
+- **Documentation**: https://docs.infura.io/
+
+#### **10. Fleek**
+- **NPM Package**: `@fleekhq/fleek-cli` or `@fleekxyz/utils-ipfs`
+- **Installation**: `npm install -g @fleekhq/fleek-cli`
+- **Documentation**: https://docs.fleek.co/
+
+#### **11. 4EVERLAND**
+- **NPM Package**: `@4everland/hosting-cli`
+- **Installation**: `npm install -g @4everland/hosting-cli`
+- **API Endpoint**: `https://ipfs.4everland.io/ipfs/<CID>`
+- **Documentation**: https://docs.4everland.org/
+
+### **Unified IPFS Storage Libraries:**
+
+#### **12. ipfs-storage**
+- **NPM Package**: `ipfs-storage`
+- **Installation**: `npm install ipfs-storage`
+- **Supported Providers**: Filebase, Storacha, Pinata, Lighthouse
+- **Note**: Provides unified interface for multiple IPFS providers
+
+### **Generic IPFS Clients:**
+
+#### **13. kubo-rpc-client**
+- **NPM Package**: `kubo-rpc-client`
+- **Installation**: `npm install kubo-rpc-client`
+- **Use**: Generic IPFS client for any IPFS node
+
+#### **14. ipfs-http-client**
+- **NPM Package**: `ipfs-http-client`
+- **Installation**: `npm install ipfs-http-client`
+- **Use**: HTTP client for IPFS APIs
+
+### **Important Notes:**
+1. **nft.storage** has decommissioned upload functionality
+2. **web3.storage** has been rebranded to **Storacha**
+3. Some services like **Dcent** and **Fly** have limited public API documentation
+4. Consider using unified libraries like `ipfs-storage` for multi-provider support
+5. Always check the latest documentation as IPFS service landscape changes frequently
+
+Would you like me to search for more specific information about any particular service or explore additional IPFS storage providers?
+Manus
+
+Meta
+
+Mistral
+It seems I am currently unable to perform web searches due to a service issue. However, based on my existing knowledge as of November 1, 2024, here's what I can share regarding NPM packages and API endpoints for the requested IPFS services:
+
+NPM Packages and API Endpoints for IPFS Services
+Filebase
+    • NPM Package: 
+        ◦ No official NPM package directly from Filebase, but you can interact using axios or node-fetch. 
+    • API Endpoints: 
+        ◦ Base URL: https://api.filebase.io/v1/ipfs 
+        ◦ Upload File: POST /upload 
+        ◦ Pin File: POST /pin 
+        ◦ Documentation: Filebase IPFS API Docs 
+
+Lighthouse
+    • NPM Package: 
+        ◦ @lighthouse-web3/sdk 
+    • API Endpoints: 
+        ◦ Base URL: https://api.lighthouse.storage/api 
+        ◦ Upload File: POST /upload 
+        ◦ Get File Info: GET /file/{cid} 
+        ◦ Documentation: Lighthouse API Docs 
+
+nft.storage
+    • NPM Package: 
+        ◦ nft.storage 
+    • API Endpoints: 
+        ◦ Base URL: https://api.nft.storage 
+        ◦ Upload File: POST /upload 
+        ◦ Check Status: GET /{cid} 
+        ◦ Documentation: nft.storage API Docs 
+
+Pinata
+    • NPM Package: 
+        ◦ @pinata/sdk 
+    • API Endpoints: 
+        ◦ Base URL: https://api.pinata.cloud 
+        ◦ Upload File: POST /pinning/pinFileToIPFS 
+        ◦ Pin JSON: POST /pinning/pinJSONToIPFS 
+        ◦ Documentation: Pinata API Docs 
+
+Web3.Storage
+    • NPM Package: 
+        ◦ web3.storage 
+    • API Endpoints: 
+        ◦ Base URL: https://api.web3.storage 
+        ◦ Upload File: POST /upload 
+        ◦ Check Status: GET /status/{cid} 
+        ◦ Documentation: Web3.Storage API Docs 
+
+Storacha
+    • NPM Package: 
+        ◦ No official NPM package, but you can use generic HTTP clients. 
+    • API Endpoints: 
+        ◦ Base URL: https://api.storacha.network 
+        ◦ Documentation: Limited public documentation; direct integration details may require contacting Storacha. 
+
+Fly (Assuming Fly.io Storage)
+    • NPM Package: 
+        ◦ No specific NPM package for IPFS; use generic HTTP libraries. 
+    • API Endpoints: 
+        ◦ No direct IPFS API; Fly.io is more focused on app deployment. 
+
+Dcent
+    • NPM Package: 
+        ◦ No official NPM package for IPFS integration. 
+    • API Endpoints: 
+        ◦ Primarily a hardware wallet; no public IPFS API. 
+
+Additional Popular IPFS Services
+Infura IPFS
+    • NPM Package: 
+        ◦ @infura/sdk (includes IPFS support) 
+    • API Endpoints: 
+        ◦ Base URL: https://ipfs.infura.io:5001/api/v0 
+        ◦ Add File: POST /add 
+        ◦ Documentation: Infura IPFS Docs 
+
+Textile
+    • NPM Package: 
+        ◦ @textile/hub 
+    • API Endpoints: 
+        ◦ Base URL: https://hub.textile.io 
+        ◦ Documentation: Textile Docs 
+
+Would you like me to clarify any specific integration details or help with code snippets for any of these services?
+Perplexity
+Here is a list of NPM packages and API endpoints for IPFS services including Dcent, Filebase, fly, Lighthouse, nft.storage, Pinata, storacha, web3.storage, and additional ones found:
+    • Dcent
+        ◦ Dcent offers an IPFS C++ API client library but does not appear to have a dedicated NPM package.
+        ◦ GitHub: DECENTfoundation/cpp-ipfs-api provides API bindings for C++ to interact with IPFS.
+    • Filebase
+        ◦ NPM integration via libraries like "ipfs-storage" which supports Filebase with credentials (access key, secret, bucket).
+        ◦ Requires configuration with API keys for usage.
+    • fly
+        ◦ No specific details found on NPM or documented API endpoints for fly IPFS integration directly, may require further investigation.
+    • Lighthouse
+        ◦ Supported by "ipfs-storage" NPM package with API credentials for token-based access.
+    • nft.storage
+        ◦ npm package: nft.storage enables uploading files to IPFS, but uploads have been deprecated and shifted towards alternatives like Pinata and Lighthouse.
+    • Pinata
+        ◦ Has a dedicated NPM package @pinata/sdk.
+        ◦ Uses JWT token for authentication in API requests.
+        ◦ Offers REST API endpoints to pin/unpin files and manage pinned content.
+    • Storacha (formerly web3.storage)
+        ◦ Supported in the "ipfs-storage" unified package but requires using their CLI tool (w3 login) for authentication.
+        ◦ Web3.storage package web3.storage npm is deprecated; Storacha recommended as replacement.
+    • web3.storage
+        ◦ Was available as NPM package web3.storage but now deprecated with uploads discontinued. Users are advised to switch to Storacha or other services.
+    • Additional
+        ◦ ipfs-storage is a unified interface NPM package that supports Filebase, Storacha, Pinata, Lighthouse, and some others for file upload and deletion.
+        ◦ ipfs-free is another aggregation package supporting uploading to Infura, Pinata, etc., with a consistent API.
+        ◦ IPFS Cluster provides REST API endpoints for pinning and managing distributed IPFS nodes, useful for cluster management rather than a single storage service.
+Summary of some key NPM packages:
+IPFS ServiceNPM Package NameAuthenticationNotesDcentNo dedicated NPMC++ API client on GitHubFor C++ applications onlyFilebaseipfs-storageAPI key/access secretSupported in unified packageflyNo clear packageUnknownNeeds more researchLighthouseipfs-storageAPI tokenSupported in unified packagenft.storagenft.storageAPI tokenUploads deprecated, use Pinata/LighthousePinata@pinata/sdkJWT tokenProvides REST API and SDKStorachaipfs-storageCLI login (w3)Formerly web3.storageweb3.storageweb3.storage (deprecated)API tokenDeprecated, use Storacha or alternativesOthersipfs-freeVariousMulti-provider unified library
+API Endpoint Patterns (examples):
+    • Pinata: https://api.pinata.cloud/pinning/pinFileToIPFS (JWT auth)
+    • Filebase: S3-compatible API with API key/secret
+    • Lighthouse: Typical REST API with token header
+    • IPFS Cluster: endpoints like /add, /pins/{cid}, /peers for cluster management
+This overview provides you with packages and API endpoints used by the listed key IPFS storage services, including unified NPM libraries that integrate several providers under single usage patterns. Let me know if you want detailed API docs or example code for any specific service.
+References, , , , ,
+    1. https://ipfscluster.io/documentation/reference/api/ 
+    2. https://www.npmjs.com/package/ipfs-storage 
+    3. https://www.simpleaswater.com/ipfs-cluster-rest-api/ 
+    4. https://github.com/alexbakers/ipfs-storage 
+    5. https://www.quicknode.com/docs/ipfs 
+    6. https://www.npmjs.com/package/ipfs-free 
+    7. https://docs.ipfs.tech/reference/http/api/ 
+    8. https://github.com/web3-storage/web3.storage 
+    9. https://github.com/DECENTfoundation/cpp-ipfs-api 
+    10. https://github.com/nftstorage/nftstorage.link 
+
+Qwen
+Below is a comprehensive list of **NPM packages** and **API endpoints** (where applicable) for the IPFS services you mentioned—**Dcent**, **Filebase**, **Fly**, **Lighthouse**, **nft.storage**, **Pinata**, **Storacha**, and **web3.storage**—along with a few notable **additional services** that are commonly used for IPFS pinning or storage.
+
+> **Note**: Some services (like Dcent and Fly) are **not full IPFS storage/pinning providers**, so they may not have dedicated NPM packages or IPFS-specific APIs. I’ve clarified their status.
+
+---
+
+### ✅ **1. nft.storage**
+- **Website**: https://nft.storage/
+- **NPM Package**:  
+  [`nft.storage`](https://www.npmjs.com/package/nft.storage)
+- **API Endpoint**:  
+  `https://api.nft.storage`  
+  (Upload: `POST https://api.nft.storage/upload`)
+- **Authentication**: API token in header (`Authorization: Bearer <token>`)
+
+---
+
+### ✅ **2. Pinata**
+- **Website**: https://www.pinata.cloud/
+- **NPM Package**:  
+  Official: [`@pinata/sdk`](https://www.npmjs.com/package/@pinata/sdk)  
+  Community alternatives exist, but this is Pinata’s official SDK.
+- **API Endpoint**:  
+  `https://api.pinata.cloud`  
+  (Upload file: `POST https://api.pinata.cloud/pinning/pinFileToIPFS`)
+- **Authentication**: JWT-style API keys (`pinata_api_key` and `pinata_secret_api_key` in headers)
+
+---
+
+### ✅ **3. web3.storage**
+- **Website**: https://web3.storage/
+- **NPM Package**:  
+  [`web3.storage`](https://www.npmjs.com/package/web3.storage)
+- **API Endpoint**:  
+  `https://api.web3.storage`  
+  (Upload: `POST https://api.web3.storage/upload`)
+- **Authentication**: Bearer token (`Authorization: Bearer <token>`)
+
+> ⚠️ **Note**: web3.storage paused new uploads as of **April 2023**, but the API and NPM package remain useful for retrieval and legacy use. Check current status before relying on it for new projects.
+
+---
+
+### ✅ **4. Lighthouse**
+- **Website**: https://lighthouse.storage/
+- **NPM Package**:  
+  [`lighthouse-web3`](https://www.npmjs.com/package/lighthouse-web3)
+- **API Endpoints**:  
+  REST API base: `https://node.lighthouse.storage/api`  
+  - Upload: `POST https://node.lighthouse.storage/api/lighthouse/upload`
+  - Get CID: `GET https://gateway.lighthouse.storage/ipfs/<cid>`
+- **Authentication**: Uses API key (free tier available); also supports encryption via `lighthouse-web3`
+
+---
+
+### ✅ **5. Filebase**
+- **Website**: https://filebase.com/
+- **Compatibility**: S3-compatible object storage that **supports IPFS pinning via IPFS API gateway**
+- **NPM Package**:  
+  No official Filebase-specific IPFS NPM package, but can use:
+  - [`aws-sdk`](https://www.npmjs.com/package/aws-sdk) (v2) or [`@aws-sdk/client-s3`](https) (v3) for S3 operations  
+  - For IPFS: Use IPFS HTTP client + Filebase’s IPFS gateway (`ipfs.filebase.io`)
+- **IPFS Gateway**:  
+  `https://ipfs.filebase.io/ipfs/<cid>`
+- **Pin API**: Filebase supports **IPFS pinning via the Pinning Services API** (compatible with `ipfs-http-client`)
+
+> ✅ Filebase is **Pinning Services API compliant**, so you can use it with standard IPFS clients that support remote pinning.
+
+---
+
+### ⚠️ **6. Dcent**
+- **Status**: **Not an IPFS storage/pinning provider**  
+- **What it is**: Dcent is a **hardware wallet** brand (formerly Daylight). It does **not offer IPFS storage or APIs**.
+- **Conclusion**: No NPM package or IPFS API endpoints.
+
+---
+
+### ⚠️ **7. Fly**
+- **Website**: https://fly.io/
+- **Status**: Fly.io is a **platform for running full-stack apps**, **not an IPFS storage service**.
+- However, you **can self-host an IPFS node** on Fly.io (e.g., using `ipfs/go-ipfs`).
+- **No official IPFS NPM or API** from Fly for storage/pinning.
+- **Community example**: Deploy IPFS node via Docker on Fly → expose gateway or API.
+
+> ❌ No dedicated NPM package or IPFS pinning API.
+
+---
+
+### ✅ **8. Storacha (formerly Storj / Tardigrade)**
+- **Clarification**: Storacha is **not IPFS-native**, but **Uplink** (Storj’s SDK) can store files that are hashed like IPFS CIDs.
+- However, **Storj does not natively interoperate with IPFS** unless you use a bridge or custom layer.
+- **NPM Package**:  
+  [`@storj/uplink`](https://www.npmjs.com/package/@storj/uplink)
+- **IPFS Compatibility**: Limited—**not a drop-in IPFS replacement**.
+- **Alternative**: Consider **Estuary** or **Filebase** for true IPFS integration.
+
+> ⚠️ **Not a true IPFS service**, but included for completeness.
+
+---
+
+### ➕ **Other Notable IPFS Services (Missing from Your List)**
+
+#### **9. Estuary**
+- **Website**: https://estuary.tech/
+- **NPM**: No official SDK, but REST API is well-documented.
+- **API**: `https://api.estuary.tech`  
+  (Upload: `POST /content/add`)
+- **Auth**: API key in header (`Authorization: Bearer <token>`)
+- **Note**: Operated by Protocol Labs; widely used for NFT/IPFS pinning.
+
+#### **10. Infura IPFS**
+- **Website**: https://www.infura.io/product/ipfs
+- **NPM**: No official NPM, but compatible with `ipfs-http-client`
+- **API**: `https://ipfs.infura.io:5001/api/v0/...`  
+  Supports `add`, `pin/add`, etc.
+- **Auth**: Project ID + secret via Basic Auth
+
+#### **11. Fleek Storage (via Fleek IPFS)**
+- **Website**: https://fleek.co/storage/
+- **NPM**: [`@fleekhq/fleek-storage-js`](https://www.npmjs.com/package/@fleekhq/fleek-storage-js)
+- **Backend**: Built on **Filecoin + IPFS**
+- **API**: Uses bucket-based uploads; returns IPFS CID
+
+#### **12. Crust Network / Crust IPFS**
+- **Website**: https://crust.network/
+- **Gateway**: `https://ipfs-gw.crust.network/ipfs/<cid>`
+- **Pinning**: Supports **Pinning Services API**
+- **NPM**: No official SDK, but works with standard IPFS clients
+
+---
+
+### 🔧 Recommended Generic Client
+For services that support the **IPFS HTTP API** (e.g., Pinata, Infura, Filebase), you can also use:
+- **NPM**: [`ipfs-http-client`](https://www.npmjs.com/package/ipfs-http-client)  
+  → Works with any compliant IPFS node or gateway.
+
+Example:
+```ts
+import { create } from 'ipfs-http-client'
+
+const ipfs = create({
+  url: 'https://ipfs.infura.io:5001/api/v0'
+  // or for Pinata: 'https://api.pinata.cloud'
+})
+```
+
+---
+
+### Summary Table
+
+| Service         | NPM Package               | API Base URL                     | IPFS Native? |
+|-----------------|---------------------------|----------------------------------|--------------|
+| nft.storage     | `nft.storage`             | `https://api.nft.storage`        | ✅            |
+| Pinata          | `@pinata/sdk`             | `https://api.pinata.cloud`       | ✅            |
+| web3.storage    | `web3.storage`            | `https://api.web3.storage`       | ✅ (paused)   |
+| Lighthouse      | `lighthouse-web3`         | `https://node.lighthouse.storage`| ✅            |
+| Filebase        | `aws-sdk` / IPFS client   | S3 + `ipfs.filebase.io`          | ✅ (Pinning API) |
+| Dcent           | —                         | —                                | ❌            |
+| Fly             | —                         | —                                | ❌ (self-host only) |
+| Storacha (Storj)| `@storj/uplink`           | —                                | ❌ (not IPFS) |
+| Estuary         | — (REST only)             | `https://api.estuary.tech`       | ✅            |
+| Infura IPFS     | `ipfs-http-client`        | `https://ipfs.infura.io:5001`    | ✅            |
+| Fleek           | `@fleekhq/fleek-storage-js`| — (bucket-based)                | ✅            |
+
+---
+
+Let me know if you’d like code examples (e.g., uploading a file from TypeScript to Pinata or nft.storage using your private key pattern).
+
+
+
