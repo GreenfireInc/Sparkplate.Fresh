@@ -74,14 +74,22 @@
                     <Key :size="16" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
                     <input
                       v-model="privateKeyInput"
-                      :type="showPrivateKey ? 'text' : 'password'"
+                      type="text"
                       :placeholder="t('pastePrivateKey')"
                       style="padding-left: 2.5rem; padding-right: 3rem; max-width: 435px;"
                       class="w-full bg-gray-50 border border-gray-300 text-gray-900 placeholder:text-gray-400 rounded h-10 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all duration-200 outline-none"
                     />
+                    <input
+                      ref="fileInputRef"
+                      type="file"
+                      accept=".json,.txt,.key,.csv"
+                      class="hidden"
+                      @change="handleFileImport"
+                    />
                     <button
-                      @click="toggleShowPrivateKey"
+                      @click="triggerFileInput"
                       class="absolute right-1 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                      type="button"
                     >
                       <FileUp :size="16" />
                     </button>
@@ -243,6 +251,55 @@ const dropdownMenuRef = ref<HTMLElement | null>(null)
 const isNetworkDropdownOpen = ref(false)
 const dropdownPosition = ref({ top: 0, left: 0, width: 0 })
 
+// File import
+const fileInputRef = ref<HTMLInputElement | null>(null)
+
+const triggerFileInput = () => {
+  fileInputRef.value?.click()
+}
+
+const handleFileImport = async (event: Event) => {
+  const target = event.target as HTMLInputElement
+  const file = target.files?.[0]
+  
+  if (!file) return
+  
+  try {
+    const text = await file.text()
+    
+    // Try to parse as JSON first (for keystore files)
+    try {
+      const json = JSON.parse(text)
+      
+      // Check if it's an Ethereum-style keystore
+      if (json.crypto || json.Crypto) {
+        errorMessage.value = 'Keystore files require password decryption. Please extract the private key first.'
+        return
+      }
+      
+      // Check for common private key fields in JSON
+      if (json.privateKey) {
+        privateKeyInput.value = json.privateKey
+      } else if (json.private_key) {
+        privateKeyInput.value = json.private_key
+      } else if (json.key) {
+        privateKeyInput.value = json.key
+      } else {
+        errorMessage.value = 'Could not find private key in JSON file'
+      }
+    } catch {
+      // Not JSON, treat as plain text private key
+      privateKeyInput.value = text.trim()
+    }
+    
+    // Clear the file input so the same file can be selected again
+    target.value = ''
+  } catch (error) {
+    console.error('Error reading file:', error)
+    errorMessage.value = 'Failed to read file'
+  }
+}
+
 const updateDropdownPosition = () => {
   if (networkButtonRef.value) {
     const rect = networkButtonRef.value.getBoundingClientRect()
@@ -385,20 +442,36 @@ const handleDerive = async () => {
   blockExplorerLink.value = ''
 
   try {
-    // Simulate derivation process
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    const resolvedInput = privateKeyInput.value.trim()
     
-    // Mock derivation - in real implementation, this would use actual crypto libraries
-    const mockAddress = `0x${Math.random().toString(16).substr(2, 40)}`
-    const mockPublicKey = `0x${Math.random().toString(16).substr(2, 64)}`
+    // Check for JSON keystore content
+    if (resolvedInput.startsWith('{"version"') || resolvedInput.includes('"crypto"')) {
+      throw new Error('Keystore files require decryption. Please extract the private key first.')
+    }
     
-    derivedAddress.value = mockAddress
-    derivedPublicKey.value = mockPublicKey
-    blockExplorerLink.value = getBlockExplorerUrl(selectedTicker.value, mockAddress)
+    // Use the unified address generation service (following reference pattern)
+    const { generateMultiFormatAddresses } = await import('@/lib/currencyCore/currencies/ext/multiFormatAddresses')
+    
+    const result = await generateMultiFormatAddresses(
+      selectedTicker.value,
+      resolvedInput
+    )
+    
+    if (!result || !result.derived || !result.derived.address) {
+      throw new Error('Failed to derive address from private key')
+    }
+
+    derivedAddress.value = result.derived.address
+    derivedPublicKey.value = result.derived.publicKey || ''
+    
+    // Get block explorer link
+    const explorerUrl = await getBlockExplorerUrl(selectedTicker.value, result.derived.address)
+    blockExplorerLink.value = explorerUrl
     
     emit('derive', selectedTicker.value, privateKeyInput.value.trim())
   } catch (error) {
-    errorMessage.value = error instanceof Error ? error.message : t('derivationError')
+    console.error('Derivation error:', error)
+    errorMessage.value = error instanceof Error ? error.message : 'Failed to derive address'
   }
 }
 
