@@ -1,0 +1,2 @@
+export { IconBackground } from './iconBackground';
+
