@@ -108,15 +108,24 @@
             </div>
 
             <!-- Results Section -->
-            <div v-if="derivedAddress" class="mt-6 space-y-4">
+            <div v-if="derivedAddress" class="space-y-4" style="margin-top: 15px;">
               <!-- QR Code -->
-              <div class="flex justify-center">
+              <div class="flex justify-center" style="padding-top: 2px;">
                 <div class="relative">
-                  <div class="w-64 h-64 bg-white border-2 border-gray-200 rounded-lg flex items-center justify-center">
-                    <div class="text-center">
-                      <div class="text-4xl mb-2">🔐</div>
-                      <div class="text-sm text-gray-600">{{ selectedTicker }}</div>
-                    </div>
+                  <QrcodeVue
+                    :value="derivedAddress"
+                    :size="280"
+                    level="H"
+                    render-as="svg"
+                    background="#ffffff"
+                    foreground="#000000"
+                  />
+                  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <img
+                      :src="getSelectedNetworkIcon()"
+                      :alt="selectedTicker"
+                      class="w-16 h-16 bg-white rounded-full p-2 shadow-lg"
+                    />
                   </div>
                 </div>
               </div>
@@ -182,6 +191,7 @@
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { Key, Eye, EyeOff, Copy, ExternalLink, ChevronDown, FileUp } from 'lucide-vue-next'
 import { useI18n } from '@/composables/useI18n'
+import QrcodeVue from 'qrcode.vue'
 // Import only types from currencyData.ts (doesn't load heavy currency modules)
 import type { CurrencyData } from '@/lib/currencyCore/currencies/currencyData'
 
