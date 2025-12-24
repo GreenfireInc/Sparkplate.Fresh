@@ -28,7 +28,7 @@ export const tezosData: CurrencyData = {
     privateKeyFormat: "Tezos edsk format (Base58) or 64-character hex",
     privateKeyToPublicKeyCurve: "Ed25519",
     publicKeyToPublicWalletAddressHashing: "Blake2b-160 + Base58Check (starts with 'tz1')",
-    NPMLibraryHashing: "@noble/hashes/blake2b",
+    NPMLibraryHashing: "@noble/hashes/blake2.js",
     NPMLibrarySigning: "@noble/ed25519",
     keyStoreFormat: "Tezos JSON Keystore (Argon2i + libsodium)",
     jsonFormat: "Tezos JSON format / Michelson compatible",
@@ -402,9 +402,9 @@ export const tezosData: CurrencyData = {
   deriveFromPrivateKey: async (privateKey: string): Promise<DerivedInfo> => {
     // Import dependencies when needed to avoid loading them if not used
     const bs58 = await import('bs58');
-    const { sha256 } = await import('@noble/hashes/sha256');
-    const { sha512 } = await import('@noble/hashes/sha512');
-    const { blake2b } = await import('@noble/hashes/blake2b');
+    const { sha256 } = await import('@noble/hashes/sha2.js');
+    const { sha512 } = await import('@noble/hashes/sha2.js');
+    const { blake2b } = await import('@noble/hashes/blake2.js');
     
     console.log("XTZ case entered with priv:", privateKey);
     try {

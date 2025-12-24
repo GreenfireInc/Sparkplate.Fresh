@@ -30,7 +30,7 @@ export { BCH, BTC, DOGE, ETC, LTC };
  * 
  * ```typescript
  * // Option 1: Import namespaced modules
- * import { BCH, BTC, DOGE, ETC, LTC } from '@/components/currencyCore/miningPools';
+ * import { BCH, BTC, DOGE, ETC, LTC } from '@/lib/currencyCore/miningPools';
  * 
  * // Bitcoin Cash
  * const bchStats = await BCH.ViaBTCPool.fetchPoolStats();
@@ -50,8 +50,8 @@ export { BCH, BTC, DOGE, ETC, LTC };
  * const ltcPrice = await LTC.getLTCPrice();
  * 
  * // Option 2: Import from specific module directly
- * import { ViaBTCPool, getBCHPrice } from '@/components/currencyCore/miningPools/BCH.BitcoinCash';
- * import { FoundryUSAPool, getBTCPrice } from '@/components/currencyCore/miningPools/BTC.Bitcoin';
+ * import { ViaBTCPool, getBCHPrice } from '@/lib/currencyCore/miningPools/BCH.BitcoinCash';
+ * import { FoundryUSAPool, getBTCPrice } from '@/lib/currencyCore/miningPools/BTC.Bitcoin';
  * ```
  */
 

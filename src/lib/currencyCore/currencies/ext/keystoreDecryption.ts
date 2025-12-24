@@ -6,7 +6,7 @@
  */
 export const decryptEthereumKeystore = async (keystore: unknown, password: string): Promise<string> => {
   // Use the Ethereum-specific decryption function from ETH.Ethereum.ts
-  const { ethereumData } = await import('@/components/currencyCore/currencies/ETH.Ethereum');
+  const { ethereumData } = await import('@/lib/currencyCore/currencies/ETH.Ethereum');
 
   if (ethereumData.decryptKeystore) {
     return await ethereumData.decryptKeystore(keystore, password);
@@ -20,7 +20,7 @@ export const decryptEthereumKeystore = async (keystore: unknown, password: strin
  */
 export const decryptTezosKeystore = async (keystore: unknown, password: string): Promise<string> => {
   // Use the Tezos-specific decryption function from XTZ.Tezos.ts
-  const { tezosData } = await import('@/components/currencyCore/currencies/XTZ.Tezos');
+  const { tezosData } = await import('@/lib/currencyCore/currencies/XTZ.Tezos');
 
   if (tezosData.decryptKeystore) {
     return await tezosData.decryptKeystore(keystore, password);
@@ -34,7 +34,7 @@ export const decryptTezosKeystore = async (keystore: unknown, password: string):
  */
 export const decryptPolkadotKeystore = async (keystore: unknown, password: string): Promise<string> => {
   // Use the Polkadot-specific decryption function from DOT.Polkadot.ts
-  const { polkadotData } = await import('@/components/currencyCore/currencies/DOT.Polkadot');
+  const { polkadotData } = await import('@/lib/currencyCore/currencies/DOT.Polkadot');
 
   if (polkadotData.decryptKeystore) {
     return await polkadotData.decryptKeystore(keystore, password);

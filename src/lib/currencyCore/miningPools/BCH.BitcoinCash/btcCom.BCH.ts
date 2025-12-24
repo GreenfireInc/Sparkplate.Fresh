@@ -183,7 +183,7 @@ export const BTCcom = {
    * TypeScript integration example
    */
   integrationExample: `
-import { BTCcom } from '@/components/currencyCore/miningPools/BCH.BitcoinCash/BTCcom';
+import { BTCcom } from '@/lib/currencyCore/miningPools/BCH.BitcoinCash/BTCcom';
 
 // Fetch pool statistics (public endpoint)
 const poolStats = await BTCcom.fetchPoolStats();

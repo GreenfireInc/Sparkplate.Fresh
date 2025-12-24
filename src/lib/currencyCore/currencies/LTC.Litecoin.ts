@@ -37,7 +37,7 @@ export const litecoinData: CurrencyData = {
     privateKeyFormat: "64-character hexadecimal (32 bytes) or WIF (Wallet Import Format)",
     privateKeyToPublicKeyCurve: "secp256k1",
     publicKeyToPublicWalletAddressHashing: "SHA-256 + RIPEMD-160 + Base58Check / Bech32",
-    NPMLibraryHashing: "@noble/hashes/sha256",
+    NPMLibraryHashing: "@noble/hashes/sha2.js",
     NPMLibrarySigning: "@noble/secp256k1",
     keyStoreFormat: "Litecoin Core wallet.dat (Berkeley DB) / WIF",
     jsonFormat: "Bitcoin Core compatible JSON-RPC",

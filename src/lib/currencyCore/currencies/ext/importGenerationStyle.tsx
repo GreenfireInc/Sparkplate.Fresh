@@ -1,6 +1,4 @@
-import React from 'react';
-import { Switch } from '@/components/ui/switch';
-import { Label } from '@/components/ui/label';
+import { defineComponent, type PropType, h } from 'vue';
 
 export interface ImportGenerationStyleProps {
   /**
@@ -37,66 +35,74 @@ export interface ImportGenerationStyleProps {
  * - No explanation text (as requested)
  *
  * Usage:
- * ```tsx
+ * ```vue
  * <ImportGenerationStyle
- *   value={importMethod}
- *   onChange={setImportMethod}
+ *   :value="importMethod"
+ *   @change="setImportMethod"
  * />
  * ```
  */
-export const ImportGenerationStyle: React.FC<ImportGenerationStyleProps> = ({
-  value,
-  onChange,
-  disabled = false,
-  className = ''
-}) => {
-  const handleToggle = () => {
-    if (disabled) return;
-
-    // Cycle through: auto -> polkadotjs -> exodus -> auto
-    switch (value) {
-      case 'auto':
-        onChange('polkadotjs');
-        break;
-      case 'polkadotjs':
-        onChange('exodus');
-        break;
-      case 'exodus':
-        onChange('auto');
-        break;
-      default:
-        onChange('auto');
+export const ImportGenerationStyle = defineComponent({
+  name: 'ImportGenerationStyle',
+  props: {
+    value: {
+      type: String as PropType<'exodus' | 'polkadotjs' | 'auto'>,
+      required: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    className: {
+      type: String,
+      default: ''
     }
-  };
+  },
+  emits: ['change'],
+  setup(props, { emit }) {
+    const handleToggle = () => {
+      if (props.disabled) return;
 
-  // Determine checked state based on value
-  const isChecked = value !== 'auto';
+      // Cycle through: auto -> polkadotjs -> exodus -> auto
+      let newValue: 'exodus' | 'polkadotjs' | 'auto' = 'auto';
+      switch (props.value) {
+        case 'auto':
+          newValue = 'polkadotjs';
+          break;
+        case 'polkadotjs':
+          newValue = 'exodus';
+          break;
+        case 'exodus':
+          newValue = 'auto';
+          break;
+        default:
+          newValue = 'auto';
+      }
+      emit('change', newValue);
+    };
 
-  return (
-    <div className={`flex items-center gap-2 ${className}`}>
-      <Switch
-        checked={isChecked}
-        onCheckedChange={handleToggle}
-        disabled={disabled}
-        className={`
-          ${value === 'exodus' ? 'data-[state=checked]:bg-orange-500' : ''}
-          ${value === 'polkadotjs' ? 'data-[state=checked]:bg-blue-500' : ''}
-        `}
-      />
-      <Label 
-        className={`text-xs font-medium cursor-pointer ${
-          value === 'auto' ? 'text-gray-500' : 
-          value === 'exodus' ? 'text-orange-600' : 
-          'text-blue-600'
-        }`}
-        onClick={!disabled ? handleToggle : undefined}
-      >
-        {value === 'exodus' && 'Exodus'}
-        {value === 'polkadotjs' && 'Polkadot.js'}
-        {value === 'auto' && 'Auto'}
-      </Label>
-    </div>
-  );
-};
+    const isChecked = props.value !== 'auto';
+    const labelText = props.value === 'exodus' ? 'Exodus' : 
+                      props.value === 'polkadotjs' ? 'Polkadot.js' : 'Auto';
+    const labelClass = props.value === 'auto' ? 'text-gray-500' : 
+                       props.value === 'exodus' ? 'text-orange-600' : 'text-blue-600';
+    const switchClass = props.value === 'exodus' ? 'data-[state=checked]:bg-orange-500' : 
+                       props.value === 'polkadotjs' ? 'data-[state=checked]:bg-blue-500' : '';
+
+    return () => h('div', { class: `flex items-center gap-2 ${props.className}` }, [
+      h('input', {
+        type: 'checkbox',
+        checked: isChecked,
+        onChange: handleToggle,
+        disabled: props.disabled,
+        class: `w-4 h-4 rounded ${switchClass}`
+      }),
+      h('label', {
+        class: `text-xs font-medium ${!props.disabled ? 'cursor-pointer' : 'cursor-not-allowed'} ${labelClass}`,
+        onClick: !props.disabled ? handleToggle : undefined
+      }, labelText)
+    ]);
+  }
+});
 
 export default ImportGenerationStyle;

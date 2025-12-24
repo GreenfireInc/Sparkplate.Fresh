@@ -32,7 +32,7 @@
  * Usage Examples:
  * 
  * ```typescript
- * import { DEXs } from '@/components/currencyCore/DEXs';
+ * import { DEXs } from '@/lib/currencyCore/DEXs';
  * 
  * // Access Algorand DEXs
  * const algoDEXs = await DEXs.ALGO();

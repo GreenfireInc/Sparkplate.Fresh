@@ -113,7 +113,7 @@ export * from './minting/token';
  * 
  * ### Import specific modules
  * ```typescript
- * import { Exchanges, QuickExchanges, P2PExchanges } from '@/components/currencyCore';
+ * import { Exchanges, QuickExchanges, P2PExchanges } from '@/lib/currencyCore';
  * 
  * // Use centralized exchanges
  * const binance = new Exchanges.Binance({ apiKey: 'key', apiSecret: 'secret' });
@@ -128,7 +128,7 @@ export * from './minting/token';
  * 
  * ### Import everything
  * ```typescript
- * import * as CurrencyCore from '@/components/currencyCore';
+ * import * as CurrencyCore from '@/lib/currencyCore';
  * 
  * // Access all services
  * const exchanges = CurrencyCore.Exchanges;
@@ -148,7 +148,7 @@ export * from './minting/token';
  *   Oracles,
  *   Aggregators,
  *   Domains
- * } from '@/components/currencyCore';
+ * } from '@/lib/currencyCore';
  * 
  * // Compare rates across different types of exchanges
  * const centralizedRate = await Exchanges.Binance.getTicker('BTC/USDT');

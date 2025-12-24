@@ -47,7 +47,7 @@ export const polkadotData: CurrencyData = {
     privateKeyFormat: "64-character hexadecimal (32 bytes) or sr25519 seed",
     privateKeyToPublicKeyCurve: "sr25519 (Schnorrkel) / ed25519 (alternative)",
     publicKeyToPublicWalletAddressHashing: "Blake2b + SS58 encoding (network-specific prefix)",
-    NPMLibraryHashing: "@noble/hashes/blake2b",
+    NPMLibraryHashing: "@noble/hashes/blake2.js",
     NPMLibrarySigning: "@polkadot/util-crypto",
     keyStoreFormat: "Polkadot.js JSON Keystore (scrypt + xsalsa20-poly1305)",
     jsonFormat: "Substrate JSON (Polkadot.js compatible)",

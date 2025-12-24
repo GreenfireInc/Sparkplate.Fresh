@@ -23,12 +23,14 @@
                   v-model="selectedTicker"
                   class="w-full bg-gray-50 border border-gray-300 text-gray-900 rounded h-10 px-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all duration-200 outline-none"
                 >
-                  <option value="ETH">Ethereum</option>
-                  <option value="BTC">Bitcoin</option>
-                  <option value="LTC">Litecoin</option>
-                  <option value="DOT">Polkadot</option>
-                  <option value="XTZ">Tezos</option>
-                  <option value="STX">Stacks</option>
+                  <option 
+                    v-for="ticker in availableNetworks" 
+                    :key="ticker" 
+                    :value="ticker"
+                  >
+                    {{ ticker }} - {{ currencyByTicker[ticker]?.basicInfo?.name || ticker }}
+                  </option>
+                  <option v-if="currenciesLoading" disabled>Loading currencies...</option>
                 </select>
               </div>
 
@@ -148,9 +150,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import { Key, Eye, EyeOff, Copy, ExternalLink } from 'lucide-vue-next'
 import { useI18n } from '@/composables/useI18n'
+
+// Define types locally to avoid importing the currencies module at startup
+type SupportedTicker = "ALGO" | "AR" | "ATOM" | "BCH" | "BNB" | "BTC" | "DOGE" | "DOT" | "ETC" | "ETH" | "LTC" | "LUNA" | "LUNC" | "SOL" | "STX" | "TRX" | "WAVES" | "XLM" | "XRP" | "XTZ"
+
+interface CurrencyData {
+  basicInfo?: { name?: string }
+  deriveFromPrivateKey?: (privateKey: string) => any
+  getBlockExplorerLink?: (address: string) => string
+  blockExplorer?: { blockExplorerLink?: string }
+}
 
 interface TemporaryKeyModalProps {
   isOpen: boolean
@@ -164,7 +176,7 @@ const emit = defineEmits<{
 
 const { t } = useI18n()
 
-const selectedTicker = ref('ETH')
+const selectedTicker = ref<SupportedTicker>('ETH')
 const privateKeyInput = ref('')
 const showPrivateKey = ref(false)
 const derivedAddress = ref('')
@@ -172,28 +184,60 @@ const derivedPublicKey = ref('')
 const blockExplorerLink = ref('')
 const errorMessage = ref('')
 
-const getNetworkLabel = () => {
-  const labels: Record<string, string> = {
-    ETH: 'Ethereum',
-    BTC: 'Bitcoin',
-    LTC: 'Litecoin',
-    DOT: 'Polkadot',
-    XTZ: 'Tezos',
-    STX: 'Stacks'
+// Lazy-loaded currency data (loaded when modal opens)
+const currencyByTicker = ref<Record<string, CurrencyData>>({})
+const currenciesLoaded = ref(false)
+const currenciesLoading = ref(false)
+
+// Load currencies dynamically when the modal opens
+const loadCurrencies = async () => {
+  if (currenciesLoaded.value || currenciesLoading.value) return
+  
+  currenciesLoading.value = true
+  try {
+    const module = await import('@/lib/currencyCore/currencies')
+    currencyByTicker.value = module.currencyByTicker
+    currenciesLoaded.value = true
+  } catch (error) {
+    console.error('Failed to load currencies:', error)
+  } finally {
+    currenciesLoading.value = false
   }
-  return labels[selectedTicker.value] || selectedTicker.value
+}
+
+// Watch for modal open to load currencies
+watch(() => props.isOpen, (isOpen) => {
+  if (isOpen && !currenciesLoaded.value) {
+    loadCurrencies()
+  }
+}, { immediate: true })
+
+// Get all available networks from the currency data
+// Filter to only include currencies that have deriveFromPrivateKey function
+const availableNetworks = computed(() => {
+  if (!currenciesLoaded.value) return ['ETH'] as SupportedTicker[]
+  return Object.keys(currencyByTicker.value)
+    .filter(ticker => currencyByTicker.value[ticker]?.deriveFromPrivateKey)
+    .sort() as SupportedTicker[]
+})
+
+const getNetworkLabel = () => {
+  const currency = currencyByTicker.value[selectedTicker.value]
+  return currency?.basicInfo?.name || selectedTicker.value
 }
 
 const getBlockExplorerUrl = (ticker: string, address: string) => {
-  const explorers: Record<string, string> = {
-    ETH: `https://etherscan.io/address/${address}`,
-    BTC: `https://blockstream.info/address/${address}`,
-    LTC: `https://blockchair.com/litecoin/address/${address}`,
-    DOT: `https://polkascan.io/polkadot/account/${address}`,
-    XTZ: `https://tzstats.com/${address}`,
-    STX: `https://explorer.stacks.co/address/${address}`
+  const currency = currencyByTicker.value[ticker]
+  if (currency?.getBlockExplorerLink) {
+    return currency.getBlockExplorerLink(address) || ''
   }
-  return explorers[ticker] || ''
+  
+  // Fallback to blockExplorerLink if available
+  if (currency?.blockExplorer?.blockExplorerLink) {
+    return `${currency.blockExplorer.blockExplorerLink}${address}`
+  }
+  
+  return ''
 }
 
 const handleDerive = async () => {

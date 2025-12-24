@@ -184,7 +184,7 @@ export const Poolin = {
    * TypeScript integration example
    */
   integrationExample: `
-import { Poolin } from '@/components/currencyCore/miningPools/BCH.BitcoinCash/Poolin';
+import { Poolin } from '@/lib/currencyCore/miningPools/BCH.BitcoinCash/Poolin';
 
 // Setup API credentials
 const apiKey = 'your_poolin_api_key';

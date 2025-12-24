@@ -27,7 +27,7 @@ export const arweaveData: CurrencyData = {
     privateKeyFormat: "JWK (JSON Web Key) - RSA-4096",
     privateKeyToPublicKeyCurve: "RSA-4096",
     publicKeyToPublicWalletAddressHashing: "Base64URL encoding of RSA public key with SHA-256",
-    NPMLibraryHashing: "@noble/hashes/sha256",
+    NPMLibraryHashing: "@noble/hashes/sha2.js",
     NPMLibrarySigning: "arweave (RSA-4096)",
     keyStoreFormat: "Arweave JWK (JSON Web Key)",
     jsonFormat: "Arweave Transaction JSON",

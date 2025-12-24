@@ -43,7 +43,7 @@ export function concatBytes(...arrays: Uint8Array[]): Uint8Array {
  * Encode data with Base58Check encoding (used by many cryptocurrencies)
  */
 export async function base58checkEncode(data: Uint8Array): Promise<string> {
-  const { sha256 } = await import('@noble/hashes/sha256');
+  const { sha256 } = await import('@noble/hashes/sha2.js');
   const bs58 = await import('bs58');
   
   const checksum = sha256(sha256(data)).slice(0, 4);

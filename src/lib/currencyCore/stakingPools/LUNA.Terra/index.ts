@@ -101,7 +101,7 @@ export {
  * Usage Example:
  * 
  * ```typescript
- * import { TerraStationValidators, PrismProtocolStaking, getLUNAPrice } from '@/components/currencyCore/stakingPools/LUNA.Terra';
+ * import { TerraStationValidators, PrismProtocolStaking, getLUNAPrice } from '@/lib/currencyCore/stakingPools/LUNA.Terra';
  * 
  * // Fetch LUNA price
  * const lunaPrice = await getLUNAPrice();

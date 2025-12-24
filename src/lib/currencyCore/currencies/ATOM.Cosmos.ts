@@ -28,7 +28,7 @@ export const cosmosData: CurrencyData = {
     privateKeyFormat: "64-character hexadecimal (32 bytes) or cosmospriv base58",
     privateKeyToPublicKeyCurve: "secp256k1",
     publicKeyToPublicWalletAddressHashing: "RIPEMD160(SHA-256(public key)) + Bech32 encoding",
-    NPMLibraryHashing: "@noble/hashes/sha256",
+    NPMLibraryHashing: "@noble/hashes/sha2.js",
     NPMLibrarySigning: "@noble/secp256k1",
     keyStoreFormat: "Cosmos JSON Keystore (AES-128-CTR/AES-256-CTR)",
     jsonFormat: "Cosmos SDK JSON",
@@ -529,8 +529,8 @@ export const cosmosData: CurrencyData = {
   deriveFromPrivateKey: async (privateKey: string): Promise<DerivedInfo> => {
     // Import dependencies when needed to avoid loading them if not used
     const secp = await import('@noble/secp256k1');
-    const { sha256 } = await import('@noble/hashes/sha256');
-    const { ripemd160 } = await import('@noble/hashes/ripemd160');
+    const { sha256 } = await import('@noble/hashes/sha2.js');
+    const { ripemd160 } = await import('@noble/hashes/legacy.js');
     const bech32 = await import('bech32');
     const bs58 = await import('bs58');
 

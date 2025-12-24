@@ -29,7 +29,7 @@ export const ethereumData: CurrencyData = {
     privateKeyFormat: "64-character hexadecimal (32 bytes) with optional 0x prefix",
     privateKeyToPublicKeyCurve: "secp256k1",
     publicKeyToPublicWalletAddressHashing: "Keccak-256 (last 20 bytes) + checksummed hex",
-    NPMLibraryHashing: "@noble/hashes/sha3",
+    NPMLibraryHashing: "@noble/hashes/sha3.js",
     NPMLibrarySigning: "ethers",
     keyStoreFormat: "Ethereum JSON Keystore (Web3 Secret Storage Definition)",
     jsonFormat: "EVM-compatible JSON (ERC-20 / ERC-721 / ERC-1155)",

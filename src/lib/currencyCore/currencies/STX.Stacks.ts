@@ -4,7 +4,7 @@
 
 import type { CurrencyData, DerivedInfo } from './currencyData';
 import { toHex, fromHex } from './utils';
-import { getExpectedStacksBitcoinAddress } from '@/components/currencyCore/currencies/ext';
+import { getExpectedStacksBitcoinAddress } from '@/lib/currencyCore/currencies/ext';
 
 // Test function to verify the implementation with known seed phrase
 export async function testSeedPhraseDerivation(): Promise<void> {

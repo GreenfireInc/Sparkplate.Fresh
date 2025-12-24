@@ -81,7 +81,7 @@ export { RobosatsExchange } from './robosats';
  * Usage Example:
  * 
  * ```typescript
- * import { BisqExchange, HodlhodlExchange, LocalcoinswapExchange } from '@/components/currencyCore/p2pExchanges';
+ * import { BisqExchange, HodlhodlExchange, LocalcoinswapExchange } from '@/lib/currencyCore/p2pExchanges';
  * 
  * // Get P2P order books from multiple exchanges
  * const bisqOrders = await BisqExchange.getOrderBook('BTC', 'USD');

@@ -405,9 +405,9 @@ export const rippleData: CurrencyData = {
       const trimmedPriv = privateKey.trim();
 
       // Import required libraries
-      const { ed25519: nobleEd25519 } = await import('@noble/curves/ed25519');
-      const { secp256k1: nobleSecp256k1 } = await import('@noble/curves/secp256k1');
-      const { bytesToHex } = await import('@noble/hashes/utils');
+      const { ed25519: nobleEd25519 } = await import('@noble/curves/ed25519.js');
+      const { secp256k1: nobleSecp256k1 } = await import('@noble/curves/secp256k1.js');
+      const { bytesToHex } = await import('@noble/hashes/utils.js');
 
       // Import ripple-keypairs utilities for algorithm detection
       const { getAlgorithmFromPrivateKey } = await import('ripple-keypairs/dist/utils/getAlgorithmFromKey');

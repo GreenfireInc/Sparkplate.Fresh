@@ -1,7 +1,7 @@
-import { Copy } from "lucide-react";
-import { bitcoinData, BitcoinAddressFormat } from "@/components/currencyCore/currencies/BTC.Bitcoin";
-import { litecoinData, LitecoinAddressFormat } from "@/components/currencyCore/currencies/LTC.Litecoin";
-import type { DerivedInfo } from "@/components/currencyCore/currencies/currencyData";
+import { Copy } from "lucide-vue-next";
+import { bitcoinData, BitcoinAddressFormat } from "@/lib/currencyCore/currencies/BTC.Bitcoin";
+import { litecoinData, LitecoinAddressFormat } from "@/lib/currencyCore/currencies/LTC.Litecoin";
+import type { DerivedInfo } from "@/lib/currencyCore/currencies/currencyData";
 
 // Define types for Bitcoin, Litecoin, Tron and Polkadot addresses
 export type BitcoinAddresses = {
@@ -352,7 +352,7 @@ export const generateMultiFormatAddresses = async (
   polkadotMethod?: 'auto' | 'polkadotjs' | 'exodus'
 ): Promise<AddressGenerationResult> => {
   // Import the derivation function
-  const { currencyByTicker } = await import('@/components/currencyCore/currencies');
+  const { currencyByTicker } = await import('@/lib/currencyCore/currencies');
 
   // Get the currency data for the selected ticker
   const currency = currencyByTicker[ticker];

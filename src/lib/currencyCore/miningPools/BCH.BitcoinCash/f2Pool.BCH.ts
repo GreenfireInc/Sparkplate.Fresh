@@ -161,7 +161,7 @@ export const F2Pool = {
    * TypeScript integration example
    */
   integrationExample: `
-import { F2Pool } from '@/components/currencyCore/miningPools/BCH.BitcoinCash/F2Pool';
+import { F2Pool } from '@/lib/currencyCore/miningPools/BCH.BitcoinCash/F2Pool';
 
 // Fetch BCH coin statistics (public endpoint)
 const coinStats = await F2Pool.fetchCoinStats();
