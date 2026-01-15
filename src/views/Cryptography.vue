@@ -23,6 +23,12 @@
       >
         Encrypt/Decrypt
       </TabComponent>
+      <TabComponent
+        :active="activeTab === 'pgp'"
+        :onClick="() => (activeTab = 'pgp')"
+      >
+        PGP/GPG Keys
+      </TabComponent>
     </TabsWrapper>
 
     <!-- Tab Content -->
@@ -35,6 +41,9 @@
       
       <!-- Encrypt/Decrypt Tab -->
       <encrypt-decrypt-tool v-if="activeTab === 'encrypt'" />
+      
+      <!-- PGP/GPG Keys Tab -->
+      <PGPKeyTool v-if="activeTab === 'pgp'" />
     </div>
   </div>
 </template>
@@ -44,6 +53,7 @@ import { ref } from 'vue'
 import HashTool from '../components/pages/cryptography/HashTool.vue'
 import VerifyTool from '../components/pages/cryptography/VerifyTool.vue'
 import EncryptDecryptTool from '../components/pages/cryptography/EncryptDecryptTool.vue'
+import PGPKeyTool from '@/components/pages/cryptography/PGPKeyTool.vue'
 import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
 
