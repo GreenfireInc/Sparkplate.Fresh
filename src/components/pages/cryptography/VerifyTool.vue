@@ -4,33 +4,36 @@
     <p class="text-gray-600 mb-6">Verify the integrity of files by comparing their hashes with known values</p>
     
     <div class="space-y-6">
-      <!-- File Selection -->
-      <div>
-        <label for="fileInput" class="block text-sm font-medium text-gray-700 mb-2">Select File to Verify</label>
-        <input
-          id="fileInput"
-          type="file"
-          @change="handleFileSelect"
-          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-        />
-        <p v-if="selectedFile" class="mt-2 text-sm text-gray-600">
-          Selected: {{ selectedFile.name }} ({{ formatFileSize(selectedFile.size) }})
-        </p>
-      </div>
+      <!-- Top Row: File Selection and Hash Algorithm Selection -->
+      <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+        <!-- File Selection -->
+        <div class="flex-1">
+          <label for="fileInput" class="block text-sm font-medium text-gray-700 mb-2">Select File to Verify</label>
+          <input
+            id="fileInput"
+            type="file"
+            @change="handleFileSelect"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          />
+          <p v-if="selectedFile" class="mt-2 text-sm text-gray-600">
+            Selected: {{ selectedFile.name }} ({{ formatFileSize(selectedFile.size) }})
+          </p>
+        </div>
 
-      <!-- Hash Algorithm Selection -->
-      <div>
-        <label class="block text-sm font-medium text-gray-700 mb-2">Hash Algorithm</label>
-        <select
-          v-model="selectedAlgorithm"
-          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-        >
-          <option value="sha1">SHA-1</option>
-          <option value="sha256">SHA-256</option>
-          <option value="sha384">SHA-384</option>
-          <option value="sha512">SHA-512</option>
-          <option value="md5">MD5</option>
-        </select>
+        <!-- Hash Algorithm Selection - Upper Right -->
+        <div class="md:w-64">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Hash Algorithm</label>
+          <select
+            v-model="selectedAlgorithm"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          >
+            <option value="sha1">SHA-1</option>
+            <option value="sha256">SHA-256</option>
+            <option value="sha384">SHA-384</option>
+            <option value="sha512">SHA-512</option>
+            <option value="md5">MD5</option>
+          </select>
+        </div>
       </div>
 
       <!-- Expected Hash Input -->
