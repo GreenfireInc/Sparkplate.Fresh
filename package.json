@@ -9,6 +9,7 @@
     "type": "git",
     "url": "git@github.com:GreenfireInc/Sparkplate.Fresh.git"
   },
+  "homepage": "https://github.com/GreenfireInc/Sparkplate.Fresh",
   "private": true,
   "keywords": [
     "electron",

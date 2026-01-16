@@ -4,28 +4,64 @@
     <p class="text-gray-600 mb-6">Generate cryptographic hashes using various algorithms</p>
     
     <div class="space-y-6">
-      <!-- Input Section -->
-      <div>
-        <label class="block text-sm font-medium text-gray-700 mb-2">Input Type</label>
-        <div class="flex space-x-4 mb-4">
-          <label class="flex items-center">
-            <input 
-              type="radio" 
-              v-model="inputType" 
-              value="text" 
-              class="mr-2"
-            />
-            Text
-          </label>
-          <label class="flex items-center">
-            <input 
-              type="radio" 
-              v-model="inputType" 
-              value="file" 
-              class="mr-2"
-            />
-            File
-          </label>
+      <!-- Top Row: Input Type and Algorithm Selection -->
+      <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+        <!-- Input Section -->
+        <div class="flex-1">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Input Type</label>
+          <div class="flex space-x-4">
+            <label class="flex items-center">
+              <input 
+                type="radio" 
+                v-model="inputType" 
+                value="text" 
+                class="mr-2"
+              />
+              Text
+            </label>
+            <label class="flex items-center">
+              <input 
+                type="radio" 
+                v-model="inputType" 
+                value="file" 
+                class="mr-2"
+              />
+              File
+            </label>
+          </div>
+        </div>
+
+        <!-- Algorithm Selection - Upper Right -->
+        <div class="md:w-64">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Hash Algorithm</label>
+          <select
+            v-model="selectedAlgorithm"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          >
+            <optgroup label="SHA Family">
+              <option value="sha1">SHA-1</option>
+              <option value="sha256">SHA-256</option>
+              <option value="sha384">SHA-384</option>
+              <option value="sha512">SHA-512</option>
+            </optgroup>
+            <optgroup label="MD Family">
+              <option value="md5">MD5</option>
+            </optgroup>
+            <optgroup label="RIPEMD Family">
+              <option value="ripemd128">RIPEMD-128</option>
+              <option value="ripemd160">RIPEMD-160</option>
+              <option value="ripemd256">RIPEMD-256</option>
+              <option value="ripemd320">RIPEMD-320</option>
+            </optgroup>
+            <optgroup label="Other Algorithms">
+              <option value="whirlpool">Whirlpool</option>
+              <option value="tiger128_3">Tiger-128,3</option>
+              <option value="tiger160_3">Tiger-160,3</option>
+              <option value="tiger192_3">Tiger-192,3</option>
+              <option value="tiger128_4">Tiger-128,4</option>
+              <option value="blake2b">Blake2b</option>
+            </optgroup>
+          </select>
         </div>
       </div>
 
@@ -53,39 +89,6 @@
         <p v-if="selectedFile" class="mt-2 text-sm text-gray-600">
           Selected: {{ selectedFile.name }} ({{ formatFileSize(selectedFile.size) }})
         </p>
-      </div>
-
-      <!-- Algorithm Selection -->
-      <div>
-        <label class="block text-sm font-medium text-gray-700 mb-2">Hash Algorithm</label>
-        <select
-          v-model="selectedAlgorithm"
-          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-        >
-          <optgroup label="SHA Family">
-            <option value="sha1">SHA-1</option>
-            <option value="sha256">SHA-256</option>
-            <option value="sha384">SHA-384</option>
-            <option value="sha512">SHA-512</option>
-          </optgroup>
-          <optgroup label="MD Family">
-            <option value="md5">MD5</option>
-          </optgroup>
-          <optgroup label="RIPEMD Family">
-            <option value="ripemd128">RIPEMD-128</option>
-            <option value="ripemd160">RIPEMD-160</option>
-            <option value="ripemd256">RIPEMD-256</option>
-            <option value="ripemd320">RIPEMD-320</option>
-          </optgroup>
-          <optgroup label="Other Algorithms">
-            <option value="whirlpool">Whirlpool</option>
-            <option value="tiger128_3">Tiger-128,3</option>
-            <option value="tiger160_3">Tiger-160,3</option>
-            <option value="tiger192_3">Tiger-192,3</option>
-            <option value="tiger128_4">Tiger-128,4</option>
-            <option value="blake2b">Blake2b</option>
-          </optgroup>
-        </select>
       </div>
 
       <!-- Generate Button -->
