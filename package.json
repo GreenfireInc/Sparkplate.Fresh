@@ -1,10 +1,14 @@
 {
   "name": "sparkplate-fresh",
-  "version": "2026.01.14",
+  "version": "2026.01.15",
   "main": "dist/background/index.js",
   "description": "A fresh take on the Electron + Vue + Vite boilerplate using Greenfire's Sparkplate and Greenery.",
   "author": "Greenfire <hello@greenfire.io>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:GreenfireInc/Sparkplate.Fresh.git"
+  },
   "private": true,
   "keywords": [
     "electron",

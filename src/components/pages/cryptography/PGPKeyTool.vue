@@ -3,157 +3,201 @@
     <h2 class="text-xl font-semibold mb-4">PGP/GPG Key Tool</h2>
     <p class="text-gray-600 mb-6">Validate keypairs, generate public keys, and encrypt/decrypt files with PGP/GPG</p>
     
-    <div class="space-y-6">
-      <!-- Keypair Validation Section -->
-      <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
-        <h3 class="text-lg font-medium text-gray-900 mb-4">Validate Keypair</h3>
-        
-        <div class="space-y-4">
-          <!-- Public Key Input -->
-          <div>
-            <label for="publicKey" class="block text-sm font-medium text-gray-700 mb-2">Public Key</label>
-            <textarea
-              id="publicKey"
-              v-model="publicKey"
-              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-mono text-sm"
-              rows="6"
-              placeholder="Paste your public key (armored format)..."
-            ></textarea>
-          </div>
+    <!-- Tab Navigation -->
+    <TabsWrapper class="tabs-container">
+      <TabComponent
+        :active="activeTab === 'validate'"
+        :onClick="() => (activeTab = 'validate')"
+      >
+        Validate Keypair
+      </TabComponent>
+      <TabComponent
+        :active="activeTab === 'encrypt-decrypt'"
+        :onClick="() => (activeTab = 'encrypt-decrypt')"
+      >
+        Encrypt/Decrypt
+      </TabComponent>
+    </TabsWrapper>
 
-          <!-- Private Key Input -->
-          <div>
-            <label for="privateKey" class="block text-sm font-medium text-gray-700 mb-2">Private Key</label>
-            <textarea
-              id="privateKey"
-              v-model="privateKey"
-              @input="generatePublicKey"
-              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-mono text-sm"
-              rows="6"
-              placeholder="Paste your private key (armored format)..."
-            ></textarea>
-          </div>
-
-          <!-- Fingerprint Display -->
-          <div v-if="keyFingerprint" class="bg-white p-3 rounded border border-gray-300">
-            <label class="block text-sm font-medium text-gray-700 mb-1">Fingerprint</label>
-            <div class="flex items-center justify-between">
-              <p class="font-mono text-sm text-gray-900 break-all">{{ keyFingerprint.replace('Fingerprint: ', '') }}</p>
-              <button
-                @click="copyFingerprint"
-                class="ml-2 px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 rounded transition-colors"
-                title="Copy fingerprint"
-              >
-                Copy
-              </button>
-            </div>
-          </div>
-
-          <!-- Validation Message -->
-          <div v-if="validationMessage" class="p-3 rounded"
-               :class="validationMessage === 'Keys are valid!' ? 'bg-green-50 text-green-800 border border-green-200' : 'bg-red-50 text-red-800 border border-red-200'">
-            <p class="text-sm font-medium">{{ validationMessage }}</p>
-          </div>
-
-          <!-- Action Buttons -->
-          <div class="flex gap-3">
-            <button
-              @click="validateKeys"
-              :disabled="!publicKey.trim() || !privateKey.trim() || isValidating"
-              :class="[
-                'px-4 py-2 rounded-lg font-medium transition-colors duration-200',
-                (publicKey.trim() && privateKey.trim() && !isValidating)
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-              ]"
-            >
-              {{ isValidating ? 'Validating...' : 'Validate Keypair' }}
-            </button>
-
-            <!-- Export Dropdown -->
-            <div v-if="publicKey && rawFingerprint" class="relative">
-              <button
-                @click="showExportOptions = !showExportOptions"
-                class="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
-              >
-                Export
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
+    <!-- Tab Content -->
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <!-- Validate Keypair Tab -->
+      <div v-if="activeTab === 'validate'">
+        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+          <h3 class="text-lg font-medium text-gray-900 mb-4">Validate Keypair</h3>
+          
+          <div class="space-y-4">
+            <!-- Public Key and Private Key Inputs - Side by Side -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               
-              <Transition
-                enter-active-class="transition duration-100 ease-out"
-                enter-from-class="transform scale-95 opacity-0"
-                enter-to-class="transform scale-100 opacity-100"
-                leave-active-class="transition duration-75 ease-in"
-                leave-from-class="transform scale-100 opacity-100"
-                leave-to-class="transform scale-95 opacity-0"
-              >
-                <div
-                  v-if="showExportOptions"
-                  class="absolute top-full left-0 mt-1 w-32 bg-white border border-gray-200 rounded-lg shadow-lg z-10 overflow-hidden"
+              <!-- Private Key Input -->
+              <div>
+                <label for="privateKey" class="block text-sm font-medium text-gray-700 mb-2">Private Key</label>
+                <textarea
+                  id="privateKey"
+                  v-model="privateKey"
+                  @input="generatePublicKey"
+                  class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-mono text-sm"
+                  rows="6"
+                  placeholder="Paste your private key (armored format)..."
+                ></textarea>
+              </div>
+              
+              <!-- Public Key Input -->
+              <div>
+                <label for="publicKey" class="block text-sm font-medium text-gray-700 mb-2">Public Key</label>
+                <textarea
+                  id="publicKey"
+                  v-model="publicKey"
+                  class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-mono text-sm"
+                  rows="6"
+                  placeholder="Paste your public key (armored format)..."
+                ></textarea>
+              </div>
+
+              
+            </div>
+
+            <!-- Fingerprint Display -->
+            <div v-if="keyFingerprint" class="bg-white p-3 rounded border border-gray-300">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Fingerprint</label>
+              <div class="flex items-center justify-between">
+                <p class="font-mono text-sm text-gray-900 break-all">{{ keyFingerprint.replace('Fingerprint: ', '') }}</p>
+                <button
+                  @click="copyFingerprint"
+                  class="ml-2 px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 rounded transition-colors"
+                  title="Copy fingerprint"
                 >
-                  <button
-                    @click="exportKeyData('txt')"
-                    class="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors"
+                  Copy
+                </button>
+              </div>
+            </div>
+
+            <!-- Validation Message -->
+            <div v-if="validationMessage" class="p-3 rounded"
+                 :class="validationMessage === 'Keys are valid!' ? 'bg-green-50 text-green-800 border border-green-200' : 'bg-red-50 text-red-800 border border-red-200'">
+              <p class="text-sm font-medium">{{ validationMessage }}</p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex gap-3">
+              <button
+                @click="validateKeys"
+                :disabled="!publicKey.trim() || !privateKey.trim() || isValidating"
+                :class="[
+                  'px-4 py-2 rounded-lg font-medium transition-colors duration-200',
+                  (publicKey.trim() && privateKey.trim() && !isValidating)
+                    ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                ]"
+              >
+                {{ isValidating ? 'Validating...' : 'Validate Keypair' }}
+              </button>
+
+              <!-- Export Dropdown -->
+              <div v-if="publicKey && rawFingerprint" class="relative">
+                <button
+                  @click="showExportOptions = !showExportOptions"
+                  class="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
+                >
+                  Export
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                
+                <Transition
+                  enter-active-class="transition duration-100 ease-out"
+                  enter-from-class="transform scale-95 opacity-0"
+                  enter-to-class="transform scale-100 opacity-100"
+                  leave-active-class="transition duration-75 ease-in"
+                  leave-from-class="transform scale-100 opacity-100"
+                  leave-to-class="transform scale-95 opacity-0"
+                >
+                  <div
+                    v-if="showExportOptions"
+                    class="absolute top-full left-0 mt-1 w-32 bg-white border border-gray-200 rounded-lg shadow-lg z-10 overflow-hidden"
                   >
-                    TXT
-                  </button>
-                  <button
-                    @click="exportKeyData('csv')"
-                    class="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors"
-                  >
-                    CSV
-                  </button>
-                  <button
-                    @click="exportKeyData('json')"
-                    class="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors"
-                  >
-                    JSON
-                  </button>
-                  <button
-                    @click="exportKeyData('vcf')"
-                    class="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors"
-                  >
-                    vCard
-                  </button>
-                </div>
-              </Transition>
+                    <button
+                      @click="exportKeyData('txt')"
+                      class="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors"
+                    >
+                      TXT
+                    </button>
+                    <button
+                      @click="exportKeyData('csv')"
+                      class="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors"
+                    >
+                      CSV
+                    </button>
+                    <button
+                      @click="exportKeyData('json')"
+                      class="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors"
+                    >
+                      JSON
+                    </button>
+                    <button
+                      @click="exportKeyData('vcf')"
+                      class="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors"
+                    >
+                      vCard
+                    </button>
+                  </div>
+                </Transition>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- File Encryption/Decryption Section -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Encrypt File Card -->
-        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+      <!-- Encrypt/Decrypt Tab -->
+      <div v-if="activeTab === 'encrypt-decrypt'">
+        <!-- Sub-tabs for Encrypt/Decrypt -->
+        <TabsWrapper class="sub-tabs-container mb-6">
+          <TabComponent
+            :active="encryptDecryptTab === 'encrypt'"
+            :onClick="() => (encryptDecryptTab = 'encrypt')"
+          >
+            Encrypt File
+          </TabComponent>
+          <TabComponent
+            :active="encryptDecryptTab === 'decrypt'"
+            :onClick="() => (encryptDecryptTab = 'decrypt')"
+          >
+            Decrypt File
+          </TabComponent>
+        </TabsWrapper>
+
+        <!-- Encrypt File Sub-tab -->
+        <div v-if="encryptDecryptTab === 'encrypt'" class="bg-gray-50 rounded-lg p-6 border border-gray-200">
           <h3 class="text-lg font-medium text-gray-900 mb-4">Encrypt File</h3>
           
           <div class="space-y-4">
-            <div>
-              <label for="encryptFile" class="block text-sm font-medium text-gray-700 mb-2">Select File</label>
-              <input
-                id="encryptFile"
-                type="file"
-                @change="handleEncryptFileSelect"
-                class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              />
-              <p v-if="fileToEncrypt" class="mt-2 text-sm text-gray-600">
-                Selected: {{ fileToEncrypt.name }} ({{ formatFileSize(fileToEncrypt.size) }})
-              </p>
-            </div>
+            <!-- File Input and Public Key - Side by Side -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="encryptFile" class="block text-sm font-medium text-gray-700 mb-2">Select File</label>
+                <input
+                  id="encryptFile"
+                  type="file"
+                  @change="handleEncryptFileSelect"
+                  class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+                <p v-if="fileToEncrypt" class="mt-2 text-sm text-gray-600">
+                  Selected: {{ fileToEncrypt.name }} ({{ formatFileSize(fileToEncrypt.size) }})
+                </p>
+              </div>
 
-            <div>
-              <label for="encryptPublicKey" class="block text-sm font-medium text-gray-700 mb-2">Public Key</label>
-              <textarea
-                id="encryptPublicKey"
-                v-model="publicKey"
-                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-mono text-sm"
-                rows="4"
-                placeholder="Paste public key for encryption..."
-              ></textarea>
+              <div>
+                <label for="encryptPublicKey" class="block text-sm font-medium text-gray-700 mb-2">Public Key</label>
+                <textarea
+                  id="encryptPublicKey"
+                  v-model="publicKey"
+                  class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-mono text-sm"
+                  rows="4"
+                  placeholder="Paste public key for encryption..."
+                ></textarea>
+              </div>
             </div>
 
             <button
@@ -176,34 +220,37 @@
           </div>
         </div>
 
-        <!-- Decrypt File Card -->
-        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+        <!-- Decrypt File Sub-tab -->
+        <div v-if="encryptDecryptTab === 'decrypt'" class="bg-gray-50 rounded-lg p-6 border border-gray-200">
           <h3 class="text-lg font-medium text-gray-900 mb-4">Decrypt File</h3>
           
           <div class="space-y-4">
-            <div>
-              <label for="decryptFile" class="block text-sm font-medium text-gray-700 mb-2">Select Encrypted File</label>
-              <input
-                id="decryptFile"
-                type="file"
-                accept=".gpg,.pgp"
-                @change="handleDecryptFileSelect"
-                class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              />
-              <p v-if="fileToDecrypt" class="mt-2 text-sm text-gray-600">
-                Selected: {{ fileToDecrypt.name }} ({{ formatFileSize(fileToDecrypt.size) }})
-              </p>
-            </div>
+            <!-- File Input and Private Key - Side by Side -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="decryptFile" class="block text-sm font-medium text-gray-700 mb-2">Select Encrypted File</label>
+                <input
+                  id="decryptFile"
+                  type="file"
+                  accept=".gpg,.pgp"
+                  @change="handleDecryptFileSelect"
+                  class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+                <p v-if="fileToDecrypt" class="mt-2 text-sm text-gray-600">
+                  Selected: {{ fileToDecrypt.name }} ({{ formatFileSize(fileToDecrypt.size) }})
+                </p>
+              </div>
 
-            <div>
-              <label for="decryptPrivateKey" class="block text-sm font-medium text-gray-700 mb-2">Private Key</label>
-              <textarea
-                id="decryptPrivateKey"
-                v-model="privateKey"
-                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-mono text-sm"
-                rows="4"
-                placeholder="Paste private key for decryption..."
-              ></textarea>
+              <div>
+                <label for="decryptPrivateKey" class="block text-sm font-medium text-gray-700 mb-2">Private Key</label>
+                <textarea
+                  id="decryptPrivateKey"
+                  v-model="privateKey"
+                  class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-mono text-sm"
+                  rows="4"
+                  placeholder="Paste private key for decryption..."
+                ></textarea>
+              </div>
             </div>
 
             <button
@@ -233,10 +280,16 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import * as openpgp from 'openpgp'
+import TabComponent from '@/components/global/TabComponent.vue'
+import TabsWrapper from '@/components/global/TabsWrapper.vue'
 
 defineOptions({
   name: 'PGPKeyTool'
 })
+
+// Tab state
+const activeTab = ref('validate')
+const encryptDecryptTab = ref('encrypt')
 
 // State
 const publicKey = ref('')
@@ -493,5 +546,19 @@ watch(showExportOptions, (isOpen) => {
 </script>
 
 <style scoped>
-/* Component-specific styles if needed */
+.tabs-container {
+  margin-bottom: 1.5rem;
+  
+  :deep(.tabs-wrapper) {
+    gap: 0.5rem;
+  }
+}
+
+.sub-tabs-container {
+  margin-bottom: 1.5rem;
+  
+  :deep(.tabs-wrapper) {
+    gap: 0.5rem;
+  }
+}
 </style>
