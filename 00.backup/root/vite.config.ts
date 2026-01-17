@@ -51,26 +51,6 @@ function nobleResolver() {
   }
 }
 
-// Plugin to resolve libsodium-wrappers-sumo relative import issue
-function libsodiumResolver() {
-  return {
-    name: 'libsodium-resolver',
-    enforce: 'pre' as const,
-    resolveId(source: string, importer?: string) {
-      // Fix the relative import in libsodium-wrappers-sumo that references ./libsodium-sumo.mjs
-      // This should actually point to the libsodium-sumo package
-      if (source === './libsodium-sumo.mjs' && importer?.includes('libsodium-wrappers-sumo')) {
-        try {
-          return require.resolve('libsodium-sumo/dist/modules-sumo-esm/libsodium-sumo.mjs')
-        } catch {
-          return null
-        }
-      }
-      return null
-    }
-  }
-}
-
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
   fs.rmSync('dist', { recursive: true, force: true })
@@ -88,9 +68,6 @@ export default defineConfig(({ command }) => {
         // Alias buffer to use the polyfill
         'buffer': 'buffer/',
         'stream': 'stream-browserify',
-        // Fix libsodium-wrappers-sumo ESM import issue - use CJS version instead
-        // The ESM version tries to import './libsodium-sumo.mjs' which fails during esbuild bundling
-        'libsodium-wrappers-sumo': path.resolve(__dirname, 'node_modules/libsodium-wrappers-sumo/dist/modules-sumo/libsodium-wrappers.js'),
       },
     },
     define: {
@@ -113,9 +90,6 @@ export default defineConfig(({ command }) => {
         'hash-wasm',
         // Exclude @noble/ed25519 so its etc object remains mutable for sha512Sync configuration
         '@noble/ed25519',
-        // Exclude libsodium packages - their ESM exports have relative imports that break esbuild
-        'libsodium-wrappers-sumo',
-        'libsodium-sumo',
       ],
       esbuildOptions: {
         define: {
@@ -148,7 +122,6 @@ export default defineConfig(({ command }) => {
     },
     plugins: [
       nobleResolver(),
-      libsodiumResolver(),
       wasm(),
       topLevelAwait(),
       tailwindcss(),
