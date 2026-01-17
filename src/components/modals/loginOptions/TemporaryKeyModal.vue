@@ -193,7 +193,7 @@ import { Key, Eye, EyeOff, Copy, ExternalLink, ChevronDown, FileUp } from 'lucid
 import { useI18n } from '@/composables/useI18n'
 import QrcodeVue from 'qrcode.vue'
 // Import only types from currencyData.ts (doesn't load heavy currency modules)
-import type { CurrencyData } from '@/lib/currencyCore/currencies/currencyData'
+import type { CurrencyData } from '@/lib/cores/currencyCore/currencies/currencyData'
 
 // Type for supported cryptocurrency tickers (matches currencies/index.ts)
 type SupportedTicker = "ALGO" | "AR" | "ATOM" | "BCH" | "BNB" | "BTC" | "DOGE" | "DOT" | "ETC" | "ETH" | "LTC" | "LUNA" | "LUNC" | "SOL" | "STX" | "TRX" | "WAVES" | "XLM" | "XRP" | "XTZ"
@@ -382,7 +382,7 @@ const loadCurrencies = async () => {
   currenciesLoading.value = true
   try {
     // Dynamic import for currencyByTicker to avoid loading heavy modules at startup
-    const module = await import('@/lib/currencyCore/currencies')
+    const module = await import('@/lib/cores/currencyCore/currencies')
     currencyByTicker.value = module.currencyByTicker
     networks.value = module.NETWORKS
     currenciesLoaded.value = true
@@ -425,7 +425,7 @@ const getNetworkLabel = () => {
 const getBlockExplorerUrl = async (ticker: string, address: string): Promise<string> => {
   // Dynamic import for getting block explorer (following reference pattern)
   try {
-    const { currencyByTicker: currencies } = await import('@/lib/currencyCore/currencies')
+    const { currencyByTicker: currencies } = await import('@/lib/cores/currencyCore/currencies')
     const currency = currencies[ticker]
     
     if (currency?.getBlockExplorerLink) {
@@ -460,7 +460,7 @@ const handleDerive = async () => {
     }
     
     // Use the unified address generation service (following reference pattern)
-    const { generateMultiFormatAddresses } = await import('@/lib/currencyCore/currencies/ext/multiFormatAddresses')
+    const { generateMultiFormatAddresses } = await import('@/lib/cores/currencyCore/currencies/ext/multiFormatAddresses')
     
     const result = await generateMultiFormatAddresses(
       selectedTicker.value,

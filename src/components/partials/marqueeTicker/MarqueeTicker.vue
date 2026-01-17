@@ -108,8 +108,8 @@
 
 <script>
 import { useI18n } from '@/composables/useI18n'
-import { COINBASE50 } from '@/lib/currencyCore/indexComposites/coinbase50'
-import { coinGeckoAPI } from '@/lib/currencyCore/aggregators/coinGeckoAPI'
+import { COINBASE50 } from '@/lib/cores/currencyCore/indexComposites/coinbase50'
+import { coinGeckoAPI } from '@/lib/cores/currencyCore/aggregators/coinGeckoAPI'
 
 export default {
   name: 'MarqueeTicker',
