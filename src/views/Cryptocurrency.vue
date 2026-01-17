@@ -17,6 +17,12 @@
       >
         Calculator
       </TabComponent>
+      <TabComponent
+        :active="activeTab === 'indices'"
+        :onClick="() => (activeTab = 'indices')"
+      >
+        Indices
+      </TabComponent>
     </TabsWrapper>
 
     <!-- Tab Content -->
@@ -30,6 +36,11 @@
       <div v-if="activeTab === 'calculator'" id="calculator-content" role="tabpanel" aria-labelledby="calculator-tab">
         <cryptocurrency-calculator />
       </div>
+
+      <!-- Indices Content -->
+      <div v-if="activeTab === 'indices'" id="indices-content" role="tabpanel" aria-labelledby="indices-tab">
+        <cryptocurrency-indices />
+      </div>
     </div>
   </div>
 </template>
@@ -38,6 +49,7 @@
 import { ref } from 'vue'
 import DomainResolver from '../components/pageTabs/cryptocurrency/DomainResolver.vue'
 import CryptocurrencyCalculator from '../components/pageTabs/cryptocurrency/Calculator.vue'
+import CryptocurrencyIndices from '../components/pageTabs/cryptocurrency/Indices.vue'
 import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
 
