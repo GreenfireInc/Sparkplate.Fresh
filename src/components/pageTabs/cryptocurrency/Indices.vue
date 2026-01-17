@@ -1,22 +1,150 @@
 <template>
   <div class="indices-container">
-    <!-- Index Selection Dropdown -->
-    <div class="mb-6">
-      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-        Select Index
-      </label>
-      <select
-        v-model="selectedIndex"
-        class="w-full md:w-64 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
-      >
-        <option v-for="index in availableIndices" :key="index.id" :value="index.id">
-          {{ index.label }}
-        </option>
-      </select>
+    <!-- Index Selection Dropdown and Search -->
+    <div class="mb-6 flex items-end gap-3 flex-wrap">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          Select Index
+        </label>
+        <select
+          v-model="selectedIndex"
+          class="w-full md:w-64 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+        >
+          <option v-for="index in availableIndices" :key="index.id" :value="index.id">
+            {{ index.label }}
+          </option>
+        </select>
+      </div>
+      
+      <!-- Search Input (List View Only) -->
+      <div v-if="viewMode === 'list'" class="flex-1 min-w-[200px]">
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          Search
+        </label>
+        <div class="relative">
+          <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" :size="18" />
+          <input
+            v-model="searchQuery"
+            type="text"
+            placeholder="          Search by symbol or name..."
+            class="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
+          />
+          <button
+            v-if="searchQuery"
+            @click="searchQuery = ''"
+            class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+          >
+            <X :size="18" />
+          </button>
+        </div>
+      </div>
+      
+      <!-- View Toggle Buttons -->
+      <div class="flex gap-2">
+        <button
+          @click="viewMode = 'chart'"
+          :class="[
+            'p-2 rounded-lg border transition-all',
+            viewMode === 'chart'
+              ? 'bg-blue-500 text-white border-blue-500'
+              : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700'
+          ]"
+          title="Chart View"
+        >
+          <ChartPie :size="20" />
+        </button>
+        <button
+          @click="viewMode = 'list'"
+          :class="[
+            'p-2 rounded-lg border transition-all',
+            viewMode === 'list'
+              ? 'bg-blue-500 text-white border-blue-500'
+              : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700'
+          ]"
+          title="List View"
+        >
+          <List :size="20" />
+        </button>
+      </div>
     </div>
 
-    <!-- Currency Table -->
-    <div v-if="filteredCurrencies.length > 0" class="overflow-x-auto">
+    <!-- Chart View -->
+    <div v-if="viewMode === 'chart' && filteredCurrencies.length > 0" class="chart-view-container">
+      <div class="flex flex-col xl:flex-row items-center xl:items-start gap-8">
+        <!-- Donut Chart -->
+        <div class="chart-wrapper">
+          <svg 
+            :viewBox="`0 0 ${chartSize} ${chartSize}`" 
+            class="donut-chart"
+            @mouseleave="hoveredSegment = null"
+          >
+            <!-- Background circle (donut hole) -->
+            <circle
+              :cx="chartSize / 2"
+              :cy="chartSize / 2"
+              :r="radius"
+              fill="none"
+              class="stroke-gray-200 dark:stroke-gray-700"
+              :stroke-width="strokeWidth"
+            />
+            <!-- Chart segments -->
+            <circle
+              v-for="(segment, index) in chartSegments"
+              :key="`segment-${index}`"
+              :cx="chartSize / 2"
+              :cy="chartSize / 2"
+              :r="radius"
+              fill="none"
+              :stroke="segment.color"
+              :stroke-width="hoveredSegment === index ? strokeWidth + 4 : strokeWidth"
+              :stroke-dasharray="segment.dashArray"
+              :stroke-dashoffset="segment.dashOffset"
+              stroke-linecap="butt"
+              class="segment-circle transition-all duration-200 cursor-pointer"
+              :class="{ 'opacity-70': hoveredSegment !== null && hoveredSegment !== index }"
+              @mouseenter="hoveredSegment = index"
+              @mouseleave="hoveredSegment = null"
+            />
+          </svg>
+          <!-- Center Text -->
+          <div class="chart-center-text">
+            <p class="text-2xl font-bold text-gray-900 dark:text-white">
+              {{ hoveredSegment !== null ? chartSegments[hoveredSegment]?.symbol : filteredCurrencies.length }}
+            </p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+              {{ hoveredSegment !== null ? chartSegments[hoveredSegment]?.percentage.toFixed(1) + '%' : 'Assets' }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="chart-legend">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+            {{ getIndexLabel(selectedIndex) }}
+          </h3>
+          <div class="legend-grid">
+            <div
+              v-for="(segment, index) in chartSegments"
+              :key="`legend-${index}`"
+              class="legend-item"
+              :class="{ 'legend-item-active': hoveredSegment === index }"
+              @mouseenter="hoveredSegment = index"
+              @mouseleave="hoveredSegment = null"
+            >
+              <span 
+                class="legend-color" 
+                :style="{ backgroundColor: segment.color }"
+              ></span>
+              <span class="legend-symbol">{{ segment.symbol }}</span>
+              <span class="legend-percentage">{{ segment.percentage.toFixed(1) }}%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- List View - Currency Table -->
+    <div v-if="viewMode === 'list' && filteredCurrencies.length > 0" class="overflow-x-auto">
       <table class="min-w-full bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
         <thead class="bg-gray-50 dark:bg-gray-900">
           <tr>
@@ -157,6 +285,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { ChartPie, List, Search, X } from 'lucide-vue-next'
 import * as IndexComposites from '@/lib/cores/currencyCore/indexComposites'
 
 // Define component name
@@ -195,6 +324,39 @@ interface IndexOption {
 const selectedIndex = ref<string>('proof-of-work')
 const sortColumn = ref<string | null>(null)
 const sortDirection = ref<'asc' | 'desc'>('asc')
+const viewMode = ref<'chart' | 'list'>('list')
+const hoveredSegment = ref<number | null>(null)
+const searchQuery = ref<string>('')
+
+// Chart configuration
+const chartSize = 300
+const strokeWidth = 40
+const radius = (chartSize - strokeWidth) / 2
+const circumference = 2 * Math.PI * radius
+
+// Color palette for chart segments
+const chartColors = [
+  '#3B82F6', // blue-500
+  '#10B981', // emerald-500
+  '#F59E0B', // amber-500
+  '#EF4444', // red-500
+  '#8B5CF6', // violet-500
+  '#EC4899', // pink-500
+  '#06B6D4', // cyan-500
+  '#84CC16', // lime-500
+  '#F97316', // orange-500
+  '#6366F1', // indigo-500
+  '#14B8A6', // teal-500
+  '#A855F7', // purple-500
+  '#22C55E', // green-500
+  '#0EA5E9', // sky-500
+  '#E11D48', // rose-600
+  '#7C3AED', // violet-600
+  '#2563EB', // blue-600
+  '#059669', // emerald-600
+  '#D97706', // amber-600
+  '#DC2626', // red-600
+]
 
 // Explicitly define each index with its own data array to ensure no cross-contamination
 const availableIndices: IndexOption[] = [
@@ -311,7 +473,7 @@ const filteredCurrencies = computed(() => {
     : []
   
   // Handle different currency item structures and normalize
-  const normalizedData = dataArray.map((item: any) => {
+  let normalizedData = dataArray.map((item: any) => {
     // Normalize tickerSymbol to symbol for StorageCurrencyItem
     if ('tickerSymbol' in item && !('symbol' in item)) {
       return { ...item, symbol: item.tickerSymbol }
@@ -322,6 +484,16 @@ const filteredCurrencies = computed(() => {
     }
     return item
   })
+  
+  // Apply search filter (only in list view)
+  if (searchQuery.value && viewMode.value === 'list') {
+    const query = searchQuery.value.toLowerCase().trim()
+    normalizedData = normalizedData.filter((item: any) => {
+      const symbol = (item.symbol || item.tickerSymbol || item.ticker || '').toLowerCase()
+      const name = (item.name || '').toLowerCase()
+      return symbol.includes(query) || name.includes(query)
+    })
+  }
   
   // Apply sorting if a column is selected
   if (sortColumn.value) {
@@ -362,6 +534,37 @@ const filteredCurrencies = computed(() => {
   }
   
   return normalizedData
+})
+
+// Chart segments computed from filtered currencies
+const chartSegments = computed(() => {
+  const currencies = filteredCurrencies.value
+  if (!currencies.length) return []
+  
+  // Each currency gets equal weight in the chart (since we don't have market cap data)
+  const totalItems = currencies.length
+  const percentagePerItem = 100 / totalItems
+  
+  let cumulativeOffset = 0
+  
+  return currencies.map((currency: any, index: number) => {
+    const symbol = currency.symbol || currency.tickerSymbol || currency.ticker || '?'
+    const percentage = percentagePerItem
+    const segmentLength = (percentage / 100) * circumference
+    const dashArray = `${segmentLength} ${circumference - segmentLength}`
+    const dashOffset = -cumulativeOffset + (circumference / 4) // Start from top (12 o'clock)
+    
+    cumulativeOffset += segmentLength
+    
+    return {
+      symbol,
+      name: currency.name || symbol,
+      percentage,
+      color: chartColors[index % chartColors.length],
+      dashArray,
+      dashOffset
+    }
+  })
 })
 
 const getIndexLabel = (indexId: string): string => {
@@ -438,6 +641,8 @@ const sortBy = (column: string) => {
 </script>
 
 <style scoped>
+@reference "tailwindcss";
+
 .indices-container {
   @apply w-full;
 }
@@ -460,6 +665,77 @@ const sortBy = (column: string) => {
   .indices-container th,
   .indices-container td {
     padding: 0.5rem;
+  }
+}
+
+/* Chart View Styles */
+.chart-view-container {
+  @apply w-full py-4;
+}
+
+.chart-wrapper {
+  @apply relative;
+  width: 300px;
+  height: 300px;
+}
+
+.donut-chart {
+  @apply w-full h-full;
+  transform: rotate(-90deg);
+}
+
+.segment-circle {
+  transform-origin: center;
+}
+
+.chart-center-text {
+  @apply absolute inset-0 flex flex-col items-center justify-center text-center;
+}
+
+.chart-legend {
+  @apply flex-1 max-w-md;
+}
+
+.legend-grid {
+  @apply grid gap-2;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.legend-item {
+  @apply flex items-center gap-2 px-2 py-1.5 rounded-lg cursor-pointer transition-all;
+}
+
+.legend-item:hover,
+.legend-item-active {
+  @apply bg-gray-100 dark:bg-gray-700;
+}
+
+.legend-color {
+  @apply w-3 h-3 rounded-full flex-shrink-0;
+}
+
+.legend-symbol {
+  @apply text-sm font-medium text-gray-900 dark:text-white flex-1 truncate;
+}
+
+.legend-percentage {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+}
+
+/* Responsive chart sizing */
+@media (min-width: 640px) {
+  .chart-wrapper {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .chart-wrapper {
+    width: 400px;
+    height: 400px;
   }
 }
 </style>
