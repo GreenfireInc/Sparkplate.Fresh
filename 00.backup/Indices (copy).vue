@@ -26,57 +26,17 @@
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
               Logo
             </th>
-            <th 
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 select-none"
-              @click="sortBy('symbol')"
-            >
-              <div class="flex items-center gap-2">
-                Symbol
-                <span class="sort-indicator">
-                  <svg v-if="sortColumn === 'symbol'" class="w-4 h-4 inline-block" :class="{ 'rotate-180': sortDirection === 'desc' }" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
-                </span>
-              </div>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+              Symbol
             </th>
-            <th 
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 select-none"
-              @click="sortBy('name')"
-            >
-              <div class="flex items-center gap-2">
-                Name
-                <span class="sort-indicator">
-                  <svg v-if="sortColumn === 'name'" class="w-4 h-4 inline-block" :class="{ 'rotate-180': sortDirection === 'desc' }" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
-                </span>
-              </div>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+              Name
             </th>
-            <th 
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 select-none"
-              @click="sortBy('type')"
-            >
-              <div class="flex items-center gap-2">
-                Type
-                <span class="sort-indicator">
-                  <svg v-if="sortColumn === 'type'" class="w-4 h-4 inline-block" :class="{ 'rotate-180': sortDirection === 'desc' }" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
-                </span>
-              </div>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+              Type
             </th>
-            <th 
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 select-none"
-              @click="sortBy('consensus')"
-            >
-              <div class="flex items-center gap-2">
-                Consensus
-                <span class="sort-indicator">
-                  <svg v-if="sortColumn === 'consensus'" class="w-4 h-4 inline-block" :class="{ 'rotate-180': sortDirection === 'desc' }" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
-                </span>
-              </div>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+              Consensus
             </th>
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
               Class
@@ -86,7 +46,7 @@
         <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
           <tr
             v-for="(currency, index) in filteredCurrencies"
-            :key="`${selectedIndex}-${index}-${currency.symbol || currency.tickerSymbol || currency.ticker}`"
+            :key="currency.symbol || currency.tickerSymbol"
             class="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
           >
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
@@ -193,8 +153,6 @@ interface IndexOption {
 }
 
 const selectedIndex = ref<string>('proof-of-work')
-const sortColumn = ref<string | null>(null)
-const sortDirection = ref<'asc' | 'desc'>('asc')
 
 // Explicitly define each index with its own data array to ensure no cross-contamination
 const availableIndices: IndexOption[] = [
@@ -304,14 +262,11 @@ const filteredCurrencies = computed(() => {
   const index = availableIndices.find(idx => idx.id === selectedIndex.value)
   if (!index || !index.data) return []
   
-  // Create a deep copy to ensure complete isolation between indices
-  // This prevents any shared references or Vue reactivity issues
-  const dataArray = Array.isArray(index.data) 
-    ? JSON.parse(JSON.stringify(index.data)) 
-    : []
+  // Ensure we're working with the correct array - create a fresh copy to avoid mutations
+  const dataArray = Array.isArray(index.data) ? [...index.data] : []
   
-  // Handle different currency item structures and normalize
-  const normalizedData = dataArray.map((item: any) => {
+  // Handle different currency item structures
+  return dataArray.map(item => {
     // Normalize tickerSymbol to symbol for StorageCurrencyItem
     if ('tickerSymbol' in item && !('symbol' in item)) {
       return { ...item, symbol: item.tickerSymbol }
@@ -322,46 +277,6 @@ const filteredCurrencies = computed(() => {
     }
     return item
   })
-  
-  // Apply sorting if a column is selected
-  if (sortColumn.value) {
-    return normalizedData.sort((a: any, b: any) => {
-      let aValue: any
-      let bValue: any
-      
-      // Get values based on sort column
-      switch (sortColumn.value) {
-        case 'symbol':
-          aValue = (a.symbol || a.tickerSymbol || a.ticker || '').toLowerCase()
-          bValue = (b.symbol || b.tickerSymbol || b.ticker || '').toLowerCase()
-          break
-        case 'name':
-          aValue = (a.name || '').toLowerCase()
-          bValue = (b.name || '').toLowerCase()
-          break
-        case 'type':
-          aValue = (a.type || '').toLowerCase()
-          bValue = (b.type || '').toLowerCase()
-          break
-        case 'consensus':
-          aValue = (a.consensusType || '').toLowerCase()
-          bValue = (b.consensusType || '').toLowerCase()
-          break
-        default:
-          return 0
-      }
-      
-      // Compare values
-      let comparison = 0
-      if (aValue < bValue) comparison = -1
-      if (aValue > bValue) comparison = 1
-      
-      // Apply sort direction
-      return sortDirection.value === 'asc' ? comparison : -comparison
-    })
-  }
-  
-  return normalizedData
 })
 
 const getIndexLabel = (indexId: string): string => {
@@ -388,13 +303,100 @@ const formatConsensusType = (consensusType: string | undefined): string => {
 const getCurrencyLogo = (currency: any): string => {
   const symbol = (currency.symbol || currency.tickerSymbol || currency.ticker || '').toLowerCase()
   
-  // Use dynamic path construction like MarqueeTicker.vue
-  // This automatically works for any currency that has an icon file matching its symbol
-  if (symbol) {
-    return `./assets/icons/crypto/${symbol}.svg`
+  // Comprehensive mapping of all available local crypto icons
+  const localIconMap: Record<string, string> = {
+    // Major cryptocurrencies
+    'btc': '/assets/icons/crypto/btc.svg',
+    'eth': '/assets/icons/crypto/eth.svg',
+    'bch': '/assets/icons/crypto/bch.svg',
+    'bnb': '/assets/icons/crypto/bnb.svg',
+    'ltc': '/assets/icons/crypto/ltc.svg',
+    'sol': '/assets/icons/crypto/sol.svg',
+    'xlm': '/assets/icons/crypto/xlm.svg',
+    'xrp': '/assets/icons/crypto/xrp.svg',
+    'xtz': '/assets/icons/crypto/xtz.svg',
+    'doge': '/assets/icons/crypto/doge.svg',
+    'etc': '/assets/icons/crypto/etc.svg',
+    'dot': '/assets/icons/crypto/dot.svg',
+    'atom': '/assets/icons/crypto/atom.svg',
+    'algo': '/assets/icons/crypto/algo.svg',
+    'ar': '/assets/icons/crypto/ar.svg',
+    'stx': '/assets/icons/crypto/stx.svg',
+    'trx': '/assets/icons/crypto/trx.svg',
+    'waves': '/assets/icons/crypto/waves.svg',
+    'luna': '/assets/icons/crypto/luna.svg',
+    'lunc': '/assets/icons/crypto/lunc.svg',
+    'ada': '/assets/icons/crypto/ada.svg',
+    'avax': '/assets/icons/crypto/avax.svg',
+    'egld': '/assets/icons/crypto/egld.svg',
+    'eos': '/assets/icons/crypto/eos.svg',
+    'near': '/assets/icons/crypto/near.svg',
+    'neo': '/assets/icons/crypto/neo.svg',
+    'mina': '/assets/icons/crypto/mina.svg',
+    'zec': '/assets/icons/crypto/zec.svg',
+    'zil': '/assets/icons/crypto/zil.svg',
+    'rvn': '/assets/icons/crypto/rvn.svg',
+    'ksm': '/assets/icons/crypto/ksm.svg',
+    'rose': '/assets/icons/crypto/rose.svg',
+    'icp': '/assets/icons/crypto/icp.svg',
+    'hnt': '/assets/icons/crypto/hnt.svg',
+    'qnt': '/assets/icons/crypto/qnt.svg',
+    'fet': '/assets/icons/crypto/fet.svg',
+    'jasmy': '/assets/icons/crypto/jasmy.svg',
+    'btt': '/assets/icons/crypto/btt.svg',
+    'chz': '/assets/icons/crypto/chz.svg',
+    // DeFi tokens
+    'aave': '/assets/icons/crypto/aave.svg',
+    'uni': '/assets/icons/crypto/uni.svg',
+    'link': '/assets/icons/crypto/link.svg',
+    'crv': '/assets/icons/crypto/crv.svg',
+    'mkr': '/assets/icons/crypto/mkr.svg',
+    'snx': '/assets/icons/crypto/snx.svg',
+    'sushi': '/assets/icons/crypto/sushi.svg',
+    'comp': '/assets/icons/crypto/comp.svg',
+    'bat': '/assets/icons/crypto/bat.svg',
+    'grt': '/assets/icons/crypto/grt.svg',
+    'ldo': '/assets/icons/crypto/ldo.svg',
+    'lpt': '/assets/icons/crypto/lpt.svg',
+    'inj': '/assets/icons/crypto/inj.svg',
+    'imx': '/assets/icons/crypto/imx.svg',
+    'api3': '/assets/icons/crypto/api3.svg',
+    '1inch': '/assets/icons/crypto/1inch.svg',
+    // Stablecoins
+    'usdc': '/assets/icons/crypto/usdc.svg',
+    'usdt': '/assets/icons/crypto/usdt.svg',
+    'dai': '/assets/icons/crypto/dai.svg',
+    'tusd': '/assets/icons/crypto/tusd.svg',
+    'gusd': '/assets/icons/crypto/gusd.svg',
+    'euroc': '/assets/icons/crypto/euroc.svg',
+    // NFTs & Gaming
+    'ape': '/assets/icons/crypto/ape.svg',
+    'axs': '/assets/icons/crypto/axs.svg',
+    'mana': '/assets/icons/crypto/mana.svg',
+    'sand': '/assets/icons/crypto/sand.svg',
+    'blur': '/assets/icons/crypto/blur.svg',
+    // Layer 2 & Other
+    'matic': '/assets/icons/crypto/matic.svg',
+    'render': '/assets/icons/crypto/render.svg',
+    'shib': '/assets/icons/crypto/shib.svg',
+    'bonk': '/assets/icons/crypto/bonk.svg',
+    'acu': '/assets/icons/crypto/acu.svg',
+    'usd': '/assets/icons/crypto/usd.svg',
+    'eur': '/assets/icons/crypto/eur.svg',
   }
   
-  // Fallback: generic placeholder
+  // Check local icons first
+  if (localIconMap[symbol]) {
+    return localIconMap[symbol]
+  }
+  
+  // Fallback to CoinGecko CDN using symbol (more reliable than UCID)
+  // CoinGecko uses lowercase symbols in their image URLs
+  if (symbol) {
+    return `https://assets.coingecko.com/coins/images/1/thumb/${symbol}.png`
+  }
+  
+  // Ultimate fallback: generic placeholder
   return 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iMTYiIGZpbGw9IiNFNUU3RUIiLz4KPHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggMEMzLjU4IDAgMCAzLjU4IDAgOEMwIDEyLjQyIDMuNTggMTYgOCAxNkMxMi40MiAxNiAxNiAxMi40MiAxNiA4QzE2IDMuNTggMTIuNDIgMCA4IDBaIiBmaWxsPSIjOUI5Q0E1Ii8+Cjwvc3ZnPgo8L3N2Zz4K'
 }
 
@@ -422,33 +424,13 @@ const handleImageError = (event: Event) => {
   }
   
   // Final fallback: placeholder
-  img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iMTYiIGZpbGw9IiNFNUU3RUIiLz4KPHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggMEMzLjU4IDAgMCAzLjU4IDAgOEMwIDEyLjQyIDMuNTggMTYgOCAxNkMxMi40MiAxNiAxNiAxMi0yIDE2IDhDMTYgMy41OCAxMi40MiAwIDggMFoiIGZpbGw9IiM5QjlDQTUiLz4KPC9zdmc+Cjwvc3ZnPgo='
-}
-
-const sortBy = (column: string) => {
-  // If clicking the same column, toggle direction
-  if (sortColumn.value === column) {
-    sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc'
-  } else {
-    // New column, default to ascending
-    sortColumn.value = column
-    sortDirection.value = 'asc'
-  }
+  img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iMTYiIGZpbGw9IiNFNUU3RUIiLz4KPHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggMEMzLjU4IDAgMCAzLjU4IDAgOEMwIDEyLjQyIDMuNTggMTYgOCAxNkMxMi40MiAxNiAxNiAxMi40MiAxNiA4QzE2IDMuNTggMTIuNDIgMCA4IDBaIiBmaWxsPSIjOUI5Q0E1Ii8+Cjwvc3ZnPgo8L3N2Zz4K'
 }
 </script>
 
 <style scoped>
 .indices-container {
   @apply w-full;
-}
-
-/* Sorting indicator transition */
-.sort-indicator svg {
-  transition: transform 0.2s ease-in-out;
-}
-
-.rotate-180 {
-  transform: rotate(180deg);
 }
 
 /* Table responsive styles */
