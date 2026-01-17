@@ -50,10 +50,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import HashTool from '../components/pages/cryptography/HashTool.vue'
-import VerifyTool from '../components/pages/cryptography/VerifyTool.vue'
-import EncryptDecryptTool from '../components/pages/cryptography/EncryptDecryptTool.vue'
-import PGPKeyTool from '@/components/pages/cryptography/PGPKeyTool.vue'
+import HashTool from '../components/pageTabs/cryptography/HashTool.vue'
+import VerifyTool from '../components/pageTabs/cryptography/VerifyTool.vue'
+import EncryptDecryptTool from '../components/pageTabs/cryptography/EncryptDecryptTool.vue'
+import PGPKeyTool from '@/components/pageTabs/cryptography/PGPKeyTool.vue'
 import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
 
