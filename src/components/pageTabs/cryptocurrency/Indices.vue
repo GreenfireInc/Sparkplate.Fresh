@@ -18,9 +18,7 @@
       
       <!-- Search Input (List View Only) -->
       <div v-if="viewMode === 'list'" class="flex-1 min-w-[200px]">
-        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-          Search
-        </label>
+        
         <div class="relative">
           <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" :size="18" />
           <input
@@ -40,7 +38,7 @@
       </div>
       
       <!-- View Toggle Buttons -->
-      <div class="flex gap-2">
+      <div class="flex gap-2 ml-auto">
         <button
           @click="viewMode = 'chart'"
           :class="[
@@ -215,7 +213,8 @@
           <tr
             v-for="(currency, index) in filteredCurrencies"
             :key="`${selectedIndex}-${index}-${currency.symbol || currency.tickerSymbol || currency.ticker}`"
-            class="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+            class="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+            @click="openCurrencyModal(currency)"
           >
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
               {{ index + 1 }}
@@ -280,6 +279,13 @@
         from <span class="font-semibold">{{ getIndexLabel(selectedIndex) }}</span>
       </p>
     </div>
+
+    <!-- Currency Detail Modal -->
+    <CurrencyDetailModal
+      :is-open="isModalOpen"
+      :currency="selectedCurrency"
+      @close="closeCurrencyModal"
+    />
   </div>
 </template>
 
@@ -287,6 +293,7 @@
 import { ref, computed } from 'vue'
 import { ChartPie, List, Search, X } from 'lucide-vue-next'
 import * as IndexComposites from '@/lib/cores/currencyCore/indexComposites'
+import CurrencyDetailModal from './CurrencyDetailModal.vue'
 
 // Define component name
 defineOptions({
@@ -327,6 +334,8 @@ const sortDirection = ref<'asc' | 'desc'>('asc')
 const viewMode = ref<'chart' | 'list'>('list')
 const hoveredSegment = ref<number | null>(null)
 const searchQuery = ref<string>('')
+const isModalOpen = ref<boolean>(false)
+const selectedCurrency = ref<any>(null)
 
 // Chart configuration
 const chartSize = 300
@@ -637,6 +646,16 @@ const sortBy = (column: string) => {
     sortColumn.value = column
     sortDirection.value = 'asc'
   }
+}
+
+const openCurrencyModal = (currency: any) => {
+  selectedCurrency.value = currency
+  isModalOpen.value = true
+}
+
+const closeCurrencyModal = () => {
+  isModalOpen.value = false
+  selectedCurrency.value = null
 }
 </script>
 
