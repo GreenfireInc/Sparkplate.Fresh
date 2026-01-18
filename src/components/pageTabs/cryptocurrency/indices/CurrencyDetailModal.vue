@@ -117,7 +117,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onUnmounted, watch } from 'vue'
 import { X, ExternalLink } from 'lucide-vue-next'
 
 interface Props {
@@ -193,10 +193,23 @@ const handleKeyDown = (event: KeyboardEvent) => {
   }
 }
 
-// Add/remove event listener
-if (typeof window !== 'undefined') {
-  window.addEventListener('keydown', handleKeyDown)
-}
+// Add/remove event listener based on modal open state
+watch(() => props.isOpen, (isOpen) => {
+  if (typeof window !== 'undefined') {
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown)
+    } else {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }
+}, { immediate: true })
+
+// Cleanup on unmount
+onUnmounted(() => {
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('keydown', handleKeyDown)
+  }
+})
 </script>
 
 <style scoped>
