@@ -293,7 +293,7 @@
 import { ref, computed } from 'vue'
 import { ChartPie, List, Search, X } from 'lucide-vue-next'
 import * as IndexComposites from '@/lib/cores/currencyCore/indexComposites'
-import CurrencyDetailModal from './CurrencyDetailModal.vue'
+import CurrencyDetailModal from './indices/CurrencyDetailModal.vue'
 
 // Define component name
 defineOptions({
