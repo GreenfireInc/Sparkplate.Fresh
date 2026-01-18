@@ -679,10 +679,7 @@ export const PROOF_OF_WORK: ProofOfWorkItem[] = [
     website: 'https://lbry.com',
     github: 'https://github.com/lbryio',
     npm: null
-  },
-  { id: 'kaspa', symbol: 'KAS', name: 'Kaspa' },
-  { id: 'komodo', symbol: 'KMD', name: 'Komodo' },
-  { id: 'lbry-credits', symbol: 'LBC', name: 'LBRY Credits' },
+  }, 
   { 
     id: 'litecoin-cash', 
     symbol: 'LCC', 
@@ -1007,11 +1004,7 @@ export const PROOF_OF_WORK: ProofOfWorkItem[] = [
     website: 'https://scpri.me',
     github: 'https://github.com/scprimecoin',
     npm: null
-  },
-  { id: 'radiant', symbol: 'RXD', name: 'Radiant' },
-  { id: 'ravencoin', symbol: 'RVN', name: 'Ravencoin' },
-  { id: 'scprime', symbol: 'SCP', name: 'ScPrime' },
-  { id: 'siacoin', symbol: 'SC', name: 'Siacoin' },
+  }, 
   { 
     id: 'stronghands', 
     symbol: 'SHND', 
