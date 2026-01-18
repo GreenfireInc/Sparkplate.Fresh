@@ -2,19 +2,10 @@
   <div class="indices-container">
     <!-- Index Selection Dropdown and Search -->
     <div class="mb-6 flex items-end gap-3 flex-wrap">
-      <div>
-        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-          Select Index
-        </label>
-        <select
-          v-model="selectedIndex"
-          class="w-full md:w-64 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
-        >
-          <option v-for="index in availableIndices" :key="index.id" :value="index.id">
-            {{ index.label }}
-          </option>
-        </select>
-      </div>
+      <IndexSelector
+        v-model="selectedIndex"
+        :available-indices="availableIndices"
+      />
       
       <!-- Search Input (List View Only) -->
       <div v-if="viewMode === 'list'" class="flex-1 min-w-[200px]">
@@ -142,9 +133,9 @@
     </div>
 
     <!-- List View - Currency Table -->
-    <div v-if="viewMode === 'list' && filteredCurrencies.length > 0" class="overflow-x-auto">
+    <div v-if="viewMode === 'list' && filteredCurrencies.length > 0" class="table-container">
       <table class="min-w-full bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
-        <thead class="bg-gray-50 dark:bg-gray-900">
+        <thead class="sticky-header">
           <tr>
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
               #
@@ -207,6 +198,19 @@
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
               Class
             </th>
+            <th 
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 select-none"
+              @click="sortBy('price')"
+            >
+              <div class="flex items-center gap-2">
+                Price
+                <span class="sort-indicator">
+                  <svg v-if="sortColumn === 'price'" class="w-4 h-4 inline-block" :class="{ 'rotate-180': sortDirection === 'desc' }" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+              </div>
+            </th>
           </tr>
         </thead>
         <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
@@ -234,11 +238,8 @@
                 {{ currency.symbol || currency.tickerSymbol || currency.ticker }}
               </span>
             </td>
-            <td class="px-6 py-4">
+            <td class="px-6 py-4 whitespace-nowrap">
               <div class="text-sm text-gray-900 dark:text-gray-100">{{ currency.name }}</div>
-              <div v-if="currency.description" class="text-xs text-gray-500 dark:text-gray-400 mt-1 max-w-md">
-                {{ currency.description }}
-              </div>
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
               <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full"
@@ -260,6 +261,26 @@
                 >
                   {{ cls }}
                 </span>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
+              <div v-if="currencyPrices[(currency.symbol || currency.tickerSymbol || currency.ticker || '').toLowerCase()]">
+                <span class="font-medium">
+                  ${{ formatPrice(currencyPrices[(currency.symbol || currency.tickerSymbol || currency.ticker || '').toLowerCase()]?.price || 0) }}
+                </span>
+                <span 
+                  v-if="currencyPrices[(currency.symbol || currency.tickerSymbol || currency.ticker || '').toLowerCase()]?.priceChange"
+                  class="ml-2 text-xs"
+                  :class="currencyPrices[(currency.symbol || currency.tickerSymbol || currency.ticker || '').toLowerCase()]?.priceChange >= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'"
+                >
+                  ({{ currencyPrices[(currency.symbol || currency.tickerSymbol || currency.ticker || '').toLowerCase()]?.priceChange >= 0 ? '+' : '' }}{{ currencyPrices[(currency.symbol || currency.tickerSymbol || currency.ticker || '').toLowerCase()]?.priceChange.toFixed(2) }}%)
+                </span>
+              </div>
+              <div v-else-if="priceLoading" class="text-gray-400 dark:text-gray-500">
+                Loading...
+              </div>
+              <div v-else class="text-gray-400 dark:text-gray-500">
+                N/A
               </div>
             </td>
           </tr>
@@ -290,43 +311,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import { ChartPie, List, Search, X } from 'lucide-vue-next'
 import * as IndexComposites from '@/lib/cores/currencyCore/indexComposites'
 import CurrencyDetailModal from './indices/CurrencyDetailModal.vue'
+import IndexSelector, { type IndexOption, type CurrencyItem } from './dropdowns/IndexSelector.vue'
+import { fetchCurrencyPrices, formatPrice } from '@/lib/cores/currencyCore/indexComposites'
 
 // Define component name
 defineOptions({
   name: 'CryptocurrencyIndices'
 })
-
-type CurrencyItem = 
-  | IndexComposites.ProofOfWorkItem 
-  | IndexComposites.ProofOfStakeItem 
-  | IndexComposites.NYExchangeOfferingsCoinbaseItem 
-  | IndexComposites.NYExchangeOfferingsGeminiItem 
-  | IndexComposites.NYExchangeOfferingsBitFlyerItem
-  | IndexComposites.NYExchangeOfferingsBitStampItem
-  | IndexComposites.NYExchangeOfferingsPayPalVenmoItem
-  | IndexComposites.NYExchangeOfferingsRobinhoodItem
-  | IndexComposites.StorageCurrencyItem
-  | IndexComposites.OracleClassItem
-  | IndexComposites.CoinbaseIndexItem
-  | IndexComposites.CurrencyCoreItem
-  | IndexComposites.ExchangeCurrencyItem
-  | IndexComposites.GreeneryV1Item
-  | IndexComposites.Greenery36Set0Item
-  | IndexComposites.NFTMarketplaceCurrencyItem
-  | IndexComposites.RandomListViaUCIDItem
-  | IndexComposites.RandomListViaMediaPressKitItem
-  | IndexComposites.SecSecurityItem
-  | IndexComposites.StablecoinItem
-
-interface IndexOption {
-  id: string
-  label: string
-  data: CurrencyItem[]
-}
 
 const selectedIndex = ref<string>('proof-of-work')
 const sortColumn = ref<string | null>(null)
@@ -336,6 +331,8 @@ const hoveredSegment = ref<number | null>(null)
 const searchQuery = ref<string>('')
 const isModalOpen = ref<boolean>(false)
 const selectedCurrency = ref<any>(null)
+const currencyPrices = ref<Record<string, { price: number; priceChange: number; marketCap: number }>>({})
+const priceLoading = ref<boolean>(false)
 
 // Chart configuration
 const chartSize = 300
@@ -528,6 +525,12 @@ const filteredCurrencies = computed(() => {
           aValue = (a.consensusType || '').toLowerCase()
           bValue = (b.consensusType || '').toLowerCase()
           break
+        case 'price':
+          const aSymbol = (a.symbol || a.tickerSymbol || a.ticker || '').toLowerCase()
+          const bSymbol = (b.symbol || b.tickerSymbol || b.ticker || '').toLowerCase()
+          aValue = currencyPrices.value[aSymbol]?.price || 0
+          bValue = currencyPrices.value[bSymbol]?.price || 0
+          break
         default:
           return 0
       }
@@ -657,6 +660,35 @@ const closeCurrencyModal = () => {
   isModalOpen.value = false
   selectedCurrency.value = null
 }
+
+// Fetch prices for currencies
+const fetchPrices = async () => {
+  const currencies = filteredCurrencies.value
+  if (currencies.length === 0) return
+
+  priceLoading.value = true
+  
+  try {
+    const prices = await fetchCurrencyPrices(currencies, {
+      timeout: 10000,
+      vs_currency: 'usd',
+      per_page: currencies.length
+    })
+
+    currencyPrices.value = { ...currencyPrices.value, ...prices }
+  } catch (error) {
+    console.error('[Indices] Failed to fetch prices:', error)
+  } finally {
+    priceLoading.value = false
+  }
+}
+
+// Watch for changes in filtered currencies and fetch prices
+watch([filteredCurrencies, selectedIndex], () => {
+  if (viewMode.value === 'list' && filteredCurrencies.value.length > 0) {
+    fetchPrices()
+  }
+}, { immediate: true })
 </script>
 
 <style scoped>
@@ -673,6 +705,29 @@ const closeCurrencyModal = () => {
 
 .rotate-180 {
   transform: rotate(180deg);
+}
+
+/* Table Container with Scroll */
+.table-container {
+  overflow-x: auto;
+  max-height: calc(100vh - 300px);
+  overflow-y: auto;
+}
+
+/* Sticky Table Header */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #f9fafb;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .sticky-header {
+    background-color: #111827;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  }
 }
 
 /* Table responsive styles */

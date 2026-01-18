@@ -15,7 +15,10 @@
         :active="activeTab === 'calculator'"
         :onClick="() => (activeTab = 'calculator')"
       >
-        Calculator
+        <div class="flex items-center gap-2">
+          <Calculator :size="18" />
+          <span>Calculator</span>
+        </div>
       </TabComponent>
       <TabComponent
         :active="activeTab === 'indices'"
@@ -47,6 +50,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { Calculator } from 'lucide-vue-next'
 import DomainResolver from '../components/pageTabs/cryptocurrency/DomainResolver.vue'
 import CryptocurrencyCalculator from '../components/pageTabs/cryptocurrency/Calculator.vue'
 import CryptocurrencyIndices from '../components/pageTabs/cryptocurrency/Indices.vue'
