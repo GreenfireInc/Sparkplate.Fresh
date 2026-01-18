@@ -31,6 +31,25 @@ export interface NYExchangeOfferingsBitFlyerItem {
   npm: string | null;
 }
 
+/**
+ * CoinGecko ID mapping for bitFlyer NY Exchange currencies
+ * Maps currency IDs and symbols to CoinGecko API identifiers
+ */
+export const bitFlyerCoinGeckoMap: Record<string, string> = {
+  // By ID
+  'bitcoin-cash': 'bitcoin-cash',
+  'bitcoin': 'bitcoin',
+  'ethereum-classic': 'ethereum-classic',
+  'ethereum': 'ethereum',
+  'litecoin': 'litecoin',
+  // By symbol (lowercase)
+  'bch': 'bitcoin-cash',
+  'btc': 'bitcoin',
+  'etc': 'ethereum-classic',
+  'eth': 'ethereum',
+  'ltc': 'litecoin'
+};
+
 export const NY_EXCHANGE_OFFERINGS_BITFLYER: NYExchangeOfferingsBitFlyerItem[] = [
   { 
     id: 'bitcoin-cash', 
