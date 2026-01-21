@@ -195,9 +195,9 @@ const handleKeyDown = (event: KeyboardEvent) => {
 
 // Add/remove event listener based on modal open state
 watch(() => props.isOpen, (isOpen) => {
-  if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined') {
     if (isOpen) {
-      window.addEventListener('keydown', handleKeyDown)
+  window.addEventListener('keydown', handleKeyDown)
     } else {
       window.removeEventListener('keydown', handleKeyDown)
     }

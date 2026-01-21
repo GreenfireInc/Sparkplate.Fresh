@@ -88,28 +88,6 @@
               </p>
             </div> <!-- End of wrapper for domain input section -->
             
-            <!-- Cryptocurrency Ticker Selection -->
-            <div v-if="!isEthereumNameService && !isTezosDomainsService">
-              <label for="coin-ticker" class="block text-sm font-medium text-gray-700 mb-1">Query an address for a Domain</label>
-              <select 
-                id="coin-ticker"
-                v-model="coinTicker"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                required
-              >
-                <option value="">Select a cryptocurrency</option>
-                <option value="BTC">Bitcoin (BTC)</option>
-                <option value="ADA">Cardano (ADA)</option>
-                <option value="SOL">Solana (SOL)</option>
-                <option value="DOT">Polkadot (DOT)</option>
-                <option value="MATIC">Polygon (MATIC)</option>
-                <option value="AVAX">Avalanche (AVAX)</option>
-                <option value="LINK">Chainlink (LINK)</option>
-                <option value="UNI">Uniswap (UNI)</option>
-              </select>
-              <p class="mt-1 text-xs text-gray-500">Select the cryptocurrency you want to resolve the domain to</p>
-            </div>
-            
             <!-- Ethereum Name Service Info -->
             <div v-if="isEthereumNameService" class="bg-blue-50 p-3 rounded-lg border border-blue-200">
               <div class="flex items-center">

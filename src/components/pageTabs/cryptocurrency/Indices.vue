@@ -59,9 +59,9 @@
 
     <!-- Chart View -->
     <div v-if="viewMode === 'chart' && filteredCurrencies.length > 0" class="chart-view-container">
-      <div class="flex flex-col xl:flex-row items-center xl:items-start gap-8">
+      <div class="flex flex-row items-start justify-start gap-4 md:gap-8">
         <!-- Donut Chart -->
-        <div class="chart-wrapper">
+        <div class="chart-wrapper flex-shrink-0">
           <svg 
             :viewBox="`0 0 ${chartSize} ${chartSize}`" 
             class="donut-chart"
@@ -120,12 +120,18 @@
               @mouseenter="hoveredSegment = index"
               @mouseleave="hoveredSegment = null"
             >
-              <span 
-                class="legend-color" 
-                :style="{ backgroundColor: segment.color }"
-              ></span>
+              <img
+                :src="getCurrencyLogo(segment.currency)"
+                :alt="segment.symbol + ' logo'"
+                class="legend-logo"
+                :ref="(el) => { if (el) (el as any).__currency = segment.currency }"
+                @error="handleImageError"
+                loading="lazy"
+              />
               <span class="legend-symbol">{{ segment.symbol }}</span>
-              <span class="legend-percentage">{{ segment.percentage.toFixed(1) }}%</span>
+              <span class="legend-value">
+                ${{ formatPrice(currencyPrices[segment.symbol.toLowerCase()]?.price || 0) }}
+              </span>
             </div>
           </div>
         </div>
@@ -148,7 +154,7 @@
               @click="sortBy('symbol')"
             >
               <div class="flex items-center gap-2">
-                Symbol
+              Symbol
                 <span class="sort-indicator">
                   <svg v-if="sortColumn === 'symbol'" class="w-4 h-4 inline-block" :class="{ 'rotate-180': sortDirection === 'desc' }" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -161,7 +167,7 @@
               @click="sortBy('name')"
             >
               <div class="flex items-center gap-2">
-                Name
+              Name
                 <span class="sort-indicator">
                   <svg v-if="sortColumn === 'name'" class="w-4 h-4 inline-block" :class="{ 'rotate-180': sortDirection === 'desc' }" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -174,7 +180,7 @@
               @click="sortBy('type')"
             >
               <div class="flex items-center gap-2">
-                Type
+              Type
                 <span class="sort-indicator">
                   <svg v-if="sortColumn === 'type'" class="w-4 h-4 inline-block" :class="{ 'rotate-180': sortDirection === 'desc' }" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -187,7 +193,7 @@
               @click="sortBy('consensus')"
             >
               <div class="flex items-center gap-2">
-                Consensus
+              Consensus
                 <span class="sort-indicator">
                   <svg v-if="sortColumn === 'consensus'" class="w-4 h-4 inline-block" :class="{ 'rotate-180': sortDirection === 'desc' }" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -335,8 +341,8 @@ const currencyPrices = ref<Record<string, { price: number; priceChange: number; 
 const priceLoading = ref<boolean>(false)
 
 // Chart configuration
-const chartSize = 300
-const strokeWidth = 40
+const chartSize = 200
+const strokeWidth = 30
 const radius = (chartSize - strokeWidth) / 2
 const circumference = 2 * Math.PI * radius
 
@@ -574,7 +580,8 @@ const chartSegments = computed(() => {
       percentage,
       color: chartColors[index % chartColors.length],
       dashArray,
-      dashOffset
+      dashOffset,
+      currency // Store the full currency object for logo access
     }
   })
 })
@@ -749,8 +756,8 @@ watch([filteredCurrencies, selectedIndex], () => {
 
 .chart-wrapper {
   @apply relative;
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
 }
 
 .donut-chart {
@@ -767,7 +774,8 @@ watch([filteredCurrencies, selectedIndex], () => {
 }
 
 .chart-legend {
-  @apply flex-1 max-w-md;
+  @apply flex-1;
+  min-width: 0;
 }
 
 .legend-grid {
@@ -786,30 +794,30 @@ watch([filteredCurrencies, selectedIndex], () => {
   @apply bg-gray-100 dark:bg-gray-700;
 }
 
-.legend-color {
-  @apply w-3 h-3 rounded-full flex-shrink-0;
+.legend-logo {
+  @apply w-5 h-5 rounded-full object-cover flex-shrink-0;
 }
 
 .legend-symbol {
   @apply text-sm font-medium text-gray-900 dark:text-white flex-1 truncate;
 }
 
-.legend-percentage {
-  @apply text-xs text-gray-500 dark:text-gray-400;
+.legend-value {
+  @apply text-sm font-semibold text-gray-900 dark:text-white;
 }
 
 /* Responsive chart sizing */
 @media (min-width: 640px) {
   .chart-wrapper {
-    width: 350px;
-    height: 350px;
+    width: 250px;
+    height: 250px;
   }
 }
 
 @media (min-width: 1024px) {
   .chart-wrapper {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
   }
 }
 </style>
