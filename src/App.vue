@@ -4,6 +4,7 @@ import NavBar from './components/global/NavBar.vue'
 import SideNav from './components/global/SideNav.vue'
 import About from './components/global/About.vue'
 import KeyboardShortcuts from './components/global/KeyboardShortcuts.vue'
+import CommandField from './components/global/keybindings/CommandField.vue'
 import LoginStandard from './components/authentication/loginStandard/LoginStandard.vue'
 import MarqueeTicker from './components/partials/marqueeTicker/MarqueeTicker.vue'
 import { useMenuState } from './composables/useMenuState'
@@ -15,6 +16,19 @@ const { isAuthenticated } = useAuth()
 // App start time - set when the app initializes
 const appStartTime = ref(Date.now())
 provide('appStartTime', appStartTime)
+
+// Command field handlers
+const bruteForceActive = ref(false)
+
+const handleCommand = (command: string) => {
+  console.log('Command executed:', command)
+  // Handle different commands here
+}
+
+const handleBruteForce = (isActive: boolean) => {
+  bruteForceActive.value = isActive
+  console.log('Brute force mode:', isActive)
+}
 </script>
 
 <template>
@@ -32,6 +46,11 @@ provide('appStartTime', appStartTime)
     <LoginStandard v-if="!isAuthenticated" />
     <About />
     <KeyboardShortcuts />
+    <CommandField 
+      :brute-force-active="bruteForceActive"
+      @command="handleCommand"
+      @brute-force="handleBruteForce"
+    />
   </div>
 </template>
 
