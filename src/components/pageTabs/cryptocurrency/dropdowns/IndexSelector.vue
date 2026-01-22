@@ -10,7 +10,25 @@
       >
         <div class="flex items-center gap-2">
           <img
-            v-if="selectedIndex?.id === 'robinhood-ny'"
+            v-if="selectedIndex?.id === 'coinbase-ny'"
+            :src="coinbaseLogo"
+            alt="Coinbase"
+            class="w-5 h-5"
+          />
+          <img
+            v-else-if="selectedIndex?.id === 'gemini-ny'"
+            :src="geminiLogo"
+            alt="Gemini"
+            class="w-5 h-5"
+          />
+          <img
+            v-else-if="selectedIndex?.id === 'bitstamp-ny'"
+            :src="bitstampLogo"
+            alt="bitStamp"
+            class="w-5 h-5"
+          />
+          <img
+            v-else-if="selectedIndex?.id === 'robinhood-ny'"
             :src="robinhoodLogo"
             alt="Robinhood"
             class="w-5 h-5"
@@ -25,6 +43,40 @@
             v-else-if="selectedIndex?.id === 'paypal-venmo-ny'"
             :src="venmoLogo"
             alt="Venmo"
+            class="w-5 h-5"
+          />
+          <Pickaxe
+            v-else-if="selectedIndex?.id === 'proof-of-work'"
+            class="w-5 h-5"
+          />
+          <Vault
+            v-else-if="selectedIndex?.id === 'proof-of-stake'"
+            class="w-5 h-5"
+          />
+          <Binoculars
+            v-else-if="selectedIndex?.id === 'oracles'"
+            class="w-5 h-5"
+          />
+          <Server
+            v-else-if="selectedIndex?.id === 'storage'"
+            class="w-5 h-5"
+          />
+          <HandCoins
+            v-else-if="selectedIndex?.id === 'stablecoins'"
+            class="w-5 h-5"
+          />
+          <Landmark
+            v-else-if="selectedIndex?.id === 'exchange-currencies'"
+            class="w-5 h-5"
+          />
+          <FileImage
+            v-else-if="selectedIndex?.id === 'nft-marketplace-currencies'"
+            class="w-5 h-5"
+          />
+          <img
+            v-else-if="selectedIndex?.id === 'sec-securities-list'"
+            :src="secLogo"
+            alt="SEC"
             class="w-5 h-5"
           />
           <span>{{ selectedIndex?.label || 'Select Index' }}</span>
@@ -55,7 +107,25 @@
             :class="{ 'bg-blue-50 dark:bg-blue-900/20': index.id === modelValue }"
           >
             <img
-              v-if="index.id === 'robinhood-ny'"
+              v-if="index.id === 'coinbase-ny'"
+              :src="coinbaseLogo"
+              alt="Coinbase"
+              class="w-5 h-5"
+            />
+            <img
+              v-else-if="index.id === 'gemini-ny'"
+              :src="geminiLogo"
+              alt="Gemini"
+              class="w-5 h-5"
+            />
+            <img
+              v-else-if="index.id === 'bitstamp-ny'"
+              :src="bitstampLogo"
+              alt="bitStamp"
+              class="w-5 h-5"
+            />
+            <img
+              v-else-if="index.id === 'robinhood-ny'"
               :src="robinhoodLogo"
               alt="Robinhood"
               class="w-5 h-5"
@@ -70,6 +140,40 @@
               v-else-if="index.id === 'paypal-venmo-ny'"
               :src="venmoLogo"
               alt="Venmo"
+              class="w-5 h-5"
+            />
+            <Pickaxe
+              v-else-if="index.id === 'proof-of-work'"
+              class="w-5 h-5"
+            />
+            <Vault
+              v-else-if="index.id === 'proof-of-stake'"
+              class="w-5 h-5"
+            />
+            <Binoculars
+              v-else-if="index.id === 'oracles'"
+              class="w-5 h-5"
+            />
+            <Server
+              v-else-if="index.id === 'storage'"
+              class="w-5 h-5"
+            />
+            <HandCoins
+              v-else-if="index.id === 'stablecoins'"
+              class="w-5 h-5"
+            />
+            <Landmark
+              v-else-if="index.id === 'exchange-currencies'"
+              class="w-5 h-5"
+            />
+            <FileImage
+              v-else-if="index.id === 'nft-marketplace-currencies'"
+              class="w-5 h-5"
+            />
+            <img
+              v-else-if="index.id === 'sec-securities-list'"
+              :src="secLogo"
+              alt="SEC"
               class="w-5 h-5"
             />
             <span class="flex-1">{{ index.label }}</span>
@@ -99,11 +203,16 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { Pickaxe, Vault, Binoculars, Server, HandCoins, Landmark, FileImage } from 'lucide-vue-next'
 import * as IndexComposites from '@/lib/cores/currencyCore/indexComposites'
 
 const robinhoodLogo = '/assets/icons/exchanges/robinhood.neon.svg'
 const bitflyerLogo = '/assets/icons/exchanges/bitflyer.svg'
 const venmoLogo = '/assets/icons/exchanges/venmo.svg'
+const coinbaseLogo = '/assets/icons/exchanges/coinbase.svg'
+const geminiLogo = '/assets/icons/exchanges/gemini.svg'
+const bitstampLogo = '/assets/icons/exchanges/bitstamp.svg'
+const secLogo = '/assets/icons/other/sec.unitedStates.svg'
 
 // Define component name
 defineOptions({

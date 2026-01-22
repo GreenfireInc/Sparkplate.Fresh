@@ -132,6 +132,9 @@
               <span class="legend-value">
                 ${{ formatPrice(currencyPrices[segment.symbol.toLowerCase()]?.price || 0) }}
               </span>
+              <span class="legend-marketcap">
+                ${{ formatPrice(currencyPrices[segment.symbol.toLowerCase()]?.marketCap || 0) }}
+              </span>
             </div>
           </div>
         </div>
@@ -780,7 +783,7 @@ watch([filteredCurrencies, selectedIndex], () => {
 
 .legend-grid {
   @apply grid gap-2;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   max-height: 280px;
   overflow-y: auto;
 }
@@ -804,6 +807,10 @@ watch([filteredCurrencies, selectedIndex], () => {
 
 .legend-value {
   @apply text-sm font-semibold text-gray-900 dark:text-white;
+}
+
+.legend-marketcap {
+  @apply text-xs text-gray-500 dark:text-gray-400;
 }
 
 /* Responsive chart sizing */
