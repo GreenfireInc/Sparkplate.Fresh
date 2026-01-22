@@ -132,6 +132,9 @@
               <span class="legend-value">
                 ${{ formatPrice(currencyPrices[segment.symbol.toLowerCase()]?.price || 0) }}
               </span>
+              <span class="legend-marketcap">
+                ${{ formatPrice(currencyPrices[segment.symbol.toLowerCase()]?.marketCap || 0) }}
+              </span>
             </div>
           </div>
         </div>
@@ -304,6 +307,12 @@
       <p class="text-sm text-gray-700 dark:text-gray-300">
         Showing <span class="font-semibold">{{ filteredCurrencies.length }}</span> currencies
         from <span class="font-semibold">{{ getIndexLabel(selectedIndex) }}</span>
+        <span v-if="totalMarketCap > 0" class="ml-2">
+          • Total Market Cap: <span class="font-semibold">${{ formatPrice(totalMarketCap) }}</span>
+        </span>
+        <span v-if="totalMarketCapExcludingBitcoin > 0" class="ml-2">
+          • Total Market Cap (excl. BTC): <span class="font-semibold">${{ formatPrice(totalMarketCapExcludingBitcoin) }}</span>
+        </span>
       </p>
     </div>
 
@@ -586,6 +595,28 @@ const chartSegments = computed(() => {
   })
 })
 
+// Total market cap for the selected index
+const totalMarketCap = computed(() => {
+  return filteredCurrencies.value.reduce((total, currency: any) => {
+    const symbol = (currency.symbol || currency.tickerSymbol || currency.ticker || '').toLowerCase()
+    const marketCap = currencyPrices.value[symbol]?.marketCap || 0
+    return total + marketCap
+  }, 0)
+})
+
+// Total market cap excluding Bitcoin
+const totalMarketCapExcludingBitcoin = computed(() => {
+  return filteredCurrencies.value.reduce((total, currency: any) => {
+    const symbol = (currency.symbol || currency.tickerSymbol || currency.ticker || '').toLowerCase()
+    // Exclude Bitcoin (btc or bitcoin)
+    if (symbol === 'btc' || symbol === 'bitcoin') {
+      return total
+    }
+    const marketCap = currencyPrices.value[symbol]?.marketCap || 0
+    return total + marketCap
+  }, 0)
+})
+
 const getIndexLabel = (indexId: string): string => {
   const index = availableIndices.find(idx => idx.id === indexId)
   return index?.label || indexId
@@ -780,7 +811,7 @@ watch([filteredCurrencies, selectedIndex], () => {
 
 .legend-grid {
   @apply grid gap-2;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   max-height: 280px;
   overflow-y: auto;
 }
@@ -804,6 +835,10 @@ watch([filteredCurrencies, selectedIndex], () => {
 
 .legend-value {
   @apply text-sm font-semibold text-gray-900 dark:text-white;
+}
+
+.legend-marketcap {
+  @apply text-xs text-gray-500 dark:text-gray-400;
 }
 
 /* Responsive chart sizing */
