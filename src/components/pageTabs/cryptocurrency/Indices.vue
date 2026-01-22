@@ -307,6 +307,12 @@
       <p class="text-sm text-gray-700 dark:text-gray-300">
         Showing <span class="font-semibold">{{ filteredCurrencies.length }}</span> currencies
         from <span class="font-semibold">{{ getIndexLabel(selectedIndex) }}</span>
+        <span v-if="totalMarketCap > 0" class="ml-2">
+          • Total Market Cap: <span class="font-semibold">${{ formatPrice(totalMarketCap) }}</span>
+        </span>
+        <span v-if="totalMarketCapExcludingBitcoin > 0" class="ml-2">
+          • Total Market Cap (excl. BTC): <span class="font-semibold">${{ formatPrice(totalMarketCapExcludingBitcoin) }}</span>
+        </span>
       </p>
     </div>
 
@@ -587,6 +593,28 @@ const chartSegments = computed(() => {
       currency // Store the full currency object for logo access
     }
   })
+})
+
+// Total market cap for the selected index
+const totalMarketCap = computed(() => {
+  return filteredCurrencies.value.reduce((total, currency: any) => {
+    const symbol = (currency.symbol || currency.tickerSymbol || currency.ticker || '').toLowerCase()
+    const marketCap = currencyPrices.value[symbol]?.marketCap || 0
+    return total + marketCap
+  }, 0)
+})
+
+// Total market cap excluding Bitcoin
+const totalMarketCapExcludingBitcoin = computed(() => {
+  return filteredCurrencies.value.reduce((total, currency: any) => {
+    const symbol = (currency.symbol || currency.tickerSymbol || currency.ticker || '').toLowerCase()
+    // Exclude Bitcoin (btc or bitcoin)
+    if (symbol === 'btc' || symbol === 'bitcoin') {
+      return total
+    }
+    const marketCap = currencyPrices.value[symbol]?.marketCap || 0
+    return total + marketCap
+  }, 0)
 })
 
 const getIndexLabel = (indexId: string): string => {
