@@ -96,82 +96,64 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue'
+<script setup lang="ts">
+import { ref } from 'vue'
 import DomainsAndSocialMedia from '@/components/modals/settings/userprofile/DomainsAndSocialMedia.vue'
 import { useI18n } from '@/composables/useI18n'
 
-export default defineComponent({
-  name: 'UserProfile',
-  components: {
-    DomainsAndSocialMedia
-  },
-  setup() {
-    const { locale, setLocale, languages, t } = useI18n()
-    
-    const profile = ref({
-      firstName: '',
-      lastName: '',
-      company: '',
-      email: '',
-      domains: '',
-      language: locale.value,
-      currency: 'USD',
-      twitter: '',
-      instagram: '',
-      linkedin: '',
-      github: '',
-      website: '',
-      bio: ''
-    })
+const { locale, setLocale, languages, t } = useI18n()
 
-    const handleLanguageChange = () => {
-      setLocale(profile.value.language)
-    }
-
-    const domainsModal = ref(null)
-    
-    const showDomainsModal = (activeTab) => {
-      if (domainsModal.value) {
-        domainsModal.value.activeMode = activeTab
-        domainsModal.value.showModal()
-      }
-    }
-    
-    const handleDomainsModalSave = (data) => {
-      // Update profile with data from modal
-      if (data.domains) {
-        // Format domains as comma-separated list
-        const domainsList = Object.values(data.domains).filter(Boolean)
-        profile.value.domains = domainsList.join(', ')
-      }
-      
-      if (data.social) {
-        // Update social media accounts
-        profile.value.twitter = data.social.twitter || ''
-        profile.value.instagram = data.social.instagram || ''
-        profile.value.linkedin = data.social.linkedin || ''
-        profile.value.github = data.social.github || ''
-        
-        // Format social media as comma-separated list for display
-        const socialList = Object.entries(data.social)
-          .filter(([_, value]) => value)
-          .map(([key, _]) => key)
-        profile.value.website = socialList.length ? socialList.join(', ') : ''
-      }
-    }
-
-    return {
-      profile,
-      domainsModal,
-      showDomainsModal,
-      handleDomainsModalSave,
-      handleLanguageChange,
-      languages,
-      t
-    }
-  }
+const profile = ref({
+  firstName: '',
+  lastName: '',
+  company: '',
+  email: '',
+  domains: '',
+  language: locale.value,
+  currency: 'USD',
+  twitter: '',
+  instagram: '',
+  linkedin: '',
+  github: '',
+  website: '',
+  bio: ''
 })
+
+const handleLanguageChange = () => {
+  setLocale(profile.value.language)
+}
+
+const domainsModal = ref<InstanceType<typeof DomainsAndSocialMedia> | null>(null)
+
+const showDomainsModal = (activeTab: string) => {
+  if (domainsModal.value) {
+    domainsModal.value.activeMode = activeTab
+    domainsModal.value.showModal()
+  }
+}
+
+const handleDomainsModalSave = (data: { domains?: Record<string, string>, social?: Record<string, string> }) => {
+  // Update profile with data from modal
+  if (data.domains) {
+    // Format domains as comma-separated list
+    const domainsList = Object.values(data.domains).filter(Boolean)
+    profile.value.domains = domainsList.join(', ')
+  }
+  
+  if (data.social) {
+    // Update social media accounts
+    profile.value.twitter = data.social.twitter || ''
+    profile.value.instagram = data.social.instagram || ''
+    profile.value.linkedin = data.social.linkedin || ''
+    profile.value.github = data.social.github || ''
+    
+    // Format social media as comma-separated list for display
+    const socialList = Object.entries(data.social)
+      .filter(([_, value]) => value)
+      .map(([key, _]) => key)
+    profile.value.website = socialList.length ? socialList.join(', ') : ''
+  }
+}
 </script>
 
 <style lang="scss" scoped>
