@@ -26,6 +26,12 @@
       >
         Indices
       </TabComponent>
+      <TabComponent
+        :active="activeTab === 'mnemonic'"
+        :onClick="() => (activeTab = 'mnemonic')"
+      >
+        Mnemonic Seed Phrase
+      </TabComponent>
     </TabsWrapper>
 
     <!-- Tab Content -->
@@ -44,6 +50,11 @@
       <div v-if="activeTab === 'indices'" id="indices-content" role="tabpanel" aria-labelledby="indices-tab">
         <cryptocurrency-indices />
       </div>
+
+      <!-- Mnemonic Seed Phrase Content -->
+      <div v-if="activeTab === 'mnemonic'" id="mnemonic-content" role="tabpanel" aria-labelledby="mnemonic-tab">
+        <mnemonic-seed-phrase />
+      </div>
     </div>
   </div>
 </template>
@@ -54,6 +65,7 @@ import { Calculator } from 'lucide-vue-next'
 import DomainResolver from '../components/pageTabs/cryptocurrency/DomainResolver.vue'
 import CryptocurrencyCalculator from '../components/pageTabs/cryptocurrency/Calculator.vue'
 import CryptocurrencyIndices from '../components/pageTabs/cryptocurrency/Indices.vue'
+import MnemonicSeedPhrase from '../components/pageTabs/cryptocurrency/MnemonicSeedPhrase.vue'
 import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
 
