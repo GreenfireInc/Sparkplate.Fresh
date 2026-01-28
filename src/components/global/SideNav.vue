@@ -116,6 +116,16 @@
       <span v-if="menuType === 'macro'" class="nav-text">Sandbox</span>
     </router-link>
 
+    <router-link
+      to="/qrcode"
+      class="nav-item"
+      :class="{ active: $route.path === '/qrcode' }"
+      title="QR Code"
+    >
+      <QrCodeIcon :size="20" :color="pathColor('/qrcode')" />
+      <span v-if="menuType === 'macro'" class="nav-text">QR Code</span>
+    </router-link>
+
     <!-- Divider -->
     <div class="nav-divider"></div>
     
@@ -144,6 +154,7 @@ import {
   PackageIcon,
   UploadIcon,
   GamepadIcon,
+  QrCode,
   SettingsIcon
 } from 'lucide-vue-next'
 import { useRoute } from 'vue-router'
@@ -163,6 +174,7 @@ export default {
     PackageIcon,
     UploadIcon,
     GamepadIcon,
+    QrCode,
     SettingsIcon
   },
   setup() {
