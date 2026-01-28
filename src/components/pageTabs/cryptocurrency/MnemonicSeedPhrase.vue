@@ -169,6 +169,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import * as bip39 from 'bip39'
 import { Shield, RefreshCw, Upload, Copy, Check, Download } from 'lucide-vue-next'
 
 const wordCounts = [12, 15, 18, 21, 24]
@@ -178,39 +179,21 @@ const copied = ref(false)
 const inputMode = ref<'generate' | 'input'>('generate')
 const fileInput = ref<HTMLInputElement | null>(null)
 
-// BIP39 word list (first 100 words as example - in production, use full 2048 word list)
-const bip39Words = [
-  'abandon', 'ability', 'able', 'about', 'above', 'absent', 'absorb', 'abstract', 'absurd', 'abuse',
-  'access', 'accident', 'account', 'accuse', 'achieve', 'acid', 'acoustic', 'acquire', 'across', 'act',
-  'action', 'actor', 'actual', 'adapt', 'add', 'addict', 'address', 'adjust', 'admit', 'adult',
-  'advance', 'advice', 'aerobic', 'affair', 'afford', 'afraid', 'again', 'age', 'agent', 'agree',
-  'ahead', 'aim', 'air', 'airport', 'aisle', 'alarm', 'album', 'alcohol', 'alert', 'alien',
-  'all', 'alley', 'allow', 'almost', 'alone', 'alpha', 'already', 'also', 'alter', 'always',
-  'amateur', 'amazing', 'among', 'amount', 'amused', 'analyst', 'anchor', 'ancient', 'anger', 'angle',
-  'angry', 'animal', 'ankle', 'announce', 'annual', 'another', 'answer', 'antenna', 'antique', 'anxiety',
-  'any', 'apart', 'apology', 'appear', 'apple', 'approve', 'april', 'area', 'arena', 'argue',
-  'arm', 'armed', 'armor', 'army', 'around', 'arrange', 'arrest', 'arrive', 'arrow', 'art'
-]
-
-// Generate cryptographically secure random number
-const getRandomInt = (max: number): number => {
-  const array = new Uint32Array(1)
-  crypto.getRandomValues(array)
-  return array[0] % max
+// Standard BIP39 word count → entropy bits
+const standardEntropyMap: Record<number, number> = {
+  12: 128,
+  15: 160,
+  18: 192,
+  21: 224,
+  24: 256,
 }
 
-// Generate mnemonic phrase
+// Generate BIP39 mnemonic (valid checksum, same as keyForge)
 const generateMnemonic = () => {
-  const words: string[] = []
-  const wordListLength = bip39Words.length
-  
-  // Generate random word indices
-  for (let i = 0; i < wordCount.value; i++) {
-    const randomIndex = getRandomInt(wordListLength)
-    words.push(bip39Words[randomIndex])
-  }
-  
-  mnemonic.value = words.join(' ')
+  const count = wordCount.value
+  const entropyBits = standardEntropyMap[count] ?? 256
+  const phrase = bip39.generateMnemonic(entropyBits)
+  mnemonic.value = phrase
   copied.value = false
 }
 
@@ -272,21 +255,25 @@ const loadFromFile = async (event: Event) => {
         alert('Could not find seed phrase in JSON file')
       }
     } else if (file.name.endsWith('.csv')) {
-      // Simple CSV parsing - assume first column contains words or first row contains seed phrase
+      const wordlist = bip39.wordlists.english ?? bip39.wordlists['english']
       const lines = text.trim().split('\n')
       const words: string[] = []
       for (const line of lines) {
         const cells = line.split(',')
         for (const cell of cells) {
-          const cleaned = cell.trim().replace(/"/g, '')
-          if (cleaned && bip39Words.includes(cleaned.toLowerCase())) {
-            words.push(cleaned.toLowerCase())
+          const cleaned = cell.trim().replace(/"/g, '').toLowerCase()
+          if (cleaned && wordlist.includes(cleaned)) {
+            words.push(cleaned)
           }
         }
       }
+      const phrase = words.join(' ')
       if (words.length >= 12) {
-        mnemonic.value = words.join(' ')
+        mnemonic.value = phrase
         inputMode.value = 'input'
+        if (!bip39.validateMnemonic(phrase)) {
+          console.warn('Loaded phrase may have invalid checksum or word order.')
+        }
       } else {
         alert('Could not find valid seed phrase in CSV file')
       }
