@@ -92,6 +92,7 @@
     "algosdk": "^3.5.2",
     "arweave": "^1.15.7",
     "bignumber.js": "^9.3.0",
+    "bip32": "^5.0.0",
     "bip39": "^3.1.0",
     "bitcoinjs-lib": "^7.0.0",
     "bitcore-lib-cash": "^10.10.5",

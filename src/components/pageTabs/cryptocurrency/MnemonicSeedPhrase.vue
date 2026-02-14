@@ -1,15 +1,15 @@
 <template>
-  <div class="mnemonic-generator min-h-screen bg-background p-2 md:p-4">
-    <div class="max-w-7xl mx-auto space-y-4">
+  <div class="mnemonic-generator bg-background p-2 md:p-3">
+    <div class="max-w-7xl mx-auto space-y-3">
       <!-- Header -->
-      <div class="text-center space-y-2 py-3">
-        <div class="flex items-center justify-center gap-1.5 mb-1">
-          <Shield class="h-5 w-5 text-primary" />
-          <h1 class="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+      <div class="text-center space-y-1 py-1">
+        <div class="flex items-center justify-center gap-1.5">
+          <Shield class="h-4 w-4 text-primary" />
+          <h1 class="text-sm md:text-base font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
             Mnemonic Seed Phrase Generator
           </h1>
         </div>
-        <p class="text-sm text-muted-foreground max-w-2xl mx-auto">
+        <p class="text-xs text-muted-foreground max-w-2xl mx-auto">
           Generate deterministic cryptocurrency wallets with BIP39 mnemonic seed phrases
         </p>
       </div>
@@ -65,25 +65,24 @@
 
           <!-- Generate Mode -->
           <div v-if="inputMode === 'generate'" class="space-y-2">
-            <div class="space-y-1">
-              <label class="text-xs font-medium text-gray-700 dark:text-gray-300">Word Count</label>
+            <div class="flex items-center gap-2">
+              <label class="text-xs font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">Word Count:</label>
               <select
                 v-model="wordCount"
-                class="w-full px-2 py-1.5 text-sm rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                class="flex-1 px-2 py-1 text-sm rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option v-for="count in wordCounts" :key="count" :value="count">
                   {{ count }} words
                 </option>
               </select>
+              <button
+                @click="generateMnemonic"
+                class="px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-md font-medium hover:opacity-90 transition-opacity shadow-md flex items-center gap-1.5 text-xs whitespace-nowrap"
+              >
+                <RefreshCw class="h-3 w-3" />
+                Generate
+              </button>
             </div>
-
-            <button
-              @click="generateMnemonic"
-              class="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-md font-semibold hover:opacity-90 transition-opacity shadow-md flex items-center justify-center gap-2 text-sm"
-            >
-              <RefreshCw class="h-3 w-3" />
-              Generate Seed Phrase
-            </button>
           </div>
 
           <!-- Input Mode -->
@@ -92,18 +91,42 @@
             <textarea
               v-model="mnemonic"
               placeholder="Enter your mnemonic seed phrase..."
-              class="w-full min-h-[80px] px-2 py-1.5 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-mono text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+              class="w-full min-h-[60px] px-2 py-1.5 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-mono text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
             />
           </div>
 
           <!-- Display Seed Phrase (when generated or entered) -->
-          <div v-if="mnemonic" class="mt-3 space-y-2">
-            <div class="flex items-center justify-between flex-wrap gap-2">
+          <div v-if="mnemonic" class="mt-2 space-y-1.5">
+            <div class="flex items-center gap-2 flex-wrap">
               <label class="text-xs font-medium text-gray-700 dark:text-gray-300">Your Seed Phrase</label>
-              <div class="flex gap-1">
+              <button
+                @click="checksumModalOpen = true"
+                class="px-2 py-0.5 rounded text-xs font-medium transition-colors border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-1"
+              >
+                Checksum
+              </button>
+              <button
+                @click="advancedModalOpen = true"
+                class="px-2 py-0.5 rounded text-xs font-medium transition-colors border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-1"
+              >
+                Advanced
+              </button>
+              <button
+                @click="derivationDiveModalOpen = true"
+                class="px-2 py-0.5 rounded text-xs font-medium transition-colors border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-1"
+              >
+                Derivation Path Dive
+              </button>
+              <button
+                @click="privateKeyModalOpen = true"
+                class="px-2 py-0.5 rounded text-xs font-medium transition-colors border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-1"
+              >
+                From privateKey
+              </button>
+              <div class="flex gap-1 ml-auto">
                 <button
                   @click="copyToClipboard"
-                  class="px-2 py-1 rounded-md text-xs font-medium transition-colors border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-1"
+                  class="px-2 py-0.5 rounded text-xs font-medium transition-colors border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-1"
                 >
                   <Copy v-if="!copied" class="h-3 w-3" />
                   <Check v-else class="h-3 w-3 text-green-500" />
@@ -111,7 +134,7 @@
                 </button>
                 <button
                   @click="downloadSeedPhrase"
-                  class="px-2 py-1 rounded-md text-xs font-medium transition-colors border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-1"
+                  class="px-2 py-0.5 rounded text-xs font-medium transition-colors border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-1"
                 >
                   <Download class="h-3 w-3" />
                   Download
@@ -120,11 +143,11 @@
             </div>
 
             <!-- Word Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1.5">
               <div
                 v-for="(word, index) in mnemonicWords"
                 :key="index"
-                class="bg-gray-50 dark:bg-gray-700/50 rounded-md p-2 border border-gray-200 dark:border-gray-600"
+                class="bg-gray-50 dark:bg-gray-700/50 rounded p-1.5 border border-gray-200 dark:border-gray-600"
               >
                 <span class="text-xs text-gray-500 dark:text-gray-400 font-medium mr-1">
                   {{ index + 1 }}.
@@ -136,9 +159,32 @@
             </div>
 
             <!-- Raw Seed Phrase Display -->
-            <div class="bg-gray-50 dark:bg-gray-900/50 rounded-md p-2 border border-gray-200 dark:border-gray-700">
+            <div class="bg-gray-50 dark:bg-gray-900/50 rounded p-1.5 border border-gray-200 dark:border-gray-700">
               <p class="text-xs font-mono text-gray-900 dark:text-white break-all">
                 {{ mnemonic }}
+              </p>
+            </div>
+
+            <!-- BIP32 Root GPG Key Fingerprint -->
+            <div v-if="rootGPGFingerprint" class="space-y-1.5 p-2.5 bg-gray-50/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center justify-between">
+                <label class="text-xs font-semibold text-gray-600 dark:text-gray-400">
+                  BIP32 Root GPG Key Fingerprint
+                </label>
+                <button
+                  @click="copyGPGFingerprint"
+                  class="px-2 py-0.5 rounded text-xs font-medium transition-colors border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-1"
+                >
+                  <Copy v-if="!gpgCopied" class="h-3 w-3" />
+                  <Check v-else class="h-3 w-3 text-green-500" />
+                  {{ gpgCopied ? 'Copied!' : 'Copy' }}
+                </button>
+              </div>
+              <div class="font-mono text-xs text-gray-900 dark:text-white bg-white/50 dark:bg-gray-900/50 p-1.5 rounded border border-gray-200/50 dark:border-gray-700/50 break-all">
+                {{ rootGPGFingerprint }}
+              </div>
+              <p class="text-xs text-gray-600 dark:text-gray-400">
+                This GPG fingerprint is derived from your BIP32 root extended private key and represents the cryptographic identity of your entire wallet hierarchy.
               </p>
             </div>
 
@@ -151,9 +197,9 @@
       </div>
 
       <!-- Security Notice -->
-      <div class="max-w-4xl mx-auto mt-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
-        <h3 class="text-sm font-semibold text-red-600 dark:text-red-400 mb-1 flex items-center gap-1">
-          <Shield class="h-4 w-4" />
+      <div class="max-w-4xl mx-auto mt-2 p-2 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+        <h3 class="text-xs font-semibold text-red-600 dark:text-red-400 mb-0.5 flex items-center gap-1">
+          <Shield class="h-3 w-3" />
           Security Warning
         </h3>
         <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-0.5 list-disc list-inside">
@@ -168,9 +214,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import * as bip39 from 'bip39'
 import { Shield, RefreshCw, Upload, Copy, Check, Download } from 'lucide-vue-next'
+import { generateGPGFromRootExtendedPrivateKey } from '@/lib/cores/cryptographyCore/deterministicGPG/deterministicGPG.seed'
 
 const wordCounts = [12, 15, 18, 21, 24]
 const wordCount = ref<number>(12)
@@ -178,6 +225,13 @@ const mnemonic = ref<string>('')
 const copied = ref(false)
 const inputMode = ref<'generate' | 'input'>('generate')
 const fileInput = ref<HTMLInputElement | null>(null)
+const checksumModalOpen = ref(false)
+const advancedModalOpen = ref(false)
+const derivationDiveModalOpen = ref(false)
+const privateKeyModalOpen = ref(false)
+const rootGPGFingerprint = ref<string | null>(null)
+const isGeneratingGPG = ref(false)
+const gpgCopied = ref(false)
 
 // Standard BIP39 word count → entropy bits
 const standardEntropyMap: Record<number, number> = {
@@ -306,13 +360,48 @@ const downloadSeedPhrase = () => {
   a.click()
   URL.revokeObjectURL(url)
 }
+
+const copyGPGFingerprint = async () => {
+  if (!rootGPGFingerprint.value) return
+  
+  try {
+    await navigator.clipboard.writeText(rootGPGFingerprint.value)
+    gpgCopied.value = true
+    setTimeout(() => {
+      gpgCopied.value = false
+    }, 2000)
+  } catch (err) {
+    console.error('Failed to copy GPG fingerprint:', err)
+  }
+}
+
+// Generate GPG fingerprint from root extended private key whenever seed phrase changes
+watch(mnemonic, async (newMnemonic) => {
+  if (!newMnemonic || newMnemonic.trim().length === 0) {
+    rootGPGFingerprint.value = null
+    return
+  }
+
+  // Only generate if seed phrase is valid
+  if (!bip39.validateMnemonic(newMnemonic)) {
+    rootGPGFingerprint.value = null
+    return
+  }
+
+  isGeneratingGPG.value = true
+  try {
+    const result = await generateGPGFromRootExtendedPrivateKey(newMnemonic)
+    rootGPGFingerprint.value = result.gpgFingerprint
+  } catch (error) {
+    console.error('Error generating root GPG fingerprint:', error)
+    rootGPGFingerprint.value = null
+  } finally {
+    isGeneratingGPG.value = false
+  }
+})
 </script>
 
 <style scoped>
-.mnemonic-generator {
-  min-height: 100%;
-}
-
 .text-primary {
   color: rgb(37 99 235); /* blue-600 */
 }
