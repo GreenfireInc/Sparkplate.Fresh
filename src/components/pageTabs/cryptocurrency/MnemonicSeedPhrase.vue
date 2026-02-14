@@ -210,6 +210,22 @@
         </ul>
       </div>
     </div>
+
+    <!-- Checksum Modal -->
+    <ChecksumModal
+      :open="checksumModalOpen"
+      :seed-phrase="mnemonic"
+      @update:open="checksumModalOpen = $event"
+      @update:seed-phrase="mnemonic = $event"
+    />
+
+    <!-- Advanced Modal -->
+    <AdvancedModal
+      :open="advancedModalOpen"
+      :seed-phrase="mnemonic"
+      @update:open="advancedModalOpen = $event"
+      @update:seed-phrase="mnemonic = $event"
+    />
   </div>
 </template>
 
@@ -218,6 +234,8 @@ import { ref, computed, watch } from 'vue'
 import * as bip39 from 'bip39'
 import { Shield, RefreshCw, Upload, Copy, Check, Download } from 'lucide-vue-next'
 import { generateGPGFromRootExtendedPrivateKey } from '@/lib/cores/cryptographyCore/deterministicGPG/deterministicGPG.seed'
+import ChecksumModal from '@/components/modals/cryptocurrency/ChecksumModal.vue'
+import AdvancedModal from '@/components/modals/cryptocurrency/AdvancedModal.vue'
 
 const wordCounts = [12, 15, 18, 21, 24]
 const wordCount = ref<number>(12)
