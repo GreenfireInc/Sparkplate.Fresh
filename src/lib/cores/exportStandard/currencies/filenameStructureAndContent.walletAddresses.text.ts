@@ -11,7 +11,7 @@
  * 
  * 1. FILENAME GENERATION
  *    - Format: %name%.%machineName%.%date% (YYYYMMDD).%time% (24hr HHMMSS).walletAddresses.%firstAndLastWordsOfMnemonicSeedPhrase%.{extension}
- *    - Example: keyForge.local.20250118.143022.walletAddresses.abandonAbout.json
+ *    - Example: sparkplate.local.20250118.143022.walletAddresses.abandonAbout.json
  *    - Note: First and last words are combined in camelCase (no periods between words)
  *    - Supported extensions: json, csv, txt, png, pdf
  *    - Includes machine identifier, timestamp, and mnemonic words for unique file tracking
@@ -98,7 +98,7 @@
  * - File naming includes timestamps to prevent accidental overwrites
  */
 
-import packageJson from "../../../../package.json";
+import packageJson from "../../../../../package.json";
 
 const PACKAGE_NAME = packageJson.name;
 
@@ -106,12 +106,20 @@ const PACKAGE_NAME = packageJson.name;
  * Get machine name identifier
  */
 function getMachineName(): string {
-  if (typeof window !== "undefined" && window.location) {
-    const hostname = window.location.hostname;
-    if (hostname === "localhost" || hostname === "127.0.0.1") {
-      return "local";
+  if (typeof window !== "undefined") {
+    // Use Electron's appData hostname if available (actual machine hostname)
+    const appData = (window as any).appData;
+    if (appData?.hostname) {
+      return appData.hostname.replace(/[^a-zA-Z0-9-]/g, "-");
     }
-    return hostname.replace(/[^a-zA-Z0-9-]/g, "-");
+    // Fallback to window.location.hostname
+    if (window.location) {
+      const hostname = window.location.hostname;
+      if (hostname === "localhost" || hostname === "127.0.0.1") {
+        return "local";
+      }
+      return hostname.replace(/[^a-zA-Z0-9-]/g, "-");
+    }
   }
   return "unknown";
 }

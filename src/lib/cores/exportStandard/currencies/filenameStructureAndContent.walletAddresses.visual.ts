@@ -82,7 +82,7 @@
  *    - Greenfire logo (upper left)
  *    - Website URL (upper left, below logo)
  *    - Generation date/time (upper right, vertical)
- *    - Title: "keyForge - Wallet Addresses"
+ *    - Title: "sparkplate - Wallet Addresses"
  * 
  * 2. Address Grid Section:
  *    - 2-column grid layout
@@ -98,7 +98,7 @@
  * 
  * Uses generateWalletAddressesFilename() from filenameStructureAndContent.walletAddresses.text.ts
  * Format: %name%.%machineName%.%date% (YYYYMMDD).%time% (24hr HHMMSS).seed.%firstAndLastWordsOfMnemonicSeedPhrase%.{extension}
- * Example: keyForge.local.20250118.143022.seed.abandonAbout.png
+ * Example: sparkplate.local.20250118.143022.seed.abandonAbout.png
  * 
  * ============================================================================
  * SECURITY NOTES
@@ -384,7 +384,7 @@ export async function captureGeneralExportCanvas(
   ctx.font = "bold 24px monospace";
   ctx.fillStyle = "#333333";
   ctx.textAlign = "center";
-  ctx.fillText("keyForge - Wallet Addresses", EXPORT_WIDTH_PX / 2, y + 20);
+  ctx.fillText("sparkplate - Wallet Addresses", EXPORT_WIDTH_PX / 2, y + 20);
 
   // BIP32 Root GPG Key Fingerprint (if provided)
   if (rootGPGFingerprint) {
