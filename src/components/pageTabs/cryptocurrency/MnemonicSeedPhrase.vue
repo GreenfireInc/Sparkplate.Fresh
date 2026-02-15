@@ -226,6 +226,21 @@
       @update:open="advancedModalOpen = $event"
       @update:seed-phrase="mnemonic = $event"
     />
+
+    <!-- Derivation Path Dive Modal -->
+    <DerivationPathDiveModal
+      :open="derivationDiveModalOpen"
+      :seed-phrase="mnemonic"
+      @update:open="derivationDiveModalOpen = $event"
+      @generate-with-indices="handleGenerateWithIndices"
+    />
+
+    <!-- Private Key to Mnemonic Modal -->
+    <PrivateKeyToMnemonicModal
+      :open="privateKeyModalOpen"
+      @update:open="privateKeyModalOpen = $event"
+      @mnemonic-select="handleMnemonicSelect"
+    />
   </div>
 </template>
 
@@ -236,6 +251,8 @@ import { Shield, RefreshCw, Upload, Copy, Check, Download } from 'lucide-vue-nex
 import { generateGPGFromRootExtendedPrivateKey } from '@/lib/cores/cryptographyCore/deterministicGPG/deterministicGPG.seed'
 import ChecksumModal from '@/components/modals/cryptocurrency/ChecksumModal.vue'
 import AdvancedModal from '@/components/modals/cryptocurrency/AdvancedModal.vue'
+import DerivationPathDiveModal from '@/components/modals/cryptocurrency/DerivationPathDiveModal.vue'
+import PrivateKeyToMnemonicModal from '@/components/modals/cryptocurrency/PrivateKeyToMnemonicModal.vue'
 
 const wordCounts = [12, 15, 18, 21, 24]
 const wordCount = ref<number>(12)
@@ -377,6 +394,18 @@ const downloadSeedPhrase = () => {
   a.download = `seed-phrase-${dateStr}.json`
   a.click()
   URL.revokeObjectURL(url)
+}
+
+// Handle derivation path dive indices (placeholder for future integration)
+const handleGenerateWithIndices = (indices: Record<string, number>) => {
+  console.log('[DerivationPathDive] Generating addresses with indices:', indices)
+  // TODO: Integrate with currency address generation using these derivation indices
+}
+
+// Handle mnemonic selected from the PrivateKeyToMnemonic modal
+const handleMnemonicSelect = (selectedMnemonic: string) => {
+  mnemonic.value = selectedMnemonic
+  inputMode.value = 'input'
 }
 
 const copyGPGFingerprint = async () => {
