@@ -11,7 +11,7 @@
  * 
  * 1. FILENAME GENERATION
  *    - Format: %name%.%machineName%.%date% (YYYYMMDD).%time% (24hr HHMMSS).seed.%firstAndLastWordsOfMnemonicSeedPhrase%.{extension}
- *    - Example: keyForge.local.20250118.143022.seed.abandonAbout.json
+ *    - Example: sparkplate.local.20250118.143022.seed.abandonAbout.json
  *    - Note: First and last words are combined in camelCase (no periods between words)
  *    - Supported extensions: json, txt, csv, png, pdf
  *    - Includes machine identifier, timestamp, and mnemonic words for unique file tracking
@@ -86,8 +86,8 @@
  * - File naming includes timestamps to prevent accidental overwrites
  */
 
-import packageJson from "../../../../package.json";
-import { generateGPGFromRootExtendedPrivateKey } from "@/lib/cryptographyCore/deterministicGPG/deterministicGPG.seed";
+import packageJson from "../../../../../package.json";
+import { generateGPGFromRootExtendedPrivateKey } from "@/lib/cores/cryptographyCore/deterministicGPG/deterministicGPG.seed";
 
 const PACKAGE_NAME = packageJson.name;
 
@@ -111,17 +111,21 @@ const DEFAULT_DERIVATION_PATHS: Record<string, string> = {
  * for security reasons. This could be enhanced with user configuration or other identifiers.
  */
 function getMachineName(): string {
-  // Try to get hostname from window.location if available
-  if (typeof window !== "undefined" && window.location) {
-    const hostname = window.location.hostname;
-    // If it's localhost, try to use a more descriptive identifier
-    if (hostname === "localhost" || hostname === "127.0.0.1") {
-      return "local";
+  if (typeof window !== "undefined") {
+    // Use Electron's appData hostname if available (actual machine hostname)
+    const appData = (window as any).appData;
+    if (appData?.hostname) {
+      return appData.hostname.replace(/[^a-zA-Z0-9-]/g, "-");
     }
-    // Otherwise use the hostname (sanitized for filename)
-    return hostname.replace(/[^a-zA-Z0-9-]/g, "-");
+    // Fallback to window.location.hostname
+    if (window.location) {
+      const hostname = window.location.hostname;
+      if (hostname === "localhost" || hostname === "127.0.0.1") {
+        return "local";
+      }
+      return hostname.replace(/[^a-zA-Z0-9-]/g, "-");
+    }
   }
-  // Fallback
   return "unknown";
 }
 
@@ -132,7 +136,7 @@ function getMachineName(): string {
 function getUserName(): string {
   // Try to get from localStorage if previously set
   if (typeof window !== "undefined" && window.localStorage) {
-    const stored = window.localStorage.getItem("keyForge_userName");
+    const stored = window.localStorage.getItem("sparkplate_userName");
     if (stored) {
       return stored;
     }
@@ -214,7 +218,8 @@ export function generateSeedFilename(
  */
 export async function generateSeedJSONContent(
   mnemonicSeedPhrase: string,
-  customDate?: Date
+  customDate?: Date,
+  precomputedGPGFingerprint?: string
 ): Promise<string> {
   const date = customDate || new Date();
   const projectName = PACKAGE_NAME;
@@ -223,14 +228,18 @@ export async function generateSeedJSONContent(
   const userName = getUserName();
   const machineName = getMachineName();
 
-  // Generate GPG fingerprint from root extended private key
+  // Use precomputed fingerprint if available, otherwise generate
   let gpgFingerprint = "";
-  try {
-    const gpgResult = await generateGPGFromRootExtendedPrivateKey(mnemonicSeedPhrase);
-    gpgFingerprint = gpgResult.gpgFingerprint;
-  } catch (error) {
-    console.error("Error generating GPG fingerprint:", error);
-    gpgFingerprint = "Error generating fingerprint";
+  if (precomputedGPGFingerprint) {
+    gpgFingerprint = precomputedGPGFingerprint;
+  } else {
+    try {
+      const gpgResult = await generateGPGFromRootExtendedPrivateKey(mnemonicSeedPhrase);
+      gpgFingerprint = gpgResult.gpgFingerprint;
+    } catch (error) {
+      console.error("Error generating GPG fingerprint:", error);
+      gpgFingerprint = "Error generating fingerprint";
+    }
   }
 
   const data = {
@@ -252,7 +261,8 @@ export async function generateSeedJSONContent(
  */
 export async function generateSeedTXTContent(
   mnemonicSeedPhrase: string,
-  customDate?: Date
+  customDate?: Date,
+  precomputedGPGFingerprint?: string
 ): Promise<string> {
   const date = customDate || new Date();
   const projectName = PACKAGE_NAME;
@@ -261,14 +271,18 @@ export async function generateSeedTXTContent(
   const userName = getUserName();
   const machineName = getMachineName();
 
-  // Generate GPG fingerprint from root extended private key
+  // Use precomputed fingerprint if available, otherwise generate
   let gpgFingerprint = "";
-  try {
-    const gpgResult = await generateGPGFromRootExtendedPrivateKey(mnemonicSeedPhrase);
-    gpgFingerprint = gpgResult.gpgFingerprint;
-  } catch (error) {
-    console.error("Error generating GPG fingerprint:", error);
-    gpgFingerprint = "Error generating fingerprint";
+  if (precomputedGPGFingerprint) {
+    gpgFingerprint = precomputedGPGFingerprint;
+  } else {
+    try {
+      const gpgResult = await generateGPGFromRootExtendedPrivateKey(mnemonicSeedPhrase);
+      gpgFingerprint = gpgResult.gpgFingerprint;
+    } catch (error) {
+      console.error("Error generating GPG fingerprint:", error);
+      gpgFingerprint = "Error generating fingerprint";
+    }
   }
 
   let content = `From: ${projectName}\n`;
@@ -292,7 +306,8 @@ export async function generateSeedTXTContent(
  */
 export async function generateSeedCSVContent(
   mnemonicSeedPhrase: string,
-  customDate?: Date
+  customDate?: Date,
+  precomputedGPGFingerprint?: string
 ): Promise<string> {
   const date = customDate || new Date();
   const projectName = PACKAGE_NAME;
@@ -301,14 +316,18 @@ export async function generateSeedCSVContent(
   const userName = getUserName();
   const machineName = getMachineName();
 
-  // Generate GPG fingerprint from root extended private key
+  // Use precomputed fingerprint if available, otherwise generate
   let gpgFingerprint = "";
-  try {
-    const gpgResult = await generateGPGFromRootExtendedPrivateKey(mnemonicSeedPhrase);
-    gpgFingerprint = gpgResult.gpgFingerprint;
-  } catch (error) {
-    console.error("Error generating GPG fingerprint:", error);
-    gpgFingerprint = "Error generating fingerprint";
+  if (precomputedGPGFingerprint) {
+    gpgFingerprint = precomputedGPGFingerprint;
+  } else {
+    try {
+      const gpgResult = await generateGPGFromRootExtendedPrivateKey(mnemonicSeedPhrase);
+      gpgFingerprint = gpgResult.gpgFingerprint;
+    } catch (error) {
+      console.error("Error generating GPG fingerprint:", error);
+      gpgFingerprint = "Error generating fingerprint";
+    }
   }
 
   // Escape CSV values (handle quotes and commas)

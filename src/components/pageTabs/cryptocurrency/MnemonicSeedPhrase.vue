@@ -132,13 +132,52 @@
                   <Check v-else class="h-3 w-3 text-green-500" />
                   {{ copied ? 'Copied!' : 'Copy' }}
                 </button>
-                <button
-                  @click="downloadSeedPhrase"
-                  class="px-2 py-0.5 rounded text-xs font-medium transition-colors border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-1"
-                >
-                  <Download class="h-3 w-3" />
-                  Download
-                </button>
+                <div ref="downloadMenuRef" class="relative">
+                  <button
+                    @click.stop="downloadMenuOpen = !downloadMenuOpen"
+                    class="px-2 py-0.5 rounded text-xs font-medium transition-colors border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-1"
+                  >
+                    <Download class="h-3 w-3" />
+                  </button>
+                  <div
+                    v-if="downloadMenuOpen"
+                    class="absolute right-0 mt-1 w-48 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md shadow-lg z-10"
+                    @click.stop
+                  >
+                    <button
+                      @click="downloadSeedPhrase('json')"
+                      class="w-full text-left px-3 py-2 text-xs text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2"
+                    >
+                      Download as JSON
+                    </button>
+                    <button
+                      @click="downloadSeedPhrase('txt')"
+                      class="w-full text-left px-3 py-2 text-xs text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2"
+                    >
+                      Download as TXT
+                    </button>
+                    <button
+                      @click="downloadSeedPhrase('csv')"
+                      class="w-full text-left px-3 py-2 text-xs text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2"
+                    >
+                      Download as CSV
+                    </button>
+                    <button
+                      @click="downloadSeedPhrase('png')"
+                      class="w-full text-left px-3 py-2 text-xs text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2"
+                    >
+                      <FileImage class="h-3 w-3" />
+                      Download as PNG
+                    </button>
+                    <button
+                      @click="downloadSeedPhrase('pdf')"
+                      class="w-full text-left px-3 py-2 text-xs text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2"
+                    >
+                      <FileText class="h-3 w-3" />
+                      Download as PDF
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -245,10 +284,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import * as bip39 from 'bip39'
-import { Shield, RefreshCw, Upload, Copy, Check, Download } from 'lucide-vue-next'
+import { Shield, RefreshCw, Upload, Copy, Check, Download, FileImage, FileText } from 'lucide-vue-next'
 import { generateGPGFromRootExtendedPrivateKey } from '@/lib/cores/cryptographyCore/deterministicGPG/deterministicGPG.seed'
+import {
+  generateSeedFilename,
+  generateSeedJSONContent,
+  generateSeedTXTContent,
+  generateSeedCSVContent,
+} from '@/lib/cores/exportStandard/currencies/filenameStructureAndContent.seed.text'
+import {
+  exportSeedPhraseAsPNG,
+  exportSeedPhraseAsPDF,
+} from '@/lib/cores/exportStandard/currencies/filenameStructureAndContent.seed.visual'
 import ChecksumModal from '@/components/modals/cryptocurrency/ChecksumModal.vue'
 import AdvancedModal from '@/components/modals/cryptocurrency/AdvancedModal.vue'
 import DerivationPathDiveModal from '@/components/modals/cryptocurrency/DerivationPathDiveModal.vue'
@@ -267,6 +316,8 @@ const privateKeyModalOpen = ref(false)
 const rootGPGFingerprint = ref<string | null>(null)
 const isGeneratingGPG = ref(false)
 const gpgCopied = ref(false)
+const downloadMenuOpen = ref(false)
+const downloadMenuRef = ref<HTMLElement | null>(null)
 
 // Standard BIP39 word count → entropy bits
 const standardEntropyMap: Record<number, number> = {
@@ -376,24 +427,55 @@ const loadFromFile = async (event: Event) => {
   target.value = ''
 }
 
-const downloadSeedPhrase = () => {
+const downloadSeedPhrase = async (format: 'json' | 'txt' | 'csv' | 'png' | 'pdf') => {
   if (!mnemonic.value) return
   
   const date = new Date()
-  const dateStr = date.toISOString().split('T')[0]
-  const content = JSON.stringify({
-    seedPhrase: mnemonic.value,
-    wordCount: mnemonicWords.value.length,
-    createdAt: date.toISOString()
-  }, null, 2)
-  
-  const blob = new Blob([content], { type: 'application/json' })
+  // Reuse the already-computed GPG fingerprint to avoid expensive re-generation
+  const cachedFingerprint = rootGPGFingerprint.value || undefined
+
+  if (format === 'png') {
+    await exportSeedPhraseAsPNG(mnemonic.value, cachedFingerprint)
+    downloadMenuOpen.value = false
+    return
+  }
+
+  if (format === 'pdf') {
+    await exportSeedPhraseAsPDF(mnemonic.value, cachedFingerprint)
+    downloadMenuOpen.value = false
+    return
+  }
+
+  let content: string
+  let mimeType: string
+  let filename: string
+
+  switch (format) {
+    case 'json':
+      content = await generateSeedJSONContent(mnemonic.value, date, cachedFingerprint)
+      mimeType = 'application/json'
+      filename = generateSeedFilename('json', mnemonic.value, date)
+      break
+    case 'txt':
+      content = await generateSeedTXTContent(mnemonic.value, date, cachedFingerprint)
+      mimeType = 'text/plain'
+      filename = generateSeedFilename('txt', mnemonic.value, date)
+      break
+    case 'csv':
+      content = await generateSeedCSVContent(mnemonic.value, date, cachedFingerprint)
+      mimeType = 'text/csv'
+      filename = generateSeedFilename('csv', mnemonic.value, date)
+      break
+  }
+
+  const blob = new Blob([content], { type: mimeType })
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = `seed-phrase-${dateStr}.json`
+  a.download = filename
   a.click()
   URL.revokeObjectURL(url)
+  downloadMenuOpen.value = false
 }
 
 // Handle derivation path dive indices (placeholder for future integration)
@@ -421,6 +503,21 @@ const copyGPGFingerprint = async () => {
     console.error('Failed to copy GPG fingerprint:', err)
   }
 }
+
+// Close dropdown menu when clicking outside
+const handleClickOutside = (event: MouseEvent) => {
+  if (downloadMenuRef.value && !downloadMenuRef.value.contains(event.target as Node)) {
+    downloadMenuOpen.value = false
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 
 // Generate GPG fingerprint from root extended private key whenever seed phrase changes
 watch(mnemonic, async (newMnemonic) => {

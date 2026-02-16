@@ -2,7 +2,7 @@
  * Export Standard - Centralized Export Module
  * 
  * This index file provides a centralized export point for all export functionality
- * in the keyForge application. It re-exports all public functions, types, and interfaces
+ * in the sparkplate application. It re-exports all public functions, types, and interfaces
  * from the various export modules.
  * 
  * ============================================================================

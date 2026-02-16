@@ -12,7 +12,7 @@
  * Visual exports include:
  * - Greenfire branding (logo in upper left, website URL)
  * - Generation date/time (vertically oriented on right side)
- * - Title: "keyForge - Seed Phrase Backup"
+ * - Title: "sparkplate - Seed Phrase Backup"
  * - All metadata fields (From, Date, Time, User Name, Machine Name)
  * - Seed phrase in prominent red-bordered box for emphasis
  * - Large QR code (200x200px) containing the seed phrase for easy scanning
@@ -30,9 +30,9 @@
  */
 
 import { generateSeedFilename } from "./filenameStructureAndContent.seed.text";
-import packageJson from "../../../../package.json";
+import packageJson from "../../../../../package.json";
 import { generateAddressesFromMnemonic } from "@/utils/cryptoGenerator";
-import { generateGPGFromRootExtendedPrivateKey } from "@/lib/cryptographyCore/deterministicGPG/deterministicGPG.seed";
+import { generateGPGFromRootExtendedPrivateKey } from "@/lib/cores/cryptographyCore/deterministicGPG/deterministicGPG.seed";
 
 const PACKAGE_NAME = packageJson.name;
 
@@ -54,12 +54,20 @@ const DEFAULT_DERIVATION_PATHS: Record<string, string> = {
  * Get machine name identifier
  */
 function getMachineName(): string {
-  if (typeof window !== "undefined" && window.location) {
-    const hostname = window.location.hostname;
-    if (hostname === "localhost" || hostname === "127.0.0.1") {
-      return "local";
+  if (typeof window !== "undefined") {
+    // Use Electron's appData hostname if available (actual machine hostname)
+    const appData = (window as any).appData;
+    if (appData?.hostname) {
+      return appData.hostname.replace(/[^a-zA-Z0-9-]/g, "-");
     }
-    return hostname.replace(/[^a-zA-Z0-9-]/g, "-");
+    // Fallback to window.location.hostname
+    if (window.location) {
+      const hostname = window.location.hostname;
+      if (hostname === "localhost" || hostname === "127.0.0.1") {
+        return "local";
+      }
+      return hostname.replace(/[^a-zA-Z0-9-]/g, "-");
+    }
   }
   return "unknown";
 }
@@ -69,7 +77,7 @@ function getMachineName(): string {
  */
 function getUserName(): string {
   if (typeof window !== "undefined" && window.localStorage) {
-    const stored = window.localStorage.getItem("keyForge_userName");
+    const stored = window.localStorage.getItem("sparkplate_userName");
     if (stored) {
       return stored;
     }
@@ -270,10 +278,11 @@ const PADDING = 40;
  */
 export async function captureSeedPhraseCanvas(
   mnemonicSeedPhrase: string,
-  opts?: { scale?: number; forPDF?: boolean }
+  opts?: { scale?: number; forPDF?: boolean; precomputedGPGFingerprint?: string }
 ): Promise<HTMLCanvasElement> {
   const scale = opts?.scale ?? 2;
   const forPDF = opts?.forPDF ?? false;
+  const precomputedGPGFingerprint = opts?.precomputedGPGFingerprint;
   const date = new Date();
   const projectName = PACKAGE_NAME;
   const dateStr = formatDateDisplay(date);
@@ -345,7 +354,7 @@ export async function captureSeedPhraseCanvas(
   ctx.font = `bold ${24 * pdfScale}px monospace`;
   ctx.fillStyle = "#333333";
   ctx.textAlign = "center";
-  ctx.fillText("keyForge - Seed Phrase Backup", EXPORT_WIDTH_PX / 2, y + 20 * pdfScale);
+  ctx.fillText("Sparkplate - Seed Phrase Backup", EXPORT_WIDTH_PX / 2, y + 20 * pdfScale);
 
   y += 80 * pdfScale;
 
@@ -422,14 +431,18 @@ export async function captureSeedPhraseCanvas(
 
   y += 20 * pdfScale;
 
-  // Generate and draw BIP32 Root GPG Key Fingerprint
+  // Generate and draw BIP32 Root GPG Key Fingerprint (use precomputed if available)
   let gpgFingerprint = "";
-  try {
-    const gpgResult = await generateGPGFromRootExtendedPrivateKey(mnemonicSeedPhrase);
-    gpgFingerprint = gpgResult.gpgFingerprint;
-  } catch (error) {
-    console.error("Error generating GPG fingerprint:", error);
-    gpgFingerprint = "Error generating fingerprint";
+  if (precomputedGPGFingerprint) {
+    gpgFingerprint = precomputedGPGFingerprint;
+  } else {
+    try {
+      const gpgResult = await generateGPGFromRootExtendedPrivateKey(mnemonicSeedPhrase);
+      gpgFingerprint = gpgResult.gpgFingerprint;
+    } catch (error) {
+      console.error("Error generating GPG fingerprint:", error);
+      gpgFingerprint = "Error generating fingerprint";
+    }
   }
 
   // Draw fingerprint label
@@ -591,9 +604,9 @@ export async function captureSeedPhraseCanvas(
 /**
  * Export seed phrase as PNG
  */
-export async function exportSeedPhraseAsPNG(mnemonicSeedPhrase: string) {
+export async function exportSeedPhraseAsPNG(mnemonicSeedPhrase: string, precomputedGPGFingerprint?: string) {
   // Use same A4-optimized layout as PDF for consistency
-  const canvas = await captureSeedPhraseCanvas(mnemonicSeedPhrase, { scale: 2, forPDF: true });
+  const canvas = await captureSeedPhraseCanvas(mnemonicSeedPhrase, { scale: 2, forPDF: true, precomputedGPGFingerprint });
   const link = document.createElement("a");
   link.download = generateSeedFilename("png", mnemonicSeedPhrase);
   link.href = canvas.toDataURL("image/png");
@@ -603,14 +616,14 @@ export async function exportSeedPhraseAsPNG(mnemonicSeedPhrase: string) {
 /**
  * Export seed phrase as PDF with selectable text overlay
  */
-export async function exportSeedPhraseAsPDF(mnemonicSeedPhrase: string) {
-  const canvas = await captureSeedPhraseCanvas(mnemonicSeedPhrase, { scale: 2, forPDF: true });
+export async function exportSeedPhraseAsPDF(mnemonicSeedPhrase: string, precomputedGPGFingerprint?: string) {
+  const canvas = await captureSeedPhraseCanvas(mnemonicSeedPhrase, { scale: 2, forPDF: true, precomputedGPGFingerprint });
 
   const jsPDFModule = await import("jspdf");
-  const jsPDF = jsPDFModule.default;
+  const jsPDFConstructor = jsPDFModule.jsPDF || jsPDFModule.default;
 
   const imgData = canvas.toDataURL("image/png");
-  const pdf = new jsPDF({
+  const pdf = new jsPDFConstructor({
     orientation: "portrait",
     unit: "mm",
     format: "a4",
@@ -695,17 +708,21 @@ export async function exportSeedPhraseAsPDF(mnemonicSeedPhrase: string) {
   y += mnemonicQrSize + 10 * pdfScale + 15 * pdfScale;
   addText(mnemonicSeedPhrase, EXPORT_WIDTH_PX / 2, y, 12 * pdfScale, 'center');
   
-  // BIP32 Root GPG Key Fingerprint
-  let gpgFingerprint = "";
-  try {
-    const gpgResult = await generateGPGFromRootExtendedPrivateKey(mnemonicSeedPhrase);
-    gpgFingerprint = gpgResult.gpgFingerprint;
-  } catch (error) {
-    console.error("Error generating GPG fingerprint:", error);
-    gpgFingerprint = "Error generating fingerprint";
+  // BIP32 Root GPG Key Fingerprint (reuse precomputed if available)
+  let gpgFingerprintPdf = "";
+  if (precomputedGPGFingerprint) {
+    gpgFingerprintPdf = precomputedGPGFingerprint;
+  } else {
+    try {
+      const gpgResult = await generateGPGFromRootExtendedPrivateKey(mnemonicSeedPhrase);
+      gpgFingerprintPdf = gpgResult.gpgFingerprint;
+    } catch (error) {
+      console.error("Error generating GPG fingerprint:", error);
+      gpgFingerprintPdf = "Error generating fingerprint";
+    }
   }
   y += 20 * pdfScale + 18 * pdfScale;
-  addText(gpgFingerprint, EXPORT_WIDTH_PX / 2, y + 14 * pdfScale, 10 * pdfScale, 'center');
+  addText(gpgFingerprintPdf, EXPORT_WIDTH_PX / 2, y + 14 * pdfScale, 10 * pdfScale, 'center');
 
   // Generate addresses for wallet addresses section
   const addresses = await generateAddressesFromMnemonic(mnemonicSeedPhrase, {});

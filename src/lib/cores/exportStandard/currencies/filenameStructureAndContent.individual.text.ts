@@ -11,7 +11,7 @@
  * 
  * 1. FILENAME GENERATION
  *    - Format: %name%.%machineName%.%date% (YYYYMMDD).%time% (24hr HHMMSS).individual.%currencyTickerSymbol%.%truncatedSevenFirstCharactersAndSevenLastCharacters%.{extension}
- *    - Example: keyForge.local.20250118.143022.individual.BTC.1A1zP1eDivfNa.json
+ *    - Example: sparkplate.local.20250118.143022.individual.BTC.1A1zP1eDivfNa.json
  *    - The truncated hash is the first 7 and last 7 characters of the wallet address
  *    - Supported extensions: json, csv, txt, png, pdf
  *    - Includes machine identifier, timestamp, currency, and address hash for unique file tracking
@@ -100,7 +100,7 @@
  * - File naming includes timestamps to prevent accidental overwrites
  */
 
-import packageJson from "../../../../package.json";
+import packageJson from "../../../../../package.json";
 
 const PACKAGE_NAME = packageJson.name;
 
@@ -108,12 +108,20 @@ const PACKAGE_NAME = packageJson.name;
  * Get machine name identifier
  */
 function getMachineName(): string {
-  if (typeof window !== "undefined" && window.location) {
-    const hostname = window.location.hostname;
-    if (hostname === "localhost" || hostname === "127.0.0.1") {
-      return "local";
+  if (typeof window !== "undefined") {
+    // Use Electron's appData hostname if available (actual machine hostname)
+    const appData = (window as any).appData;
+    if (appData?.hostname) {
+      return appData.hostname.replace(/[^a-zA-Z0-9-]/g, "-");
     }
-    return hostname.replace(/[^a-zA-Z0-9-]/g, "-");
+    // Fallback to window.location.hostname
+    if (window.location) {
+      const hostname = window.location.hostname;
+      if (hostname === "localhost" || hostname === "127.0.0.1") {
+        return "local";
+      }
+      return hostname.replace(/[^a-zA-Z0-9-]/g, "-");
+    }
   }
   return "unknown";
 }
@@ -123,7 +131,7 @@ function getMachineName(): string {
  */
 function getUserName(): string {
   if (typeof window !== "undefined" && window.localStorage) {
-    const stored = window.localStorage.getItem("keyForge_userName");
+    const stored = window.localStorage.getItem("sparkplate_userName");
     if (stored) {
       return stored;
     }

@@ -32,7 +32,7 @@
  *    - Greenfire logo in upper left corner
  *    - Website URL (https://greenfire.io) in upper left
  *    - Generation date/time (vertically oriented on right side)
- *    - Title: "keyForge: {CURRENCY}" (e.g., "keyForge: BTC")
+ *    - Title: "sparkplate: {CURRENCY}" (e.g., "sparkplate: BTC")
  * 
  * 5. SECURITY FEATURES
  *    - Private keys and mnemonic phrases displayed with red borders/warnings
@@ -94,7 +94,7 @@
  *    - Greenfire logo (upper left)
  *    - Website URL (upper left, below logo)
  *    - Generation date/time (upper right, vertical)
- *    - Title: "keyForge: {CURRENCY}"
+ *    - Title: "sparkplate: {CURRENCY}"
  * 
  * 2. QR Codes Section:
  *    - Wallet Address QR (left, 120x120px) with currency icon
@@ -868,7 +868,7 @@ export async function captureExportCanvas(
   ctx.font = "bold 24px monospace";
   ctx.fillStyle = "#333333";
   ctx.textAlign = "center";
-  ctx.fillText(`keyForge: ${crypto.currency}`, EXPORT_WIDTH_PX / 2, y + 20);
+  ctx.fillText(`sparkplate: ${crypto.currency}`, EXPORT_WIDTH_PX / 2, y + 20);
 
   y += 80;
 
