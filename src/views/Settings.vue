@@ -50,6 +50,10 @@
       <hardware-settings v-if="activeTab === 'Hardware'" />
       <!-- hardware content -->
 
+      <!-- APIs content -->
+      <api-settings v-if="activeTab === 'APIs'" />
+      <!-- APIs content -->
+
       <misc v-if="activeTab === 'Misc'" />
     </div>
   </div>
@@ -69,6 +73,7 @@ import BackupSettings from '@/components/pageTabs/settings/BackupSettings.vue'
 import NetworkSettings from '@/components/pageTabs/settings/NetworkSettings.vue'
 import NotificationsSettings from '@/components/pageTabs/settings/NotificationsSettings.vue'
 import HardwareSettings from '@/components/pageTabs/settings/HardwareSettings.vue'
+import ApiSettings from '@/components/pageTabs/settings/ApiSettings.vue'
 import NetworkStatus from '@/components/global/NetworkStatus.vue'
 import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
@@ -85,6 +90,7 @@ export default defineComponent({
     NetworkSettings,
     NotificationsSettings,
     HardwareSettings,
+    ApiSettings,
     NetworkStatus,
     TabComponent,
     TabsWrapper
@@ -92,7 +98,7 @@ export default defineComponent({
   setup() {
     const route = useRoute()
     const activeTab = ref('User')
-    const tabs = ref(['User', 'Security', 'Email', 'Application', 'Backup', 'Network', 'Notifications', 'Hardware', 'Misc'])
+    const tabs = ref(['User', 'Security', 'Email', 'Application', 'Backup', 'Network', 'Notifications', 'Hardware', 'APIs', 'Misc'])
 
     onMounted(() => {
       if (route.params.activeTab) {

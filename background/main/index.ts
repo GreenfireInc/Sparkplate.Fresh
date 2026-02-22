@@ -35,6 +35,9 @@ app.commandLine.appendSwitch('--disable-gpu-sandbox')
 app.commandLine.appendSwitch('--disable-software-rasterizer')
 app.commandLine.appendSwitch('--disable-gpu-compositing')
 
+// Force dark theme for consistent titlebar appearance
+nativeTheme.themeSource = 'dark'
+
 // Set application name for Windows 10+ notifications
 if (process.platform === 'win32') app.setAppUserModelId(app.getName())
 
