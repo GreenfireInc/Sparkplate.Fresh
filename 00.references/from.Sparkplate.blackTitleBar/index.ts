@@ -1,9 +1,9 @@
-import { app, BrowserWindow, shell, ipcMain } from 'electron'
+import { app, BrowserWindow, shell, ipcMain, nativeTheme } from 'electron'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 import os from 'node:os'
-import setAppMenu, { updateLanguage } from '../functions/utils/electron/appMenu.js'
+import setAppMenu from '../functions/utils/electron/appMenu.js'
 
 const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -30,13 +30,11 @@ process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL
 // Disable GPU Acceleration for Windows 7
 if (os.release().startsWith('6.1')) app.disableHardwareAcceleration()
 
-// Add GPU troubleshooting flags for rendering issues
-app.commandLine.appendSwitch('--disable-gpu-sandbox')
-app.commandLine.appendSwitch('--disable-software-rasterizer')
-app.commandLine.appendSwitch('--disable-gpu-compositing')
-
 // Set application name for Windows 10+ notifications
 if (process.platform === 'win32') app.setAppUserModelId(app.getName())
+
+// Force dark theme for consistent titlebar appearance
+nativeTheme.themeSource = 'dark'
 
 if (!app.requestSingleInstanceLock()) {
   app.quit()
@@ -66,10 +64,6 @@ async function createWindow() {
       // Consider using contextBridge.exposeInMainWorld
       // Read more on https://www.electronjs.org/docs/latest/tutorial/context-isolation
       // contextIsolation: false,
-      
-      // Additional flags to help with rendering issues
-      offscreen: false,
-      backgroundThrottling: false,
     },
   })
 
@@ -78,12 +72,11 @@ async function createWindow() {
 
   if (VITE_DEV_SERVER_URL) { // #298
     win.loadURL(VITE_DEV_SERVER_URL)
+    // Open devTool if the app is not packaged
+    win.webContents.openDevTools()
   } else {
     win.loadFile(indexHtml)
   }
-
-  // Always open dev tools when window is ready
-  win.webContents.openDevTools()
 
   // Test actively push message to the Electron-Renderer
   win.webContents.on('did-finish-load', () => {
@@ -152,13 +145,4 @@ ipcMain.handle('preloadAppData', () => {
 
 ipcMain.handle('appGetGPUInfo', () => {
   return app.getGPUInfo('complete')
-})
-
-// Handle language changes from renderer process
-ipcMain.handle('change-language', (event, language) => {
-  if (win) {
-    updateLanguage(language, win)
-    return { success: true, language }
-  }
-  return { success: false, error: 'No window available' }
 })
