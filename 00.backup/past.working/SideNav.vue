@@ -6,7 +6,7 @@
       :class="{ active: $route.path === '/keyfiles' }"
       title="Key Files"
     >
-      <FileTextIcon :size="18" :color="pathColor('/keyfiles')" />
+      <FileTextIcon :size="20" :color="pathColor('/keyfiles')" />
       <span v-if="menuType === 'macro'" class="nav-text">Key Files</span>
     </router-link>
     
@@ -16,7 +16,7 @@
       :class="{ active: $route.path === '/cryptocurrency' }"
       title="Cryptocurrency"
     >
-      <CoinsIcon :size="18" :color="pathColor('/cryptocurrency')" />
+      <CoinsIcon :size="20" :color="pathColor('/cryptocurrency')" />
       <span v-if="menuType === 'macro'" class="nav-text">Cryptocurrency</span>
     </router-link>
     
@@ -26,7 +26,7 @@
       :class="{ active: $route.path === '/cryptography' }"
       title="Cryptography"
     >
-      <LockIcon :size="18" :color="pathColor('/cryptography')" />
+      <LockIcon :size="20" :color="pathColor('/cryptography')" />
       <span v-if="menuType === 'macro'" class="nav-text">Cryptography</span>
     </router-link>
 
@@ -39,7 +39,7 @@
       :class="{ active: $route.path === '/networking' }"
       title="Networking"
     >
-      <NetworkIcon :size="18" :color="pathColor('/networking')" />
+      <NetworkIcon :size="20" :color="pathColor('/networking')" />
       <span v-if="menuType === 'macro'" class="nav-text">Networking</span>
     </router-link>
     
@@ -49,7 +49,7 @@
       :class="{ active: $route.path === '/techstack' }"
       title="Tech Stack"
     >
-      <LayersIcon :size="18" :color="pathColor('/techstack')" />
+      <LayersIcon :size="20" :color="pathColor('/techstack')" />
       <span v-if="menuType === 'macro'" class="nav-text">Tech Stack</span>
     </router-link>
     
@@ -59,7 +59,7 @@
       :class="{ active: $route.path === '/repurposing' }"
       title="Repurposing"
     >
-      <RecycleIcon :size="18" :color="pathColor('/repurposing')" />
+      <RecycleIcon :size="20" :color="pathColor('/repurposing')" />
       <span v-if="menuType === 'macro'" class="nav-text">Repurposing</span>
     </router-link>
     
@@ -69,7 +69,7 @@
       :class="{ active: $route.path === '/build' }"
       title="Build"
     >
-      <HammerIcon :size="18" :color="pathColor('/build')" />
+      <HammerIcon :size="20" :color="pathColor('/build')" />
       <span v-if="menuType === 'macro'" class="nav-text">Build</span>
     </router-link>
     
@@ -79,7 +79,7 @@
       :class="{ active: $route.path === '/package' }"
       title="Package"
     >
-      <PackageIcon :size="18" :color="pathColor('/package')" />
+      <PackageIcon :size="20" :color="pathColor('/package')" />
       <span v-if="menuType === 'macro'" class="nav-text">Package</span>
     </router-link>
     
@@ -89,7 +89,7 @@
       :class="{ active: $route.path === '/publish' }"
       title="Publish"
     >
-      <UploadIcon :size="18" :color="pathColor('/publish')" />
+      <UploadIcon :size="20" :color="pathColor('/publish')" />
       <span v-if="menuType === 'macro'" class="nav-text">Publish</span>
     </router-link>
 
@@ -102,7 +102,7 @@
       :class="{ active: $route.path === '/games' }"
       title="Games"
     >
-      <GamepadIcon :size="18" :color="pathColor('/games')" />
+      <GamepadIcon :size="20" :color="pathColor('/games')" />
       <span v-if="menuType === 'macro'" class="nav-text">Games</span>
     </router-link>
     
@@ -112,18 +112,8 @@
       :class="{ active: $route.path === '/sandbox' }"
       title="Sandbox"
     >
-      <TestTubeIcon :size="18" :color="pathColor('/sandbox')" />
+      <TestTubeIcon :size="20" :color="pathColor('/sandbox')" />
       <span v-if="menuType === 'macro'" class="nav-text">Sandbox</span>
-    </router-link>
-
-    <router-link
-      to="/qrcode"
-      class="nav-item"
-      :class="{ active: $route.path === '/qrcode' }"
-      title="QR Code"
-    >
-      <QrCodeIcon :size="18" :color="pathColor('/qrcode')" />
-      <span v-if="menuType === 'macro'" class="nav-text">QR Code</span>
     </router-link>
 
     <!-- Divider -->
@@ -135,7 +125,7 @@
       :class="{ active: $route.path.startsWith('/settings') }"
       title="Settings"
     >
-      <SettingsIcon :size="18" :color="pathColor('/settings')" />
+      <SettingsIcon :size="20" :color="pathColor('/settings')" />
       <span v-if="menuType === 'macro'" class="nav-text">Settings</span>
     </router-link>
   </nav>
@@ -154,7 +144,6 @@ import {
   PackageIcon,
   UploadIcon,
   GamepadIcon,
-  QrCode,
   SettingsIcon
 } from 'lucide-vue-next'
 import { useRoute } from 'vue-router'
@@ -174,7 +163,6 @@ export default {
     PackageIcon,
     UploadIcon,
     GamepadIcon,
-    QrCode,
     SettingsIcon
   },
   setup() {
@@ -224,28 +212,11 @@ export default {
   display: flex;
   align-items: center;
   padding: 0.75rem 1rem;
-  text-decoration: none !important;
+  text-decoration: none;
   color: #6b7280;
   transition: background-color 0.2s ease;
   border-radius: 0.5rem;
   margin: 0 0.5rem;
-  /* Prevent Alt key access-key underline and focus outline from distorting icons */
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.nav-item:focus {
-  outline: none;
-}
-
-.nav-item:focus-visible {
-  /* Use box-shadow instead of outline to avoid triggering overflow/scrollbar when Alt is pressed */
-  box-shadow: inset 0 0 0 2px #3b82f6;
-}
-
-/* Prevent icons from shrinking when focus/Alt causes layout recalculation */
-.nav-item > :first-child {
-  flex-shrink: 0;
 }
 
 .nav-item:hover {
