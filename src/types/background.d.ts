@@ -20,6 +20,7 @@ declare global {
     app: {
       getPreloadData(): Promise<AppData>;
       getGPUInfo(): Promise<{ auxAttributes: { glRenderer: string } }>;
+      getUsbDrives(): Promise<Array<{ description: string; size: number | null; mountpoints: string[]; isRemovable: boolean }>>;
       electronVersion: string;
       nodeVersion: string;
     };

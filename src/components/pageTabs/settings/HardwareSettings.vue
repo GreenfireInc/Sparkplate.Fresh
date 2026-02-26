@@ -45,6 +45,7 @@ import {
 } from '@tanstack/vue-table'
 import { Separator } from 'radix-vue'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import { useUsbDrives } from '@/components/partials/hardware/usb'
 
 type HardwareRow = {
   id: string
@@ -64,6 +65,8 @@ function formatBytes(bytes: number, decimals = 0): string {
   return `${parseFloat((bytes / Math.pow(kb, i)).toFixed(dm))} ${sizes[i]}`
 }
 
+const { usbDisplayValue } = useUsbDrives()
+
 const processorValue = computed(() => window.appData?.processor ?? '—')
 const memorySizeValue = computed(() =>
   window.appData?.systemMemory ? formatBytes(window.appData.systemMemory) : '—'
@@ -73,7 +76,7 @@ const hardwareData = computed<HardwareRow[]>(() => [
   { id: 'cpu', category: 'CPU', value: processorValue.value, icon: 'cpu' },
   { id: 'gpu', category: 'GPU', value: '—', icon: 'gpu-card' },
   { id: 'ram', category: 'RAM', value: memorySizeValue.value, icon: 'memory' },
-  { id: 'usb', category: 'USB', value: '—', icon: 'usb-symbol' },
+  { id: 'usb', category: 'USB', value: usbDisplayValue.value, icon: 'usb-symbol' },
   { id: 'network', category: 'Network', value: '—', icon: 'pci-card-network' },
 ])
 

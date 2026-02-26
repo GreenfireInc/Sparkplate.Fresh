@@ -154,6 +154,25 @@ ipcMain.handle('appGetGPUInfo', () => {
   return app.getGPUInfo('complete')
 })
 
+ipcMain.handle('getUsbDrives', async () => {
+  try {
+    const drivelist = await import('drivelist')
+    const drives = await drivelist.list()
+    const usbDrives = drives.filter(
+      (d) => (d.isUSB === true || d.isRemovable === true) && !d.isSystem
+    )
+    return usbDrives.map((d) => ({
+      description: d.description || d.device || 'Unknown',
+      size: d.size,
+      mountpoints: (d.mountpoints ?? []).map((m) => (typeof m === 'string' ? m : m.path)),
+      isRemovable: d.isRemovable,
+    }))
+  } catch (err) {
+    console.error('getUsbDrives error:', err)
+    return []
+  }
+})
+
 // Handle language changes from renderer process
 ipcMain.handle('change-language', (event, language) => {
   if (win) {
