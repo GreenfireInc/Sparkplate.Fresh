@@ -62,22 +62,53 @@
           <p class="text-sm text-gray-500">
             API keys for AI language models (Gemini, Claude, ChatGPT, etc.).
           </p>
-          <div class="space-y-4">
-            <div v-for="llm in llmProviders" :key="llm.id" class="api-key-group">
-              <label :for="`llm-${llm.id}`" class="block text-sm font-medium text-gray-700 mb-2">
-                {{ llm.name }}
-              </label>
-              <input
-                :id="`llm-${llm.id}`"
-                v-model="apiKeys[llm.apiKey]"
-                type="password"
-                class="input-field"
-                :placeholder="`${llm.name} API Key`"
-                autocomplete="off"
-                @blur="saveApiKey(llm.apiKey)"
-              />
-            </div>
+          <div class="rounded-lg border border-gray-200 overflow-hidden">
+            <table class="w-full border-collapse">
+              <thead>
+                <tr class="bg-gray-50 border-b border-gray-200">
+                  <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider py-3 px-4">#</th>
+                  <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider py-3 px-4">Entity</th>
+                  <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider py-3 px-4">Status</th>
+                  <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider py-3 px-4">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  v-for="(entity, idx) in llmTableData"
+                  :key="entity.id"
+                  class="border-b border-gray-100 hover:bg-gray-50/50 transition-colors"
+                >
+                  <td class="py-3 px-4 text-sm text-gray-600">{{ idx + 1 }}</td>
+                  <td class="py-3 px-4 text-sm font-medium text-gray-900">{{ entity.name }}</td>
+                  <td class="py-3 px-4 text-sm">
+                    <button
+                      class="text-blue-600 hover:text-blue-800 hover:underline"
+                      @click="openLlmModal"
+                    >
+                      {{ getLlmStatus(entity) }}
+                    </button>
+                  </td>
+                  <td class="py-3 px-4 text-sm">
+                    <div class="flex gap-2">
+                      <button
+                        class="api-table-btn api-table-btn-save"
+                        @click="saveApiKey(entity.apiKey)"
+                      >
+                        Save
+                      </button>
+                      <button
+                        class="api-table-btn api-table-btn-test"
+                        @click="() => {}"
+                      >
+                        Test/Ping
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+          <LlmsModal v-model="llmsModalOpen" />
         </div>
 
         <!-- IPFS Providers -->
@@ -129,13 +160,29 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted, computed } from 'vue'
+import { defineComponent, ref, onMounted, computed, watch } from 'vue'
 import { CryptoExchanges } from '@/lib/cores/currencyCore/exchanges'
+import LlmsModal from '@/components/modals/settings/apis/Llms.vue'
 
 const STORAGE_PREFIX = 'sparkplate_api_'
 
+const LLM_ENTITIES = [
+  { id: 'chatgpt', name: 'ChatGPT', apiKey: 'chatgpt_api_key' },
+  { id: 'claude', name: 'Claude', apiKey: 'claude_api_key' },
+  { id: 'deepseek', name: 'DeepSeek', apiKey: 'deepseek_api_key' },
+  { id: 'gemini', name: 'Gemini', apiKey: 'gemini_api_key' },
+  { id: 'grok', name: 'Grok', apiKey: 'grok_api_key' },
+  { id: 'kimi', name: 'Kimi', apiKey: 'kimi_api_key' },
+  { id: 'manus', name: 'Manus', apiKey: 'manus_api_key' },
+  { id: 'meta', name: 'Meta', apiKey: 'meta_api_key' },
+  { id: 'mistral', name: 'Mistral', apiKey: 'mistral_api_key' },
+  { id: 'perplexity', name: 'Perplexity', apiKey: 'perplexity_api_key' },
+  { id: 'qwen', name: 'Qwen', apiKey: 'qwen_api_key' },
+]
+
 export default defineComponent({
   name: 'ApiSettings',
+  components: { LlmsModal },
   setup() {
     const activeApiTab = ref<'exchanges' | 'llms' | 'ipfs'>('exchanges')
     const apiTabLabels = {
@@ -156,13 +203,7 @@ export default defineComponent({
       })
     )
 
-    const llmProviders = [
-      { id: 'gemini', name: 'Google Gemini', apiKey: 'gemini_api_key' },
-      { id: 'claude', name: 'Anthropic Claude', apiKey: 'claude_api_key' },
-      { id: 'openai', name: 'OpenAI (ChatGPT)', apiKey: 'openai_api_key' },
-      { id: 'groq', name: 'Groq', apiKey: 'groq_api_key' },
-      { id: 'mistral', name: 'Mistral AI', apiKey: 'mistral_api_key' }
-    ]
+    const llmProviders = LLM_ENTITIES.map((e) => ({ id: e.id, name: e.name, apiKey: e.apiKey }))
 
     const ipfsProviders = [
       { id: 'filebase', name: 'Filebase', apiKey: 'filebase_api_key', apiSecret: 'filebase_api_secret', needsSecret: true },
@@ -204,7 +245,24 @@ export default defineComponent({
       }
     }
 
+    const llmsModalOpen = ref(false)
+
+    const getLlmStatus = (entity: { apiKey: string }) => {
+      const key = apiKeys.value[entity.apiKey]
+      return key ? 'Configured' : '—'
+    }
+
+    const openLlmModal = () => {
+      llmsModalOpen.value = true
+    }
+
+    const llmTableData = computed(() => LLM_ENTITIES)
+
     onMounted(loadApiKeys)
+
+    watch(llmsModalOpen, (open) => {
+      if (!open) loadApiKeys()
+    })
 
     return {
       activeApiTab,
@@ -213,7 +271,11 @@ export default defineComponent({
       llmProviders,
       ipfsProviders,
       apiKeys,
-      saveApiKey
+      saveApiKey,
+      llmTableData,
+      llmsModalOpen,
+      getLlmStatus,
+      openLlmModal,
     }
   }
 })
@@ -295,6 +357,25 @@ export default defineComponent({
     background: #f9fafb;
     border-radius: 0.5rem;
     border: 1px solid #f3f4f6;
+  }
+
+  .api-table-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    border: 1px solid #d1d5db;
+    background: white;
+  }
+
+  .api-table-btn-save:hover {
+    background: #eff6ff;
+    border-color: #3b82f6;
+  }
+
+  .api-table-btn-test:hover {
+    background: #f0fdf4;
+    border-color: #22c55e;
   }
 }
 </style>
