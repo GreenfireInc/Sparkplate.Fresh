@@ -20,7 +20,20 @@ declare global {
     app: {
       getPreloadData(): Promise<AppData>;
       getGPUInfo(): Promise<{ auxAttributes: { glRenderer: string } }>;
-      getUsbDrives(): Promise<Array<{ description: string; size: number | null; mountpoints: string[]; isRemovable: boolean }>>;
+      getUsbDrives(): Promise<Array<{
+        description: string
+        size: number | null
+        mountpoints: string[]
+        mountDetails: Array<{
+          path: string
+          filesystem: string
+          size: number | null
+          used: number | null
+          freespace: number | null
+        }>
+        isRemovable: boolean
+      }>>;
+      getNetworkAdapters(): Promise<Array<{ device: string; manufacturer: string; mac: string; ipAddresses: string[] }>>;
       electronVersion: string;
       nodeVersion: string;
     };

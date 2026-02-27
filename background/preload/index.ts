@@ -27,6 +27,7 @@ contextBridge.exposeInMainWorld('app', {
   getGPUInfo: () => ipcRenderer.invoke('appGetGPUInfo'),
   getPreloadData: () => ipcRenderer.invoke('preloadAppData'),
   getUsbDrives: () => ipcRenderer.invoke('getUsbDrives'),
+  getNetworkAdapters: () => ipcRenderer.invoke('getNetworkAdapters'),
   electronVersion: process.versions.electron,
   nodeVersion: process.versions.node
 });

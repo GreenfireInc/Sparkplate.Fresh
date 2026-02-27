@@ -4,10 +4,19 @@
  */
 import { ref, onMounted } from 'vue'
 
+export interface UsbMountDetail {
+  path: string
+  filesystem: string
+  size: number | null
+  used: number | null
+  freespace: number | null
+}
+
 export interface UsbDriveInfo {
   description: string
   size: number | null
   mountpoints: string[]
+  mountDetails: UsbMountDetail[]
   isRemovable: boolean
 }
 
@@ -36,7 +45,7 @@ async function fetchUsbDrives(): Promise<void> {
     } else {
       usbDisplayValue.value = drives
         .map((d) => {
-          const sizeStr = d.size ? formatBytes(d.size) : ''
+          const sizeStr = d.size ? formatBytes(d.size) : (d.mountDetails[0]?.size ? formatBytes(d.mountDetails[0].size) : '')
           const mountStr = d.mountpoints.length ? ` (${d.mountpoints.join(', ')})` : ''
           return sizeStr ? `${d.description} - ${sizeStr}${mountStr}` : d.description
         })
