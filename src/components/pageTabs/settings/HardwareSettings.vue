@@ -1,6 +1,13 @@
 <template>
   <div class="hardware-settings">
-
+    <NetworkModal
+      v-model="networkModalOpen"
+      :adapter="selectedNetworkAdapter"
+    />
+    <UsbModal
+      v-model="usbModalOpen"
+      :drive="selectedUsbDrive"
+    />
     <h4 class="text-sm font-semibold text-gray-700 mb-3">Hardware overview</h4>
     <div class="rounded-lg border border-gray-200 overflow-hidden">
       <table class="w-full border-collapse">
@@ -35,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, h } from 'vue'
+import { computed, h, ref } from 'vue'
 import {
   useVueTable,
   getCoreRowModel,
@@ -46,6 +53,10 @@ import {
 import { Separator } from 'radix-vue'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import { useUsbDrives } from '@/components/partials/hardware/usb'
+import { useNetworkAdapters } from '@/components/partials/hardware/network'
+import { useGpu } from '@/components/partials/hardware/gpu'
+import NetworkModal from '@/components/modals/settings/hardware/Network.vue'
+import UsbModal from '@/components/modals/settings/hardware/Usb.vue'
 
 type HardwareRow = {
   id: string
@@ -65,7 +76,31 @@ function formatBytes(bytes: number, decimals = 0): string {
   return `${parseFloat((bytes / Math.pow(kb, i)).toFixed(dm))} ${sizes[i]}`
 }
 
-const { usbDisplayValue } = useUsbDrives()
+const { usbDisplayValue, usbDrives } = useUsbDrives()
+const { networkDisplayValue, networkAdapters } = useNetworkAdapters()
+const { gpuDisplayValue } = useGpu()
+
+const networkModalOpen = ref(false)
+const selectedNetworkAdapter = ref<{ device: string; manufacturer: string; mac: string; ipAddresses: string[] } | null>(null)
+
+const usbModalOpen = ref(false)
+const selectedUsbDrive = ref<{
+  description: string
+  size: number | null
+  mountpoints: string[]
+  mountDetails: Array<{ path: string; filesystem: string; size: number | null; used: number | null; freespace: number | null }>
+  isRemovable: boolean
+} | null>(null)
+
+function openNetworkModal(adapter: { device: string; manufacturer: string; mac: string; ipAddresses: string[] }) {
+  selectedNetworkAdapter.value = adapter
+  networkModalOpen.value = true
+}
+
+function openUsbModal(drive: typeof selectedUsbDrive.value) {
+  selectedUsbDrive.value = drive
+  usbModalOpen.value = true
+}
 
 const processorValue = computed(() => window.appData?.processor ?? '—')
 const memorySizeValue = computed(() =>
@@ -74,10 +109,10 @@ const memorySizeValue = computed(() =>
 
 const hardwareData = computed<HardwareRow[]>(() => [
   { id: 'cpu', category: 'CPU', value: processorValue.value, icon: 'cpu' },
-  { id: 'gpu', category: 'GPU', value: '—', icon: 'gpu-card' },
+  { id: 'gpu', category: 'GPU', value: gpuDisplayValue.value, icon: 'gpu-card' },
   { id: 'ram', category: 'RAM', value: memorySizeValue.value, icon: 'memory' },
   { id: 'usb', category: 'USB', value: usbDisplayValue.value, icon: 'usb-symbol' },
-  { id: 'network', category: 'Network', value: '—', icon: 'pci-card-network' },
+  { id: 'network', category: 'Network', value: networkDisplayValue.value, icon: 'pci-card-network' },
 ])
 
 const columns = computed<ColumnDef<HardwareRow, unknown>[]>(() => [
@@ -95,7 +130,48 @@ const columns = computed<ColumnDef<HardwareRow, unknown>[]>(() => [
   }),
   columnHelper.accessor('value', {
     header: 'Value',
-    cell: (info) => h('span', { class: 'text-gray-600' }, info.getValue() as string),
+    cell: (info) => {
+      const row = info.row.original
+      if (row.id === 'network') {
+        if (networkAdapters.value.length > 0) {
+          return h(
+            'div',
+            { class: 'flex flex-wrap gap-x-2 gap-y-1' },
+            networkAdapters.value.map((adapter) => {
+              return h(
+                'button',
+                {
+                  class: 'text-blue-600 hover:text-blue-800 hover:underline text-left font-medium',
+                  onClick: () => openNetworkModal(adapter),
+                },
+                adapter.device
+              )
+            })
+          )
+        }
+        return h('span', { class: 'text-gray-600' }, networkDisplayValue.value)
+      }
+      if (row.id === 'usb') {
+        if (usbDrives.value.length > 0) {
+          return h(
+            'div',
+            { class: 'flex flex-wrap gap-x-2 gap-y-1' },
+            usbDrives.value.map((drive) => {
+              return h(
+                'button',
+                {
+                  class: 'text-blue-600 hover:text-blue-800 hover:underline text-left font-medium',
+                  onClick: () => openUsbModal(drive),
+                },
+                drive.description
+              )
+            })
+          )
+        }
+        return h('span', { class: 'text-gray-600' }, usbDisplayValue.value)
+      }
+      return h('span', { class: 'text-gray-600' }, info.getValue() as string)
+    },
   }),
 ])
 

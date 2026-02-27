@@ -154,19 +154,85 @@ ipcMain.handle('appGetGPUInfo', () => {
   return app.getGPUInfo('complete')
 })
 
+ipcMain.handle('getNetworkAdapters', async () => {
+  try {
+    const si = await import('systeminformation')
+    const ifaces = await si.networkInterfaces()
+    return ifaces
+      .filter((iface) => !iface.internal)
+      .map((iface) => {
+        const ipAddresses: string[] = []
+        if (iface.ip4) ipAddresses.push(iface.ip4)
+        if (iface.ip6 && !iface.ip6.startsWith('fe80:')) ipAddresses.push(iface.ip6)
+        const deviceName = iface.ifaceName || iface.iface
+        const manufacturer = extractManufacturer(deviceName, iface.iface)
+        return {
+          device: iface.iface || deviceName,
+          manufacturer: manufacturer || '—',
+          mac: iface.mac || '—',
+          ipAddresses,
+        }
+      })
+  } catch (err) {
+    console.error('getNetworkAdapters error:', err)
+    return []
+  }
+})
+
+function extractManufacturer(ifaceName: string, iface: string): string {
+  const knownVendors = [
+    'Realtek', 'Intel', 'Broadcom', 'Qualcomm', 'Atheros', 'Marvell',
+    'MediaTek', 'Ralink', 'TP-Link', 'ASUS', 'Netgear', 'Cisco',
+    'Dell', 'HP', 'Lenovo', 'Microsoft', 'VMware', 'VirtualBox',
+  ]
+  const search = (ifaceName || iface || '').toLowerCase()
+  for (const vendor of knownVendors) {
+    if (search.includes(vendor.toLowerCase())) return vendor
+  }
+  return ''
+}
+
 ipcMain.handle('getUsbDrives', async () => {
   try {
     const drivelist = await import('drivelist')
+    const si = await import('systeminformation')
     const drives = await drivelist.list()
     const usbDrives = drives.filter(
       (d) => (d.isUSB === true || d.isRemovable === true) && !d.isSystem
     )
-    return usbDrives.map((d) => ({
-      description: d.description || d.device || 'Unknown',
-      size: d.size,
-      mountpoints: (d.mountpoints ?? []).map((m) => (typeof m === 'string' ? m : m.path)),
-      isRemovable: d.isRemovable,
-    }))
+    let fsData: Array<{ mount: string; type: string; size: number; used: number; available: number }> = []
+    try {
+      const fsSizes = await si.fsSize()
+      fsData = fsSizes.map((f) => ({
+        mount: f.mount,
+        type: f.type || 'unknown',
+        size: f.size,
+        used: f.used,
+        available: f.available,
+      }))
+    } catch {
+      // fsSize failed, continue without it
+    }
+    return usbDrives.map((d) => {
+      const mountpaths = (d.mountpoints ?? []).map((m) => (typeof m === 'string' ? m : m.path))
+      const mountDetails = mountpaths.map((mp) => {
+        const fs = fsData.find((f) => f.mount === mp)
+        return {
+          path: mp,
+          filesystem: fs?.type ?? '—',
+          size: fs?.size ?? d.size,
+          used: fs?.used ?? null,
+          freespace: fs?.available ?? null,
+        }
+      })
+      return {
+        description: d.description || d.device || 'Unknown',
+        size: d.size,
+        mountpoints: mountpaths,
+        mountDetails,
+        isRemovable: d.isRemovable,
+      }
+    })
   } catch (err) {
     console.error('getUsbDrives error:', err)
     return []
