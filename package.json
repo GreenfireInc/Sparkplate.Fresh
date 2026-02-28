@@ -66,6 +66,8 @@
     "@cosmjs/proto-signing": "^0.37.0",
     "@cosmjs/stargate": "^0.37.0",
     "@ensdomains/ensjs": "^4.0.2",
+    "@lobehub/icons": "^4.9.0",
+    "@lobehub/icons-static-svg": "^1.81.0",
     "@noble/curves": "^2.0.1",
     "@noble/ed25519": "^3.0.0",
     "@noble/hashes": "^2.0.1",

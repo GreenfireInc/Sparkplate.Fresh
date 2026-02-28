@@ -3,7 +3,15 @@
     <DialogPortal>
       <DialogOverlay class="llms-modal-overlay" />
       <DialogContent class="llms-modal-content" :aria-describedby="undefined">
-        <DialogTitle class="llms-modal-title">{{ entity?.name }} API Configuration</DialogTitle>
+        <DialogTitle class="llms-modal-title">
+          <img
+            v-if="entity && iconMap[entity.id]"
+            :src="iconMap[entity.id]"
+            :alt="entity.name"
+            class="llms-title-icon"
+          />
+          {{ entity?.name }} API Configuration
+        </DialogTitle>
         <div v-if="entity" class="llms-modal-body">
           <div class="space-y-4">
             <div>
@@ -53,6 +61,31 @@ import {
   DialogContent,
   DialogTitle,
 } from 'radix-vue'
+import openaiIcon from '@lobehub/icons-static-svg/icons/openai.svg?url'
+import claudeIcon from '@lobehub/icons-static-svg/icons/claude.svg?url'
+import deepseekIcon from '@lobehub/icons-static-svg/icons/deepseek.svg?url'
+import geminiIcon from '@lobehub/icons-static-svg/icons/gemini.svg?url'
+import grokIcon from '@lobehub/icons-static-svg/icons/grok.svg?url'
+import kimiIcon from '@lobehub/icons-static-svg/icons/kimi.svg?url'
+import manusIcon from '@lobehub/icons-static-svg/icons/manus.svg?url'
+import metaIcon from '@lobehub/icons-static-svg/icons/meta.svg?url'
+import mistralIcon from '@lobehub/icons-static-svg/icons/mistral.svg?url'
+import perplexityIcon from '@lobehub/icons-static-svg/icons/perplexity.svg?url'
+import qwenIcon from '@lobehub/icons-static-svg/icons/qwen.svg?url'
+
+const iconMap: Record<string, string> = {
+  chatgpt: openaiIcon,
+  claude: claudeIcon,
+  deepseek: deepseekIcon,
+  gemini: geminiIcon,
+  grok: grokIcon,
+  kimi: kimiIcon,
+  manus: manusIcon,
+  meta: metaIcon,
+  mistral: mistralIcon,
+  perplexity: perplexityIcon,
+  qwen: qwenIcon,
+}
 
 const STORAGE_PREFIX = 'sparkplate_api_'
 
@@ -167,10 +200,20 @@ watch(() => props.entityId, () => {
 }
 
 .llms-modal-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 1.125rem;
   font-weight: 600;
   color: #1f2937;
   margin-bottom: 1rem;
+}
+
+.llms-title-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  object-fit: contain;
 }
 
 .llms-modal-body {
