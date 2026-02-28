@@ -1,7 +1,7 @@
 <template>
   <div class="api-settings">
-    <h3 class="text-lg font-semibold mb-4">API Keys</h3>
-    <p class="text-sm text-gray-600 mb-6">
+    <h3 class="text-lg font-semibold mb-2">API Keys</h3>
+    <p class="text-sm text-gray-600 mb-3">
       Configure API keys to enable exchange integrations, AI features, and IPFS storage.
     </p>
 
@@ -24,7 +24,7 @@
       <div class="api-tabs-content">
         <!-- Cryptocurrency Exchanges -->
         <div v-if="activeApiTab === 'exchanges'" class="tab-panel space-y-6">
-          <h4 class="text-md font-medium text-gray-700">Cryptocurrency Exchanges</h4>
+          <h4 class="text-md font-medium text-gray-700">Exchanges</h4>
           <p class="text-sm text-gray-500">
             API keys for trading, price feeds, and exchange integrations.
           </p>
@@ -62,7 +62,7 @@
           <p class="text-sm text-gray-500">
             API keys for AI language models (Gemini, Claude, ChatGPT, etc.).
           </p>
-          <div class="rounded-lg border border-gray-200 overflow-hidden">
+          <div class="llms-table-scroll rounded-lg border border-gray-200 overflow-hidden">
             <table class="w-full border-collapse">
               <thead>
                 <tr class="bg-gray-50 border-b border-gray-200">
@@ -83,7 +83,7 @@
                   <td class="py-3 px-4 text-sm">
                     <button
                       class="text-blue-600 hover:text-blue-800 hover:underline"
-                      @click="openLlmModal"
+                      @click="openLlmModal(entity.id)"
                     >
                       {{ getLlmStatus(entity) }}
                     </button>
@@ -108,7 +108,7 @@
               </tbody>
             </table>
           </div>
-          <LlmsModal v-model="llmsModalOpen" />
+          <LlmsModal v-model="llmsModalOpen" :entity-id="selectedLlmId" />
         </div>
 
         <!-- IPFS Providers -->
@@ -186,7 +186,7 @@ export default defineComponent({
   setup() {
     const activeApiTab = ref<'exchanges' | 'llms' | 'ipfs'>('exchanges')
     const apiTabLabels = {
-      exchanges: 'Cryptocurrency Exchanges',
+      exchanges: 'Exchanges',
       llms: 'AI LLMs',
       ipfs: 'IPFS Providers'
     }
@@ -246,13 +246,15 @@ export default defineComponent({
     }
 
     const llmsModalOpen = ref(false)
+    const selectedLlmId = ref('')
 
     const getLlmStatus = (entity: { apiKey: string }) => {
       const key = apiKeys.value[entity.apiKey]
       return key ? 'Configured' : '—'
     }
 
-    const openLlmModal = () => {
+    const openLlmModal = (entityId: string) => {
+      selectedLlmId.value = entityId
       llmsModalOpen.value = true
     }
 
@@ -274,6 +276,7 @@ export default defineComponent({
       saveApiKey,
       llmTableData,
       llmsModalOpen,
+      selectedLlmId,
       getLlmStatus,
       openLlmModal,
     }
@@ -285,23 +288,26 @@ export default defineComponent({
 .api-settings {
   .api-tabs-layout {
     display: flex;
-    gap: 2rem;
+    gap: 1.25rem;
     min-height: 320px;
+    max-height: calc(100vh - 260px);
+    overflow: hidden;
   }
 
   .api-tabs-nav {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    min-width: 220px;
+    min-width: 140px;
+    max-width: 160px;
     border-right: 1px solid #e5e7eb;
-    padding-right: 1.5rem;
+    padding-right: 1rem;
   }
 
   .api-tab-btn {
     text-align: left;
-    padding: 0.75rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
     font-weight: 500;
     color: #6b7280;
     background: transparent;
@@ -319,14 +325,15 @@ export default defineComponent({
       color: #3b82f6;
       background-color: #eff6ff;
       border-right: 2px solid #3b82f6;
-      margin-right: -1.5rem;
-      padding-right: calc(1rem + 1.5rem);
+      margin-right: -1rem;
+      padding-right: calc(0.75rem + 1rem);
     }
   }
 
   .api-tabs-content {
     flex: 1;
     min-width: 0;
+    overflow-y: auto;
   }
 
   .tab-panel {
@@ -376,6 +383,18 @@ export default defineComponent({
   .api-table-btn-test:hover {
     background: #f0fdf4;
     border-color: #22c55e;
+  }
+
+  .llms-table-scroll {
+    max-height: 100%;
+    overflow-y: auto;
+
+    thead {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: #f9fafb;
+    }
   }
 }
 </style>

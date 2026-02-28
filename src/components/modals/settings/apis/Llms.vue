@@ -3,37 +3,40 @@
     <DialogPortal>
       <DialogOverlay class="llms-modal-overlay" />
       <DialogContent class="llms-modal-content" :aria-describedby="undefined">
-        <DialogTitle class="llms-modal-title">LLM API Configuration</DialogTitle>
-        <div class="llms-modal-body">
-          <div class="rounded-lg border border-gray-200 overflow-hidden">
-            <table class="w-full border-collapse">
-              <thead>
-                <tr class="bg-gray-50 border-b border-gray-200">
-                  <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider py-3 px-4">#</th>
-                  <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider py-3 px-4">Entity</th>
-                  <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider py-3 px-4">API Key</th>
-                  <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider py-3 px-4">API Secret</th>
-                  <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider py-3 px-4">API Passphrase</th>
-                  <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider py-3 px-4">Active</th>
-                  <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider py-3 px-4">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  v-for="(row, idx) in llmTable.getRowModel().rows"
-                  :key="row.id"
-                  class="border-b border-gray-100 hover:bg-gray-50/50 transition-colors"
-                >
-                  <td
-                    v-for="cell in row.getVisibleCells()"
-                    :key="cell.id"
-                    class="py-3 px-4 text-sm text-gray-900"
-                  >
-                    <FlexRender :render="cell.column.columnDef.cell!" :props="cell.getContext()" />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+        <DialogTitle class="llms-modal-title">{{ entity?.name }} API Configuration</DialogTitle>
+        <div v-if="entity" class="llms-modal-body">
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">API Key</label>
+              <input
+                v-model="formData.apiKey"
+                type="password"
+                class="llms-input"
+                placeholder="API Key"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">API Secret</label>
+              <input
+                v-model="formData.apiSecret"
+                type="password"
+                class="llms-input"
+                placeholder="API Secret"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">API Passphrase</label>
+              <input
+                v-model="formData.apiPassphrase"
+                type="password"
+                class="llms-input"
+                placeholder="API Passphrase"
+              />
+            </div>
+            <div class="flex gap-2 pt-2">
+              <button class="llms-btn llms-btn-save" @click="save">Save</button>
+              <button class="llms-btn llms-btn-test" @click="testPing">Test/Ping</button>
+            </div>
           </div>
         </div>
       </DialogContent>
@@ -42,14 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, h, ref, watch } from 'vue'
-import {
-  useVueTable,
-  getCoreRowModel,
-  createColumnHelper,
-  type ColumnDef,
-  FlexRender,
-} from '@tanstack/vue-table'
+import { computed, reactive, watch } from 'vue'
 import {
   DialogRoot,
   DialogPortal,
@@ -60,7 +56,7 @@ import {
 
 const STORAGE_PREFIX = 'sparkplate_api_'
 
-export interface LlmEntity {
+interface LlmEntity {
   id: string
   name: string
   apiKey: string
@@ -84,6 +80,7 @@ const LLM_ENTITIES: LlmEntity[] = [
 
 const props = defineProps<{
   modelValue: boolean
+  entityId: string
 }>()
 
 const emit = defineEmits<{
@@ -95,161 +92,55 @@ const open = computed({
   set: (v) => emit('update:modelValue', v),
 })
 
-const formData = ref<Record<string, { apiKey: string; apiSecret: string; apiPassphrase: string; active: boolean }>>({})
+const entity = computed(() => LLM_ENTITIES.find((e) => e.id === props.entityId) ?? null)
+
+const formData = reactive({
+  apiKey: '',
+  apiSecret: '',
+  apiPassphrase: '',
+})
 
 function loadFormData() {
-  const data: Record<string, { apiKey: string; apiSecret: string; apiPassphrase: string; active: boolean }> = {}
-  for (const entity of LLM_ENTITIES) {
-    try {
-      const apiKey = localStorage.getItem(STORAGE_PREFIX + entity.apiKey) || ''
-      const apiSecret = localStorage.getItem(STORAGE_PREFIX + entity.apiSecret) || ''
-      const apiPassphrase = localStorage.getItem(STORAGE_PREFIX + entity.apiPassphrase) || ''
-      data[entity.id] = {
-        apiKey,
-        apiSecret,
-        apiPassphrase,
-        active: !!(apiKey || apiSecret || apiPassphrase),
-      }
-    } catch {
-      data[entity.id] = { apiKey: '', apiSecret: '', apiPassphrase: '', active: false }
-    }
+  const e = entity.value
+  if (!e) return
+  try {
+    formData.apiKey = localStorage.getItem(STORAGE_PREFIX + e.apiKey) || ''
+    formData.apiSecret = localStorage.getItem(STORAGE_PREFIX + e.apiSecret) || ''
+    formData.apiPassphrase = localStorage.getItem(STORAGE_PREFIX + e.apiPassphrase) || ''
+  } catch {
+    formData.apiKey = ''
+    formData.apiSecret = ''
+    formData.apiPassphrase = ''
   }
-  formData.value = data
 }
 
-function saveEntity(entity: LlmEntity) {
-  const d = formData.value[entity.id]
-  if (!d) return
+function save() {
+  const e = entity.value
+  if (!e) return
   try {
-    if (d.apiKey) localStorage.setItem(STORAGE_PREFIX + entity.apiKey, d.apiKey)
-    else localStorage.removeItem(STORAGE_PREFIX + entity.apiKey)
-    if (d.apiSecret) localStorage.setItem(STORAGE_PREFIX + entity.apiSecret, d.apiSecret)
-    else localStorage.removeItem(STORAGE_PREFIX + entity.apiSecret)
-    if (d.apiPassphrase) localStorage.setItem(STORAGE_PREFIX + entity.apiPassphrase, d.apiPassphrase)
-    else localStorage.removeItem(STORAGE_PREFIX + entity.apiPassphrase)
+    if (formData.apiKey) localStorage.setItem(STORAGE_PREFIX + e.apiKey, formData.apiKey)
+    else localStorage.removeItem(STORAGE_PREFIX + e.apiKey)
+    if (formData.apiSecret) localStorage.setItem(STORAGE_PREFIX + e.apiSecret, formData.apiSecret)
+    else localStorage.removeItem(STORAGE_PREFIX + e.apiSecret)
+    if (formData.apiPassphrase) localStorage.setItem(STORAGE_PREFIX + e.apiPassphrase, formData.apiPassphrase)
+    else localStorage.removeItem(STORAGE_PREFIX + e.apiPassphrase)
   } catch {
     // ignore
   }
 }
 
-function testPing(entity: LlmEntity) {
-  console.log('Test/Ping', entity.name)
-  // TODO: implement actual API test
+function testPing() {
+  const e = entity.value
+  if (!e) return
+  console.log('Test/Ping', e.name)
 }
 
 watch(open, (v) => {
   if (v) loadFormData()
 })
 
-type LlmRow = LlmEntity & { index: number }
-
-const columnHelper = createColumnHelper<LlmRow>()
-
-const llmTable = useVueTable({
-  get data() {
-    return LLM_ENTITIES.map((e, i) => ({ ...e, index: i + 1 }))
-  },
-  get columns(): ColumnDef<LlmRow, unknown>[] {
-    return [
-      columnHelper.accessor('index', {
-        header: '#',
-        cell: (info) => h('span', { class: 'text-gray-600' }, info.getValue()),
-      }),
-      columnHelper.accessor('name', {
-        header: 'Entity',
-        cell: (info) => h('span', { class: 'font-medium' }, info.getValue()),
-      }),
-      columnHelper.display({
-        id: 'apiKey',
-        header: 'API Key',
-        cell: ({ row }) => {
-          const entity = row.original
-          const d = formData.value[entity.id]
-          return h('input', {
-            type: 'password',
-            class: 'llms-input',
-            placeholder: 'API Key',
-            value: d?.apiKey ?? '',
-            onInput: (e: Event) => {
-              if (!formData.value[entity.id]) formData.value[entity.id] = { apiKey: '', apiSecret: '', apiPassphrase: '', active: false }
-              formData.value[entity.id].apiKey = (e.target as HTMLInputElement).value
-            },
-          })
-        },
-      }),
-      columnHelper.display({
-        id: 'apiSecret',
-        header: 'API Secret',
-        cell: ({ row }) => {
-          const entity = row.original
-          const d = formData.value[entity.id]
-          return h('input', {
-            type: 'password',
-            class: 'llms-input',
-            placeholder: 'API Secret',
-            value: d?.apiSecret ?? '',
-            onInput: (e: Event) => {
-              if (!formData.value[entity.id]) formData.value[entity.id] = { apiKey: '', apiSecret: '', apiPassphrase: '', active: false }
-              formData.value[entity.id].apiSecret = (e.target as HTMLInputElement).value
-            },
-          })
-        },
-      }),
-      columnHelper.display({
-        id: 'apiPassphrase',
-        header: 'API Passphrase',
-        cell: ({ row }) => {
-          const entity = row.original
-          const d = formData.value[entity.id]
-          return h('input', {
-            type: 'password',
-            class: 'llms-input',
-            placeholder: 'API Passphrase',
-            value: d?.apiPassphrase ?? '',
-            onInput: (e: Event) => {
-              if (!formData.value[entity.id]) formData.value[entity.id] = { apiKey: '', apiSecret: '', apiPassphrase: '', active: false }
-              formData.value[entity.id].apiPassphrase = (e.target as HTMLInputElement).value
-            },
-          })
-        },
-      }),
-      columnHelper.display({
-        id: 'active',
-        header: 'Active',
-        cell: ({ row }) => {
-          const entity = row.original
-          const d = formData.value[entity.id]
-          return h('input', {
-            type: 'checkbox',
-            class: 'llms-checkbox',
-            checked: d?.active ?? false,
-            onChange: (e: Event) => {
-              if (!formData.value[entity.id]) formData.value[entity.id] = { apiKey: '', apiSecret: '', apiPassphrase: '', active: false }
-              formData.value[entity.id].active = (e.target as HTMLInputElement).checked
-            },
-          })
-        },
-      }),
-      columnHelper.display({
-        id: 'actions',
-        header: 'Actions',
-        cell: ({ row }) => {
-          const entity = row.original
-          return h('div', { class: 'flex gap-2' }, [
-            h('button', {
-              class: 'llms-btn llms-btn-save',
-              onClick: () => saveEntity(entity),
-            }, 'Save'),
-            h('button', {
-              class: 'llms-btn llms-btn-test',
-              onClick: () => testPing(entity),
-            }, 'Test/Ping'),
-          ])
-        },
-      }),
-    ]
-  },
-  getCoreRowModel: getCoreRowModel(),
+watch(() => props.entityId, () => {
+  if (open.value) loadFormData()
 })
 </script>
 
@@ -270,10 +161,8 @@ const llmTable = useVueTable({
   border-radius: 0.5rem;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   padding: 1.5rem 2rem;
-  min-width: 640px;
-  max-width: 95vw;
-  max-height: 90vh;
-  overflow: auto;
+  min-width: 380px;
+  max-width: 90vw;
   z-index: 9999;
 }
 
@@ -285,31 +174,26 @@ const llmTable = useVueTable({
 }
 
 .llms-modal-body {
-  overflow-x: auto;
+  margin-bottom: 0.5rem;
 }
 
 .llms-input {
   width: 100%;
-  min-width: 120px;
-  padding: 0.375rem 0.5rem;
+  padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
   border: 1px solid #d1d5db;
-  border-radius: 0.25rem;
+  border-radius: 0.375rem;
 }
 
 .llms-input:focus {
   outline: none;
   border-color: #3b82f6;
-}
-
-.llms-checkbox {
-  width: 1rem;
-  height: 1rem;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
 }
 
 .llms-btn {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.75rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.8rem;
   border-radius: 0.25rem;
   cursor: pointer;
   border: 1px solid #d1d5db;
