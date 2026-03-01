@@ -34,13 +34,13 @@
         </button>
       </div>
     </div>
-    <LlmsModal v-model="llmsModalOpen" :entity-id="selectedLlmId" />
+    <LlmModal v-model="llmsModalOpen" :entity-id="selectedLlmId" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, onMounted, computed, watch } from 'vue'
-import LlmsModal from '@/components/modals/settings/apis/Llms.vue'
+import LlmModal from '@/components/modals/settings/apis/LlmModal.vue'
 import openaiIcon from '@lobehub/icons-static-svg/icons/openai.svg?url'
 import claudeIcon from '@lobehub/icons-static-svg/icons/claude.svg?url'
 import deepseekIcon from '@lobehub/icons-static-svg/icons/deepseek.svg?url'
@@ -70,22 +70,22 @@ const LLM_ICON_MAP: Record<string, string> = {
 }
 
 const LLM_ENTITIES = [
-  { id: 'chatgpt', name: 'ChatGPT', apiKey: 'chatgpt_api_key' },
-  { id: 'claude', name: 'Claude', apiKey: 'claude_api_key' },
-  { id: 'deepseek', name: 'DeepSeek', apiKey: 'deepseek_api_key' },
-  { id: 'gemini', name: 'Gemini', apiKey: 'gemini_api_key' },
-  { id: 'grok', name: 'Grok', apiKey: 'grok_api_key' },
-  { id: 'kimi', name: 'Kimi', apiKey: 'kimi_api_key' },
-  { id: 'manus', name: 'Manus', apiKey: 'manus_api_key' },
-  { id: 'meta', name: 'Meta', apiKey: 'meta_api_key' },
-  { id: 'mistral', name: 'Mistral', apiKey: 'mistral_api_key' },
-  { id: 'perplexity', name: 'Perplexity', apiKey: 'perplexity_api_key' },
-  { id: 'qwen', name: 'Qwen', apiKey: 'qwen_api_key' },
+  { id: 'chatgpt',    name: 'ChatGPT',    apiKey: 'chatgpt_api_key_1' },
+  { id: 'claude',     name: 'Claude',     apiKey: 'claude_api_key_1' },
+  { id: 'deepseek',   name: 'DeepSeek',   apiKey: 'deepseek_api_key_1' },
+  { id: 'gemini',     name: 'Gemini',     apiKey: 'gemini_api_key_1' },
+  { id: 'grok',       name: 'Grok',       apiKey: 'grok_api_key_1' },
+  { id: 'kimi',       name: 'Kimi',       apiKey: 'kimi_api_key_1' },
+  { id: 'manus',      name: 'Manus',      apiKey: 'manus_api_key_1' },
+  { id: 'meta',       name: 'Meta',       apiKey: 'meta_api_key_1' },
+  { id: 'mistral',    name: 'Mistral',    apiKey: 'mistral_api_key_1' },
+  { id: 'perplexity', name: 'Perplexity', apiKey: 'perplexity_api_key_1' },
+  { id: 'qwen',       name: 'Qwen',       apiKey: 'qwen_api_key_1' },
 ]
 
 export default defineComponent({
   name: 'AiLLMProviders',
-  components: { LlmsModal },
+  components: { LlmModal },
   setup() {
     const apiKeys = ref<Record<string, string>>({})
 
