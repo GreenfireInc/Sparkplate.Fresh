@@ -18,6 +18,7 @@ export const PerplexityMeta: LlmProviderMeta = {
     linkedin: 'https://www.linkedin.com/company/perplexity-ai',
     youtube: 'https://www.youtube.com/@perplexity-ai',
     discord: 'https://discord.gg/perplexity-ai',
+    wikipedia: 'https://en.wikipedia.org/wiki/Perplexity_AI',
   },
   npmPackages: [
     '@perplexity-ai/perplexity_ai',

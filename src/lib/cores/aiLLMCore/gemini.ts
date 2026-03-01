@@ -22,6 +22,7 @@ export const GeminiMeta: LlmProviderMeta = {
     youtube: 'https://www.youtube.com/@GoogleDeepMind',
     linkedin: 'https://www.linkedin.com/company/google',
     github: 'https://github.com/googleapis/js-genai',
+    wikipedia: 'https://en.wikipedia.org/wiki/Google_Gemini',
   },
   npmPackages: [
     '@google/genai',

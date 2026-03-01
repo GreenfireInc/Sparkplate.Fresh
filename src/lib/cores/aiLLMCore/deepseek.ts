@@ -18,6 +18,7 @@ export const DeepSeekMeta: LlmProviderMeta = {
     twitter: 'https://twitter.com/deepseek_ai',
     github: 'https://github.com/deepseek-ai',
     discord: 'https://discord.gg/deepseek',
+    wikipedia: 'https://en.wikipedia.org/wiki/DeepSeek',
   },
   npmPackages: [
     '@ai-sdk/deepseek',

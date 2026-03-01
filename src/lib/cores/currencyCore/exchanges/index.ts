@@ -10,6 +10,7 @@ import BitstampExchange from './bitstamp';
 import BybitExchange from './bybit';
 import CoinbaseExchange from './coinbase';
 import GateioExchange from './gateio';
+import GeminiExchange from './gemini';
 import HuobiExchange from './huobi';
 import KrakenExchange from './kraken';
 import KucoinExchange from './kucoin';
@@ -18,7 +19,7 @@ import OKXExchange from './okx';
 import UpbitExchange from './upbit';
 
 // Re-export the exchanges
-export { BinanceExchange, BitfinexExchange, BitflyerExchange, BitgetExchange, BitstampExchange, BybitExchange, CoinbaseExchange, GateioExchange, HuobiExchange, KrakenExchange, KucoinExchange, MEXCExchange, OKXExchange, UpbitExchange };
+export { BinanceExchange, BitfinexExchange, BitflyerExchange, BitgetExchange, BitstampExchange, BybitExchange, CoinbaseExchange, GateioExchange, GeminiExchange, HuobiExchange, KrakenExchange, KucoinExchange, MEXCExchange, OKXExchange, UpbitExchange };
 
 /**
  * Cryptocurrency Exchanges Overview
@@ -133,6 +134,7 @@ export const CryptoExchanges = {
   Bybit: BybitExchange,
   Coinbase: CoinbaseExchange,
   Gateio: GateioExchange,
+  Gemini: GeminiExchange,
   Huobi: HuobiExchange,
   Kraken: KrakenExchange,
   Kucoin: KucoinExchange,

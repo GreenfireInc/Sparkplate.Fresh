@@ -22,6 +22,7 @@ export const ChatGPTMeta: LlmProviderMeta = {
     discord: 'https://discord.gg/openai',
     linkedin: 'https://www.linkedin.com/company/openai',
     github: 'https://github.com/openai',
+    wikipedia: 'https://en.wikipedia.org/wiki/OpenAI',
   },
   npmPackages: [
     'chatgpt',

@@ -18,6 +18,7 @@ export const GrokMeta: LlmProviderMeta = {
     twitter: 'https://twitter.com/xai',
     linkedin: 'https://www.linkedin.com/company/xai',
     github: 'https://github.com/xai-org',
+    wikipedia: 'https://en.wikipedia.org/wiki/X.AI',
   },
   npmPackages: [
     '@tanstack/ai-grok',

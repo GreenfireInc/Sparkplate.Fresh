@@ -19,6 +19,7 @@ export const QwenMeta: LlmProviderMeta = {
     twitter: 'https://twitter.com/QwenLM',
     github: 'https://github.com/QwenLM',
     huggingface: 'https://huggingface.co/Qwen',
+    wikipedia: 'https://en.wikipedia.org/wiki/Qwen',
   },
   npmPackages: [
     '@qwen-code/qwen-code',
