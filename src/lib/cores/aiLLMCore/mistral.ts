@@ -20,6 +20,7 @@ export const MistralMeta: LlmProviderMeta = {
     linkedin: 'https://www.linkedin.com/company/mistral-ai',
     github: 'https://github.com/mistralai',
     discord: 'https://discord.gg/mistralai',
+    wikipedia: 'https://en.wikipedia.org/wiki/Mistral_AI',
   },
   npmPackages: [
     '@ai-sdk/mistral',

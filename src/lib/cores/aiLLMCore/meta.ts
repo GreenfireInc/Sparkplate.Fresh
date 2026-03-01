@@ -19,6 +19,7 @@ export const MetaMeta: LlmProviderMeta = {
     linkedin: 'https://www.linkedin.com/company/meta',
     youtube: 'https://www.youtube.com/Meta',
     github: 'https://github.com/meta-llama/llama-api-typescript',
+    wikipedia: 'https://en.wikipedia.org/wiki/Llama_(large_language_model)',
   },
   npmPackages: [
     'llama-api-client',

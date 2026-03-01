@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns:xodm="http://www.corel.com/coreldraw/odm/2003" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 2500 2500" style="enable-background:new 0 0 2500 2500;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;}
+	.st1{fill:#F7A600;}
+	.st2{fill:#FFFFFF;}
+</style>
+<g id="Layer_x0020_1">
+	<g id="_2187384119968">
+		<rect y="0" class="st0" width="2500" height="2500"></rect>
+		<g id="Layer_x0020_1_0">
+			<g id="_2498434179408">
+				<g id="Layer_x0020_1_0_1">
+					<g id="_3036754161648">
+						<polygon class="st1" points="1622,1408 1622,958 1713,958 1713,1408       "></polygon>
+						<path class="st2" d="M569,1542H375v-450h186c90,0,143,49,143,126c0,50-34,82-57,93c28,13,64,41,64,101c0,84-59,129-142,129        l0,0V1542z M554,1171h-89v104h89c38,0,60-21,60-52S592,1171,554,1171L554,1171z M560,1354h-94v111h94c41,0,61-25,61-56        c0-30-20-55-60-55H560z"></path>
+						<polygon class="st2" points="986,1357 986,1542 896,1542 896,1357 757,1092 856,1092 942,1273 1027,1092 1125,1092       "></polygon>
+						<path class="st2" d="M1382,1542h-194v-450h186c90,0,143,49,143,126c0,50-34,82-57,93c28,13,64,41,64,101c0,84-59,129-142,129        l0,0V1542z M1367,1171h-88v104h88c38,0,60-21,60-52S1405,1171,1367,1171z M1373,1354h-94v111h94c41,0,61-25,61-56        C1434,1379,1414,1354,1373,1354L1373,1354z"></path>
+						<polygon class="st2" points="2004,1170 2004,1542 1914,1542 1914,1170 1793,1170 1793,1092 2125,1092 2125,1170       "></polygon>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

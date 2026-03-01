@@ -4,56 +4,35 @@
     <p class="text-sm text-gray-500">
       API keys for AI language models (Gemini, Claude, ChatGPT, etc.).
     </p>
-    <div class="llms-table-scroll rounded-lg border border-gray-200 overflow-hidden">
-      <table class="w-full border-collapse">
-        <thead>
-          <tr class="bg-gray-50 border-b border-gray-200">
-            <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider py-3 px-4">#</th>
-            <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider py-3 px-4">Entity</th>
-            <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider py-3 px-4">Status</th>
-            <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider py-3 px-4">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="(entity, idx) in llmTableData"
-            :key="entity.id"
-            class="border-b border-gray-100 hover:bg-gray-50/50 transition-colors"
-          >
-            <td class="py-3 px-4 text-sm text-gray-600">{{ idx + 1 }}</td>
-            <td class="py-3 px-4 text-sm font-medium text-gray-900">
-              <div class="flex items-center gap-2">
-                <img
-                  v-if="llmIconMap[entity.id]"
-                  :src="llmIconMap[entity.id]"
-                  :alt="entity.name"
-                  class="llm-entity-icon"
-                />
-                <span>{{ entity.name }}</span>
-              </div>
-            </td>
-            <td class="py-3 px-4 text-sm">
-              <button
-                class="text-blue-600 hover:text-blue-800 hover:underline"
-                @click="openLlmModal(entity.id)"
-              >
-                {{ getLlmStatus(entity) }}
-              </button>
-            </td>
-            <td class="py-3 px-4 text-sm">
-              <button
-                type="button"
-                role="switch"
-                :aria-checked="!!apiKeys[entity.apiKey]"
-                :class="['llm-toggle', { 'llm-toggle-on': apiKeys[entity.apiKey] }]"
-                @click="toggleEntity(entity)"
-              >
-                <span class="llm-toggle-thumb" />
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="llms-cards-scroll grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      <div
+        v-for="entity in llmTableData"
+        :key="entity.id"
+        class="llm-card rounded-lg border border-gray-200 bg-white p-4 shadow-sm hover:border-gray-300 transition-colors"
+      >
+        <button
+          type="button"
+          class="w-full flex items-center gap-2 text-left mb-3 min-w-0"
+          @click="openLlmModal(entity.id)"
+        >
+          <img
+            v-if="llmIconMap[entity.id]"
+            :src="llmIconMap[entity.id]"
+            :alt="entity.name"
+            class="llm-entity-icon shrink-0"
+          />
+          <span class="text-sm font-medium text-gray-900 wrap-break-word">{{ entity.name }}</span>
+        </button>
+        <button
+          type="button"
+          role="switch"
+          :aria-checked="!!apiKeys[entity.apiKey]"
+          :class="['llm-toggle', { 'llm-toggle-on': apiKeys[entity.apiKey] }]"
+          @click.stop="toggleEntity(entity)"
+        >
+          <span class="llm-toggle-thumb" />
+        </button>
+      </div>
     </div>
     <LlmsModal v-model="llmsModalOpen" :entity-id="selectedLlmId" />
   </div>
@@ -182,23 +161,23 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.llms-table-scroll {
+.llms-cards-scroll {
   max-height: 100%;
   overflow-y: auto;
+}
 
-  thead {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background: #f9fafb;
-  }
+.llm-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
 
-  .llm-entity-icon {
-    width: 1.25rem;
-    height: 1.25rem;
-    flex-shrink: 0;
-    object-fit: contain;
-  }
+.llm-entity-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  object-fit: contain;
 }
 
 .llm-toggle {
@@ -240,19 +219,5 @@ export default defineComponent({
 
 .llm-toggle-on .llm-toggle-thumb {
   transform: translateX(1rem);
-}
-
-.api-table-btn {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.75rem;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  border: 1px solid #d1d5db;
-  background: white;
-}
-
-.api-table-btn-save:hover {
-  background: #eff6ff;
-  border-color: #3b82f6;
 }
 </style>

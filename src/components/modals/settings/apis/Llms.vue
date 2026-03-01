@@ -41,9 +41,64 @@
                 placeholder="API Passphrase"
               />
             </div>
-            <div class="flex gap-2 pt-2">
-              <button class="llms-btn llms-btn-save" @click="save">Save</button>
-              <button class="llms-btn llms-btn-test" @click="testPing">Test/Ping</button>
+            <div class="flex flex-wrap gap-2 pt-2 justify-between items-center">
+              <div v-if="hasProviderLinks" class="flex flex-wrap gap-3 items-center text-sm">
+                <a
+                  v-if="providerMeta.apiBaseUrl"
+                  :href="providerMeta.apiBaseUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="llms-link"
+                  title="API base URL"
+                >
+                  <i class="bi bi-code-slash"></i>
+                </a>
+                <a
+                  v-if="providerMeta.socialMedia?.github"
+                  :href="providerMeta.socialMedia.github"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="llms-link"
+                  title="GitHub"
+                >
+                  <i class="bi bi-github"></i>
+                </a>
+                <a
+                  v-if="providerMeta.socialMedia?.twitter"
+                  :href="providerMeta.socialMedia.twitter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="llms-link"
+                  title="Twitter / X"
+                >
+                  <i class="bi bi-twitter-x"></i>
+                </a>
+                <a
+                  v-if="providerMeta.socialMedia?.wikipedia"
+                  :href="providerMeta.socialMedia.wikipedia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="llms-link"
+                  title="Wikipedia"
+                >
+                  <i class="bi bi-wikipedia"></i>
+                </a>
+                <a
+                  v-for="pkg in providerMeta.npmPackages"
+                  :key="pkg"
+                  :href="`https://www.npmjs.com/package/${pkg}`"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="llms-link"
+                  :title="`npm: ${pkg}`"
+                >
+                  <Icon icon="logos:npm-2" class="llms-icon-npm" />
+                </a>
+              </div>
+              <div class="flex gap-2 shrink-0">
+                <button class="llms-btn llms-btn-save" @click="save">Save</button>
+                <button class="llms-btn llms-btn-test" @click="testPing">Test/Ping</button>
+              </div>
             </div>
           </div>
         </div>
@@ -54,6 +109,7 @@
 
 <script setup lang="ts">
 import { computed, reactive, watch } from 'vue'
+import { Icon } from '@iconify/vue'
 import {
   DialogRoot,
   DialogPortal,
@@ -61,6 +117,8 @@ import {
   DialogContent,
   DialogTitle,
 } from 'radix-vue'
+import { AiLLMProviders } from '@/lib/cores/aiLLMCore'
+import type { LlmProviderMeta } from '@/lib/cores/aiLLMCore'
 import openaiIcon from '@lobehub/icons-static-svg/icons/openai.svg?url'
 import claudeIcon from '@lobehub/icons-static-svg/icons/claude.svg?url'
 import deepseekIcon from '@lobehub/icons-static-svg/icons/deepseek.svg?url'
@@ -126,6 +184,23 @@ const open = computed({
 })
 
 const entity = computed(() => LLM_ENTITIES.find((e) => e.id === props.entityId) ?? null)
+
+const providerMeta = computed((): LlmProviderMeta | null => {
+  const list = Object.values(AiLLMProviders) as LlmProviderMeta[]
+  return list.find((m) => m.id === props.entityId) ?? null
+})
+
+const hasProviderLinks = computed(() => {
+  const m = providerMeta.value
+  if (!m) return false
+  return !!(
+    m.apiBaseUrl ||
+    m.socialMedia?.github ||
+    m.socialMedia?.twitter ||
+    m.socialMedia?.wikipedia ||
+    (m.npmPackages?.length ?? 0) > 0
+  )
+})
 
 const formData = reactive({
   apiKey: '',
@@ -251,5 +326,27 @@ watch(() => props.entityId, () => {
 .llms-btn-test:hover {
   background: #f0fdf4;
   border-color: #22c55e;
+}
+
+.llms-link {
+  display: inline-flex;
+  align-items: center;
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.llms-link:hover {
+  color: #3b82f6;
+}
+
+.llms-link .bi {
+  font-size: 1.125rem;
+}
+
+.llms-icon-npm {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: inherit;
 }
 </style>

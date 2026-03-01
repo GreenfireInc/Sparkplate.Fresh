@@ -18,6 +18,7 @@ export const ClaudeMeta: LlmProviderMeta = {
     linkedin: 'https://www.linkedin.com/company/anthropic',
     youtube: 'https://www.youtube.com/@AnthropicAI',
     github: 'https://github.com/anthropics',
+    wikipedia: 'https://en.wikipedia.org/wiki/Anthropic',
   },
   npmPackages: [
     '@anthropic-ai/claude-agent-sdk',

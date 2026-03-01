@@ -20,6 +20,7 @@ export const ManusMeta: LlmProviderMeta = {
     linkedin: 'https://www.linkedin.com/company/manus-ai',
     youtube: 'https://www.youtube.com/@Manus-AI',
     instagram: 'https://www.instagram.com/manusaiofficial',
+    wikipedia: 'https://en.wikipedia.org/wiki/Manus',
   },
   npmPackages: [],
   documentation: [

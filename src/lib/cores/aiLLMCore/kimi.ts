@@ -16,6 +16,7 @@ export const KimiMeta: LlmProviderMeta = {
   socialMedia: {
     twitter: 'https://twitter.com/MoonshotAI',
     github: 'https://github.com/MoonshotAI',
+    wikipedia: 'https://en.wikipedia.org/wiki/Moonshot_AI',
   },
   npmPackages: [
     '@jacksontian/kimi-cli',
