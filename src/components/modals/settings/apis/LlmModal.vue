@@ -37,13 +37,24 @@
                     <span class="llms-slot-toggle-thumb" />
                   </button>
                   <label class="text-sm font-medium text-gray-700 shrink-0 w-24">{{ slot.label }}</label>
-                  <input
-                    v-model="formData.values[slot.storageKey]"
-                    type="password"
-                    class="llms-input flex-1 min-w-0"
-                    :placeholder="slot.label"
-                    :disabled="!formData.enabled[slot.storageKey]"
-                  />
+                  <div class="llms-input-container flex-1 min-w-0 relative">
+                    <input
+                      v-model="formData.values[slot.storageKey]"
+                      :type="formData.showPassword[slot.storageKey] ? 'text' : 'password'"
+                      class="llms-input llms-input-with-icon"
+                      :placeholder="slot.label"
+                      :disabled="!formData.enabled[slot.storageKey]"
+                    />
+                    <button
+                      type="button"
+                      class="llms-eye-button"
+                      :disabled="!formData.enabled[slot.storageKey]"
+                      @click="togglePasswordVisibility(slot.storageKey)"
+                      :title="formData.showPassword[slot.storageKey] ? 'Hide password' : 'Show password'"
+                    >
+                      <i :class="formData.showPassword[slot.storageKey] ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+                    </button>
+                  </div>
                 </div>
                 <div class="flex flex-wrap gap-2 pt-2 justify-between items-center">
                   <div v-if="hasProviderLinks" class="flex flex-wrap gap-3 items-center text-sm">
@@ -178,7 +189,7 @@
 
 <script setup lang="ts">
 import { computed, reactive, ref, watch } from 'vue'
-import { useLlmConsole } from './ext/console'
+import { useLlmConsole } from './ext/console.llm'
 import { Icon } from '@iconify/vue'
 import {
   DialogRoot,
@@ -289,9 +300,11 @@ const hasProviderLinks = computed(() => {
 const formData = reactive<{
   values: Record<string, string>
   enabled: Record<string, boolean>
+  showPassword: Record<string, boolean>
 }>({
   values: { api_key_1: '', api_key_2: '', api_key_3: '' },
   enabled: { api_key_1: false, api_key_2: false, api_key_3: false },
+  showPassword: { api_key_1: false, api_key_2: false, api_key_3: false },
 })
 
 // slot storageKey → entity field holding the localStorage key name
@@ -324,6 +337,10 @@ function toggleSlot(slotKey: string) {
   if (!formData.enabled[slotKey]) {
     formData.values[slotKey] = ''
   }
+}
+
+function togglePasswordVisibility(slotKey: string) {
+  formData.showPassword[slotKey] = !formData.showPassword[slotKey]
 }
 
 function save() {
@@ -450,12 +467,20 @@ watch(() => props.entityId, () => {
   margin-bottom: 0.5rem;
 }
 
+.llms-input-container {
+  position: relative;
+}
+
 .llms-input {
   width: 100%;
   padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
   border: 1px solid #d1d5db;
   border-radius: 0.375rem;
+}
+
+.llms-input-with-icon {
+  padding-right: 2.5rem;
 }
 
 .llms-input:focus {
@@ -468,6 +493,37 @@ watch(() => props.entityId, () => {
   background: #f3f4f6;
   cursor: not-allowed;
   opacity: 0.7;
+}
+
+.llms-eye-button {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.llms-eye-button:hover:not(:disabled) {
+  color: #374151;
+  background: #f9fafb;
+}
+
+.llms-eye-button:disabled {
+  color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.llms-eye-button i {
+  font-size: 0.875rem;
 }
 
 .llms-key-row {
