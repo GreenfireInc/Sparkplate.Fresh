@@ -3,17 +3,8 @@
     <h3 class="text-lg font-semibold mb-4">Application Settings</h3>
     
     <div class="grid grid-cols-2 gap-6">
-      <!-- First Column: Theme and Language -->
+      <!-- First Column: Language -->
       <div class="space-y-4">
-        <div>
-          <label for="theme" class="block text-sm font-medium text-gray-700">Theme</label>
-          <select id="theme" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-            <option>Light</option>
-            <option>Dark</option>
-            <option>System</option>
-          </select>
-        </div>
-        
         <div class="form-group">
           <label class="block text-sm font-medium text-gray-700 mb-2">{{ t('defaultLanguage') }}</label>
           <select v-model="profile.language" @change="handleLanguageChange" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
@@ -21,17 +12,6 @@
               {{ lang.flag }} {{ lang.name }}
             </option>
           </select>
-        </div>
-
-        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-          <div>
-            <p class="font-medium">Close to tray</p>
-            <p class="text-sm text-gray-600">Minimize to system tray when closed</p>
-          </div>
-          <label class="relative inline-flex items-center cursor-pointer">
-            <input type="checkbox" v-model="closeToTray" class="sr-only peer">
-            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-          </label>
         </div>
       </div>
 
@@ -74,7 +54,6 @@ export default defineComponent({
     const { locale, setLocale, languages, t } = useI18n()
     
     const localIp = ref('')
-    const closeToTray = ref(false)
     const blessedServer = ref(false)
     const expressServer = ref(false)
     
@@ -116,7 +95,6 @@ export default defineComponent({
 
     return {
       localIp,
-      closeToTray,
       blessedServer,
       expressServer,
       profile,
