@@ -56,6 +56,7 @@ import { useUsbDrives } from '@/components/partials/hardware/usb'
 import { useNetworkAdapters } from '@/components/partials/hardware/network'
 import { useGpu } from '@/components/partials/hardware/gpu'
 import NetworkModal from '@/components/modals/settings/hardware/Network.vue'
+import type { NetworkAdapterInfo } from '@/components/partials/hardware/network'
 import UsbModal from '@/components/modals/settings/hardware/Usb.vue'
 
 type HardwareRow = {
@@ -81,7 +82,7 @@ const { networkDisplayValue, networkAdapters } = useNetworkAdapters()
 const { gpuDisplayValue } = useGpu()
 
 const networkModalOpen = ref(false)
-const selectedNetworkAdapter = ref<{ device: string; manufacturer: string; mac: string; ipAddresses: string[] } | null>(null)
+const selectedNetworkAdapter = ref<NetworkAdapterInfo | null>(null)
 
 const usbModalOpen = ref(false)
 const selectedUsbDrive = ref<{
@@ -92,7 +93,7 @@ const selectedUsbDrive = ref<{
   isRemovable: boolean
 } | null>(null)
 
-function openNetworkModal(adapter: { device: string; manufacturer: string; mac: string; ipAddresses: string[] }) {
+function openNetworkModal(adapter: NetworkAdapterInfo) {
   selectedNetworkAdapter.value = adapter
   networkModalOpen.value = true
 }

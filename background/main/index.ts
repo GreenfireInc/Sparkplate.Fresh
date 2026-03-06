@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 import os from 'node:os'
 import setAppMenu, { updateLanguage } from '../functions/utils/electron/appMenu.js'
+import { getLinuxAdapterHwInfo } from '../cores/hardwareCore/networkInterfaces'
 
 const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -158,21 +159,31 @@ ipcMain.handle('getNetworkAdapters', async () => {
   try {
     const si = await import('systeminformation')
     const ifaces = await si.networkInterfaces()
-    return ifaces
-      .filter((iface) => !iface.internal)
-      .map((iface) => {
-        const ipAddresses: string[] = []
-        if (iface.ip4) ipAddresses.push(iface.ip4)
-        if (iface.ip6 && !iface.ip6.startsWith('fe80:')) ipAddresses.push(iface.ip6)
-        const deviceName = iface.ifaceName || iface.iface
-        const manufacturer = extractManufacturer(deviceName, iface.iface)
-        return {
-          device: iface.iface || deviceName,
-          manufacturer: manufacturer || '—',
-          mac: iface.mac || '—',
-          ipAddresses,
-        }
-      })
+    const adapters = await Promise.all(
+      ifaces
+        .filter((iface) => !iface.internal)
+        .map(async (iface) => {
+          const ipAddresses: string[] = []
+          if (iface.ip4) ipAddresses.push(iface.ip4)
+          if (iface.ip6 && !iface.ip6.startsWith('fe80:')) ipAddresses.push(iface.ip6)
+          const deviceName = iface.ifaceName || iface.iface
+          const manufacturer = extractManufacturer(deviceName, iface.iface)
+          const { interfaceType, chipset, driver } =
+            process.platform === 'linux'
+              ? await getLinuxAdapterHwInfo(iface.iface ?? deviceName)
+              : { interfaceType: '—', chipset: '—', driver: '—' }
+          return {
+            device: iface.iface || deviceName,
+            manufacturer: manufacturer || '—',
+            mac: iface.mac || '—',
+            ipAddresses,
+            interface: interfaceType,
+            chipset,
+            driver,
+          }
+        })
+    )
+    return adapters
   } catch (err) {
     console.error('getNetworkAdapters error:', err)
     return []
