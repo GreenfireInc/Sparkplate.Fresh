@@ -1,30 +1,112 @@
 <template>
   <div class="network-settings">
-    <h3 class="text-lg font-semibold mb-4">Network Settings</h3>
-    
-    <div class="space-y-6">
-      <div class="flex items-center">
-        <input id="auto-detect-proxy" type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" checked>
-        <label for="auto-detect-proxy" class="ml-2 block text-sm text-gray-900">
-          Automatically detect proxy settings
-        </label>
+    <h3 class="network-settings-title">Network Settings</h3>
+    <p class="network-settings-desc">
+      Configure adapters, proxies, services, and BitTorrent.
+    </p>
+
+    <div class="network-tabs-layout">
+      <div class="network-tabs-nav">
+        <button
+          v-for="(label, key) in networkTabLabels"
+          :key="key"
+          type="button"
+          class="network-tab-btn"
+          :class="{ active: activeNetworkTab === key }"
+          @click="activeNetworkTab = key"
+        >
+          {{ label }}
+        </button>
       </div>
 
-      <div>
-        <label for="proxy-server" class="block text-sm font-medium text-gray-700">Proxy Server</label>
-        <input type="text" id="proxy-server" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" placeholder="e.g., http://127.0.0.1:8080">
-      </div>
-      
-      <div>
-        <label for="dns-server" class="block text-sm font-medium text-gray-700">Custom DNS Server</label>
-        <input type="text" id="dns-server" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" placeholder="e.g., 8.8.8.8">
+      <div class="network-tabs-content">
+        <AdaptersAndProxies v-if="activeNetworkTab === 'adapters'" />
+        <ServicesProtocols v-if="activeNetworkTab === 'services'" />
+        <Bittorrent v-if="activeNetworkTab === 'bittorrent'" />
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'NetworkSettings'
+<script setup lang="ts">
+import { ref } from 'vue'
+import AdaptersAndProxies from '@/components/pageTabs/settings/aspect.Network/AdaptersAndProxies.vue'
+import ServicesProtocols from '@/components/pageTabs/settings/aspect.Network/ServicesProtocols.vue'
+import Bittorrent from '@/components/pageTabs/settings/aspect.Network/Bittorrent.vue'
+
+const activeNetworkTab = ref<'adapters' | 'services' | 'bittorrent'>('adapters')
+const networkTabLabels = {
+  adapters: 'Adapters & Proxies',
+  services: 'Services / Protocols',
+  bittorrent: 'BitTorrent',
 }
-</script> 
+</script>
+
+<style lang="scss" scoped>
+.network-settings {
+  width: 100%;
+}
+
+.network-settings-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.network-settings-desc {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.network-tabs-layout {
+  display: flex;
+  gap: 1.25rem;
+  min-height: 320px;
+  max-height: calc(100vh - 260px);
+  overflow: hidden;
+}
+
+.network-tabs-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 160px;
+  max-width: 180px;
+  border-right: 1px solid #e5e7eb;
+  padding-right: 1rem;
+}
+
+.network-tab-btn {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #6b7280;
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: #374151;
+    background-color: #f3f4f6;
+  }
+
+  &.active {
+    color: #3b82f6;
+    background-color: #eff6ff;
+    border-right: 2px solid #3b82f6;
+    margin-right: -1rem;
+    padding-right: calc(0.75rem + 1rem);
+  }
+}
+
+.network-tabs-content {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+}
+</style>
