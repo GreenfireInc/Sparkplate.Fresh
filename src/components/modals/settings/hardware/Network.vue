@@ -7,14 +7,28 @@
         :aria-describedby="undefined"
       >
         <DialogTitle class="network-modal-title">
-          {{ adapter?.device || 'Network Interface' }}
+          <span :title="interfaceNameTooltip">{{ adapter?.device || 'Network Interface' }}</span>
         </DialogTitle>
         <div v-if="adapter" class="network-modal-body">
-          <p class="network-details">
-            <span v-if="adapter.mac && adapter.mac !== '—'">MAC: {{ adapter.mac }}</span>
-            <span v-if="adapter.mac && adapter.mac !== '—' && adapter.ipAddresses.length"> · </span>
-            <span v-if="adapter.ipAddresses.length">IP: {{ adapter.ipAddresses.join(', ') }}</span>
-          </p>
+          <dl class="network-details-grid">
+            <dt class="network-detail-label">Interface</dt>
+            <dd class="network-detail-value">{{ adapter.interface || '—' }}</dd>
+
+            <dt class="network-detail-label">Manufacturer</dt>
+            <dd class="network-detail-value">{{ adapter.manufacturer || '—' }}</dd>
+
+            <dt class="network-detail-label">Chipset</dt>
+            <dd class="network-detail-value">{{ adapter.chipset || '—' }}</dd>
+
+            <dt class="network-detail-label">Driver</dt>
+            <dd class="network-detail-value">{{ adapter.driver || '—' }}</dd>
+
+            <dt v-if="adapter.mac && adapter.mac !== '—'" class="network-detail-label">MAC</dt>
+            <dd v-if="adapter.mac && adapter.mac !== '—'" class="network-detail-value">{{ adapter.mac }}</dd>
+
+            <dt v-if="adapter.ipAddresses.length" class="network-detail-label">IP Addresses</dt>
+            <dd v-if="adapter.ipAddresses.length" class="network-detail-value">{{ adapter.ipAddresses.join(', ') }}</dd>
+          </dl>
         </div>
         <DialogClose as-child>
           <button class="network-modal-close" aria-label="Close">
@@ -37,6 +51,7 @@ import {
   DialogClose,
 } from 'radix-vue'
 import type { NetworkAdapterInfo } from '@/components/partials/hardware/network'
+import { explainInterfaceName } from '@/components/partials/tooltips/network.linux'
 
 const props = defineProps<{
   modelValue: boolean
@@ -50,6 +65,11 @@ const emit = defineEmits<{
 const open = computed({
   get: () => props.modelValue,
   set: (v) => emit('update:modelValue', v),
+})
+
+const interfaceNameTooltip = computed(() => {
+  const device = props.adapter?.device
+  return device ? explainInterfaceName(device) : ''
 })
 </script>
 
@@ -86,9 +106,22 @@ const open = computed({
   margin-bottom: 1rem;
 }
 
-.network-details {
+.network-details-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.375rem 1.5rem;
   font-size: 0.875rem;
+  margin: 0;
+}
+
+.network-detail-label {
   color: #6b7280;
+  font-weight: 500;
+  margin: 0;
+}
+
+.network-detail-value {
+  color: #111827;
   margin: 0;
 }
 

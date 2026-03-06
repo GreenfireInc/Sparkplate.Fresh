@@ -9,6 +9,9 @@ export interface NetworkAdapterInfo {
   manufacturer: string
   mac: string
   ipAddresses: string[]
+  interface?: string
+  chipset?: string
+  driver?: string
 }
 
 const networkAdapters = ref<NetworkAdapterInfo[]>([])

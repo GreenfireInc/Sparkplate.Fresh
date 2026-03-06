@@ -33,7 +33,15 @@ declare global {
         }>
         isRemovable: boolean
       }>>;
-      getNetworkAdapters(): Promise<Array<{ device: string; manufacturer: string; mac: string; ipAddresses: string[] }>>;
+      getNetworkAdapters(): Promise<Array<{
+      device: string
+      manufacturer: string
+      mac: string
+      ipAddresses: string[]
+      interface: string
+      chipset: string
+      driver: string
+    }>>;
       electronVersion: string;
       nodeVersion: string;
     };
