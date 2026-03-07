@@ -29,11 +29,8 @@
         </router-link>
       </div>
       <div class="navbar-right">
-        <!-- <span class="total-assets">{{ t('totalAssets') }} {{ totalAssets }}</span> -->
-        <button @click="handleLogout" class="logout-button" :title="t('logout')">
-          <LogOut :size="20" />
-          <span class="logout-text">{{ t('logout') }}</span>
-        </button>
+                <!-- <span class="total-assets">{{ t('totalAssets') }} {{ totalAssets }}</span> -->
+        <AuthenticationDropdown />
       </div>
     </div>
   </nav>
@@ -41,37 +38,25 @@
 
 <script>
 import { computed } from 'vue'
-import { LogOut } from 'lucide-vue-next'
 import { useMenuState } from '@/composables/useMenuState'
-import { useAuth } from '@/composables/useAuth'
-import { useI18n } from '@/composables/useI18n'
+import AuthenticationDropdown from '@/components/dropdown/dropdown.authentication.vue'
 
 const { menuType, toggleMenuType } = useMenuState()
-const { logout } = useAuth()
-const { t } = useI18n()
 
 const totalAssets = computed(() => {
   return '$0.00' // Placeholder value
 })
 
-const handleLogout = () => {
-  if (confirm(t('logoutConfirm'))) {
-    logout()
-  }
-}
-
 export default {
   name: 'NavBar',
   components: {
-    LogOut
+    AuthenticationDropdown,
   },
   setup() {
     return {
       menuType,
       totalAssets,
       toggleMenuType,
-      handleLogout,
-      t
     }
   }
 }
@@ -134,38 +119,5 @@ export default {
 .total-assets {
   font-size: 0.875rem;
   margin-left: 2.5rem;
-}
-
-.logout-button {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0.375rem;
-  color: white;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 0.875rem;
-}
-
-.logout-button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.logout-text {
-  font-weight: 500;
-}
-
-@media (max-width: 768px) {
-  .logout-text {
-    display: none;
-  }
-  
-  .logout-button {
-    padding: 0.5rem;
-  }
 }
 </style>

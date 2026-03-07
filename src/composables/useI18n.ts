@@ -57,6 +57,8 @@ const translations: Record<LocaleCode, Record<string, string>> = {
     inYourIDE: 'in your IDE for a better DX',
     clickOnLogos: 'Click on the Vite and Vue logos to learn more',
     // NavBar translations
+    account: 'Account',
+    profile: 'Profile',
     logout: 'Logout',
     logoutConfirm: 'Are you sure you want to logout?',
     totalAssets: 'Total Assets:',
@@ -150,6 +152,8 @@ const translations: Record<LocaleCode, Record<string, string>> = {
     inYourIDE: 'en tu IDE para una mejor experiencia de desarrollo',
     clickOnLogos: 'Haz clic en los logos de Vite y Vue para aprender más',
     // NavBar translations
+    account: 'Cuenta',
+    profile: 'Perfil',
     logout: 'Cerrar Sesión',
     logoutConfirm: '¿Estás seguro de que quieres cerrar sesión?',
     totalAssets: 'Activos Totales:',
@@ -243,6 +247,8 @@ const translations: Record<LocaleCode, Record<string, string>> = {
     inYourIDE: 'dans votre IDE pour une meilleure expérience de développement',
     clickOnLogos: 'Cliquez sur les logos Vite et Vue pour en savoir plus',
     // NavBar translations
+    account: 'Compte',
+    profile: 'Profil',
     logout: 'Déconnexion',
     logoutConfirm: 'Êtes-vous sûr de vouloir vous déconnecter ?',
     totalAssets: 'Actifs Totaux :',
@@ -336,6 +342,8 @@ const translations: Record<LocaleCode, Record<string, string>> = {
     inYourIDE: 'in Ihrer IDE für eine bessere Entwicklererfahrung',
     clickOnLogos: 'Klicken Sie auf die Vite- und Vue-Logos, um mehr zu erfahren',
     // NavBar translations
+    account: 'Konto',
+    profile: 'Profil',
     logout: 'Abmelden',
     logoutConfirm: 'Sind Sie sicher, dass Sie sich abmelden möchten?',
     totalAssets: 'Gesamtvermögen:',
@@ -429,6 +437,8 @@ const translations: Record<LocaleCode, Record<string, string>> = {
     inYourIDE: 'em seu IDE para uma melhor experiência de desenvolvimento',
     clickOnLogos: 'Clique nos logos do Vite e Vue para aprender mais',
     // NavBar translations
+    account: 'Conta',
+    profile: 'Perfil',
     logout: 'Sair',
     logoutConfirm: 'Tem certeza de que deseja sair?',
     totalAssets: 'Ativos Totais:',
