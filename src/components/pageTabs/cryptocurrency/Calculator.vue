@@ -1,238 +1,170 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-    <!-- Cryptocurrency Ticker -->
-    <div class="pt-6 pb-4">
+  <div class="calc-page">
+    <!-- Ticker -->
+    <div class="calc-ticker">
       <MarqueeTicker />
     </div>
-    
-    <!-- Header Section -->
-    <div class="text-center mb-8">
-      <!-- <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-        Cryptocurrency Calculator
-      </h1> -->
-      <p class="text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-        Convert between cryptocurrencies and fiat currencies with real-time exchange rates
-      </p>
-    </div>
-    
-    <!-- Main Calculator Interface -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-      <div class="flex flex-col lg:flex-row items-stretch justify-center gap-6">
-        <!-- Left Calculator Section -->
-        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xl dark:bg-gray-800 dark:border-gray-700 w-full lg:w-2/5 transform hover:scale-105 transition-all duration-300">
-          <div class="mb-4">
-            <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">From</h2>
-            <div class="h-1 w-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-          </div>
-          
-          <form @submit.prevent="convertCurrency" class="space-y-4">
-            <!-- Currency Type Toggle -->
-            <div class="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-xl">
-              <div class="flex items-center justify-between">
-                <span class="font-semibold text-gray-900 dark:text-white text-sm">
-                  {{ !fromIsFiat ? 'Cryptocurrency' : 'Fiat Currency' }}
-                </span>
-                <label class="relative inline-flex items-center cursor-pointer">
-                  <input type="checkbox" v-model="fromIsFiat" class="sr-only peer">
-                  <div class="w-12 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-gradient-to-r peer-checked:from-blue-500 peer-checked:to-purple-500"></div>
-                  <span class="ml-2 text-xs font-medium text-gray-900 dark:text-gray-300">Fiat</span>
-                </label>
-              </div>
-            </div>
 
-            <!-- Amount Input -->
-            <div class="space-y-2">
-              <label for="amount" class="block text-sm font-semibold text-gray-900 dark:text-white">Amount</label>
-              <div class="relative">
-                <input
-                  id="amount"
-                  type="number"
-                  step="0.0000001"
-                  min="0"
-                  v-model="args.amount"
-                  class="bg-white dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-base rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent block w-full p-3 transition-all duration-200 shadow-sm hover:shadow-md"
-                  placeholder="Enter amount"
-                  required
-                />
-                <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                  <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                </div>
-              </div>
-            </div>
+    <!-- Subtitle -->
+    <p class="calc-subtitle">
+      Convert between cryptocurrencies and fiat currencies with real-time exchange rates
+    </p>
 
-            <!-- Currency Selection -->
-            <div class="space-y-2">
-              <div class="flex items-center justify-between">
-                <label for="from-currency" class="block text-sm font-semibold text-gray-900 dark:text-white">Currency</label>
-                <div class="flex items-center space-x-2">
-                  <img
-                    v-if="!fromIsFiat && args.from.symbol"
-                    :src="`./assets/icons/crypto/${args.from.symbol.toLowerCase()}.svg`"
-                    :alt="args.from.symbol"
-                    class="w-6 h-6 rounded-full shadow-sm"
-                  />
-                  <span v-else-if="fromIsFiat" class="text-lg font-bold text-blue-600 dark:text-blue-400">{{ getCurrencySymbol(args.from.symbol) }}</span>
-                </div>
-              </div>
-              
-              <!-- Cryptocurrency Dropdown -->
-              <select
-                v-if="!fromIsFiat"
-                v-model="args.from"
-                class="bg-white dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-sm rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent block w-full p-3 transition-all duration-200 shadow-sm hover:shadow-md"
-              >
-                <option v-for="coin in cryptoCurrencies" :key="coin.id" :value="coin">
-                  {{ coin.name }} ({{ coin.symbol }})
-                </option>
-              </select>
+    <!-- Cards row -->
+    <div class="calc-row">
 
-              <!-- Fiat Currency Dropdown -->
-              <select
-                v-else
-                v-model="args.from"
-                class="bg-white dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-sm rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent block w-full p-3 transition-all duration-200 shadow-sm hover:shadow-md"
-              >
-                <option v-for="fiat in fiatCurrencies" :key="fiat.symbol" :value="fiat">
-                  {{ fiat.name }}
-                </option>
-              </select>
-            </div>
-
-            <!-- Convert Button -->
-            <button
-              type="submit"
-              :disabled="isLoading"
-              class="w-full text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-xl text-base px-4 py-3 text-center dark:focus:ring-blue-800 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
-            >
-              <span v-if="isLoading" class="flex items-center justify-center">
-                <svg class="animate-spin -ml-1 mr-3 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Converting...
-              </span>
-              <span v-else>Convert Currency</span>
-            </button>
-          </form>
+      <!-- ── From card ─────────────────────────────────────────── -->
+      <div class="calc-card">
+        <div class="calc-card-header calc-card-header--blue">
+          <span class="calc-card-title">From</span>
         </div>
 
-        <!-- Convert Icon -->
-        <div class="flex-shrink-0 relative flex items-center justify-center lg:py-8">
-          <div class="bg-gradient-to-r from-blue-600 to-purple-600 inline-flex p-3 rounded-full shadow-lg transform hover:scale-110 transition-all duration-300">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="2.5"
-              stroke="currentColor"
-              class="w-6 h-6 text-white"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+        <form class="calc-form" @submit.prevent="convertCurrency">
+          <!-- Type toggle -->
+          <div class="calc-toggle-row">
+            <span class="calc-toggle-label">{{ fromIsFiat ? 'Fiat Currency' : 'Cryptocurrency' }}</span>
+            <label class="calc-toggle">
+              <input type="checkbox" v-model="fromIsFiat" class="calc-toggle-input" />
+              <span class="calc-toggle-track" />
+              <span class="calc-toggle-hint">Fiat</span>
+            </label>
+          </div>
+
+          <!-- Amount -->
+          <div class="calc-field">
+            <Label for="calc-amount" class="calc-label">Amount</Label>
+            <div class="calc-input-wrap">
+              <input
+                id="calc-amount"
+                type="number"
+                step="0.0000001"
+                min="0"
+                v-model="args.amount"
+                class="calc-input"
+                placeholder="Enter amount"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Currency -->
+          <div class="calc-field">
+            <div class="calc-label-row">
+              <Label class="calc-label">Currency</Label>
+              <img
+                v-if="!fromIsFiat && args.from.symbol"
+                :src="`./assets/icons/crypto/${args.from.symbol.toLowerCase()}.svg`"
+                :alt="args.from.symbol"
+                class="calc-coin-icon"
+              />
+              <span v-else-if="fromIsFiat" class="calc-fiat-symbol">{{ getCurrencySymbol(args.from.symbol) }}</span>
+            </div>
+            <select v-if="!fromIsFiat" v-model="args.from" class="calc-select">
+              <option v-for="coin in cryptoCurrencies" :key="coin.id" :value="coin">
+                {{ coin.name }} ({{ coin.symbol }})
+              </option>
+            </select>
+            <select v-else v-model="args.from" class="calc-select">
+              <option v-for="fiat in fiatCurrencies" :key="fiat.symbol" :value="fiat">
+                {{ fiat.name }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Convert button -->
+          <button type="submit" class="calc-btn" :disabled="isLoading">
+            <svg v-if="isLoading" class="calc-spinner" viewBox="0 0 24 24" fill="none">
+              <circle class="calc-spinner-track" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" />
+              <path class="calc-spinner-arc" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
-          </div>
-          <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-30 animate-pulse"></div>
-        </div>
+            {{ isLoading ? 'Converting…' : 'Convert' }}
+          </button>
+        </form>
+      </div>
 
-        <!-- Right Calculator Section -->
-        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xl dark:bg-gray-800 dark:border-gray-700 w-full lg:w-2/5 transform hover:scale-105 transition-all duration-300">
-          <div class="mb-4">
-            <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">To</h2>
-            <div class="h-1 w-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
-          </div>
-          
-          <div class="space-y-4">
-            <!-- Currency Type Toggle -->
-            <div class="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-xl">
-              <div class="flex items-center justify-between">
-                <span class="font-semibold text-gray-900 dark:text-white text-sm">
-                  {{ !toIsCrypto ? 'Fiat Currency' : 'Cryptocurrency' }}
-                </span>
-                <label class="relative inline-flex items-center cursor-pointer">
-                  <input type="checkbox" v-model="toIsCrypto" class="sr-only peer">
-                  <div class="w-12 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 dark:peer-focus:ring-purple-800 rounded-full peer dark:bg-gray-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-gradient-to-r peer-checked:from-purple-500 peer-checked:to-pink-500"></div>
-                  <span class="ml-2 text-xs font-medium text-gray-900 dark:text-gray-300">Crypto</span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Result Amount -->
-            <div class="space-y-2">
-              <label class="block text-sm font-semibold text-gray-900 dark:text-white">Amount</label>
-              <div class="relative">
-                <input
-                  type="text"
-                  :value="solution.amount || 'Not yet converted'"
-                  class="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-600 dark:to-gray-700 border-2 border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-base rounded-xl block w-full p-3 font-mono"
-                  readonly
-                />
-                <div v-if="solution.amount" class="absolute inset-y-0 right-0 flex items-center pr-3">
-                  <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Target Currency Selection -->
-            <div class="space-y-2">
-              <div class="flex items-center justify-between">
-                <label class="block text-sm font-semibold text-gray-900 dark:text-white">Currency</label>
-                <div class="flex items-center space-x-2">
-                  <img
-                    v-if="toIsCrypto && args.to.symbol"
-                    :src="`./assets/icons/crypto/${args.to.symbol.toLowerCase()}.svg`"
-                    :alt="args.to.symbol"
-                    class="w-6 h-6 rounded-full shadow-sm"
-                  />
-                  <span v-else-if="!toIsCrypto" class="text-lg font-bold text-purple-600 dark:text-purple-400">{{ getCurrencySymbol(args.to.symbol) }}</span>
-                </div>
-              </div>
-              
-              <!-- Cryptocurrency Dropdown -->
-              <select
-                v-if="toIsCrypto"
-                v-model="args.to"
-                class="bg-white dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-sm rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent block w-full p-3 transition-all duration-200 shadow-sm hover:shadow-md"
-              >
-                <option v-for="coin in cryptoCurrencies" :key="coin.id" :value="coin">
-                  {{ coin.name }} ({{ coin.symbol }})
-                </option>
-              </select>
-
-              <!-- Fiat Currency Dropdown -->
-              <select
-                v-else
-                v-model="args.to"
-                class="bg-white dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-sm rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent block w-full p-3 transition-all duration-200 shadow-sm hover:shadow-md"
-              >
-                <option v-for="fiat in fiatCurrencies" :key="fiat.symbol" :value="fiat">
-                  {{ fiat.name }}
-                </option>
-              </select>
-            </div>
-
-            <!-- Conversion Rate Display -->
-            <div v-if="solution.rate" class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl border border-green-200 dark:border-green-700">
-              <div class="flex items-center mb-2">
-                <svg class="w-4 h-4 text-green-600 dark:text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                </svg>
-                <p class="text-xs font-medium text-green-800 dark:text-green-300">Exchange Rate</p>
-              </div>
-              <p class="text-base font-bold text-green-900 dark:text-green-100">
-                1 {{ args.from.symbol }} = {{ solution.rate }} {{ args.to.symbol }}
-              </p>
-            </div>
-
-            <!-- Spacer to match left side height -->
-            <div class="h-12"></div>
-          </div>
+      <!-- ── Swap icon ─────────────────────────────────────────── -->
+      <div class="calc-swap">
+        <div class="calc-swap-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+          </svg>
         </div>
       </div>
+
+      <!-- ── To card ───────────────────────────────────────────── -->
+      <div class="calc-card">
+        <div class="calc-card-header calc-card-header--purple">
+          <span class="calc-card-title">To</span>
+        </div>
+
+        <div class="calc-form">
+          <!-- Type toggle -->
+          <div class="calc-toggle-row">
+            <span class="calc-toggle-label">{{ toIsCrypto ? 'Cryptocurrency' : 'Fiat Currency' }}</span>
+            <label class="calc-toggle">
+              <input type="checkbox" v-model="toIsCrypto" class="calc-toggle-input" />
+              <span class="calc-toggle-track calc-toggle-track--purple" />
+              <span class="calc-toggle-hint">Crypto</span>
+            </label>
+          </div>
+
+          <!-- Result amount -->
+          <div class="calc-field">
+            <Label class="calc-label">Amount</Label>
+            <div class="calc-input-wrap">
+              <input
+                type="text"
+                :value="solution.amount || '—'"
+                class="calc-input calc-input--result"
+                readonly
+              />
+              <span v-if="solution.amount" class="calc-result-dot" />
+            </div>
+          </div>
+
+          <!-- Currency -->
+          <div class="calc-field">
+            <div class="calc-label-row">
+              <Label class="calc-label">Currency</Label>
+              <img
+                v-if="toIsCrypto && args.to.symbol"
+                :src="`./assets/icons/crypto/${args.to.symbol.toLowerCase()}.svg`"
+                :alt="args.to.symbol"
+                class="calc-coin-icon"
+              />
+              <span v-else-if="!toIsCrypto" class="calc-fiat-symbol">{{ getCurrencySymbol(args.to.symbol) }}</span>
+            </div>
+            <select v-if="toIsCrypto" v-model="args.to" class="calc-select">
+              <option v-for="coin in cryptoCurrencies" :key="coin.id" :value="coin">
+                {{ coin.name }} ({{ coin.symbol }})
+              </option>
+            </select>
+            <select v-else v-model="args.to" class="calc-select">
+              <option v-for="fiat in fiatCurrencies" :key="fiat.symbol" :value="fiat">
+                {{ fiat.name }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Exchange rate -->
+          <div v-if="solution.rate" class="calc-rate">
+            <i class="bi bi-check-circle-fill calc-rate-icon" />
+            <div>
+              <p class="calc-rate-heading">Exchange Rate</p>
+              <p class="calc-rate-value">1 {{ args.from.symbol }} = {{ solution.rate }} {{ args.to.symbol }}</p>
+            </div>
+          </div>
+          <div v-else class="calc-rate-placeholder" />
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive, watch } from 'vue'
+import { Label } from 'radix-vue'
 import MarqueeTicker from '../../partials/marqueeTicker/MarqueeTicker.vue'
 
 // Define component name
@@ -512,19 +444,363 @@ watch(() => args.amount, () => {
 })
 </script>
 
-<style scoped>
-/* Custom animations and effects */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+<style scoped lang="scss">
+/* ── Page layout ──────────────────────────────────────────── */
+.calc-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  padding: 0 0 8px;
 }
 
-.float-animation {
-  animation: float 3s ease-in-out infinite;
+.calc-ticker {
+  flex-shrink: 0;
+  padding: 12px 0 4px;
 }
 
-/* Custom toggle switch styling */
-.peer:checked ~ .peer-checked\:bg-blue-600 {
-  background-color: #2563eb;
+.calc-subtitle {
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0 0 10px;
+}
+
+/* ── Cards row ────────────────────────────────────────────── */
+.calc-row {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 20px;
+}
+
+/* ── Single card ──────────────────────────────────────────── */
+.calc-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 420px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.08);
+  overflow: hidden;
+}
+
+.calc-card-header {
+  flex-shrink: 0;
+  padding: 12px 20px 8px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.calc-card-header--blue {
+  border-top: 3px solid #6366f1;
+}
+
+.calc-card-header--purple {
+  border-top: 3px solid #a855f7;
+}
+
+.calc-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* ── Form body ────────────────────────────────────────────── */
+.calc-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  gap: 10px;
+  padding: 14px 20px 16px;
+  overflow: hidden;
+}
+
+/* ── Toggle row ───────────────────────────────────────────── */
+.calc-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 8px 12px;
+  flex-shrink: 0;
+}
+
+.calc-toggle-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.calc-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.calc-toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.calc-toggle-track {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  background: #d1d5db;
+  border-radius: 10px;
+  transition: background 0.2s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  }
+}
+
+.calc-toggle-input:checked + .calc-toggle-track {
+  background: #6366f1;
+  &::after { transform: translateX(16px); }
+}
+
+.calc-toggle-input:checked + .calc-toggle-track--purple {
+  background: #a855f7;
+}
+
+.calc-toggle-hint {
+  font-size: 0.7rem;
+  color: #6b7280;
+}
+
+/* ── Field ────────────────────────────────────────────────── */
+.calc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.calc-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.calc-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calc-coin-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.calc-fiat-symbol {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #6366f1;
+}
+
+/* ── Input ────────────────────────────────────────────────── */
+.calc-input-wrap {
+  position: relative;
+}
+
+.calc-input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  color: #111827;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99,102,241,.12);
+  }
+
+  &--result {
+    background: #f9fafb;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    cursor: default;
+    color: #1f2937;
+  }
+}
+
+.calc-result-dot {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: dot-pulse 1.5s ease-in-out infinite;
+}
+
+/* ── Select ───────────────────────────────────────────────── */
+.calc-select {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  color: #111827;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99,102,241,.12);
+  }
+}
+
+/* ── Convert button ───────────────────────────────────────── */
+.calc-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 9px 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s;
+  margin-top: auto;
+  flex-shrink: 0;
+
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+}
+
+.calc-spinner {
+  width: 16px;
+  height: 16px;
+  animation: spin 0.8s linear infinite;
+}
+
+.calc-spinner-track { opacity: 0.25; }
+.calc-spinner-arc   { opacity: 0.85; }
+
+/* ── Exchange rate box ────────────────────────────────────── */
+.calc-rate {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.calc-rate-icon {
+  color: #16a34a;
+  font-size: 0.875rem;
+  margin-top: 2px;
+}
+
+.calc-rate-heading {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #166534;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 2px;
+}
+
+.calc-rate-value {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #14532d;
+  margin: 0;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.calc-rate-placeholder {
+  flex-shrink: 0;
+  margin-top: auto;
+  height: 52px;
+}
+
+/* ── Swap icon ────────────────────────────────────────────── */
+.calc-swap {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.calc-swap-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(99,102,241,.35);
+
+  svg {
+    width: 18px;
+    height: 18px;
+    color: #fff;
+  }
+}
+
+/* ── Keyframes ────────────────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
+  50%       { opacity: 0.4; transform: translateY(-50%) scale(0.7); }
 }
 </style> 
