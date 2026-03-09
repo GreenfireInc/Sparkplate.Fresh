@@ -2,108 +2,123 @@
   <DialogRoot v-model:open="openModel">
     <DialogPortal>
       <DialogOverlay class="sgn-overlay" />
-      <DialogContent class="sgn-content" :aria-describedby="undefined">
+      <DialogContent
+        class="sgn-content"
+        :class="{
+          'sgn-content--eula': step === 'eula',
+          'sgn-content--mnemonic': step === 'mnemonic',
+        }"
+        :aria-describedby="undefined"
+      >
+        <Transition :name="stepTransition" mode="out-in">
 
-        <!-- Header -->
-        <div class="sgn-header">
-          <div class="sgn-avatar">
-            <img v-if="avatarUrl" :src="avatarUrl" alt="Avatar" class="sgn-avatar-img" />
-            <User v-else :size="28" class="sgn-avatar-icon" />
-          </div>
-          <DialogTitle class="sgn-title">{{ t('createAccount') }}</DialogTitle>
-          <p class="sgn-subtitle">{{ t('enterDetailsToSignup') }}</p>
-        </div>
+          <!-- ── Step 1: Registration form ───────────────────────────── -->
+          <div v-if="step === 'form'" key="form">
+            <div class="sgn-header">
+              <div class="sgn-avatar">
+                <img v-if="avatarUrl" :src="avatarUrl" alt="Avatar" class="sgn-avatar-img" />
+                <User v-else :size="28" class="sgn-avatar-icon" />
+              </div>
+              <DialogTitle class="sgn-title">{{ t('createAccount') }}</DialogTitle>
+              <p class="sgn-subtitle">{{ t('enterDetailsToSignup') }}</p>
+            </div>
 
-        <!-- Body -->
-        <div class="sgn-body">
+            <div class="sgn-body">
+              <div class="sgn-row">
+                <div class="sgn-field">
+                  <Label for="sgn-firstName" class="sgn-label">{{ t('firstName') }}</Label>
+                  <div class="sgn-input-wrap">
+                    <User :size="14" class="sgn-input-icon" />
+                    <input
+                      id="sgn-firstName"
+                      v-model="firstName"
+                      type="text"
+                      :placeholder="t('firstName')"
+                      class="sgn-input"
+                    />
+                  </div>
+                </div>
+                <div class="sgn-field">
+                  <Label for="sgn-lastName" class="sgn-label">{{ t('lastName') }}</Label>
+                  <div class="sgn-input-wrap">
+                    <User :size="14" class="sgn-input-icon" />
+                    <input
+                      id="sgn-lastName"
+                      v-model="lastName"
+                      type="text"
+                      :placeholder="t('lastName')"
+                      class="sgn-input"
+                    />
+                  </div>
+                </div>
+              </div>
 
-          <!-- Name row -->
-          <div class="sgn-row">
-            <div class="sgn-field">
-              <Label for="sgn-firstName" class="sgn-label">{{ t('firstName') }}</Label>
-              <div class="sgn-input-wrap">
-                <User :size="14" class="sgn-input-icon" />
-                <input
-                  id="sgn-firstName"
-                  v-model="firstName"
-                  type="text"
-                  :placeholder="t('firstName')"
-                  class="sgn-input"
-                />
+              <div class="sgn-field">
+                <Label for="sgn-email" class="sgn-label">{{ t('email') }}</Label>
+                <div class="sgn-input-wrap">
+                  <Mail :size="14" class="sgn-input-icon" />
+                  <input
+                    id="sgn-email"
+                    v-model="email"
+                    type="email"
+                    :placeholder="t('emailAddress')"
+                    class="sgn-input"
+                    @input="handleEmailChange"
+                  />
+                </div>
+              </div>
+
+              <div class="sgn-field">
+                <Label for="sgn-password" class="sgn-label">{{ t('password') }}</Label>
+                <div class="sgn-input-wrap">
+                  <Lock :size="14" class="sgn-input-icon" />
+                  <input
+                    id="sgn-password"
+                    v-model="password"
+                    :type="showPassword ? 'text' : 'password'"
+                    :placeholder="t('password')"
+                    class="sgn-input sgn-input--padded-right"
+                    @keyup.enter="handleNext"
+                  />
+                  <button
+                    type="button"
+                    class="sgn-eye-btn"
+                    :title="showPassword ? 'Hide password' : 'Show password'"
+                    @click="showPassword = !showPassword"
+                  >
+                    <EyeOff v-if="showPassword" :size="14" />
+                    <Eye v-else :size="14" />
+                  </button>
+                </div>
+              </div>
+
+              <div class="sgn-actions">
+                <button
+                  type="button"
+                  class="sgn-btn sgn-btn--primary"
+                  :disabled="!firstName || !lastName || !email || !password"
+                  @click="handleNext"
+                >
+                  {{ t('createAccount') }}
+                </button>
+                <DialogClose class="sgn-btn sgn-btn--ghost">
+                  {{ t('cancel') }}
+                </DialogClose>
               </div>
             </div>
-            <div class="sgn-field">
-              <Label for="sgn-lastName" class="sgn-label">{{ t('lastName') }}</Label>
-              <div class="sgn-input-wrap">
-                <User :size="14" class="sgn-input-icon" />
-                <input
-                  id="sgn-lastName"
-                  v-model="lastName"
-                  type="text"
-                  :placeholder="t('lastName')"
-                  class="sgn-input"
-                />
-              </div>
-            </div>
           </div>
 
-          <!-- Email -->
-          <div class="sgn-field">
-            <Label for="sgn-email" class="sgn-label">{{ t('email') }}</Label>
-            <div class="sgn-input-wrap">
-              <Mail :size="14" class="sgn-input-icon" />
-              <input
-                id="sgn-email"
-                v-model="email"
-                type="email"
-                :placeholder="t('emailAddress')"
-                class="sgn-input"
-                @input="handleEmailChange"
-              />
-            </div>
+          <!-- ── Step 2: EULA ────────────────────────────────────────── -->
+          <div v-else-if="step === 'eula'" key="eula">
+            <EulaStep @accept="goToMnemonic" @back="backToForm" />
           </div>
 
-          <!-- Password -->
-          <div class="sgn-field">
-            <Label for="sgn-password" class="sgn-label">{{ t('password') }}</Label>
-            <div class="sgn-input-wrap">
-              <Lock :size="14" class="sgn-input-icon" />
-              <input
-                id="sgn-password"
-                v-model="password"
-                :type="showPassword ? 'text' : 'password'"
-                :placeholder="t('password')"
-                class="sgn-input sgn-input--padded-right"
-                @keyup.enter="handleSignup"
-              />
-              <button
-                type="button"
-                class="sgn-eye-btn"
-                :title="showPassword ? 'Hide password' : 'Show password'"
-                @click="showPassword = !showPassword"
-              >
-                <EyeOff v-if="showPassword" :size="14" />
-                <Eye v-else :size="14" />
-              </button>
-            </div>
+          <!-- ── Step 3: Mnemonic HD seed phrase ───────────────────────── -->
+          <div v-else-if="step === 'mnemonic'" key="mnemonic">
+            <MnemonicStep @confirm="handleSignup" @back="backToEula" />
           </div>
 
-          <!-- Actions -->
-          <div class="sgn-actions">
-            <button
-              type="button"
-              class="sgn-btn sgn-btn--primary"
-              :disabled="!firstName || !lastName || !email || !password"
-              @click="handleSignup"
-            >
-              {{ t('createAccount') }}
-            </button>
-            <DialogClose class="sgn-btn sgn-btn--ghost">
-              {{ t('cancel') }}
-            </DialogClose>
-          </div>
-
-        </div>
+        </Transition>
       </DialogContent>
     </DialogPortal>
   </DialogRoot>
@@ -123,6 +138,8 @@ import {
 import { User, Mail, Lock, Eye, EyeOff } from 'lucide-vue-next'
 import { useI18n } from '@/composables/useI18n'
 import { gravatarUrl } from '@/lib/cores/displayStandard/gravatar'
+import EulaStep from './02.registration.eula.vue'
+import MnemonicStep from './03.registration.mnemonicHDSeedPhrase.vue'
 
 const props = defineProps<{ open: boolean }>()
 const emit = defineEmits<{
@@ -136,6 +153,7 @@ const openModel = computed({
 
 const { t } = useI18n()
 
+const step         = ref<'form' | 'eula' | 'mnemonic'>('form')
 const firstName    = ref('')
 const lastName     = ref('')
 const email        = ref('')
@@ -147,8 +165,36 @@ const handleEmailChange = () => {
   avatarUrl.value = gravatarUrl(email.value, { size: 56 }) ?? ''
 }
 
+const direction = ref<'fwd' | 'back'>('fwd')
+const stepTransition = computed(() =>
+  direction.value === 'fwd' ? 'sgn-step-fwd' : 'sgn-step-back'
+)
+
+const handleNext = () => {
+  if (firstName.value && lastName.value && email.value && password.value) {
+    direction.value = 'fwd'
+    step.value = 'eula'
+  }
+}
+
+const goToMnemonic = () => {
+  direction.value = 'fwd'
+  step.value = 'mnemonic'
+}
+
+const backToForm = () => {
+  direction.value = 'back'
+  step.value = 'form'
+}
+
+const backToEula = () => {
+  direction.value = 'back'
+  step.value = 'eula'
+}
+
 const closeModal = () => {
   openModel.value = false
+  step.value         = 'form'
   firstName.value    = ''
   lastName.value     = ''
   email.value        = ''
@@ -157,16 +203,15 @@ const closeModal = () => {
   avatarUrl.value    = ''
 }
 
-const handleSignup = () => {
-  if (firstName.value && lastName.value && email.value && password.value) {
-    console.log('Creating account:', {
-      firstName: firstName.value,
-      lastName:  lastName.value,
-      email:     email.value,
-      password:  password.value,
-    })
-    closeModal()
-  }
+const handleSignup = (mnemonic?: string) => {
+  console.log('Creating account:', {
+    firstName: firstName.value,
+    lastName:  lastName.value,
+    email:     email.value,
+    password:  password.value,
+    mnemonic:  mnemonic ?? '(generated)',
+  })
+  closeModal()
 }
 </script>
 
@@ -379,6 +424,28 @@ const handleSignup = () => {
     }
   }
 }
+
+/* ── EULA / Mnemonic steps widen the dialog ────────────────────────────────── */
+.sgn-content--eula {
+  width: 520px;
+}
+
+.sgn-content--mnemonic {
+  width: 560px;
+}
+
+/* ── Step transitions ────────────────────────────────────────────────────── */
+.sgn-step-fwd-enter-active,
+.sgn-step-fwd-leave-active,
+.sgn-step-back-enter-active,
+.sgn-step-back-leave-active {
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.sgn-step-fwd-enter-from  { opacity: 0; transform: translateX(24px); }
+.sgn-step-fwd-leave-to    { opacity: 0; transform: translateX(-24px); }
+.sgn-step-back-enter-from { opacity: 0; transform: translateX(-24px); }
+.sgn-step-back-leave-to   { opacity: 0; transform: translateX(24px); }
 
 /* ── Animations ──────────────────────────────────────────────────────────── */
 @keyframes sgn-fade {
