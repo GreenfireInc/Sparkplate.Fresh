@@ -91,9 +91,11 @@ async function createWindow() {
     win?.webContents.send('main-process-message', new Date().toLocaleString())
   })
 
-  // Make all links open with the browser, not with the application
+  // Make all links open with the browser, not with the application.
+  // Allow about:blank so internal print windows (e.g. mnemonic canvas) can open.
   win.webContents.setWindowOpenHandler(({ url }) => {
     if (url.startsWith('https:')) shell.openExternal(url)
+    if (url === '' || url === 'about:blank' || url.startsWith('blob:')) return { action: 'allow' }
     return { action: 'deny' }
   })
   // win.webContents.on('will-navigate', (event, url) => { }) #344

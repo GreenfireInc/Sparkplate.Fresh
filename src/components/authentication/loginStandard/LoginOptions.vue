@@ -1,72 +1,51 @@
 <template>
-  <div class="relative" ref="loginOptionsRef">
-    <!-- Trigger Button with Tooltip -->
-    <div class="relative group">
-      <button
-        @click="toggleMenu"
-        class="h-8 w-8 flex items-center justify-center text-white bg-transparent rounded transition-colors icon-button-trigger"
-      >
-        <!-- <span class="icon-wrapper">
-          <Fingerprint :size="16" />
-        </span> -->
-        🔐
-      </button>
-      
-      <!-- Tooltip -->
-      <div
-        v-if="showTooltip && !isOpen"
-        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 text-white text-xs rounded whitespace-nowrap pointer-events-none"
-      >
-        {{ t('signInOptions') }}
-        <div class="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1">
-          <div class="border-4 border-transparent border-t-gray-900"></div>
-        </div>
-      </div>
-    </div>
+  <DropdownMenuRoot v-model:open="menuOpen">
+    <DropdownMenuTrigger
+      class="lop-trigger"
+      :title="t('signInOptions')"
+      :aria-label="t('signInOptions')"
+    >
+      <i class="bi bi-fingerprint lop-trigger-icon" />
+    </DropdownMenuTrigger>
 
-    <!-- Popover Menu -->
-    <Transition name="fade-slide">
-      <div
-        v-if="isOpen"
-        class="absolute bottom-full right-0 mb-2 bg-white rounded-lg shadow-lg overflow-hidden min-w-[200px] border border-gray-200"
-      >
-        <div class="py-1">
-          <button
-            @click="handleTemporaryKeyClick"
-            class="w-full flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-gray-100 text-gray-800 transition-colors text-left"
-          >
-            <Key :size="16" class="text-gray-600" />
-            <span>{{ t('tempPrivateKey') }}</span>
-          </button>
-          <button
-            @click="handleServerSelectionClick"
-            class="w-full flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-gray-100 text-gray-800 transition-colors text-left"
-          >
-            <Server :size="16" class="text-gray-600" />
-            <span>{{ t('connectToServer') }}</span>
-          </button>
-        </div>
-      </div>
-    </Transition>
+    <DropdownMenuPortal>
+      <DropdownMenuContent class="lop-menu" side="top" align="end" :side-offset="8">
+        <DropdownMenuItem class="lop-item" @click="handleTemporaryKeyClick">
+          <Key :size="16" class="lop-item-icon" />
+          {{ t('tempPrivateKey') }}
+        </DropdownMenuItem>
+        <DropdownMenuSeparator class="lop-separator" />
+        <DropdownMenuItem class="lop-item" @click="handleServerSelectionClick">
+          <Server :size="16" class="lop-item-icon" />
+          {{ t('connectToServer') }}
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenuPortal>
+  </DropdownMenuRoot>
 
-    <!-- Modals -->
-    <TemporaryKeyModal
-      :is-open="showTemporaryKeyModal"
-      @update:open="showTemporaryKeyModal = $event"
-      @derive="handleKeyDerive"
-    />
-    
-    <ServerSelectionModal
-      :open="showServerSelectionModal"
-      @update:open="showServerSelectionModal = $event"
-      @connect="handleServerConnect"
-    />
-  </div>
+  <TemporaryKeyModal
+    :is-open="showTemporaryKeyModal"
+    @update:open="showTemporaryKeyModal = $event"
+    @derive="handleKeyDerive"
+  />
+  <ServerSelectionModal
+    :open="showServerSelectionModal"
+    @update:open="showServerSelectionModal = $event"
+    @connect="handleServerConnect"
+  />
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
-import { Fingerprint, Key, Server } from 'lucide-vue-next'
+import { ref } from 'vue'
+import {
+  DropdownMenuRoot,
+  DropdownMenuTrigger,
+  DropdownMenuPortal,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from 'radix-vue'
+import { Key, Server } from 'lucide-vue-next'
 import { useI18n } from '@/composables/useI18n'
 import TemporaryKeyModal from '@/components/modals/loginOptions/TemporaryKeyModal.vue'
 import ServerSelectionModal from '@/components/modals/loginOptions/ServerSelectionModal.vue'
@@ -80,92 +59,116 @@ const props = defineProps<LoginOptionsProps>()
 
 const { t } = useI18n()
 
-const isOpen = ref(false)
-const showTooltip = ref(false)
-const loginOptionsRef = ref<HTMLElement | null>(null)
+const menuOpen = ref(false)
 const showTemporaryKeyModal = ref(false)
 const showServerSelectionModal = ref(false)
 
-const toggleMenu = () => {
-  isOpen.value = !isOpen.value
-  showTooltip.value = false
-}
-
 const handleTemporaryKeyClick = () => {
-  console.log('Selected login option: Temporary Private Key')
-  isOpen.value = false
+  menuOpen.value = false
   showTemporaryKeyModal.value = true
   props.onTemporaryKeyClick?.()
 }
 
 const handleServerSelectionClick = () => {
-  console.log('Selected login option: Connect to Server')
-  isOpen.value = false
+  menuOpen.value = false
   showServerSelectionModal.value = true
   props.onServerSelectionClick?.()
 }
 
-
-
 const handleKeyDerive = (ticker: string, privateKey: string) => {
   console.log('Key derived:', { ticker, privateKey })
-  // Handle the derived key - could emit to parent or store in state
 }
 
 const handleServerConnect = (serverUrl: string, connectionType: string) => {
   console.log('Server connection:', { serverUrl, connectionType })
-  // Handle server connection - could emit to parent or store in state
 }
-
-const handleClickOutside = (event: Event) => {
-  if (loginOptionsRef.value && !loginOptionsRef.value.contains(event.target as Node)) {
-    isOpen.value = false
-  }
-}
-
-const handleMouseEnter = () => {
-  if (!isOpen.value) {
-    showTooltip.value = true
-  }
-}
-
-const handleMouseLeave = () => {
-  showTooltip.value = false
-}
-
-onMounted(() => {
-  document.addEventListener('click', handleClickOutside)
-  const button = loginOptionsRef.value?.querySelector('button')
-  if (button) {
-    button.addEventListener('mouseenter', handleMouseEnter)
-    button.addEventListener('mouseleave', handleMouseLeave)
-  }
-})
-
-onUnmounted(() => {
-  document.removeEventListener('click', handleClickOutside)
-  const button = loginOptionsRef.value?.querySelector('button')
-  if (button) {
-    button.removeEventListener('mouseenter', handleMouseEnter)
-    button.removeEventListener('mouseleave', handleMouseLeave)
-  }
-})
 </script>
 
-<style scoped>
-.fade-slide-enter-active,
-.fade-slide-leave-active {
-  transition: all 0.2s ease;
+<style lang="scss" scoped>
+/* ── Trigger ─────────────────────────────────────────────────────────────── */
+.lop-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.85);
+  transition: background 0.15s, color 0.15s;
+  outline: none;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+  }
+
+  &[data-state='open'] {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+  }
 }
 
-.fade-slide-enter-from {
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-.fade-slide-leave-to {
-  opacity: 0;
-  transform: translateY(10px);
+.lop-trigger-icon {
+  font-size: 1rem;
+  line-height: 1;
 }
 </style>
 
+<style lang="scss">
+/* Unscoped: DropdownMenuPortal teleports to body */
+.lop-menu {
+  min-width: 200px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.625rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+  padding: 0.3rem;
+  z-index: 10001;
+  animation: lop-menu-in 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lop-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.825rem;
+  font-weight: 400;
+  color: #1f2937;
+  background: transparent;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.12s;
+
+  &:hover,
+  &[data-highlighted] {
+    background: #f3f4f6;
+    color: #111827;
+
+    .lop-item-icon {
+      color: #374151;
+    }
+  }
+}
+
+.lop-item-icon {
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.lop-separator {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 0.2rem 0.5rem;
+}
+
+@keyframes lop-menu-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
