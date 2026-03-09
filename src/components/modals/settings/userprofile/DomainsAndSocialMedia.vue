@@ -88,6 +88,7 @@
           <!-- Social Media Presence -->
           <TabsContent value="social" class="dsm-tabs-content">
             <div class="dsm-grid">
+              <!-- Col 1: Github · LinkedIn · TikTok · Twitter/X · Medium · Instagram · Threads -->
               <div class="dsm-col">
                 <div class="dsm-field">
                   <Label class="dsm-label">
@@ -124,9 +125,6 @@
                   </Label>
                   <input v-model="social.medium" type="text" class="dsm-input" placeholder="@username or publication" />
                 </div>
-              </div>
-
-              <div class="dsm-col">
                 <div class="dsm-field">
                   <Label class="dsm-label">
                     <i class="bi bi-instagram dsm-icon-bi"></i>
@@ -141,6 +139,10 @@
                   </Label>
                   <input v-model="social.threads" type="text" class="dsm-input" placeholder="@username" />
                 </div>
+              </div>
+
+              <!-- Col 2: Twitch · YouTube · fxHash · Telegram · Discord · Bluesky · Mastodon -->
+              <div class="dsm-col">
                 <div class="dsm-field">
                   <Label class="dsm-label">
                     <i class="bi bi-twitch dsm-icon-bi"></i>
@@ -161,6 +163,34 @@
                     fxHash
                   </Label>
                   <input v-model="social.fxhash" type="text" class="dsm-input" placeholder="username" />
+                </div>
+                <div class="dsm-field">
+                  <Label class="dsm-label">
+                    <i class="bi bi-telegram dsm-icon-bi"></i>
+                    Telegram
+                  </Label>
+                  <input v-model="social.telegram" type="text" class="dsm-input" placeholder="@username" />
+                </div>
+                <div class="dsm-field">
+                  <Label class="dsm-label">
+                    <i class="bi bi-discord dsm-icon-bi"></i>
+                    Discord
+                  </Label>
+                  <input v-model="social.discord" type="text" class="dsm-input" placeholder="username" />
+                </div>
+                <div class="dsm-field">
+                  <Label class="dsm-label">
+                    <i class="bi bi-bluesky dsm-icon-bi"></i>
+                    Bluesky
+                  </Label>
+                  <input v-model="social.bluesky" type="text" class="dsm-input" placeholder="@username.bsky.social" />
+                </div>
+                <div class="dsm-field">
+                  <Label class="dsm-label">
+                    <i class="bi bi-mastodon dsm-icon-bi"></i>
+                    Mastodon
+                  </Label>
+                  <input v-model="social.mastodon" type="text" class="dsm-input" placeholder="@username@instance.social" />
                 </div>
               </div>
             </div>
@@ -223,6 +253,10 @@ const social = ref({
   twitter: '',
   fxhash: '',
   youtube: '',
+  telegram: '',
+  discord: '',
+  bluesky: '',
+  mastodon: '',
 })
 
 function showModal(tab?: 'domains' | 'social') {

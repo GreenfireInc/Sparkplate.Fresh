@@ -1,146 +1,150 @@
 <template>
-  <Teleport to="body">
-    <Transition name="modal">
-      <div v-if="open" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50" @click.self="closeModal">
-        <div class="w-full max-w-md bg-blue-600 rounded-2xl shadow-xl overflow-hidden">
-          <!-- Blue Header Section -->
-          <div class="bg-blue-600 px-8 pt-16 pb-10 text-center rounded-t-2xl">
-            <div class="w-16 h-16 bg-white/20 rounded-full mx-auto mt-4 mb-4 flex items-center justify-center">
-              <Server :size="32" class="text-white" />
+  <DialogRoot v-model:open="openModel">
+    <DialogPortal>
+      <DialogOverlay class="ssm-overlay" />
+      <DialogContent class="ssm-content" :aria-describedby="undefined">
+
+        <!-- Header -->
+        <div class="ssm-header">
+          <div class="ssm-header-icon">
+            <Server :size="28" class="ssm-header-server-icon" />
+          </div>
+          <DialogTitle class="ssm-title">{{ t('connectToServerTitle') }}</DialogTitle>
+          <p class="ssm-subtitle">{{ t('selectLoginMethodDescription') }}</p>
+        </div>
+
+        <!-- Body -->
+        <div class="ssm-body">
+
+          <!-- Protocol picker -->
+          <div class="ssm-field">
+            <Label class="ssm-label">{{ t('loginMethod') }}</Label>
+            <div class="ssm-protocol-grid">
+              <button
+                v-for="proto in protocols"
+                :key="proto.value"
+                type="button"
+                class="ssm-protocol-btn"
+                :class="{ 'ssm-protocol-btn--active': connectionType === proto.value }"
+                @click="connectionType = proto.value"
+              >
+                <img :src="proto.icon" :alt="proto.label" class="ssm-protocol-icon" />
+                <span class="ssm-protocol-label">{{ proto.label }}</span>
+              </button>
             </div>
-            <h2 class="text-2xl font-light text-white">{{ t('connectToServerTitle') }}</h2>
-            <p class="text-white/80 mt-1 font-light">{{ t('selectLoginMethodDescription') }}</p>
           </div>
 
-          <!-- White Content Section -->
-          <div class="px-8 pt-12 pb-8 space-y-4 bg-white">
-            <!-- Connection Type Selection -->
-            <div class="space-y-2">
-              <label class="text-sm font-medium text-gray-700 pl-3">{{ t('loginMethod') }}</label>
-              <div class="relative">
-                <select
-                  v-model="connectionType"
-                  class="w-full bg-gray-50 border border-gray-300 text-gray-900 rounded h-10 px-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all duration-200 outline-none"
-                >
-                  <option value="ldap">{{ t('loginViaLdap') }}</option>
-                  <option value="activedirectory">{{ t('activeDirectory') }}</option>
-                  <option value="webrtc">{{ t('webRTC') }}</option>
-                  <option value="colyseus">{{ t('colyseus') }}</option>
-                </select>
-              </div>
+          <!-- Server URL -->
+          <div class="ssm-field">
+            <Label class="ssm-label">{{ t('serverUrl') }}</Label>
+            <div class="ssm-input-wrap">
+              <Server :size="14" class="ssm-input-icon" />
+              <input
+                v-model="serverUrl"
+                type="text"
+                :placeholder="getPlaceholder()"
+                class="ssm-input"
+              />
             </div>
+          </div>
 
-            <!-- Server URL Input -->
-            <div class="space-y-2">
-              <label class="text-sm font-medium text-gray-700 pl-3">{{ t('serverUrl') }}</label>
-              <div class="relative">
-                <Server :size="16" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
-                <input
-                  v-model="serverUrl"
-                  type="text"
-                  :placeholder="getPlaceholder()"
-                  style="padding-left: 2.5rem;"
-                  class="w-full bg-gray-50 border border-gray-300 text-gray-900 placeholder:text-gray-400 rounded h-10 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all duration-200 outline-none"
-                />
-              </div>
-            </div>
+          <!-- Description -->
+          <p class="ssm-description">{{ getDescription() }}</p>
 
-            <!-- Description -->
-            <div class="text-xs text-gray-600 bg-gray-50 rounded-lg p-3">
-              {{ getDescription() }}
-            </div>
-
-            <!-- Connect Button -->
-            <div class="bg-gray-50 rounded-lg p-3">
-              <button
-                @click="handleConnect"
-                :disabled="!serverUrl || isConnecting"
-                style="background-color: #2563eb;"
-                class="w-full hover:bg-blue-700 text-white font-medium rounded h-10 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-              >
-                <Server v-if="!isConnecting" :size="16" />
-                <div v-if="isConnecting" class="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                {{ isConnecting ? t('connecting') : t('connect') }}
-              </button>
-            </div>
-
-            <!-- Footer Links -->
-            <div class="mt-6 text-center">
-              <button 
-                @click="closeModal"
-                class="text-blue-600 hover:underline text-sm font-medium focus:outline-none focus:ring-0 border-0"
-              >
-                {{ t('cancel') }}
-              </button>
-            </div>
+          <!-- Actions -->
+          <div class="ssm-actions">
+            <button
+              type="button"
+              class="ssm-btn ssm-btn--primary"
+              :disabled="!serverUrl || isConnecting"
+              @click="handleConnect"
+            >
+              <div v-if="isConnecting" class="ssm-spinner" />
+              <Server v-else :size="14" />
+              {{ isConnecting ? t('connecting') : t('connect') }}
+            </button>
+            <DialogClose class="ssm-btn ssm-btn--ghost">
+              {{ t('cancel') }}
+            </DialogClose>
           </div>
         </div>
-      </div>
-    </Transition>
-  </Teleport>
+
+      </DialogContent>
+    </DialogPortal>
+  </DialogRoot>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import {
+  DialogRoot,
+  DialogPortal,
+  DialogOverlay,
+  DialogContent,
+  DialogTitle,
+  DialogClose,
+  Label,
+} from 'radix-vue'
 import { Server } from 'lucide-vue-next'
 import { useI18n } from '@/composables/useI18n'
 
-interface ServerSelectionModalProps {
+interface Props {
   open: boolean
 }
 
-const props = defineProps<ServerSelectionModalProps>()
+const props = defineProps<Props>()
 const emit = defineEmits<{
   'update:open': [value: boolean]
   connect: [serverUrl: string, connectionType: string]
 }>()
 
+const openModel = computed({
+  get: () => props.open,
+  set: (val) => emit('update:open', val),
+})
+
 const { t } = useI18n()
 
-const connectionType = ref<'ldap' | 'activedirectory' | 'webrtc' | 'colyseus'>('ldap')
+const protocols = [
+  { value: 'activedirectory', label: t('activeDirectory'), icon: '/assets/icons/protocols/activeDirectory.svg' },
+  { value: 'webrtc',          label: t('webRTC'),          icon: '/assets/icons/protocols/webRTC.svg' },
+  { value: 'colyseus',        label: t('colyseus'),        icon: '/assets/icons/protocols/colyseus.svg' },
+  { value: 'peerjs',          label: 'PeerJS',             icon: '/assets/icons/protocols/peerJS.svg' },
+] as const
+
+type ConnectionType = 'ldap' | 'activedirectory' | 'webrtc' | 'colyseus' | 'peerjs'
+
+const connectionType = ref<ConnectionType>('activedirectory')
 const serverUrl = ref('')
 const isConnecting = ref(false)
 
 const getPlaceholder = () => {
   switch (connectionType.value) {
-    case 'ldap':
-      return 'ldap://ldap.example.com:389'
-    case 'activedirectory':
-      return 'ldap://ad.example.com:389'
-    case 'webrtc':
-      return 'wss://webrtc.example.com:9000'
-    case 'colyseus':
-      return 'ws://colyseus.example.com:2567'
-    default:
-      return 'ldap://ldap.example.com:389'
+    case 'ldap':            return 'ldap://ldap.example.com:389'
+    case 'activedirectory': return 'ldap://ad.example.com:389'
+    case 'webrtc':          return 'wss://webrtc.example.com:9000'
+    case 'colyseus':        return 'ws://colyseus.example.com:2567'
+    case 'peerjs':          return 'https://peerjs.example.com:9000'
+    default:                return 'ldap://ldap.example.com:389'
   }
 }
 
 const getDescription = () => {
   switch (connectionType.value) {
-    case 'ldap':
-      return t('ldapDescription')
-    case 'activedirectory':
-      return t('adDescription')
-    case 'webrtc':
-      return t('webrtcDescription')
-    case 'colyseus':
-      return t('colyseusDescription')
-    default:
-      return t('selectLoginMethodDescription')
+    case 'ldap':            return t('ldapDescription')
+    case 'activedirectory': return t('adDescription')
+    case 'webrtc':          return t('webrtcDescription')
+    case 'colyseus':        return t('colyseusDescription')
+    case 'peerjs':          return t('peerjsDescription')
+    default:                return t('selectLoginMethodDescription')
   }
 }
 
 const handleConnect = async () => {
   if (!serverUrl.value) return
-  
   isConnecting.value = true
-  
   try {
-    // Simulate connection attempt
     await new Promise(resolve => setTimeout(resolve, 1500))
-    
-    console.log(`Connecting via ${connectionType.value}: ${serverUrl.value}`)
     emit('connect', serverUrl.value, connectionType.value)
     closeModal()
   } catch (error) {
@@ -151,21 +155,270 @@ const handleConnect = async () => {
 }
 
 const closeModal = () => {
-  emit('update:open', false)
+  openModel.value = false
   serverUrl.value = ''
-  connectionType.value = 'ldap'
+  connectionType.value = 'activedirectory'
   isConnecting.value = false
 }
 </script>
 
-<style scoped>
-.modal-enter-active,
-.modal-leave-active {
-  transition: opacity 0.3s ease;
+<style lang="scss" scoped>
+/* ── Overlay ─────────────────────────────────────────────────────────────── */
+.ssm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+  animation: ssm-fade 0.15s ease;
 }
 
-.modal-enter-from,
-.modal-leave-to {
-  opacity: 0;
+/* ── Dialog ──────────────────────────────────────────────────────────────── */
+.ssm-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 420px;
+  max-width: calc(100vw - 2rem);
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 1001;
+  animation: ssm-slide-up 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+.ssm-header {
+  background: #2563eb;
+  padding: 2rem 2rem 1.75rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ssm-header-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.ssm-header-server-icon {
+  color: #ffffff;
+}
+
+.ssm-title {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #ffffff;
+  margin: 0;
+}
+
+.ssm-subtitle {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  font-weight: 300;
+}
+
+/* ── Body ────────────────────────────────────────────────────────────────── */
+.ssm-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ── Field / Label ───────────────────────────────────────────────────────── */
+.ssm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ssm-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #374151;
+  padding-left: 0.125rem;
+}
+
+/* ── Protocol grid ───────────────────────────────────────────────────────── */
+.ssm-protocol-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.ssm-protocol-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.6rem 0.4rem;
+  background: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+
+  &:hover {
+    background: #eff6ff;
+    border-color: #93c5fd;
+  }
+
+  &--active {
+    background: #eff6ff;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.18);
+
+    .ssm-protocol-label {
+      color: #2563eb;
+    }
+  }
+}
+
+.ssm-protocol-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.ssm-protocol-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: #4b5563;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* ── Input ───────────────────────────────────────────────────────────────── */
+.ssm-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ssm-input-icon {
+  position: absolute;
+  left: 0.65rem;
+  color: #9ca3af;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.ssm-input {
+  width: 100%;
+  padding: 0.45rem 0.75rem 0.45rem 2rem;
+  font-size: 0.8rem;
+  color: #111827;
+  background: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+
+  &:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+    background: #ffffff;
+  }
+}
+
+/* ── Description ─────────────────────────────────────────────────────────── */
+.ssm-description {
+  font-size: 0.75rem;
+  color: #6b7280;
+  background: #f9fafb;
+  border-radius: 0.375rem;
+  padding: 0.6rem 0.75rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Actions ─────────────────────────────────────────────────────────────── */
+.ssm-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 0.25rem;
+}
+
+.ssm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.15s, border-color 0.15s, opacity 0.15s;
+
+  &--primary {
+    background: #2563eb;
+    color: #ffffff;
+
+    &:hover:not(:disabled) {
+      background: #1d4ed8;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: #2563eb;
+    border: none;
+    font-weight: 400;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.ssm-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: ssm-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+/* ── Animations ──────────────────────────────────────────────────────────── */
+@keyframes ssm-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes ssm-slide-up {
+  from { opacity: 0; transform: translate(-50%, -47%); }
+  to   { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+@keyframes ssm-spin {
+  to { transform: rotate(360deg); }
 }
 </style>
