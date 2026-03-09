@@ -113,7 +113,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { Fingerprint } from 'lucide-vue-next'
 import UserCard from '../user/UserCard.vue'
-import SignupModal from '../registration/SignupModal.vue'
+import SignupModal from '../registration/01.registration.signUp.vue'
 import UserModal from '../user/UserModal.vue'
 import LoginOptions from './LoginOptions.vue'
 import { useUnifiedTranslations } from '@/composables/useUnifiedTranslations'
