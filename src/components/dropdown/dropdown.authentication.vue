@@ -21,13 +21,15 @@
           </router-link>
         </DropdownMenuItem>
         <DropdownMenuSeparator class="auth-dropdown-separator" />
-        <DropdownMenuItem class="auth-dropdown-item auth-dropdown-item--logout" @click="handleLogout">
+        <DropdownMenuItem class="auth-dropdown-item auth-dropdown-item--logout" @click="openLogoutDialog">
           <LogOut :size="16" />
           {{ t('logout') }}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenuPortal>
   </DropdownMenuRoot>
+
+  <LogoutAlert v-model:open="logoutDialogOpen" @confirm="confirmLogout" />
 </template>
 
 <script setup lang="ts">
@@ -41,6 +43,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from 'radix-vue'
+import LogoutAlert from '@/components/modals/alerts/alerts.logout.vue'
 import { useAuth } from '@/composables/useAuth'
 import { useI18n } from '@/composables/useI18n'
 
@@ -48,16 +51,20 @@ const { logout, currentUser, isAuthenticated } = useAuth()
 const { t } = useI18n()
 
 const userMenuOpen = ref(false)
+const logoutDialogOpen = ref(false)
 
 function closeMenu() {
   userMenuOpen.value = false
 }
 
-function handleLogout() {
-  if (confirm(t('logoutConfirm'))) {
-    logout()
-    closeMenu()
-  }
+function openLogoutDialog() {
+  closeMenu()
+  logoutDialogOpen.value = true
+}
+
+function confirmLogout() {
+  logout()
+  closeMenu()
 }
 </script>
 
