@@ -246,8 +246,10 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .net-view {
+  height: 100%;
+  overflow-y: auto;
   padding: 1.5rem;
-  min-height: 100vh;
+  min-height: 0;
   background: #fff;
 }
 
