@@ -145,6 +145,7 @@ ipcMain.handle('open-win', (_, arg) => {
 ipcMain.handle('preloadAppData', () => {
   return {
     hostname: os.hostname(),
+    username: os.userInfo().username,
     osVersion: os.release(),
     systemMemory: os.totalmem(),
     processor: os.cpus()[0].model,

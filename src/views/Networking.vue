@@ -1,34 +1,42 @@
 <template>
-  <div class="view networking">
-    <div class="content">
-      <h1 class="text-3xl font-bold mb-8 text-center">Network Discovery</h1>
-      <p class="text-lg mb-6 text-center text-gray-600">
+  <div class="net-view">
+    <div class="net-content">
+      <h1 class="net-title">Network Discovery</h1>
+      <p class="net-subtitle">
         Discover other Sparkplate instances running on your local network
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div class="card">
-          <h3 class="text-xl font-semibold mb-4">Network Status</h3>
-          <NetworkStatus :vertical="true" :showLocalIp="true" :showPublicIp="true" :showCountry="false" />
-          <!-- <div class="status-item">
-            <span class="label">Port:</span>
-            <span class="value">{{ networkStatus.port }}</span>
-          </div> -->
+      <div class="net-grid net-grid--top">
+        <div class="net-card">
+          <h3 class="net-card-header">Network Status</h3>
+          <div class="net-card-row">
+            <div class="net-card-main">
+              <NetworkStatus :vertical="true" :showLocalIp="true" :showPublicIp="true" :showCountry="false" />
+            </div>
+            <div class="net-machine">
+              <div class="net-machine-icon-wrap">
+                <i class="bi bi-pc-display net-machine-icon" aria-hidden />
+              </div>
+              <p class="net-machine-prompt">{{ machinePrompt }}</p>
+            </div>
+          </div>
         </div>
 
-        <div class="card">
-          <h3 class="text-xl font-semibold mb-4">Discovery Controls</h3>
-          <div class="space-y-3">
-            <button 
-              @click="startDiscovery" 
+        <div class="net-card">
+          <h3 class="net-card-header">Discovery Controls</h3>
+          <div class="net-actions">
+            <button
+              type="button"
+              class="net-btn net-btn--primary"
               :disabled="isScanning"
-              class="btn btn-primary w-full"
+              @click="startDiscovery"
             >
               {{ isScanning ? 'Scanning...' : 'Start Network Scan' }}
             </button>
-            <button 
-              @click="refreshInstances" 
-              class="btn btn-secondary w-full"
+            <button
+              type="button"
+              class="net-btn net-btn--secondary"
+              @click="refreshInstances"
             >
               Refresh List
             </button>
@@ -36,55 +44,57 @@
         </div>
       </div>
 
-      <div class="card">
-        <h3 class="text-xl font-semibold mb-4">Discovered Instances ({{ discoveredInstances.length }})</h3>
-        
-        <div v-if="discoveredInstances.length === 0" class="text-center py-8 text-gray-500">
-          No Sparkplate instances found on the network.
-          <br>Click "Start Network Scan" to search for instances.
+      <div class="net-card">
+        <h3 class="net-card-header">Discovered Instances ({{ discoveredInstances.length }})</h3>
+
+        <div v-if="discoveredInstances.length === 0" class="net-empty">
+          <p>No Sparkplate instances found on the network.</p>
+          <p>Click "Start Network Scan" to search for instances.</p>
         </div>
 
-        <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div 
-            v-for="instance in discoveredInstances" 
+        <div v-else class="net-grid net-grid--instances">
+          <div
+            v-for="instance in discoveredInstances"
             :key="instance.id"
-            class="instance-card"
+            class="net-instance"
           >
-            <div class="instance-header">
-              <h4 class="font-semibold">{{ instance.name }}</h4>
-              <span class="status-badge" :class="instance.online ? 'online' : 'offline'">
+            <div class="net-instance-header">
+              <h4 class="net-instance-name">{{ instance.name }}</h4>
+              <span class="net-instance-badge" :class="instance.online ? 'net-instance-badge--online' : 'net-instance-badge--offline'">
                 {{ instance.online ? 'Online' : 'Offline' }}
               </span>
             </div>
-            <div class="instance-details">
-              <div class="detail-item">
-                <span class="label">IP:</span>
-                <span class="value">{{ instance.ip }}</span>
+            <div class="net-instance-details">
+              <div class="net-instance-row">
+                <span class="net-instance-label">IP:</span>
+                <span class="net-instance-value">{{ instance.ip }}</span>
               </div>
-              <div class="detail-item">
-                <span class="label">Port:</span>
-                <span class="value">{{ instance.port }}</span>
+              <div class="net-instance-row">
+                <span class="net-instance-label">Port:</span>
+                <span class="net-instance-value">{{ instance.port }}</span>
               </div>
-              <div class="detail-item">
-                <span class="label">Version:</span>
-                <span class="value">{{ instance.version }}</span>
+              <div class="net-instance-row">
+                <span class="net-instance-label">Version:</span>
+                <span class="net-instance-value">{{ instance.version }}</span>
               </div>
-              <div class="detail-item">
-                <span class="label">Last Seen:</span>
-                <span class="value">{{ formatTime(instance.lastSeen) }}</span>
+              <div class="net-instance-row">
+                <span class="net-instance-label">Last Seen:</span>
+                <span class="net-instance-value">{{ formatTime(instance.lastSeen) }}</span>
               </div>
             </div>
-            <div class="instance-actions">
-              <button 
-                @click="connectToInstance(instance)" 
-                class="btn btn-sm btn-primary"
+            <div class="net-instance-actions">
+              <button
+                type="button"
+                class="net-btn net-btn--sm net-btn--primary"
                 :disabled="!instance.online"
+                @click="connectToInstance(instance)"
               >
                 Connect
               </button>
-              <button 
-                @click="pingInstance(instance)" 
-                class="btn btn-sm btn-secondary"
+              <button
+                type="button"
+                class="net-btn net-btn--sm net-btn--secondary"
+                @click="pingInstance(instance)"
               >
                 Ping
               </button>
@@ -93,17 +103,17 @@
         </div>
       </div>
 
-      <div class="card">
-        <h3 class="text-xl font-semibold mb-4">Connection Log</h3>
-        <div class="log-container">
-          <div 
-            v-for="(log, index) in connectionLog" 
+      <div class="net-card">
+        <h3 class="net-card-header">Connection Log</h3>
+        <div class="net-log">
+          <div
+            v-for="(log, index) in connectionLog"
             :key="index"
-            class="log-entry"
-            :class="log.type"
+            class="net-log-entry"
+            :class="`net-log-entry--${log.type}`"
           >
-            <span class="timestamp">{{ formatTime(log.timestamp) }}</span>
-            <span class="message">{{ log.message }}</span>
+            <span class="net-log-time">{{ formatTime(log.timestamp) }}</span>
+            <span class="net-log-msg">{{ log.message }}</span>
           </div>
         </div>
       </div>
@@ -112,8 +122,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import NetworkStatus from '@/components/global/NetworkStatus.vue'
+
+defineOptions({ name: 'Networking' })
+
+const machinePrompt = computed(() => {
+  const hostname = window.appData?.hostname ?? ''
+  const username = window.appData?.username ?? ''
+  if (!hostname && !username) return '—'
+  return `${hostname}@${username}$`
+})
 
 interface NetworkInstance {
   id: string
@@ -155,12 +174,10 @@ const addLog = (type: LogEntry['type'], message: string) => {
 const startDiscovery = async () => {
   isScanning.value = true
   addLog('info', 'Starting network discovery...')
-  
+
   try {
-    // Simulate network discovery
     await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    // Mock discovered instances
+
     const mockInstances: NetworkInstance[] = [
       {
         id: '1',
@@ -181,7 +198,7 @@ const startDiscovery = async () => {
         lastSeen: new Date(Date.now() - 60000)
       }
     ]
-    
+
     discoveredInstances.value = mockInstances
     addLog('success', `Discovery complete. Found ${mockInstances.length} instances.`)
   } catch (error) {
@@ -201,7 +218,6 @@ const refreshInstances = () => {
 
 const connectToInstance = (instance: NetworkInstance) => {
   addLog('info', `Attempting to connect to ${instance.name} (${instance.ip}:${instance.port})...`)
-  // Simulate connection attempt
   setTimeout(() => {
     if (Math.random() > 0.3) {
       addLog('success', `Successfully connected to ${instance.name}`)
@@ -229,163 +245,296 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.networking {
-  padding: 2rem;
+.net-view {
+  padding: 1.5rem;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: #fff;
+}
 
-  .content {
-    max-width: 1200px;
-    margin: 0 auto;
+.net-content {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.net-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 0.5rem;
+  color: #1f2937;
+}
+
+.net-subtitle {
+  font-size: 1rem;
+  text-align: center;
+  margin: 0 0 1.5rem;
+  color: #6b7280;
+}
+
+/* ── Cards ───────────────────────────────────────────────────────────────── */
+.net-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.net-card-header {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: #1f2937;
+}
+
+.net-card-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.net-card-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.net-machine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.net-machine-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.net-machine-icon {
+  font-size: 1.75rem;
+  color: #6b7280;
+}
+
+.net-machine-prompt {
+  font-family: ui-monospace, 'Cascadia Code', monospace;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+  word-break: break-all;
+}
+
+/* ── Grid ─────────────────────────────────────────────────────────────────── */
+.net-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.net-grid--top {
+  grid-template-columns: 1fr;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 48rem) {
+  .net-grid--top {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.net-grid--instances {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 48rem) {
+  .net-grid--instances {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 64rem) {
+  .net-grid--instances {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* ── Actions ─────────────────────────────────────────────────────────────── */
+.net-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.net-btn {
+  padding: 0.625rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
-  .card {
-    background: white;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  &--primary {
+    background: var(--net-accent, #3b82f6);
+    color: #fff;
+
+    &:hover:not(:disabled) {
+      background: var(--net-accent-hover, #2563eb);
+    }
   }
 
-  .status-item, .detail-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #f0f0f0;
+  &--secondary {
+    background: #e5e7eb;
+    color: #374151;
+
+    &:hover:not(:disabled) {
+      background: #d1d5db;
+    }
+  }
+
+  &--sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+}
+
+/* ── Empty state ───────────────────────────────────────────────────────────── */
+.net-empty {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #6b7280;
+  font-size: 0.9375rem;
+
+  p {
+    margin: 0 0 0.25rem;
 
     &:last-child {
-      border-bottom: none;
-    }
-
-    .label {
-      font-weight: 600;
-      color: #6b7280;
-    }
-
-    .value {
-      color: #1f2937;
-    }
-  }
-
-  .status.connected {
-    color: #10b981;
-    font-weight: 600;
-  }
-
-  .btn {
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: all 0.2s;
-    border: none;
-    cursor: pointer;
-
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    &.btn-primary {
-      background: #3b82f6;
-      color: white;
-
-      &:hover:not(:disabled) {
-        background: #2563eb;
-      }
-    }
-
-    &.btn-secondary {
-      background: #e5e7eb;
-      color: #374151;
-
-      &:hover:not(:disabled) {
-        background: #d1d5db;
-      }
-    }
-
-    &.btn-sm {
-      padding: 0.5rem 1rem;
-      font-size: 0.875rem;
-    }
-  }
-
-  .instance-card {
-    background: #f9fafb;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 1rem;
-
-    .instance-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-
-      .status-badge {
-        padding: 0.25rem 0.75rem;
-        border-radius: 12px;
-        font-size: 0.75rem;
-        font-weight: 600;
-
-        &.online {
-          background: #d1fae5;
-          color: #065f46;
-        }
-
-        &.offline {
-          background: #fee2e2;
-          color: #991b1b;
-        }
-      }
-    }
-
-    .instance-actions {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-  }
-
-  .log-container {
-    max-height: 300px;
-    overflow-y: auto;
-    background: #f9fafb;
-    border-radius: 8px;
-    padding: 1rem;
-
-    .log-entry {
-      display: flex;
-      gap: 1rem;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #e5e7eb;
-      font-family: monospace;
-      font-size: 0.875rem;
-
-      &:last-child {
-        border-bottom: none;
-      }
-
-      .timestamp {
-        color: #6b7280;
-        min-width: 80px;
-      }
-
-      &.info .message {
-        color: #3b82f6;
-      }
-
-      &.success .message {
-        color: #10b981;
-      }
-
-      &.warning .message {
-        color: #f59e0b;
-      }
-
-      &.error .message {
-        color: #ef4444;
-      }
+      margin-bottom: 0;
     }
   }
 }
-</style> 
+
+/* ── Instances ────────────────────────────────────────────────────────────── */
+.net-instance {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  padding: 1rem;
+}
+
+.net-instance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.net-instance-name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin: 0;
+  color: #1f2937;
+}
+
+.net-instance-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+
+  &--online {
+    background: #d1fae5;
+    color: #065f46;
+  }
+
+  &--offline {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+}
+
+.net-instance-details {
+  margin-bottom: 0.75rem;
+}
+
+.net-instance-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 0;
+  font-size: 0.8125rem;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #e5e7eb;
+  }
+}
+
+.net-instance-label {
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.net-instance-value {
+  color: #1f2937;
+}
+
+.net-instance-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ── Log ─────────────────────────────────────────────────────────────────── */
+.net-log {
+  max-height: 16rem;
+  overflow-y: auto;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+}
+
+.net-log-entry {
+  display: flex;
+  gap: 1rem;
+  padding: 0.375rem 0;
+  font-family: ui-monospace, monospace;
+  font-size: 0.8125rem;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #e5e7eb;
+  }
+}
+
+.net-log-time {
+  flex-shrink: 0;
+  min-width: 5rem;
+  color: #6b7280;
+}
+
+.net-log-msg {
+  color: inherit;
+}
+
+.net-log-entry--info .net-log-msg {
+  color: #2563eb;
+}
+
+.net-log-entry--success .net-log-msg {
+  color: #059669;
+}
+
+.net-log-entry--warning .net-log-msg {
+  color: #d97706;
+}
+
+.net-log-entry--error .net-log-msg {
+  color: #dc2626;
+}
+</style>
