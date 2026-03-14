@@ -50,6 +50,7 @@ declare global {
 
   interface AppData {
     hostname: string;
+    username?: string;
     osVersion: string;
     systemMemory: number;
     processor: string;
