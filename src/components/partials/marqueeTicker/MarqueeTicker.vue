@@ -69,50 +69,83 @@
     </div>
 
     <!-- Coin Details Modal -->
-    <div v-if="selectedCoin" class="coin-modal" @click="closeModal">
-      <div class="modal-content" @click.stop>
-        <div class="modal-header">
-          <img
-            :src="`./assets/icons/crypto/${selectedCoin.symbol.toLowerCase()}.svg`"
-            :alt="selectedCoin.symbol"
-            class="modal-coin-icon"
-          />
-          <div class="coin-title">
-            <h3>{{ selectedCoin.name }} ({{ selectedCoin.symbol }})</h3>
-          </div>
-        </div>
-        <div class="coin-metrics">
-          <p>{{ t('currentPrice') }} ${{ formatPrice(selectedCoin.price) }}</p>
-          <p>
-            {{ t('change24h') }}
-            <span
-              :class="selectedCoin.priceChange > 0 ? 'price-up' : 'price-down'"
-              >{{ selectedCoin.priceChange > 0 ? '+' : ''
-              }}{{ selectedCoin.priceChange.toFixed(2) }}%</span
+    <DialogRoot :open="!!selectedCoin" @update:open="onDialogOpenChange">
+      <DialogPortal>
+        <DialogOverlay class="mt-modal-overlay" />
+        <DialogContent class="mt-modal-content" :aria-describedby="undefined">
+          <div v-if="selectedCoin" class="mt-modal-inner">
+            <div class="mt-modal-header">
+              <img
+                :src="`./assets/icons/crypto/${selectedCoin.symbol.toLowerCase()}.svg`"
+                :alt="selectedCoin.symbol"
+                class="mt-modal-icon"
+              />
+              <DialogTitle class="mt-modal-title">
+                {{ selectedCoin.name }} ({{ selectedCoin.symbol }})
+              </DialogTitle>
+            </div>
+            <div class="mt-modal-metrics">
+              <div class="mt-modal-row">
+                <span class="mt-modal-label">{{ t('currentPrice') }}</span>
+                <span class="mt-modal-value">${{ formatPrice(selectedCoin.price) }}</span>
+              </div>
+              <div class="mt-modal-row">
+                <span class="mt-modal-label">{{ t('change24h') }}</span>
+                <span
+                  class="mt-modal-value"
+                  :class="selectedCoin.priceChange > 0 ? 'mt-modal-value--up' : 'mt-modal-value--down'"
+                >
+                  {{ selectedCoin.priceChange > 0 ? '+' : '' }}{{ selectedCoin.priceChange.toFixed(2) }}%
+                </span>
+              </div>
+              <div class="mt-modal-row">
+                <span class="mt-modal-label">{{ t('marketCap') }}</span>
+                <span class="mt-modal-value">${{ formatMarketCap(selectedCoin.marketCap) }}</span>
+              </div>
+            </div>
+            <a
+              :href="`https://gemini.com/share/jwqzg5fe`"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-modal-link"
             >
-          </p>
-          <p>{{ t('marketCap') }} ${{ formatMarketCap(selectedCoin.marketCap) }}</p>
-        </div>
-        <a
-          :href="`https://gemini.com/share/jwqzg5fe`"
-          target="_blank"
-          class="gemini-link"
-        >
-          {{ t('tradeOnGemini') }}
-        </a>
-        <button @click="closeModal">{{ t('close') }}</button>
-      </div>
-    </div>
+            {{ t('tradeOnGemini') }}
+              <img src="/assets/icons/exchanges/gemini.svg" alt="Gemini" class="mt-modal-link-icon" />
+              
+            </a>
+            <DialogClose class="mt-modal-close">
+              {{ t('close') }}
+            </DialogClose>
+          </div>
+        </DialogContent>
+      </DialogPortal>
+    </DialogRoot>
   </div>
 </template>
 
 <script>
+import {
+  DialogRoot,
+  DialogPortal,
+  DialogOverlay,
+  DialogContent,
+  DialogTitle,
+  DialogClose,
+} from 'radix-vue'
 import { useI18n } from '@/composables/useI18n'
 import { COINBASE50 } from '@/lib/cores/currencyCore/indexComposites/coinbase50'
 import { coinGeckoAPI } from '@/lib/cores/currencyCore/aggregators/coinGeckoAPI'
 
 export default {
   name: 'MarqueeTicker',
+  components: {
+    DialogRoot,
+    DialogPortal,
+    DialogOverlay,
+    DialogContent,
+    DialogTitle,
+    DialogClose,
+  },
   setup() {
     const { t } = useI18n()
     return { t }
@@ -200,6 +233,9 @@ export default {
       this.selectedCoin = null
       this.isPaused = false
       this.$refs.marqueeContent.style.animationPlayState = 'running'
+    },
+    onDialogOpenChange(open) {
+      if (!open) this.closeModal()
     }
   },
   mounted() {
@@ -297,101 +333,133 @@ export default {
   }
 }
 
-.coin-modal {
+/* ── Modal: Radix Dialog (portals to body, use unscoped block below) ── */
+</style>
+
+<!-- Unscoped: DialogPortal teleports to body -->
+<style>
+.mt-modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
 }
 
-.modal-content {
-  background-color: #262b38;
-  padding: 20px;
-  border-radius: 8px;
-  color: #fff;
-  max-width: 400px;
-  width: 90%;
+.mt-modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #262b38;
+  border-radius: 0.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  padding: 0;
+  max-width: 22rem;
+  width: 92vw;
+  z-index: 9999;
+  overflow: hidden;
 }
 
-.coin-metrics {
-  margin: 15px 0;
-  text-align: left; /* Explicitly set left alignment for the metrics content */
-  width: 100%;
+.mt-modal-inner {
+  padding: 1.25rem;
 }
 
-.coin-metrics p {
-  margin: 8px 0;
-  text-align: left;
-}
-
-.modal-header {
+.mt-modal-header {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
-  text-align: left;
-  width: 100%;
-  justify-content: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
 }
 
-.modal-coin-icon {
-  width: 36px;
-  height: 36px;
-  margin-right: 8px; /* Reduced from 12px to 8px to close the gap */
+.mt-modal-icon {
+  width: 2.25rem;
+  height: 2.25rem;
   flex-shrink: 0;
 }
 
-.coin-title {
+.mt-modal-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.mt-modal-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.mt-modal-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.mt-modal-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.mt-modal-value {
+  color: #fff;
+  font-weight: 500;
+}
+
+.mt-modal-value--up {
+  color: #4ade80;
+}
+
+.mt-modal-value--down {
+  color: #f87171;
+}
+
+.mt-modal-link {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  width: calc(100% - 44px); /* Account for icon width + margin */
-}
-
-.modal-content h3 {
-  text-align: left;
-  margin: 0;
-  font-size: 1.5rem;
-  line-height: 1.2;
-  font-weight: 600;
+  justify-content: center;
+  gap: 0.5rem;
   width: 100%;
-}
-
-.gemini-link {
-  display: block; /* Changed from inline-block to block */
-  background-color: #4ade80;
+  background: #4ade80;
   color: #fff;
-  padding: 10px 16px;
-  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
   text-decoration: none;
-  margin: 15px auto; /* Center the link with auto margins */
-  width: fit-content; /* Make the button only as wide as its content */
-  text-align: center;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  margin-bottom: 0.75rem;
+  transition: background 0.15s;
 }
 
-.gemini-link:hover {
-  background-color: #3acf70;
+.mt-modal-link-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
 }
 
-button {
-  background-color: #f87171;
+.mt-modal-link:hover {
+  background: #22c55e;
+}
+
+.mt-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: #374151;
   color: #fff;
   border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
+  border-radius: 0.375rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
   cursor: pointer;
-  margin-top: 10px;
-  display: block;
-  width: 100%;
+  transition: background 0.15s;
 }
 
-button:hover {
-  background-color: #ef4444;
+.mt-modal-close:hover {
+  background: #4b5563;
 }
 </style> 
