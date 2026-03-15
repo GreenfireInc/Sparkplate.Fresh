@@ -2,7 +2,7 @@
   <DialogRoot v-model:open="openModel">
     <DialogPortal>
       <DialogOverlay class="um-overlay" />
-      <DialogContent class="um-content" :aria-describedby="undefined">
+      <DialogContent class="um-content" :class="{ 'um-content--wide': showStegPanel }" :aria-describedby="undefined">
         <!-- Header -->
         <div class="um-header">
           <div class="um-avatar">
@@ -12,46 +12,77 @@
           <p class="um-subtitle">{{ userEmail }}</p>
         </div>
 
-        <!-- Body -->
-        <div class="um-body">
-          <div class="um-field">
-            <Label for="um-password" class="um-label">{{ t('password') }}</Label>
-            <div class="um-input-wrap">
-              <Lock :size="16" class="um-input-icon" aria-hidden />
-              <input
-                id="um-password"
-                ref="passwordInput"
-                v-model="password"
-                :type="showPassword ? 'text' : 'password'"
-                :placeholder="t('password')"
-                class="um-input"
-                @keyup.enter="handleSignIn"
-              />
+        <!-- Body + optional side panel -->
+        <div class="um-body-wrap" :class="{ 'um-body-wrap--panel-open': showStegPanel }">
+          <div class="um-body">
+            <div class="um-field">
+              <Label for="um-password" class="um-label">{{ t('password') }}</Label>
+              <div class="um-input-wrap">
+                <Lock :size="16" class="um-input-icon" aria-hidden />
+                <input
+                  id="um-password"
+                  ref="passwordInput"
+                  v-model="password"
+                  :type="showPassword ? 'text' : 'password'"
+                  :placeholder="t('password')"
+                  class="um-input"
+                  @keyup.enter="handleSignIn"
+                />
+                <button
+                  type="button"
+                  class="um-toggle-pw"
+                  :aria-label="showPassword ? 'Hide password' : 'Show password'"
+                  @click="showPassword = !showPassword"
+                >
+                  <EyeOff v-if="showPassword" :size="16" aria-hidden />
+                  <Eye v-else :size="16" aria-hidden />
+                </button>
+              </div>
+            </div>
+
+            <div class="um-actions">
               <button
                 type="button"
-                class="um-toggle-pw"
-                :aria-label="showPassword ? 'Hide password' : 'Show password'"
-                @click="showPassword = !showPassword"
+                class="um-btn um-btn--primary"
+                :disabled="!password"
+                @click="handleSignIn"
               >
-                <EyeOff v-if="showPassword" :size="16" aria-hidden />
-                <Eye v-else :size="16" aria-hidden />
+                {{ t('signIn') }}
+              </button>
+              <button type="button" class="um-btn um-btn--link" @click="showStegPanel = true">
+                {{ t('forgotPassword') }}
               </button>
             </div>
           </div>
 
-          <div class="um-actions">
-            <button
-              type="button"
-              class="um-btn um-btn--primary"
-              :disabled="!password"
-              @click="handleSignIn"
-            >
-              {{ t('signIn') }}
-            </button>
-            <button type="button" class="um-btn um-btn--link" @click.prevent>
-              {{ t('forgotPassword') }}
-            </button>
-          </div>
+          <!-- Hidden file input for steg image -->
+          <input
+            ref="stegFileInput"
+            type="file"
+            accept="image/*"
+            class="um-file-hidden"
+            @change="onStegFileChange"
+          />
+
+          <!-- Side panel: reveal password from steg (pop-out like LlmModal) -->
+          <Transition name="um-steg">
+            <div v-if="showStegPanel" class="um-steg-panel">
+              <button
+                type="button"
+                class="um-steg-back"
+                aria-label="Back"
+                @click="showStegPanel = false"
+              >
+                <ChevronLeft :size="20" aria-hidden />
+              </button>
+              <div class="um-steg-reveal">
+                {{ revealedPassword || '—' }}
+              </div>
+              <button type="button" class="um-btn um-btn--primary um-steg-load" @click="handleLoadSteg">
+                Load Steg
+              </button>
+            </div>
+          </Transition>
         </div>
       </DialogContent>
     </DialogPortal>
@@ -68,7 +99,7 @@ import {
   DialogTitle,
   Label,
 } from 'radix-vue'
-import { User, Lock, Eye, EyeOff } from 'lucide-vue-next'
+import { User, Lock, Eye, EyeOff, ChevronLeft } from 'lucide-vue-next'
 import { useI18n } from '@/composables/useI18n'
 import { useAuth } from '@/composables/useAuth'
 
@@ -90,6 +121,8 @@ const openModel = computed({
     if (!val) {
       password.value = ''
       showPassword.value = false
+      showStegPanel.value = false
+      revealedPassword.value = ''
     }
     emit('update:open', val)
   },
@@ -101,6 +134,22 @@ const { login, mockUsers } = useAuth()
 const password = ref('')
 const showPassword = ref(false)
 const passwordInput = ref<HTMLInputElement | null>(null)
+const showStegPanel = ref(false)
+const revealedPassword = ref('')
+const stegFileInput = ref<HTMLInputElement | null>(null)
+
+function handleLoadSteg() {
+  stegFileInput.value?.click()
+}
+
+function onStegFileChange(e: Event) {
+  const input = e.target as HTMLInputElement
+  const file = input.files?.[0]
+  if (!file) return
+  // Placeholder: actual steganography extraction would go here
+  revealedPassword.value = '(extract from ' + file.name + ')'
+  input.value = ''
+}
 
 const handleClose = () => {
   openModel.value = false
@@ -277,6 +326,7 @@ watch(
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   z-index: 9999;
+  transition: max-width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .um-header {
@@ -314,8 +364,94 @@ watch(
   margin: 0;
 }
 
+.um-body-wrap {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
 .um-body {
   padding: 1.5rem;
   background: #fff;
+  flex: 1;
+  min-width: 0;
+}
+
+.um-content--wide {
+  max-width: 32rem;
+}
+
+.um-steg-panel {
+  width: 14rem;
+  flex-shrink: 0;
+  padding: 1rem;
+  background: #f9fafb;
+  border-left: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.um-steg-back {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: color 0.15s, background 0.15s;
+}
+
+.um-steg-back:hover {
+  color: #111827;
+  background: #e5e7eb;
+}
+
+.um-steg-reveal {
+  flex: 1;
+  min-height: 4rem;
+  padding: 0.75rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-family: ui-monospace, monospace;
+  color: #374151;
+  word-break: break-all;
+}
+
+.um-steg-load {
+  width: 100%;
+}
+
+.um-file-hidden {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Pop-out transition (like LlmModal) */
+.um-steg-enter-active,
+.um-steg-leave-active {
+  transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.22s ease;
+  overflow: hidden;
+}
+
+.um-steg-enter-from,
+.um-steg-leave-to {
+  width: 0 !important;
+  opacity: 0;
+}
+
+.um-steg-enter-to,
+.um-steg-leave-from {
+  width: 14rem;
+  opacity: 1;
 }
 </style>
