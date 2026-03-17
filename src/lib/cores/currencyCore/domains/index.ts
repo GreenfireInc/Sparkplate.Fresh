@@ -205,4 +205,60 @@ export const isDomain = (input: string): boolean => {
   return ensResolver.isEnsDomain(input) || unsResolver.isUnstoppableDomain(input) || tezosDomainsResolver.isTezosDomain(input) || solanaDomainsResolver.isSolanaDomain(input) || algoDomainsResolver.isAlgoDomain(input) || stacksBnsResolver.isStacksDomain(input);
 };
 
+// UI metadata for domain services
+export interface DomainServiceMetadata {
+  name: string;
+  displayName: string;
+  extensions: string[];
+  available: boolean;
+  description?: string;
+}
+
+export function getDomainServices(): DomainServiceMetadata[] {
+  return [
+    {
+      name: 'ens',
+      displayName: 'Ethereum Name Service',
+      extensions: ['eth'],
+      available: true,
+      description: 'Resolve .eth domains to Ethereum addresses',
+    },
+    {
+      name: 'uns',
+      displayName: 'Unstoppable Domains',
+      extensions: ['x', 'crypto', 'coin', 'wallet', 'bitcoin', '888', 'nft', 'dao', 'zil', 'blockchain'],
+      available: false,
+      description: 'Resolve Unstoppable Domains to crypto addresses',
+    },
+    {
+      name: 'tezos',
+      displayName: 'Tezos Domains',
+      extensions: ['tez'],
+      available: false,
+      description: 'Resolve .tez domains to Tezos addresses',
+    },
+    {
+      name: 'algo',
+      displayName: 'Ada Domains',
+      extensions: ['ada'],
+      available: false,
+      description: 'Resolve Algorand Name Service domains',
+    },
+    {
+      name: 'sns',
+      displayName: 'Solana Name Service',
+      extensions: ['sol'],
+      available: false,
+      description: 'Resolve .sol domains to Solana addresses',
+    },
+    {
+      name: 'stacks',
+      displayName: 'Stacks',
+      extensions: ['btc', 'stx'],
+      available: false,
+      description: 'Resolve Stacks blockchain domains',
+    },
+  ];
+}
+
 
