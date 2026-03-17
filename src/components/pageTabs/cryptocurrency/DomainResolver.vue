@@ -61,35 +61,34 @@
                   </DropdownMenuContent>
                 </DropdownMenuPortal>
               </DropdownMenuRoot>
-              <Primitive
-                as="input"
+              <input
                 id="dr-domain"
                 v-model="domainAddress.domain"
-                type="search"
+                type="text"
                 class="dr-input"
                 placeholder="Enter a domain (e.g., example.eth)"
                 :aria-describedby="'dr-hint'"
-                required
+                autocomplete="off"
+                spellcheck="false"
               />
-              <Primitive
-                as="button"
+              <button
                 type="submit"
                 class="dr-submit"
-                :disabled="!isFormValid || domainAddress.loading"
+                :disabled="!domainAddress.domain.trim() || domainAddress.loading"
               >
                 <span v-if="domainAddress.loading" class="dr-spinner" aria-hidden />
                 {{ domainAddress.loading ? 'Searching...' : 'Search' }}
-              </Primitive>
+              </button>
             </div>
             <p id="dr-hint" class="dr-hint">
               Currently supporting: {{ availableDomainServices.map((s: DomainServiceMetadata) => s.extensions.map((e: string) => `.${e}`).join(', ')).join(', ') }} domains
             </p>
           </div>
 
-          <div v-if="isEthereumNameService" class="dr-info">
+          <!-- <div v-if="isEthereumNameService" class="dr-info">
             <Info :size="18" class="dr-info-icon" aria-hidden />
             <span class="dr-info-text">Ethereum Name Service selected — will resolve to ETH address</span>
-          </div>
+          </div> -->
         </div>
 
         <domain-resolution-badge
@@ -98,7 +97,7 @@
           :currency="effectiveCoinTicker"
         />
 
-        <div class="dr-about">
+        <div v-if="!domainAddress.enabled" class="dr-about">
           <h3 class="dr-about-title">About Domain Resolution</h3>
           <p class="dr-about-desc">
             This tool resolves human-readable domain names to cryptocurrency addresses using various blockchain domain services.
@@ -132,10 +131,12 @@ import {
   Primitive,
 } from 'radix-vue'
 import { ChevronDown, Info } from 'lucide-vue-next'
-import { domainMixins } from '../../../utils/mixins/domainMixins'
-import ens from '@/utils/currencyCore/domains/ens'
-import DomainResolutionBadge from '@/utils/currencyCore/domains/domainRouter.vue'
-import { getDomainServices, type DomainServiceMetadata } from '@/utils/currencyCore/domains/index'
+import {
+  resolveAddress as resolveDomainAddress,
+  isDomain as isDomainInput,
+} from '@/lib/cores/currencyCore/domains'
+import DomainResolutionBadge from '@/lib/cores/currencyCore/domains/domainRouter.vue'
+import { getDomainServices, type DomainServiceMetadata } from '@/lib/cores/currencyCore/domains'
 
 defineOptions({ name: 'DomainResolver' })
 
@@ -157,14 +158,57 @@ const unavailableDomainServices = computed(() => domainServices.filter((s) => !s
 
 const isEthereumNameService = computed(() => selectedNetwork.value === 'Ethereum Name Service')
 
-const effectiveCoinTicker = computed(() =>
-  isEthereumNameService.value ? 'ETH' : coinTicker.value
-)
+/** Infer coin ticker from domain extension when no network is selected */
+function inferTickerFromDomain(domain: string): string {
+  const ext = domain.trim().toLowerCase().split('.').pop() ?? ''
+  const map: Record<string, string> = {
+    eth: 'ETH',
+    tez: 'XTZ',
+    sol: 'SOL',
+    ada: 'ALGO',
+    crypto: 'ETH',
+    wallet: 'ETH',
+    nft: 'ETH',
+    x: 'ETH',
+    btc: 'STX',
+    stx: 'STX',
+  }
+  return map[ext] ?? ''
+}
+
+/** Append network default extension when user types name only (e.g. coreydesir → coreydesir.eth) */
+function normalizeDomain(domain: string): string {
+  const d = domain.trim()
+  if (!d || d.includes('.')) return d
+  if (selectedNetwork.value === 'Ethereum Name Service') return `${d}.eth`
+  if (selectedNetwork.value === 'Tezos Domains') return `${d}.tez`
+  if (selectedNetwork.value === 'Solana Name Service') return `${d}.sol`
+  if (selectedNetwork.value === 'Ada Domains') return `${d}.ada`
+  if (selectedNetwork.value === 'Stacks') return `${d}.btc`
+  return d
+}
+
+const effectiveCoinTicker = computed(() => {
+  if (isEthereumNameService.value) return 'ETH'
+  if (coinTicker.value) return coinTicker.value
+  return inferTickerFromDomain(domainAddress.domain)
+})
 
 const isFormValid = computed(() => {
-  const hasValidDomain = domainAddress.domain.trim() !== ''
-  const hasValidCurrency = isEthereumNameService.value || coinTicker.value !== ''
-  return hasValidDomain && hasValidCurrency
+  const domain = domainAddress.domain.trim()
+  if (!domain) return false
+  // Enable when domain is non-empty; ticker is inferred from extension or network selection
+  const hasCurrency =
+    isEthereumNameService.value ||
+    coinTicker.value !== '' ||
+    inferTickerFromDomain(domain) !== ''
+  return hasCurrency
+})
+
+/** Used only for Search button enabled state — more permissive than isFormValid */
+const canSubmit = computed(() => {
+  const domain = domainAddress.domain.trim()
+  return domain.length > 0 && !domainAddress.loading
 })
 
 function selectNetwork(network: string) {
@@ -196,12 +240,35 @@ function isEthDomain(domain: string): boolean {
   return domain.toLowerCase().endsWith('.eth')
 }
 
+const ENS_DISABLED_MESSAGE =
+  'Set VITE_INFURA_PROJECT_ID or VITE_ALCHEMY_API_KEY in .env to enable ENS domain resolution.'
+
+function isEnsDisabledError(err: unknown): boolean {
+  const msg = err instanceof Error ? err.message : String(err)
+  return (
+    msg.includes('null') ||
+    msg.includes('resolveName') ||
+    msg.includes('VITE_INFURA') ||
+    msg.includes('VITE_ALCHEMY')
+  )
+}
+
 async function resolveAddress() {
-  const domain = domainAddress.domain
+  const rawDomain = domainAddress.domain.trim()
+  const domain = normalizeDomain(rawDomain)
   const ticker = effectiveCoinTicker.value
 
-  if (!domainMixins.isDomain(domain)) {
-    domainAddress.error = 'Not a valid domain address.'
+  if (!domain) {
+    domainAddress.error = 'Enter a domain name.'
+    domainAddress.enabled = true
+    return
+  }
+
+  if (!isDomainInput(domain)) {
+    domainAddress.error =
+      ticker
+        ? `Not a valid domain for ${ticker}. Use format like example.eth`
+        : 'Enter a domain with extension (e.g. example.eth) or select a network.'
     domainAddress.enabled = true
     return
   }
@@ -214,24 +281,15 @@ async function resolveAddress() {
     domainAddress.loading = true
     domainAddress.enabled = true
 
-    if (isEthDomain(domain) || isEthereumNameService.value) {
-      const address = await ens.getAddress({ domain, coinTicker: 'ETH' })
-      domainAddress.address = address
-      domainAddress.service = 'ens'
-    } else if (domain.endsWith('.tez')) {
-      throw new Error('Tezos Domains resolution temporarily unavailable')
-    } else if (domain.endsWith('.crypto') || domain.endsWith('.wallet') || domain.endsWith('.nft')) {
-      throw new Error('Unstoppable Domains resolution temporarily unavailable')
-    } else {
-      const { address, service } = await domainMixins.resolveAddressFromDomain({
-        domain,
-        coinTicker: ticker,
-      })
-      domainAddress.address = address
-      domainAddress.service = service
-    }
+    const { address, service } = await resolveDomainAddress(domain, ticker)
+    domainAddress.address = address
+    domainAddress.service = (service ?? '').toLowerCase()
   } catch (err: unknown) {
-    domainAddress.error = err instanceof Error ? err.message : String(err)
+    if (isEnsDisabledError(err)) {
+      domainAddress.error = ENS_DISABLED_MESSAGE
+    } else {
+      domainAddress.error = err instanceof Error ? err.message : String(err)
+    }
   } finally {
     domainAddress.loading = false
   }
