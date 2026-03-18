@@ -26,6 +26,8 @@
     "package.json"
   ],
   "mac": {
+    hardenedRuntime: true,
+    "gatekeeperAssess": false,
     "category": "public.app-category.developer-tools",
     "target": [
       {
@@ -34,9 +36,11 @@
       }
     ],
     "artifactName": "${productName}-Mac-${version}-Installer.${ext}",
+    "provisioningProfile": "SparkplatemacOSHBApp.provisionprofile",
     "icon": "./icon.icns",
-    "hardenedRuntime": true,
-    "extendInfo": {
+    "entitlements": "build/entitlements.mac.plist",
+    "entitlementsInherit": "build/entitlements.mac.plist",
+        "extendInfo": {
       "NSMicrophoneUsageDescription": "This app may need access to your microphone for certain features"
     }
   },
