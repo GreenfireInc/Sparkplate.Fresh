@@ -67,7 +67,7 @@ const serviceName = computed(() => {
   
   if (service === 'ens') return 'Ethereum Name Service';
   if (service === 'uns') return 'Unstoppable Domains';
-  if (service === 'tezos') return 'Tezos Domains';
+  if (service === 'tez') return 'Tezos Domains';
   if (service === 'sol') return 'Solana Name Service';
   if (service === 'algo') return 'Algorand NF Domains';
   if (service === 'stx') return 'Stacks BNS';
@@ -81,7 +81,7 @@ const serviceIcon = computed(() => {
   
   if (service === 'ens') return '/assets/icons/domains/ethereumNameService.svg';
   if (service === 'uns') return '/assets/icons/domains/unstoppableDomains.svg';
-  if (service === 'tezos') return '/assets/icons/domains/tezosDomains.svg';
+  if (service === 'tez') return '/assets/icons/domains/tezosDomains.svg';
   if (service === 'sol') return '/assets/icons/domains/solanaNameService.svg';
   if (service === 'algo') return '/assets/icons/domains/nfDomains.svg';
   if (service === 'stx') return '/assets/icons/domains/bitcoinNameService.svg';
@@ -95,7 +95,7 @@ const serviceClass = computed(() => {
   
   if (service === 'ens') return 'bg-blue-100 text-blue-800';
   if (service === 'uns') return 'bg-purple-100 text-purple-800';
-  if (service === 'tezos') return 'bg-teal-100 text-teal-800';
+  if (service === 'tez') return 'bg-teal-100 text-teal-800';
   if (service === 'sol') return 'bg-violet-100 text-violet-800';
   if (service === 'algo') return 'bg-cyan-100 text-cyan-800';
   if (service === 'stx') return 'bg-orange-100 text-orange-800';
