@@ -18,54 +18,34 @@ export const resolveAddress = async (
   domain: string,
   coinTicker: string
 ): Promise<{ address: string; service: 'ENS' | 'UNS' | 'TEZ' | 'SOL' | 'ALGO' | 'STX' | null }> => {
-  // Try ENS first for Ethereum
+  // Try ENS first for Ethereum — re-throw so the real error surfaces in the UI
   if (coinTicker.toLowerCase() === 'eth' && ensResolver.isEnsDomain(domain)) {
-    try {
-      const address = await ensResolver.getAddress({ domain, coinTicker });
-      return { address, service: 'ENS' };
-    } catch (error) {
-      console.error('ENS resolution failed:', error);
-    }
+    const address = await ensResolver.getAddress({ domain, coinTicker });
+    return { address, service: 'ENS' };
   }
 
-  // Try Tezos Domains for Tezos
+  // Try Tezos Domains for Tezos — re-throw so the real error surfaces in the UI
   if (coinTicker.toLowerCase() === 'xtz' && tezosDomainsResolver.isTezosDomain(domain)) {
-    try {
-      const address = await tezosDomainsResolver.getAddress({ domain, coinTicker });
-      return { address, service: 'TEZ' };
-    } catch (error) {
-      console.error('Tezos Domains resolution failed:', error);
-    }
+    const address = await tezosDomainsResolver.getAddress({ domain, coinTicker });
+    return { address, service: 'TEZ' };
   }
 
-  // Try Solana Name Service for Solana
+  // Try Solana Name Service for Solana — re-throw so the real error surfaces in the UI
   if (coinTicker.toLowerCase() === 'sol' && solanaDomainsResolver.isSolanaDomain(domain)) {
-    try {
-      const address = await solanaDomainsResolver.getAddress({ domain, coinTicker });
-      return { address, service: 'SOL' };
-    } catch (error) {
-      console.error('Solana Name Service resolution failed:', error);
-    }
+    const address = await solanaDomainsResolver.getAddress({ domain, coinTicker });
+    return { address, service: 'SOL' };
   }
 
-  // Try Algorand NF Domains for Algorand
+  // Try Algorand NF Domains for Algorand — re-throw so the real error surfaces in the UI
   if (coinTicker.toLowerCase() === 'algo' && algoDomainsResolver.isAlgoDomain(domain)) {
-    try {
-      const address = await algoDomainsResolver.getAddress({ domain, coinTicker });
-      return { address, service: 'ALGO' };
-    } catch (error) {
-      console.error('NF Domains resolution failed:', error);
-    }
+    const address = await algoDomainsResolver.getAddress({ domain, coinTicker });
+    return { address, service: 'ALGO' };
   }
 
-  // Try Stacks BNS for Stacks
+  // Try Stacks BNS for Stacks (.btc, .stx) — re-throw so the real error surfaces in the UI
   if (coinTicker.toLowerCase() === 'stx' && stacksBnsResolver.isStacksDomain(domain)) {
-    try {
-      const address = await stacksBnsResolver.getAddress({ domain, coinTicker });
-      return { address, service: 'STX' };
-    } catch (error) {
-      console.error('Stacks BNS resolution failed:', error);
-    }
+    const address = await stacksBnsResolver.getAddress({ domain, coinTicker });
+    return { address, service: 'STX' };
   }
 
   // Try Unstoppable Domains
@@ -227,36 +207,36 @@ export function getDomainServices(): DomainServiceMetadata[] {
       name: 'uns',
       displayName: 'Unstoppable Domains',
       extensions: ['x', 'crypto', 'coin', 'wallet', 'bitcoin', '888', 'nft', 'dao', 'zil', 'blockchain'],
-      available: false,
+      available: true,
       description: 'Resolve Unstoppable Domains to crypto addresses',
     },
     {
       name: 'tezos',
       displayName: 'Tezos Domains',
       extensions: ['tez'],
-      available: false,
+      available: true,
       description: 'Resolve .tez domains to Tezos addresses',
     },
     {
       name: 'algo',
-      displayName: 'Ada Domains',
-      extensions: ['ada'],
-      available: false,
+      displayName: 'Algorand NF Domains',
+      extensions: ['algo'],
+      available: true,
       description: 'Resolve Algorand Name Service domains',
     },
     {
       name: 'sns',
       displayName: 'Solana Name Service',
       extensions: ['sol'],
-      available: false,
+      available: true,
       description: 'Resolve .sol domains to Solana addresses',
     },
     {
       name: 'stacks',
       displayName: 'Stacks',
       extensions: ['btc', 'stx'],
-      available: false,
-      description: 'Resolve Stacks blockchain domains',
+      available: true,
+      description: 'Resolve .btc and .stx domains to Stacks addresses',
     },
   ];
 }

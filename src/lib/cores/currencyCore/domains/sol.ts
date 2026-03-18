@@ -27,87 +27,46 @@ interface SolanaDomainsResolver {
 // Supported Solana Name Service TLDs
 const SOLANA_TLDS = ['.sol'];
 
-// Default RPC endpoints (public, CORS-enabled)
-// Using alternative endpoints with better rate limits
+// RPC endpoints for reverse lookup fallback (when HTTP favorite-domain returns null)
 const SOLANA_RPC_ENDPOINTS = [
-  'https://mainnet.helius-rpc.com/?api-key=public', // Helius public endpoint
-  'https://solana-mainnet.rpc.extrnode.com',        // Extrnode public
-  'https://rpc.ankr.com/solana',                    // Ankr public
-  'https://solana.public-rpc.com',                  // Public RPC aggregator
-  'https://api.mainnet-beta.solana.com',            // Solana Foundation (rate limited)
+  'https://mainnet.helius-rpc.com/?api-key=public',
+  'https://solana-mainnet.rpc.extrnode.com',
+  'https://rpc.ankr.com/solana',
+  'https://api.mainnet-beta.solana.com',
 ];
+
+// Bonfida SNS HTTP proxy — avoids @solana/web3.js bundling issues in Vite
+const SNS_PROXY_BASE = 'https://sns-sdk-proxy.bonfida.workers.dev';
 
 const solanaDomainsResolver: SolanaDomainsResolver = {
   async getAddress({ domain, coinTicker }: ResolveAddressParams): Promise<string> {
-    try {
-      console.log(`🔍 [Solana Name Service] Resolving domain: ${domain} for ${coinTicker}`);
-      
-      // Solana Name Service primarily supports SOL addresses
-      if (coinTicker.toLowerCase() !== 'sol') {
-        throw new Error(`Solana Name Service primarily supports SOL addresses, not ${coinTicker}`);
-      }
-
-      // Check if domain is a valid Solana domain
-      if (!this.isSolanaDomain(domain)) {
-        throw new Error(`Domain ${domain} is not a valid Solana domain`);
-      }
-
-      // Remove .sol extension for resolution
-      const domainName = domain.toLowerCase().replace('.sol', '');
-
-      // Dynamically import Solana dependencies
-      const { Connection } = await import('@solana/web3.js');
-      const { getDomainKey, NameRegistryState } = await import('@bonfida/spl-name-service');
-
-      // Try multiple RPC endpoints until one works
-      let lastError: Error | null = null;
-      
-      for (let i = 0; i < SOLANA_RPC_ENDPOINTS.length; i++) {
-        const rpcUrl = SOLANA_RPC_ENDPOINTS[i];
-        console.log(`🔧 [Solana Name Service] Trying RPC endpoint ${i + 1}/${SOLANA_RPC_ENDPOINTS.length}: ${rpcUrl.split('?')[0]}`);
-
-        try {
-          // Create connection to Solana mainnet
-          const connection = new Connection(rpcUrl, 'confirmed');
-
-          console.log(`🔍 [Solana Name Service] Resolving ${domain} to address...`);
-
-          // Get the domain key (PDA for the domain)
-          const { pubkey } = await getDomainKey(domainName);
-          
-          // Retrieve the domain registry state
-          const { registry } = await NameRegistryState.retrieve(connection, pubkey);
-          
-          if (!registry || !registry.owner) {
-            throw new Error(`No owner found for Solana domain: ${domain}`);
-          }
-
-          const address = registry.owner.toBase58();
-
-          console.log(`✅ [Solana Name Service] Successfully resolved: ${domain} → ${address}`);
-          return address;
-
-        } catch (rpcError) {
-          lastError = rpcError instanceof Error ? rpcError : new Error(String(rpcError));
-          const errorMsg = lastError.message;
-          console.warn(`⚠️ [Solana Name Service] RPC endpoint ${i + 1} failed: ${errorMsg}`);
-          
-          // If this is the last endpoint, we'll throw after the loop
-          if (i < SOLANA_RPC_ENDPOINTS.length - 1) {
-            console.log(`🔄 [Solana Name Service] Trying next RPC endpoint...`);
-          }
-        }
-      }
-
-      // If we get here, all endpoints failed
-      console.error(`❌ [Solana Name Service] All RPC endpoints failed for ${domain}`);
-      throw lastError || new Error('All RPC endpoints failed');
-
-    } catch (error) {
-      console.error(`❌ [Solana Name Service] Resolution error for ${domain}:`, error);
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      throw new Error(`Failed to resolve Solana domain ${domain}: ${errorMessage}`);
+    if (coinTicker.toLowerCase() !== 'sol') {
+      throw new Error(`Solana Name Service only supports SOL addresses, not ${coinTicker}`);
     }
+
+    if (!this.isSolanaDomain(domain)) {
+      throw new Error(`${domain} is not a valid Solana domain`);
+    }
+
+    // Strip .sol — the proxy endpoint takes just the name
+    const domainName = domain.toLowerCase().replace(/\.sol$/, '');
+    const url = `${SNS_PROXY_BASE}/resolve/${encodeURIComponent(domainName)}`;
+
+    console.log(`🔍 [Solana Name Service] Resolving ${domain} via SNS proxy...`);
+
+    const res = await fetch(url, { headers: { Accept: 'application/json' } });
+    const json = await res.json() as { s: string; result: string };
+
+    if (json.s !== 'ok' || !json.result) {
+      throw new Error(
+        json.result
+          ? String(json.result)
+          : `No address found for Solana domain: ${domain}`
+      );
+    }
+
+    console.log(`✅ [Solana Name Service] Resolved: ${domain} → ${json.result}`);
+    return json.result;
   },
 
   // Helper method to check if a string looks like a Solana domain
@@ -204,9 +163,6 @@ const solanaDomainsResolver: SolanaDomainsResolver = {
                 ? favoriteResult.reverse 
                 : `${favoriteResult.reverse}.sol`;
               console.log(`✅ [Solana Name Service] Found favorite domain: ${address} → ${fullDomain}`);
-              if (favoriteResult.stale) {
-                console.log(`⚠️ [Solana Name Service] Note: Favorite domain record may be stale`);
-              }
               return fullDomain;
             }
           } catch (favoriteError) {

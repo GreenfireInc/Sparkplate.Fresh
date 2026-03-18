@@ -165,7 +165,7 @@ function inferTickerFromDomain(domain: string): string {
     eth: 'ETH',
     tez: 'XTZ',
     sol: 'SOL',
-    ada: 'ALGO',
+    algo: 'ALGO',
     crypto: 'ETH',
     wallet: 'ETH',
     nft: 'ETH',
@@ -183,7 +183,7 @@ function normalizeDomain(domain: string): string {
   if (selectedNetwork.value === 'Ethereum Name Service') return `${d}.eth`
   if (selectedNetwork.value === 'Tezos Domains') return `${d}.tez`
   if (selectedNetwork.value === 'Solana Name Service') return `${d}.sol`
-  if (selectedNetwork.value === 'Ada Domains') return `${d}.ada`
+  if (selectedNetwork.value === 'Algorand NF Domains') return `${d}.algo`
   if (selectedNetwork.value === 'Stacks') return `${d}.btc`
   return d
 }
@@ -211,13 +211,21 @@ const canSubmit = computed(() => {
   return domain.length > 0 && !domainAddress.loading
 })
 
+const NETWORK_TICKER_MAP: Record<string, string> = {
+  'Ethereum Name Service': 'ETH',
+  'Tezos Domains': 'XTZ',
+  'Solana Name Service': 'SOL',
+  'Algorand NF Domains': 'ALGO',
+  'Stacks': 'STX',
+}
+
 function selectNetwork(network: string) {
   const service = domainServices.find((s) => s.displayName === network)
   if (!service || !service.available) return
 
   selectedNetwork.value = network
   dropdownOpen.value = false
-  coinTicker.value = network === 'Ethereum Name Service' ? 'ETH' : ''
+  coinTicker.value = NETWORK_TICKER_MAP[network] ?? ''
 }
 
 function getServiceIcon(serviceName: string): string | null {

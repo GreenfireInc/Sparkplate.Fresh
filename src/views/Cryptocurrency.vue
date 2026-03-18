@@ -9,7 +9,10 @@
         :active="activeTab === 'resolver'"
         :onClick="() => (activeTab = 'resolver')"
       >
-        Human Readable Addresses
+        <div class="flex items-center gap-2">
+          <MapPinHouse :size="18" />
+          <span>Human Readable Addresses</span>
+        </div>
       </TabComponent>
       <TabComponent
         :active="activeTab === 'calculator'"
@@ -61,7 +64,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Calculator } from 'lucide-vue-next'
+import { Calculator, MapPinHouse } from 'lucide-vue-next'
 import DomainResolver from '../components/pageTabs/cryptocurrency/DomainResolver.vue'
 import CryptocurrencyCalculator from '../components/pageTabs/cryptocurrency/Calculator.vue'
 import CryptocurrencyIndices from '../components/pageTabs/cryptocurrency/Indices.vue'

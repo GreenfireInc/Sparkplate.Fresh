@@ -42,8 +42,8 @@ const algoDomainsResolver: AlgoDomainsResolver = {
         throw new Error(`Domain ${domain} is not a valid Algorand domain`);
       }
 
-      // Remove .algo extension for API call
-      const domainName = domain.toLowerCase().replace('.algo', '');
+      // API expects the full name including .algo (e.g. /nfd/coreydesir.algo)
+      const domainName = domain.toLowerCase();
 
       console.log(`🔧 [NF Domains] Querying API for domain: ${domainName}`);
 
