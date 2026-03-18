@@ -22,6 +22,10 @@
       <user-profile v-if="activeTab === 'User'" />
       <!-- user content -->
 
+      <!-- dashboard content -->
+      <dashboard-settings v-if="activeTab === 'Dashboard'" />
+      <!-- dashboard content -->
+
       <!-- security content -->
       <security-settings v-if="activeTab === 'Security'" />
       <!-- security content -->
@@ -65,6 +69,7 @@ import { useRoute } from 'vue-router'
 
 // Components
 import UserProfile from '@/components/pageTabs/settings/UserProfile.vue'
+import DashboardSettings from '@/components/pageTabs/settings/DashboardSettings.vue'
 import Misc from '@/components/pageTabs/settings/Misc.vue'
 import SecuritySettings from '@/components/pageTabs/settings/SecuritySettings.vue'
 import EmailSettings from '@/components/pageTabs/settings/EmailSettings.vue'
@@ -82,6 +87,7 @@ export default defineComponent({
   name: 'SettingsView',
   components: {
     UserProfile,
+    DashboardSettings,
     EmailSettings,
     SecuritySettings,
     Misc,
@@ -98,7 +104,7 @@ export default defineComponent({
   setup() {
     const route = useRoute()
     const activeTab = ref('User')
-    const tabs = ref(['User', 'Security', 'Email', 'Application', 'Backup', 'Network', 'Notifications', 'Hardware', 'APIs', 'Misc'])
+    const tabs = ref(['User', 'Dashboard', 'Security', 'Email', 'Application', 'Backup', 'Network', 'Notifications', 'Hardware', 'APIs', 'Misc'])
 
     onMounted(() => {
       if (route.params.activeTab) {
