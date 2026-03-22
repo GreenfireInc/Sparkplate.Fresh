@@ -76,6 +76,15 @@
               {{ isValidating ? 'Validating…' : 'Validate keypair' }}
             </button>
 
+            <button
+              type="button"
+              class="pgp__btn pgp__btn--details"
+              :disabled="!publicKey.trim()"
+              @click="detailsOpen = true"
+            >
+              Details
+            </button>
+
             <DropdownMenuRoot v-if="publicKey && rawFingerprint">
               <DropdownMenuTrigger type="button" class="pgp__btn pgp__btn--secondary pgp__dropdown-trigger">
                 Export
@@ -215,12 +224,15 @@
         </TabsRoot>
       </TabsContent>
     </TabsRoot>
+
+    <DetailsPgpModal v-model:open="detailsOpen" :armored-public-key="publicKey" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import * as openpgp from 'openpgp'
+import DetailsPgpModal from '@/components/modals/cryptography/details.pgp.vue'
 import {
   Label,
   TabsRoot,
@@ -246,6 +258,8 @@ const privateKey = ref('')
 const validationMessage = ref('')
 const keyFingerprint = ref('')
 const rawFingerprint = ref('')
+const detailsOpen = ref(false)
+
 const fileToEncrypt = ref<File | null>(null)
 const fileToDecrypt = ref<File | null>(null)
 const encryptionStatus = ref('')
@@ -739,6 +753,22 @@ const decryptFile = async (): Promise<void> => {
     &:focus-visible {
       outline: none;
       box-shadow: 0 0 0 2px #fff, 0 0 0 4px #4b5563;
+    }
+  }
+
+  &--details {
+    color: #374151;
+    background: #fff;
+    border: 1px solid #d1d5db;
+
+    &:hover:not(:disabled) {
+      background: #f9fafb;
+      border-color: #9ca3af;
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px #3b82f6;
     }
   }
 

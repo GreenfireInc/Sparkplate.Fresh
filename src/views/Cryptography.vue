@@ -1,7 +1,9 @@
 <template>
   <div class="view">
     <h1 class="view-name">::Cryptography Tools::</h1>
-    <p class="text-left text-gray-600 mb-8">Hash data, verify file integrity, and encrypt/decrypt files</p>
+    <p class="text-left text-gray-600 mb-8">
+      Hash data, verify file integrity, encrypt or decrypt files, manage PGP keys, and generate new key pairs
+    </p>
     
     <!-- Tab Navigation -->
     <TabsWrapper class="tabs-container">
@@ -29,6 +31,12 @@
       >
         PGP/GPG Keys
       </TabComponent>
+      <TabComponent
+        :active="activeTab === 'generate'"
+        :onClick="() => (activeTab = 'generate')"
+      >
+        Generate
+      </TabComponent>
     </TabsWrapper>
 
     <!-- Tab Content -->
@@ -44,6 +52,9 @@
       
       <!-- PGP/GPG Keys Tab -->
       <PGPKeyTool v-if="activeTab === 'pgp'" />
+
+      <!-- Generate PGP key pair -->
+      <PGPGenerateTool v-if="activeTab === 'generate'" />
     </div>
   </div>
 </template>
@@ -54,6 +65,7 @@ import HashTool from '../components/pageTabs/cryptography/HashTool.vue'
 import VerifyTool from '../components/pageTabs/cryptography/VerifyTool.vue'
 import EncryptDecryptTool from '../components/pageTabs/cryptography/EncryptDecryptTool.vue'
 import PGPKeyTool from '@/components/pageTabs/cryptography/PGPKeyTool.vue'
+import PGPGenerateTool from '@/components/pageTabs/cryptography/PGPGenerateTool.vue'
 import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
 
