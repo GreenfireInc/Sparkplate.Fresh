@@ -1,6 +1,6 @@
 {
   "name": "sparkplate-fresh",
-  "version": "2026.03.14",
+  "version": "2026.03.23",
   "main": "dist/background/index.js",
   "description": "A fresh take on the Electron + Vue + Vite boilerplate using Greenfire's Sparkplate and Greenery.",
   "author": "Greenfire <hello@greenfire.io>",
@@ -63,11 +63,11 @@
     "vue-tsc": "^3.1.1"
   },
   "dependencies": {
-    "@iconify/vue": "^5.0.0",
     "@bonfida/spl-name-service": "^0.1.51",
     "@cosmjs/proto-signing": "^0.37.0",
     "@cosmjs/stargate": "^0.37.0",
     "@ensdomains/ensjs": "^4.0.2",
+    "@iconify/vue": "^5.0.0",
     "@lobehub/icons": "^4.9.0",
     "@lobehub/icons-static-svg": "^1.81.0",
     "@noble/curves": "^2.0.1",
@@ -79,6 +79,7 @@
     "@polkadot/util-crypto": "^14.0.1",
     "@radix-icons/vue": "^1.0.0",
     "@scure/btc-signer": "^2.0.1",
+    "@solana/spl-token": "^0.3.11",
     "@solana/web3.js": "^1.95.5",
     "@stacks/network": "^7.3.1",
     "@stacks/transactions": "^7.3.1",
@@ -112,7 +113,6 @@
     "drivelist": "^12.0.2",
     "ecpair": "^3.0.0",
     "ethers": "^6.14.3",
-    "flowbite": "^3.1.2",
     "html2canvas": "^1.4.1",
     "is-online": "^9.0.1",
     "jspdf": "^3.0.4",
