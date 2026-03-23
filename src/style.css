@@ -1,6 +1,3 @@
-/* Import Flowbite styles */
-@import "flowbite/dist/flowbite.min.css";
-
 @import "tailwindcss";
 
 :root {

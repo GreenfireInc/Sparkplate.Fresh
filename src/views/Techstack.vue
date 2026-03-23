@@ -224,12 +224,6 @@ const utilityLibraries = ref<Library[]>([
     tags: ['icons', 'UI', 'components']
   },
   {
-    name: 'Flowbite',
-    version: '3.1.2',
-    description: 'Component library built on top of Tailwind CSS',
-    tags: ['components', 'UI', 'design-system']
-  },
-  {
     name: 'TanStack Vue Table',
     version: '8.21.3',
     description: 'Headless table utilities for Vue',
@@ -244,8 +238,8 @@ const utilityLibraries = ref<Library[]>([
 ])
 
 const packageStats = ref({
-  total: 101,
-  dependencies: 75,
+  total: 100,
+  dependencies: 74,
   devDependencies: 26
 })
 
@@ -300,7 +294,6 @@ const allDependencies = ref<Dependency[]>([
   { name: 'drivelist', version: '12.0.2', type: 'dependency' },
   { name: 'ecpair', version: '3.0.0', type: 'dependency' },
   { name: 'ethers', version: '6.14.3', type: 'dependency' },
-  { name: 'flowbite', version: '3.1.2', type: 'dependency' },
   { name: 'html2canvas', version: '1.4.1', type: 'dependency' },
   { name: 'is-online', version: '9.0.1', type: 'dependency' },
   { name: 'jspdf', version: '3.0.4', type: 'dependency' },
