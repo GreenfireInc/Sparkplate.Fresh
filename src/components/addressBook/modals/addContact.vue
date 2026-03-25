@@ -1,511 +1,678 @@
 <template>
-  <div v-if="show" class="modal-overlay" @click.self="close">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="entity-selector-wrapper">
-          <select v-model="selectedEntity" class="entity-selector">
-            <option>Contacts</option>
-            <option>Exchanges</option>
-            <option>Wallets</option>
-            <option>Companies</option>
-          </select>
+  <DialogRoot :open="show" @update:open="onDialogOpen">
+    <DialogPortal>
+      <DialogOverlay class="ac-modal-overlay" />
+      <DialogContent class="ac-modal" :aria-describedby="undefined">
+        <div class="ac-modal__header">
+          <div class="ac-modal__header-row">
+            <SelectRoot v-model="selectedEntity">
+              <SelectTrigger
+                id="ac-entity-type"
+                class="ac-modal__entity-trigger"
+                aria-label="Record type"
+              >
+                <SelectValue placeholder="Type" />
+                <i class="bi bi-chevron-down ac-modal__select-chevron" aria-hidden />
+              </SelectTrigger>
+              <SelectPortal>
+                <SelectContent class="ac-modal__select-content" position="popper" :side-offset="4">
+                  <SelectViewport class="ac-modal__select-viewport">
+                    <SelectItem value="Contacts" class="ac-modal__select-item">
+                      <SelectItemText>Contacts</SelectItemText>
+                    </SelectItem>
+                    <SelectItem value="Exchanges" class="ac-modal__select-item">
+                      <SelectItemText>Exchanges</SelectItemText>
+                    </SelectItem>
+                    <SelectItem value="Wallets" class="ac-modal__select-item">
+                      <SelectItemText>Wallets</SelectItemText>
+                    </SelectItem>
+                    <SelectItem value="Companies" class="ac-modal__select-item">
+                      <SelectItemText>Companies</SelectItemText>
+                    </SelectItem>
+                  </SelectViewport>
+                </SelectContent>
+              </SelectPortal>
+            </SelectRoot>
+
+            <DialogTitle class="ac-modal__title">{{ modalTitle }}</DialogTitle>
+
+            <DialogClose class="ac-modal__close" aria-label="Close">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            </DialogClose>
+          </div>
         </div>
-        <h2>{{ modalTitle }}</h2>
-      </div>
 
-      <div v-if="selectedEntity === 'Contacts'">
-        <div class="tabs">
-          <button @click="currentTab = 'general'" :class="{ 'active': currentTab === 'general' }">General</button>
-          <button @click="currentTab = 'advanced'" :class="{ 'active': currentTab === 'advanced' }">Wallets</button>
-        </div>
+        <Separator class="ac-modal__separator" />
 
-        <form @submit.prevent="saveContact">
-          <div class="tab-content">
-            <div class="tab-panel" :class="{ 'active-panel': currentTab === 'general' }">
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="firstname">First Name</label>
-                  <input type="text" id="firstname" v-model="form.firstname" required/>
-                </div>
-                <div class="form-group">
-                  <label for="lastname">Last Name</label>
-                  <input type="text" id="lastname" v-model="form.lastname" required/>
-                </div>
-              </div>
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" v-model="form.email" />
-                </div>
-                <div class="form-group">
-                  <label for="company">Company</label>
-                  <input type="text" id="company" v-model="form.company" />
-                </div>
-              </div>
-              <div class="form-group full-width">
-                <label for="notes">Notes</label>
-                <textarea id="notes" v-model="form.notes"></textarea>
-              </div>
-            </div>
+        <div class="ac-modal__body">
+          <div v-if="selectedEntity === 'Contacts'">
+            <form id="ac-add-contact-form" novalidate @submit.prevent="saveContact">
+              <TabsRoot v-model="currentTab" class="ac-tabs">
+                <TabsList class="ac-tabs__list" aria-label="Contact sections">
+                  <TabsTrigger value="general" class="ac-tabs__trigger">General</TabsTrigger>
+                  <TabsTrigger value="advanced" class="ac-tabs__trigger">Wallets</TabsTrigger>
+                </TabsList>
 
-            <div class="tab-panel" :class="{ 'active-panel': currentTab === 'advanced' }">
-              <div class="wallets-section">
-                  <div v-if="wallets.length > 0" class="wallet-group wallet-header">
+                <TabsContent value="general" class="ac-tabs__content">
+                  <div class="ac-general-fields">
+                    <div class="ac-form-grid">
+                      <div class="ac-field">
+                        <Label class="ac-label" for="ac-firstname">First name</Label>
+                        <input id="ac-firstname" v-model="form.firstname" type="text" class="ac-input" autocomplete="given-name" />
+                      </div>
+                      <div class="ac-field">
+                        <Label class="ac-label" for="ac-lastname">Last name</Label>
+                        <input id="ac-lastname" v-model="form.lastname" type="text" class="ac-input" autocomplete="family-name" />
+                      </div>
+                    </div>
+                    <div class="ac-form-grid">
+                      <div class="ac-field">
+                        <Label class="ac-label" for="ac-email">Email</Label>
+                        <input id="ac-email" v-model="form.email" type="email" class="ac-input" autocomplete="email" />
+                      </div>
+                      <div class="ac-field">
+                        <Label class="ac-label" for="ac-company">Company</Label>
+                        <input id="ac-company" v-model="form.company" type="text" class="ac-input" autocomplete="organization" />
+                      </div>
+                    </div>
+                    <div class="ac-field">
+                      <Label class="ac-label" for="ac-notes">Notes</Label>
+                      <textarea id="ac-notes" v-model="form.notes" class="ac-textarea" rows="3" />
+                    </div>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="advanced" class="ac-tabs__content">
+                  <div class="ac-wallets">
+                    <div v-if="wallets.length > 0" class="ac-wallet-row ac-wallet-row--header">
                       <strong>Coin</strong>
                       <strong>Address</strong>
-                      <span></span> <!-- Empty span for alignment -->
-                  </div>
-                  <div v-for="(wallet, index) in wallets" :key="index" class="wallet-group">
+                      <span class="ac-wallet-row__spacer" />
+                    </div>
+                    <div v-for="(wallet, index) in wallets" :key="index" class="ac-wallet-row">
                       <CurrencyDropdown v-model="wallet.coinTicker" />
-                      <input type="text" v-model="wallet.address" placeholder="Wallet Address" />
-                      <button type="button" class="remove-wallet-btn" @click="removeWallet(index)">Remove</button>
+                      <input v-model="wallet.address" type="text" class="ac-input" placeholder="Wallet address" />
+                      <button type="button" class="ac-btn-remove" @click="removeWallet(index)">Remove</button>
+                    </div>
+                    <button type="button" class="ac-btn-add-wallet" @click="addWalletRow">+ Add wallet</button>
                   </div>
-                  <button type="button" class="add-wallet-btn" @click="addWalletRow">+ Add Wallet</button>
+                </TabsContent>
+              </TabsRoot>
+
+              <div class="ac-modal__actions">
+                <input
+                  ref="fileInput"
+                  type="file"
+                  accept=".json"
+                  class="ac-file-input"
+                  @change="handleFileImport"
+                />
+                <button type="button" class="ac-btn ac-btn--import" @click="triggerFileImport">Import</button>
+                <button type="button" class="ac-btn ac-btn--secondary" @click="close">Cancel</button>
+                <button type="submit" class="ac-btn ac-btn--primary">Save contact</button>
               </div>
-            </div>
+            </form>
           </div>
 
-          <div class="form-actions">
-            <input 
-              type="file" 
-              ref="fileInput" 
-              @change="handleFileImport" 
-              accept=".json" 
-              style="display: none"
-            />
-            <button type="button" class="btn-import" @click="triggerFileImport">Import</button>
-            <button type="button" class="btn-secondary" @click="close">Cancel</button>
-            <button type="submit" class="btn-primary">Save Contact</button>
+          <div v-else class="ac-placeholder">
+            <p>Form for adding a new {{ selectedEntity.slice(0, -1).toLowerCase() }} will be here.</p>
           </div>
-        </form>
-      </div>
-      <div v-else class="placeholder-form">
-        <p>Form for adding a new {{ selectedEntity.slice(0, -1).toLowerCase() }} will be here.</p>
-      </div>
-    </div>
-  </div>
+        </div>
+      </DialogContent>
+    </DialogPortal>
+  </DialogRoot>
 </template>
 
 <script setup lang="ts">
-import { ref, watch, computed, defineProps, defineEmits } from 'vue';
-import { type Contact, addContact, updateContact } from '@/services/addressBook/contactService';
-import { type Wallet, addWallet, getWalletsForContact, updateWallet, deleteWallet } from '@/services/addressBook/walletService';
-import CurrencyDropdown from '../dropdown/CurrencyDropdown.vue';
-import { parseWalletJsonFile } from '@/lib/cores/importStandard/importWallet.json';
+import { ref, watch, computed, nextTick } from 'vue'
+import {
+  DialogRoot,
+  DialogPortal,
+  DialogOverlay,
+  DialogContent,
+  DialogTitle,
+  DialogClose,
+  TabsRoot,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+  Separator,
+  Label,
+  SelectRoot,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+  SelectItemText,
+  SelectValue,
+  SelectPortal,
+  SelectViewport,
+} from 'radix-vue'
+import { type Contact, addContact, updateContact } from '@/services/addressBook/contactService'
+import { type Wallet, addWallet, getWalletsForContact, updateWallet, deleteWallet } from '@/services/addressBook/walletService'
+import CurrencyDropdown from '../dropdown/CurrencyDropdown.vue'
+import { parseWalletJsonFile } from '@/lib/cores/importStandard/importWallet.json'
+
+defineOptions({ name: 'AddContactModal' })
 
 const props = defineProps<{
-  show: boolean,
+  show: boolean
   contact: Contact | null
-}>();
-const emit = defineEmits(['close', 'contact-saved']);
+}>()
 
-const isEditing = ref(false);
-const form = ref<Contact>({ id: undefined, type: 'regular', firstname: '', lastname: '', email: '', company: '', notes: '' });
+const emit = defineEmits(['close', 'contact-saved'])
+
+const isEditing = ref(false)
+const form = ref<Contact>({ id: undefined, type: 'regular', firstname: '', lastname: '', email: '', company: '', notes: '' })
 const wallets = ref<Partial<Wallet>[]>([])
-const currentTab = ref<'general' | 'advanced'>('general');
-const selectedEntity = ref<'Contacts' | 'Exchanges' | 'Wallets' | 'Companies'>('Contacts');
-const fileInput = ref<HTMLInputElement | null>(null);
+const currentTab = ref<'general' | 'advanced'>('general')
+const selectedEntity = ref<'Contacts' | 'Exchanges' | 'Wallets' | 'Companies'>('Contacts')
+const fileInput = ref<HTMLInputElement | null>(null)
 
 const modalTitle = computed(() => {
   if (props.contact && selectedEntity.value === 'Contacts') {
-    return 'Edit Contact';
+    return 'Edit contact'
   }
-  return `Add New ${selectedEntity.value.slice(0, -1)}`;
-});
+  return `Add new ${selectedEntity.value.slice(0, -1)}`
+})
 
-watch(() => props.show, (newVal) => {
+watch(
+  () => props.show,
+  (newVal) => {
     if (newVal) {
-        currentTab.value = 'general';
-        selectedEntity.value = 'Contacts';
-        if (props.contact) {
-            isEditing.value = true;
-            form.value = { ...props.contact };
-            loadWallets(props.contact.id!);
-        } else {
-            isEditing.value = false;
-            form.value = { id: undefined, type: 'regular', firstname: '', lastname: '', email: '', company: '', notes: '' };
-            wallets.value = [];
-        }
+      currentTab.value = 'general'
+      selectedEntity.value = 'Contacts'
+      if (props.contact) {
+        isEditing.value = true
+        form.value = { ...props.contact }
+        loadWallets(props.contact.id!)
+      } else {
+        isEditing.value = false
+        form.value = { id: undefined, type: 'regular', firstname: '', lastname: '', email: '', company: '', notes: '' }
+        wallets.value = []
+      }
     }
-});
+  }
+)
+
+function onDialogOpen(open: boolean) {
+  if (!open) {
+    emit('close')
+  }
+}
 
 async function loadWallets(contactId: number) {
-    wallets.value = await getWalletsForContact(contactId);
+  wallets.value = await getWalletsForContact(contactId)
 }
 
 function addWalletRow() {
-  wallets.value.push({ coinTicker: '', address: '' });
+  wallets.value.push({ coinTicker: '', address: '' })
 }
 
 function removeWallet(index: number) {
-  const wallet = wallets.value[index];
+  const wallet = wallets.value[index]
   if (wallet.id) {
-    deleteWallet(wallet.id);
+    deleteWallet(wallet.id)
   }
-  wallets.value.splice(index, 1);
+  wallets.value.splice(index, 1)
 }
 
 async function saveContact() {
-  let savedContact: Contact;
+  const first = form.value.firstname?.trim()
+  const last = form.value.lastname?.trim()
+  if (!first || !last) {
+    currentTab.value = 'general'
+    await nextTick()
+    document.getElementById('ac-firstname')?.focus()
+    return
+  }
+
+  let savedContact: Contact
   if (isEditing.value) {
-    await updateContact(form.value);
-    savedContact = form.value;
+    await updateContact(form.value)
+    savedContact = form.value
   } else {
-    savedContact = await addContact(form.value);
+    savedContact = await addContact(form.value)
   }
 
   for (const wallet of wallets.value) {
-    if (wallet.id) { // Existing wallet
-      await updateWallet(wallet as Wallet);
+    if (wallet.id) {
+      await updateWallet(wallet as Wallet)
     } else {
       await addWallet({
         contactId: savedContact.id!,
         coinTicker: wallet.coinTicker || '',
-        address: wallet.address || ''
-      });
+        address: wallet.address || '',
+      })
     }
   }
 
-  emit('contact-saved');
-  close();
+  emit('contact-saved')
+  close()
 }
 
 const triggerFileImport = () => {
-  fileInput.value?.click();
-};
+  fileInput.value?.click()
+}
 
 const handleFileImport = async (event: Event) => {
-  const target = event.target as HTMLInputElement;
-  const file = target.files?.[0];
-  
-  if (!file) return;
+  const target = event.target as HTMLInputElement
+  const file = target.files?.[0]
+
+  if (!file) return
 
   try {
-    const result = await parseWalletJsonFile(file);
-    
-    // Add imported wallets to the existing wallets array
-    wallets.value.push(...result.wallets);
+    const result = await parseWalletJsonFile(file)
+    wallets.value.push(...result.wallets)
   } catch (error) {
-    console.error('Error importing file:', error);
-    alert(error instanceof Error ? error.message : 'Error importing file. Please ensure it is a valid JSON file.');
+    console.error('Error importing file:', error)
+    alert(error instanceof Error ? error.message : 'Error importing file. Please ensure it is a valid JSON file.')
   }
-  
-  // Reset file input
+
   if (target) {
-    target.value = '';
+    target.value = ''
   }
-};
+}
 
 const close = () => {
-  emit('close');
-};
+  emit('close')
+}
 </script>
 
-<style scoped>
-.modal-overlay {
+<style lang="scss" scoped>
+.ac-modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 10060;
+  animation: ac-modal-fade 0.15s ease;
 }
 
-.modal-content {
-  background-color: #f9fafb;
-  padding: 2.5rem;
+@keyframes ac-modal-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.ac-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10061;
+  width: min(92vw, 34rem);
+  max-height: 85vh;
+  background: #f9fafb;
   border-radius: 0.75rem;
-  width: 90%;
-  max-width: 550px;
-  position: relative;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
-.modal-header {
+  box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.22);
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  overflow: hidden;
+  animation: ac-modal-pop 0.18s ease;
+}
+
+@keyframes ac-modal-pop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.ac-modal__header {
+  padding: 1rem 1.25rem 0.75rem;
+}
+
+.ac-modal__header-row {
+  display: flex;
   align-items: center;
-  margin-bottom: 1.5rem;
-  gap: 1rem;
+  gap: 0.75rem;
+  position: relative;
+  padding-right: 2.75rem;
 }
 
-.entity-selector-wrapper {
+.ac-modal__entity-trigger {
   flex-shrink: 0;
-}
-
-.entity-selector {
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  border: 1px solid #d1d5db;
-  background-color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-width: 8.5rem;
+  padding: 0.5rem 0.65rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   color: #374151;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+
+  &:focus-visible {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  }
 }
 
-h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
+.ac-modal__select-chevron {
+  font-size: 0.65rem;
+  color: #6b7280;
+}
+
+:deep(.ac-modal__select-content) {
+  z-index: 10070;
+  min-width: 8.5rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12);
+  padding: 0.25rem;
+}
+
+:deep(.ac-modal__select-viewport) {
+  padding: 0.125rem 0;
+}
+
+:deep(.ac-modal__select-item) {
+  font-size: 0.8125rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  outline: none;
+
+  &[data-highlighted] {
+    background: #f3f4f6;
+  }
+
+  &[data-state='checked'] {
+    font-weight: 600;
+    color: #2563eb;
+  }
+}
+
+.ac-modal__title {
+  flex: 1;
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
   color: #111827;
   text-align: center;
-  margin: 0;
-  flex-grow: 1;
+  line-height: 1.3;
 }
 
-.close-button {
-    position: static;
-    background: none;
-    border: none;
-    font-size: 1.75rem;
-    line-height: 1;
-    color: #9ca3af;
-    cursor: pointer;
-    transition: color 0.2s;
+.ac-modal__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: #f3f4f6;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  color: #6b7280;
+  transition: background 0.12s, color 0.12s;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &:hover {
+    background: #e5e7eb;
+    color: #111827;
+  }
 }
 
-.close-button:hover {
-    color: #1f2937;
+.ac-modal__separator {
+  background: #e5e7eb;
 }
 
-.tabs {
+.ac-modal__body {
+  overflow-y: auto;
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.ac-tabs {
   display: flex;
-  border-bottom: 1px solid #d1d5db;
-  margin-bottom: 1.5rem;
+  flex-direction: column;
+  gap: 0;
 }
 
-.tabs button {
+.ac-tabs__list {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.25rem;
+  border-bottom: 1px solid #d1d5db;
+  margin-bottom: 1.25rem;
+}
+
+.ac-tabs__trigger {
+  position: relative;
   background: none;
   border: none;
-  padding: 0.75rem 1.25rem;
-  font-size: 1rem;
+  padding: 0.65rem 1rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   color: #6b7280;
   cursor: pointer;
-  position: relative;
-  transition: color 0.2s;
+  transition: color 0.15s;
+
+  &:hover {
+    color: #111827;
+  }
+
+  &[data-state='active'] {
+    color: #2563eb;
+    font-weight: 600;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #2563eb;
+      border-radius: 1px;
+    }
+  }
 }
 
-.tabs button:hover {
-  color: #111827;
+.ac-tabs__content {
+  padding-bottom: 0.25rem;
 }
 
-.tabs button.active {
-  color: #2563eb;
-  font-weight: 600;
+.ac-general-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.tabs button.active::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-color: #2563eb;
-}
-
-.tab-content {
+.ac-form-grid {
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.25rem;
 }
 
-.tab-panel {
-  grid-area: 1 / 1;
+.ac-field {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease-in-out;
+  gap: 0.35rem;
 }
 
-.tab-panel.active-panel {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem; 
-}
-
-.form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.form-group.full-width {
-    grid-column: 1 / -1;
-}
-
-label {
+.ac-label {
+  font-size: 0.75rem;
   font-weight: 500;
   color: #374151;
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
+.ac-input,
+.ac-textarea {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.6rem 0.65rem;
+  font-size: 0.875rem;
   border: 1px solid #d1d5db;
   border-radius: 0.375rem;
-  background-color: #fff;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #fff;
   box-sizing: border-box;
+  transition: border-color 0.15s, box-shadow 0.15s;
+
+  &:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+  }
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-  outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+.ac-textarea {
+  min-height: 5rem;
+  resize: vertical;
 }
 
-textarea {
-    min-height: 80px;
-    resize: vertical;
-}
-
-h3 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #111827;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 0.5rem;
-}
-
-.wallets-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.wallet-group {
-    display: grid;
-    grid-template-columns: 1fr 2fr auto;
-    gap: 1rem;
-    align-items: center;
-}
-
-.wallet-header {
-    font-weight: 600;
-    color: #374151;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #e5e7eb;
-    margin-bottom: -0.5rem;
-}
-
-.wallet-group input,
-.wallet-group select {
-    margin: 0;
-}
-
-.add-wallet-btn, .remove-wallet-btn {
-    background-color: transparent;
-    border: 1px solid #d1d5db;
-    color: #374151;
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-weight: 500;
-}
-
-.remove-wallet-btn {
-    border: none;
-    color: #ef4444;
-    padding: 0.5rem;
-}
-.remove-wallet-btn:hover {
-    color: #b91c1c;
-    background-color: #fee2e2;
-}
-
-
-.add-wallet-btn {
-    align-self: flex-start;
-}
-
-.add-wallet-btn:hover {
-    background-color: #f3f4f6;
-    border-color: #9ca3af;
-}
-
-.form-actions {
-  margin-top: 1.5rem;
+.ac-wallets {
   display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.85rem;
 }
 
-.btn-primary, .btn-secondary {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 0.375rem;
-    cursor: pointer;
+.ac-wallet-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  gap: 0.65rem;
+  align-items: center;
+
+  &--header {
+    font-size: 0.75rem;
     font-weight: 600;
-    transition: all 0.2s;
-}
-
-.btn-primary {
-    background-color: #2563eb;
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #1d4ed8;
-}
-
-.btn-secondary {
-    background-color: #e5e7eb;
     color: #374151;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: -0.25rem;
+  }
 }
 
-.btn-secondary:hover {
-    background-color: #d1d5db;
+.ac-wallet-row__spacer {
+  width: 3.5rem;
 }
 
-.btn-import {
-    padding: 0.75rem 1.5rem;
-    border: 1px solid #2563eb;
-    border-radius: 0.375rem;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.2s;
-    background-color: #ffffff;
-    color: #2563eb;
+.ac-btn-remove {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+
+  &:hover {
+    color: #b91c1c;
+    background: #fee2e2;
+  }
 }
 
-.btn-import:hover {
-    background-color: #eff6ff;
+.ac-btn-add-wallet {
+  align-self: flex-start;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #374151;
+  background: transparent;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+
+  &:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+  }
+}
+
+.ac-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.ac-file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.ac-btn {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  border: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.ac-btn--primary {
+  background: #2563eb;
+  color: #fff;
+
+  &:hover {
+    background: #1d4ed8;
+  }
+}
+
+.ac-btn--secondary {
+  background: #e5e7eb;
+  color: #374151;
+
+  &:hover {
+    background: #d1d5db;
+  }
+}
+
+.ac-btn--import {
+  background: #fff;
+  color: #2563eb;
+  border: 1px solid #2563eb;
+
+  &:hover {
+    background: #eff6ff;
     border-color: #1d4ed8;
+  }
 }
 
-.placeholder-form {
+.ac-placeholder {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 200px;
+  min-height: 10rem;
+  padding: 1.5rem;
+  text-align: center;
   color: #6b7280;
+  font-size: 0.875rem;
   border: 2px dashed #d1d5db;
   border-radius: 0.5rem;
-  padding: 2rem;
-  text-align: center;
+  background: #fff;
 }
 </style>

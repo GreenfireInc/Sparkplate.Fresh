@@ -1,7 +1,7 @@
 <template>
-  <div class="address-book-container">
-    <div class="header">
-      <h1><NotebookTabs :size="24" class="header-icon" />Address Book</h1>
+  <div class="address-book-container" :class="{ 'address-book-container--embedded': embedded }">
+    <div class="header" :class="{ 'header--embedded': embedded }">
+      <h1 v-if="!embedded"><NotebookTabs :size="24" class="header-icon" />Address Book</h1>
       <div class="actions">
         <button class="btn" @click="openAddContactModal(null)"><SquareUser :size="18" class="btn-icon" />Add Contact</button>
         <ImportButton @contacts-imported="addContacts" />
@@ -171,6 +171,8 @@ import ActionsDropdown from './ActionsDropdown.vue';
 import { NotebookTabs, SquareUser } from 'lucide-vue-next';
 import { getContacts, addContact, deleteContact, type Contact } from '@/services/addressBook/contactService';
 import { addWallet, getWalletCountForContact } from '@/services/addressBook/walletService';
+
+withDefaults(defineProps<{ embedded?: boolean }>(), { embedded: false });
 
 interface DisplayContact extends Contact {
   wallets: number;
@@ -467,10 +469,24 @@ function onExportVcf(contact: Contact) {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.address-book-container--embedded {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
+}
+
+.header--embedded {
+  justify-content: flex-end;
   margin-bottom: 1rem;
 }
 
@@ -500,11 +516,7 @@ function onExportVcf(contact: Contact) {
   flex-shrink: 0;
 }
 
-.actions {
-  display: flex;
-  gap: 1rem;
-}
-
+/* Default button chrome (footer delete, etc.); toolbar uses `.actions` rules below */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -516,13 +528,47 @@ function onExportVcf(contact: Contact) {
   cursor: pointer;
   color: #1f2937;
   font-weight: 500;
+  font-size: 0.8125rem;
+  line-height: 1.25;
+  font-family: inherit;
+}
+
+.btn:hover:not(.btn-delete) {
+  background-color: #f3f4f6;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.actions > .btn,
+.actions :deep(.btn) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  margin: 0;
+  padding: 0.45rem 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+  cursor: pointer;
+  color: #1f2937;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  line-height: 1.25;
+  font-family: inherit;
 }
 
 .btn-icon {
   flex-shrink: 0;
 }
 
-.btn:hover {
+.actions > .btn:hover,
+.actions :deep(.btn:hover) {
   background-color: #f3f4f6;
 }
 
