@@ -13,6 +13,7 @@ import Games from '../views/Games.vue'
 import Sandbox from '../views/Sandbox.vue'
 import Settings from '../views/Settings.vue'
 import QRCode from '../views/QRCode.vue'
+import AddressBook from '../views/AddressBook.vue'
 
 /**
  * Application routes configuration
@@ -42,6 +43,11 @@ export const routes: RouteRecordRaw[] = [
     path: '/networking',
     name: 'Networking',
     component: Networking
+  },
+  {
+    path: '/addressbook',
+    name: 'AddressBook',
+    component: AddressBook
   },
   {
     path: '/techstack',

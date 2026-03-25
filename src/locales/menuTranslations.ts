@@ -52,6 +52,7 @@ export interface MenuTranslations {
   cryptocurrency: string
   cryptography: string
   networking: string
+  addressBook: string
   techStack: string
   repurposing: string
   build: string
@@ -114,6 +115,7 @@ export const menuTranslations: Record<SupportedLanguage, MenuTranslations> = {
     cryptocurrency: 'Cryptocurrency',
     cryptography: 'Cryptography',
     networking: 'Networking',
+    addressBook: 'Address Book',
     techStack: 'Tech Stack',
     repurposing: 'Repurposing',
     build: 'Build',
@@ -173,6 +175,7 @@ export const menuTranslations: Record<SupportedLanguage, MenuTranslations> = {
     cryptocurrency: 'Criptomoneda',
     cryptography: 'Criptografía',
     networking: 'Redes',
+    addressBook: 'Libreta de direcciones',
     techStack: 'Pila Tecnológica',
     repurposing: 'Reutilización',
     build: 'Construir',
@@ -232,6 +235,7 @@ export const menuTranslations: Record<SupportedLanguage, MenuTranslations> = {
     cryptocurrency: 'Cryptomonnaie',
     cryptography: 'Cryptographie',
     networking: 'Réseau',
+    addressBook: 'Carnet d\'adresses',
     techStack: 'Pile Technologique',
     repurposing: 'Réutilisation',
     build: 'Construire',
@@ -291,6 +295,7 @@ export const menuTranslations: Record<SupportedLanguage, MenuTranslations> = {
     cryptocurrency: 'Kryptowährung',
     cryptography: 'Kryptographie',
     networking: 'Netzwerk',
+    addressBook: 'Adressbuch',
     techStack: 'Technologie-Stack',
     repurposing: 'Wiederverwendung',
     build: 'Erstellen',
@@ -350,6 +355,7 @@ export const menuTranslations: Record<SupportedLanguage, MenuTranslations> = {
     cryptocurrency: 'Criptomoeda',
     cryptography: 'Criptografia',
     networking: 'Rede',
+    addressBook: 'Catálogo de endereços',
     techStack: 'Stack Tecnológico',
     repurposing: 'Reutilização',
     build: 'Construir',
