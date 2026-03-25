@@ -62,9 +62,9 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import ActionsDropdown from './ActionsDropdown.vue';
-import WalletModal from './WalletModal.vue';
-import ConfirmModal from './modals/ConfirmModal.vue';
+import ActionsDropdown from '@/components/addressBook/ActionsDropdown.vue';
+import WalletModal from '@/components/addressBook/WalletModal.vue';
+import ConfirmModal from '@/components/addressBook/modals/ConfirmModal.vue';
 import { deleteWallet } from '@/services/addressBook/walletService';
 
 interface Currency {

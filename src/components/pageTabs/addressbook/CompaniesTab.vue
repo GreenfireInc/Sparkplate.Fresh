@@ -70,7 +70,7 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue';
 import { getCompanies, deleteCompany, type Company } from '@/services/addressBook/companyService';
-import ConfirmModal from './modals/ConfirmModal.vue';
+import ConfirmModal from '@/components/addressBook/modals/ConfirmModal.vue';
 
 const companies = ref<Company[]>([]);
 const showConfirmModal = ref(false);

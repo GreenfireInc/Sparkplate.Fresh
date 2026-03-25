@@ -79,9 +79,9 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import ExchangeModal from './ExchangeModal.vue';
-import ActionsDropdown from './ActionsDropdown.vue';
-import ConfirmModal from './modals/ConfirmModal.vue';
+import ExchangeModal from '@/components/addressBook/ExchangeModal.vue';
+import ActionsDropdown from '@/components/addressBook/ActionsDropdown.vue';
+import ConfirmModal from '@/components/addressBook/modals/ConfirmModal.vue';
 
 interface Currency {
   name: string;
