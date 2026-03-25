@@ -42,6 +42,16 @@
       <NetworkIcon :size="18" :color="pathColor('/networking')" />
       <span v-if="menuType === 'macro'" class="nav-text">Networking</span>
     </router-link>
+
+    <router-link
+      to="/addressbook"
+      class="nav-item"
+      :class="{ active: $route.path === '/addressbook' }"
+      title="Address Book"
+    >
+      <BookUserIcon :size="18" :color="pathColor('/addressbook')" />
+      <span v-if="menuType === 'macro'" class="nav-text">Address Book</span>
+    </router-link>
     
     <router-link
       to="/techstack"
@@ -148,6 +158,7 @@ import {
   CoinsIcon, 
   LockIcon,
   NetworkIcon,
+  BookUser as BookUserIcon,
   LayersIcon,
   RecycleIcon,
   HammerIcon,
@@ -168,6 +179,7 @@ export default {
     CoinsIcon,
     LockIcon,
     NetworkIcon,
+    BookUserIcon,
     LayersIcon,
     RecycleIcon,
     HammerIcon,
