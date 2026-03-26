@@ -51,6 +51,36 @@ function nobleResolver() {
   }
 }
 
+// Plugin to rewrite Node built-in require() calls in CJS source files.
+// resolveId hooks don't intercept these in Vite 6 (built-ins are marked external
+// before plugins run). Instead we rewrite the source in the transform phase,
+// replacing require("buffer") with a {Buffer} reference so the @rollup/plugin-inject
+// (from vite-plugin-node-polyfills) then injects the proper ESM import for Buffer.
+function nodeBuiltinsResolver() {
+  return {
+    name: 'node-builtins-resolver',
+    enforce: 'pre' as const,
+
+    transform(code: string, id: string) {
+      // Only process files in node_modules that have these require calls
+      if (!id.includes('node_modules')) return null
+
+      let changed = false
+      let result = code
+
+      const bufferRe = /require\(["'](buffer|safe-buffer)["']\)/g
+      if (bufferRe.test(result)) {
+        // Replace with {Buffer} — @rollup/plugin-inject then adds:
+        // `import { Buffer } from 'vite-plugin-node-polyfills/shims/buffer'`
+        result = result.replace(/require\(["'](buffer|safe-buffer)["']\)/g, '({Buffer})')
+        changed = true
+      }
+
+      return changed ? { code: result, map: null } : null
+    },
+  }
+}
+
 // Plugin to resolve libsodium-wrappers-sumo relative import issue
 function libsodiumResolver() {
   return {
@@ -77,16 +107,15 @@ export default defineConfig(({ command }) => {
 
   const isServe = command === 'serve'
   const isBuild = command === 'build'
-  const sourcemap = isServe || !!process.env.VSCODE_DEBUG
-
+  // const sourcemap = isServe || !!process.env.VSCODE_DEBUG
+  const sourcemap = true
+  
   return {
     base: './',  // Use relative paths for Electron production builds
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
         '@background': path.resolve(__dirname, 'background'),
-        // Alias buffer to use the polyfill
-        'buffer': 'buffer/',
         'stream': 'stream-browserify',
         // Fix libsodium-wrappers-sumo ESM import issue - use CJS version instead
         // The ESM version tries to import './libsodium-sumo.mjs' which fails during esbuild bundling
@@ -147,6 +176,7 @@ export default defineConfig(({ command }) => {
       },
     },
     plugins: [
+      nodeBuiltinsResolver(),
       nobleResolver(),
       libsodiumResolver(),
       wasm(),

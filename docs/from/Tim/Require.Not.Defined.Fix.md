@@ -1,0 +1,124 @@
+# Fix: `require is not defined` in Production Build
+
+## Symptom
+
+After running `npm run build`, the Electron renderer crashes on launch with:
+
+Uncaught (in promise) ReferenceError: require is not defined
+at WOe (index-XXXXXXXX.js:NNNNN:19)
+at index-XXXXXXXX.js:NNNNN:14
+
+
+
+The error originates inside a lazy getter created by `@rollup/plugin-commonjs`, specifically from `@solana/buffer-layout` calling `require("buffer")` at runtime.
+
+---
+
+## Root Cause
+
+### Why `require("buffer")` ends up in the bundle
+
+`@solana/buffer-layout` is a CommonJS module. Its source contains a top-level static require:
+
+```js
+// @solana/buffer-layout/lib/Layout.js
+const buffer_1 = require("buffer");
+
+During a production build, Vite uses Rollup with @rollup/plugin-commonjs to transform CJS modules into ESM. The commonjs plugin wraps each CJS module in a lazy getter function. For each require(X) call it finds, it calls this.resolve(X) to locate the corresponding bundled module — then replaces the runtime require() with a static module reference.
+
+The problem: in Vite 6, Node.js built-in names (buffer, crypto, stream, etc.) are marked external before any plugins resolveId hook runs. When @rollup/plugin-commonjs tries to resolve "buffer", the resolution returns external — so the plugin leaves require("buffer") as a raw runtime call inside the lazy getter.
+
+At runtime in Electron's renderer (which runs in a browser-like context without Node.js integration), require is not defined → crash.
+
+Why resolveId doesn't fix it
+The intuitive fix — intercepting "buffer" in a plugin's resolveId hook and returning a browser polyfill path — does not work in Vite 6. The external classification of Node built-ins happens at a lower level than the user-facing plugin pipeline, before any resolveId hook can intercept it.
+
+Solution
+Use a transform hook (with enforce: 'pre') to rewrite the CJS source before @rollup/plugin-commonjs ever sees it.
+
+The transform replaces require("buffer") with ({Buffer}) — a shorthand object literal that references the bare Buffer identifier. The file now contains a plain Buffer reference rather than a require() call.
+
+vite-plugin-node-polyfills (already in the project) uses @rollup/plugin-inject internally. That plugin scans for bare identifier references like Buffer and automatically injects:
+
+
+import { Buffer } from 'vite-plugin-node-polyfills/shims/buffer'
+at the top of any module that uses Buffer. The result: Buffer is resolved at bundle time from a browser-safe polyfill with no runtime require needed.
+
+Implementation
+In vite.config.ts, the nodeBuiltinsResolver plugin handles this:
+
+
+// Plugin to rewrite Node built-in require() calls in CJS source files.
+// resolveId hooks don't intercept these in Vite 6 (built-ins are marked external
+// before plugins run). Instead we rewrite the source in the transform phase,
+// replacing require("buffer") with a {Buffer} reference so the @rollup/plugin-inject
+// (from vite-plugin-node-polyfills) then injects the proper ESM import for Buffer.
+function nodeBuiltinsResolver() {
+  return {
+    name: 'node-builtins-resolver',
+    enforce: 'pre' as const,
+
+    transform(code: string, id: string) {
+      // Only process files in node_modules that have these require calls
+      if (!id.includes('node_modules')) return null
+
+      let changed = false
+      let result = code
+
+      const bufferRe = /require\(["'](buffer|safe-buffer)["']\)/g
+      if (bufferRe.test(result)) {
+        // Replace with {Buffer} — @rollup/plugin-inject then adds:
+        // `import { Buffer } from 'vite-plugin-node-polyfills/shims/buffer'`
+        result = result.replace(/require\(["'](buffer|safe-buffer)["']\)/g, '({Buffer})')
+        changed = true
+      }
+
+      return changed ? { code: result, map: null } : null
+    },
+  }
+}
+The plugin must be registered first in the plugins array:
+
+
+plugins: [
+  nodeBuiltinsResolver(), // must be first
+  nobleResolver(),
+  libsodiumResolver(),
+  // ...
+]
+How the Fix Works Step by Step
+1. Before transform — @solana/buffer-layout/lib/Layout.js contains:
+
+
+const buffer_1 = require("buffer");
+2. After nodeBuiltinsResolver transform — the source becomes:
+
+
+const buffer_1 = ({Buffer});
+
+3. @rollup/plugin-commonjs runs — wraps the module in a lazy getter. Buffer is now a plain identifier reference, not a require() call, so commonjs ignores it.
+
+4. @rollup/plugin-inject runs (from vite-plugin-node-polyfills) — detects that this module uses Buffer and injects at the top of the transformed ESM output:
+
+
+import { Buffer } from 'vite-plugin-node-polyfills/shims/buffer';
+
+5. Final bundle — buffer_1.Buffer.from(...) resolves to the browser-safe Buffer from the shim. No require call anywhere in the output.
+
+Affected Packages
+
+The primary offender was @solana/buffer-layout (lib/Layout.js), which calls require("buffer") at the top level outside any try/catch.
+
+The pattern also appears in other packages like bn.js, but those wrap the call in try { } catch {} so they fail silently and are not crash-critical.
+
+Approaches That Did NOT Work
+
+resolveId hook returning the shim path — Vite 6 marks Node built-ins external before resolveId hooks run, so the interception never fires.
+
+resolve.alias: { 'buffer': 'buffer/' } — The alias redirects the name but Rollup still can't find the npm package without @rollup/plugin-node-resolve in the pipeline.
+
+build.commonjsOptions.include — Controls which files the commonjs plugin transforms, not how it resolves built-in requires.
+
+Adding @rollup/plugin-node-resolve to rollupOptions.plugins — Previously caused conflicts with other crypto and blockchain library resolution in this project.
+
+
