@@ -111,7 +111,7 @@ import AddressBookPage from '@/components/addressBook/AddressBookPage.vue'
   padding-bottom: 1.5rem;
   background: #f9fafb;
 
-  :deep(.address-book-container--embedded .table-container) {
+  :deep(.ab-page--embedded .ab-page__table-shell) {
     border-radius: 0.375rem;
   }
 }

@@ -56,47 +56,98 @@
                 </TabsList>
 
                 <TabsContent value="general" class="ac-tabs__content">
-                  <div class="ac-general-fields">
-                    <div class="ac-form-grid">
-                      <div class="ac-field">
-                        <Label class="ac-label" for="ac-firstname">First name</Label>
-                        <input id="ac-firstname" v-model="form.firstname" type="text" class="ac-input" autocomplete="given-name" />
+                  <div class="ac-tabs__panel ac-tabs__panel--general">
+                    <div class="ac-general-fields">
+                      <div class="ac-form-grid">
+                        <div class="ac-field">
+                          <Label class="ac-label" for="ac-firstname">First name</Label>
+                          <input id="ac-firstname" v-model="form.firstname" type="text" class="ac-input" autocomplete="given-name" />
+                        </div>
+                        <div class="ac-field">
+                          <Label class="ac-label" for="ac-lastname">Last name</Label>
+                          <input id="ac-lastname" v-model="form.lastname" type="text" class="ac-input" autocomplete="family-name" />
+                        </div>
+                      </div>
+                      <div class="ac-form-grid">
+                        <div class="ac-field">
+                          <Label class="ac-label" for="ac-email">Email</Label>
+                          <input id="ac-email" v-model="form.email" type="email" class="ac-input" autocomplete="email" />
+                        </div>
+                        <div class="ac-field">
+                          <Label class="ac-label" for="ac-company">Company</Label>
+                          <input id="ac-company" v-model="form.company" type="text" class="ac-input" autocomplete="organization" />
+                        </div>
                       </div>
                       <div class="ac-field">
-                        <Label class="ac-label" for="ac-lastname">Last name</Label>
-                        <input id="ac-lastname" v-model="form.lastname" type="text" class="ac-input" autocomplete="family-name" />
+                        <Label class="ac-label" for="ac-notes">Notes</Label>
+                        <textarea id="ac-notes" v-model="form.notes" class="ac-textarea" rows="3" />
                       </div>
-                    </div>
-                    <div class="ac-form-grid">
-                      <div class="ac-field">
-                        <Label class="ac-label" for="ac-email">Email</Label>
-                        <input id="ac-email" v-model="form.email" type="email" class="ac-input" autocomplete="email" />
-                      </div>
-                      <div class="ac-field">
-                        <Label class="ac-label" for="ac-company">Company</Label>
-                        <input id="ac-company" v-model="form.company" type="text" class="ac-input" autocomplete="organization" />
-                      </div>
-                    </div>
-                    <div class="ac-field">
-                      <Label class="ac-label" for="ac-notes">Notes</Label>
-                      <textarea id="ac-notes" v-model="form.notes" class="ac-textarea" rows="3" />
                     </div>
                   </div>
                 </TabsContent>
 
                 <TabsContent value="advanced" class="ac-tabs__content">
-                  <div class="ac-wallets">
-                    <div v-if="wallets.length > 0" class="ac-wallet-row ac-wallet-row--header">
-                      <strong>Coin</strong>
-                      <strong>Address</strong>
-                      <span class="ac-wallet-row__spacer" />
+                  <div
+                    class="ac-tabs__panel ac-tabs__panel--wallets"
+                    role="region"
+                    aria-labelledby="ac-wallets-heading"
+                  >
+                    <p id="ac-wallets-heading" class="ac-wallets__intro">
+                      Wallet addresses linked to this contact.
+                    </p>
+                    <Separator class="ac-wallets__separator" />
+                    <div class="ac-wallets__thead">
+                      <span class="ac-wallets__th">Coin</span>
+                      <span class="ac-wallets__th">Address</span>
+                      <span class="ac-wallets__th ac-wallets__th--action">
+                        <span class="ac-wallets__visually-hidden">Remove</span>
+                      </span>
                     </div>
-                    <div v-for="(wallet, index) in wallets" :key="index" class="ac-wallet-row">
-                      <CurrencyDropdown v-model="wallet.coinTicker" />
-                      <input v-model="wallet.address" type="text" class="ac-input" placeholder="Wallet address" />
-                      <button type="button" class="ac-btn-remove" @click="removeWallet(index)">Remove</button>
+                    <ScrollAreaRoot class="ac-wallets__scroll-root" type="hover">
+                      <ScrollAreaViewport class="ac-wallets__viewport" aria-label="Wallet list">
+                        <div class="ac-wallets__list">
+                          <p v-if="wallets.length === 0" class="ac-wallets__empty">
+                            No wallets yet. Use “Add wallet” or Import from the actions below.
+                          </p>
+                          <div
+                            v-for="(wallet, index) in wallets"
+                            :key="index"
+                            class="ac-wallet-row"
+                          >
+                            <div class="ac-wallet-row__cell">
+                              <CurrencyDropdown v-model="wallet.coinTicker" />
+                            </div>
+                            <div class="ac-wallet-row__cell">
+                              <input
+                                :id="`ac-wallet-addr-${index}`"
+                                v-model="wallet.address"
+                                type="text"
+                                class="ac-input"
+                                placeholder="Wallet address"
+                                autocomplete="off"
+                                :aria-label="`Wallet address, row ${Number(index) + 1}`"
+                              />
+                            </div>
+                            <div class="ac-wallet-row__cell ac-wallet-row__cell--action">
+                              <button
+                                type="button"
+                                class="ac-btn-remove"
+                                :aria-label="`Remove wallet row ${Number(index) + 1}`"
+                                @click="removeWallet(index)"
+                              >
+                                Remove
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </ScrollAreaViewport>
+                      <ScrollAreaScrollbar orientation="vertical" class="ac-wallets__scrollbar">
+                        <ScrollAreaThumb class="ac-wallets__thumb" />
+                      </ScrollAreaScrollbar>
+                    </ScrollAreaRoot>
+                    <div class="ac-wallets__toolbar">
+                      <button type="button" class="ac-btn-add-wallet" @click="addWalletRow">+ Add wallet</button>
                     </div>
-                    <button type="button" class="ac-btn-add-wallet" @click="addWalletRow">+ Add wallet</button>
                   </div>
                 </TabsContent>
               </TabsRoot>
@@ -148,6 +199,10 @@ import {
   SelectValue,
   SelectPortal,
   SelectViewport,
+  ScrollAreaRoot,
+  ScrollAreaViewport,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
 } from 'radix-vue'
 import { type Contact, addContact, updateContact } from '@/services/addressBook/contactService'
 import { type Wallet, addWallet, getWalletsForContact, updateWallet, deleteWallet } from '@/services/addressBook/walletService'
@@ -494,6 +549,136 @@ const close = () => {
   padding-bottom: 0.25rem;
 }
 
+/* Shared height so the dialog does not jump between General and Wallets */
+.ac-tabs__panel {
+  box-sizing: border-box;
+  height: 26rem;
+  max-height: min(26rem, 52vh);
+}
+
+.ac-tabs__panel--general {
+  overflow-y: auto;
+  padding-right: 0.15rem;
+}
+
+.ac-tabs__panel--wallets {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.ac-wallets__intro {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.ac-wallets__separator {
+  flex-shrink: 0;
+  background: #e5e7eb;
+}
+
+.ac-wallets__thead {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  gap: 0.65rem;
+  align-items: end;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+
+.ac-wallets__th {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.ac-wallets__th--action {
+  width: 3.5rem;
+  text-align: right;
+}
+
+.ac-wallets__visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ac-wallets__scroll-root {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  border-radius: 0.375rem;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+}
+
+.ac-wallets__viewport {
+  padding: 0.5rem 0.5rem 0.65rem 0.65rem;
+  outline: none;
+}
+
+.ac-wallets__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-right: 0.25rem;
+}
+
+.ac-wallets__empty {
+  margin: 0;
+  padding: 1.25rem 0.5rem;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: #9ca3af;
+  line-height: 1.45;
+}
+
+:deep(.ac-wallets__scrollbar) {
+  display: flex;
+  width: 0.5rem;
+  padding: 2px;
+  margin-right: 2px;
+  background: transparent;
+  user-select: none;
+  touch-action: none;
+}
+
+:deep(.ac-wallets__scrollbar[data-orientation='vertical']) {
+  border-radius: 999px;
+}
+
+:deep(.ac-wallets__thumb) {
+  flex: 1;
+  min-height: 1.5rem;
+  border-radius: 999px;
+  background: #d1d5db;
+  transition: background 0.15s;
+}
+
+:deep(.ac-wallets__thumb:hover) {
+  background: #9ca3af;
+}
+
+.ac-wallets__toolbar {
+  flex-shrink: 0;
+  padding-top: 0.15rem;
+}
+
 .ac-general-fields {
   display: flex;
   flex-direction: column;
@@ -541,30 +726,27 @@ const close = () => {
   resize: vertical;
 }
 
-.ac-wallets {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
 .ac-wallet-row {
   display: grid;
   grid-template-columns: 1fr 2fr auto;
   gap: 0.65rem;
   align-items: center;
-
-  &--header {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #374151;
-    padding-bottom: 0.35rem;
-    border-bottom: 1px solid #e5e7eb;
-    margin-bottom: -0.25rem;
-  }
 }
 
-.ac-wallet-row__spacer {
-  width: 3.5rem;
+.ac-wallet-row__cell {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.ac-wallet-row__cell--action {
+  align-items: flex-end;
+  justify-content: center;
+}
+
+:deep(.ac-wallet-row__cell .custom-select-wrapper) {
+  width: 100%;
 }
 
 .ac-btn-remove {
@@ -586,6 +768,7 @@ const close = () => {
 
 .ac-btn-add-wallet {
   align-self: flex-start;
+  width: auto;
   padding: 0.45rem 0.85rem;
   font-size: 0.8125rem;
   font-weight: 500;
