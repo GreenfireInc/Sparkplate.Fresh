@@ -60,6 +60,7 @@ import { ref } from 'vue'
 import { DialogTitle, Label } from 'radix-vue'
 import { FileText, ArrowDown, ChevronLeft } from 'lucide-vue-next'
 import eulaData from '/public/assets/text/eula/eulaLineBreaksBR.json'
+// import eulaData from '@/assets/text/eula/eulaLineBreaksBR.json'
 
 const emit = defineEmits<{
   accept: []

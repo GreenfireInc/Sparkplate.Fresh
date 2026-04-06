@@ -96,19 +96,6 @@ export const PROOF_OF_WORK: ProofOfWorkItem[] = [
     npm: null
   },
   { 
-    id: 'bismuth', 
-    symbol: 'BIS', 
-    name: 'Bismuth',
-    description: 'A Python-based blockchain platform supporting custom tokens and decentralized applications.',
-    ucid: 2009,
-    type: 'coin',
-    consensusType: 'proof-of-work',
-    class: ['layer-1', 'smart-contract-platform'],
-    website: 'https://bismuth.cz',
-    github: 'https://github.com/bismuthfoundation',
-    npm: null
-  },
-  { 
     id: 'bitcoin-cash-sv', 
     symbol: 'BSV', 
     name: 'Bitcoin SV',
@@ -161,32 +148,6 @@ export const PROOF_OF_WORK: ProofOfWorkItem[] = [
     npm: null
   },
   { 
-    id: 'carboncoin', 
-    symbol: 'CARBON', 
-    name: 'Carboncoin',
-    description: 'An early cryptocurrency focused on carbon credit trading and environmental initiatives.',
-    ucid: 321,
-    type: 'coin',
-    consensusType: 'proof-of-work',
-    class: ['layer-1', 'payment'],
-    website: null,
-    github: null,
-    npm: null
-  },
-  { 
-    id: 'californium', 
-    symbol: 'CF', 
-    name: 'Californium',
-    description: 'A proof-of-work cryptocurrency with fast block times.',
-    ucid: 989,
-    type: 'coin',
-    consensusType: 'proof-of-work',
-    class: ['layer-1', 'payment'],
-    website: null,
-    github: null,
-    npm: null
-  },
-  { 
     id: 'conflux-token', 
     symbol: 'CFX', 
     name: 'Conflux Network',
@@ -211,58 +172,6 @@ export const PROOF_OF_WORK: ProofOfWorkItem[] = [
     website: 'https://nervos.org',
     github: 'https://github.com/nervosnetwork',
     npm: 'https://www.npmjs.com/package/@nervosnetwork/ckb-sdk-core'
-  },
-  { 
-    id: 'clams', 
-    symbol: 'CLAM', 
-    name: 'Clams',
-    description: 'A cryptocurrency originally distributed to Bitcoin, Litecoin, and Dogecoin holders.',
-    ucid: 40,
-    type: 'coin',
-    consensusType: 'hybrid',
-    class: ['layer-1', 'payment'],
-    website: 'https://clamcoin.org',
-    github: 'https://github.com/nochowderforyou/clams',
-    npm: null
-  },
-  { 
-    id: 'callisto', 
-    symbol: 'CLO', 
-    name: 'Callisto Network',
-    description: 'A blockchain platform forked from Ethereum Classic, focusing on smart contract security.',
-    ucid: 2757,
-    type: 'coin',
-    consensusType: 'proof-of-work',
-    class: ['layer-1', 'smart-contract-platform'],
-    website: 'https://callisto.network',
-    github: 'https://github.com/EthereumCommonwealth',
-    npm: null
-  },
-  { 
-    id: 'clore-ai', 
-    symbol: 'CLORE', 
-    name: 'Clore.ai',
-    description: 'A decentralized marketplace for renting GPU computing power for AI and rendering tasks.',
-    ucid: 28724,
-    type: 'coin',
-    consensusType: 'proof-of-work',
-    class: ['ai', 'infrastructure'],
-    website: 'https://clore.ai',
-    github: 'https://github.com/cloreai',
-    npm: null
-  },
-  { 
-    id: 'comet', 
-    symbol: 'CMT', 
-    name: 'Comet',
-    description: 'A proof-of-work cryptocurrency with community-driven development.',
-    ucid: 2246,
-    type: 'coin',
-    consensusType: 'proof-of-work',
-    class: ['layer-1', 'payment'],
-    website: null,
-    github: null,
-    npm: null
   },
   { 
     id: 'dash', 

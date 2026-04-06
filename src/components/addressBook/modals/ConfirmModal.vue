@@ -12,8 +12,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
-
 defineProps({
   show: { type: Boolean, required: true },
   title: { type: String, required: true },

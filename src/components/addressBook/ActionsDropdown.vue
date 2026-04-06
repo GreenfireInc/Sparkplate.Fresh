@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, defineProps, computed, defineEmits } from 'vue';
+import { ref, onMounted, onUnmounted, computed } from 'vue';
 import { PocketKnife, Pencil, Coins, FileImage, Image, FileUser, Star, Save, SaveOff } from 'lucide-vue-next';
 import type { Contact } from '@/services/addressBook/contactService';
 

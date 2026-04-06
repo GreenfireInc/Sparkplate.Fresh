@@ -41,8 +41,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
-
 const props = defineProps({
   show: { type: Boolean, required: true },
   file: { type: Object as () => File | null, default: null },
