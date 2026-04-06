@@ -54,7 +54,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
 import type { ImportedWallet } from '@/lib/cores/importStandard/importWallet.json';
 
 const props = defineProps({

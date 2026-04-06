@@ -240,7 +240,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits, ref, computed, watch } from 'vue';
+import { ref, computed, watch } from 'vue';
 import type { Contact } from '@/services/addressBook/contactService';
 import ActionsDropdown from '../ActionsDropdown.vue';
 import AddCurrencyModal from './AddCurrencyModal.vue';
