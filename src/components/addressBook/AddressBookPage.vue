@@ -19,7 +19,7 @@
 
     <div class="ab-page__search-row">
       <div class="ab-page__search-field">
-        <Label for="ab-search" class="ab-page__search-label">Search contacts</Label>
+        <!-- <Label for="ab-search" class="ab-page__search-label">Search contacts</Label> -->
         <input
           id="ab-search"
           v-model="searchQuery"
@@ -144,7 +144,7 @@ import {
   Separator,
   Label,
 } from 'radix-vue'
-import AddContactModal from '@/components/modals/addressbook/addContact.vue'
+import AddContactModal from '@/components/modals/addressbook/addEntry.vue'
 import ContactDetailsModal from '@/components/modals/addressbook/modal.ContactDetails.vue'
 import AddCurrencyModal from '@/components/modals/addressbook/AddCurrencyModal.vue'
 import ConfirmModal from '@/components/modals/addressbook/ConfirmModal.vue'
