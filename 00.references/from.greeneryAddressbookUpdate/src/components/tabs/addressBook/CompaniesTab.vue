@@ -46,13 +46,7 @@
           <td>{{ company.numCurrencies }}</td>
           <td>{{ company.mainCurrencyAddress }}</td>
           <td>
-            <button
-              type="button"
-              class="ab-btn-delete"
-              @click.stop="confirmDeleteCompany(company)"
-            >
-              Delete
-            </button>
+            <ActionsDropdown @delete="confirmDeleteCompany(company)" @edit="" />
           </td>
         </tr>
       </tbody>
@@ -69,8 +63,9 @@
 
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue';
-import { getCompanies, deleteCompany, type Company } from '@/services/addressBook/companyService';
-import ConfirmModal from '@/components/modals/addressbook/ConfirmModal.vue';
+import { getCompanies, deleteCompany, Company } from '../../../services/companyService';
+import ActionsDropdown from '../../dropdown/ActionsDropdown.vue';
+import ConfirmModal from '../../modals/confirmations/ConfirmModal.vue';
 
 const companies = ref<Company[]>([]);
 const showConfirmModal = ref(false);
@@ -190,18 +185,5 @@ td {
   color: #6b7280;
   font-size: 1rem;
 }
-
-.ab-btn-delete {
-  padding: 0.35rem 0.75rem;
-  border-radius: 0.375rem;
-  border: 1px solid #ef4444;
-  background: #fff;
-  color: #b91c1c;
-  font-size: 0.8125rem;
-  cursor: pointer;
-}
-
-.ab-btn-delete:hover {
-  background: #fef2f2;
-}
 </style>
+
