@@ -144,12 +144,12 @@ import {
   Separator,
   Label,
 } from 'radix-vue'
-import AddContactModal from './modals/addContact.vue'
-import ContactDetailsModal from './modals/ContactDetailsModal.vue'
-import AddCurrencyModal from './modals/AddCurrencyModal.vue'
-import ConfirmModal from './modals/ConfirmModal.vue'
-import ImportButton from './ImportButton.vue'
-import ExportButton from './ExportButton.vue'
+import AddContactModal from '@/components/modals/addressbook/addContact.vue'
+import ContactDetailsModal from '@/components/modals/addressbook/modal.ContactDetails.vue'
+import AddCurrencyModal from '@/components/modals/addressbook/AddCurrencyModal.vue'
+import ConfirmModal from '@/components/modals/addressbook/ConfirmModal.vue'
+import ImportButton from '@/components/buttons/addressbook/ImportButton.vue'
+import ExportButton from '@/components/buttons/addressbook/ExportButton.vue'
 import ExchangeTab from '@/components/pageTabs/addressbook/ExchangeTab.vue'
 import WalletTab from '@/components/pageTabs/addressbook/WalletTab.vue'
 import CompaniesTab from '@/components/pageTabs/addressbook/CompaniesTab.vue'

@@ -1,0 +1,19 @@
+{
+  "from": "keyForge",
+  "date": "12/29/2025",
+  "time": "7:03:03 PM",
+  "userName": "user",
+  "machineName": "local",
+  "mnemonicSeedPhrase": "spare client column pulp jeans slow dutch tourist daring giraffe toddler spring",
+  "bip32RootGPGKeyFingerprint": "AC F2 7F 62 97 D5 56 90 6B E9 A6 5F FC 8F BB 74 A1 72 D3 61",
+  "defaultDerivationPath": {
+    "BTC": "m/44'/0'/0'/0/0",
+    "LTC": "m/44'/2'/0'/0/0",
+    "DOGE": "m/44'/3'/0'/0/0",
+    "ETH": "m/44'/60'/0'/0/0",
+    "TRX": "m/44'/195'/0'/0/0",
+    "SOL": "m/44'/501'/0'/0'",
+    "XTZ": "m/44'/1729'/0'/0'",
+    "LUNC": "m/44'/330'/0'/0/0"
+  }
+}

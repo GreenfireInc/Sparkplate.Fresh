@@ -62,10 +62,10 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue';
-import WalletModal from '@/components/modals/addressbook/modal.WalletDetails.vue';
-import ConfirmModal from '@/components/modals/addressbook/ConfirmModal.vue';
-import { deleteWallet } from '@/services/addressBook/walletService';
+import ActionsDropdown from '../../dropdown/ActionsDropdown.vue';
+import WalletModal from '../../modals/WalletModal.vue';
+import ConfirmModal from '../../modals/confirmations/ConfirmModal.vue';
+import { deleteWallet } from '../../../services/walletService';
 
 interface Currency {
   name: string;
@@ -264,3 +264,4 @@ td {
 .col-addresses { width: 47%; }
 .col-actions { width: 10%; }
 </style>
+

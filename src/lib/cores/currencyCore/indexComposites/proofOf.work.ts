@@ -200,19 +200,6 @@ export const PROOF_OF_WORK: ProofOfWorkItem[] = [
     npm: null
   },
   { 
-    id: 'deutsche-emark', 
-    symbol: 'DEM', 
-    name: 'Deutsche eMark',
-    description: 'A German cryptocurrency designed for fast and secure peer-to-peer transactions.',
-    ucid: 1657,
-    type: 'coin',
-    consensusType: 'proof-of-work',
-    class: ['layer-1', 'payment'],
-    website: 'https://deutsche-emark.org',
-    github: 'https://github.com/emarkproject',
-    npm: null
-  },
-  { 
     id: 'digibyte', 
     symbol: 'DGB', 
     name: 'Digibyte',
@@ -226,19 +213,6 @@ export const PROOF_OF_WORK: ProofOfWorkItem[] = [
     npm: null
   },
   { 
-    id: 'digitalcoin', 
-    symbol: 'DGC', 
-    name: 'Digitalcoin',
-    description: 'An early alternative cryptocurrency with multi-algorithm mining support.',
-    ucid: 31,
-    type: 'coin',
-    consensusType: 'proof-of-work',
-    class: ['layer-1', 'payment'],
-    website: null,
-    github: null,
-    npm: null
-  },
-  { 
     id: 'dimecoin', 
     symbol: 'DIME', 
     name: 'Dimecoin',
@@ -249,19 +223,6 @@ export const PROOF_OF_WORK: ProofOfWorkItem[] = [
     class: ['layer-1', 'payment'],
     website: 'https://dimecoinnetwork.com',
     github: 'https://github.com/dime-coin',
-    npm: null
-  },
-  { 
-    id: 'dollarcoin', 
-    symbol: 'DLC', 
-    name: 'Dollarcoin',
-    description: 'A cryptocurrency designed for everyday transactions.',
-    ucid: 658,
-    type: 'coin',
-    consensusType: 'proof-of-work',
-    class: ['layer-1', 'payment'],
-    website: null,
-    github: null,
     npm: null
   },
   { 
@@ -288,32 +249,6 @@ export const PROOF_OF_WORK: ProofOfWorkItem[] = [
     class: ['layer-1', 'payment'],
     website: 'https://e-gulden.org',
     github: 'https://github.com/Electronic-Gulden-Foundation',
-    npm: null
-  },
-  { 
-    id: 'edge-matrix-computing', 
-    symbol: 'EMC', 
-    name: 'Edge Matrix Computing',
-    description: 'A blockchain platform for AI and edge computing applications.',
-    ucid: 3723,
-    type: 'coin',
-    consensusType: 'proof-of-work',
-    class: ['ai', 'infrastructure'],
-    website: null,
-    github: null,
-    npm: null
-  },
-  { 
-    id: 'epic-cash', 
-    symbol: 'EPIC', 
-    name: 'Epic Cash',
-    description: 'A privacy-focused cryptocurrency using the Mimblewimble protocol.',
-    ucid: 5594,
-    type: 'coin',
-    consensusType: 'proof-of-work',
-    class: ['layer-1', 'privacy', 'payment'],
-    website: 'https://epic.tech',
-    github: 'https://github.com/EpicCash',
     npm: null
   },
   { 

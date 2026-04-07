@@ -66,7 +66,6 @@
         </tbody>
       </table>
     </div>
-     <ExchangeModal v-if="selectedExchange" :exchange="selectedExchange" @close="closeExchangeModal" />
      <ConfirmModal 
       :show="showConfirmModal"
       :title="confirmModalTitle"
@@ -79,9 +78,12 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import ExchangeModal from '@/components/modals/addressbook/modal.ExchangeDetails.vue';
-import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue';
-import ConfirmModal from '@/components/modals/addressbook/ConfirmModal.vue';
+import ActionsDropdown from '../../dropdown/ActionsDropdown.vue';
+import ConfirmModal from '../../modals/confirmations/ConfirmModal.vue';
+
+const emit = defineEmits<{
+  (e: 'exchange-clicked', exchange: Exchange): void;
+}>();
 
 interface Currency {
   name: string;
@@ -103,7 +105,6 @@ const props = defineProps<{
   exchanges: Exchange[];
 }>();
 
-const selectedExchange = ref<Exchange | null>(null);
 const selectedExchanges = ref<number[]>([]);
 const currentPage = ref(1);
 const itemsPerPage = 25;
@@ -175,11 +176,7 @@ const selectAllExchanges = (event: Event) => {
 };
 
 const openExchangeModal = (exchange: Exchange) => {
-  selectedExchange.value = exchange;
-};
-
-const closeExchangeModal = () => {
-  selectedExchange.value = null;
+  emit('exchange-clicked', exchange);
 };
 
 const confirmDeleteExchange = (exchange: Exchange) => {
@@ -320,3 +317,4 @@ td {
 .col-address { width: 22%; }
 .col-actions { width: 10%; }
 </style>
+

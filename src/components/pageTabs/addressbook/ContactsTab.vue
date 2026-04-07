@@ -118,7 +118,7 @@
 import { computed } from 'vue'
 import { TabsContent } from 'radix-vue'
 import type { Contact } from '@/services/addressBook/contactService'
-import ActionsDropdown from '@/components/addressBook/ActionsDropdown.vue'
+import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
 
 defineOptions({ name: 'ContactsTab' })
 
