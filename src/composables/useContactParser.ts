@@ -1,11 +1,10 @@
-
-import { ref } from 'vue';
-import * as XLSX from 'xlsx';
-import Papa from 'papaparse';
+import { ref } from 'vue'
+import * as XLSX from 'xlsx'
+import Papa from 'papaparse'
 
 export function useContactParser() {
   const parseFile = async (file: File) => {
-    const contacts = ref<any[]>([]);
+    const contacts = ref<any[]>([])
 
     const getMappedContact = (rawContact: any) => {
         const headerMappings: { [key: string]: string[] } = {
