@@ -156,7 +156,7 @@
                 <input
                   ref="fileInput"
                   type="file"
-                  accept=".json"
+                  accept=".json,.vcf,.vcard,application/json,text/vcard"
                   class="ac-file-input"
                   @change="handleFileImport"
                 />
@@ -208,8 +208,11 @@ import { type Contact, addContact, updateContact } from '@/services/addressBook/
 import { type Wallet, addWallet, getWalletsForContact, updateWallet, deleteWallet } from '@/services/addressBook/walletService'
 import CurrencyDropdown from '../../dropdown/dropdown.currency.vue'
 import { parseWalletJsonFile } from '@/lib/cores/importStandard/importWallet.json'
+import { useContactParser } from '@/composables/useContactParser'
 
 defineOptions({ name: 'AddContactModal' })
+
+const { parseFile } = useContactParser()
 
 const props = defineProps<{
   show: boolean
@@ -317,12 +320,40 @@ const handleFileImport = async (event: Event) => {
 
   if (!file) return
 
+  const lower = file.name.toLowerCase()
+
   try {
-    const result = await parseWalletJsonFile(file)
-    wallets.value.push(...result.wallets)
+    if (lower.endsWith('.json')) {
+      const result = await parseWalletJsonFile(file)
+      wallets.value.push(...result.wallets)
+    } else if (lower.endsWith('.vcf') || lower.endsWith('.vcard')) {
+      const parsed = await parseFile(file)
+      const list = Array.isArray(parsed) ? parsed : []
+      if (list.length === 0) {
+        alert('No contacts found in this VCF file.')
+        return
+      }
+      if (list.length > 1) {
+        alert(
+          `Found ${list.length} contacts in the VCF file. Only the first contact will be merged into this form.`,
+        )
+      }
+      const c = list[0] as Record<string, string | undefined>
+      if (c.firstname) form.value.firstname = String(c.firstname)
+      if (c.lastname) form.value.lastname = String(c.lastname)
+      if (c.email) form.value.email = String(c.email)
+      if (c.company) form.value.company = String(c.company)
+      currentTab.value = 'general'
+    } else {
+      alert('Unsupported file type. Use .json for wallet import or .vcf / .vcard for contact fields.')
+    }
   } catch (error) {
     console.error('Error importing file:', error)
-    alert(error instanceof Error ? error.message : 'Error importing file. Please ensure it is a valid JSON file.')
+    alert(
+      error instanceof Error
+        ? error.message
+        : 'Error importing file. Use a valid wallet JSON or VCF contact file.',
+    )
   }
 
   if (target) {
