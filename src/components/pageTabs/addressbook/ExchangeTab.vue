@@ -1,73 +1,114 @@
 <template>
-  <div class="table-container">
-    <div class="table-wrapper">
-      <table>
+  <div class="ab-page__tab-panel">
+    <div class="ab-table-wrapper">
+      <table class="ab-table">
         <thead>
           <tr>
-            <th class="col-checkbox">
-              <input 
-                type="checkbox" 
-                @change="selectAllExchanges"
+            <th class="ab-table__th ab-table__th--checkbox" scope="col">
+              <input
+                type="checkbox"
+                class="ab-table__checkbox"
                 :checked="isCurrentPageSelected"
                 :disabled="exchanges.length === 0"
+                @change="selectAllExchanges"
               />
             </th>
-            <th @click="sortBy('id')" class="col-id sortable" :class="{ 'active-sort': sortKey === 'id' }">
+            <th
+              scope="col"
+              class="ab-table__th ab-table__th--sortable"
+              :class="{ 'ab-table__th--sorted': sortKey === 'id' }"
+              @click="sortBy('id')"
+            >
               ID
-              <span v-if="sortKey === 'id'" class="sort-arrow">{{ sortOrder === 'asc' ? '▲' : '▼' }}</span>
+              <span v-if="sortKey === 'id'" class="ab-table__sort-arrow" aria-hidden="true">{{ sortOrder === 'asc' ? '▲' : '▼' }}</span>
             </th>
-            <th @click="sortBy('name')" class="col-name sortable" :class="{ 'active-sort': sortKey === 'name' }">
+            <th
+              scope="col"
+              class="ab-table__th ab-table__th--sortable"
+              :class="{ 'ab-table__th--sorted': sortKey === 'name' }"
+              @click="sortBy('name')"
+            >
               Name
-              <span v-if="sortKey === 'name'" class="sort-arrow">{{ sortOrder === 'asc' ? '▲' : '▼' }}</span>
+              <span v-if="sortKey === 'name'" class="ab-table__sort-arrow" aria-hidden="true">{{ sortOrder === 'asc' ? '▲' : '▼' }}</span>
             </th>
-            <th @click="sortBy('email')" class="col-email sortable" :class="{ 'active-sort': sortKey === 'email' }">
+            <th
+              scope="col"
+              class="ab-table__th ab-table__th--sortable"
+              :class="{ 'ab-table__th--sorted': sortKey === 'email' }"
+              @click="sortBy('email')"
+            >
               Associated Email
-              <span v-if="sortKey === 'email'" class="sort-arrow">{{ sortOrder === 'asc' ? '▲' : '▼' }}</span>
+              <span v-if="sortKey === 'email'" class="ab-table__sort-arrow" aria-hidden="true">{{ sortOrder === 'asc' ? '▲' : '▼' }}</span>
             </th>
-            <th @click="sortBy('referralCode')" class="col-referral sortable" :class="{ 'active-sort': sortKey === 'referralCode' }">
+            <!-- Referral Code column hidden -->
+            <th
+              scope="col"
+              class="ab-table__th ab-table__th--sortable ab-table__th--hidden"
+              :class="{ 'ab-table__th--sorted': sortKey === 'referralCode' }"
+              @click="sortBy('referralCode')"
+            >
               Referral Code
-              <span v-if="sortKey === 'referralCode'" class="sort-arrow">{{ sortOrder === 'asc' ? '▲' : '▼' }}</span>
+              <span v-if="sortKey === 'referralCode'" class="ab-table__sort-arrow" aria-hidden="true">{{ sortOrder === 'asc' ? '▲' : '▼' }}</span>
             </th>
-            <th @click="sortBy('num_currencies')" class="col-currencies sortable" :class="{ 'active-sort': sortKey === 'num_currencies' }">
+            <th
+              scope="col"
+              class="ab-table__th ab-table__th--sortable"
+              :class="{ 'ab-table__th--sorted': sortKey === 'num_currencies' }"
+              @click="sortBy('num_currencies')"
+            >
               N° of Wallets
-              <span v-if="sortKey === 'num_currencies'" class="sort-arrow">{{ sortOrder === 'asc' ? '▲' : '▼' }}</span>
+              <span v-if="sortKey === 'num_currencies'" class="ab-table__sort-arrow" aria-hidden="true">{{ sortOrder === 'asc' ? '▲' : '▼' }}</span>
             </th>
-            <th class="col-address">Currency Address</th>
-            <th class="col-actions">Actions</th>
+            <th class="ab-table__th" scope="col">Currency Address</th>
+            <th class="ab-table__th ab-table__th--actions" scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr v-if="paginatedExchanges.length === 0">
-            <td colspan="8" class="empty-state">
-              No exchanges found.
-            </td>
+            <td colspan="8" class="ab-table__empty">No exchanges found.</td>
           </tr>
-          <tr v-for="exchange in paginatedExchanges" :key="exchange.id" @click="openExchangeModal(exchange)">
-            <td class="col-checkbox">
-              <input type="checkbox" :value="exchange.id" v-model="selectedExchanges" @click.stop />
+          <tr
+            v-for="exchange in paginatedExchanges"
+            :key="exchange.id"
+            class="ab-table__row"
+            @click="openExchangeModal(exchange)"
+          >
+            <td class="ab-table__td ab-table__td--checkbox">
+              <input
+                v-model="selectedExchanges"
+                type="checkbox"
+                class="ab-table__checkbox"
+                :value="exchange.id"
+                @click.stop
+              />
             </td>
-            <td class="col-id">{{ exchange.id }}</td>
-            <td class="col-name">
+            <td class="ab-table__td">{{ exchange.id }}</td>
+            <td class="ab-table__td">
               <a :href="exchange.url" target="_blank" @click.stop>{{ exchange.name }}</a>
             </td>
-            <td class="col-email">{{ exchange.email }}</td>
-            <td class="col-referral">
+            <td class="ab-table__td">{{ exchange.email }}</td>
+            <td class="ab-table__td ab-table__td--hidden">
               <a :href="exchange.referralUrl" target="_blank" @click.stop>{{ exchange.referralCode }}</a>
             </td>
-            <td class="col-currencies">{{ exchange.currencies.length }}</td>
-            <td class="col-address" v-if="exchange.currencies.length > 0">
-              {{ exchange.currencies[0].abbreviation }}: {{ exchange.currencies[0].address }}
+            <td class="ab-table__td">{{ exchange.currencies.length }}</td>
+            <td class="ab-table__td">
+              <template v-if="exchange.currencies.length > 0">
+                <span :title="exchange.currencies[0].address">
+                  {{ exchange.currencies[0].abbreviation }}: {{ truncateAddress(exchange.currencies[0].address) }}
+                </span>
+              </template>
+              <template v-else>N/A</template>
             </td>
-            <td class="col-address" v-else>N/A</td>
-            <td class="col-actions">
-                <ActionsDropdown @edit="" @delete="confirmDeleteExchange(exchange)" />
+            <td class="ab-table__td ab-table__td--actions" @click.stop>
+              <ActionsDropdown @edit="" @delete="confirmDeleteExchange(exchange)" />
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-     <ExchangeModal v-if="selectedExchange" :exchange="selectedExchange" @close="closeExchangeModal" />
-     <ConfirmModal 
+
+    <ExchangeModal v-if="selectedExchange" :exchange="selectedExchange" @close="closeExchangeModal" />
+    <ConfirmModal
       :show="showConfirmModal"
       :title="confirmModalTitle"
       :message="confirmModalMessage"
@@ -202,121 +243,103 @@ const onConfirmDelete = async () => {
 };
 
 const closeConfirmModal = () => {
-    showConfirmModal.value = false;
-    exchangeToDelete.value = null;
+  showConfirmModal.value = false;
+  exchangeToDelete.value = null;
+}
+
+function truncateAddress(address: string): string {
+  if (!address || address.length <= 14) return address
+  return `${address.slice(0, 7)}…${address.slice(-7)}`
 }
 </script>
 
-<style scoped>
-.table-container {
-  background-color: #ffffff;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+<style lang="scss" scoped>
+.ab-page__tab-panel {
+  outline: none;
 }
 
-.table-wrapper {
-  overflow-x: auto;
-  min-height: 800px;
+.ab-table-wrapper {
+  width: 100%;
 }
 
-table {
+.ab-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-thead {
-  background-color: #f3f4f6;
-}
-
-tr {
-  cursor: pointer;
-}
-
-tr:hover {
-  background-color: #f9fafb;
-}
-
-th,
-td {
-  padding: 1rem;
+.ab-table__th {
+  padding: 0.35rem 1rem;
   text-align: left;
-  white-space: nowrap;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-th {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: #4b5563;
   text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f3f4f6;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
-th.sortable {
+.ab-table__th--sortable {
   cursor: pointer;
+  user-select: none;
+
+  &:hover { background: #e5e7eb; }
 }
 
-th.sortable:hover {
-  background-color: #e5e7eb;
+.ab-table__th--sorted {
+  color: #2563eb;
 }
 
-.sort-arrow {
+.ab-table__sort-arrow {
   margin-left: 0.25rem;
   font-size: 0.625rem;
 }
 
-td {
+.ab-table__th--checkbox { width: 4%; }
+.ab-table__th--actions  { width: 10%; }
+
+.ab-table__row {
+  cursor: pointer;
+  transition: background 0.1s;
+
+  &:hover { background: #f9fafb; }
+}
+
+.ab-table__td {
+  padding: 0.3rem 1rem;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid #e5e7eb;
   color: #374151;
+  font-size: 0.875rem;
+
+  a {
+    color: #2563eb;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
 }
 
-.action-dropdown {
-  position: relative;
-}
+.ab-table__td--checkbox { width: 4%; }
+.ab-table__td--actions  { width: 10%; }
 
-.action-dropdown button {
-  background: none;
-  border: none;
-  font-size: 1.25rem;
+.ab-table__checkbox {
   cursor: pointer;
 }
 
-.dropdown-content {
-  position: absolute;
-  right: 0;
-  top: 100%;
-  background-color: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.25rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
+.ab-table__th--hidden,
+.ab-table__td--hidden {
+  display: none;
 }
 
-.dropdown-content a {
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  color: #374151;
-  white-space: nowrap;
-}
-
-.dropdown-content a:hover {
-  background-color: #f3f4f6;
-}
-
-.empty-state {
+.ab-table__empty {
   text-align: center;
-  padding: 5rem;
+  padding: 5rem 1rem;
   color: #6b7280;
-  font-size: 1rem;
+  font-size: 0.9375rem;
 }
-
-.col-checkbox { width: 4%; }
-.col-id { width: 4%; }
-.col-name { width: 15%; }
-.col-email { width: 20%; }
-.col-referral { width: 15%; }
-.col-currencies { width: 10%; }
-.col-address { width: 22%; }
-.col-actions { width: 10%; }
 </style>

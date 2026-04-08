@@ -69,45 +69,36 @@
         </TabsList>
 
         <div class="ab-table-shell">
-          <ScrollAreaRoot class="ab-scroll-root" type="auto">
-            <ScrollAreaViewport class="ab-scroll-viewport">
-              <!-- ContactsTab renders its own TabsContent internally -->
-              <ContactsTab
-                v-show="activeTab === 'Contacts'"
-                v-model:selected-contacts="selectedContacts"
-                :paginated-contacts="paginatedContacts"
-                :is-current-page-selected="isCurrentPageSelected"
-                :sort-key="sortKey"
-                :sort-order="sortOrder"
-                @sort="sortBy"
-                @select-all="selectAllContacts"
-                @open-contact="openContactDetailsModal"
-                @add-currency-request="onAddCurrencyRequest"
-                @generate-qrcode-png="onGenerateQrCodePng"
-                @generate-qrcode-svg="onGenerateQrCodeSvg"
-                @export-csv="onExportCsv"
-                @export-vcf="onExportVcf"
-              />
+          <div class="ab-scroll-area">
+            <!-- ContactsTab renders its own TabsContent internally -->
+            <ContactsTab
+              v-model:selected-contacts="selectedContacts"
+              :paginated-contacts="paginatedContacts"
+              :is-current-page-selected="isCurrentPageSelected"
+              :sort-key="sortKey"
+              :sort-order="sortOrder"
+              @sort="sortBy"
+              @select-all="selectAllContacts"
+              @open-contact="openContactDetailsModal"
+              @add-currency-request="onAddCurrencyRequest"
+              @generate-qrcode-png="onGenerateQrCodePng"
+              @generate-qrcode-svg="onGenerateQrCodeSvg"
+              @export-csv="onExportCsv"
+              @export-vcf="onExportVcf"
+            />
 
-              <TabsContent value="Exchanges" class="ab-tabs__panel">
-                <ExchangeTab :exchanges="exchanges" />
-              </TabsContent>
+            <TabsContent value="Exchanges" class="ab-tabs__panel">
+              <ExchangeTab :exchanges="exchanges" />
+            </TabsContent>
 
-              <TabsContent value="Wallets" class="ab-tabs__panel">
-                <WalletTab :wallets="wallets" />
-              </TabsContent>
+            <TabsContent value="Wallets" class="ab-tabs__panel">
+              <WalletTab :wallets="wallets" />
+            </TabsContent>
 
-              <TabsContent value="Companies" class="ab-tabs__panel">
-                <CompaniesTab />
-              </TabsContent>
-            </ScrollAreaViewport>
-            <ScrollAreaScrollbar class="ab-scroll-bar" orientation="vertical">
-              <ScrollAreaThumb class="ab-scroll-thumb" />
-            </ScrollAreaScrollbar>
-            <ScrollAreaScrollbar class="ab-scroll-bar" orientation="horizontal">
-              <ScrollAreaThumb class="ab-scroll-thumb" />
-            </ScrollAreaScrollbar>
-          </ScrollAreaRoot>
+            <TabsContent value="Companies" class="ab-tabs__panel">
+              <CompaniesTab />
+            </TabsContent>
+          </div>
 
           <!-- Footer: sibling of scroll area inside the card — never inside the scroll -->
           <div class="ab-table-footer">
@@ -186,11 +177,10 @@ import { ref, computed, watch, onMounted } from 'vue'
 import {
   TabsRoot, TabsList, TabsTrigger, TabsContent,
   Separator, Label,
-  ScrollAreaRoot, ScrollAreaViewport, ScrollAreaScrollbar, ScrollAreaThumb,
   TooltipProvider, TooltipRoot, TooltipTrigger, TooltipPortal, TooltipContent, TooltipArrow,
 } from 'radix-vue'
 import { NotebookTabs, SquareUser, ChevronLeft, ChevronRight } from 'lucide-vue-next'
-import AddContactModal from '@/components/modals/addressbook/addContact.vue'
+import AddContactModal from '@/components/modals/addressbook/addEntry.vue'
 import ContactDetailsModal from '@/components/modals/addressbook/modal.ContactDetails.vue'
 import AddCurrencyModal from '@/components/modals/addressbook/AddCurrencyModal.vue'
 import ConfirmModal from '@/components/modals/addressbook/ConfirmModal.vue'
@@ -677,48 +667,12 @@ function onExportVcf(contact: Contact) { console.log(`VCF: ${contact.id}`) }
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
-/* ScrollArea — inherits remaining height from flex chain; viewport scrolls within it */
-.ab-scroll-root {
+/* Scroll area — single scroll container for both axes so position:sticky on thead works */
+.ab-scroll-area {
   flex: 1;
   min-height: 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.ab-scroll-viewport {
-  width: 100%;
-  height: 100%;
-  overflow-y: auto !important;
-  outline: none;
-}
-
-:deep(.ab-scroll-bar) {
-  display: flex;
-  padding: 2px;
-  background: transparent;
-  user-select: none;
-  touch-action: none;
-  transition: background 0.15s;
-
-  &[data-orientation='vertical'] {
-    width: 0.5rem;
-  }
-
-  &[data-orientation='horizontal'] {
-    flex-direction: column;
-    height: 0.5rem;
-  }
-}
-
-:deep(.ab-scroll-thumb) {
-  flex: 1;
-  min-height: 1.5rem;
-  min-width: 1.5rem;
-  border-radius: 999px;
-  background: #d1d5db;
-  transition: background 0.15s;
-
-  &:hover { background: #9ca3af; }
+  overflow-y: auto;
+  overflow-x: auto;
 }
 
 
