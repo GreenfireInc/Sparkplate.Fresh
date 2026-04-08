@@ -1,5 +1,6 @@
 <template>
   <TabsContent value="Contacts" class="ab-page__tab-panel">
+    <div class="ab-table-wrapper">
     <table class="ab-table">
       <thead>
         <tr>
@@ -111,6 +112,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </TabsContent>
 </template>
 
@@ -159,7 +161,7 @@ const selectedContactsProxy = computed({
 }
 
 .ab-table__th {
-  padding: 0.85rem 1rem;
+  padding: 0.35rem 1rem;
   text-align: left;
   font-size: 0.75rem;
   font-weight: 600;
@@ -210,7 +212,7 @@ const selectedContactsProxy = computed({
 }
 
 .ab-table__td {
-  padding: 1rem;
+  padding: 0.3rem 1rem;
   text-align: left;
   white-space: nowrap;
   border-bottom: 1px solid #e5e7eb;
@@ -239,5 +241,10 @@ const selectedContactsProxy = computed({
 
 .ab-page__tab-panel {
   outline: none;
+}
+
+.ab-table-wrapper {
+  width: 100%;
+  /* overflow-x lives on the parent .ab-scroll-area so sticky thead is not trapped */
 }
 </style>
