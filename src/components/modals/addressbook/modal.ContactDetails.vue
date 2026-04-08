@@ -1,701 +1,948 @@
 <template>
-  <div v-if="show" class="modal-overlay" @click.self="close">
-    <div v-if="contact" class="modal-content" @click.stop>
-      <div class="modal-header">
-        <h2>Contact Details</h2>
-        <div class="modal-header-actions">
-          <ActionsDropdown 
-            :contact="contact" 
-            :isEditing="isEditing"
-            @update:edit-mode="toggleEditMode"
-            @save-changes="saveChanges"
-            @cancel-edit="cancelEdit"
-            @add-currency-request="showAddCurrencyModal = true"
-            @generate-qrcode-png="onGenerateQrCodePng"
-            @generate-qrcode-svg="onGenerateQrCodeSvg"
-            @export-csv="onExportCsv"
-            @export-vcf="onExportVcf"
-          />
-        </div>
-      </div>
-      <div class="profile-grid">
-        <div class="profile-sidebar">
-          <div class="initials-avatar" :style="{ backgroundColor: avatarBackgroundColor }">
-            {{ contactInitials }}
-          </div>
-          <h2 class="name">{{ contact.firstname }} {{ contact.lastname }} <QrCode :size="20" class="name-icon" /></h2>
-          
-          <div class="form-group">
-            <label for="relationship">Relationship:</label>
-            <select id="relationship" v-model="selectedRelationship" class="form-select">
-              <option value="">Select Relationship</option>
-              <option value="Friend">Friend</option>
-              <option value="Co-Worker">Co-Worker</option>
-              <option value="Family">Family</option>
-              <option value="Acquaintance">Acquaintance</option>
-              <option value="Business">Business</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
+  <DialogRoot :open="!!show && !!contact" @update:open="onDialogOpen">
+    <DialogPortal>
+      <DialogOverlay class="cd-overlay" />
+      <DialogContent class="cd-modal" :aria-describedby="undefined">
 
-          <div class="bio">
-            <p>Product Design @github working on open source communities.</p>
-            <p>she/her</p>
-            <p class="links">
-              <span><Phone :size="16" class="link-icon" /> 
-                <template v-if="!isEditing">
-                  <a v-if="editedContact.phone" :href="`tel:${editedContact.phone}`">{{ editedContact.phone }}</a>
-                  <span v-else>N/A</span>
-                </template>
-                <template v-else>
-                  <input type="tel" v-model="editedContact.phone" placeholder="Phone number" class="form-input-inline" />
-                </template>
-              </span>
-              <span><MapPinned :size="16" class="link-icon" /> 
-                <template v-if="!isEditing">
-                  <span v-if="editedContact.location">{{ editedContact.location }}</span>
-                  <span v-else>N/A</span>
-                </template>
-                <template v-else>
-                  <input type="text" v-model="editedContact.location" placeholder="Location" class="form-input-inline" />
-                </template>
-              </span>
-              <span><Mailbox :size="16" class="link-icon" />
-                <template v-if="!isEditing">
-                  <a :href="`mailto:${contact.email}`">{{ contact.email }}</a>
-                </template>
-                <template v-else>
-                  <input type="email" v-model="editedContact.email" placeholder="Email Address" class="form-input-inline" />
-                </template>
-              </span>
-              <span><Globe :size="16" class="link-icon" /> 
-                <template v-if="!isEditing">
-                  <a v-if="editedContact.website" :href="editedContact.website" target="_blank">{{ editedContact.website }}</a>
-                  <span v-else>N/A</span>
-                </template>
-                <template v-else>
-                  <input type="url" v-model="editedContact.website" placeholder="Website URL" class="form-input-inline" />
-                </template>
-              </span>
-              
-              <span><Github :size="16" class="link-icon" /> 
-                <template v-if="!isEditing">
-                  <a v-if="editedContact.github" :href="`https://github.com/${editedContact.github}`" target="_blank">{{ editedContact.github }}</a>
-                  <span v-else>N/A</span>
-                </template>
-                <template v-else>
-                  <input type="text" v-model="editedContact.github" placeholder="GitHub username" class="form-input-inline" />
-                </template>
-              </span>
-              <span><Twitter :size="16" class="link-icon" /> 
-                <template v-if="!isEditing">
-                  <a v-if="editedContact.twitter" :href="`https://twitter.com/${editedContact.twitter}`" target="_blank">@{{ editedContact.twitter }}</a>
-                  <span v-else>N/A</span>
-                </template>
-                <template v-else>
-                  <input type="text" v-model="editedContact.twitter" placeholder="Twitter handle" class="form-input-inline" />
-                </template>
-              </span>
-
-              <span><Linkedin :size="16" class="link-icon" />
-                <template v-if="!isEditing">
-                  <a v-if="editedContact.linkedin" :href="editedContact.linkedin" target="_blank">{{ editedContact.linkedin }}</a>
-                  <span v-else>N/A</span>
-                </template>
-                <template v-else>
-                  <input type="url" v-model="editedContact.linkedin" placeholder="LinkedIn Profile URL" class="form-input-inline" />
-                </template>
-              </span>
-
-              <span><Instagram :size="16" class="link-icon" />
-                <template v-if="!isEditing">
-                  <a v-if="editedContact.instagram" :href="`https://instagram.com/${editedContact.instagram}`" target="_blank">@{{ editedContact.instagram }}</a>
-                  <span v-else>N/A</span>
-                </template>
-                <template v-else>
-                  <input type="text" v-model="editedContact.instagram" placeholder="Instagram handle" class="form-input-inline" />
-                </template>
-              </span>
-
-              <span><Facebook :size="16" class="link-icon" />
-                <template v-if="!isEditing">
-                  <a v-if="editedContact.facebook" :href="editedContact.facebook" target="_blank">{{ editedContact.facebook }}</a>
-                  <span v-else>N/A</span>
-                </template>
-                <template v-else>
-                  <input type="url" v-model="editedContact.facebook" placeholder="Facebook Profile URL" class="form-input-inline" />
-                </template>
-              </span>
-
-             
-            </p>
-          </div>
-        </div>
-        <div class="profile-main">
-          <div class="profile-header">
-              <a 
-                href="#" 
-                class="tab" 
-                :class="{ active: activeTab === 'wallets' }"
-                @click.prevent="activeTab = 'wallets'"
-              >
-                <WalletIcon :size="16" class="tab-icon" />
-                Wallets<span class="badge">{{ walletCount }}</span>
-              </a>
-              <a 
-                href="#" 
-                class="tab" 
-                :class="{ active: activeTab === 'gpg' }"
-                @click.prevent="activeTab = 'gpg'"
-              >
-                <FileKey :size="16" class="tab-icon" />
-                GPG publicKeys <span class="badge">{{ gpgKeys.length }}</span>
-              </a>
-              <a 
-                href="#" 
-                class="tab" 
-                :class="{ active: activeTab === 'invoices' }"
-                @click.prevent="activeTab = 'invoices'"
-              >
-                <ReceiptText :size="16" class="tab-icon" />
-                Invoices <span class="badge">0</span>
-              </a>
-              <a 
-                href="#" 
-                class="tab" 
-                :class="{ active: activeTab === 'notes' }"
-                @click.prevent="activeTab = 'notes'"
-              >
-                <NotebookPen :size="16" class="tab-icon" />
-                Notes <span class="badge">72</span>
-              </a>
-          </div>
-          <div class="profile-body">
-              <WalletsTab 
-                v-if="activeTab === 'wallets' && contact?.id"
-                :contactId="contact.id"
-                @wallet-deleted="refreshWalletCount"
-                ref="walletsTabRef"
+        <!-- Header -->
+        <div class="cd-header">
+          <div class="cd-header__row">
+            <DialogTitle class="cd-header__title">Contact Details</DialogTitle>
+            <div class="cd-header__actions">
+              <ActionsDropdown
+                v-if="contact"
+                :contact="contact"
+                :isEditing="isEditing"
+                @update:edit-mode="toggleEditMode"
+                @save-changes="saveChanges"
+                @cancel-edit="cancelEdit"
+                @add-currency-request="showAddCurrencyModal = true"
+                @generate-qrcode-png="onGenerateQrCodePng"
+                @generate-qrcode-svg="onGenerateQrCodeSvg"
+                @export-csv="onExportCsv"
+                @export-vcf="onExportVcf"
               />
-              <div v-else-if="activeTab === 'gpg'" class="gpg-tab">
-                  <h3>GPG Public Keys</h3>
-                  <div v-if="gpgKeys.length === 0" class="empty-state">
-                      <p>No GPG public keys found for this contact.</p>
-                  </div>
-                  <div v-else class="gpg-keys-list">
-                      <div v-for="wallet in gpgKeys" :key="wallet.id" class="gpg-key-item">
-                          <div class="gpg-key-header">
-                              <div class="gpg-key-info">
-                                  <strong class="gpg-currency">{{ wallet.coinTicker }}</strong>
-                                  <span v-if="wallet.keyFingerprint" class="gpg-fingerprint">
-                                      <code>{{ wallet.keyFingerprint }}</code>
-                                  </span>
-                              </div>
-                          </div>
-                          <div v-if="wallet.gpgPublicKey" class="gpg-key-content">
-                              <pre class="gpg-public-key"><code>{{ wallet.gpgPublicKey }}</code></pre>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div v-else-if="activeTab === 'invoices'" class="readme">
-                  <h3>Invoices</h3>
-                  <p>Invoices functionality coming soon...</p>
-              </div>
-              <div v-else-if="activeTab === 'notes'" class="readme">
-                  <h3>Notes</h3>
-                  <p>Notes functionality coming soon...</p>
-              </div>
-              <div v-else class="readme">
-                  <h3>.github/README.md</h3>
-                  <h2>{{ contact.firstname }} {{ contact.lastname }}</h2>
-                  <p>Hi, I'm {{ contact.firstname }} - a senior product designer at GitHub working on Sponsors to support open source sustainability...</p>
-                  <h4>My values</h4>
-                  <ul>
-                      <li><span class="emoji">💖</span> Expression as authentic self</li>
-                      <li><span class="emoji">🛡️</span> Safety and trust</li>
-                      <li><span class="emoji">🌱</span> Beginner's mindset and curiosity</li>
-                      <li><span class="emoji">🤝</span> Shared understanding and consensus</li>
-                  </ul>
-                  <h4>How I work</h4>
-                  <p>My motivations are to stabilize and provide clarity through curiosity...</p>
-                  <h4>Get in touch</h4>
-                   <ul>
-                      <li>Twitter: <a :href="`https://twitter.com/${editedContact.twitter || ''}`">https://twitter.com/{{ editedContact.twitter || '' }}</a></li>
-                      <li>Personal site: <a :href="editedContact.website || '#'">{{ editedContact.website || 'N/A'}}</a></li>
-                  </ul>
-              </div>
+            </div>
+            <DialogClose class="cd-header__close" aria-label="Close">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            </DialogClose>
           </div>
         </div>
-      </div>
-    </div>
-    <AddCurrencyModal
-      v-if="contact.id"
-      :show="showAddCurrencyModal"
-      :contactId="contact.id!"
-      @close="showAddCurrencyModal = false"
-      @currency-added="handleCurrencyAdded"
-    />
-  </div>
+
+        <Separator class="cd-separator" />
+
+        <!-- Body -->
+        <div class="cd-body" v-if="contact">
+          <div class="cd-grid">
+
+            <!-- Sidebar -->
+            <div class="cd-sidebar">
+              <div class="cd-avatar" :style="{ backgroundColor: avatarBackgroundColor }">
+                <span>{{ contactInitials }}</span>
+              </div>
+
+              <h2 class="cd-name">
+                {{ contact.firstname }} {{ contact.lastname }}
+                <QrCode :size="18" class="cd-name__icon" />
+              </h2>
+
+              <!-- Relationship -->
+              <div class="cd-field">
+                <label class="cd-label" for="cd-relationship">Relationship</label>
+                <SelectRoot v-model="selectedRelationship">
+                  <SelectTrigger id="cd-relationship" class="cd-select__trigger" aria-label="Relationship">
+                    <SelectValue placeholder="Select relationship" />
+                    <i class="bi bi-chevron-down cd-select__chevron" aria-hidden />
+                  </SelectTrigger>
+                  <SelectPortal>
+                    <SelectContent class="cd-select__content" position="popper" :side-offset="4">
+                      <SelectViewport class="cd-select__viewport">
+                        <SelectItem value="" class="cd-select__item"><SelectItemText>— None —</SelectItemText></SelectItem>
+                        <SelectItem value="Friend" class="cd-select__item"><SelectItemText>Friend</SelectItemText></SelectItem>
+                        <SelectItem value="Co-Worker" class="cd-select__item"><SelectItemText>Co-Worker</SelectItemText></SelectItem>
+                        <SelectItem value="Family" class="cd-select__item"><SelectItemText>Family</SelectItemText></SelectItem>
+                        <SelectItem value="Acquaintance" class="cd-select__item"><SelectItemText>Acquaintance</SelectItemText></SelectItem>
+                        <SelectItem value="Business" class="cd-select__item"><SelectItemText>Business</SelectItemText></SelectItem>
+                        <SelectItem value="Other" class="cd-select__item"><SelectItemText>Other</SelectItemText></SelectItem>
+                      </SelectViewport>
+                    </SelectContent>
+                  </SelectPortal>
+                </SelectRoot>
+              </div>
+
+              <!-- Bio -->
+              <div class="cd-bio">
+                <template v-if="!isEditing">
+                  <p class="cd-bio__text">{{ editedContact.bio || 'No bio yet.' }}</p>
+                </template>
+                <template v-else>
+                  <textarea
+                    v-model="(editedContact as any).bio"
+                    placeholder="Bio description"
+                    class="cd-bio__textarea"
+                    rows="3"
+                  />
+                </template>
+              </div>
+
+              <!-- Contact links -->
+              <ul class="cd-links">
+                <li class="cd-links__item">
+                  <Phone :size="14" class="cd-links__icon" />
+                  <template v-if="!isEditing">
+                    <a v-if="editedContact.phone" :href="`tel:${editedContact.phone}`" class="cd-links__value">{{ editedContact.phone }}</a>
+                    <span v-else class="cd-links__value cd-links__value--empty">N/A</span>
+                  </template>
+                  <template v-else>
+                    <input type="tel" v-model="(editedContact as any).phone" placeholder="Phone number" class="cd-links__input" />
+                  </template>
+                </li>
+
+                <li class="cd-links__item">
+                  <MapPinned :size="14" class="cd-links__icon" />
+                  <template v-if="!isEditing">
+                    <span class="cd-links__value" :class="{ 'cd-links__value--empty': !editedContact.location }">{{ editedContact.location || 'N/A' }}</span>
+                  </template>
+                  <template v-else>
+                    <input type="text" v-model="(editedContact as any).location" placeholder="Location" class="cd-links__input" />
+                  </template>
+                </li>
+
+                <li class="cd-links__item">
+                  <Mailbox :size="14" class="cd-links__icon" />
+                  <template v-if="!isEditing">
+                    <a :href="`mailto:${contact.email}`" class="cd-links__value">{{ contact.email }}</a>
+                  </template>
+                  <template v-else>
+                    <input type="email" v-model="editedContact.email" placeholder="Email address" class="cd-links__input" />
+                  </template>
+                </li>
+
+                <li class="cd-links__item">
+                  <Globe :size="14" class="cd-links__icon" />
+                  <template v-if="!isEditing">
+                    <a v-if="editedContact.website" :href="editedContact.website" target="_blank" class="cd-links__value">{{ editedContact.website }}</a>
+                    <span v-else class="cd-links__value cd-links__value--empty">N/A</span>
+                  </template>
+                  <template v-else>
+                    <input type="url" v-model="(editedContact as any).website" placeholder="Website URL" class="cd-links__input" />
+                  </template>
+                </li>
+
+                <li class="cd-links__item">
+                  <Github :size="14" class="cd-links__icon" />
+                  <template v-if="!isEditing">
+                    <a v-if="editedContact.github" :href="`https://github.com/${editedContact.github}`" target="_blank" class="cd-links__value">{{ editedContact.github }}</a>
+                    <span v-else class="cd-links__value cd-links__value--empty">N/A</span>
+                  </template>
+                  <template v-else>
+                    <input type="text" v-model="(editedContact as any).github" placeholder="GitHub username" class="cd-links__input" />
+                  </template>
+                </li>
+
+                <li class="cd-links__item">
+                  <Twitter :size="14" class="cd-links__icon" />
+                  <template v-if="!isEditing">
+                    <a v-if="editedContact.twitter" :href="`https://twitter.com/${editedContact.twitter}`" target="_blank" class="cd-links__value">@{{ editedContact.twitter }}</a>
+                    <span v-else class="cd-links__value cd-links__value--empty">N/A</span>
+                  </template>
+                  <template v-else>
+                    <input type="text" v-model="(editedContact as any).twitter" placeholder="Twitter handle" class="cd-links__input" />
+                  </template>
+                </li>
+
+                <li class="cd-links__item">
+                  <Linkedin :size="14" class="cd-links__icon" />
+                  <template v-if="!isEditing">
+                    <a v-if="editedContact.linkedin" :href="editedContact.linkedin" target="_blank" class="cd-links__value">{{ editedContact.linkedin }}</a>
+                    <span v-else class="cd-links__value cd-links__value--empty">N/A</span>
+                  </template>
+                  <template v-else>
+                    <input type="url" v-model="(editedContact as any).linkedin" placeholder="LinkedIn URL" class="cd-links__input" />
+                  </template>
+                </li>
+
+                <li class="cd-links__item">
+                  <Instagram :size="14" class="cd-links__icon" />
+                  <template v-if="!isEditing">
+                    <a v-if="editedContact.instagram" :href="`https://instagram.com/${editedContact.instagram}`" target="_blank" class="cd-links__value">@{{ editedContact.instagram }}</a>
+                    <span v-else class="cd-links__value cd-links__value--empty">N/A</span>
+                  </template>
+                  <template v-else>
+                    <input type="text" v-model="(editedContact as any).instagram" placeholder="Instagram handle" class="cd-links__input" />
+                  </template>
+                </li>
+
+                <li class="cd-links__item">
+                  <i class="bi bi-bluesky cd-links__icon cd-links__icon--bs" />
+                  <template v-if="!isEditing">
+                    <a v-if="editedContact.bluesky" :href="editedContact.bluesky" target="_blank" class="cd-links__value">{{ editedContact.bluesky }}</a>
+                    <span v-else class="cd-links__value cd-links__value--empty">N/A</span>
+                  </template>
+                  <template v-else>
+                    <input type="url" v-model="(editedContact as any).bluesky" placeholder="Bluesky URL" class="cd-links__input" />
+                  </template>
+                </li>
+
+                <li class="cd-links__item">
+                  <i class="bi bi-telegram cd-links__icon cd-links__icon--bs" />
+                  <template v-if="!isEditing">
+                    <a v-if="editedContact.telegram" :href="editedContact.telegram" target="_blank" class="cd-links__value">{{ editedContact.telegram }}</a>
+                    <span v-else class="cd-links__value cd-links__value--empty">N/A</span>
+                  </template>
+                  <template v-else>
+                    <input type="url" v-model="(editedContact as any).telegram" placeholder="Telegram URL" class="cd-links__input" />
+                  </template>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Main content with tabs -->
+            <div class="cd-main">
+              <TabsRoot v-model="activeTab" class="cd-tabs">
+                <TabsList class="cd-tabs__list" aria-label="Contact sections">
+                  <TabsTrigger value="wallets" class="cd-tabs__trigger">
+                    <WalletIcon :size="14" class="cd-tabs__icon" />
+                    Wallets
+                    <span class="cd-badge">{{ walletCount }}</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="gpg" class="cd-tabs__trigger">
+                    <FileKey :size="14" class="cd-tabs__icon" />
+                    GPG Keys
+                    <span class="cd-badge">{{ gpgKeysCount }}</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="invoices" class="cd-tabs__trigger">
+                    <ReceiptText :size="14" class="cd-tabs__icon" />
+                    Invoices
+                    <span class="cd-badge">0</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="notes" class="cd-tabs__trigger">
+                    <NotebookPen :size="14" class="cd-tabs__icon" />
+                    Notes
+                    <span class="cd-badge">0</span>
+                  </TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="wallets" class="cd-tabs__content">
+                  <WalletsTab
+                    v-if="contact?.id"
+                    :contactId="contact.id"
+                    @wallet-deleted="refreshWalletCount"
+                    ref="walletsTabRef"
+                  />
+                </TabsContent>
+
+                <TabsContent value="gpg" class="cd-tabs__content">
+                  <div v-if="gpgKeys.length === 0" class="cd-empty">
+                    <p>No GPG public keys found for this contact.</p>
+                  </div>
+                  <div v-else class="cd-gpg-list">
+                    <div v-for="wallet in gpgKeys" :key="wallet.id" class="cd-gpg-item">
+                      <div class="cd-gpg-item__header">
+                        <strong class="cd-gpg-item__ticker">{{ wallet.coinTicker }}</strong>
+                        <span v-if="wallet.keyFingerprint" class="cd-gpg-item__fingerprint">
+                          <code>{{ wallet.keyFingerprint }}</code>
+                        </span>
+                      </div>
+                      <div v-if="wallet.gpgPublicKey" class="cd-gpg-item__body">
+                        <pre class="cd-gpg-item__key"><code>{{ wallet.gpgPublicKey }}</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="invoices" class="cd-tabs__content">
+                  <div class="cd-coming-soon">
+                    <ReceiptText :size="32" class="cd-coming-soon__icon" />
+                    <p>Invoices coming soon.</p>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="notes" class="cd-tabs__content">
+                  <div class="cd-coming-soon">
+                    <NotebookPen :size="32" class="cd-coming-soon__icon" />
+                    <p>Notes coming soon.</p>
+                  </div>
+                </TabsContent>
+              </TabsRoot>
+            </div>
+
+          </div>
+        </div>
+
+      </DialogContent>
+    </DialogPortal>
+  </DialogRoot>
+
+  <!-- Child modals rendered outside the dialog portal -->
+  <AddCurrencyModal
+    v-if="contact?.id && showAddCurrencyModal"
+    :show="showAddCurrencyModal"
+    :contactId="contact.id"
+    @close="showAddCurrencyModal = false"
+    @currency-added="handleCurrencyAdded"
+    @wallets-imported="handleWalletsImported"
+  />
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue';
-import type { Contact } from '@/services/addressBook/contactService';
-import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue';
-import AddCurrencyModal from '@/components/modals/addressbook/AddCurrencyModal.vue';
-import WalletsTab from '@/components/modals/addressbook/tabsFor.contactDetails/WalletsTab.vue';
-import { addWallet, getWalletCountForContact, getWalletsForContact, type Wallet } from '@/services/addressBook/walletService';
-import { Wallet as WalletIcon, FileKey, ReceiptText, NotebookPen, Github, MapPinned, Globe, Mailbox, Twitter, Instagram, Linkedin, Facebook, QrCode, Phone } from 'lucide-vue-next';
+import { ref, computed, watch } from 'vue'
+import {
+  DialogRoot, DialogPortal, DialogOverlay, DialogContent, DialogTitle, DialogClose,
+  Separator,
+  TabsRoot, TabsList, TabsTrigger, TabsContent,
+  SelectRoot, SelectTrigger, SelectContent, SelectItem, SelectItemText, SelectValue, SelectPortal, SelectViewport,
+} from 'radix-vue'
+import type { Contact } from '@/services/addressBook/contactService'
+import { updateContact } from '@/services/addressBook/contactService'
+import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
+import AddCurrencyModal from '@/components/modals/addressbook/AddCurrencyModal.vue'
+import WalletsTab from '@/components/modals/addressbook/tabsFor.contactDetails/WalletsTab.vue'
+import {
+  addWallet, getWalletCountForContact, getWalletsForContact, type Wallet,
+} from '@/services/addressBook/walletService'
+import {
+  Wallet as WalletIcon, FileKey, ReceiptText, NotebookPen,
+  Github, MapPinned, Globe, Mailbox, Twitter, Instagram, Linkedin,
+  QrCode, Phone,
+} from 'lucide-vue-next'
 
-const props = defineProps<{ 
-  show: boolean; 
-  contact: Contact | null; 
-}>();
+defineOptions({ name: 'ContactDetailsModal' })
 
-const emit = defineEmits(['close']);
+const props = defineProps<{
+  show: boolean
+  contact: Contact | null
+}>()
 
-const isEditing = ref(false);
-const editedContact = ref<Partial<Contact>>({});
-const selectedRelationship = ref(''); // To hold the selected relationship
-const showAddCurrencyModal = ref(false);
-const activeTab = ref<'wallets' | 'gpg' | 'invoices' | 'notes'>('wallets');
-const walletCount = ref(0);
-const walletsTabRef = ref<InstanceType<typeof WalletsTab> | null>(null);
-const gpgKeys = ref<Wallet[]>([]);
+const emit = defineEmits(['close', 'contact-updated', 'contact-deleted'])
+
+const isEditing = ref(false)
+const editedContact = ref<Partial<Contact>>({})
+const selectedRelationship = ref('')
+const showAddCurrencyModal = ref(false)
+const activeTab = ref('wallets')
+const walletCount = ref(0)
+const walletsTabRef = ref<InstanceType<typeof WalletsTab> | null>(null)
+const gpgKeys = ref<Wallet[]>([])
+const gpgKeysCount = computed(() => gpgKeys.value.length)
 
 const contactInitials = computed(() => {
-  if (!props.contact) return '';
-  const firstInitial = props.contact.firstname ? props.contact.firstname.charAt(0) : '';
-  const lastInitial = props.contact.lastname ? props.contact.lastname.charAt(0) : '';
-  return `${firstInitial}${lastInitial}`.toUpperCase();
-});
+  if (!props.contact) return ''
+  const f = props.contact.firstname?.charAt(0) ?? ''
+  const l = props.contact.lastname?.charAt(0) ?? ''
+  return `${f}${l}`.toUpperCase()
+})
 
 const avatarBackgroundColor = computed(() => {
-  if (!props.contact) return '#cccccc';
-  const name = `${props.contact.firstname}${props.contact.lastname}`;
-  let hash = 0;
+  if (!props.contact) return '#cccccc'
+  const name = `${props.contact.firstname}${props.contact.lastname}`
+  let hash = 0
   for (let i = 0; i < name.length; i++) {
-    hash = name.charCodeAt(i) + ((hash << 5) - hash);
+    hash = name.charCodeAt(i) + ((hash << 5) - hash)
   }
-  let color = '#';
+  let color = '#'
   for (let i = 0; i < 3; i++) {
-    const value = (hash >> (i * 8)) & 0xFF;
-    color += ('00' + value.toString(16)).substr(-2);
+    const value = (hash >> (i * 8)) & 0xff
+    color += ('00' + value.toString(16)).slice(-2)
   }
-  return color;
-});
+  return color
+})
 
-watch(() => props.contact, async (newContact) => {
-  if (newContact) {
-    editedContact.value = { ...newContact };
-    // Assume relationship can be stored in contact.notes or a new field
-    selectedRelationship.value = (newContact as any).relationship || ''; 
-    isEditing.value = false; // Reset edit mode when contact changes
-    // Refresh wallet count and GPG keys when contact changes
-    await refreshWalletCount();
-    await refreshGpgKeys();
-  } else {
-    editedContact.value = {};
-    selectedRelationship.value = '';
-    walletCount.value = 0;
-    gpgKeys.value = [];
-  }
-}, { immediate: true });
+watch(
+  () => props.contact,
+  async (newContact) => {
+    if (newContact) {
+      editedContact.value = { ...newContact }
+      selectedRelationship.value = (newContact as any).relationship ?? ''
+      isEditing.value = false
+      await refreshWalletCount()
+      await refreshGpgKeys()
+    } else {
+      editedContact.value = {}
+      selectedRelationship.value = ''
+      walletCount.value = 0
+      gpgKeys.value = []
+    }
+  },
+  { immediate: true },
+)
+
+watch(selectedRelationship, async (newValue) => {
+  if (!props.contact?.id) return
+  const contactToSave = {
+    ...editedContact.value,
+    id: props.contact.id,
+    relationship: newValue,
+  } as Contact
+  await updateContact(contactToSave)
+  editedContact.value = { ...contactToSave }
+  emit('contact-updated')
+})
+
+function onDialogOpen(open: boolean) {
+  if (!open) close()
+}
 
 const toggleEditMode = (value: boolean) => {
-  // `value` comes from ActionsDropdown.vue's @update:edit-mode event
-  isEditing.value = value;
+  isEditing.value = value
   if (!isEditing.value && props.contact) {
-    // If exiting edit mode without saving (e.g., via cancel), revert changes
-    editedContact.value = { ...props.contact };
-    selectedRelationship.value = (props.contact as any).relationship || '';
+    editedContact.value = { ...props.contact }
+    selectedRelationship.value = (props.contact as any).relationship ?? ''
   }
-};
+}
 
-const saveChanges = () => {
-  // In a real application, you would send editedContact.value to a service to update the contact
-  console.log('Saving changes:', editedContact.value);
-  console.log('Selected Relationship:', selectedRelationship.value);
-  isEditing.value = false;
-  // Ideally, after saving, you would re-emit the updated contact or trigger a refresh
-};
+const saveChanges = async () => {
+  if (!props.contact?.id) return
+  const contactToSave = {
+    ...editedContact.value,
+    id: props.contact.id,
+    relationship: selectedRelationship.value,
+  } as Contact
+  await updateContact(contactToSave)
+  editedContact.value = { ...contactToSave }
+  isEditing.value = false
+  emit('contact-updated')
+}
 
 const cancelEdit = () => {
   if (props.contact) {
-    editedContact.value = { ...props.contact }; // Revert changes
-    selectedRelationship.value = (props.contact as any).relationship || ''; // Revert relationship
+    editedContact.value = { ...props.contact }
+    selectedRelationship.value = (props.contact as any).relationship ?? ''
   }
-  isEditing.value = false; // Exit edit mode
-  console.log('Edit cancelled.');
-};
+  isEditing.value = false
+}
 
 const handleCurrencyAdded = async (currencyData: { contactId: number; network: string; address: string }) => {
-  console.log('Currency added from modal:', currencyData);
-  
-  // Save wallet to the service
+  const existingWallets = await getWalletsForContact(currencyData.contactId)
+  const isDuplicate = existingWallets.some(
+    (w) => w.coinTicker === currencyData.network && w.address === currencyData.address,
+  )
+  if (isDuplicate) {
+    alert('This wallet already exists for this contact.')
+    return
+  }
   await addWallet({
     contactId: currencyData.contactId,
     coinTicker: currencyData.network,
-    address: currencyData.address
-  });
-  
-  showAddCurrencyModal.value = false;
-  
-  // Refresh wallet count and wallets list
-  await refreshWalletCount();
-  await refreshGpgKeys();
-  
-  // Refresh the wallets tab if it's open
-  if (walletsTabRef.value) {
-    walletsTabRef.value.refresh();
-  }
-};
+    address: currencyData.address,
+  })
+  showAddCurrencyModal.value = false
+  await refreshWalletCount()
+  await refreshGpgKeys()
+  walletsTabRef.value?.refresh()
+}
+
+const handleWalletsImported = async () => {
+  await refreshWalletCount()
+  await refreshGpgKeys()
+  walletsTabRef.value?.refresh()
+}
 
 const refreshWalletCount = async () => {
   if (props.contact?.id) {
-    walletCount.value = await getWalletCountForContact(props.contact.id);
+    walletCount.value = await getWalletCountForContact(props.contact.id)
   }
-};
+}
 
 const refreshGpgKeys = async () => {
   if (props.contact?.id) {
-    const wallets = await getWalletsForContact(props.contact.id);
-    // Filter wallets that have GPG public keys
-    gpgKeys.value = wallets.filter(w => w.gpgPublicKey);
+    const wallets = await getWalletsForContact(props.contact.id)
+    gpgKeys.value = wallets.filter((w) => w.gpgPublicKey)
   } else {
-    gpgKeys.value = [];
+    gpgKeys.value = []
   }
-};
+}
 
-const onGenerateQrCodePng = (contact: Contact) => {
-  console.log(`Generating QR Code (PNG) for contact: ${contact.id}`);
-  // Implement QR code generation logic
-};
-
-const onGenerateQrCodeSvg = (contact: Contact) => {
-  console.log(`Generating QR Code (SVG) for contact: ${contact.id}`);
-  // Implement QR code generation logic
-};
-
-const onExportCsv = (contact: Contact) => {
-  console.log(`Exporting CSV for contact: ${contact.id}`);
-  // Implement CSV export logic
-};
-
-const onExportVcf = (contact: Contact) => {
-  console.log(`Exporting VCF for contact: ${contact.id}`);
-  // Implement VCF export logic
-};
+const onGenerateQrCodePng = (contact: Contact) => console.log(`QR PNG: ${contact.id}`)
+const onGenerateQrCodeSvg = (contact: Contact) => console.log(`QR SVG: ${contact.id}`)
+const onExportCsv = (contact: Contact) => console.log(`CSV: ${contact.id}`)
+const onExportVcf = (contact: Contact) => console.log(`VCF: ${contact.id}`)
 
 const close = () => {
-  isEditing.value = false; // Ensure edit mode is off when closing
-  emit('close');
-};
+  isEditing.value = false
+  emit('close')
+}
 </script>
 
-<style scoped>
-.modal-overlay {
+<style lang="scss" scoped>
+/* ── Overlay ─────────────────────────────────────────────── */
+.cd-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10060;
+  animation: cd-fade 0.15s ease;
 }
 
-.modal-content {
-  background-color: #fff;
-  border-radius: 0.5rem;
-  width: 90%;
-  max-width: 960px;
-  max-height: 90vh;
-  overflow: hidden;
-  position: relative;
+@keyframes cd-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Dialog shell ────────────────────────────────────────── */
+.cd-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10061;
+  width: min(95vw, 62rem);
+  max-height: 88vh;
+  background: #f9fafb;
+  border-radius: 0.75rem;
+  box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.22);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  animation: cd-pop 0.18s ease;
 }
 
-.modal-header {
+@keyframes cd-pop {
+  from { opacity: 0; transform: translate(-50%, -48%); }
+  to   { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.cd-header {
+  padding: 0.875rem 1.25rem 0.75rem;
+  flex-shrink: 0;
+}
+
+.cd-header__row {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem 1rem 2rem;
-  border-bottom: 1px solid #e1e4e8;
+  gap: 0.75rem;
+  position: relative;
+  padding-right: 2.5rem;
 }
 
-.modal-header h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1f2937;
+.cd-header__title {
+  flex: 1;
   margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #111827;
 }
 
-.modal-header-actions {
+.cd-header__actions {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.close-button {
-  background: none;
+.cd-header__close {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
   border: none;
-  font-size: 1.5rem;
+  background: #f3f4f6;
+  border-radius: 0.375rem;
   cursor: pointer;
   color: #6b7280;
-  line-height: 1;
+  transition: background 0.12s, color 0.12s;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &:hover {
+    background: #e5e7eb;
+    color: #111827;
+  }
 }
 
-.close-button:hover {
-  color: #374151;
+/* ── Separator ───────────────────────────────────────────── */
+.cd-separator {
+  background: #e5e7eb;
+  flex-shrink: 0;
 }
 
-.profile-grid {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 2rem;
-  padding: 2rem;
-  min-height: 0;
+/* ── Body ────────────────────────────────────────────────── */
+.cd-body {
   flex: 1;
+  min-height: 0;
   overflow: hidden;
 }
 
-.profile-sidebar {
-  position: sticky;
-  top: 0;
-  align-self: start;
-  max-height: calc(90vh - 4rem);
-  overflow-y: auto;
+/* ── Grid ────────────────────────────────────────────────── */
+.cd-grid {
+  display: grid;
+  grid-template-columns: 17rem 1fr;
+  height: 100%;
+  min-height: 0;
 }
 
-.profile-main {
+/* ── Sidebar ─────────────────────────────────────────────── */
+.cd-sidebar {
+  border-right: 1px solid #e5e7eb;
+  padding: 1.25rem 1rem 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.cd-avatar {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cd-name {
+  margin: 0.75rem 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  line-height: 1.35;
+}
+
+.cd-name__icon {
+  flex-shrink: 0;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: color 0.12s;
+
+  &:hover { color: #374151; }
+}
+
+/* Relationship select */
+.cd-field {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.cd-label {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: 0.35rem;
+}
+
+.cd-select__trigger {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #374151;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+
+  &:focus-visible {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+  }
+}
+
+.cd-select__chevron {
+  font-size: 0.6rem;
+  color: #6b7280;
+}
+
+:deep(.cd-select__content) {
+  z-index: 10070;
+  min-width: 12rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12);
+  padding: 0.25rem;
+}
+
+:deep(.cd-select__viewport) {
+  padding: 0.125rem 0;
+}
+
+:deep(.cd-select__item) {
+  font-size: 0.8125rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  outline: none;
+
+  &[data-highlighted] { background: #f3f4f6; }
+  &[data-state='checked'] { font-weight: 600; color: #2563eb; }
+}
+
+/* Bio */
+.cd-bio {
+  width: 100%;
+  margin-top: 0.875rem;
+}
+
+.cd-bio__text {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #374151;
+  line-height: 1.55;
+}
+
+.cd-bio__textarea {
+  width: 100%;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.8125rem;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  background: #fff;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+  }
+}
+
+/* Links list */
+.cd-links {
+  list-style: none;
+  margin: 0.875rem 0 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cd-links__item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8125rem;
+  min-width: 0;
+}
+
+.cd-links__icon {
+  flex-shrink: 0;
+  color: #6b7280;
+}
+
+.cd-links__icon--bs {
+  width: 14px;
+  height: 14px;
+  font-size: 14px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.cd-links__value {
+  color: #374151;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &[href]:hover { text-decoration: underline; color: #2563eb; }
+}
+
+.cd-links__value--empty {
+  color: #9ca3af;
+}
+
+.cd-links__input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.25rem 0.45rem;
+  font-size: 0.8125rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  background: #fff;
+
+  &:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  }
+}
+
+/* ── Main ────────────────────────────────────────────────── */
+.cd-main {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Tabs ────────────────────────────────────────────────── */
+.cd-tabs {
+  flex: 1;
   min-height: 0;
   display: flex;
   flex-direction: column;
 }
 
-.profile-body {
+.cd-tabs__list {
+  display: flex;
+  gap: 0.125rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0 1.25rem;
+  flex-shrink: 0;
+}
+
+.cd-tabs__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #6b7280;
+  background: none;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.15s;
+
+  &:hover { color: #111827; }
+
+  &[data-state='active'] {
+    color: #2563eb;
+    font-weight: 600;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #2563eb;
+      border-radius: 1px;
+    }
+  }
+}
+
+.cd-tabs__icon {
+  flex-shrink: 0;
+}
+
+.cd-badge {
+  background: #e5e7eb;
+  color: #374151;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.cd-tabs__content {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  max-height: calc(90vh - 200px);
+  padding: 1.25rem;
 }
 
-.initials-avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+/* ── GPG tab ─────────────────────────────────────────────── */
+.cd-gpg-list {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3rem;
-  color: #ffffff;
-  font-weight: bold;
-  margin: 0 auto 1rem auto;
-  border: 1px solid #e1e4e8;
+  flex-direction: column;
+  gap: 0.875rem;
 }
 
-.name {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-top: 1rem;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+.cd-gpg-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.875rem;
+  background: #fff;
 }
 
-.name-icon {
-    flex-shrink: 0;
-    vertical-align: middle;
+.cd-gpg-item__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
 }
 
-.form-group {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.cd-gpg-item__ticker {
+  font-size: 0.9375rem;
+  color: #111827;
 }
 
-.form-group label {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #374151;
-  margin-bottom: 0.5rem;
-}
-
-.form-select {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.375rem;
-  background-color: #ffffff;
-  font-size: 1rem;
-  color: #374151;
-}
-
-.bio {
-    margin-top: 1rem;
-    font-size: 0.875rem;
-}
-
-.bio .links {
-    margin-top: 1rem;
-}
-
-.bio .links span {
-    display: block;
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    word-break: break-all; /* Ensure long URLs wrap */
-}
-
-.bio .links .icon-github, .icon-location, .icon-link, .icon-twitter, .icon-linkedin, .icon-instagram, .icon-facebook {
-    margin-right: 0.5rem;
-    width: 1rem; /* Adjust icon size */
-    height: 1rem;
-}
-
-.bio .links .link-icon {
-    margin-right: 0.5rem;
-    flex-shrink: 0;
-}
-
-.form-input-inline {
-  flex-grow: 1;
-  padding: 0.25rem 0.5rem;
-  border: 1px solid #d1d5db;
+.cd-gpg-item__fingerprint code {
+  font-size: 0.75rem;
+  font-family: 'Courier New', monospace;
+  background: #f3f4f6;
+  padding: 0.2rem 0.45rem;
   border-radius: 0.25rem;
+  border: 1px solid #e5e7eb;
+  word-break: break-all;
+}
+
+.cd-gpg-item__key {
+  margin: 0;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.6875rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-x: auto;
+
+  code { background: transparent; padding: 0; border: none; color: #374151; }
+}
+
+/* ── Empty / coming-soon states ──────────────────────────── */
+.cd-empty {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: #9ca3af;
   font-size: 0.875rem;
 }
 
-
-.profile-header {
-    display: flex;
-    border-bottom: 1px solid #e1e4e8;
-    margin-bottom: 1rem;
+.cd-coming-soon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 3rem 1rem;
+  color: #9ca3af;
+  font-size: 0.875rem;
 }
 
-.tab {
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    color: #586069;
-    border-bottom: 2px solid transparent;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-}
-
-.tab-icon {
-    flex-shrink: 0;
-}
-
-.tab.active {
-    border-bottom-color: #f9826c;
-    font-weight: 600;
-}
-
-.badge {
-    background-color: #f6f8fa;
-    padding: 2px 6px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-}
-
-.readme {
-    border: 1px solid #e1e4e8;
-    border-radius: 6px;
-    padding: 1rem;
-}
-
-.gpg-tab {
-    padding: 1rem;
-}
-
-.gpg-tab h3 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-.gpg-tab .empty-state {
-    text-align: center;
-    padding: 2rem;
-    color: #6b7280;
-}
-
-.gpg-keys-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.gpg-key-item {
-    border: 1px solid #e1e4e8;
-    border-radius: 6px;
-    padding: 1rem;
-    background-color: #f9fafb;
-}
-
-.gpg-key-header {
-    margin-bottom: 0.75rem;
-}
-
-.gpg-key-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.gpg-currency {
-    font-size: 1rem;
-    color: #1f2937;
-}
-
-.gpg-fingerprint {
-    font-size: 0.875rem;
-}
-
-.gpg-fingerprint code {
-    background-color: #ffffff;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    border: 1px solid #e5e7eb;
-    font-family: 'Courier New', monospace;
-    font-size: 0.75rem;
-    color: #374151;
-    word-break: break-all;
-}
-
-.gpg-key-content {
-    margin-top: 0.75rem;
-}
-
-.gpg-public-key {
-    background-color: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 0.375rem;
-    padding: 1rem;
-    margin: 0;
-    overflow-x: auto;
-    font-family: 'Courier New', monospace;
-    font-size: 0.75rem;
-    line-height: 1.5;
-    white-space: pre-wrap;
-    word-break: break-all;
-}
-
-.gpg-public-key code {
-    color: #374151;
-    background: transparent;
-    padding: 0;
-    border: none;
+.cd-coming-soon__icon {
+  opacity: 0.35;
 }
 </style>

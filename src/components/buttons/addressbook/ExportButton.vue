@@ -12,7 +12,7 @@ const exportToCSV = () => {
 </script>
 
 <style scoped>
-/* Visual styles come from parent AddressBookPage `.actions :deep(.btn)` */
+/* Visual styles come from parent AddressBook view `.ab-view__actions :deep(.btn)` */
 .btn {
   margin: 0;
 }
