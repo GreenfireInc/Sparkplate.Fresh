@@ -2,7 +2,12 @@
   <DialogRoot :open="show" @update:open="onDialogOpen">
     <DialogPortal>
       <DialogOverlay class="ac-modal-overlay" />
-      <DialogContent class="ac-modal" :aria-describedby="undefined">
+      <DialogContent
+        class="ac-modal"
+        :aria-describedby="undefined"
+        @pointer-down-outside="onDialogPointerDownOutside"
+        @interact-outside="onDialogInteractOutside"
+      >
         <div class="ac-modal__header">
           <div class="ac-modal__header-row">
             <SelectRoot v-model="selectedEntity">
@@ -257,6 +262,21 @@ watch(
 function onDialogOpen(open: boolean) {
   if (!open) {
     emit('close')
+  }
+}
+
+/** `dropdown.currency` teleports its list to `body`, so radix treats those clicks as outside the dialog. */
+function onDialogPointerDownOutside(event: CustomEvent<{ originalEvent: PointerEvent }>) {
+  const target = event.detail?.originalEvent?.target
+  if (target instanceof Element && target.closest('.currency-dropdown-portal')) {
+    event.preventDefault()
+  }
+}
+
+function onDialogInteractOutside(event: CustomEvent<{ originalEvent: PointerEvent | FocusEvent }>) {
+  const target = event.detail?.originalEvent?.target
+  if (target instanceof Element && target.closest('.currency-dropdown-portal')) {
+    event.preventDefault()
   }
 }
 
