@@ -68,83 +68,20 @@
       </div>
     </div>
 
-    <!-- Coin Details Modal -->
-    <DialogRoot :open="!!selectedCoin" @update:open="onDialogOpenChange">
-      <DialogPortal>
-        <DialogOverlay class="mt-modal-overlay" />
-        <DialogContent class="mt-modal-content" :aria-describedby="undefined">
-          <div v-if="selectedCoin" class="mt-modal-inner">
-            <div class="mt-modal-header">
-              <img
-                :src="`./assets/icons/crypto/${selectedCoin.symbol.toLowerCase()}.svg`"
-                :alt="selectedCoin.symbol"
-                class="mt-modal-icon"
-              />
-              <DialogTitle class="mt-modal-title">
-                {{ selectedCoin.name }} ({{ selectedCoin.symbol }})
-              </DialogTitle>
-            </div>
-            <div class="mt-modal-metrics">
-              <div class="mt-modal-row">
-                <span class="mt-modal-label">{{ t('currentPrice') }}</span>
-                <span class="mt-modal-value">${{ formatPrice(selectedCoin.price) }}</span>
-              </div>
-              <div class="mt-modal-row">
-                <span class="mt-modal-label">{{ t('change24h') }}</span>
-                <span
-                  class="mt-modal-value"
-                  :class="selectedCoin.priceChange > 0 ? 'mt-modal-value--up' : 'mt-modal-value--down'"
-                >
-                  {{ selectedCoin.priceChange > 0 ? '+' : '' }}{{ selectedCoin.priceChange.toFixed(2) }}%
-                </span>
-              </div>
-              <div class="mt-modal-row">
-                <span class="mt-modal-label">{{ t('marketCap') }}</span>
-                <span class="mt-modal-value">${{ formatMarketCap(selectedCoin.marketCap) }}</span>
-              </div>
-            </div>
-            <a
-              :href="`https://gemini.com/share/jwqzg5fe`"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="mt-modal-link"
-            >
-            {{ t('tradeOnGemini') }}
-              <img src="/assets/icons/exchanges/gemini.svg" alt="Gemini" class="mt-modal-link-icon" />
-              
-            </a>
-            <DialogClose class="mt-modal-close">
-              {{ t('close') }}
-            </DialogClose>
-          </div>
-        </DialogContent>
-      </DialogPortal>
-    </DialogRoot>
+    <ModalMarqueeTicker :coin="selectedCoin" @close="closeModal" />
   </div>
 </template>
 
 <script>
-import {
-  DialogRoot,
-  DialogPortal,
-  DialogOverlay,
-  DialogContent,
-  DialogTitle,
-  DialogClose,
-} from 'radix-vue'
 import { useI18n } from '@/composables/useI18n'
+import ModalMarqueeTicker from '@/components/modals/login/modal.marqueeTicker.vue'
 import { COINBASE50 } from '@/lib/cores/currencyCore/indexComposites/coinbase50'
 import { coinGeckoAPI } from '@/lib/cores/currencyCore/aggregators/coinGeckoAPI'
 
 export default {
   name: 'MarqueeTicker',
   components: {
-    DialogRoot,
-    DialogPortal,
-    DialogOverlay,
-    DialogContent,
-    DialogTitle,
-    DialogClose,
+    ModalMarqueeTicker,
   },
   setup() {
     const { t } = useI18n()
@@ -234,9 +171,6 @@ export default {
       this.isPaused = false
       this.$refs.marqueeContent.style.animationPlayState = 'running'
     },
-    onDialogOpenChange(open) {
-      if (!open) this.closeModal()
-    }
   },
   mounted() {
     this.fetchCoinPrices()
@@ -332,134 +266,4 @@ export default {
     transform: translateX(-50%);
   }
 }
-
-/* ── Modal: Radix Dialog (portals to body, use unscoped block below) ── */
 </style>
-
-<!-- Unscoped: DialogPortal teleports to body -->
-<style>
-.mt-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 9998;
-}
-
-.mt-modal-content {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #262b38;
-  border-radius: 0.5rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-  padding: 0;
-  max-width: 22rem;
-  width: 92vw;
-  z-index: 9999;
-  overflow: hidden;
-}
-
-.mt-modal-inner {
-  padding: 1.25rem;
-}
-
-.mt-modal-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.mt-modal-icon {
-  width: 2.25rem;
-  height: 2.25rem;
-  flex-shrink: 0;
-}
-
-.mt-modal-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #fff;
-  margin: 0;
-  line-height: 1.3;
-}
-
-.mt-modal-metrics {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.mt-modal-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.875rem;
-}
-
-.mt-modal-label {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.mt-modal-value {
-  color: #fff;
-  font-weight: 500;
-}
-
-.mt-modal-value--up {
-  color: #4ade80;
-}
-
-.mt-modal-value--down {
-  color: #f87171;
-}
-
-.mt-modal-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  width: 100%;
-  background: #4ade80;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  margin-bottom: 0.75rem;
-  transition: background 0.15s;
-}
-
-.mt-modal-link-icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  flex-shrink: 0;
-}
-
-.mt-modal-link:hover {
-  background: #22c55e;
-}
-
-.mt-modal-close {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 0.5rem 1rem;
-  background: #374151;
-  color: #fff;
-  border: none;
-  border-radius: 0.375rem;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.15s;
-}
-
-.mt-modal-close:hover {
-  background: #4b5563;
-}
-</style> 
