@@ -7,6 +7,8 @@ export interface Contact {
   email: string;
   notes: string;
   website?: string;
+  phone?: string;
+  relationship?: string;
   twitter?: string;
   linkedin?: string;
   instagram?: string;
