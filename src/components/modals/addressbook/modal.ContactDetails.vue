@@ -45,7 +45,14 @@
 
               <h2 class="cd-name">
                 {{ contact.firstname }} {{ contact.lastname }}
-                <QrCode :size="18" class="cd-name__icon" />
+                <button
+                  type="button"
+                  class="cd-name__qr"
+                  aria-label="Show contact QR code"
+                  @click="showContactQRCodeModal = true"
+                >
+                  <QrCode :size="18" class="cd-name__icon" aria-hidden="true" />
+                </button>
               </h2>
 
               <!-- Relationship -->
@@ -285,6 +292,13 @@
     @currency-added="handleCurrencyAdded"
     @wallets-imported="handleWalletsImported"
   />
+
+  <ContactQRCodeModal
+    v-if="contact && showContactQRCodeModal"
+    :show="showContactQRCodeModal"
+    :contact="contact"
+    @close="showContactQRCodeModal = false"
+  />
 </template>
 
 <script setup lang="ts">
@@ -299,6 +313,7 @@ import type { Contact } from '@/services/addressBook/contactService'
 import { updateContact } from '@/services/addressBook/contactService'
 import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
 import AddCurrencyModal from '@/components/modals/addressbook/AddCurrencyModal.vue'
+import ContactQRCodeModal from '@/components/modals/addressbook/modal.ContactQRCode.vue'
 import WalletsTab from '@/components/modals/addressbook/tabsFor.contactDetails/WalletsTab.vue'
 import {
   addWallet, getWalletCountForContact, getWalletsForContact, type Wallet,
@@ -322,6 +337,7 @@ const isEditing = ref(false)
 const editedContact = ref<Partial<Contact>>({})
 const selectedRelationship = ref('')
 const showAddCurrencyModal = ref(false)
+const showContactQRCodeModal = ref(false)
 const activeTab = ref('wallets')
 const walletCount = ref(0)
 const walletsTabRef = ref<InstanceType<typeof WalletsTab> | null>(null)
@@ -620,13 +636,31 @@ const close = () => {
   line-height: 1.35;
 }
 
+.cd-name__qr {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 0.25rem;
+
+  &:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
+}
+
 .cd-name__icon {
   flex-shrink: 0;
   color: #9ca3af;
-  cursor: pointer;
   transition: color 0.12s;
+}
 
-  &:hover { color: #374151; }
+.cd-name__qr:hover .cd-name__icon {
+  color: #374151;
 }
 
 /* Relationship select */

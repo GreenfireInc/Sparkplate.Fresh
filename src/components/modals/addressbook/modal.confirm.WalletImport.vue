@@ -54,23 +54,25 @@
 </template>
 
 <script setup lang="ts">
-import type { ImportedWallet } from '@/lib/cores/importStandard/importWallet.json';
+import type { ImportedWallet } from '@/lib/cores/importStandard/importWallet.json'
+
+defineOptions({ name: 'ModalConfirmWalletImport' })
 
 const props = defineProps({
   show: { type: Boolean, required: true },
   file: { type: Object as () => File | null, default: null },
   wallets: { type: Array as () => ImportedWallet[], default: () => [] },
-});
+})
 
-const emit = defineEmits(['close', 'confirm']);
+const emit = defineEmits(['close', 'confirm'])
 
-const close = () => emit('close');
-const confirm = () => emit('confirm', props.wallets);
+const close = () => emit('close')
+const confirm = () => emit('confirm', props.wallets)
 
 const truncateKey = (key: string): string => {
-  if (key.length <= 20) return key;
-  return `${key.substring(0, 10)}...${key.substring(key.length - 10)}`;
-};
+  if (key.length <= 20) return key
+  return `${key.substring(0, 10)}...${key.substring(key.length - 10)}`
+}
 </script>
 
 <style scoped>
@@ -262,4 +264,3 @@ td {
   border-color: #9ca3af;
 }
 </style>
-

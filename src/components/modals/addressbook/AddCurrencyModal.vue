@@ -52,7 +52,7 @@
 import { ref, watch } from 'vue';
 import { Camera, Upload } from 'lucide-vue-next';
 import CurrencyDropdown from '../../dropdown/dropdown.currency.vue';
-import WalletImportConfirmModal from '@/components/modals/addressbook/WalletImportConfirmModal.vue';
+import WalletImportConfirmModal from '@/components/modals/addressbook/modal.confirm.WalletImport.vue'
 import { parseWalletJsonFile, type ImportedWallet } from '@/lib/cores/importStandard/importWallet.json';
 import { addWallet } from '@/services/addressBook/walletService';
 
