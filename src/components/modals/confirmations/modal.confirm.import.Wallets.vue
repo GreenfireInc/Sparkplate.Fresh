@@ -1,5 +1,10 @@
 <template>
-  <div v-if="show" class="modal-overlay" @click.self="close">
+  <div
+    v-if="show"
+    class="modal-overlay"
+    data-stacked-modal="wallet-import-confirm"
+    @click.self="close"
+  >
     <div class="modal-content">
       <div class="modal-header">
         <h2>Import Wallets</h2>
@@ -24,9 +29,20 @@
             </thead>
             <tbody>
               <tr v-for="(wallet, index) in wallets" :key="index">
-                <td><strong>{{ wallet.coinTicker }}</strong></td>
+                <td>
+                  <span class="currency-wrapper">
+                    <img
+                      v-if="getCryptoIconPath(wallet.coinTicker)"
+                      :src="getCryptoIconPath(wallet.coinTicker)!"
+                      :alt="wallet.coinTicker"
+                      class="currency-icon"
+                      @error="($event.target as HTMLImageElement).style.display = 'none'"
+                    />
+                    <strong>{{ wallet.coinTicker }}</strong>
+                  </span>
+                </td>
                 <td class="address-cell">
-                  <code>{{ wallet.address }}</code>
+                  <code>{{ tickerPrefix(wallet) }}{{ wallet.address }}</code>
                 </td>
                 <td class="fingerprint-cell">
                   <code v-if="wallet.keyFingerprint">{{ wallet.keyFingerprint }}</code>
@@ -56,7 +72,7 @@
 <script setup lang="ts">
 import type { ImportedWallet } from '@/lib/cores/importStandard/importWallet.json'
 
-defineOptions({ name: 'ModalConfirmWalletImport' })
+defineOptions({ name: 'ModalConfirmImportWallets' })
 
 const props = defineProps({
   show: { type: Boolean, required: true },
@@ -73,9 +89,21 @@ const truncateKey = (key: string): string => {
   if (key.length <= 20) return key
   return `${key.substring(0, 10)}...${key.substring(key.length - 10)}`
 }
+
+const getCryptoIconPath = (coinTicker: string): string | null => {
+  if (!coinTicker) return null
+  return `/assets/icons/crypto/${coinTicker.toLowerCase()}.svg`
+}
+
+/** e.g. `btc://` for URI-style preview (matches reference WalletImportConfirmModal). */
+const tickerPrefix = (wallet: ImportedWallet): string => {
+  const t = wallet.coinTicker?.toLowerCase() ?? ''
+  return t ? `${t}://` : ''
+}
 </script>
 
 <style scoped>
+/* Above Add Currency (10082) and Contact Details (10061); above currency dropdown (10085) */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -86,7 +114,7 @@ const truncateKey = (key: string): string => {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2000;
+  z-index: 10095;
 }
 
 .modal-content {
@@ -99,6 +127,8 @@ const truncateKey = (key: string): string => {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 
 .modal-header {
@@ -188,6 +218,19 @@ th {
 
 td {
   font-size: 0.875rem;
+}
+
+.currency-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.currency-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .address-cell code {

@@ -2,7 +2,12 @@
   <DialogRoot :open="!!show && !!contact" @update:open="onDialogOpen">
     <DialogPortal>
       <DialogOverlay class="cd-overlay" />
-      <DialogContent class="cd-modal" :aria-describedby="undefined">
+      <DialogContent
+        class="cd-modal"
+        :aria-describedby="undefined"
+        @pointer-down-outside="onDialogPointerDownOutside"
+        @interact-outside="onDialogInteractOutside"
+      >
 
         <!-- Header -->
         <div class="cd-header">
@@ -233,7 +238,7 @@
                 </TabsList>
 
                 <TabsContent value="wallets" class="cd-tabs__content">
-                  <WalletsTab
+                  <TabContactDetailsWallets
                     v-if="contact?.id"
                     :contactId="contact.id"
                     @wallet-deleted="refreshWalletCount"
@@ -242,21 +247,13 @@
                 </TabsContent>
 
                 <TabsContent value="gpg" class="cd-tabs__content">
-                  <div v-if="gpgKeys.length === 0" class="cd-empty">
-                    <p>No GPG public keys found for this contact.</p>
-                  </div>
-                  <div v-else class="cd-gpg-list">
-                    <div v-for="wallet in gpgKeys" :key="wallet.id" class="cd-gpg-item">
-                      <div class="cd-gpg-item__header">
-                        <strong class="cd-gpg-item__ticker">{{ wallet.coinTicker }}</strong>
-                        <span v-if="wallet.keyFingerprint" class="cd-gpg-item__fingerprint">
-                          <code>{{ wallet.keyFingerprint }}</code>
-                        </span>
-                      </div>
-                      <div v-if="wallet.gpgPublicKey" class="cd-gpg-item__body">
-                        <pre class="cd-gpg-item__key"><code>{{ wallet.gpgPublicKey }}</code></pre>
-                      </div>
-                    </div>
+                  <TabContactDetailsGPG
+                    v-if="contact?.id"
+                    :contactId="contact.id"
+                    ref="gpgTabRef"
+                  />
+                  <div v-else class="cd-empty">
+                    <p>Save this contact to start adding GPG keys.</p>
                   </div>
                 </TabsContent>
 
@@ -268,9 +265,15 @@
                 </TabsContent>
 
                 <TabsContent value="notes" class="cd-tabs__content">
-                  <div class="cd-coming-soon">
+                  <TabContactDetailsNotes
+                    v-if="contact?.id"
+                    :contactId="contact.id"
+                    :contactName="contactFullName"
+                    ref="notesTabRef"
+                  />
+                  <div v-else class="cd-coming-soon">
                     <NotebookPen :size="32" class="cd-coming-soon__icon" />
-                    <p>Notes coming soon.</p>
+                    <p>Save this contact to start adding notes.</p>
                   </div>
                 </TabsContent>
               </TabsRoot>
@@ -312,9 +315,11 @@ import {
 import type { Contact } from '@/services/addressBook/contactService'
 import { updateContact } from '@/services/addressBook/contactService'
 import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
-import AddCurrencyModal from '@/components/modals/addressbook/AddCurrencyModal.vue'
+import AddCurrencyModal from '@/components/modals/addressbook/modal.add.Currency.vue'
 import ContactQRCodeModal from '@/components/modals/addressbook/modal.ContactQRCode.vue'
-import WalletsTab from '@/components/modals/addressbook/tabsFor.contactDetails/WalletsTab.vue'
+import TabContactDetailsWallets from '@/components/modals/addressbook/tabsFor.contactDetails/tab.contactDetails.Wallets.vue'
+import TabContactDetailsNotes from '@/components/modals/addressbook/tabsFor.contactDetails/tab.contactDetails.Notes.vue'
+import TabContactDetailsGPG from '@/components/modals/addressbook/tabsFor.contactDetails/tab.contactDetails.GPG.vue'
 import {
   addWallet, getWalletCountForContact, getWalletsForContact, type Wallet,
 } from '@/services/addressBook/walletService'
@@ -340,7 +345,9 @@ const showAddCurrencyModal = ref(false)
 const showContactQRCodeModal = ref(false)
 const activeTab = ref('wallets')
 const walletCount = ref(0)
-const walletsTabRef = ref<InstanceType<typeof WalletsTab> | null>(null)
+const walletsTabRef = ref<InstanceType<typeof TabContactDetailsWallets> | null>(null)
+const notesTabRef = ref<InstanceType<typeof TabContactDetailsNotes> | null>(null)
+const gpgTabRef = ref<InstanceType<typeof TabContactDetailsGPG> | null>(null)
 const gpgKeys = ref<Wallet[]>([])
 const gpgKeysCount = computed(() => gpgKeys.value.length)
 
@@ -349,6 +356,11 @@ const contactInitials = computed(() => {
   const f = props.contact.firstname?.charAt(0) ?? ''
   const l = props.contact.lastname?.charAt(0) ?? ''
   return `${f}${l}`.toUpperCase()
+})
+
+const contactFullName = computed(() => {
+  if (!props.contact) return ''
+  return `${props.contact.firstname ?? ''} ${props.contact.lastname ?? ''}`.trim()
 })
 
 const avatarBackgroundColor = computed(() => {
@@ -401,6 +413,32 @@ function onDialogOpen(open: boolean) {
   if (!open) close()
 }
 
+function onDialogPointerDownOutside(event: CustomEvent<{ originalEvent: PointerEvent }>) {
+  const target = event.detail?.originalEvent?.target
+  if (!(target instanceof Element)) return
+  if (
+    target.closest('.currency-dropdown-portal')
+    || target.closest('[data-stacked-modal="add-currency"]')
+    || target.closest('[data-stacked-modal="wallet-import-confirm"]')
+    || target.closest('[data-stacked-modal="wallet-qrcode"]')
+  ) {
+    event.preventDefault()
+  }
+}
+
+function onDialogInteractOutside(event: CustomEvent<{ originalEvent: PointerEvent | FocusEvent }>) {
+  const target = event.detail?.originalEvent?.target
+  if (!(target instanceof Element)) return
+  if (
+    target.closest('.currency-dropdown-portal')
+    || target.closest('[data-stacked-modal="add-currency"]')
+    || target.closest('[data-stacked-modal="wallet-import-confirm"]')
+    || target.closest('[data-stacked-modal="wallet-qrcode"]')
+  ) {
+    event.preventDefault()
+  }
+}
+
 const toggleEditMode = (value: boolean) => {
   isEditing.value = value
   if (!isEditing.value && props.contact) {
@@ -448,12 +486,14 @@ const handleCurrencyAdded = async (currencyData: { contactId: number; network: s
   await refreshWalletCount()
   await refreshGpgKeys()
   walletsTabRef.value?.refresh()
+  gpgTabRef.value?.refresh()
 }
 
 const handleWalletsImported = async () => {
   await refreshWalletCount()
   await refreshGpgKeys()
   walletsTabRef.value?.refresh()
+  gpgTabRef.value?.refresh()
 }
 
 const refreshWalletCount = async () => {
@@ -478,6 +518,8 @@ const onExportVcf = (contact: Contact) => console.log(`VCF: ${contact.id}`)
 
 const close = () => {
   isEditing.value = false
+  showAddCurrencyModal.value = false
+  showContactQRCodeModal.value = false
   emit('close')
 }
 </script>

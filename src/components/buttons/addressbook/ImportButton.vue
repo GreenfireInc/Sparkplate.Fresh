@@ -11,7 +11,7 @@
         style="display: none"
       />
     </label>
-    <ImportConfirmModal
+    <ModalConfirmImportContacts
       :show="showModal"
       :file="selectedFile"
       :contacts="parsedContacts"
@@ -25,7 +25,7 @@
 import { ref } from 'vue';
 import { Contact } from 'lucide-vue-next';
 import { useContactParser } from '@/composables/useContactParser';
-import ImportConfirmModal from '@/components/modals/addressbook/ImportConfirmModal.vue';
+import ModalConfirmImportContacts from '@/components/modals/confirmations/modal.confirm.import.Contacts.vue';
 
 const emit = defineEmits(['contacts-imported']);
 const fileInput = ref<HTMLInputElement | null>(null);

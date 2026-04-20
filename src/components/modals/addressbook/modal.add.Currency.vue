@@ -1,5 +1,10 @@
 <template>
-  <div v-if="show" class="modal-overlay" @click.self="handleClose">
+  <div
+    v-if="show"
+    class="modal-overlay"
+    data-stacked-modal="add-currency"
+    @click.self="handleClose"
+  >
     <div class="modal-content" @click.stop>
       <div class="modal-header">
         <h2>Add Currency for Contact ID: {{ contactId }}</h2>
@@ -38,7 +43,7 @@
         </div>
       </form>
     </div>
-    <WalletImportConfirmModal
+    <ModalConfirmImportWallets
       :show="showImportModal"
       :file="importedFile"
       :wallets="importedWallets"
@@ -52,7 +57,7 @@
 import { ref, watch } from 'vue';
 import { Camera, Upload } from 'lucide-vue-next';
 import CurrencyDropdown from '../../dropdown/dropdown.currency.vue';
-import WalletImportConfirmModal from '@/components/modals/addressbook/modal.confirm.WalletImport.vue'
+import ModalConfirmImportWallets from '@/components/modals/confirmations/modal.confirm.import.Wallets.vue'
 import { parseWalletJsonFile, type ImportedWallet } from '@/lib/cores/importStandard/importWallet.json';
 import { addWallet } from '@/services/addressBook/walletService';
 
@@ -103,6 +108,7 @@ const submitForm = () => {
 };
 
 const handleClose = () => {
+  closeImportModal();
   resetForm();
   emits('close');
 };
@@ -184,6 +190,7 @@ watch(() => props.show, (newVal) => {
 </script>
 
 <style scoped>
+/* Above Contact Details radix dialog (10060/10061); below currency dropdown portal (10085) & import confirm (10095) */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -194,7 +201,7 @@ watch(() => props.show, (newVal) => {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 10082;
 }
 
 .modal-content {
@@ -205,6 +212,7 @@ watch(() => props.show, (newVal) => {
   width: 90%;
   max-width: 600px;
   position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
 }

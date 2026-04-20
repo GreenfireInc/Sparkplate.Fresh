@@ -142,7 +142,7 @@ function onDialogOpenChange(open: boolean) {
 
 <!-- Unscoped: DialogPortal teleports to body -->
 <style>
-/* Overlay + panel: align with app radix modals (e.g. addEntry ac-modal z-index stack) */
+/* Overlay + panel: align with app radix modals (e.g. modal.add.entry ac-modal z-index stack) */
 .mt-modal-overlay {
   position: fixed;
   inset: 0;

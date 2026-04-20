@@ -78,7 +78,7 @@ const triggerRef = ref<HTMLElement | null>(null);
 const portalRef = ref<HTMLElement | null>(null);
 const dropdownPos = ref({ top: 0, left: 0, width: 0 });
 
-/** Must sit above app modals (e.g. addEntry uses overlay 10060 / content 10061; radix selects use ~10070). */
+/** Must sit above app modals (e.g. modal.add.entry uses overlay 10060 / content 10061; radix selects use ~10070). */
 const DROPDOWN_Z_INDEX = 10085
 
 const dropdownStyle = computed(() => ({

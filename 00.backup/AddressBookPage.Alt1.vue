@@ -147,14 +147,14 @@ import {
 <<<<<<< HEAD:00.backup/AddressBookPage.vue
 import AddContactModal from './modals/addContact.vue'
 import ContactDetailsModal from './modals/ContactDetailsModal.vue'
-import AddCurrencyModal from './modals/AddCurrencyModal.vue'
+import AddCurrencyModal from '@/components/modals/addressbook/modal.add.Currency.vue'
 import ConfirmModal from './modals/ConfirmModal.vue'
 import ImportButton from './ImportButton.vue'
 import ExportButton from './ExportButton.vue'
 =======
-import AddContactModal from '@/components/modals/addressbook/addEntry.vue'
-import ContactDetailsModal from '@/components/modals/addressbook/modal.ContactDetails.vue'
-import AddCurrencyModal from '@/components/modals/addressbook/AddCurrencyModal.vue'
+import AddContactModal from '@/components/modals/addressbook/modal.add.entry.vue'
+import ContactDetailsModal from '@/components/modals/addressbook/modal.Contact.Details.vue'
+import AddCurrencyModal from '@/components/modals/addressbook/modal.add.Currency.vue'
 import ConfirmModal from '@/components/modals/addressbook/ConfirmModal.vue'
 import ImportButton from '@/components/buttons/addressbook/ImportButton.vue'
 import ExportButton from '@/components/buttons/addressbook/ExportButton.vue'
