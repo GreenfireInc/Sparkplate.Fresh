@@ -144,9 +144,9 @@ import {
   Separator,
   Label,
 } from 'radix-vue'
-import AddContactModal from '@/components/modals/addressbook/addEntry.vue'
-import ContactDetailsModal from '@/components/modals/addressbook/modal.ContactDetails.vue'
-import AddCurrencyModal from '@/components/modals/addressbook/AddCurrencyModal.vue'
+import AddContactModal from '@/components/modals/addressbook/modal.add.entry.vue'
+import ContactDetailsModal from '@/components/modals/addressbook/modal.Contact.Details.vue'
+import AddCurrencyModal from '@/components/modals/addressbook/modal.add.Currency.vue'
 import ConfirmModal from '@/components/modals/addressbook/ConfirmModal.vue'
 import ImportButton from '@/components/buttons/addressbook/ImportButton.vue'
 import ExportButton from '@/components/buttons/addressbook/ExportButton.vue'

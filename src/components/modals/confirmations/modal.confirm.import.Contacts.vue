@@ -1,3 +1,7 @@
+<!--
+  Contact import confirmation: after the user selects an import file, shows a preview
+  (file metadata + table of parsed contacts) and asks them to confirm or cancel before persisting.
+-->
 <template>
   <div v-if="show" class="modal-overlay" @click.self="close">
     <div class="modal-content">
@@ -41,16 +45,26 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({ name: 'ModalConfirmImportContacts' })
+
+/**
+ * modals/confirmations/modal.confirm.import.Contacts — second step of address-book contact import.
+ *
+ * Parent parses the file, then opens this modal with `show`, the original `file`, and the
+ * `contacts` array to preview. User can cancel (`close`) or confirm (`confirm` with the same
+ * contacts payload) so the parent can write them to storage.
+ */
 const props = defineProps({
   show: { type: Boolean, required: true },
   file: { type: Object as () => File | null, default: null },
   contacts: { type: Array as () => any[], default: () => [] },
-});
+})
 
-const emit = defineEmits(['close', 'confirm']);
+const emit = defineEmits(['close', 'confirm'])
 
-const close = () => emit('close');
-const confirm = () => emit('confirm', props.contacts);
+const close = () => emit('close')
+/** Emits the previewed contact rows for the parent to import. */
+const confirm = () => emit('confirm', props.contacts)
 </script>
 
 <style scoped>

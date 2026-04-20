@@ -1,30 +1,50 @@
 <template>
   <div class="wallet-item">
     <div class="wallet-network">
-      <img 
-        v-if="getCryptoIconPath(wallet.coinTicker)" 
-        :src="getCryptoIconPath(wallet.coinTicker)" 
+      <img
+        v-if="getCryptoIconPath(wallet.coinTicker)"
+        :src="getCryptoIconPath(wallet.coinTicker)!"
         :alt="wallet.coinTicker"
         class="crypto-icon"
-        @error="$event.target.style.display = 'none'"
+        @error="($event.target as HTMLImageElement).style.display = 'none'"
       />
       <span class="network-badge">{{ wallet.coinTicker }}</span>
     </div>
-    <button 
-      class="delete-button" 
+    <button
+      type="button"
+      class="delete-button"
       @click="handleDelete"
       title="Delete wallet"
     >
       <Trash2 :size="16" />
     </button>
-    <div class="wallet-qr">
-      <QrCode :size="80" class="qr-icon" />
+    <div class="wallet-qr" @click="showQRModal = true">
+      <img
+        v-if="qrCodeDataUrl"
+        :src="qrCodeDataUrl"
+        alt="Wallet QR Code"
+        class="qr-code-image"
+      />
+      <div v-else class="qr-loading">Generating QR code…</div>
+      <img
+        v-if="qrCodeDataUrl && getCryptoIconPath(wallet.coinTicker)"
+        :src="getCryptoIconPath(wallet.coinTicker)!"
+        :alt="wallet.coinTicker"
+        class="crypto-icon-overlay"
+        @error="($event.target as HTMLImageElement).style.display = 'none'"
+      />
     </div>
+    <ModalWalletQRCode
+      :show="showQRModal"
+      :wallet="wallet"
+      @close="showQRModal = false"
+    />
     <div class="wallet-content">
       <div class="wallet-address">
         <code class="address-text">{{ wallet.coinTicker.toLowerCase() }}://{{ wallet.address }}</code>
-        <button 
-          class="copy-button" 
+        <button
+          type="button"
+          class="copy-button"
           @click="copyToClipboard(wallet.address)"
           title="Copy address"
         >
@@ -39,37 +59,71 @@
 </template>
 
 <script setup lang="ts">
-import { QrCode, Copy, Trash2 } from 'lucide-vue-next';
-import type { Wallet } from '@/services/addressBook/walletService';
+import { ref, onMounted, watch } from 'vue'
+import { Copy, Trash2 } from 'lucide-vue-next'
+import QRCode from 'qrcode'
+import type { Wallet } from '@/services/addressBook/walletService'
+import ModalWalletQRCode from '@/components/modals/addressbook/modal.WalletQRCode.vue'
 
 const props = defineProps<{
-  wallet: Wallet;
-}>();
+  wallet: Wallet
+}>()
 
 const emit = defineEmits<{
-  (e: 'delete', walletId: number): void;
-  (e: 'copy', address: string): void;
-}>();
+  (e: 'delete', walletId: number): void
+  (e: 'copy', address: string): void
+}>()
 
-// Get crypto icon path based on coin ticker
+const qrCodeDataUrl = ref<string | null>(null)
+const showQRModal = ref(false)
+
 const getCryptoIconPath = (coinTicker: string): string | null => {
-  if (!coinTicker) return null;
-  const tickerLower = coinTicker.toLowerCase();
-  return `/assets/icons/crypto/${tickerLower}.svg`;
-};
+  if (!coinTicker) return null
+  return `/assets/icons/crypto/${coinTicker.toLowerCase()}.svg`
+}
+
+const generateQRCode = async () => {
+  const walletAddress = `${props.wallet.coinTicker.toLowerCase()}://${props.wallet.address}`
+  try {
+    const dataUrl = await QRCode.toDataURL(walletAddress, {
+      width: 200,
+      margin: 2,
+      color: {
+        dark: '#000000',
+        light: '#FFFFFF',
+      },
+    })
+    qrCodeDataUrl.value = dataUrl
+  } catch (error) {
+    console.error('Error generating QR code:', error)
+    qrCodeDataUrl.value = null
+  }
+}
 
 const copyToClipboard = async (text: string) => {
   try {
-    await navigator.clipboard.writeText(text);
-    emit('copy', text);
+    await navigator.clipboard.writeText(text)
+    emit('copy', text)
   } catch (err) {
-    console.error('Failed to copy:', err);
+    console.error('Failed to copy:', err)
   }
-};
+}
 
 const handleDelete = () => {
-  emit('delete', props.wallet.id);
-};
+  emit('delete', props.wallet.id)
+}
+
+onMounted(() => {
+  generateQRCode()
+})
+
+watch(
+  () => props.wallet,
+  () => {
+    generateQRCode()
+  },
+  { deep: true },
+)
 </script>
 
 <style scoped>
@@ -95,11 +149,41 @@ const handleDelete = () => {
   justify-content: center;
   flex: 1;
   min-height: 0;
+  position: relative;
+  cursor: pointer;
+  transition: opacity 0.2s;
 }
 
-.qr-icon {
-  color: #374151;
-  opacity: 0.6;
+.wallet-qr:hover {
+  opacity: 0.85;
+}
+
+.qr-code-image {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  display: block;
+}
+
+.qr-loading {
+  color: #6b7280;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.crypto-icon-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  padding: 6px;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .wallet-content {
@@ -220,4 +304,3 @@ const handleDelete = () => {
   white-space: nowrap;
 }
 </style>
-
