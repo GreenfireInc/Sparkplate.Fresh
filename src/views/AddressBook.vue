@@ -31,9 +31,14 @@
     <!-- Toolbar -->
     <div class="ab-view__toolbar">
       <div class="ab-view__actions">
-        <button type="button" class="ab-btn" @click="openAddContactModal(null)">
-          <SquareUser :size="18" class="ab-btn__icon" aria-hidden="true" />
-          Add contact
+        <button type="button" class="ab-btn" @click="handleAddClick">
+          <component
+            :is="addButton.icon"
+            :size="18"
+            class="ab-btn__icon"
+            aria-hidden="true"
+          />
+          {{ addButton.label }}
         </button>
         <ImportButton @contacts-imported="addContacts" />
         <ExportButton :contacts="contacts" />
@@ -179,7 +184,7 @@ import {
   Separator, Label,
   TooltipProvider, TooltipRoot, TooltipTrigger, TooltipPortal, TooltipContent, TooltipArrow,
 } from 'radix-vue'
-import { NotebookTabs, SquareUser, ChevronLeft, ChevronRight } from 'lucide-vue-next'
+import { NotebookTabs, SquareUser, Landmark, Wallet, Building2, ChevronLeft, ChevronRight } from 'lucide-vue-next'
 import AddContactModal from '@/components/modals/addressbook/modal.add.entry.vue'
 import ContactDetailsModal from '@/components/modals/addressbook/modal.Contact.Details.vue'
 import AddCurrencyModal from '@/components/modals/addressbook/modal.add.Currency.vue'
@@ -371,6 +376,34 @@ const onConfirmDelete = async () => {
 const openAddContactModal = (contact: Contact | null = null) => {
   selectedContactForEdit.value = contact
   showAddContactModal.value = true
+}
+
+const addButton = computed(() => {
+  switch (activeTab.value) {
+    case 'Exchanges':
+      return { label: 'Add Exchange', icon: Landmark, action: 'exchange' as const }
+    case 'Wallets':
+      return { label: 'Add Wallets', icon: Wallet, action: 'wallet' as const }
+    case 'Companies':
+      return { label: 'Add Companies', icon: Building2, action: 'company' as const }
+    case 'Contacts':
+    default:
+      return { label: 'Add contact', icon: SquareUser, action: 'contact' as const }
+  }
+})
+
+const handleAddClick = () => {
+  switch (addButton.value.action) {
+    case 'contact':
+      openAddContactModal(null)
+      break
+    case 'exchange':
+    case 'wallet':
+    case 'company':
+      // TODO: wire to dedicated add modals when available.
+      console.log(`[AddressBook] Add ${addButton.value.action} clicked (no modal yet)`)
+      break
+  }
 }
 
 const closeAddContactModal = () => {
