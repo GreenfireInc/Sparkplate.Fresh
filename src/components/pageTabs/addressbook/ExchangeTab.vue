@@ -37,7 +37,7 @@
               :class="{ 'ab-table__th--sorted': sortKey === 'email' }"
               @click="sortBy('email')"
             >
-              Associated Email
+              Associated Emails
               <span v-if="sortKey === 'email'" class="ab-table__sort-arrow" aria-hidden="true">{{ sortOrder === 'asc' ? '▲' : '▼' }}</span>
             </th>
             <!-- Referral Code column hidden -->
@@ -94,7 +94,7 @@
             <td class="ab-table__td">
               <template v-if="exchange.currencies.length > 0">
                 <span :title="exchange.currencies[0].address">
-                  {{ exchange.currencies[0].abbreviation }}: {{ truncateAddress(exchange.currencies[0].address) }}
+                  {{ exchange.currencies[0].abbreviation }}<span class="ab-table__sep">://</span>{{ truncateAddress(exchange.currencies[0].address) }}
                 </span>
               </template>
               <template v-else>N/A</template>
@@ -254,14 +254,6 @@ function truncateAddress(address: string): string {
 </script>
 
 <style lang="scss" scoped>
-.ab-page__tab-panel {
-  outline: none;
-}
-
-.ab-table-wrapper {
-  width: 100%;
-}
-
 .ab-table {
   width: 100%;
   border-collapse: collapse;
@@ -287,7 +279,9 @@ function truncateAddress(address: string): string {
   cursor: pointer;
   user-select: none;
 
-  &:hover { background: #e5e7eb; }
+  &:hover {
+    background: #e5e7eb;
+  }
 }
 
 .ab-table__th--sorted {
@@ -299,14 +293,21 @@ function truncateAddress(address: string): string {
   font-size: 0.625rem;
 }
 
-.ab-table__th--checkbox { width: 4%; }
-.ab-table__th--actions  { width: 10%; }
+.ab-table__th--checkbox {
+  width: 4%;
+}
+
+.ab-table__th--actions {
+  width: 15%;
+}
 
 .ab-table__row {
   cursor: pointer;
   transition: background 0.1s;
 
-  &:hover { background: #f9fafb; }
+  &:hover {
+    background: #f9fafb;
+  }
 }
 
 .ab-table__td {
@@ -320,20 +321,23 @@ function truncateAddress(address: string): string {
   a {
     color: #2563eb;
     text-decoration: none;
-    &:hover { text-decoration: underline; }
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
-.ab-table__td--checkbox { width: 4%; }
-.ab-table__td--actions  { width: 10%; }
+.ab-table__td--checkbox {
+  width: 4%;
+}
+
+.ab-table__td--actions {
+  width: 15%;
+}
 
 .ab-table__checkbox {
   cursor: pointer;
-}
-
-.ab-table__th--hidden,
-.ab-table__td--hidden {
-  display: none;
 }
 
 .ab-table__empty {
@@ -341,5 +345,26 @@ function truncateAddress(address: string): string {
   padding: 5rem 1rem;
   color: #6b7280;
   font-size: 0.9375rem;
+}
+
+.ab-page__tab-panel {
+  outline: none;
+}
+
+.ab-table-wrapper {
+  width: 100%;
+  /* overflow-x lives on the parent .ab-scroll-area so sticky thead is not trapped */
+}
+
+.ab-table__th--hidden,
+.ab-table__td--hidden {
+  display: none;
+}
+
+.ab-table__sep {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: #9ca3af;
+  padding: 0 0.15rem;
+  user-select: none;
 }
 </style>

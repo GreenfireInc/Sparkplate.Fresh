@@ -54,7 +54,7 @@ import { ref, onMounted, watch } from 'vue'
 import { Copy, FileLock, QrCode } from 'lucide-vue-next'
 import { getWalletsForContact, type Wallet } from '@/services/addressBook/walletService'
 import { encryptAndDownloadFile } from '@/lib/cores/cryptographyCore/encryption.gpg/encryption.gpg'
-import GPGQRCodeModal from '@/components/modals/addressbook/subModals/subModal.GPGQRCode.vue'
+import GPGQRCodeModal from '@/components/modals/addressbook/subModals/subModal.qrCode.GPG.vue'
 
 defineOptions({ name: 'TabContactDetailsGPG' })
 

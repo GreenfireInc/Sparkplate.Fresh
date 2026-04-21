@@ -75,7 +75,7 @@ import {
 import QRCode from 'qrcode'
 import type { Wallet } from '@/services/addressBook/walletService'
 
-defineOptions({ name: 'SubModalGPGQRCode' })
+defineOptions({ name: 'SubModalQrCodeGPG' })
 
 const props = defineProps<{
   show: boolean

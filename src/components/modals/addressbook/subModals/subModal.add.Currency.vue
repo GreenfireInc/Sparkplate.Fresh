@@ -56,10 +56,12 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import { Camera, Upload } from 'lucide-vue-next';
-import CurrencyDropdown from '../../dropdown/dropdown.currency.vue';
+import CurrencyDropdown from '@/components/dropdown/dropdown.currency.vue';
 import ModalConfirmImportWallets from '@/components/modals/confirmations/modal.confirm.import.Wallets.vue'
 import { parseWalletJsonFile, type ImportedWallet } from '@/lib/cores/importStandard/importWallet.json';
 import { addWallet } from '@/services/addressBook/walletService';
+
+defineOptions({ name: 'SubModalAddCurrency' })
 
 interface CurrencyData {
   contactId: number;
