@@ -68,7 +68,7 @@ import QRCode from 'qrcode'
 import type { Wallet } from '@/services/addressBook/walletService'
 import { useTruncatedAddress } from '@/components/structure/truncate.publicWalletAddress'
 import { useTruncatedFingerprint } from '@/components/structure/truncate.gpgkeyFingerprint'
-import ModalWalletQRCode from '@/components/modals/addressbook/modal.WalletQRCode.vue'
+import ModalWalletQRCode from '@/components/modals/addressbook/subModals/submodal.qrCode.WalletAddress.vue'
 
 defineOptions({ name: 'CardWalletAddress' })
 

@@ -31,9 +31,14 @@
     <!-- Toolbar -->
     <div class="ab-view__toolbar">
       <div class="ab-view__actions">
-        <button type="button" class="ab-btn" @click="openAddContactModal(null)">
-          <SquareUser :size="18" class="ab-btn__icon" aria-hidden="true" />
-          Add contact
+        <button type="button" class="ab-btn" @click="handleAddClick">
+          <component
+            :is="addButton.icon"
+            :size="18"
+            class="ab-btn__icon"
+            aria-hidden="true"
+          />
+          {{ addButton.label }}
         </button>
         <ImportButton @contacts-imported="addContacts" />
         <ExportButton :contacts="contacts" />
@@ -95,9 +100,7 @@
               <WalletTab :wallets="wallets" />
             </TabsContent>
 
-            <TabsContent value="Companies" class="ab-tabs__panel">
-              <CompaniesTab />
-            </TabsContent>
+            <CompaniesTab />
           </div>
 
           <!-- Footer: sibling of scroll area inside the card — never inside the scroll -->
@@ -147,8 +150,10 @@
     <AddContactModal
       :show="showAddContactModal"
       :contact="selectedContactForEdit"
+      :initial-entity="initialEntityForAdd"
       @close="closeAddContactModal"
       @contact-saved="loadContacts"
+      @exchange-saved="onExchangeSaved"
     />
     <ContactDetailsModal
       :show="showContactDetailsModal"
@@ -179,10 +184,10 @@ import {
   Separator, Label,
   TooltipProvider, TooltipRoot, TooltipTrigger, TooltipPortal, TooltipContent, TooltipArrow,
 } from 'radix-vue'
-import { NotebookTabs, SquareUser, ChevronLeft, ChevronRight } from 'lucide-vue-next'
+import { NotebookTabs, SquareUser, Landmark, Wallet, Building2, ChevronLeft, ChevronRight } from 'lucide-vue-next'
 import AddContactModal from '@/components/modals/addressbook/modal.add.entry.vue'
 import ContactDetailsModal from '@/components/modals/addressbook/modal.Contact.Details.vue'
-import AddCurrencyModal from '@/components/modals/addressbook/modal.add.Currency.vue'
+import AddCurrencyModal from '@/components/modals/addressbook/subModals/subModal.add.Currency.vue'
 import ConfirmModal from '@/components/modals/addressbook/ConfirmModal.vue'
 import ImportButton from '@/components/buttons/addressbook/ImportButton.vue'
 import ExportButton from '@/components/buttons/addressbook/ExportButton.vue'
@@ -224,34 +229,14 @@ interface Wallet {
 const tabs = ['Contacts', 'Exchanges', 'Wallets', 'Companies'] as const
 const activeTab = ref<(typeof tabs)[number]>('Contacts')
 const contacts = ref<DisplayContact[]>([] as DisplayContact[])
-const exchanges = ref<Exchange[]>([
-  {
-    id: 1,
-    name: 'Binance',
-    url: 'https://www.binance.com',
-    referralUrl: 'https://www.binance.com/en/register?ref=12345',
-    referralCode: '12345',
-    currencies: [
-      { name: 'Bitcoin', abbreviation: 'BTC', address: '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa' },
-      { name: 'Ethereum', abbreviation: 'ETH', address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe' },
-    ],
-    email: 'test@example.com',
-  },
-])
-const wallets = ref<Wallet[]>([
-  {
-    id: 1,
-    name: 'MetaMask',
-    currencies: [
-      { name: 'Ethereum', abbreviation: 'ETH', address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe' },
-      { name: 'Binance Coin', abbreviation: 'BNB', address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe' },
-    ],
-  },
-])
+const exchanges = ref<Exchange[]>([])
+const wallets = ref<Wallet[]>([])
 
 const showAddContactModal = ref(false)
 const showContactDetailsModal = ref(false)
 const selectedContactForEdit = ref<Contact | null>(null)
+type AddEntity = 'Contacts' | 'Exchanges' | 'Wallets' | 'Companies'
+const initialEntityForAdd = ref<AddEntity>('Contacts')
 const selectedContactForDetails = ref<Contact | null>(null)
 const selectedContacts = ref<number[]>([])
 const currentPage = ref(1)
@@ -368,9 +353,49 @@ const onConfirmDelete = async () => {
   await loadContacts()
 }
 
-const openAddContactModal = (contact: Contact | null = null) => {
+const openAddContactModal = (
+  contact: Contact | null = null,
+  entity: AddEntity = 'Contacts',
+) => {
   selectedContactForEdit.value = contact
+  initialEntityForAdd.value = entity
   showAddContactModal.value = true
+}
+
+const addButton = computed(() => {
+  switch (activeTab.value) {
+    case 'Exchanges':
+      return { label: 'Add Exchange', icon: Landmark, action: 'exchange' as const }
+    case 'Wallets':
+      return { label: 'Add Wallets', icon: Wallet, action: 'wallet' as const }
+    case 'Companies':
+      return { label: 'Add Companies', icon: Building2, action: 'company' as const }
+    case 'Contacts':
+    default:
+      return { label: 'Add contact', icon: SquareUser, action: 'contact' as const }
+  }
+})
+
+const handleAddClick = () => {
+  switch (addButton.value.action) {
+    case 'contact':
+      openAddContactModal(null, 'Contacts')
+      break
+    case 'exchange':
+      openAddContactModal(null, 'Exchanges')
+      break
+    case 'wallet':
+      openAddContactModal(null, 'Wallets')
+      break
+    case 'company':
+      openAddContactModal(null, 'Companies')
+      break
+  }
+}
+
+function onExchangeSaved(exchange: Omit<Exchange, 'id'>) {
+  const nextId = (exchanges.value.reduce((m, e) => Math.max(m, e.id ?? 0), 0) || 0) + 1
+  exchanges.value.push({ ...exchange, id: nextId })
 }
 
 const closeAddContactModal = () => {
@@ -652,7 +677,7 @@ function onExportVcf(contact: Contact) { console.log(`VCF: ${contact.id}`) }
 }
 
 .ab-tabs__panel {
-  padding: 1rem;
+  padding: 0;
 }
 
 /* ── Table shell ─────────────────────────────────────────── */

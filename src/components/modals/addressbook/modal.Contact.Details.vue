@@ -99,116 +99,11 @@
                 </template>
               </div>
 
-              <!-- Contact links -->
-              <ul class="cd-links">
-                <li class="cd-links__item">
-                  <Phone :size="14" class="cd-links__icon" />
-                  <template v-if="!isEditing">
-                    <a v-if="editedContact.phone" :href="`tel:${editedContact.phone}`" class="cd-links__value">{{ editedContact.phone }}</a>
-                    <span v-else class="cd-links__value cd-links__value--empty">N/A</span>
-                  </template>
-                  <template v-else>
-                    <input type="tel" v-model="(editedContact as any).phone" placeholder="Phone number" class="cd-links__input" />
-                  </template>
-                </li>
-
-                <li class="cd-links__item">
-                  <MapPinned :size="14" class="cd-links__icon" />
-                  <template v-if="!isEditing">
-                    <span class="cd-links__value" :class="{ 'cd-links__value--empty': !editedContact.location }">{{ editedContact.location || 'N/A' }}</span>
-                  </template>
-                  <template v-else>
-                    <input type="text" v-model="(editedContact as any).location" placeholder="Location" class="cd-links__input" />
-                  </template>
-                </li>
-
-                <li class="cd-links__item">
-                  <Mailbox :size="14" class="cd-links__icon" />
-                  <template v-if="!isEditing">
-                    <a :href="`mailto:${contact.email}`" class="cd-links__value">{{ contact.email }}</a>
-                  </template>
-                  <template v-else>
-                    <input type="email" v-model="editedContact.email" placeholder="Email address" class="cd-links__input" />
-                  </template>
-                </li>
-
-                <li class="cd-links__item">
-                  <Globe :size="14" class="cd-links__icon" />
-                  <template v-if="!isEditing">
-                    <a v-if="editedContact.website" :href="editedContact.website" target="_blank" class="cd-links__value">{{ editedContact.website }}</a>
-                    <span v-else class="cd-links__value cd-links__value--empty">N/A</span>
-                  </template>
-                  <template v-else>
-                    <input type="url" v-model="(editedContact as any).website" placeholder="Website URL" class="cd-links__input" />
-                  </template>
-                </li>
-
-                <li class="cd-links__item">
-                  <Github :size="14" class="cd-links__icon" />
-                  <template v-if="!isEditing">
-                    <a v-if="editedContact.github" :href="`https://github.com/${editedContact.github}`" target="_blank" class="cd-links__value">{{ editedContact.github }}</a>
-                    <span v-else class="cd-links__value cd-links__value--empty">N/A</span>
-                  </template>
-                  <template v-else>
-                    <input type="text" v-model="(editedContact as any).github" placeholder="GitHub username" class="cd-links__input" />
-                  </template>
-                </li>
-
-                <li class="cd-links__item">
-                  <Twitter :size="14" class="cd-links__icon" />
-                  <template v-if="!isEditing">
-                    <a v-if="editedContact.twitter" :href="`https://twitter.com/${editedContact.twitter}`" target="_blank" class="cd-links__value">@{{ editedContact.twitter }}</a>
-                    <span v-else class="cd-links__value cd-links__value--empty">N/A</span>
-                  </template>
-                  <template v-else>
-                    <input type="text" v-model="(editedContact as any).twitter" placeholder="Twitter handle" class="cd-links__input" />
-                  </template>
-                </li>
-
-                <li class="cd-links__item">
-                  <Linkedin :size="14" class="cd-links__icon" />
-                  <template v-if="!isEditing">
-                    <a v-if="editedContact.linkedin" :href="editedContact.linkedin" target="_blank" class="cd-links__value">{{ editedContact.linkedin }}</a>
-                    <span v-else class="cd-links__value cd-links__value--empty">N/A</span>
-                  </template>
-                  <template v-else>
-                    <input type="url" v-model="(editedContact as any).linkedin" placeholder="LinkedIn URL" class="cd-links__input" />
-                  </template>
-                </li>
-
-                <li class="cd-links__item">
-                  <Instagram :size="14" class="cd-links__icon" />
-                  <template v-if="!isEditing">
-                    <a v-if="editedContact.instagram" :href="`https://instagram.com/${editedContact.instagram}`" target="_blank" class="cd-links__value">@{{ editedContact.instagram }}</a>
-                    <span v-else class="cd-links__value cd-links__value--empty">N/A</span>
-                  </template>
-                  <template v-else>
-                    <input type="text" v-model="(editedContact as any).instagram" placeholder="Instagram handle" class="cd-links__input" />
-                  </template>
-                </li>
-
-                <li class="cd-links__item">
-                  <i class="bi bi-bluesky cd-links__icon cd-links__icon--bs" />
-                  <template v-if="!isEditing">
-                    <a v-if="editedContact.bluesky" :href="editedContact.bluesky" target="_blank" class="cd-links__value">{{ editedContact.bluesky }}</a>
-                    <span v-else class="cd-links__value cd-links__value--empty">N/A</span>
-                  </template>
-                  <template v-else>
-                    <input type="url" v-model="(editedContact as any).bluesky" placeholder="Bluesky URL" class="cd-links__input" />
-                  </template>
-                </li>
-
-                <li class="cd-links__item">
-                  <i class="bi bi-telegram cd-links__icon cd-links__icon--bs" />
-                  <template v-if="!isEditing">
-                    <a v-if="editedContact.telegram" :href="editedContact.telegram" target="_blank" class="cd-links__value">{{ editedContact.telegram }}</a>
-                    <span v-else class="cd-links__value cd-links__value--empty">N/A</span>
-                  </template>
-                  <template v-else>
-                    <input type="url" v-model="(editedContact as any).telegram" placeholder="Telegram URL" class="cd-links__input" />
-                  </template>
-                </li>
-              </ul>
+              <!-- Contact links — click opens edit submodal -->
+              <AspectSocialMedia
+                :contact="editedContact"
+                @edit-requested="showSocialMediaModal = true"
+              />
             </div>
 
             <!-- Main content with tabs -->
@@ -302,6 +197,14 @@
     :contact="contact"
     @close="showContactQRCodeModal = false"
   />
+
+  <SubModalSocialMedia
+    v-if="showSocialMediaModal"
+    :show="showSocialMediaModal"
+    :contact="editedContact"
+    @close="showSocialMediaModal = false"
+    @save="onSocialMediaSave"
+  />
 </template>
 
 <script setup lang="ts">
@@ -315,18 +218,18 @@ import {
 import type { Contact } from '@/services/addressBook/contactService'
 import { updateContact } from '@/services/addressBook/contactService'
 import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
-import AddCurrencyModal from '@/components/modals/addressbook/modal.add.Currency.vue'
-import ContactQRCodeModal from '@/components/modals/addressbook/modal.ContactQRCode.vue'
+import AddCurrencyModal from '@/components/modals/addressbook/subModals/subModal.add.Currency.vue'
+import ContactQRCodeModal from '@/components/modals/addressbook/subModals/submodal.qrCode.Contact.vue'
 import TabContactDetailsWallets from '@/components/modals/addressbook/tabsFor.contactDetails/tab.contactDetails.Wallets.vue'
 import TabContactDetailsNotes from '@/components/modals/addressbook/tabsFor.contactDetails/tab.contactDetails.Notes.vue'
 import TabContactDetailsGPG from '@/components/modals/addressbook/tabsFor.contactDetails/tab.contactDetails.GPG.vue'
+import AspectSocialMedia from '@/components/modals/addressbook/aspects/aspect.socialMedia.vue'
+import SubModalSocialMedia from '@/components/modals/addressbook/subModals/subModal.socialMedia.vue'
 import {
   addWallet, getWalletCountForContact, getWalletsForContact, type Wallet,
 } from '@/services/addressBook/walletService'
 import {
-  Wallet as WalletIcon, FileKey, ReceiptText, NotebookPen,
-  Github, MapPinned, Globe, Mailbox, Twitter, Instagram, Linkedin,
-  QrCode, Phone,
+  Wallet as WalletIcon, FileKey, ReceiptText, NotebookPen, QrCode,
 } from 'lucide-vue-next'
 
 defineOptions({ name: 'ContactDetailsModal' })
@@ -343,6 +246,7 @@ const editedContact = ref<Partial<Contact>>({})
 const selectedRelationship = ref('')
 const showAddCurrencyModal = ref(false)
 const showContactQRCodeModal = ref(false)
+const showSocialMediaModal = ref(false)
 const activeTab = ref('wallets')
 const walletCount = ref(0)
 const walletsTabRef = ref<InstanceType<typeof TabContactDetailsWallets> | null>(null)
@@ -457,6 +361,18 @@ const saveChanges = async () => {
   await updateContact(contactToSave)
   editedContact.value = { ...contactToSave }
   isEditing.value = false
+  emit('contact-updated')
+}
+
+const onSocialMediaSave = async (fields: Record<string, any>) => {
+  if (!props.contact?.id) return
+  const contactToSave = {
+    ...editedContact.value,
+    ...fields,
+    id: props.contact.id,
+  } as Contact
+  await updateContact(contactToSave)
+  editedContact.value = { ...contactToSave }
   emit('contact-updated')
 }
 
@@ -806,68 +722,6 @@ const close = () => {
   }
 }
 
-/* Links list */
-.cd-links {
-  list-style: none;
-  margin: 0.875rem 0 0;
-  padding: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.cd-links__item {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.8125rem;
-  min-width: 0;
-}
-
-.cd-links__icon {
-  flex-shrink: 0;
-  color: #6b7280;
-}
-
-.cd-links__icon--bs {
-  width: 14px;
-  height: 14px;
-  font-size: 14px;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-}
-
-.cd-links__value {
-  color: #374151;
-  text-decoration: none;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-
-  &[href]:hover { text-decoration: underline; color: #2563eb; }
-}
-
-.cd-links__value--empty {
-  color: #9ca3af;
-}
-
-.cd-links__input {
-  flex: 1;
-  min-width: 0;
-  padding: 0.25rem 0.45rem;
-  font-size: 0.8125rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.25rem;
-  background: #fff;
-
-  &:focus {
-    outline: none;
-    border-color: #2563eb;
-    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
-  }
-}
 
 /* ── Main ────────────────────────────────────────────────── */
 .cd-main {

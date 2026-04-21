@@ -1,28 +1,31 @@
-// Huobi Exchange API Integration
-// Major Asian cryptocurrency exchange
+// HTX Exchange API Integration
+// Major Asian cryptocurrency exchange (formerly Huobi; rebranded to HTX in 2023)
 
-export interface HuobiConfig {
+export interface HTXConfig {
   apiKey?: string;
   apiSecret?: string;
   sandbox?: boolean;
   baseUrl?: string;
 }
 
-export class HuobiExchangeClass {
-  private config: HuobiConfig;
+export class HTXExchangeClass {
+  private config: HTXConfig;
   private baseUrl: string;
 
-  constructor(config: HuobiConfig = {}) {
+  constructor(config: HTXConfig = {}) {
     this.config = config;
+    // api.huobi.pro remains the canonical HTX spot API host post-rebrand
     this.baseUrl = config.baseUrl || 'https://api.huobi.pro';
   }
 
   // Basic Information
   static readonly info = {
-    name: 'Huobi',
+    name: 'HTX',
+    formerName: 'Huobi',
     country: 'Seychelles',
     founded: 2013,
-    website: 'https://www.huobi.com/',
+    rebranded: 2023,
+    website: 'https://www.htx.com/',
     apiDocs: 'https://huobiapi.github.io/docs/spot/v1/en/',
     status: 'Active',
     tradingPairs: '500+',
@@ -32,27 +35,27 @@ export class HuobiExchangeClass {
 
   // Social Media Links
   static readonly socialMedia = {
-    twitter: 'https://twitter.com/HuobiGlobal',
-    telegram: 'https://t.me/huobiglobal',
-    reddit: 'https://www.reddit.com/r/HuobiGlobal/',
-    youtube: 'https://www.youtube.com/huobi',
-    facebook: 'https://www.facebook.com/huobiglobal',
-    linkedin: 'https://www.linkedin.com/company/huobi-global',
+    twitter: 'https://twitter.com/HTX_Global',
+    telegram: 'https://t.me/htxglobalofficial',
+    reddit: 'https://www.reddit.com/r/HTX_Global/',
+    youtube: 'https://www.youtube.com/@HTXGlobal',
+    facebook: 'https://www.facebook.com/htxglobalofficial',
+    linkedin: 'https://www.linkedin.com/company/htx-global',
   };
 
   /**
-   * Make public request to Huobi API
+   * Make public request to HTX API
    */
   private async makePublicRequest(endpoint: string): Promise<any> {
     const response = await fetch(`${this.baseUrl}${endpoint}`);
 
     if (!response.ok) {
-      throw new Error(`Huobi API error: ${response.status} ${response.statusText}`);
+      throw new Error(`HTX API error: ${response.status} ${response.statusText}`);
     }
 
     const result = await response.json();
     if (result.status === 'error') {
-      throw new Error(`Huobi API error: ${result.err_msg}`);
+      throw new Error(`HTX API error: ${result.err_msg}`);
     }
 
     return result.data;
@@ -156,64 +159,64 @@ export class HuobiExchangeClass {
 }
 
 // Static methods for quick access
-export const HuobiExchange = {
+export const HTXExchange = {
   async getTicker(symbol?: string): Promise<any> {
-    const instance = new HuobiExchangeClass();
+    const instance = new HTXExchangeClass();
     return instance.getTicker(symbol);
   },
 
   async getDepth(symbol: string, type: string = 'step0'): Promise<any> {
-    const instance = new HuobiExchangeClass();
+    const instance = new HTXExchangeClass();
     return instance.getDepth(symbol, type);
   },
 
   async getTrades(symbol: string): Promise<any> {
-    const instance = new HuobiExchangeClass();
+    const instance = new HTXExchangeClass();
     return instance.getTrades(symbol);
   },
 
   async getHistoryTrades(symbol: string, size?: number): Promise<any> {
-    const instance = new HuobiExchangeClass();
+    const instance = new HTXExchangeClass();
     return instance.getHistoryTrades(symbol, size);
   },
 
   async getKline(symbol: string, period: string, size?: number): Promise<any> {
-    const instance = new HuobiExchangeClass();
+    const instance = new HTXExchangeClass();
     return instance.getKline(symbol, period, size);
   },
 
   async getPrice(symbol: string): Promise<number> {
-    const instance = new HuobiExchangeClass();
+    const instance = new HTXExchangeClass();
     return instance.getPrice(symbol);
   },
 
   async get24hrChange(symbol: string): Promise<{ priceChange: number; priceChangePercent: number }> {
-    const instance = new HuobiExchangeClass();
+    const instance = new HTXExchangeClass();
     return instance.get24hrChange(symbol);
   },
 
   async getVolume(symbol: string): Promise<{ volume: number; amount: number }> {
-    const instance = new HuobiExchangeClass();
+    const instance = new HTXExchangeClass();
     return instance.getVolume(symbol);
   },
 
   async getServerTime(): Promise<any> {
-    const instance = new HuobiExchangeClass();
+    const instance = new HTXExchangeClass();
     return instance.getServerTime();
   },
 
   async getSymbols(): Promise<any> {
-    const instance = new HuobiExchangeClass();
+    const instance = new HTXExchangeClass();
     return instance.getSymbols();
   },
 
   async getCurrencies(): Promise<any> {
-    const instance = new HuobiExchangeClass();
+    const instance = new HTXExchangeClass();
     return instance.getCurrencies();
   },
 
-  info: HuobiExchangeClass.info,
-  socialMedia: HuobiExchangeClass.socialMedia,
+  info: HTXExchangeClass.info,
+  socialMedia: HTXExchangeClass.socialMedia,
 };
 
-export default HuobiExchange;
+export default HTXExchange;

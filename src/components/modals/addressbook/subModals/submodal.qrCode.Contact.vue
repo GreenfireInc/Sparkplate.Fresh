@@ -93,7 +93,7 @@ import {
   type ContactQRCodeExportData,
 } from '@/lib/cores/exportStandard/filenameStructureAndContent.AddressBook.Individual.qrCode'
 
-defineOptions({ name: 'ContactQRCodeModal' })
+defineOptions({ name: 'SubmodalQrCodeContact' })
 
 const props = defineProps<{
   show: boolean

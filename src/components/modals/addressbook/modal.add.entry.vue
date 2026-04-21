@@ -16,22 +16,35 @@
                 class="ac-modal__entity-trigger"
                 aria-label="Record type"
               >
-                <SelectValue placeholder="Type" />
+                <span class="ac-modal__entity-value">
+                  <component
+                    v-if="selectedEntityIcon"
+                    :is="selectedEntityIcon"
+                    :size="16"
+                    class="ac-modal__entity-icon"
+                    aria-hidden="true"
+                  />
+                  <SelectValue placeholder="Type" />
+                </span>
                 <i class="bi bi-chevron-down ac-modal__select-chevron" aria-hidden />
               </SelectTrigger>
               <SelectPortal>
                 <SelectContent class="ac-modal__select-content" position="popper" :side-offset="4">
                   <SelectViewport class="ac-modal__select-viewport">
                     <SelectItem value="Contacts" class="ac-modal__select-item">
+                      <SquareUser :size="16" class="ac-modal__select-item-icon" aria-hidden="true" />
                       <SelectItemText>Contacts</SelectItemText>
                     </SelectItem>
                     <SelectItem value="Exchanges" class="ac-modal__select-item">
+                      <Landmark :size="16" class="ac-modal__select-item-icon" aria-hidden="true" />
                       <SelectItemText>Exchanges</SelectItemText>
                     </SelectItem>
                     <SelectItem value="Wallets" class="ac-modal__select-item">
+                      <WalletIcon :size="16" class="ac-modal__select-item-icon" aria-hidden="true" />
                       <SelectItemText>Wallets</SelectItemText>
                     </SelectItem>
                     <SelectItem value="Companies" class="ac-modal__select-item">
+                      <Building2 :size="16" class="ac-modal__select-item-icon" aria-hidden="true" />
                       <SelectItemText>Companies</SelectItemText>
                     </SelectItem>
                   </SelectViewport>
@@ -172,6 +185,113 @@
             </form>
           </div>
 
+          <div v-else-if="selectedEntity === 'Exchanges'">
+            <form class="ac-exch-form" novalidate @submit.prevent="saveExchange">
+              <div class="ac-form-grid">
+                <div class="ac-field">
+                  <Label class="ac-label" for="ac-exch-name">Exchange Name</Label>
+                  <DropdownExchanges
+                    id="ac-exch-name"
+                    v-model="exchangeForm.name"
+                    placeholder="Select exchange…"
+                    @pick="onExchangePick"
+                  />
+                </div>
+                <div class="ac-field">
+                  <Label class="ac-label" for="ac-exch-email">Associated Email</Label>
+                  <input
+                    id="ac-exch-email"
+                    v-model="exchangeForm.email"
+                    type="email"
+                    class="ac-input"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                  />
+                </div>
+              </div>
+
+              <div class="ac-form-grid ac-exch-form__grid">
+                <div class="ac-field">
+                  <Label class="ac-label" for="ac-exch-referralCode">Referral Code</Label>
+                  <input
+                    id="ac-exch-referralCode"
+                    v-model="exchangeForm.referralCode"
+                    type="text"
+                    class="ac-input"
+                    placeholder="e.g. ABC123"
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="ac-field">
+                  <Label class="ac-label" for="ac-exch-referralUrl">Referral URL</Label>
+                  <input
+                    id="ac-exch-referralUrl"
+                    v-model="exchangeForm.referralUrl"
+                    type="url"
+                    class="ac-input"
+                    placeholder="https://exchange.com/ref/…"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+
+              <div class="ac-exch-currencies">
+                <div class="ac-exch-currencies__heading">
+                  <div class="ac-exch-currencies__tab">
+                    <Coins :size="14" class="ac-exch-currencies__tab-icon" aria-hidden="true" />
+                    Currencies
+                    <span class="ac-exch-badge">{{ exchangeForm.currencies.length }}</span>
+                  </div>
+                  <button
+                    type="button"
+                    class="ac-exch-btn ac-exch-btn--ghost ac-exch-btn--sm"
+                    @click="addExchangeCurrencyRow"
+                  >
+                    <Plus :size="13" aria-hidden="true" /> Add
+                  </button>
+                </div>
+
+                <div v-if="exchangeForm.currencies.length > 0" class="ac-exch-currencies__table">
+                  <div class="ac-exch-currencies__header">
+                    <span>Currency</span>
+                    <span>Address</span>
+                    <span />
+                  </div>
+                  <div
+                    v-for="(currency, index) in exchangeForm.currencies"
+                    :key="index"
+                    class="ac-exch-currencies__row"
+                  >
+                    <CurrencyDropdown
+                      :model-value="currency.abbreviation"
+                      @update:model-value="(v) => onExchangeCurrencyPick(index, v)"
+                    />
+                    <input
+                      type="text"
+                      v-model="currency.address"
+                      placeholder="Wallet address"
+                      class="ac-input ac-input--sm"
+                    />
+                    <button
+                      type="button"
+                      class="ac-exch-remove-btn"
+                      aria-label="Remove currency"
+                      @click="removeExchangeCurrency(index)"
+                    >
+                      <Trash2 :size="13" aria-hidden="true" />
+                    </button>
+                  </div>
+                </div>
+                <p v-else class="ac-exch-currencies__empty">No currencies added yet.</p>
+              </div>
+
+              <div class="ac-modal__actions">
+                <button type="button" class="ac-btn ac-btn--secondary" @click="close">Cancel</button>
+                <button type="submit" class="ac-btn ac-btn--primary">Add Exchange</button>
+              </div>
+            </form>
+          </div>
+
           <div v-else class="ac-placeholder">
             <p>Form for adding a new {{ selectedEntity.slice(0, -1).toLowerCase() }} will be here.</p>
           </div>
@@ -209,9 +329,11 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
 } from 'radix-vue'
+import { SquareUser, Landmark, Wallet as WalletIcon, Building2, Plus, Trash2, Coins } from 'lucide-vue-next'
 import { type Contact, addContact, updateContact } from '@/services/addressBook/contactService'
 import { type Wallet, addWallet, getWalletsForContact, updateWallet, deleteWallet } from '@/services/addressBook/walletService'
-import CurrencyDropdown from '../../dropdown/dropdown.currency.vue'
+import CurrencyDropdown from '@/components/dropdown/dropdown.currency.vue'
+import DropdownExchanges from '@/components/dropdown/dropdown.exchanges.vue'
 import { parseWalletJsonFile } from '@/lib/cores/importStandard/importWallet.json'
 import { useContactParser } from '@/composables/useContactParser'
 
@@ -219,19 +341,47 @@ defineOptions({ name: 'AddContactModal' })
 
 const { parseFile } = useContactParser()
 
-const props = defineProps<{
-  show: boolean
-  contact: Contact | null
-}>()
+type EntityType = 'Contacts' | 'Exchanges' | 'Wallets' | 'Companies'
 
-const emit = defineEmits(['close', 'contact-saved'])
+const props = withDefaults(
+  defineProps<{
+    show: boolean
+    contact: Contact | null
+    initialEntity?: EntityType
+  }>(),
+  {
+    initialEntity: 'Contacts',
+  },
+)
+
+const emit = defineEmits(['close', 'contact-saved', 'exchange-saved'])
+
+interface ExchangeCurrency {
+  name: string
+  abbreviation: string
+  address: string
+}
+
+interface ExchangeForm {
+  name: string
+  url: string
+  referralUrl: string
+  referralCode: string
+  currencies: ExchangeCurrency[]
+  email: string
+}
+
+function makeEmptyExchange(): ExchangeForm {
+  return { name: '', url: '', referralUrl: '', referralCode: '', currencies: [], email: '' }
+}
 
 const isEditing = ref(false)
 const form = ref<Contact>({ id: undefined, type: 'regular', firstname: '', lastname: '', email: '', company: '', notes: '' })
 const wallets = ref<Partial<Wallet>[]>([])
 const currentTab = ref<'general' | 'advanced'>('general')
-const selectedEntity = ref<'Contacts' | 'Exchanges' | 'Wallets' | 'Companies'>('Contacts')
+const selectedEntity = ref<EntityType>('Contacts')
 const fileInput = ref<HTMLInputElement | null>(null)
+const exchangeForm = ref<ExchangeForm>(makeEmptyExchange())
 
 const modalTitle = computed(() => {
   if (props.contact && selectedEntity.value === 'Contacts') {
@@ -240,12 +390,22 @@ const modalTitle = computed(() => {
   return `Add new ${selectedEntity.value.slice(0, -1)}`
 })
 
+const ENTITY_ICONS = {
+  Contacts: SquareUser,
+  Exchanges: Landmark,
+  Wallets: WalletIcon,
+  Companies: Building2,
+} as const
+
+const selectedEntityIcon = computed(() => ENTITY_ICONS[selectedEntity.value])
+
 watch(
   () => props.show,
   (newVal) => {
     if (newVal) {
       currentTab.value = 'general'
-      selectedEntity.value = 'Contacts'
+      selectedEntity.value = props.initialEntity
+      exchangeForm.value = makeEmptyExchange()
       if (props.contact) {
         isEditing.value = true
         form.value = { ...props.contact }
@@ -265,17 +425,29 @@ function onDialogOpen(open: boolean) {
   }
 }
 
-/** `dropdown.currency` teleports its list to `body`, so radix treats those clicks as outside the dialog. */
+/**
+ * `dropdown.currency` and `dropdown.exchanges` both teleport their option
+ * lists to `body`, so radix treats clicks inside those popovers as outside
+ * the dialog. Ignore those interactions here.
+ */
+function isInsideTeleportedDropdown(target: EventTarget | null | undefined): boolean {
+  if (!(target instanceof Element)) return false
+  return !!(
+    target.closest('.currency-dropdown-portal') ||
+    target.closest('.custom-select-wrapper') ||
+    target.closest('.ex-dropdown-portal') ||
+    target.closest('.ex-dropdown')
+  )
+}
+
 function onDialogPointerDownOutside(event: CustomEvent<{ originalEvent: PointerEvent }>) {
-  const target = event.detail?.originalEvent?.target
-  if (target instanceof Element && target.closest('.currency-dropdown-portal')) {
+  if (isInsideTeleportedDropdown(event.detail?.originalEvent?.target)) {
     event.preventDefault()
   }
 }
 
 function onDialogInteractOutside(event: CustomEvent<{ originalEvent: PointerEvent | FocusEvent }>) {
-  const target = event.detail?.originalEvent?.target
-  if (target instanceof Element && target.closest('.currency-dropdown-portal')) {
+  if (isInsideTeleportedDropdown(event.detail?.originalEvent?.target)) {
     event.preventDefault()
   }
 }
@@ -327,6 +499,31 @@ async function saveContact() {
   }
 
   emit('contact-saved')
+  close()
+}
+
+function addExchangeCurrencyRow() {
+  exchangeForm.value.currencies.push({ name: '', abbreviation: '', address: '' })
+}
+
+function removeExchangeCurrency(index: number) {
+  exchangeForm.value.currencies.splice(index, 1)
+}
+
+function onExchangeCurrencyPick(index: number, value: string) {
+  const row = exchangeForm.value.currencies[index]
+  if (!row) return
+  row.abbreviation = value
+  row.name = value
+}
+
+function onExchangePick(payload: { key: string; label: string; website: string }) {
+  if (payload.website) exchangeForm.value.url = payload.website
+}
+
+function saveExchange() {
+  if (!exchangeForm.value.name?.trim()) return
+  emit('exchange-saved', { ...exchangeForm.value })
   close()
 }
 
@@ -468,6 +665,19 @@ const close = () => {
   }
 }
 
+.ac-modal__entity-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.ac-modal__entity-icon {
+  flex-shrink: 0;
+  color: #4b5563;
+}
+
 .ac-modal__select-chevron {
   font-size: 0.65rem;
   color: #6b7280;
@@ -488,6 +698,9 @@ const close = () => {
 }
 
 :deep(.ac-modal__select-item) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.8125rem;
   padding: 0.5rem 0.65rem;
   border-radius: 0.25rem;
@@ -502,6 +715,15 @@ const close = () => {
     font-weight: 600;
     color: #2563eb;
   }
+}
+
+:deep(.ac-modal__select-item-icon) {
+  flex-shrink: 0;
+  color: #4b5563;
+}
+
+:deep(.ac-modal__select-item[data-state='checked']) .ac-modal__select-item-icon {
+  color: #2563eb;
 }
 
 .ac-modal__title {
@@ -908,5 +1130,156 @@ const close = () => {
   border: 2px dashed #d1d5db;
   border-radius: 0.5rem;
   background: #fff;
+}
+
+/* ---------- Exchange form ---------- */
+
+.ac-exch-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ac-exch-form__grid {
+  margin-top: 0;
+}
+
+.ac-input--sm {
+  padding: 0.45rem 0.55rem;
+  font-size: 0.8125rem;
+}
+
+.ac-exch-currencies {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.ac-exch-currencies__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.55rem 0.85rem;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.ac-exch-currencies__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.ac-exch-currencies__tab-icon {
+  color: #6b7280;
+}
+
+.ac-exch-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 0.35rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #2563eb;
+  background: #eff6ff;
+  border-radius: 999px;
+}
+
+.ac-exch-currencies__table {
+  display: flex;
+  flex-direction: column;
+}
+
+.ac-exch-currencies__header,
+.ac-exch-currencies__row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2rem;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.3rem 0.85rem;
+}
+
+.ac-exch-currencies__header {
+  padding: 0.35rem 0.85rem;
+  background: #f3f4f6;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #4b5563;
+}
+
+.ac-exch-currencies__row {
+  border-bottom: 1px solid #f3f4f6;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.ac-exch-currencies__empty {
+  margin: 0;
+  padding: 0.85rem;
+  font-size: 0.8125rem;
+  color: #9ca3af;
+  text-align: center;
+}
+
+.ac-exch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+
+.ac-exch-btn--sm {
+  padding: 0.3rem 0.55rem;
+  font-size: 0.75rem;
+}
+
+.ac-exch-btn--ghost {
+  background: transparent;
+  color: #2563eb;
+  border-color: #d1d5db;
+
+  &:hover {
+    background: #eff6ff;
+    border-color: #2563eb;
+  }
+}
+
+.ac-exch-remove-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  color: #ef4444;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+
+  &:hover {
+    background: #fee2e2;
+    color: #b91c1c;
+  }
 }
 </style>
