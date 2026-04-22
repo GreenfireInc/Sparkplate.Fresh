@@ -78,7 +78,7 @@
     </div>
 
     <WalletModal v-if="selectedWallet" :wallet="selectedWallet" @close="closeWalletModal" />
-    <ConfirmModal
+    <ModalConfirmDeleteGeneral
       :show="showConfirmModal"
       :title="confirmModalTitle"
       :message="confirmModalMessage"
@@ -92,7 +92,7 @@
 import { ref, computed } from 'vue'
 import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
 import WalletModal from '@/components/modals/addressbook/modal.WalletDetails.vue'
-import ConfirmModal from '@/components/modals/addressbook/ConfirmModal.vue'
+import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 import { deleteWallet } from '@/services/addressBook/walletService'
 
 interface Currency {

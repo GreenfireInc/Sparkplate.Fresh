@@ -124,7 +124,7 @@
       @close="showAddCurrencyModal = false"
       @currency-added="handleCurrencyAddedFromModal"
     />
-    <ConfirmModal
+    <ModalConfirmDeleteGeneral
       :show="showConfirmModal"
       :title="confirmModalTitle"
       :message="confirmModalMessage"
@@ -144,21 +144,12 @@ import {
   Separator,
   Label,
 } from 'radix-vue'
-<<<<<<< HEAD:00.backup/AddressBookPage.vue
-import AddContactModal from './modals/addContact.vue'
-import ContactDetailsModal from './modals/ContactDetailsModal.vue'
-import AddCurrencyModal from '@/components/modals/addressbook/modal.add.Currency.vue'
-import ConfirmModal from './modals/ConfirmModal.vue'
-import ImportButton from './ImportButton.vue'
-import ExportButton from './ExportButton.vue'
-=======
 import AddContactModal from '@/components/modals/addressbook/modal.add.entry.vue'
 import ContactDetailsModal from '@/components/modals/addressbook/modal.Contact.Details.vue'
 import AddCurrencyModal from '@/components/modals/addressbook/modal.add.Currency.vue'
-import ConfirmModal from '@/components/modals/addressbook/ConfirmModal.vue'
+import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 import ImportButton from '@/components/buttons/addressbook/ImportButton.vue'
 import ExportButton from '@/components/buttons/addressbook/ExportButton.vue'
->>>>>>> main:src/components/addressBook/AddressBookPage.vue
 import ExchangeTab from '@/components/pageTabs/addressbook/ExchangeTab.vue'
 import WalletTab from '@/components/pageTabs/addressbook/WalletTab.vue'
 import CompaniesTab from '@/components/pageTabs/addressbook/CompaniesTab.vue'

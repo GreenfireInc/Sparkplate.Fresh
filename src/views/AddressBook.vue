@@ -40,8 +40,21 @@
           />
           {{ addButton.label }}
         </button>
-        <ImportButton @contacts-imported="addContacts" />
-        <ExportButton :contacts="contacts" />
+        <ImportButton
+          :label="importButton.label"
+          :variant="importButton.variant"
+          @contacts-imported="addContacts"
+          @companies-imported="addContacts"
+          @wallets-imported="onWalletsImported"
+          @exchanges-imported="onExchangesImported"
+        />
+        <ExportButton
+          :label="exportButton.label"
+          :variant="exportButton.variant"
+          :contacts="contacts"
+          :exchanges="exchanges"
+          :wallets="wallets"
+        />
       </div>
 
       <div class="ab-view__search-field">
@@ -167,7 +180,7 @@
       @close="showAddCurrencyModal = false"
       @currency-added="handleCurrencyAddedFromModal"
     />
-    <ConfirmModal
+    <ModalConfirmDeleteGeneral
       :show="showConfirmModal"
       :title="confirmModalTitle"
       :message="confirmModalMessage"
@@ -188,7 +201,7 @@ import { NotebookTabs, SquareUser, Landmark, Wallet, Building2, ChevronLeft, Che
 import AddContactModal from '@/components/modals/addressbook/modal.add.entry.vue'
 import ContactDetailsModal from '@/components/modals/addressbook/modal.Contact.Details.vue'
 import AddCurrencyModal from '@/components/modals/addressbook/subModals/subModal.add.Currency.vue'
-import ConfirmModal from '@/components/modals/addressbook/ConfirmModal.vue'
+import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 import ImportButton from '@/components/buttons/addressbook/ImportButton.vue'
 import ExportButton from '@/components/buttons/addressbook/ExportButton.vue'
 import ExchangeTab from '@/components/pageTabs/addressbook/ExchangeTab.vue'
@@ -197,6 +210,7 @@ import CompaniesTab from '@/components/pageTabs/addressbook/CompaniesTab.vue'
 import ContactsTab from '@/components/pageTabs/addressbook/ContactsTab.vue'
 import { getContacts, addContact, deleteContact, type Contact } from '@/services/addressBook/contactService'
 import { addWallet, getWalletCountForContact } from '@/services/addressBook/walletService'
+import type { ImportedWallet } from '@/lib/cores/importStandard/importWallet.json'
 
 defineOptions({ name: 'AddressBookView' })
 
@@ -376,6 +390,34 @@ const addButton = computed(() => {
   }
 })
 
+const importButton = computed(() => {
+  switch (activeTab.value) {
+    case 'Exchanges':
+      return { label: 'Import Exchanges', variant: 'exchanges' as const }
+    case 'Wallets':
+      return { label: 'Import Wallets', variant: 'wallets' as const }
+    case 'Companies':
+      return { label: 'Import Companies', variant: 'companies' as const }
+    case 'Contacts':
+    default:
+      return { label: 'Import Contacts', variant: 'contacts' as const }
+  }
+})
+
+const exportButton = computed(() => {
+  switch (activeTab.value) {
+    case 'Exchanges':
+      return { label: 'Export Exchanges', variant: 'exchanges' as const }
+    case 'Wallets':
+      return { label: 'Export Wallets', variant: 'wallets' as const }
+    case 'Companies':
+      return { label: 'Export Companies', variant: 'companies' as const }
+    case 'Contacts':
+    default:
+      return { label: 'Export Contacts', variant: 'contacts' as const }
+  }
+})
+
 const handleAddClick = () => {
   switch (addButton.value.action) {
     case 'contact':
@@ -396,6 +438,49 @@ const handleAddClick = () => {
 function onExchangeSaved(exchange: Omit<Exchange, 'id'>) {
   const nextId = (exchanges.value.reduce((m, e) => Math.max(m, e.id ?? 0), 0) || 0) + 1
   exchanges.value.push({ ...exchange, id: nextId })
+}
+
+function onExchangesImported(list: unknown[]) {
+  for (const raw of list) {
+    const ex = raw as Partial<Omit<Exchange, 'id'>>
+    if (!ex || typeof ex !== 'object') continue
+    onExchangeSaved({
+      name: String(ex.name ?? ''),
+      url: String(ex.url ?? ''),
+      referralUrl: String(ex.referralUrl ?? ''),
+      referralCode: String(ex.referralCode ?? ''),
+      email: String(ex.email ?? ''),
+      currencies: Array.isArray(ex.currencies)
+        ? (ex.currencies as unknown[]).map((raw) => {
+            const c = raw as Partial<Currency>
+            return {
+              name: String(c?.name ?? c?.abbreviation ?? ''),
+              abbreviation: String(c?.abbreviation ?? c?.name ?? ''),
+              address: String(c?.address ?? ''),
+            }
+          })
+        : [],
+    })
+  }
+}
+
+function onWalletsImported(payload: { wallets: ImportedWallet[] }) {
+  let nextId = wallets.value.reduce((m, w) => Math.max(m, w.id ?? 0), 0)
+  for (const w of payload.wallets) {
+    nextId += 1
+    const ticker = w.coinTicker || 'Wallet'
+    wallets.value.push({
+      id: nextId,
+      name: `${ticker} ${nextId}`,
+      currencies: [
+        {
+          name: ticker,
+          abbreviation: ticker,
+          address: w.address || '',
+        },
+      ],
+    })
+  }
 }
 
 const closeAddContactModal = () => {

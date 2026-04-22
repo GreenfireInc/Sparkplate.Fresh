@@ -28,12 +28,10 @@
               accept=".json" 
               style="display: none;" 
             />
-            <button type="button" class="icon-button" @click.stop="triggerFileImport" title="Upload JSON">
-              <Upload :size="20" />
-            </button>
-            <button type="button" class="icon-button" @click.stop="handleQrCodeScan" title="Scan QR Code">
-              <Camera :size="20" />
-            </button>
+            <StructureImportWalletAddress
+              @upload-json="triggerFileImport"
+              @scan-qr="handleQrCodeScan"
+            />
           </div>
         </div>
 
@@ -55,8 +53,8 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import { Camera, Upload } from 'lucide-vue-next';
 import CurrencyDropdown from '@/components/dropdown/dropdown.currency.vue';
+import StructureImportWalletAddress from '@/components/structure/structure.import.walletAddress.vue';
 import ModalConfirmImportWallets from '@/components/modals/confirmations/modal.confirm.import.Wallets.vue'
 import { parseWalletJsonFile, type ImportedWallet } from '@/lib/cores/importStandard/importWallet.json';
 import { addWallet } from '@/services/addressBook/walletService';
@@ -300,24 +298,6 @@ watch(() => props.show, (newVal) => {
 .wallet-address-input-group .wallet-input {
   flex: 1;
   min-width: 0;
-}
-
-.icon-button {
-  background: none;
-  border: 1px solid #d1d5db;
-  padding: 0.65rem;
-  border-radius: 0.375rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #4b5563;
-  transition: background-color 0.2s, border-color 0.2s;
-}
-
-.icon-button:hover {
-  background-color: #f3f4f6;
-  border-color: #9ca3af;
 }
 
 .modal-actions {
