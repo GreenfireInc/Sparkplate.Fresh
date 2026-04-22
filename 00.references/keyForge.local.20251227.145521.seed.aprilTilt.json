@@ -1,0 +1,18 @@
+{
+  "from": "keyForge",
+  "date": "12/27/2025",
+  "time": "2:55:21 PM",
+  "userName": "user",
+  "machineName": "local",
+  "mnemonicSeedPhrase": "april basic theme way galaxy powder icon swap shield decorate coyote tilt",
+  "defaultDerivationPath": {
+    "BTC": "m/44'/0'/0'/0/0",
+    "LTC": "m/44'/2'/0'/0/0",
+    "DOGE": "m/44'/3'/0'/0/0",
+    "ETH": "m/44'/60'/0'/0/0",
+    "TRX": "m/44'/195'/0'/0/0",
+    "SOL": "m/44'/501'/0'/0'",
+    "XTZ": "m/44'/1729'/0'/0'",
+    "LUNC": "m/44'/330'/0'/0/0"
+  }
+}

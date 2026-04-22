@@ -108,7 +108,7 @@
     </div>
 
     <ExchangeModal v-if="selectedExchange" :exchange="selectedExchange" @close="closeExchangeModal" />
-    <ConfirmModal
+    <ModalConfirmDeleteGeneral
       :show="showConfirmModal"
       :title="confirmModalTitle"
       :message="confirmModalMessage"
@@ -122,7 +122,7 @@
 import { ref, computed } from 'vue';
 import ExchangeModal from '@/components/modals/addressbook/modal.ExchangeDetails.vue';
 import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue';
-import ConfirmModal from '@/components/modals/addressbook/ConfirmModal.vue';
+import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 
 interface Currency {
   name: string;

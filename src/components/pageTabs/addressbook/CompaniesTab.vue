@@ -88,7 +88,7 @@
       </table>
     </div>
 
-    <ConfirmModal
+    <ModalConfirmDeleteGeneral
       :show="showConfirmModal"
       :title="confirmModalTitle"
       :message="confirmModalMessage"
@@ -102,7 +102,7 @@
 import { ref, onMounted, computed } from 'vue'
 import { TabsContent } from 'radix-vue'
 import { getCompanies, deleteCompany, type Company } from '@/services/addressBook/companyService'
-import ConfirmModal from '@/components/modals/addressbook/ConfirmModal.vue'
+import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 
 defineOptions({ name: 'CompaniesTab' })
 
