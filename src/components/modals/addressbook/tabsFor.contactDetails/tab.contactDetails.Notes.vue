@@ -238,11 +238,26 @@ defineExpose({
 <style scoped>
 .notes-tab {
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-height: 0; /* Allow flex shrinking */
-  flex: 1;
+  max-height: 60vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.notes-tab::-webkit-scrollbar {
+  width: 8px;
+}
+
+.notes-tab::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.notes-tab::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+.notes-tab::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
 }
 
 .notes-header {
@@ -330,7 +345,6 @@ defineExpose({
   text-align: center;
   padding: 3rem 1rem;
   color: #6b7280;
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -356,9 +370,6 @@ defineExpose({
   flex-direction: column;
   gap: 0.75rem;
   padding: 1rem;
-  overflow-y: auto;
-  flex: 1;
-  min-height: 0; /* Allow flex shrinking for proper scroll */
 }
 
 .note-item {

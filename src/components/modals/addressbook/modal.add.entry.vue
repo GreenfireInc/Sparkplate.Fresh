@@ -136,15 +136,26 @@
                               <CurrencyDropdown v-model="wallet.coinTicker" />
                             </div>
                             <div class="ac-wallet-row__cell">
-                              <input
+                              <button
                                 :id="`ac-wallet-addr-${index}`"
-                                v-model="wallet.address"
-                                type="text"
-                                class="ac-input"
-                                placeholder="Wallet address"
-                                autocomplete="off"
-                                :aria-label="`Wallet address, row ${Number(index) + 1}`"
-                              />
+                                type="button"
+                                class="ac-input ac-address-trigger"
+                                :class="{ 'ac-address-trigger--empty': !wallet.address }"
+                                :aria-label="wallet.address ? `Edit wallet address, row ${Number(index) + 1}` : `Enter wallet address, row ${Number(index) + 1}`"
+                                @click="openWalletAddressModal(index)"
+                              >
+                                <span v-if="wallet.address" class="ac-address-trigger__value">
+                                  {{ formatWalletAddress(wallet.address) }}
+                                </span>
+                                <span v-else class="ac-address-trigger__placeholder">
+                                  Wallet address
+                                </span>
+                                <ShieldCheck
+                                  :size="13"
+                                  class="ac-address-trigger__icon"
+                                  aria-hidden="true"
+                                />
+                              </button>
                             </div>
                             <div class="ac-wallet-row__cell ac-wallet-row__cell--action">
                               <button
@@ -266,12 +277,25 @@
                       :model-value="currency.abbreviation"
                       @update:model-value="(v) => onExchangeCurrencyPick(index, v)"
                     />
-                    <input
-                      type="text"
-                      v-model="currency.address"
-                      placeholder="Wallet address"
-                      class="ac-input ac-input--sm"
-                    />
+                    <button
+                      type="button"
+                      class="ac-input ac-input--sm ac-address-trigger"
+                      :class="{ 'ac-address-trigger--empty': !currency.address }"
+                      :aria-label="currency.address ? 'Edit wallet address' : 'Enter wallet address'"
+                      @click="openExchangeAddressModal(index)"
+                    >
+                      <span v-if="currency.address" class="ac-address-trigger__value">
+                        {{ formatWalletAddress(currency.address) }}
+                      </span>
+                      <span v-else class="ac-address-trigger__placeholder">
+                        Wallet address
+                      </span>
+                      <ShieldCheck
+                        :size="13"
+                        class="ac-address-trigger__icon"
+                        aria-hidden="true"
+                      />
+                    </button>
                     <button
                       type="button"
                       class="ac-exch-remove-btn"
@@ -299,6 +323,29 @@
       </DialogContent>
     </DialogPortal>
   </DialogRoot>
+
+  <!--
+    Rendered as a sibling of the parent DialogRoot (not nested) so Radix doesn't
+    share inert/focus state between the two dialogs. Kept mounted and driven by
+    :show so Radix can run its proper open->close cleanup (body pointer-events,
+    focus restore, dismissable-layer unregister). v-if unmounting mid-close
+    leaves pointer-events:none on <body>, which makes subsequent triggers dead.
+  -->
+  <SubModalInputWalletAddress
+    :show="exchangeAddressModal.open && show"
+    :title="exchangeAddressModalTitle"
+    :coin-ticker="exchangeAddressModal.coinTicker"
+    @close="closeExchangeAddressModal"
+    @confirm="onExchangeAddressConfirmed"
+  />
+
+  <SubModalInputWalletAddress
+    :show="walletAddressModal.open && show"
+    :title="walletAddressModalTitle"
+    :coin-ticker="walletAddressModal.coinTicker"
+    @close="closeWalletAddressModal"
+    @confirm="onWalletAddressConfirmed"
+  />
 </template>
 
 <script setup lang="ts">
@@ -329,11 +376,12 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
 } from 'radix-vue'
-import { SquareUser, Landmark, Wallet as WalletIcon, Building2, Plus, Trash2, Coins } from 'lucide-vue-next'
+import { SquareUser, Landmark, Wallet as WalletIcon, Building2, Plus, Trash2, Coins, ShieldCheck } from 'lucide-vue-next'
 import { type Contact, addContact, updateContact } from '@/services/addressBook/contactService'
 import { type Wallet, addWallet, getWalletsForContact, updateWallet, deleteWallet } from '@/services/addressBook/walletService'
 import CurrencyDropdown from '@/components/dropdown/dropdown.currency.vue'
 import DropdownExchanges from '@/components/dropdown/dropdown.exchanges.vue'
+import SubModalInputWalletAddress from '@/components/modals/addressbook/subModals/subModal.input.WalletAddress.vue'
 import { parseWalletJsonFile } from '@/lib/cores/importStandard/importWallet.json'
 import { useContactParser } from '@/composables/useContactParser'
 
@@ -403,6 +451,8 @@ watch(
   () => props.show,
   (newVal) => {
     if (newVal) {
+      closeExchangeAddressModal()
+      closeWalletAddressModal()
       currentTab.value = 'general'
       selectedEntity.value = props.initialEntity
       exchangeForm.value = makeEmptyExchange()
@@ -421,6 +471,8 @@ watch(
 
 function onDialogOpen(open: boolean) {
   if (!open) {
+    closeExchangeAddressModal()
+    closeWalletAddressModal()
     emit('close')
   }
 }
@@ -436,7 +488,8 @@ function isInsideTeleportedDropdown(target: EventTarget | null | undefined): boo
     target.closest('.currency-dropdown-portal') ||
     target.closest('.custom-select-wrapper') ||
     target.closest('.ex-dropdown-portal') ||
-    target.closest('.ex-dropdown')
+    target.closest('.ex-dropdown') ||
+    target.closest('[data-stacked-modal="input-wallet-address"]')
   )
 }
 
@@ -458,6 +511,7 @@ async function loadWallets(contactId: number) {
 
 function addWalletRow() {
   wallets.value.push({ coinTicker: '', address: '' })
+  openWalletAddressModal(wallets.value.length - 1)
 }
 
 function removeWallet(index: number) {
@@ -504,6 +558,7 @@ async function saveContact() {
 
 function addExchangeCurrencyRow() {
   exchangeForm.value.currencies.push({ name: '', abbreviation: '', address: '' })
+  openExchangeAddressModal(exchangeForm.value.currencies.length - 1)
 }
 
 function removeExchangeCurrency(index: number) {
@@ -515,6 +570,78 @@ function onExchangeCurrencyPick(index: number, value: string) {
   if (!row) return
   row.abbreviation = value
   row.name = value
+}
+
+const exchangeAddressModal = ref<{ open: boolean; index: number | null; coinTicker: string }>({
+  open: false,
+  index: null,
+  coinTicker: '',
+})
+
+const exchangeAddressModalTitle = computed(() => {
+  const ticker = exchangeAddressModal.value.coinTicker
+  return ticker ? `Enter ${ticker.toUpperCase()} wallet address` : 'Enter wallet address'
+})
+
+function openExchangeAddressModal(index: number) {
+  const row = exchangeForm.value.currencies[index]
+  if (!row) return
+  exchangeAddressModal.value = {
+    open: true,
+    index,
+    coinTicker: row.abbreviation || '',
+  }
+}
+
+function closeExchangeAddressModal() {
+  exchangeAddressModal.value = { open: false, index: null, coinTicker: '' }
+}
+
+function onExchangeAddressConfirmed(address: string) {
+  const index = exchangeAddressModal.value.index
+  if (index !== null) {
+    const row = exchangeForm.value.currencies[index]
+    if (row) row.address = address
+  }
+}
+
+function formatWalletAddress(address: string): string {
+  if (!address) return ''
+  if (address.length <= 18) return address
+  return `${address.slice(0, 9)}...${address.slice(-9)}`
+}
+
+const walletAddressModal = ref<{ open: boolean; index: number | null; coinTicker: string }>({
+  open: false,
+  index: null,
+  coinTicker: '',
+})
+
+const walletAddressModalTitle = computed(() => {
+  const ticker = walletAddressModal.value.coinTicker
+  return ticker ? `Enter ${ticker.toUpperCase()} wallet address` : 'Enter wallet address'
+})
+
+function openWalletAddressModal(index: number) {
+  const row = wallets.value[index]
+  if (!row) return
+  walletAddressModal.value = {
+    open: true,
+    index,
+    coinTicker: row.coinTicker || '',
+  }
+}
+
+function closeWalletAddressModal() {
+  walletAddressModal.value = { open: false, index: null, coinTicker: '' }
+}
+
+function onWalletAddressConfirmed(address: string) {
+  const index = walletAddressModal.value.index
+  if (index !== null) {
+    const row = wallets.value[index]
+    if (row) row.address = address
+  }
 }
 
 function onExchangePick(payload: { key: string; label: string; website: string }) {
@@ -1147,6 +1274,55 @@ const close = () => {
 .ac-input--sm {
   padding: 0.45rem 0.55rem;
   font-size: 0.8125rem;
+}
+
+.ac-address-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-content: space-between;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 0.4rem;
+  color: #111827;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ac-address-trigger:hover {
+  border-color: #9ca3af;
+}
+
+.ac-address-trigger:focus-visible {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.ac-address-trigger--empty {
+  color: #6b7280;
+  font-family: inherit;
+}
+
+.ac-address-trigger__value {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ac-address-trigger__placeholder {
+  flex: 1 1 auto;
+  color: #9ca3af;
+}
+
+.ac-address-trigger__icon {
+  flex: 0 0 auto;
+  color: #6366f1;
 }
 
 .ac-exch-currencies {

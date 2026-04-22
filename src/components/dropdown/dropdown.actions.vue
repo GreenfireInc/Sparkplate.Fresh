@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue';
-import { PocketKnife, Pencil, Coins, FileImage, Image, FileUser, Star, Save, SaveOff } from 'lucide-vue-next';
+import { PocketKnife, Pencil, Coins, FileImage, Image, FileUser, FileJson, Star, Save, SaveOff } from 'lucide-vue-next';
 import type { Contact } from '@/services/addressBook/contactService';
 
 interface Action {
@@ -46,6 +46,7 @@ const emit = defineEmits([
   'generate-qrcode-svg',
   'export-csv',
   'export-vcf',
+  'export-json',
   'update:edit-mode', // New event for toggling edit mode
   'save-changes',     // New event for saving changes
   'add-currency-request', // New event for requesting AddCurrencyModal
@@ -85,6 +86,11 @@ const handleExportVcf = () => {
   isOpen.value = false;
 };
 
+const handleExportJson = () => {
+  emit('export-json', props.contact);
+  isOpen.value = false;
+};
+
 const handleEditContact = () => {
   emit('update:edit-mode', true);
   isOpen.value = false;
@@ -108,6 +114,7 @@ const dropdownActions = computed<Action[]>(() => {
     { label: 'QRCode (svg)', handler: handleGenerateQrCodeSvg, icon: Image },
     { label: 'Export (csv)', handler: handleExportCsv, icon: FileUser },
     { label: 'Export (vcf)', handler: handleExportVcf, icon: Star },
+    { label: 'Export (json)', handler: handleExportJson, icon: FileJson },
     { label: 'Add Currency', handler: handleAddCurrencyRequest, icon: Coins },
   ];
 
