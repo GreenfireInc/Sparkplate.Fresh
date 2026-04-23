@@ -108,7 +108,7 @@ const dropdownPos = ref({ top: 0, left: 0, width: 0 })
 
 const listboxId = `ex-dropdown-list-${Math.random().toString(36).slice(2, 9)}`
 
-/** Above modal.ExchangeDetails dialog content (z-index 9001) */
+/** Above modal.details.Exchange dialog content (z-index 9001) */
 const DROPDOWN_Z_INDEX = 10090
 
 const dropdownStyle = computed(() => ({

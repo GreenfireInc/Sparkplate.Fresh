@@ -145,7 +145,7 @@ import {
   Label,
 } from 'radix-vue'
 import AddContactModal from '@/components/modals/addressbook/modal.add.entry.vue'
-import ContactDetailsModal from '@/components/modals/addressbook/modal.Contact.Details.vue'
+import ContactDetailsModal from '@/components/modals/addressbook/modal.details.Contact.vue'
 import AddCurrencyModal from '@/components/modals/addressbook/modal.add.Currency.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 import ImportButton from '@/components/buttons/addressbook/ImportButton.vue'

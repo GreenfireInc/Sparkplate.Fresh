@@ -167,6 +167,7 @@
       @close="closeAddContactModal"
       @contact-saved="loadContacts"
       @exchange-saved="onExchangeSaved"
+      @external-wallet-saved="onExternalWalletSaved"
     />
     <ContactDetailsModal
       :show="showContactDetailsModal"
@@ -199,7 +200,8 @@ import {
 } from 'radix-vue'
 import { NotebookTabs, SquareUser, Landmark, Wallet, Building2, ChevronLeft, ChevronRight } from 'lucide-vue-next'
 import AddContactModal from '@/components/modals/addressbook/modal.add.entry.vue'
-import ContactDetailsModal from '@/components/modals/addressbook/modal.Contact.Details.vue'
+import type { ExternalWalletForm } from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.externalWallet.vue'
+import ContactDetailsModal from '@/components/modals/addressbook/modal.details.Contact.vue'
 import AddCurrencyModal from '@/components/modals/addressbook/subModals/subModal.add.Currency.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 import ImportButton from '@/components/buttons/addressbook/ImportButton.vue'
@@ -239,6 +241,11 @@ interface Wallet {
   id: number
   name: string
   currencies: Currency[]
+  mnemonicWordCount?: number
+  mnemonicFirst?: string
+  mnemonicLast?: string
+  notes?: string
+  passwordHint?: string
 }
 
 const tabs = ['Contacts', 'Exchanges', 'Wallets', 'Companies'] as const
@@ -439,6 +446,30 @@ const handleAddClick = () => {
 function onExchangeSaved(exchange: Omit<Exchange, 'id'>) {
   const nextId = (exchanges.value.reduce((m, e) => Math.max(m, e.id ?? 0), 0) || 0) + 1
   exchanges.value.push({ ...exchange, id: nextId })
+}
+
+function onExternalWalletSaved(payload: ExternalWalletForm) {
+  const nextId = (wallets.value.reduce((m, w) => Math.max(m, w.id ?? 0), 0) || 0) + 1
+  const mnemonicHint = [payload.mnemonicFirst, payload.mnemonicLast]
+    .filter((s) => s?.trim())
+    .join(' · ')
+    .trim()
+  const nameParts = [payload.wallet?.trim(), mnemonicHint].filter(Boolean)
+  const label = nameParts.length > 0 ? nameParts.join(' · ') : 'External wallet'
+  wallets.value.push({
+    id: nextId,
+    name: label,
+    mnemonicWordCount: payload.mnemonicWordCount,
+    mnemonicFirst: payload.mnemonicFirst,
+    mnemonicLast: payload.mnemonicLast,
+    notes: payload.notes,
+    passwordHint: payload.passwordHint,
+    currencies: payload.currencies.map((c) => ({
+      name: c.name || c.abbreviation || '',
+      abbreviation: c.abbreviation || '',
+      address: c.address || '',
+    })),
+  })
 }
 
 function onExchangesImported(list: unknown[]) {
