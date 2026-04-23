@@ -232,6 +232,7 @@ interface Exchange {
   referralCode: string
   currencies: Currency[]
   email: string
+  notes: string
 }
 
 interface Wallet {
@@ -450,6 +451,7 @@ function onExchangesImported(list: unknown[]) {
       referralUrl: String(ex.referralUrl ?? ''),
       referralCode: String(ex.referralCode ?? ''),
       email: String(ex.email ?? ''),
+      notes: String(ex.notes ?? ''),
       currencies: Array.isArray(ex.currencies)
         ? (ex.currencies as unknown[]).map((raw) => {
             const c = raw as Partial<Currency>

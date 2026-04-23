@@ -138,6 +138,7 @@ interface Exchange {
   referralCode: string;
   currencies: Currency[];
   email: string;
+  notes: string;
 }
 
 const props = defineProps<{

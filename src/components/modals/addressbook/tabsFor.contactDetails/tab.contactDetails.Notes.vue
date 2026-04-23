@@ -21,7 +21,7 @@
     
     <div v-if="notes.length === 0" class="empty-state">
       <FileText :size="48" class="empty-icon" />
-      <p>No notes found for this contact.</p>
+      <p>No notes found for this {{ entityKindNoun }}.</p>
       <p class="empty-hint">Click "New Note" to create your first note.</p>
     </div>
     
@@ -59,6 +59,7 @@
       :note="selectedNote"
       :contactId="contactId"
       :contactName="contactName"
+      :noteOwnerKind="noteOwnerKind"
       @close="showNoteEditor = false"
       @note-updated="handleNoteUpdated"
       @note-deleted="handleNoteDeleted"
@@ -74,23 +75,33 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from 'vue';
+import { ref, computed, watch } from 'vue'
 import { Plus, FileText, Lock, Trash2, Search } from 'lucide-vue-next';
 import {
   getNotesForContactId,
+  getNotesForExchangeId,
   addNote,
   deleteNote,
   isNoteLocked,
   notesRevision,
   type Note,
+  type NoteOwnerKind,
 } from '@/services/addressBook/service.Note'
 import NoteEditorModal from '@/components/modals/addressbook/subModals/subModal.NoteEditor.vue'
 import NoteDeleteConfirmModal from '@/components/modals/confirmations/modal.confirm.delete.Note.vue'
 
-const props = defineProps<{
-  contactId: number | null;
-  contactName?: string; // For export filename
-}>();
+const props = withDefaults(
+  defineProps<{
+    contactId: number | null
+    /** For export filename */
+    contactName?: string
+    /** Use `'exchange'` for exchange details (separate localStorage namespace). */
+    noteOwnerKind?: NoteOwnerKind
+  }>(),
+  { noteOwnerKind: 'contact' },
+)
+
+const entityKindNoun = computed(() => (props.noteOwnerKind === 'exchange' ? 'exchange' : 'contact'))
 
 const notes = ref<Note[]>([]);
 const selectedNote = ref<Note | null>(null);
@@ -112,28 +123,30 @@ const filteredNotes = computed(() => {
 
 const loadNotes = async () => {
   if (props.contactId) {
-    const loadedNotes = await getNotesForContactId(props.contactId);
-    // Create new array to maintain immutability
-    notes.value = [...loadedNotes];
+    const loadedNotes =
+      props.noteOwnerKind === 'exchange'
+        ? await getNotesForExchangeId(props.contactId)
+        : await getNotesForContactId(props.contactId)
+    notes.value = [...loadedNotes]
   } else {
-    notes.value = [];
+    notes.value = []
   }
-};
+}
 
-onMounted(() => {
-  loadNotes();
-});
-
-watch(() => props.contactId, () => {
-  loadNotes();
-}, { immediate: true });
+watch(
+  () => [props.contactId, props.noteOwnerKind] as const,
+  () => {
+    loadNotes()
+  },
+  { immediate: true },
+)
 
 // Watch notesRevision to refresh when notes change globally
 watch(notesRevision, () => {
   if (props.contactId) {
-    loadNotes();
+    loadNotes()
   }
-});
+})
 
 const selectNote = (note: Note) => {
   // Create new object reference to maintain immutability
@@ -145,11 +158,15 @@ const handleNewNote = async () => {
   if (!props.contactId) return;
   
   try {
-    const newNote = await addNote(props.contactId, {
-      title: '',
-      content: '',
-      isPasswordProtected: false,
-    });
+    const newNote = await addNote(
+      props.contactId,
+      {
+        title: '',
+        content: '',
+        isPasswordProtected: false,
+      },
+      props.noteOwnerKind,
+    )
     
     // Create new array with new note at the beginning (immutability)
     await loadNotes();
@@ -194,7 +211,7 @@ const handleDeleteConfirmed = async () => {
   if (!props.contactId || !noteToDelete.value) return;
   
   try {
-    await deleteNote(props.contactId, noteToDelete.value.id);
+    await deleteNote(props.contactId, noteToDelete.value.id, props.noteOwnerKind)
     // Reload notes to get updated list (immutability)
     await loadNotes();
     

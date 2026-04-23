@@ -6,12 +6,13 @@
         class="iwa-modal"
         data-stacked-modal="input-wallet-address"
         :aria-describedby="undefined"
-        @pointer-down-outside="onDialogPointerDownOutside"
+        @pointer-down-outside="onDialogDismissOutside"
+        @interact-outside="onDialogDismissOutside"
       >
         <div class="iwa-header">
           <div class="iwa-header__row">
             <DialogTitle class="iwa-header__title">
-              {{ title }}
+              {{ displayTitle }}
             </DialogTitle>
             <DialogClose class="iwa-header__close" aria-label="Close">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -30,6 +31,13 @@
               <strong>Double-check the wallet address.</strong>
               Transactions sent to a wrong address are
               <em>irreversible</em> and funds cannot be recovered.
+            </div>
+          </div>
+
+          <div class="iwa-field">
+            <span class="iwa-field__label">Currency</span>
+            <div class="iwa-field__control iwa-field__control--currency">
+              <CurrencyDropdown v-model="selectedTicker" />
             </div>
           </div>
 
@@ -138,19 +146,18 @@ import {
   Separator,
 } from 'radix-vue'
 import { AlertTriangle, Check, Eye, EyeOff } from 'lucide-vue-next'
+import CurrencyDropdown from '@/components/dropdown/dropdown.currency.vue'
 
 defineOptions({ name: 'SubModalInputWalletAddress' })
 
 const props = withDefaults(
   defineProps<{
     show: boolean
-    title?: string
     coinTicker?: string
     /** Allow submitting without an exact case-sensitive match (defaults to strict). */
     caseInsensitive?: boolean
   }>(),
   {
-    title: 'Enter wallet address',
     coinTicker: '',
     caseInsensitive: false,
   },
@@ -158,7 +165,7 @@ const props = withDefaults(
 
 const emit = defineEmits<{
   (e: 'close'): void
-  (e: 'confirm', address: string): void
+  (e: 'confirm', payload: { address: string; coinTicker: string }): void
 }>()
 
 const dialogOpen = computed(() => props.show)
@@ -167,13 +174,33 @@ function onDialogOpen(open: boolean) {
   if (!open) handleClose()
 }
 
-// Keep stacked dialogs (like this one over add-currency) alive when clicking within.
-function onDialogPointerDownOutside(event: Event) {
-  const target = event.target as HTMLElement | null
-  if (target?.closest('[data-stacked-modal]')) {
+/**
+ * Radix dismiss events expose the real target on `detail.originalEvent`, not `event.target`.
+ * CurrencyDropdown teleports its list to `body`, so those clicks look "outside" DialogContent.
+ */
+function isInsideTeleportedDropdown(target: EventTarget | null | undefined): boolean {
+  if (!(target instanceof Element)) return false
+  return !!(
+    target.closest('.currency-dropdown-portal') ||
+    target.closest('.custom-select-wrapper') ||
+    target.closest('[data-stacked-modal]')
+  )
+}
+
+function onDialogDismissOutside(
+  event: CustomEvent<{ originalEvent: PointerEvent | FocusEvent }>,
+) {
+  if (isInsideTeleportedDropdown(event.detail?.originalEvent?.target)) {
     event.preventDefault()
   }
 }
+
+const selectedTicker = ref('')
+
+const displayTitle = computed(() => {
+  const t = selectedTicker.value.trim()
+  return t ? `Enter ${t.toUpperCase()} wallet address` : 'Enter wallet address'
+})
 
 const firstAddress = ref('')
 const secondAddress = ref('')
@@ -185,7 +212,8 @@ const firstInputId = `iwa-first-${Math.random().toString(36).slice(2, 8)}`
 const secondInputId = `iwa-second-${Math.random().toString(36).slice(2, 8)}`
 
 const addressPlaceholder = computed(() => {
-  if (props.coinTicker) return `${props.coinTicker.toLowerCase()}://wallet-address`
+  const t = selectedTicker.value.trim()
+  if (t) return `${t.toLowerCase()}://wallet-address`
   return 'Enter wallet address'
 })
 
@@ -198,7 +226,10 @@ const isMatch = computed(() => {
 })
 
 const canConfirm = computed(
-  () => firstAddress.value.trim().length > 0 && isMatch.value,
+  () =>
+    selectedTicker.value.trim().length > 0 &&
+    firstAddress.value.trim().length > 0 &&
+    isMatch.value,
 )
 
 function onFirstInput() {
@@ -221,6 +252,7 @@ function onPasteAttempt() {
 }
 
 function resetState() {
+  selectedTicker.value = ''
   firstAddress.value = ''
   secondAddress.value = ''
   showAddresses.value = false
@@ -238,8 +270,9 @@ function handleClose() {
 
 function handleConfirm() {
   if (!canConfirm.value) return
-  const value = firstAddress.value.trim()
-  emit('confirm', value)
+  const address = firstAddress.value.trim()
+  const coinTicker = selectedTicker.value.trim()
+  emit('confirm', { address, coinTicker })
   resetState()
   emit('close')
 }
@@ -247,7 +280,19 @@ function handleConfirm() {
 watch(
   () => props.show,
   (open) => {
-    if (!open) resetState()
+    if (open) {
+      selectedTicker.value = props.coinTicker.trim()
+    } else {
+      resetState()
+    }
+  },
+  { immediate: true },
+)
+
+watch(
+  () => props.coinTicker,
+  (ticker) => {
+    if (props.show) selectedTicker.value = ticker.trim()
   },
 )
 </script>
@@ -419,6 +464,11 @@ watch(
   display: flex;
   align-items: stretch;
   gap: 0.5rem;
+}
+
+.iwa-field__control--currency {
+  flex: 1;
+  min-width: 0;
 }
 
 .iwa-input {

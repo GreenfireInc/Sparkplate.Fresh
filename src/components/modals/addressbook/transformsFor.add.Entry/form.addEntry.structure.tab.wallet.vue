@@ -257,6 +257,13 @@ function formatWalletAddress(address: string): string {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
+  box-sizing: border-box;
+  /* Same band as General tab: `form.addEntry.contact.vue` / `form.addEntry.exchange.vue` set
+     `--ac-contact-tab-panel-height` on `.ac-tabs` (TabsRoot). */
+  min-height: var(--ac-contact-tab-panel-height, auto);
+  max-height: var(--ac-contact-tab-panel-height, none);
+  overflow-y: auto;
+  padding-right: 0.15rem;
 }
 
 .ac-wallets__intro {

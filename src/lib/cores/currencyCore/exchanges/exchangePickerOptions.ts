@@ -18,7 +18,25 @@ export interface ExchangePickerOption {
  */
 const EXCHANGE_ICON_FILE: Record<string, string | null> = {}
 
-type ExchangeModule = { info?: { name?: string; website?: string } }
+type ExchangeModule = {
+  info?: { name?: string; website?: string }
+  socialMedia?: Record<string, string>
+}
+
+/** Social links from the exchange module (e.g. `BinanceExchangeClass.socialMedia`) keyed by platform. */
+export function getExchangeSocialMediaForDisplayName(displayName: string): Record<string, string> | null {
+  const v = displayName?.trim()
+  if (!v) return null
+  const keys = Object.keys(CryptoExchanges) as (keyof typeof CryptoExchanges)[]
+  for (const key of keys) {
+    const mod = CryptoExchanges[key] as ExchangeModule
+    if (mod.info?.name !== v) continue
+    const sm = mod.socialMedia
+    if (!sm || typeof sm !== 'object') return null
+    return { ...sm }
+  }
+  return null
+}
 
 export function getExchangePickerOptions(): ExchangePickerOption[] {
   const keys = Object.keys(CryptoExchanges) as (keyof typeof CryptoExchanges)[]

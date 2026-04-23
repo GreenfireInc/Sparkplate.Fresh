@@ -56,6 +56,16 @@
                 />
               </div>
             </div>
+
+            <div class="ac-field ac-field--notes">
+              <Label class="ac-label" for="ac-exch-notes">Notes</Label>
+              <textarea
+                id="ac-exch-notes"
+                v-model="exchangeForm.notes"
+                class="ac-textarea ac-textarea--exchange-notes"
+                rows="3"
+              />
+            </div>
           </div>
         </div>
       </TabsContent>
@@ -100,6 +110,7 @@ export interface ExchangeForm {
   referralCode: string
   currencies: ExchangeCurrency[]
   email: string
+  notes: string
 }
 
 defineOptions({ name: 'FormAddEntryExchange' })
@@ -135,22 +146,41 @@ function addExchangeCurrencyRow() {
   display: flex;
   flex-direction: column;
   gap: 0;
+  /* Match contact add-entry: General and Currencies (wallet) tab bodies same height */
+  --ac-contact-tab-panel-height: min(26rem, 52vh);
 }
 
-.ac-tabs__content {
-  padding-bottom: 0.25rem;
+/* `form.addEntry.structure.tabs.all` uses 1.25rem here; tighten for exchange to cut dead space. */
+.ac-exch-form :deep(.ac-tabs__list) {
+  margin-bottom: 0.5rem;
+}
+
+.ac-exch-form :deep(.ac-tabs__content) {
+  padding-bottom: 0;
+}
+
+.ac-tabs__panel--general {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: var(--ac-contact-tab-panel-height);
+  max-height: var(--ac-contact-tab-panel-height);
+  overflow-y: auto;
+  padding-right: 0.15rem;
 }
 
 .ac-general-fields {
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.55rem;
 }
 
 .ac-form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem 1.25rem;
+  gap: 0.55rem 1.25rem;
 }
 
 .ac-field {
@@ -159,13 +189,18 @@ function addExchangeCurrencyRow() {
   gap: 0.35rem;
 }
 
+.ac-field--notes {
+  flex: 0 1 auto;
+}
+
 .ac-label {
   font-size: 0.75rem;
   font-weight: 500;
   color: #374151;
 }
 
-.ac-input {
+.ac-input,
+.ac-textarea {
   width: 100%;
   padding: 0.6rem 0.65rem;
   font-size: 0.875rem;
@@ -180,6 +215,20 @@ function addExchangeCurrencyRow() {
     border-color: #2563eb;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
   }
+}
+
+.ac-textarea {
+  display: block;
+  flex: 1;
+  min-height: 5rem;
+  margin: 0;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.ac-textarea--exchange-notes {
+  flex: none;
+  min-height: 3.25rem;
 }
 
 .ac-exch-form {

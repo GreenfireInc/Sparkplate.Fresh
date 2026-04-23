@@ -17,9 +17,13 @@
             <input
               type="text"
               id="walletAddress"
-              v-model="walletAddress"
+              readonly
+              class="form-input wallet-input wallet-input--address-trigger"
+              :value="formattedWalletAddressDisplay"
               placeholder="Enter wallet address"
-              class="form-input wallet-input"
+              aria-haspopup="dialog"
+              @mousedown.prevent="openWalletAddressModal"
+              @focus="onWalletAddressFieldFocus"
             />
             <input 
               type="file" 
@@ -49,13 +53,21 @@
       @confirm="handleConfirmImport"
     />
   </div>
+
+  <SubModalInputWalletAddress
+    :show="show && showWalletAddressModal"
+    :coin-ticker="selectedNetwork"
+    @close="closeWalletAddressModal"
+    @confirm="onWalletAddressModalConfirm"
+  />
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, watch, computed } from 'vue';
 import CurrencyDropdown from '@/components/dropdown/dropdown.currency.vue';
 import StructureImportWalletAddress from '@/components/structure/structure.import.walletAddress.vue';
 import ModalConfirmImportWallets from '@/components/modals/confirmations/modal.confirm.import.Wallets.vue'
+import SubModalInputWalletAddress from '@/components/modals/addressbook/subModals/subModal.input.WalletAddress.vue'
 import { parseWalletJsonFile, type ImportedWallet } from '@/lib/cores/importStandard/importWallet.json';
 import { addWallet } from '@/services/addressBook/walletService';
 
@@ -79,15 +91,45 @@ const emits = defineEmits<{
 
 const selectedNetwork = ref('BTC');
 const walletAddress = ref('');
+const showWalletAddressModal = ref(false);
 const fileInput = ref<HTMLInputElement | null>(null);
 const showImportModal = ref(false);
 const importedFile = ref<File | null>(null);
 const importedWallets = ref<ImportedWallet[]>([]);
 
+function formatWalletAddressForDisplay(address: string): string {
+  if (!address) return '';
+  if (address.length <= 18) return address;
+  return `${address.slice(0, 9)}...${address.slice(-9)}`;
+}
+
+const formattedWalletAddressDisplay = computed(() =>
+  formatWalletAddressForDisplay(walletAddress.value),
+);
+
 const resetForm = () => {
   selectedNetwork.value = 'BTC';
   walletAddress.value = '';
 };
+
+function openWalletAddressModal() {
+  showWalletAddressModal.value = true;
+}
+
+function closeWalletAddressModal() {
+  showWalletAddressModal.value = false;
+}
+
+function onWalletAddressFieldFocus(event: FocusEvent) {
+  (event.target as HTMLInputElement).blur();
+  openWalletAddressModal();
+}
+
+function onWalletAddressModalConfirm(payload: { address: string; coinTicker: string }) {
+  walletAddress.value = payload.address;
+  selectedNetwork.value = payload.coinTicker;
+  closeWalletAddressModal();
+}
 
 const submitForm = () => {
   if (!walletAddress.value) {
@@ -109,6 +151,7 @@ const submitForm = () => {
 
 const handleClose = () => {
   closeImportModal();
+  closeWalletAddressModal();
   resetForm();
   emits('close');
 };
@@ -184,7 +227,10 @@ const handleQrCodeScan = () => {
 // Watch for changes in the 'show' prop to reset the form when the modal opens
 watch(() => props.show, (newVal) => {
   if (newVal) {
+    closeWalletAddressModal();
     resetForm();
+  } else {
+    closeWalletAddressModal();
   }
 });
 </script>
@@ -298,6 +344,15 @@ watch(() => props.show, (newVal) => {
 .wallet-address-input-group .wallet-input {
   flex: 1;
   min-width: 0;
+}
+
+.wallet-input--address-trigger {
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.wallet-input--address-trigger::placeholder {
+  color: #9ca3af;
 }
 
 .modal-actions {

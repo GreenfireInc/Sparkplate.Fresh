@@ -126,7 +126,6 @@
   -->
   <SubModalInputWalletAddress
     :show="exchangeAddressModal.open && show"
-    :title="exchangeAddressModalTitle"
     :coin-ticker="exchangeAddressModal.coinTicker"
     @close="closeExchangeAddressModal"
     @confirm="onExchangeAddressConfirmed"
@@ -134,7 +133,6 @@
 
   <SubModalInputWalletAddress
     :show="walletAddressModal.open && show"
-    :title="walletAddressModalTitle"
     :coin-ticker="walletAddressModal.coinTicker"
     @close="closeWalletAddressModal"
     @confirm="onWalletAddressConfirmed"
@@ -162,6 +160,7 @@ import {
 } from 'radix-vue'
 import { SquareUser, Landmark, Wallet as WalletIcon, Building2 } from 'lucide-vue-next'
 import { type Contact, addContact, updateContact } from '@/services/addressBook/contactService'
+import { addNote, getNotesForContactId, updateNote } from '@/services/addressBook/service.Note'
 import { type Wallet, addWallet, getWalletsForContact, updateWallet, deleteWallet } from '@/services/addressBook/walletService'
 import SubModalInputWalletAddress from '@/components/modals/addressbook/subModals/subModal.input.WalletAddress.vue'
 import FormAddEntryExchange, {
@@ -192,7 +191,15 @@ const props = withDefaults(
 const emit = defineEmits(['close', 'contact-saved', 'exchange-saved'])
 
 function makeEmptyExchange(): ExchangeForm {
-  return { name: '', url: '', referralUrl: '', referralCode: '', currencies: [], email: '' }
+  return {
+    name: '',
+    url: '',
+    referralUrl: '',
+    referralCode: '',
+    currencies: [],
+    email: '',
+    notes: '',
+  }
 }
 
 const isEditing = ref(false)
@@ -301,6 +308,41 @@ function removeWallet(index: number) {
   wallets.value.splice(index, 1)
 }
 
+/** Maps General-tab “Notes” into the contact Notes list (first item). */
+async function syncGeneralNotesToNotesTab(contactId: number, editing: boolean) {
+  const notesTrimmed = form.value.notes?.trim() ?? ''
+  if (!notesTrimmed) return
+
+  if (!editing) {
+    await addNote(contactId, {
+      title: '',
+      content: notesTrimmed,
+      isPasswordProtected: false,
+    })
+    return
+  }
+
+  const existing = await getNotesForContactId(contactId)
+  if (existing.length === 0) {
+    await addNote(contactId, {
+      title: '',
+      content: notesTrimmed,
+      isPasswordProtected: false,
+    })
+    return
+  }
+
+  try {
+    await updateNote(contactId, existing[0].id, { content: notesTrimmed })
+  } catch {
+    await addNote(contactId, {
+      title: '',
+      content: notesTrimmed,
+      isPasswordProtected: false,
+    })
+  }
+}
+
 async function saveContact() {
   const first = form.value.firstname?.trim()
   const last = form.value.lastname?.trim()
@@ -318,6 +360,8 @@ async function saveContact() {
   } else {
     savedContact = await addContact(form.value)
   }
+
+  await syncGeneralNotesToNotesTab(savedContact.id!, isEditing.value)
 
   for (const wallet of wallets.value) {
     if (wallet.id) {
@@ -341,11 +385,6 @@ const exchangeAddressModal = ref<{ open: boolean; index: number | null; coinTick
   coinTicker: '',
 })
 
-const exchangeAddressModalTitle = computed(() => {
-  const ticker = exchangeAddressModal.value.coinTicker
-  return ticker ? `Enter ${ticker.toUpperCase()} wallet address` : 'Enter wallet address'
-})
-
 function openExchangeAddressModal(index: number) {
   const row = exchangeForm.value.currencies[index]
   if (!row) return
@@ -360,11 +399,15 @@ function closeExchangeAddressModal() {
   exchangeAddressModal.value = { open: false, index: null, coinTicker: '' }
 }
 
-function onExchangeAddressConfirmed(address: string) {
+function onExchangeAddressConfirmed(payload: { address: string; coinTicker: string }) {
   const index = exchangeAddressModal.value.index
   if (index !== null) {
     const row = exchangeForm.value.currencies[index]
-    if (row) row.address = address
+    if (row) {
+      row.address = payload.address
+      row.abbreviation = payload.coinTicker
+      row.name = payload.coinTicker
+    }
   }
 }
 
@@ -372,11 +415,6 @@ const walletAddressModal = ref<{ open: boolean; index: number | null; coinTicker
   open: false,
   index: null,
   coinTicker: '',
-})
-
-const walletAddressModalTitle = computed(() => {
-  const ticker = walletAddressModal.value.coinTicker
-  return ticker ? `Enter ${ticker.toUpperCase()} wallet address` : 'Enter wallet address'
 })
 
 function openWalletAddressModal(index: number) {
@@ -393,11 +431,14 @@ function closeWalletAddressModal() {
   walletAddressModal.value = { open: false, index: null, coinTicker: '' }
 }
 
-function onWalletAddressConfirmed(address: string) {
+function onWalletAddressConfirmed(payload: { address: string; coinTicker: string }) {
   const index = walletAddressModal.value.index
   if (index !== null) {
     const row = wallets.value[index]
-    if (row) row.address = address
+    if (row) {
+      row.address = payload.address
+      row.coinTicker = payload.coinTicker
+    }
   }
 }
 
