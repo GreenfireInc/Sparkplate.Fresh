@@ -5,7 +5,7 @@
       secondary-value="advanced"
       secondary-label="Wallets"
       :show-secondary-coins-icon="false"
-      :show-secondary-badge="false"
+      :secondary-badge-count="wallets.length"
     />
 
     <TabsContent value="general" class="ac-tabs__content">
