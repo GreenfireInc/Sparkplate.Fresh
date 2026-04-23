@@ -19,7 +19,7 @@ export interface ExchangePickerOption {
 const EXCHANGE_ICON_FILE: Record<string, string | null> = {}
 
 type ExchangeModule = {
-  info?: { name?: string; website?: string }
+  info?: { name?: string; website?: string; country?: string }
   socialMedia?: Record<string, string>
 }
 
@@ -36,6 +36,52 @@ export function getExchangeSocialMediaForDisplayName(displayName: string): Recor
     return { ...sm }
   }
   return null
+}
+
+/** Jurisdiction / HQ from `info.country` when the display name matches a known exchange (e.g. Bitfinex → British Virgin Islands). */
+export function getExchangeCountryForDisplayName(displayName: string): string | null {
+  const v = displayName?.trim()
+  if (!v) return null
+  const keys = Object.keys(CryptoExchanges) as (keyof typeof CryptoExchanges)[]
+  for (const key of keys) {
+    const mod = CryptoExchanges[key] as ExchangeModule
+    if (mod.info?.name !== v) continue
+    const country = mod.info?.country?.trim()
+    return country && country.length > 0 ? country : null
+  }
+  return null
+}
+
+/** Lowercase country / jurisdiction label → ISO 3166-1 alpha-2. Empty string = no flag (e.g. Global). */
+const EXCHANGE_COUNTRY_TO_ALPHA2: Record<string, string> = {
+  global: '',
+  japan: 'JP',
+  luxembourg: 'LU',
+  singapore: 'SG',
+  seychelles: 'SC',
+  'south korea': 'KR',
+  'cayman islands': 'KY',
+  'british virgin islands': 'VG',
+  'united states': 'US',
+}
+
+function regionalIndicatorEmoji(alpha2: string): string {
+  const upper = alpha2.toUpperCase()
+  if (upper.length !== 2) return ''
+  const a = upper.codePointAt(0)! - 0x41
+  const b = upper.codePointAt(1)! - 0x41
+  if (a < 0 || a > 25 || b < 0 || b > 25) return ''
+  const base = 0x1f1e6
+  return String.fromCodePoint(base + a, base + b)
+}
+
+/** Unicode flag emoji for known exchange `info.country` values; otherwise empty. */
+export function flagEmojiForCountryName(country: string | null | undefined): string {
+  const key = country?.trim().toLowerCase() ?? ''
+  if (!key) return ''
+  const code = EXCHANGE_COUNTRY_TO_ALPHA2[key]
+  if (code === undefined || !code) return ''
+  return regionalIndicatorEmoji(code)
 }
 
 export function getExchangePickerOptions(): ExchangePickerOption[] {

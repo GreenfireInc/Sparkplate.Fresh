@@ -98,6 +98,17 @@
             />
           </div>
 
+          <div v-else-if="selectedEntity === 'Wallets'">
+            <FormAddEntryExternalWallet
+              v-model="externalWalletForm"
+              @submit="saveExternalWallet"
+              @cancel="close"
+              @open-external-wallet-address="openExternalWalletAddressModal"
+              @file-import="handleExternalWalletFileImport"
+              @scan-qr="onWalletTabScanQr"
+            />
+          </div>
+
           <form
             v-else
             class="ac-add-entry-placeholder-form"
@@ -137,6 +148,13 @@
     @close="closeWalletAddressModal"
     @confirm="onWalletAddressConfirmed"
   />
+
+  <SubModalInputWalletAddress
+    :show="externalWalletAddressModal.open && show"
+    :coin-ticker="externalWalletAddressModal.coinTicker"
+    @close="closeExternalWalletAddressModal"
+    @confirm="onExternalWalletAddressConfirmed"
+  />
 </template>
 
 <script setup lang="ts">
@@ -168,6 +186,10 @@ import FormAddEntryExchange, {
 } from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.exchange.vue'
 import FormAddEntryFooter from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.structure.footer.vue'
 import FormAddEntryContact from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.contact.vue'
+import FormAddEntryExternalWallet, {
+  makeEmptyExternalWalletForm,
+  type ExternalWalletForm,
+} from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.externalWallet.vue'
 import { parseWalletJsonFile } from '@/lib/cores/importStandard/importWallet.json'
 import { useContactParser } from '@/composables/useContactParser'
 
@@ -188,7 +210,7 @@ const props = withDefaults(
   },
 )
 
-const emit = defineEmits(['close', 'contact-saved', 'exchange-saved'])
+const emit = defineEmits(['close', 'contact-saved', 'exchange-saved', 'external-wallet-saved'])
 
 function makeEmptyExchange(): ExchangeForm {
   return {
@@ -208,6 +230,7 @@ const wallets = ref<Partial<Wallet>[]>([])
 const currentTab = ref<'general' | 'advanced'>('general')
 const selectedEntity = ref<EntityType>('Contacts')
 const exchangeForm = ref<ExchangeForm>(makeEmptyExchange())
+const externalWalletForm = ref<ExternalWalletForm>(makeEmptyExternalWalletForm())
 
 const modalTitle = computed(() => {
   if (props.contact && selectedEntity.value === 'Contacts') {
@@ -225,12 +248,15 @@ const ENTITY_ICONS = {
 
 const selectedEntityIcon = computed(() => ENTITY_ICONS[selectedEntity.value])
 
-const placeholderFooterSubmitLabel = computed(() =>
-  selectedEntity.value === 'Wallets' ? 'Add Wallets' : 'Add Companies',
-)
+const placeholderFooterSubmitLabel = computed(() => 'Add Companies')
 
 function onPlaceholderEntitySubmit() {
-  /* Wallets / Companies add-entry forms not implemented yet */
+  /* Companies add-entry form not implemented yet */
+}
+
+function saveExternalWallet() {
+  emit('external-wallet-saved', { ...externalWalletForm.value })
+  close()
 }
 
 watch(
@@ -239,9 +265,11 @@ watch(
     if (newVal) {
       closeExchangeAddressModal()
       closeWalletAddressModal()
+      closeExternalWalletAddressModal()
       currentTab.value = 'general'
       selectedEntity.value = props.initialEntity
       exchangeForm.value = makeEmptyExchange()
+      externalWalletForm.value = makeEmptyExternalWalletForm()
       if (props.contact) {
         isEditing.value = true
         form.value = { ...props.contact }
@@ -259,6 +287,7 @@ function onDialogOpen(open: boolean) {
   if (!open) {
     closeExchangeAddressModal()
     closeWalletAddressModal()
+    closeExternalWalletAddressModal()
     emit('close')
   }
 }
@@ -275,6 +304,8 @@ function isInsideTeleportedDropdown(target: EventTarget | null | undefined): boo
     target.closest('.custom-select-wrapper') ||
     target.closest('.ex-dropdown-portal') ||
     target.closest('.ex-dropdown') ||
+    target.closest('.wa-dropdown-portal') ||
+    target.closest('.wa-dropdown') ||
     target.closest('[data-stacked-modal="input-wallet-address"]')
   )
 }
@@ -440,6 +471,69 @@ function onWalletAddressConfirmed(payload: { address: string; coinTicker: string
       row.coinTicker = payload.coinTicker
     }
   }
+}
+
+const externalWalletAddressModal = ref<{ open: boolean; index: number | null; coinTicker: string }>({
+  open: false,
+  index: null,
+  coinTicker: '',
+})
+
+function openExternalWalletAddressModal(index: number) {
+  const row = externalWalletForm.value.currencies[index]
+  if (!row) return
+  externalWalletAddressModal.value = {
+    open: true,
+    index,
+    coinTicker: row.abbreviation || '',
+  }
+}
+
+function closeExternalWalletAddressModal() {
+  externalWalletAddressModal.value = { open: false, index: null, coinTicker: '' }
+}
+
+function onExternalWalletAddressConfirmed(payload: { address: string; coinTicker: string }) {
+  const index = externalWalletAddressModal.value.index
+  if (index !== null) {
+    const row = externalWalletForm.value.currencies[index]
+    if (row) {
+      row.address = payload.address
+      row.abbreviation = payload.coinTicker
+      row.name = payload.coinTicker
+    }
+  }
+}
+
+async function handleExternalWalletFileImport(event: Event) {
+  const target = event.target as HTMLInputElement
+  const file = target.files?.[0]
+  if (!file) return
+
+  const lower = file.name.toLowerCase()
+  try {
+    if (!lower.endsWith('.json')) {
+      alert('Only wallet address JSON (.json) can be imported here.')
+      return
+    }
+    const result = await parseWalletJsonFile(file)
+    for (const w of result.wallets) {
+      externalWalletForm.value.currencies.push({
+        name: w.coinTicker,
+        abbreviation: w.coinTicker,
+        address: w.address,
+      })
+    }
+  } catch (error) {
+    console.error('Error importing external wallet addresses:', error)
+    alert(
+      error instanceof Error
+        ? error.message
+        : 'Could not import JSON. Use a valid wallet address export.',
+    )
+  }
+
+  if (target) target.value = ''
 }
 
 function saveExchange() {

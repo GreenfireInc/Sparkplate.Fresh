@@ -91,7 +91,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
-import WalletModal from '@/components/modals/addressbook/modal.WalletDetails.vue'
+import WalletModal from '@/components/modals/addressbook/modal.details.Wallet.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 import { deleteWallet } from '@/services/addressBook/walletService'
 
@@ -105,6 +105,11 @@ interface Wallet {
   id: number
   name: string
   currencies: Currency[]
+  mnemonicWordCount?: number
+  mnemonicFirst?: string
+  mnemonicLast?: string
+  notes?: string
+  passwordHint?: string
 }
 
 const props = defineProps<{

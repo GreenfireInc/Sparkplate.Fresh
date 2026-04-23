@@ -1,4 +1,30 @@
+import type { WalletProviderData } from './walletProviderData'
 import { allWalletProviders } from './index'
+
+function findWalletProviderByDisplayName(displayName: string): WalletProviderData | null {
+  const name = displayName?.trim() ?? ''
+  if (!name) return null
+  const head = name.split(' · ')[0]?.trim() ?? name
+  const w = allWalletProviders.find(
+    (p) =>
+      head === p.basicInfo.name ||
+      name.startsWith(`${p.basicInfo.name} ·`) ||
+      name.startsWith(p.basicInfo.name),
+  )
+  return w ?? null
+}
+
+/** Social links from the wallet catalog (e.g. `exodusWalletData.socialMedia`) when the display name matches a known provider. */
+export function getWalletSocialMediaForDisplayName(displayName: string): Record<string, string> | null {
+  const p = findWalletProviderByDisplayName(displayName)
+  const sm = p?.socialMedia
+  if (!sm || typeof sm !== 'object') return null
+  const out: Record<string, string> = {}
+  for (const [k, v] of Object.entries(sm)) {
+    if (typeof v === 'string' && v.trim().length > 0) out[k] = v.trim()
+  }
+  return Object.keys(out).length ? out : null
+}
 
 export interface WalletPickerOption {
   /** Canonical slug from `basicInfo.slug` (e.g. `metamask`) */

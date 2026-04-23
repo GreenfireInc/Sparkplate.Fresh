@@ -53,6 +53,13 @@
                 {{ form.name || 'Exchange' }}
               </h2>
 
+              <p v-if="exchangeCountry" class="cd-sidebar__meta cd-sidebar__meta--country">
+                <span v-if="exchangeCountryFlag" class="cd-sidebar__flag" aria-hidden="true">{{
+                  exchangeCountryFlag
+                }}</span>
+                <span>{{ exchangeCountry }}</span>
+              </p>
+
               <a
                 v-if="form.url"
                 :href="form.url"
@@ -175,43 +182,41 @@
                       />
                     </div>
 
-                    <div v-if="form.currencies.length > 0" class="cd-exch-currencies__table">
-                      <div class="cd-exch-currencies__header">
-                        <span>Currency</span>
-                        <span class="cd-exch-currencies__sep" aria-hidden="true">://</span>
-                        <span>Address</span>
-                        <span />
+                    <!-- Layout mirrors tab.contactDetails.Wallets.vue (tabsFor.details): .wallets-tab > .empty-state | .wallets-list -->
+                    <div class="cd-exch-wallets-tab">
+                      <div v-if="form.currencies.length === 0" class="cd-exch-wallets-empty">
+                        <p>No currencies added yet. Use the toolbar to add or import addresses.</p>
                       </div>
-                      <div class="cd-exch-currencies__scroll">
+                      <div v-else class="cd-exch-wallets-list">
                         <div
                           v-for="(currency, index) in form.currencies"
                           :key="index"
-                          class="cd-exch-currencies__row"
+                          class="cd-exch-currency-card"
                         >
-                          <DropdownCurrency
-                            :model-value="currency.abbreviation"
-                            @update:model-value="(v) => onCurrencyPick(index, v)"
-                          />
-                          <span class="cd-exch-currencies__sep" aria-hidden="true">://</span>
-                          <input
-                            v-model="currency.address"
-                            type="text"
-                            class="cd-exch-input cd-exch-input--sm"
-                            placeholder="Wallet address"
-                          />
                           <button
                             type="button"
-                            class="cd-exch-remove-btn"
+                            class="cd-exch-currency-card__remove"
                             aria-label="Remove currency"
                             @click="removeCurrency(index)"
                           >
-                            <Trash2 :size="13" />
+                            <Trash2 :size="16" />
                           </button>
+                          <div class="cd-exch-currencies__row">
+                            <DropdownCurrency
+                              :model-value="currency.abbreviation"
+                              @update:model-value="(v) => onCurrencyPick(index, v)"
+                            />
+                            <span class="cd-exch-currencies__sep" aria-hidden="true">://</span>
+                            <input
+                              v-model="currency.address"
+                              type="text"
+                              class="cd-exch-input cd-exch-input--sm"
+                              placeholder="Wallet address"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
-
-                    <p v-else class="cd-exch-currencies__empty">No currencies added yet.</p>
                   </div>
                 </TabsContent>
 
@@ -276,7 +281,7 @@ import {
   Share2,
   Globe,
 } from 'lucide-vue-next'
-import TabContactDetailsNotes from '@/components/modals/addressbook/tabsFor.contactDetails/tab.contactDetails.Notes.vue'
+import TabContactDetailsNotes from '@/components/modals/addressbook/tabsFor.details/tab.contactDetails.Notes.vue'
 import DropdownCurrency from '@/components/dropdown/dropdown.currency.vue'
 import StructureImportWalletAddress from '@/components/structure/structure.import.walletAddress.vue'
 import { parseWalletJsonFile } from '@/lib/cores/importStandard/importWallet.json'
@@ -284,6 +289,8 @@ import {
   getExchangePickerOptions,
   getExchangeIconSrc,
   getExchangeSocialMediaForDisplayName,
+  getExchangeCountryForDisplayName,
+  flagEmojiForCountryName,
 } from '@/lib/cores/currencyCore/exchanges/exchangePickerOptions'
 
 const SOCIAL_PLATFORM_ICONS: Record<string, Component> = {
@@ -424,6 +431,9 @@ const avatarBackgroundColor = computed(() => {
   return color
 })
 
+const exchangeCountry = computed(() => getExchangeCountryForDisplayName(form.value.name))
+const exchangeCountryFlag = computed(() => flagEmojiForCountryName(exchangeCountry.value))
+
 const exchangeSocialLinks = computed(() => {
   const sm = getExchangeSocialMediaForDisplayName(form.value.name)
   if (!sm) return []
@@ -528,7 +538,7 @@ function close() {
 </script>
 
 <style lang="scss" scoped>
-/* Shell aligned with modal.Contact.Details.vue (cd-*) */
+/* Shell aligned with modal.details.Contact.vue (cd-*) */
 
 .cd-overlay {
   position: fixed;
@@ -702,6 +712,21 @@ function close() {
   text-align: center;
   word-break: break-word;
   max-width: 100%;
+}
+
+.cd-sidebar__meta--country {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.cd-sidebar__flag {
+  font-size: 1.05rem;
+  line-height: 1;
+  font-family:
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
 }
 
 .cd-exch-sidebar-social {
@@ -1000,52 +1025,113 @@ function close() {
   }
 }
 
-.cd-exch-currencies__table {
-  display: flex;
-  flex-direction: column;
+/* Mirrors tabsFor.details / tab.contactDetails.Wallets.vue `.wallets-tab` + `.wallets-list` + card shell (CardWalletAddress `.cwa-card`) */
+.cd-exch-wallets-tab {
   flex: 1;
   min-height: 0;
-  max-height: min(58vh, 34rem);
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-
-.cd-exch-currencies__header {
-  flex-shrink: 0;
-  display: grid;
-  grid-template-columns: 1fr auto 2fr 2rem;
-  gap: 0.5rem;
-  padding: 0.4rem 1rem;
-  background: #f3f4f6;
-  border-bottom: 1px solid #e5e7eb;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: #4b5563;
-}
-
-.cd-exch-currencies__scroll {
-  flex: 1;
-  min-height: 0;
+  padding: 1rem 0;
+  max-height: 60vh;
   overflow-y: auto;
   overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
+  padding-right: 0.5rem;
+}
+
+.cd-exch-wallets-tab::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cd-exch-wallets-tab::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cd-exch-wallets-tab::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+.cd-exch-wallets-tab::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.cd-exch-wallets-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #6b7280;
+
+  p {
+    margin: 0;
+    font-size: 0.875rem;
+  }
+}
+
+.cd-exch-wallets-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.cd-exch-currency-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  padding-top: 2.25rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition:
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+  overflow: hidden;
+  gap: 0.625rem;
+  min-width: 0;
+}
+
+.cd-exch-currency-card:hover {
+  box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.12);
+  border-color: #d1d5db;
+}
+
+.cd-exch-currency-card__remove {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  background: #fef2f2;
+  border-radius: 0.375rem;
+  color: #dc2626;
+  cursor: pointer;
+  transition:
+    background 0.12s,
+    color 0.12s;
+  flex-shrink: 0;
+}
+
+.cd-exch-currency-card__remove:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.cd-exch-currency-card__remove:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 
 .cd-exch-currencies__row {
   display: grid;
-  grid-template-columns: 1fr auto 2fr 2rem;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 2fr);
   gap: 0.5rem;
   align-items: center;
-  padding: 0.35rem 1rem;
-  border-bottom: 1px solid #f3f4f6;
-
-  &:last-child {
-    border-bottom: none;
-  }
+  padding: 0;
+  border-bottom: none;
 }
 
 .cd-exch-currencies__sep {
@@ -1056,36 +1142,6 @@ function close() {
   font-size: 0.8125rem;
   color: #9ca3af;
   user-select: none;
-}
-
-.cd-exch-currencies__empty {
-  font-size: 0.875rem;
-  color: #9ca3af;
-  margin: 0;
-  padding: 1.5rem 0;
-  text-align: center;
-}
-
-.cd-exch-remove-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.75rem;
-  height: 1.75rem;
-  padding: 0;
-  border: none;
-  background: transparent;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  color: #9ca3af;
-  transition:
-    background 0.12s,
-    color 0.12s;
-
-  &:hover {
-    background: #fee2e2;
-    color: #ef4444;
-  }
 }
 
 .cd-footer {
