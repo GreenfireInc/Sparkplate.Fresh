@@ -78,8 +78,8 @@ const triggerRef = ref<HTMLElement | null>(null);
 const portalRef = ref<HTMLElement | null>(null);
 const dropdownPos = ref({ top: 0, left: 0, width: 0 });
 
-/** Must sit above app modals (e.g. modal.add.entry uses overlay 10060 / content 10061; radix selects use ~10070). */
-const DROPDOWN_Z_INDEX = 10085
+/** Must sit above stacked dialogs (e.g. input-wallet submodal content ~10101; add-entry ~10061). */
+const DROPDOWN_Z_INDEX = 10120
 
 const dropdownStyle = computed(() => ({
   position: 'fixed' as const,

@@ -208,19 +208,29 @@ import {
   Separator,
 } from 'radix-vue'
 import { Clock, Lock, Save, Trash2, Download, FileText, FileJson } from 'lucide-vue-next'
-import { isNoteLocked, updateNote, deleteNote, type Note } from '@/services/addressBook/service.Note'
+import {
+  isNoteLocked,
+  updateNote,
+  deleteNote,
+  type Note,
+  type NoteOwnerKind,
+} from '@/services/addressBook/service.Note'
 import { reverseText, getInitialMirrorState } from '@/lib/cores/displayStandard/mirrorText'
 import { exportNoteAsMarkdown, exportNoteAsJson } from '@/lib/cores/exportStandard/filenameStructureAndContent.Contact.notes'
 import NoteDeleteConfirmModal from '@/components/modals/confirmations/modal.confirm.delete.Note.vue'
 
 defineOptions({ name: 'SubModalNoteEditor' })
 
-const props = defineProps<{
-  show: boolean
-  note: Note | null
-  contactId: number | null
-  contactName?: string
-}>()
+const props = withDefaults(
+  defineProps<{
+    show: boolean
+    note: Note | null
+    contactId: number | null
+    contactName?: string
+    noteOwnerKind?: NoteOwnerKind
+  }>(),
+  { noteOwnerKind: 'contact' },
+)
 
 const emit = defineEmits<{
   (e: 'close'): void
@@ -306,7 +316,7 @@ const handleContentChange = () => {
 const handleUpdateNote = async (updates: Partial<Note>) => {
   if (!props.note || !props.contactId || isLocked.value) return
   try {
-    await updateNote(props.contactId, props.note.id, updates)
+    await updateNote(props.contactId, props.note.id, updates, props.noteOwnerKind)
     emit('note-updated')
   } catch (err) {
     console.error('Error updating note:', err)
@@ -360,7 +370,7 @@ const handleDelete = () => {
 const handleDeleteConfirmed = async () => {
   if (!props.note || !props.contactId) return
   try {
-    await deleteNote(props.contactId, props.note.id)
+    await deleteNote(props.contactId, props.note.id, props.noteOwnerKind)
     showDeleteConfirm.value = false
     emit('note-deleted')
     emit('close')
@@ -374,7 +384,7 @@ const handleDeleteConfirmed = async () => {
 const handleClose = async () => {
   if (!isMirrored.value && props.note && props.contactId && noteContent.value && !isLocked.value) {
     const mirroredContent = reverseText(noteContent.value)
-    await updateNote(props.contactId, props.note.id, { content: mirroredContent })
+    await updateNote(props.contactId, props.note.id, { content: mirroredContent }, props.noteOwnerKind)
     emit('note-updated')
   }
   isActivelyEditing.value = false

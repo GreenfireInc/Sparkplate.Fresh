@@ -58,13 +58,12 @@
               Currencies
               <span v-if="sortKey === 'numCurrencies'" class="ab-table__sort-arrow" aria-hidden="true">{{ sortOrder === 'asc' ? '▲' : '▼' }}</span>
             </th>
-            <th class="ab-table__th" scope="col">Main Currency Address</th>
             <th class="ab-table__th ab-table__th--actions" scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr v-if="sortedCompanies.length === 0">
-            <td colspan="8" class="ab-table__empty">No companies found.</td>
+            <td colspan="7" class="ab-table__empty">No companies found.</td>
           </tr>
           <tr v-for="company in sortedCompanies" :key="company.id" class="ab-table__row">
             <td class="ab-table__td">{{ company.id }}</td>
@@ -73,7 +72,6 @@
             <td class="ab-table__td">{{ company.position }}</td>
             <td class="ab-table__td">{{ company.email }}</td>
             <td class="ab-table__td">{{ company.numCurrencies }}</td>
-            <td class="ab-table__td">{{ company.mainCurrencyAddress }}</td>
             <td class="ab-table__td ab-table__td--actions">
               <button
                 type="button"

@@ -31,7 +31,7 @@
               <input id="ac-company" v-model="form.company" type="text" class="ac-input" autocomplete="organization" />
             </div>
           </div>
-          <div class="ac-field">
+          <div class="ac-field ac-field--notes">
             <Label class="ac-label" for="ac-notes">Notes</Label>
             <textarea id="ac-notes" v-model="form.notes" class="ac-textarea" rows="3" />
           </div>
@@ -79,6 +79,8 @@ const emit = defineEmits<{
   display: flex;
   flex-direction: column;
   gap: 0;
+  /* Keep General and Wallets tab bodies the same height */
+  --ac-contact-tab-panel-height: min(26rem, 52vh);
 }
 
 .ac-tabs__content {
@@ -87,13 +89,17 @@ const emit = defineEmits<{
 
 .ac-tabs__panel--general {
   box-sizing: border-box;
-  height: 26rem;
-  max-height: min(26rem, 52vh);
+  display: flex;
+  flex-direction: column;
+  min-height: var(--ac-contact-tab-panel-height);
+  max-height: var(--ac-contact-tab-panel-height);
   overflow-y: auto;
   padding-right: 0.15rem;
 }
 
 .ac-general-fields {
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -109,6 +115,11 @@ const emit = defineEmits<{
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+}
+
+.ac-field--notes {
+  flex: 1;
+  min-height: 0;
 }
 
 .ac-label {
@@ -136,7 +147,10 @@ const emit = defineEmits<{
 }
 
 .ac-textarea {
+  display: block;
+  flex: 1;
   min-height: 5rem;
+  margin: 0;
   resize: vertical;
 }
 </style>
