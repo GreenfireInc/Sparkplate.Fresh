@@ -77,7 +77,12 @@
       </table>
     </div>
 
-    <WalletModal v-if="selectedWallet" :wallet="selectedWallet" @close="closeWalletModal" />
+    <WalletModal
+      v-if="selectedWallet"
+      :wallet="selectedWallet"
+      @close="closeWalletModal"
+      @currency-removed="onWalletCurrencyRemoved"
+    />
     <ModalConfirmDeleteGeneral
       :show="showConfirmModal"
       :title="confirmModalTitle"
@@ -192,6 +197,12 @@ const openWalletModal = (wallet: Wallet) => {
 
 const closeWalletModal = () => {
   selectedWallet.value = null
+}
+
+function onWalletCurrencyRemoved(currencyIndex: number) {
+  const w = selectedWallet.value
+  if (!w || currencyIndex < 0 || currencyIndex >= w.currencies.length) return
+  w.currencies.splice(currencyIndex, 1)
 }
 
 const confirmDeleteWallet = (wallet: Wallet) => {

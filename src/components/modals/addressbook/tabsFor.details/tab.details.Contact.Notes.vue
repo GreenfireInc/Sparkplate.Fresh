@@ -78,8 +78,7 @@
 import { ref, computed, watch } from 'vue'
 import { Plus, FileText, Lock, Trash2, Search } from 'lucide-vue-next';
 import {
-  getNotesForContactId,
-  getNotesForExchangeId,
+  getNotesForOwnerId,
   addNote,
   deleteNote,
   isNoteLocked,
@@ -95,13 +94,24 @@ const props = withDefaults(
     contactId: number | null
     /** For export filename */
     contactName?: string
-    /** Use `'exchange'` for exchange details (separate localStorage namespace). */
+    /** `'exchange'`, `'company'`, and `'wallet'` use separate localStorage namespaces. */
     noteOwnerKind?: NoteOwnerKind
   }>(),
   { noteOwnerKind: 'contact' },
 )
 
-const entityKindNoun = computed(() => (props.noteOwnerKind === 'exchange' ? 'exchange' : 'contact'))
+const entityKindNoun = computed(() => {
+  switch (props.noteOwnerKind) {
+    case 'exchange':
+      return 'exchange'
+    case 'company':
+      return 'company'
+    case 'wallet':
+      return 'wallet'
+    default:
+      return 'contact'
+  }
+})
 
 const notes = ref<Note[]>([]);
 const selectedNote = ref<Note | null>(null);
@@ -123,10 +133,7 @@ const filteredNotes = computed(() => {
 
 const loadNotes = async () => {
   if (props.contactId) {
-    const loadedNotes =
-      props.noteOwnerKind === 'exchange'
-        ? await getNotesForExchangeId(props.contactId)
-        : await getNotesForContactId(props.contactId)
+    const loadedNotes = await getNotesForOwnerId(props.contactId, props.noteOwnerKind)
     notes.value = [...loadedNotes]
   } else {
     notes.value = []

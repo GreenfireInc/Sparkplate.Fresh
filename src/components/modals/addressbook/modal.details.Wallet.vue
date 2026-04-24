@@ -11,6 +11,20 @@
         <div class="cd-header">
           <div class="cd-header__row">
             <DialogTitle class="cd-header__title">Wallet details</DialogTitle>
+            <div class="cd-header__actions">
+              <ActionsDropdown
+                :contact="walletActionsContactStub"
+                :is-editing="false"
+                @update:edit-mode="onWalletActionsEditMode"
+                @save-changes="onWalletActionsSaveChanges"
+                @cancel-edit="onWalletActionsCancelEdit"
+                @add-currency-request="onWalletActionsAddCurrencyRequest"
+                @generate-qrcode-png="onWalletActionsGenerateQrPng"
+                @generate-qrcode-svg="onWalletActionsGenerateQrSvg"
+                @export-csv="onWalletActionsExportCsv"
+                @export-vcf="onWalletActionsExportVcf"
+              />
+            </div>
             <DialogClose class="cd-header__close" aria-label="Close">
               <svg
                 viewBox="0 0 24 24"
@@ -106,7 +120,7 @@
                   <TabsTrigger value="notes" class="cd-tabs__trigger">
                     <NotebookPen :size="14" class="cd-tabs__icon" />
                     Notes
-                    <span class="cd-badge">0</span>
+                    <span class="cd-badge">{{ walletNotesCount }}</span>
                   </TabsTrigger>
                 </TabsList>
 
@@ -184,27 +198,33 @@
 
                 <TabsContent value="currencies" class="cd-tabs__content">
                   <!-- Layout mirrors tab.details.Contact.Wallets.vue (tabsFor.details):
-                       .wallets-tab > .empty-state | .wallets-list with CardWalletAddress children.
-                       Read-only — the card's delete button is hidden via scoped :deep(). -->
+                       .wallets-tab > .empty-state | .wallets-list with CardWalletAddress children. -->
                   <div class="cd-exch-wallets-tab">
                     <div v-if="wallet.currencies.length === 0" class="cd-exch-wallets-empty">
                       <p>No currencies on this wallet.</p>
                     </div>
-                    <div v-else class="cd-exch-wallets-list cd-exch-wallets-list--readonly">
+                    <div v-else class="cd-exch-wallets-list">
                       <CardWalletAddress
                         v-for="(currency, index) in wallet.currencies"
                         :key="`${currency.abbreviation}-${index}`"
                         :wallet="toWalletLike(currency, index)"
                         @copy="onWalletCurrencyCopy"
+                        @delete="onWalletCurrencyDelete"
                       />
                     </div>
                   </div>
                 </TabsContent>
 
                 <TabsContent value="notes" class="cd-tabs__content">
-                  <div class="cd-coming-soon">
+                  <TabDetailsContactNotes
+                    v-if="wallet.id != null"
+                    :contact-id="wallet.id"
+                    :contact-name="wallet.name"
+                    note-owner-kind="wallet"
+                  />
+                  <div v-else class="cd-coming-soon">
                     <NotebookPen :size="32" class="cd-coming-soon__icon" />
-                    <p>Wallet notes are not available yet.</p>
+                    <p>Save this wallet to start adding notes.</p>
                   </div>
                 </TabsContent>
               </TabsRoot>
@@ -259,7 +279,11 @@ import {
   getWalletSocialMediaForDisplayName,
 } from '@/lib/cores/currencyCore/walletProviders/walletPickerOptions'
 import CardWalletAddress from '@/components/structure/card.WalletAddress.vue'
+import TabDetailsContactNotes from '@/components/modals/addressbook/tabsFor.details/tab.details.Contact.Notes.vue'
+import { notesRevision, getNotesForOwnerId } from '@/services/addressBook/service.addressBook.Note'
 import type { Wallet as WalletRecord } from '@/services/addressBook/service.addressBook.Wallet'
+import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
+import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
 
 const SOCIAL_PLATFORM_ICONS: Record<string, Component> = {
   twitter: Twitter,
@@ -312,7 +336,65 @@ interface Wallet {
 }
 
 const props = defineProps<{ wallet: Wallet }>()
-const emit = defineEmits<{ close: [] }>()
+const emit = defineEmits<{ close: []; 'currency-removed': [currencyIndex: number] }>()
+
+const walletNotesCount = ref(0)
+
+watch(
+  [() => props.wallet?.id, notesRevision],
+  async () => {
+    const id = props.wallet?.id
+    if (id == null) {
+      walletNotesCount.value = 0
+      return
+    }
+    walletNotesCount.value = (await getNotesForOwnerId(id, 'wallet')).length
+  },
+  { immediate: true },
+)
+
+/** Contact-shaped payload for header ActionsDropdown (same component as contact details). */
+const walletActionsContactStub = computed<Contact>(() => ({
+  id: props.wallet.id,
+  type: 'addressbook_wallet',
+  firstname: props.wallet.name || 'Wallet',
+  lastname: '',
+  company: '',
+  email: '',
+  notes: props.wallet.notes ?? '',
+}))
+
+function onWalletActionsEditMode(value: boolean) {
+  console.log('Wallet details: edit mode from actions menu (read-only modal):', value)
+}
+
+function onWalletActionsSaveChanges() {
+  console.log('Wallet details: save from actions menu (read-only modal)')
+}
+
+function onWalletActionsCancelEdit() {
+  console.log('Wallet details: cancel edit from actions menu')
+}
+
+function onWalletActionsAddCurrencyRequest() {
+  console.log('Wallet details: add currency from actions menu — use Address Book to edit this wallet.')
+}
+
+function onWalletActionsGenerateQrPng(contact: Contact) {
+  console.log('Wallet details: QR PNG from actions menu:', contact.id)
+}
+
+function onWalletActionsGenerateQrSvg(contact: Contact) {
+  console.log('Wallet details: QR SVG from actions menu:', contact.id)
+}
+
+function onWalletActionsExportCsv(contact: Contact) {
+  console.log('Wallet details: export CSV from actions menu:', contact.id)
+}
+
+function onWalletActionsExportVcf(contact: Contact) {
+  console.log('Wallet details: export VCF from actions menu:', contact.id)
+}
 
 const walletMnemonicLengthSelect = computed(() => {
   const n = props.wallet.mnemonicWordCount
@@ -441,6 +523,12 @@ function toWalletLike(currency: Currency, index: number): WalletRecord {
 function onWalletCurrencyCopy(address: string) {
   console.log('Wallet currency address copied to clipboard:', address)
 }
+
+/** `CardWalletAddress` emits `wallet.id`, which we set to the currency row index in `toWalletLike`. */
+function onWalletCurrencyDelete(rowIndex: number) {
+  if (!confirm('Remove this currency from the wallet?')) return
+  emit('currency-removed', rowIndex)
+}
 </script>
 
 <style lang="scss" scoped>
@@ -514,6 +602,12 @@ function onWalletCurrencyCopy(address: string) {
   font-size: 1.0625rem;
   font-weight: 700;
   color: #111827;
+}
+
+.cd-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .cd-header__close {
@@ -930,11 +1024,6 @@ function onWalletCurrencyCopy(address: string) {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
-}
-
-/* Wallet details is a fully read-only view; suppress the card's delete action. */
-.cd-exch-wallets-list--readonly :deep(.cwa-delete) {
-  display: none;
 }
 
 .cd-footer {
