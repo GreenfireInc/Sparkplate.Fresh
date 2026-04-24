@@ -150,13 +150,13 @@ import AddCurrencyModal from '@/components/modals/addressbook/modal.add.Currency
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 import ImportButton from '@/components/buttons/addressbook/ImportButton.vue'
 import ExportButton from '@/components/buttons/addressbook/ExportButton.vue'
-import ExchangeTab from '@/components/pageTabs/addressbook/ExchangeTab.vue'
-import WalletTab from '@/components/pageTabs/addressbook/WalletTab.vue'
-import CompaniesTab from '@/components/pageTabs/addressbook/CompaniesTab.vue'
-import ContactsTab from '@/components/pageTabs/addressbook/ContactsTab.vue'
+import ExchangeTab from '@/components/pageTabs/addressbook/tab.addressBook.Exchange.vue'
+import WalletTab from '@/components/pageTabs/addressbook/tab.addressBook.Wallet.vue'
+import CompaniesTab from '@/components/pageTabs/addressbook/tab.addressBook.Companies.vue'
+import ContactsTab from '@/components/pageTabs/addressbook/tab.addressBook.Contact.vue'
 import { NotebookTabs, SquareUser, ChevronLeft, ChevronRight } from 'lucide-vue-next'
-import { getContacts, addContact, deleteContact, type Contact } from '@/services/addressBook/contactService'
-import { addWallet, getWalletCountForContact } from '@/services/addressBook/walletService'
+import { getContacts, addContact, deleteContact, type Contact } from '@/services/addressBook/service.addressBook.Contact'
+import { addWallet, getWalletCountForContact } from '@/services/addressBook/service.addressBook.Wallet'
 
 defineOptions({ name: 'AddressBookPage' })
 

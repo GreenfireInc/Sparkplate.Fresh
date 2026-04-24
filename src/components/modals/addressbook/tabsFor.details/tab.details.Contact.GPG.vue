@@ -52,11 +52,11 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
 import { Copy, FileLock, QrCode } from 'lucide-vue-next'
-import { getWalletsForContact, type Wallet } from '@/services/addressBook/walletService'
+import { getWalletsForContact, type Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 import { encryptAndDownloadFile } from '@/lib/cores/cryptographyCore/encryption.gpg/encryption.gpg'
 import GPGQRCodeModal from '@/components/modals/addressbook/subModals/subModal.qrCode.GPG.vue'
 
-defineOptions({ name: 'TabContactDetailsGPG' })
+defineOptions({ name: 'TabDetailsContactGPG' })
 
 const props = defineProps<{
   contactId: number | null;

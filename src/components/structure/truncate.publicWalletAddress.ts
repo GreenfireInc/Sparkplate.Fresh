@@ -1,5 +1,5 @@
 import { computed, type ComputedRef } from 'vue'
-import type { Wallet } from '@/services/addressBook/walletService'
+import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 
 /**
  * Truncate address to show first 7 and last 7 characters of the address (excluding ticker:// prefix) with ellipses

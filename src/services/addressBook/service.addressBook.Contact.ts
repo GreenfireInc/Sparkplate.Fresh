@@ -5,6 +5,8 @@ export interface Contact {
   lastname: string;
   company: string;
   email: string;
+  /** Generic company / org inbox (distinct from main contact email when set). */
+  companyEmail?: string;
   notes: string;
   website?: string;
   phone?: string;

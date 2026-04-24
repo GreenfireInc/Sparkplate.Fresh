@@ -119,7 +119,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed } from 'vue'
+
+defineOptions({ name: 'TabAddressBookExchange' })
 import ExchangeModal from '@/components/modals/addressbook/modal.details.Exchange.vue'
 import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue';
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'

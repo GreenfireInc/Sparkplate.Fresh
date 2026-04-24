@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import { Trash2 } from 'lucide-vue-next';
-import type { Note } from '@/services/addressBook/service.Note'
+import type { Note } from '@/services/addressBook/service.addressBook.Note'
 
 const props = defineProps<{
   show: boolean;

@@ -109,20 +109,18 @@
             />
           </div>
 
-          <form
-            v-else
-            class="ac-add-entry-placeholder-form"
-            novalidate
-            @submit.prevent="onPlaceholderEntitySubmit"
-          >
-            <div class="ac-placeholder">
-              <p>Form for adding a new {{ selectedEntity.slice(0, -1).toLowerCase() }} will be here.</p>
-            </div>
-            <FormAddEntryFooter
-              :submit-label="placeholderFooterSubmitLabel"
+          <div v-else-if="selectedEntity === 'Companies'">
+            <FormAddEntryCompanies
+              v-model="companyForm"
+              @submit="saveCompany"
               @cancel="close"
+              @open-wallet-address="openCompanyWalletAddressModal"
+              @add-wallet="addCompanyWalletRow"
+              @remove-wallet="removeCompanyWalletRow"
+              @file-import="handleCompanyWalletFileImport"
+              @scan-qr="onWalletTabScanQr"
             />
-          </form>
+          </div>
         </div>
       </DialogContent>
     </DialogPortal>
@@ -177,9 +175,9 @@ import {
   SelectViewport,
 } from 'radix-vue'
 import { SquareUser, Landmark, Wallet as WalletIcon, Building2 } from 'lucide-vue-next'
-import { type Contact, addContact, updateContact } from '@/services/addressBook/contactService'
-import { addNote, getNotesForContactId, updateNote } from '@/services/addressBook/service.Note'
-import { type Wallet, addWallet, getWalletsForContact, updateWallet, deleteWallet } from '@/services/addressBook/walletService'
+import { type Contact, addContact, updateContact } from '@/services/addressBook/service.addressBook.Contact'
+import { addNote, getNotesForContactId, updateNote } from '@/services/addressBook/service.addressBook.Note'
+import { type Wallet, addWallet, getWalletsForContact, updateWallet, deleteWallet } from '@/services/addressBook/service.addressBook.Wallet'
 import SubModalInputWalletAddress from '@/components/modals/addressbook/subModals/subModal.input.WalletAddress.vue'
 import FormAddEntryExchange, {
   type ExchangeForm,
@@ -190,6 +188,10 @@ import FormAddEntryExternalWallet, {
   makeEmptyExternalWalletForm,
   type ExternalWalletForm,
 } from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.externalWallet.vue'
+import FormAddEntryCompanies, {
+  makeEmptyCompanyForm,
+  type CompanyForm,
+} from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.companies.vue'
 import { parseWalletJsonFile } from '@/lib/cores/importStandard/importWallet.json'
 import { useContactParser } from '@/composables/useContactParser'
 
@@ -231,12 +233,21 @@ const currentTab = ref<'general' | 'advanced'>('general')
 const selectedEntity = ref<EntityType>('Contacts')
 const exchangeForm = ref<ExchangeForm>(makeEmptyExchange())
 const externalWalletForm = ref<ExternalWalletForm>(makeEmptyExternalWalletForm())
+const companyForm = ref<CompanyForm>(makeEmptyCompanyForm())
+
+/** Plural entity keys → singular title word (avoid `.slice(0,-1)` → "Companie"). */
+const ADD_MODAL_ENTITY_LABEL: Record<EntityType, string> = {
+  Contacts: 'Contact',
+  Exchanges: 'Exchange',
+  Wallets: 'Wallet',
+  Companies: 'Company',
+}
 
 const modalTitle = computed(() => {
   if (props.contact && selectedEntity.value === 'Contacts') {
     return 'Edit contact'
   }
-  return `Add new ${selectedEntity.value.slice(0, -1)}`
+  return `Add new ${ADD_MODAL_ENTITY_LABEL[selectedEntity.value]}`
 })
 
 const ENTITY_ICONS = {
@@ -247,12 +258,6 @@ const ENTITY_ICONS = {
 } as const
 
 const selectedEntityIcon = computed(() => ENTITY_ICONS[selectedEntity.value])
-
-const placeholderFooterSubmitLabel = computed(() => 'Add Companies')
-
-function onPlaceholderEntitySubmit() {
-  /* Companies add-entry form not implemented yet */
-}
 
 function saveExternalWallet() {
   emit('external-wallet-saved', { ...externalWalletForm.value })
@@ -270,6 +275,7 @@ watch(
       selectedEntity.value = props.initialEntity
       exchangeForm.value = makeEmptyExchange()
       externalWalletForm.value = makeEmptyExternalWalletForm()
+      companyForm.value = makeEmptyCompanyForm()
       if (props.contact) {
         isEditing.value = true
         form.value = { ...props.contact }
@@ -442,10 +448,18 @@ function onExchangeAddressConfirmed(payload: { address: string; coinTicker: stri
   }
 }
 
-const walletAddressModal = ref<{ open: boolean; index: number | null; coinTicker: string }>({
+type WalletAddressModalScope = 'contact' | 'company'
+
+const walletAddressModal = ref<{
+  open: boolean
+  index: number | null
+  coinTicker: string
+  scope: WalletAddressModalScope
+}>({
   open: false,
   index: null,
   coinTicker: '',
+  scope: 'contact',
 })
 
 function openWalletAddressModal(index: number) {
@@ -455,22 +469,82 @@ function openWalletAddressModal(index: number) {
     open: true,
     index,
     coinTicker: row.coinTicker || '',
+    scope: 'contact',
+  }
+}
+
+function openCompanyWalletAddressModal(index: number) {
+  const row = companyForm.value.wallets[index]
+  if (!row) return
+  walletAddressModal.value = {
+    open: true,
+    index,
+    coinTicker: row.coinTicker || '',
+    scope: 'company',
   }
 }
 
 function closeWalletAddressModal() {
-  walletAddressModal.value = { open: false, index: null, coinTicker: '' }
+  walletAddressModal.value = {
+    open: false,
+    index: null,
+    coinTicker: '',
+    scope: 'contact',
+  }
 }
 
 function onWalletAddressConfirmed(payload: { address: string; coinTicker: string }) {
-  const index = walletAddressModal.value.index
-  if (index !== null) {
+  const { index, scope } = walletAddressModal.value
+  if (index === null) return
+  if (scope === 'company') {
+    const row = companyForm.value.wallets[index]
+    if (row) {
+      row.address = payload.address
+      row.coinTicker = payload.coinTicker
+    }
+  } else {
     const row = wallets.value[index]
     if (row) {
       row.address = payload.address
       row.coinTicker = payload.coinTicker
     }
   }
+}
+
+function addCompanyWalletRow() {
+  companyForm.value.wallets.push({ coinTicker: '', address: '' })
+  openCompanyWalletAddressModal(companyForm.value.wallets.length - 1)
+}
+
+function removeCompanyWalletRow(index: number) {
+  companyForm.value.wallets.splice(index, 1)
+}
+
+async function handleCompanyWalletFileImport(event: Event) {
+  const target = event.target as HTMLInputElement
+  const file = target.files?.[0]
+  if (!file) return
+
+  const lower = file.name.toLowerCase()
+  try {
+    if (!lower.endsWith('.json')) {
+      alert('Only wallet address JSON (.json) can be imported here.')
+      return
+    }
+    const result = await parseWalletJsonFile(file)
+    for (const w of result.wallets) {
+      companyForm.value.wallets.push({ coinTicker: w.coinTicker, address: w.address })
+    }
+  } catch (error) {
+    console.error('Error importing company wallets:', error)
+    alert(
+      error instanceof Error
+        ? error.message
+        : 'Could not import JSON. Use a valid wallet address export.',
+    )
+  }
+
+  if (target) target.value = ''
 }
 
 const externalWalletAddressModal = ref<{ open: boolean; index: number | null; coinTicker: string }>({
@@ -539,6 +613,48 @@ async function handleExternalWalletFileImport(event: Event) {
 function saveExchange() {
   if (!exchangeForm.value.name?.trim()) return
   emit('exchange-saved', { ...exchangeForm.value })
+  close()
+}
+
+async function saveCompany() {
+  const name = companyForm.value.companyName?.trim()
+  const first = companyForm.value.mainContactFirstName?.trim()
+  const last = companyForm.value.mainContactLastName?.trim()
+  if (!name) {
+    await nextTick()
+    document.getElementById('ac-co-company-name')?.focus()
+    return
+  }
+  if (!first) {
+    await nextTick()
+    document.getElementById('ac-co-main-first')?.focus()
+    return
+  }
+
+  const savedContact = await addContact({
+    type: 'regular',
+    firstname: first,
+    lastname: last || '—',
+    company: name,
+    email: companyForm.value.mainContactEmailAddress?.trim() ?? '',
+    website: companyForm.value.companyWebsite?.trim() || undefined,
+    notes: companyForm.value.notes?.trim() ?? '',
+    relationship: companyForm.value.position?.trim() || undefined,
+  })
+
+  for (const wallet of companyForm.value.wallets) {
+    if (wallet.id) {
+      await updateWallet(wallet as Wallet)
+    } else {
+      await addWallet({
+        contactId: savedContact.id!,
+        coinTicker: wallet.coinTicker || '',
+        address: wallet.address || '',
+      })
+    }
+  }
+
+  emit('contact-saved')
   close()
 }
 
@@ -818,25 +934,5 @@ const close = () => {
 .ac-modal__body {
   overflow-y: auto;
   padding: 1rem 1.25rem 1.25rem;
-}
-
-.ac-add-entry-placeholder-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.ac-placeholder {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 10rem;
-  padding: 1.5rem;
-  text-align: center;
-  color: #6b7280;
-  font-size: 0.875rem;
-  border: 2px dashed #d1d5db;
-  border-radius: 0.5rem;
-  background: #fff;
 }
 </style>

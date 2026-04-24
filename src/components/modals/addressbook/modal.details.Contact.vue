@@ -133,7 +133,7 @@
                 </TabsList>
 
                 <TabsContent value="wallets" class="cd-tabs__content">
-                  <TabContactDetailsWallets
+                  <TabDetailsContactWallets
                     v-if="contact?.id"
                     :contactId="contact.id"
                     @wallet-deleted="refreshWalletCount"
@@ -142,7 +142,7 @@
                 </TabsContent>
 
                 <TabsContent value="gpg" class="cd-tabs__content">
-                  <TabContactDetailsGPG
+                  <TabDetailsContactGPG
                     v-if="contact?.id"
                     :contactId="contact.id"
                     ref="gpgTabRef"
@@ -160,7 +160,7 @@
                 </TabsContent>
 
                 <TabsContent value="notes" class="cd-tabs__content">
-                  <TabContactDetailsNotes
+                  <TabDetailsContactNotes
                     v-if="contact?.id"
                     :contactId="contact.id"
                     :contactName="contactFullName"
@@ -215,19 +215,19 @@ import {
   TabsRoot, TabsList, TabsTrigger, TabsContent,
   SelectRoot, SelectTrigger, SelectContent, SelectItem, SelectItemText, SelectValue, SelectPortal, SelectViewport,
 } from 'radix-vue'
-import type { Contact } from '@/services/addressBook/contactService'
-import { updateContact } from '@/services/addressBook/contactService'
+import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
+import { updateContact } from '@/services/addressBook/service.addressBook.Contact'
 import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
 import AddCurrencyModal from '@/components/modals/addressbook/subModals/subModal.add.Currency.vue'
 import ContactQRCodeModal from '@/components/modals/addressbook/subModals/submodal.qrCode.Contact.vue'
-import TabContactDetailsWallets from '@/components/modals/addressbook/tabsFor.details/tab.contactDetails.Wallets.vue'
-import TabContactDetailsNotes from '@/components/modals/addressbook/tabsFor.details/tab.contactDetails.Notes.vue'
-import TabContactDetailsGPG from '@/components/modals/addressbook/tabsFor.details/tab.contactDetails.GPG.vue'
+import TabDetailsContactWallets from '@/components/modals/addressbook/tabsFor.details/tab.details.Contact.Wallets.vue'
+import TabDetailsContactNotes from '@/components/modals/addressbook/tabsFor.details/tab.details.Contact.Notes.vue'
+import TabDetailsContactGPG from '@/components/modals/addressbook/tabsFor.details/tab.details.Contact.GPG.vue'
 import AspectSocialMedia from '@/components/modals/addressbook/aspects/aspect.socialMedia.vue'
 import SubModalSocialMedia from '@/components/modals/addressbook/subModals/subModal.socialMedia.vue'
 import {
   addWallet, getWalletCountForContact, getWalletsForContact, type Wallet,
-} from '@/services/addressBook/walletService'
+} from '@/services/addressBook/service.addressBook.Wallet'
 import {
   Wallet as WalletIcon, FileKey, ReceiptText, NotebookPen, QrCode,
 } from 'lucide-vue-next'
@@ -249,9 +249,9 @@ const showContactQRCodeModal = ref(false)
 const showSocialMediaModal = ref(false)
 const activeTab = ref('wallets')
 const walletCount = ref(0)
-const walletsTabRef = ref<InstanceType<typeof TabContactDetailsWallets> | null>(null)
-const notesTabRef = ref<InstanceType<typeof TabContactDetailsNotes> | null>(null)
-const gpgTabRef = ref<InstanceType<typeof TabContactDetailsGPG> | null>(null)
+const walletsTabRef = ref<InstanceType<typeof TabDetailsContactWallets> | null>(null)
+const notesTabRef = ref<InstanceType<typeof TabDetailsContactNotes> | null>(null)
+const gpgTabRef = ref<InstanceType<typeof TabDetailsContactGPG> | null>(null)
 const gpgKeys = ref<Wallet[]>([])
 const gpgKeysCount = computed(() => gpgKeys.value.length)
 

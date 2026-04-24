@@ -1,7 +1,7 @@
 
-import { getContacts, deleteContact } from './contactService';
-import { getWalletsForContact, getWalletCountForContact, deleteWalletsForContact } from './walletService';
-import type { Contact } from './contactService';
+import { getContacts, deleteContact } from './service.addressBook.Contact';
+import { getWalletsForContact, getWalletCountForContact, deleteWalletsForContact } from './service.addressBook.Wallet';
+import type { Contact } from './service.addressBook.Contact';
 
 export interface Company {
   id: number;
@@ -30,7 +30,7 @@ export async function getCompanies(): Promise<Company[]> {
         id: Object.keys(companyData).length + 1,
         name: companyName,
         mainContact: `${contact.firstname} ${contact.lastname}`,
-        position: '', // Position data is not available
+        position: contact.relationship?.trim() ?? '',
         email: contact.email,
         numCurrencies: 0,
         mainCurrencyAddress: ''

@@ -88,7 +88,7 @@
 
         <div class="ab-table-shell">
           <div class="ab-scroll-area">
-            <!-- ContactsTab renders its own TabsContent internally -->
+            <!-- tab.addressBook.Contact renders its own TabsContent internally -->
             <ContactsTab
               v-model:selected-contacts="selectedContacts"
               :paginated-contacts="paginatedContacts"
@@ -113,7 +113,7 @@
               <WalletTab :wallets="wallets" />
             </TabsContent>
 
-            <CompaniesTab />
+            <CompaniesTab ref="companiesTabRef" />
           </div>
 
           <!-- Footer: sibling of scroll area inside the card — never inside the scroll -->
@@ -206,12 +206,12 @@ import AddCurrencyModal from '@/components/modals/addressbook/subModals/subModal
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 import ImportButton from '@/components/buttons/addressbook/ImportButton.vue'
 import ExportButton from '@/components/buttons/addressbook/ExportButton.vue'
-import ExchangeTab from '@/components/pageTabs/addressbook/ExchangeTab.vue'
-import WalletTab from '@/components/pageTabs/addressbook/WalletTab.vue'
-import CompaniesTab from '@/components/pageTabs/addressbook/CompaniesTab.vue'
-import ContactsTab from '@/components/pageTabs/addressbook/ContactsTab.vue'
-import { getContacts, addContact, deleteContact, type Contact } from '@/services/addressBook/contactService'
-import { addWallet, getWalletCountForContact } from '@/services/addressBook/walletService'
+import ExchangeTab from '@/components/pageTabs/addressbook/tab.addressBook.Exchange.vue'
+import WalletTab from '@/components/pageTabs/addressbook/tab.addressBook.Wallet.vue'
+import CompaniesTab from '@/components/pageTabs/addressbook/tab.addressBook.Companies.vue'
+import ContactsTab from '@/components/pageTabs/addressbook/tab.addressBook.Contact.vue'
+import { getContacts, addContact, deleteContact, type Contact } from '@/services/addressBook/service.addressBook.Contact'
+import { addWallet, getWalletCountForContact } from '@/services/addressBook/service.addressBook.Wallet'
 import type { ImportedWallet } from '@/lib/cores/importStandard/importWallet.json'
 
 defineOptions({ name: 'AddressBookView' })
@@ -273,6 +273,9 @@ const sortOrder = ref<'asc' | 'dsc'>('asc')
 const showAddCurrencyModal = ref(false)
 const selectedContactForCurrency = ref<Contact | null>(null)
 
+/** Refreshes `CompaniesTab` (companies are derived from contacts via `getCompanies`). */
+const companiesTabRef = ref<{ loadCompanies: () => Promise<void> } | null>(null)
+
 onMounted(async () => {
   await loadContacts()
 })
@@ -286,6 +289,7 @@ async function loadContacts() {
   }
   contacts.value = displayContacts
   closeConfirmModal()
+  await companiesTabRef.value?.loadCompanies?.()
 }
 
 const filteredContacts = computed(() => {

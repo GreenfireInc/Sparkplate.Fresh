@@ -17,10 +17,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
-import { getWalletsForContact, deleteWallet, type Wallet } from '@/services/addressBook/walletService'
+import { getWalletsForContact, deleteWallet, type Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 import CardWalletAddress from '@/components/structure/card.WalletAddress.vue'
 
-defineOptions({ name: 'TabContactDetailsWallets' })
+defineOptions({ name: 'TabDetailsContactWallets' })
 
 const props = defineProps<{
   contactId: number | null

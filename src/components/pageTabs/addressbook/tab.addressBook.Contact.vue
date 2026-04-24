@@ -119,10 +119,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { TabsContent } from 'radix-vue'
-import type { Contact } from '@/services/addressBook/contactService'
+import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
 import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
 
-defineOptions({ name: 'ContactsTab' })
+defineOptions({ name: 'TabAddressBookContact' })
 
 export interface ContactTableRow extends Contact {
   wallets: number

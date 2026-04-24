@@ -182,46 +182,54 @@
                       />
                     </div>
 
-                    <!-- Layout mirrors tab.contactDetails.Wallets.vue (tabsFor.details): .wallets-tab > .empty-state | .wallets-list -->
+                    <!-- Layout mirrors tab.details.Contact.Wallets.vue (tabsFor.details):
+                         .wallets-tab > .empty-state | .wallets-list with CardWalletAddress children. -->
                     <div class="cd-exch-wallets-tab">
                       <div v-if="form.currencies.length === 0" class="cd-exch-wallets-empty">
                         <p>No currencies added yet. Use the toolbar to add or import addresses.</p>
                       </div>
                       <div v-else class="cd-exch-wallets-list">
-                        <div
-                          v-for="(currency, index) in form.currencies"
-                          :key="index"
-                          class="cd-exch-currency-card"
-                        >
-                          <button
-                            type="button"
-                            class="cd-exch-currency-card__remove"
-                            aria-label="Remove currency"
-                            @click="removeCurrency(index)"
+                        <template v-for="(currency, index) in form.currencies" :key="index">
+                          <CardWalletAddress
+                            v-if="isCurrencyComplete(currency)"
+                            :wallet="toWalletLike(currency, index)"
+                            @delete="removeCurrency(index)"
+                            @copy="onExchangeCurrencyCopy"
+                          />
+                          <div
+                            v-else
+                            class="cd-exch-currency-card cd-exch-currency-card--editing"
                           >
-                            <Trash2 :size="16" />
-                          </button>
-                          <div class="cd-exch-currencies__row">
-                            <DropdownCurrency
-                              :model-value="currency.abbreviation"
-                              @update:model-value="(v) => onCurrencyPick(index, v)"
-                            />
-                            <span class="cd-exch-currencies__sep" aria-hidden="true">://</span>
-                            <input
-                              v-model="currency.address"
-                              type="text"
-                              class="cd-exch-input cd-exch-input--sm"
-                              placeholder="Wallet address"
-                            />
+                            <button
+                              type="button"
+                              class="cd-exch-currency-card__remove"
+                              aria-label="Remove currency"
+                              @click="removeCurrency(index)"
+                            >
+                              <Trash2 :size="16" />
+                            </button>
+                            <div class="cd-exch-currencies__row">
+                              <DropdownCurrency
+                                :model-value="currency.abbreviation"
+                                @update:model-value="(v) => onCurrencyPick(index, v)"
+                              />
+                              <span class="cd-exch-currencies__sep" aria-hidden="true">://</span>
+                              <input
+                                v-model="currency.address"
+                                type="text"
+                                class="cd-exch-input cd-exch-input--sm"
+                                placeholder="Wallet address"
+                              />
+                            </div>
                           </div>
-                        </div>
+                        </template>
                       </div>
                     </div>
                   </div>
                 </TabsContent>
 
                 <TabsContent value="notes" class="cd-tabs__content">
-                  <TabContactDetailsNotes
+                  <TabDetailsContactNotes
                     v-if="form.id != null"
                     :contact-id="form.id"
                     :contact-name="form.name"
@@ -281,10 +289,12 @@ import {
   Share2,
   Globe,
 } from 'lucide-vue-next'
-import TabContactDetailsNotes from '@/components/modals/addressbook/tabsFor.details/tab.contactDetails.Notes.vue'
+import TabDetailsContactNotes from '@/components/modals/addressbook/tabsFor.details/tab.details.Contact.Notes.vue'
 import DropdownCurrency from '@/components/dropdown/dropdown.currency.vue'
+import CardWalletAddress from '@/components/structure/card.WalletAddress.vue'
 import StructureImportWalletAddress from '@/components/structure/structure.import.walletAddress.vue'
 import { parseWalletJsonFile } from '@/lib/cores/importStandard/importWallet.json'
+import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 import {
   getExchangePickerOptions,
   getExchangeIconSrc,
@@ -526,6 +536,30 @@ function onCurrencyPick(index: number, value: string) {
   row.name = value
 }
 
+/* Whether a currency entry has enough info to render as a read-only
+ * CardWalletAddress (matching tab.details.Contact.Wallets.vue). Incomplete
+ * rows fall back to the inline editable card so users can still finish
+ * filling them in. */
+function isCurrencyComplete(currency: Currency): boolean {
+  return !!currency?.abbreviation?.trim() && !!currency?.address?.trim()
+}
+
+/* Shape a `Currency` entry as a `Wallet`-like object so it can be rendered by
+ * `CardWalletAddress`. The synthetic `id` is the row index — used only for
+ * routing the card's `@delete` event back to `removeCurrency`. */
+function toWalletLike(currency: Currency, index: number): Wallet {
+  return {
+    id: index,
+    contactId: form.value.id ?? 0,
+    coinTicker: currency.abbreviation,
+    address: currency.address,
+  }
+}
+
+function onExchangeCurrencyCopy(address: string) {
+  console.log('Exchange currency address copied to clipboard:', address)
+}
+
 function saveExchange() {
   if (!form.value.name?.trim()) return
   emit('exchange-saved', form.value)
@@ -564,6 +598,9 @@ function close() {
   transform: translate(-50%, -50%);
   z-index: 10061;
   width: min(95vw, 62rem);
+  /* Fixed height so General / Currencies / Notes do not resize the shell.
+     Inner panels flex to this height (same as populated Currencies). */
+  height: 88vh;
   max-height: 88vh;
   background: #f9fafb;
   border-radius: 0.75rem;
@@ -651,6 +688,7 @@ function close() {
 .cd-grid {
   display: grid;
   grid-template-columns: 17rem 1fr;
+  grid-template-rows: 1fr;
   height: 100%;
   min-height: 0;
 }
@@ -817,6 +855,7 @@ function close() {
 
 .cd-main {
   min-height: 0;
+  height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -842,6 +881,8 @@ function close() {
   align-items: center;
   gap: 0.4rem;
   padding: 0.65rem 0.85rem;
+  min-height: 2.5rem;
+  line-height: 1.2;
   font-size: 0.8125rem;
   font-weight: 500;
   color: #6b7280;
@@ -901,6 +942,8 @@ function close() {
   flex-direction: column;
   gap: 0.875rem;
   max-width: 48rem;
+  flex: 1;
+  min-height: 0;
 }
 
 .cd-exch-row {
@@ -1025,12 +1068,11 @@ function close() {
   }
 }
 
-/* Mirrors tabsFor.details / tab.contactDetails.Wallets.vue `.wallets-tab` + `.wallets-list` + card shell (CardWalletAddress `.cwa-card`) */
+/* Mirrors tabsFor.details / tab.details.Contact.Wallets.vue `.wallets-tab` + `.wallets-list` + card shell (CardWalletAddress `.cwa-card`) */
 .cd-exch-wallets-tab {
   flex: 1;
   min-height: 0;
   padding: 1rem 0;
-  max-height: 60vh;
   overflow-y: auto;
   overscroll-behavior: contain;
   padding-right: 0.5rem;

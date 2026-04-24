@@ -73,7 +73,7 @@ import {
   Separator,
 } from 'radix-vue'
 import QRCode from 'qrcode'
-import type { Wallet } from '@/services/addressBook/walletService'
+import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 
 defineOptions({ name: 'SubModalQrCodeGPG' })
 
