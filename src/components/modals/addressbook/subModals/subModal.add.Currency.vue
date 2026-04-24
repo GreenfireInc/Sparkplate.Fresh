@@ -69,7 +69,7 @@ import StructureImportWalletAddress from '@/components/structure/structure.impor
 import ModalConfirmImportWallets from '@/components/modals/confirmations/modal.confirm.import.Wallets.vue'
 import SubModalInputWalletAddress from '@/components/modals/addressbook/subModals/subModal.input.WalletAddress.vue'
 import { parseWalletJsonFile, type ImportedWallet } from '@/lib/cores/importStandard/importWallet.json';
-import { addWallet } from '@/services/addressBook/walletService';
+import { addWallet } from '@/services/addressBook/service.addressBook.Wallet';
 
 defineOptions({ name: 'SubModalAddCurrency' })
 

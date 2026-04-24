@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { SquareUser, Landmark, Wallet, Building2 } from 'lucide-vue-next'
-import { getCompanies } from '@/services/addressBook/companyService'
+import { getCompanies } from '@/services/addressBook/service.addressBook.Company'
 
 export type ExportVariant = 'contacts' | 'exchanges' | 'wallets' | 'companies'
 

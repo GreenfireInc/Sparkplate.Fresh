@@ -177,7 +177,7 @@ import {
 } from 'radix-vue'
 import { Copy, Check } from 'lucide-vue-next'
 import QRCode from 'qrcode'
-import type { Wallet } from '@/services/addressBook/walletService'
+import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 
 defineOptions({ name: 'SubmodalQrCodeWalletAddress' })
 

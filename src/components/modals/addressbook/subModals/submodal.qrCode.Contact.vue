@@ -84,8 +84,8 @@ import {
   DropdownMenuItem,
 } from 'radix-vue'
 import { Download, Copy, ChevronDown, FileImage, FileText } from 'lucide-vue-next'
-import type { Contact } from '@/services/addressBook/contactService'
-import { getWalletsForContact } from '@/services/addressBook/walletService'
+import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
+import { getWalletsForContact } from '@/services/addressBook/service.addressBook.Wallet'
 import { generateContactQRCode, generateVCard } from '@/lib/cores/displayStandard/generateContactVCardQrCode'
 import {
   exportContactQRCodeAsPNG,

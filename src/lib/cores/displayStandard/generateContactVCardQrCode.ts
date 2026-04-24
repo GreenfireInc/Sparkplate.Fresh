@@ -1,6 +1,6 @@
 import QRCode from 'qrcode'
-import type { Contact } from '@/services/addressBook/contactService'
-import type { Wallet } from '@/services/addressBook/walletService'
+import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
+import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 
 /**
  * Generates a vCard (vcf) string from a contact

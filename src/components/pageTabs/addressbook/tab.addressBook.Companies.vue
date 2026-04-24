@@ -99,10 +99,10 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
 import { TabsContent } from 'radix-vue'
-import { getCompanies, deleteCompany, type Company } from '@/services/addressBook/companyService'
+import { getCompanies, deleteCompany, type Company } from '@/services/addressBook/service.addressBook.Company'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 
-defineOptions({ name: 'CompaniesTab' })
+defineOptions({ name: 'TabAddressBookCompanies' })
 
 const companies = ref<Company[]>([])
 const showConfirmModal = ref(false)
@@ -169,6 +169,9 @@ const closeConfirmModal = () => {
   showConfirmModal.value = false
   companyToDelete.value = null
 }
+
+/** Let `AddressBook` refresh after contact add/edit/delete (companies are derived from contacts). */
+defineExpose({ loadCompanies })
 </script>
 
 <style lang="scss" scoped>

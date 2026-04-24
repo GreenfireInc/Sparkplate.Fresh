@@ -183,26 +183,21 @@
                 </TabsContent>
 
                 <TabsContent value="currencies" class="cd-tabs__content">
-                  <div class="cd-exch-currencies">
-                    <div v-if="wallet.currencies.length > 0" class="cd-exch-currencies__grid-wrap">
-                      <div class="cd-exch-currencies__grid">
-                        <div
-                          v-for="(currency, index) in wallet.currencies"
-                          :key="`${currency.abbreviation}-${index}`"
-                          class="cd-exch-currencies__tile"
-                        >
-                          <div class="cd-exch-currencies__row cd-exch-currencies__row--readonly">
-                            <span class="cd-exch-readonly-cell">{{ currency.name || currency.abbreviation }}</span>
-                            <span class="cd-exch-currencies__sep" aria-hidden="true">://</span>
-                            <code class="cd-exch-readonly-addr" :title="currency.address">
-                              {{ truncateAddress(currency.address) }}
-                            </code>
-                            <span />
-                          </div>
-                        </div>
-                      </div>
+                  <!-- Layout mirrors tab.details.Contact.Wallets.vue (tabsFor.details):
+                       .wallets-tab > .empty-state | .wallets-list with CardWalletAddress children.
+                       Read-only — the card's delete button is hidden via scoped :deep(). -->
+                  <div class="cd-exch-wallets-tab">
+                    <div v-if="wallet.currencies.length === 0" class="cd-exch-wallets-empty">
+                      <p>No currencies on this wallet.</p>
                     </div>
-                    <p v-else class="cd-exch-currencies__empty">No currencies on this wallet.</p>
+                    <div v-else class="cd-exch-wallets-list cd-exch-wallets-list--readonly">
+                      <CardWalletAddress
+                        v-for="(currency, index) in wallet.currencies"
+                        :key="`${currency.abbreviation}-${index}`"
+                        :wallet="toWalletLike(currency, index)"
+                        @copy="onWalletCurrencyCopy"
+                      />
+                    </div>
                   </div>
                 </TabsContent>
 
@@ -263,6 +258,8 @@ import {
   getWalletIconSrc,
   getWalletSocialMediaForDisplayName,
 } from '@/lib/cores/currencyCore/walletProviders/walletPickerOptions'
+import CardWalletAddress from '@/components/structure/card.WalletAddress.vue'
+import type { Wallet as WalletRecord } from '@/services/addressBook/service.addressBook.Wallet'
 
 const SOCIAL_PLATFORM_ICONS: Record<string, Component> = {
   twitter: Twitter,
@@ -428,9 +425,21 @@ function onDialogInteractOutside(event: CustomEvent<{ originalEvent: PointerEven
   }
 }
 
-function truncateAddress(address: string): string {
-  if (!address || address.length <= 14) return address || '—'
-  return `${address.slice(0, 7)}…${address.slice(-7)}`
+/* Shape a `Currency` entry as a `Wallet`-like object so it can be rendered by
+ * `CardWalletAddress` in the same way as `tab.details.Contact.Wallets.vue`.
+ * The synthetic `id` is the row index; `contactId` is repurposed for the
+ * parent wallet's id so QR / copy semantics still make sense. */
+function toWalletLike(currency: Currency, index: number): WalletRecord {
+  return {
+    id: index,
+    contactId: props.wallet.id,
+    coinTicker: currency.abbreviation,
+    address: currency.address,
+  }
+}
+
+function onWalletCurrencyCopy(address: string) {
+  console.log('Wallet currency address copied to clipboard:', address)
 }
 </script>
 
@@ -461,6 +470,10 @@ function truncateAddress(address: string): string {
   transform: translate(-50%, -50%);
   z-index: 10061;
   width: min(95vw, 62rem);
+  /* Fixed height so switching tabs (General / Notes vs populated Currencies)
+     does not resize the modal. Matches the tallest state — the Currencies
+     grid of CardWalletAddress tiles. */
+  height: 88vh;
   max-height: 88vh;
   background: #f9fafb;
   border-radius: 0.75rem;
@@ -548,6 +561,7 @@ function truncateAddress(address: string): string {
 .cd-grid {
   display: grid;
   grid-template-columns: 17rem 1fr;
+  grid-template-rows: 1fr;
   height: 100%;
   min-height: 0;
 }
@@ -700,6 +714,7 @@ function truncateAddress(address: string): string {
 
 .cd-main {
   min-height: 0;
+  height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -725,6 +740,8 @@ function truncateAddress(address: string): string {
   align-items: center;
   gap: 0.4rem;
   padding: 0.65rem 0.85rem;
+  min-height: 2.5rem;
+  line-height: 1.2;
   font-size: 0.8125rem;
   font-weight: 500;
   color: #6b7280;
@@ -868,100 +885,56 @@ function truncateAddress(address: string): string {
   min-height: 0;
 }
 
-/* Grid aligned with tabsFor.details / tab.contactDetails.Wallets.vue `.wallets-list` */
-.cd-exch-currencies__grid-wrap {
+/* Mirrors tabsFor.details / tab.details.Contact.Wallets.vue `.wallets-tab` +
+   `.wallets-list` + card shell (CardWalletAddress `.cwa-card`). */
+.cd-exch-wallets-tab {
   flex: 1;
   min-height: 0;
-  max-height: min(58vh, 34rem);
+  padding: 1rem 0;
+  max-height: 60vh;
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   padding-right: 0.5rem;
 }
 
-.cd-exch-currencies__grid-wrap::-webkit-scrollbar {
+.cd-exch-wallets-tab::-webkit-scrollbar {
   width: 8px;
 }
 
-.cd-exch-currencies__grid-wrap::-webkit-scrollbar-track {
+.cd-exch-wallets-tab::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.cd-exch-currencies__grid-wrap::-webkit-scrollbar-thumb {
+.cd-exch-wallets-tab::-webkit-scrollbar-thumb {
   background: #d1d5db;
   border-radius: 4px;
 }
 
-.cd-exch-currencies__grid-wrap::-webkit-scrollbar-thumb:hover {
+.cd-exch-wallets-tab::-webkit-scrollbar-thumb:hover {
   background: #9ca3af;
 }
 
-.cd-exch-currencies__grid {
+.cd-exch-wallets-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #6b7280;
+
+  p {
+    margin: 0;
+    font-size: 0.875rem;
+  }
+}
+
+.cd-exch-wallets-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
-.cd-exch-currencies__tile {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
-  padding: 0.65rem 0.75rem;
-  min-width: 0;
-}
-
-.cd-exch-currencies__row {
-  display: grid;
-  grid-template-columns: 1fr auto 2fr 2rem;
-  gap: 0.5rem;
-  align-items: center;
-  padding: 0;
-  border-bottom: none;
-}
-
-.cd-exch-currencies__row--readonly {
-  padding: 0;
-}
-
-.cd-exch-currencies__sep {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.8125rem;
-  color: #9ca3af;
-  user-select: none;
-}
-
-.cd-exch-readonly-cell {
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: #1f2937;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.cd-exch-readonly-addr {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.8rem;
-  color: #374151;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
-  background: transparent;
-  border: none;
-  padding: 0;
-}
-
-.cd-exch-currencies__empty {
-  font-size: 0.875rem;
-  color: #9ca3af;
-  margin: 0;
-  padding: 1.5rem 0;
-  text-align: center;
+/* Wallet details is a fully read-only view; suppress the card's delete action. */
+.cd-exch-wallets-list--readonly :deep(.cwa-delete) {
+  display: none;
 }
 
 .cd-footer {

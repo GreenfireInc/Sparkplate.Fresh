@@ -1,5 +1,5 @@
 import { computed, type ComputedRef } from 'vue'
-import type { Wallet } from '@/services/addressBook/walletService'
+import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 
 /**
  * Truncate fingerprint to show first 5 pairs and last 5 pairs with ellipses

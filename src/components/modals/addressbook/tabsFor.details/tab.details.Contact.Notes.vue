@@ -86,7 +86,7 @@ import {
   notesRevision,
   type Note,
   type NoteOwnerKind,
-} from '@/services/addressBook/service.Note'
+} from '@/services/addressBook/service.addressBook.Note'
 import NoteEditorModal from '@/components/modals/addressbook/subModals/subModal.NoteEditor.vue'
 import NoteDeleteConfirmModal from '@/components/modals/confirmations/modal.confirm.delete.Note.vue'
 

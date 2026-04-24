@@ -12,8 +12,8 @@
  * - End: first 2 GPG public keys as QR codes (with crypto logo overlay)
  */
 
-import type { Contact } from '@/services/addressBook/contactService'
-import type { Wallet } from '@/services/addressBook/walletService'
+import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
+import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 
 const PROJECT_NAME = 'sparkplate'
 

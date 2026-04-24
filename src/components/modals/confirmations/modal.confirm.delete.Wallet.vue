@@ -34,7 +34,7 @@
 
 <script setup lang="ts">
 import { Trash2 } from 'lucide-vue-next';
-import type { Wallet } from '../../../services/walletService';
+import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet';
 
 const props = defineProps<{
   show: boolean;

@@ -2,6 +2,7 @@
   <TabsContent :value="tabsValue" class="ac-tabs__content">
     <div
       class="ac-tabs__panel ac-tabs__panel--wallet-tab"
+      :class="{ 'ac-tabs__panel--wallet-tab--content-sized': contentSizedPanel }"
       role="region"
       :aria-labelledby="headingId"
     >
@@ -102,7 +103,7 @@ import { TabsContent, Separator } from 'radix-vue'
 import { Plus, Trash2, ShieldCheck } from 'lucide-vue-next'
 import CurrencyDropdown from '@/components/dropdown/dropdown.currency.vue'
 import StructureImportWalletAddress from '@/components/structure/structure.import.walletAddress.vue'
-import type { Wallet } from '@/services/addressBook/walletService'
+import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 
 /** Row shape for exchange deposit currencies (matches `ExchangeCurrency` on the exchange form). */
 export interface ExchangeCurrencyRow {
@@ -148,8 +149,13 @@ const props = withDefaults(
     addButtonLabel?: string
     regionHeadingId?: string
     addressIdPrefix?: string
+    /**
+     * When true, panel height follows content (max-height cap only). When false,
+     * min- and max-height match `--ac-contact-tab-panel-height` (contact / exchange).
+     */
+    contentSizedPanel?: boolean
   }>(),
-  { variant: 'exchange' },
+  { variant: 'exchange', contentSizedPanel: false },
 )
 
 const rows = defineModel<TabWalletRow[]>({ required: true })
@@ -264,6 +270,11 @@ function formatWalletAddress(address: string): string {
   max-height: var(--ac-contact-tab-panel-height, none);
   overflow-y: auto;
   padding-right: 0.15rem;
+}
+
+/* Add-entry company (and similar): avoid a fixed min band + empty scroll when rows are few. */
+.ac-tabs__panel--wallet-tab.ac-tabs__panel--wallet-tab--content-sized {
+  min-height: unset;
 }
 
 .ac-wallets__intro {

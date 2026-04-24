@@ -54,8 +54,8 @@
 
 <script setup lang="ts">
 import { TabsRoot, TabsContent, Label } from 'radix-vue'
-import type { Contact } from '@/services/addressBook/contactService'
-import type { Wallet } from '@/services/addressBook/walletService'
+import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
+import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 import FormAddEntryStructureTabsAll from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.structure.tabs.all.vue'
 import FormAddEntryStructureTabWallet from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.structure.tab.wallet.vue'
 

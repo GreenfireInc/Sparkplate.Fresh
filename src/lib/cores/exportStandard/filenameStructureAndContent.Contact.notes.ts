@@ -7,7 +7,7 @@
  * Example: sparkplate.20260420.143052.John_Doe.note.meeting_notes.md
  */
 
-import type { Note } from '@/services/addressBook/service.Note'
+import type { Note } from '@/services/addressBook/service.addressBook.Note'
 import { reverseText } from '@/lib/cores/displayStandard/mirrorText'
 
 const PROJECT_NAME = 'sparkplate'
