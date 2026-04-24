@@ -20,7 +20,19 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue';
-import { PocketKnife, Pencil, Coins, FileImage, Image, FileUser, FileJson, Star, Save, SaveOff } from 'lucide-vue-next';
+import {
+  PocketKnife,
+  Pencil,
+  Coins,
+  FileImage,
+  Image,
+  FileUser,
+  FileJson,
+  Star,
+  Save,
+  SaveOff,
+  Trash2,
+} from 'lucide-vue-next'
 import type { Contact } from '@/services/addressBook/service.addressBook.Contact';
 
 interface Action {
@@ -38,7 +50,12 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-});
+  /** Companies table: pocket menu with Delete only (contact row uses default). */
+  variant: {
+    type: String as () => 'contact' | 'company',
+    default: 'contact',
+  },
+})
 
 const emit = defineEmits([
   'currency-added',
@@ -47,11 +64,12 @@ const emit = defineEmits([
   'export-csv',
   'export-vcf',
   'export-json',
-  'update:edit-mode', // New event for toggling edit mode
-  'save-changes',     // New event for saving changes
-  'add-currency-request', // New event for requesting AddCurrencyModal
-  'cancel-edit'       // New event for canceling edit mode
-]);
+  'update:edit-mode',
+  'save-changes',
+  'add-currency-request',
+  'cancel-edit',
+  'delete-requested',
+])
 
 const isOpen = ref(false);
 const dropdown = ref<HTMLElement | null>(null);
@@ -106,8 +124,17 @@ const handleCancelEdit = () => {
   isOpen.value = false;
 };
 
+const handleDeleteCompany = () => {
+  emit('delete-requested');
+  isOpen.value = false;
+};
+
 // Computed property for dropdown actions
 const dropdownActions = computed<Action[]>(() => {
+  if (props.variant === 'company') {
+    return [{ label: 'Delete', handler: handleDeleteCompany, icon: Trash2 }];
+  }
+
   const actions: Action[] = [
     { label: 'Edit', handler: handleEditContact, icon: Pencil },
     { label: 'QRCode (png)', handler: handleGenerateQrCodePng, icon: FileImage },

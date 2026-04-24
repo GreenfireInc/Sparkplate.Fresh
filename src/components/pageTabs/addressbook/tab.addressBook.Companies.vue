@@ -65,27 +65,35 @@
           <tr v-if="sortedCompanies.length === 0">
             <td colspan="7" class="ab-table__empty">No companies found.</td>
           </tr>
-          <tr v-for="company in sortedCompanies" :key="company.id" class="ab-table__row">
+          <tr
+            v-for="company in sortedCompanies"
+            :key="company.id"
+            class="ab-table__row ab-table__row--clickable"
+            @click="openCompanyModal(company)"
+          >
             <td class="ab-table__td">{{ company.id }}</td>
             <td class="ab-table__td">{{ company.name }}</td>
             <td class="ab-table__td">{{ company.mainContact }}</td>
             <td class="ab-table__td">{{ company.position }}</td>
             <td class="ab-table__td">{{ company.email }}</td>
             <td class="ab-table__td">{{ company.numCurrencies }}</td>
-            <td class="ab-table__td ab-table__td--actions">
-              <button
-                type="button"
-                class="ab-btn-delete"
-                @click.stop="confirmDeleteCompany(company)"
-              >
-                Delete
-              </button>
+            <td class="ab-table__td ab-table__td--actions" @click.stop>
+              <ActionsDropdown
+                variant="company"
+                :contact="companyActionsContactStub(company)"
+                @delete-requested="confirmDeleteCompany(company)"
+              />
             </td>
           </tr>
         </tbody>
       </table>
     </div>
 
+    <CompanyDetailsModal
+      v-if="selectedCompany"
+      :company="selectedCompany"
+      @close="closeCompanyModal"
+    />
     <ModalConfirmDeleteGeneral
       :show="showConfirmModal"
       :title="confirmModalTitle"
@@ -100,17 +108,34 @@
 import { ref, onMounted, computed } from 'vue'
 import { TabsContent } from 'radix-vue'
 import { getCompanies, deleteCompany, type Company } from '@/services/addressBook/service.addressBook.Company'
+import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
+import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
+import CompanyDetailsModal from '@/components/modals/addressbook/modal.details.Companies.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 
 defineOptions({ name: 'TabAddressBookCompanies' })
 
 const companies = ref<Company[]>([])
+const selectedCompany = ref<Company | null>(null)
 const showConfirmModal = ref(false)
 const confirmModalTitle = ref('')
 const confirmModalMessage = ref('')
 const companyToDelete = ref<Company | null>(null)
 const sortKey = ref<keyof Company>('id')
 const sortOrder = ref<'asc' | 'dsc'>('asc')
+
+/** Contact-shaped row for `ActionsDropdown` (same pattern as exchange / wallet detail modals). */
+function companyActionsContactStub(company: Company): Contact {
+  return {
+    id: company.id,
+    type: 'addressbook_company',
+    firstname: company.name,
+    lastname: '',
+    company: company.name,
+    email: company.email,
+    notes: '',
+  }
+}
 
 onMounted(async () => {
   await loadCompanies()
@@ -170,6 +195,14 @@ const closeConfirmModal = () => {
   companyToDelete.value = null
 }
 
+function openCompanyModal(company: Company) {
+  selectedCompany.value = company
+}
+
+function closeCompanyModal() {
+  selectedCompany.value = null
+}
+
 /** Let `AddressBook` refresh after contact add/edit/delete (companies are derived from contacts). */
 defineExpose({ loadCompanies })
 </script>
@@ -226,8 +259,8 @@ defineExpose({ loadCompanies })
   }
 }
 
-.companies-tab .ab-table__row {
-  cursor: default;
+.companies-tab .ab-table__row--clickable {
+  cursor: pointer;
 }
 
 .ab-table__td {
@@ -256,19 +289,5 @@ defineExpose({ loadCompanies })
 
 .ab-table-wrapper {
   width: 100%;
-}
-
-.ab-btn-delete {
-  padding: 0.35rem 0.75rem;
-  border-radius: 0.375rem;
-  border: 1px solid #ef4444;
-  background: #fff;
-  color: #b91c1c;
-  font-size: 0.8125rem;
-  cursor: pointer;
-}
-
-.ab-btn-delete:hover {
-  background: #fef2f2;
 }
 </style>

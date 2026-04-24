@@ -14,13 +14,15 @@ export interface Note {
 }
 
 /** Where notes are persisted (separate localStorage keys per kind). */
-export type NoteOwnerKind = 'contact' | 'exchange'
+export type NoteOwnerKind = 'contact' | 'exchange' | 'company' | 'wallet'
 
 // Reactive signal consumers can watch to refresh derived UI (counts, lists, etc.)
 export const notesRevision = ref(0)
 
 function getStorageKey(ownerKind: NoteOwnerKind, ownerId: number): string {
   if (ownerKind === 'exchange') return `notes-exchange-${ownerId}`
+  if (ownerKind === 'company') return `notes-company-${ownerId}`
+  if (ownerKind === 'wallet') return `notes-wallet-${ownerId}`
   return `notes-${ownerId}`
 }
 
@@ -43,12 +45,19 @@ export function isNoteLocked(createdAt: string): boolean {
   return now > endOfCreationDay
 }
 
+export async function getNotesForOwnerId(
+  ownerId: number,
+  ownerKind: NoteOwnerKind = 'contact',
+): Promise<Note[]> {
+  return [...readNotes(ownerKind, ownerId)]
+}
+
 export async function getNotesForContactId(contactId: number): Promise<Note[]> {
-  return [...readNotes('contact', contactId)]
+  return getNotesForOwnerId(contactId, 'contact')
 }
 
 export async function getNotesForExchangeId(exchangeId: number): Promise<Note[]> {
-  return [...readNotes('exchange', exchangeId)]
+  return getNotesForOwnerId(exchangeId, 'exchange')
 }
 
 export async function getNoteCountForContact(contactId: number): Promise<number> {

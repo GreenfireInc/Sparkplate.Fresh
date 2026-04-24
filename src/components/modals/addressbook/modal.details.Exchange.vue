@@ -13,6 +13,20 @@
             <DialogTitle class="cd-header__title">
               {{ isEditing ? 'Exchange details' : 'Add exchange' }}
             </DialogTitle>
+            <div v-if="props.exchange" class="cd-header__actions">
+              <ActionsDropdown
+                :contact="exchangeActionsContactStub"
+                :is-editing="false"
+                @update:edit-mode="onExchangeActionsEditMode"
+                @save-changes="saveExchange"
+                @cancel-edit="onExchangeActionsCancelEdit"
+                @add-currency-request="addCurrencyRow"
+                @generate-qrcode-png="onExchangeActionsGenerateQrPng"
+                @generate-qrcode-svg="onExchangeActionsGenerateQrSvg"
+                @export-csv="onExchangeActionsExportCsv"
+                @export-vcf="onExchangeActionsExportVcf"
+              />
+            </div>
             <DialogClose class="cd-header__close" aria-label="Close">
               <svg
                 viewBox="0 0 24 24"
@@ -295,6 +309,8 @@ import CardWalletAddress from '@/components/structure/card.WalletAddress.vue'
 import StructureImportWalletAddress from '@/components/structure/structure.import.walletAddress.vue'
 import { parseWalletJsonFile } from '@/lib/cores/importStandard/importWallet.json'
 import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
+import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
+import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
 import {
   getExchangePickerOptions,
   getExchangeIconSrc,
@@ -401,6 +417,41 @@ function emptyExchange(): Exchange {
 const isEditing = ref(false)
 const form = ref<Exchange>(emptyExchange())
 const exchangeLogoLoadFailed = ref(false)
+
+/** Contact-shaped payload for header ActionsDropdown (same component as contact details). */
+const exchangeActionsContactStub = computed<Contact>(() => ({
+  id: form.value.id,
+  type: 'exchange',
+  firstname: form.value.name || 'Exchange',
+  lastname: '',
+  company: '',
+  email: form.value.email || '',
+  notes: form.value.notes || '',
+}))
+
+function onExchangeActionsEditMode(value: boolean) {
+  console.log('Exchange details: edit mode from actions menu:', value)
+}
+
+function onExchangeActionsCancelEdit() {
+  console.log('Exchange details: cancel edit from actions menu')
+}
+
+function onExchangeActionsGenerateQrPng(contact: Contact) {
+  console.log('Exchange details: QR PNG from actions menu:', contact.id)
+}
+
+function onExchangeActionsGenerateQrSvg(contact: Contact) {
+  console.log('Exchange details: QR SVG from actions menu:', contact.id)
+}
+
+function onExchangeActionsExportCsv(contact: Contact) {
+  console.log('Exchange details: export CSV from actions menu:', contact.id)
+}
+
+function onExchangeActionsExportVcf(contact: Contact) {
+  console.log('Exchange details: export VCF from actions menu:', contact.id)
+}
 
 const exchangePickerOptions = computed(() => getExchangePickerOptions())
 
@@ -641,6 +692,12 @@ function close() {
   font-size: 1.0625rem;
   font-weight: 700;
   color: #111827;
+}
+
+.cd-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .cd-header__close {
