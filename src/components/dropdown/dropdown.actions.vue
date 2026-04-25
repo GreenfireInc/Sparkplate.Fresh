@@ -19,7 +19,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, computed } from 'vue';
+import { ref, onMounted, onUnmounted, computed } from 'vue'
+import QRCode from 'qrcode'
 import {
   PocketKnife,
   Pencil,
@@ -33,7 +34,19 @@ import {
   SaveOff,
   Trash2,
 } from 'lucide-vue-next'
-import type { Contact } from '@/services/addressBook/service.addressBook.Contact';
+import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
+import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
+import { getWalletsForContact } from '@/services/addressBook/service.addressBook.Wallet'
+import { generateVCard, generateContactQRCode } from '@/lib/cores/displayStandard/generateContactVCardQrCode'
+import {
+  exportContactQRCodeAsPNG,
+  generateContactQRCodeFilename,
+} from '@/lib/cores/exportStandard/filenameStructureAndContent.AddressBook.Individual.qrCode'
+import { generateQRCodeSvgFilename } from '@/lib/cores/exportStandard/qrCode.filename.standAlone'
+import {
+  generateWalletAddressesCSVContent,
+  type GeneralAddress,
+} from '@/lib/cores/exportStandard/currencies/filenameStructureAndContent.walletAddresses.text'
 
 interface Action {
   label: string;
@@ -71,6 +84,59 @@ const emit = defineEmits([
   'delete-requested',
 ])
 
+/** Export / QR pipelines use contact + wallets; skip stubs used on exchange/wallet modals. */
+function isRegularAddressBookContact(c: Contact | undefined): boolean {
+  return !!c && c.type === 'regular'
+}
+
+function contactExportBasename(c: Contact): string {
+  return `${c.firstname}_${c.lastname}`.replace(/[^a-zA-Z0-9_]/g, '_') || 'contact'
+}
+
+function walletToGeneralAddress(w: Wallet): GeneralAddress {
+  return {
+    currency: w.coinTicker,
+    address: w.address,
+    derivationPath: '',
+    keyFingerprint: w.keyFingerprint ?? '',
+    cryptoPublicKey: w.cryptoPublicKey ?? '',
+    gpgPublicKey: w.gpgPublicKey ?? '',
+  }
+}
+
+function downloadBlob(filename: string, blob: Blob) {
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = filename
+  a.click()
+  URL.revokeObjectURL(url)
+}
+
+async function loadWalletsForExport(): Promise<Wallet[]> {
+  const id = props.contact.id
+  if (id == null) return []
+  return getWalletsForContact(id)
+}
+
+function contactOnlyCsv(c: Contact, walletCount: number): string {
+  const escape = (v: unknown) => {
+    const s = v == null ? '' : String(v)
+    if (/[",\n]/.test(s)) return `"${s.replace(/"/g, '""')}"`
+    return s
+  }
+  const headers = ['firstname', 'lastname', 'email', 'company', 'notes', 'wallets']
+  const row = [
+    escape(c.firstname),
+    escape(c.lastname),
+    escape(c.email),
+    escape(c.company),
+    escape(c.notes),
+    escape(String(walletCount)),
+  ]
+  return `${headers.join(',')}\n${row.join(',')}\n`
+}
+
 const isOpen = ref(false);
 const dropdown = ref<HTMLElement | null>(null);
 
@@ -85,29 +151,135 @@ const handleAddCurrencyRequest = () => {
 };
 
 const handleGenerateQrCodePng = () => {
-  emit('generate-qrcode-png', props.contact);
-  isOpen.value = false;
-};
+  void runExportQrPng()
+}
 
 const handleGenerateQrCodeSvg = () => {
-  emit('generate-qrcode-svg', props.contact);
-  isOpen.value = false;
-};
+  void runExportQrSvg()
+}
 
 const handleExportCsv = () => {
-  emit('export-csv', props.contact);
-  isOpen.value = false;
-};
+  void runExportCsv()
+}
 
 const handleExportVcf = () => {
-  emit('export-vcf', props.contact);
-  isOpen.value = false;
-};
+  void runExportVcf()
+}
 
 const handleExportJson = () => {
-  emit('export-json', props.contact);
-  isOpen.value = false;
-};
+  void runExportJson()
+}
+
+async function runExportQrPng() {
+  if (!isRegularAddressBookContact(props.contact)) {
+    emit('generate-qrcode-png', props.contact)
+    isOpen.value = false
+    return
+  }
+  try {
+    const wallets = await loadWalletsForExport()
+    const vcardText = generateVCard(props.contact, wallets)
+    const qrCodeDataUrl = await generateContactQRCode(props.contact, wallets)
+    await exportContactQRCodeAsPNG({
+      contact: props.contact,
+      wallets,
+      vcardText,
+      qrCodeDataUrl,
+    })
+  } catch (e) {
+    console.error('QR PNG export failed:', e)
+    alert(e instanceof Error ? e.message : 'Could not export QR code (PNG).')
+  } finally {
+    isOpen.value = false
+  }
+}
+
+async function runExportQrSvg() {
+  if (!isRegularAddressBookContact(props.contact)) {
+    emit('generate-qrcode-svg', props.contact)
+    isOpen.value = false
+    return
+  }
+  try {
+    const wallets = await loadWalletsForExport()
+    const vcard = generateVCard(props.contact, wallets)
+    const svg = await QRCode.toString(vcard, { type: 'svg', width: 400, margin: 2 })
+    const filename = generateQRCodeSvgFilename(vcard.slice(0, 64))
+    downloadBlob(filename, new Blob([svg], { type: 'image/svg+xml;charset=utf-8' }))
+  } catch (e) {
+    console.error('QR SVG export failed:', e)
+    alert(e instanceof Error ? e.message : 'Could not export QR code (SVG).')
+  } finally {
+    isOpen.value = false
+  }
+}
+
+async function runExportCsv() {
+  if (!isRegularAddressBookContact(props.contact)) {
+    emit('export-csv', props.contact)
+    isOpen.value = false
+    return
+  }
+  try {
+    const wallets = await loadWalletsForExport()
+    const base = contactExportBasename(props.contact)
+    const filename = generateContactQRCodeFilename({ extension: 'csv', contactName: base })
+    const body =
+      wallets.length > 0
+        ? generateWalletAddressesCSVContent(wallets.map(walletToGeneralAddress))
+        : contactOnlyCsv(props.contact, wallets.length)
+    downloadBlob(filename, new Blob([body], { type: 'text/csv;charset=utf-8' }))
+  } catch (e) {
+    console.error('CSV export failed:', e)
+    alert(e instanceof Error ? e.message : 'Could not export CSV.')
+  } finally {
+    isOpen.value = false
+  }
+}
+
+async function runExportVcf() {
+  if (!isRegularAddressBookContact(props.contact)) {
+    emit('export-vcf', props.contact)
+    isOpen.value = false
+    return
+  }
+  try {
+    const wallets = await loadWalletsForExport()
+    const vcard = generateVCard(props.contact, wallets)
+    const base = contactExportBasename(props.contact)
+    const filename = generateContactQRCodeFilename({ extension: 'vcf', contactName: base })
+    downloadBlob(filename, new Blob([vcard], { type: 'text/vcard;charset=utf-8' }))
+  } catch (e) {
+    console.error('vCard export failed:', e)
+    alert(e instanceof Error ? e.message : 'Could not export vCard.')
+  } finally {
+    isOpen.value = false
+  }
+}
+
+async function runExportJson() {
+  if (!isRegularAddressBookContact(props.contact)) {
+    emit('export-json', props.contact)
+    isOpen.value = false
+    return
+  }
+  try {
+    const wallets = await loadWalletsForExport()
+    const base = contactExportBasename(props.contact)
+    const filename = generateContactQRCodeFilename({ extension: 'json', contactName: base })
+    const payload = {
+      exportedAt: new Date().toISOString(),
+      contact: props.contact,
+      wallets,
+    }
+    downloadBlob(filename, new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' }))
+  } catch (e) {
+    console.error('JSON export failed:', e)
+    alert(e instanceof Error ? e.message : 'Could not export JSON.')
+  } finally {
+    isOpen.value = false
+  }
+}
 
 const handleEditContact = () => {
   emit('update:edit-mode', true);

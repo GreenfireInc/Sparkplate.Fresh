@@ -98,43 +98,34 @@ import { ref, computed } from 'vue'
 import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
 import WalletModal from '@/components/modals/addressbook/modal.details.Wallet.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
-import { deleteWallet } from '@/services/addressBook/service.addressBook.Wallet'
+import {
+  deleteStandaloneWallet,
+  updateStandaloneWallet,
+  type StandaloneWalletRecord,
+} from '@/services/addressBook/service.addressBook.StandaloneWallet'
 
 defineOptions({ name: 'TabAddressBookWallet' })
 
-interface Currency {
-  name: string
-  abbreviation: string
-  address: string
-}
-
-interface Wallet {
-  id: number
-  name: string
-  currencies: Currency[]
-  mnemonicWordCount?: number
-  mnemonicFirst?: string
-  mnemonicLast?: string
-  notes?: string
-  passwordHint?: string
-}
-
 const props = defineProps<{
-  wallets: Wallet[]
+  wallets: StandaloneWalletRecord[]
+}>()
+
+const emit = defineEmits<{
+  'wallets-changed': []
 }>()
 
 const selectedWallets = ref<number[]>([])
-const selectedWallet = ref<Wallet | null>(null)
+const selectedWallet = ref<StandaloneWalletRecord | null>(null)
 const currentPage = ref(1)
 const itemsPerPage = 25
 const showConfirmModal = ref(false)
 const confirmModalTitle = ref('')
 const confirmModalMessage = ref('')
-const walletToDelete = ref<Wallet | null>(null)
-const sortKey = ref<keyof Wallet | 'num_currencies'>('id')
+const walletToDelete = ref<StandaloneWalletRecord | null>(null)
+const sortKey = ref<keyof StandaloneWalletRecord | 'num_currencies'>('id')
 const sortOrder = ref<'asc' | 'dsc'>('asc')
 
-function sortBy(key: keyof Wallet | 'num_currencies') {
+function sortBy(key: keyof StandaloneWalletRecord | 'num_currencies') {
   if (sortKey.value === key) {
     sortOrder.value = sortOrder.value === 'asc' ? 'dsc' : 'asc'
   } else {
@@ -154,8 +145,8 @@ const sortedWallets = computed(() => {
       aValue = a.currencies.length
       bValue = b.currencies.length
     } else {
-      aValue = a[key as keyof Wallet] as number | string
-      bValue = b[key as keyof Wallet] as number | string
+      aValue = a[key as keyof StandaloneWalletRecord] as number | string
+      bValue = b[key as keyof StandaloneWalletRecord] as number | string
     }
 
     if (aValue === bValue) {
@@ -191,7 +182,7 @@ const selectAllWallets = (event: Event) => {
   }
 }
 
-const openWalletModal = (wallet: Wallet) => {
+const openWalletModal = (wallet: StandaloneWalletRecord) => {
   selectedWallet.value = wallet
 }
 
@@ -199,13 +190,15 @@ const closeWalletModal = () => {
   selectedWallet.value = null
 }
 
-function onWalletCurrencyRemoved(currencyIndex: number) {
+async function onWalletCurrencyRemoved(currencyIndex: number) {
   const w = selectedWallet.value
   if (!w || currencyIndex < 0 || currencyIndex >= w.currencies.length) return
   w.currencies.splice(currencyIndex, 1)
+  await updateStandaloneWallet({ ...w, currencies: w.currencies.map((c) => ({ ...c })) })
+  emit('wallets-changed')
 }
 
-const confirmDeleteWallet = (wallet: Wallet) => {
+const confirmDeleteWallet = (wallet: StandaloneWalletRecord) => {
   walletToDelete.value = wallet
   confirmModalTitle.value = 'Delete Wallet'
   confirmModalMessage.value = `Are you sure you want to delete the wallet ${wallet.name}?`
@@ -214,13 +207,8 @@ const confirmDeleteWallet = (wallet: Wallet) => {
 
 const onConfirmDelete = async () => {
   if (walletToDelete.value) {
-    await deleteWallet(walletToDelete.value.id)
-    // TODO: This should reload the wallets from the database
-    // for now we just remove it from the array
-    const index = props.wallets.findIndex(w => w.id === walletToDelete.value!.id)
-    if (index > -1) {
-      props.wallets.splice(index, 1)
-    }
+    await deleteStandaloneWallet(walletToDelete.value.id)
+    emit('wallets-changed')
   }
   closeConfirmModal()
 }

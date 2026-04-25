@@ -106,11 +106,11 @@
             />
 
             <TabsContent value="Exchanges" class="ab-tabs__panel">
-              <ExchangeTab :exchanges="exchanges" />
+              <ExchangeTab :exchanges="exchanges" @exchanges-changed="loadExchanges" />
             </TabsContent>
 
             <TabsContent value="Wallets" class="ab-tabs__panel">
-              <WalletTab :wallets="wallets" />
+              <WalletTab :wallets="wallets" @wallets-changed="loadStandaloneWallets" />
             </TabsContent>
 
             <CompaniesTab ref="companiesTabRef" />
@@ -192,7 +192,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted } from 'vue'
+import { ref, computed, watch, onMounted, nextTick } from 'vue'
 import {
   TabsRoot, TabsList, TabsTrigger, TabsContent,
   Separator, Label,
@@ -204,14 +204,20 @@ import type { ExternalWalletForm } from '@/components/modals/addressbook/transfo
 import ContactDetailsModal from '@/components/modals/addressbook/modal.details.Contact.vue'
 import AddCurrencyModal from '@/components/modals/addressbook/subModals/subModal.add.Currency.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
-import ImportButton from '@/components/buttons/addressbook/ImportButton.vue'
-import ExportButton from '@/components/buttons/addressbook/ExportButton.vue'
+import ImportButton from '@/components/buttons/addressbook/button.addressBook.import.vue'
+import ExportButton from '@/components/buttons/addressbook/button.addressBook.export.vue'
 import ExchangeTab from '@/components/pageTabs/addressbook/tab.addressBook.Exchange.vue'
 import WalletTab from '@/components/pageTabs/addressbook/tab.addressBook.Wallet.vue'
 import CompaniesTab from '@/components/pageTabs/addressbook/tab.addressBook.Companies.vue'
 import ContactsTab from '@/components/pageTabs/addressbook/tab.addressBook.Contact.vue'
 import { getContacts, addContact, deleteContact, type Contact } from '@/services/addressBook/service.addressBook.Contact'
 import { addWallet, getWalletCountForContact } from '@/services/addressBook/service.addressBook.Wallet'
+import { getExchanges, addExchange, type ExchangeRecord } from '@/services/addressBook/service.addressBook.Exchange'
+import {
+  getStandaloneWallets,
+  addStandaloneWallet,
+  type StandaloneWalletRecord,
+} from '@/services/addressBook/service.addressBook.StandaloneWallet'
 import type { ImportedWallet } from '@/lib/cores/importStandard/importWallet.json'
 
 defineOptions({ name: 'AddressBookView' })
@@ -220,39 +226,11 @@ interface DisplayContact extends Contact {
   wallets: number
 }
 
-interface Currency {
-  name: string
-  abbreviation: string
-  address: string
-}
-
-interface Exchange {
-  id: number
-  name: string
-  url: string
-  referralUrl: string
-  referralCode: string
-  currencies: Currency[]
-  email: string
-  notes: string
-}
-
-interface Wallet {
-  id: number
-  name: string
-  currencies: Currency[]
-  mnemonicWordCount?: number
-  mnemonicFirst?: string
-  mnemonicLast?: string
-  notes?: string
-  passwordHint?: string
-}
-
 const tabs = ['Contacts', 'Exchanges', 'Wallets', 'Companies'] as const
 const activeTab = ref<(typeof tabs)[number]>('Contacts')
 const contacts = ref<DisplayContact[]>([] as DisplayContact[])
-const exchanges = ref<Exchange[]>([])
-const wallets = ref<Wallet[]>([])
+const exchanges = ref<ExchangeRecord[]>([])
+const wallets = ref<StandaloneWalletRecord[]>([])
 
 const showAddContactModal = ref(false)
 const showContactDetailsModal = ref(false)
@@ -278,6 +256,8 @@ const companiesTabRef = ref<{ loadCompanies: () => Promise<void> } | null>(null)
 
 onMounted(async () => {
   await loadContacts()
+  await loadExchanges()
+  await loadStandaloneWallets()
 })
 
 async function loadContacts() {
@@ -289,7 +269,16 @@ async function loadContacts() {
   }
   contacts.value = displayContacts
   closeConfirmModal()
+  await nextTick()
   await companiesTabRef.value?.loadCompanies?.()
+}
+
+async function loadExchanges() {
+  exchanges.value = await getExchanges()
+}
+
+async function loadStandaloneWallets() {
+  wallets.value = await getStandaloneWallets()
 }
 
 const filteredContacts = computed(() => {
@@ -447,21 +436,19 @@ const handleAddClick = () => {
   }
 }
 
-function onExchangeSaved(exchange: Omit<Exchange, 'id'>) {
-  const nextId = (exchanges.value.reduce((m, e) => Math.max(m, e.id ?? 0), 0) || 0) + 1
-  exchanges.value.push({ ...exchange, id: nextId })
+async function onExchangeSaved(exchange: Omit<ExchangeRecord, 'id'>) {
+  await addExchange(exchange)
+  await loadExchanges()
 }
 
-function onExternalWalletSaved(payload: ExternalWalletForm) {
-  const nextId = (wallets.value.reduce((m, w) => Math.max(m, w.id ?? 0), 0) || 0) + 1
+async function onExternalWalletSaved(payload: ExternalWalletForm) {
   const mnemonicHint = [payload.mnemonicFirst, payload.mnemonicLast]
     .filter((s) => s?.trim())
     .join(' · ')
     .trim()
   const nameParts = [payload.wallet?.trim(), mnemonicHint].filter(Boolean)
   const label = nameParts.length > 0 ? nameParts.join(' · ') : 'External wallet'
-  wallets.value.push({
-    id: nextId,
+  await addStandaloneWallet({
     name: label,
     mnemonicWordCount: payload.mnemonicWordCount,
     mnemonicFirst: payload.mnemonicFirst,
@@ -474,13 +461,14 @@ function onExternalWalletSaved(payload: ExternalWalletForm) {
       address: c.address || '',
     })),
   })
+  await loadStandaloneWallets()
 }
 
-function onExchangesImported(list: unknown[]) {
+async function onExchangesImported(list: unknown[]) {
   for (const raw of list) {
-    const ex = raw as Partial<Omit<Exchange, 'id'>>
+    const ex = raw as Partial<Omit<ExchangeRecord, 'id'>>
     if (!ex || typeof ex !== 'object') continue
-    onExchangeSaved({
+    await addExchange({
       name: String(ex.name ?? ''),
       url: String(ex.url ?? ''),
       referralUrl: String(ex.referralUrl ?? ''),
@@ -488,8 +476,8 @@ function onExchangesImported(list: unknown[]) {
       email: String(ex.email ?? ''),
       notes: String(ex.notes ?? ''),
       currencies: Array.isArray(ex.currencies)
-        ? (ex.currencies as unknown[]).map((raw) => {
-            const c = raw as Partial<Currency>
+        ? (ex.currencies as unknown[]).map((cur) => {
+            const c = cur as Partial<{ name: string; abbreviation: string; address: string }>
             return {
               name: String(c?.name ?? c?.abbreviation ?? ''),
               abbreviation: String(c?.abbreviation ?? c?.name ?? ''),
@@ -499,16 +487,14 @@ function onExchangesImported(list: unknown[]) {
         : [],
     })
   }
+  await loadExchanges()
 }
 
-function onWalletsImported(payload: { wallets: ImportedWallet[] }) {
-  let nextId = wallets.value.reduce((m, w) => Math.max(m, w.id ?? 0), 0)
+async function onWalletsImported(payload: { wallets: ImportedWallet[] }) {
   for (const w of payload.wallets) {
-    nextId += 1
     const ticker = w.coinTicker || 'Wallet'
-    wallets.value.push({
-      id: nextId,
-      name: `${ticker} ${nextId}`,
+    await addStandaloneWallet({
+      name: ticker,
       currencies: [
         {
           name: ticker,
@@ -518,6 +504,7 @@ function onWalletsImported(payload: { wallets: ImportedWallet[] }) {
       ],
     })
   }
+  await loadStandaloneWallets()
 }
 
 const closeAddContactModal = () => {
@@ -731,7 +718,7 @@ function onExportVcf(contact: Contact) { console.log(`VCF: ${contact.id}`) }
   &:hover { background: #dc2626; border-color: #dc2626; }
 }
 
-/* Pass-through styles for ImportButton / ExportButton */
+/* Pass-through styles for address book import / export buttons */
 .ab-view__actions :deep(.btn) {
   display: inline-flex;
   align-items: center;
