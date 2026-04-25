@@ -107,7 +107,12 @@
       </table>
     </div>
 
-    <ExchangeModal v-if="selectedExchange" :exchange="selectedExchange" @close="closeExchangeModal" />
+    <ExchangeModal
+      v-if="selectedExchange"
+      :exchange="selectedExchange"
+      @close="closeExchangeModal"
+      @exchange-saved="onExchangeDetailSaved"
+    />
     <ModalConfirmDeleteGeneral
       :show="showConfirmModal"
       :title="confirmModalTitle"
@@ -123,42 +128,30 @@ import { ref, computed } from 'vue'
 
 defineOptions({ name: 'TabAddressBookExchange' })
 import ExchangeModal from '@/components/modals/addressbook/modal.details.Exchange.vue'
-import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue';
+import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
-
-interface Currency {
-  name: string;
-  abbreviation: string;
-  address: string;
-}
-
-interface Exchange {
-  id: number;
-  name: string;
-  url: string;
-  referralUrl: string;
-  referralCode: string;
-  currencies: Currency[];
-  email: string;
-  notes: string;
-}
+import { deleteExchange, updateExchange, type ExchangeRecord } from '@/services/addressBook/service.addressBook.Exchange'
 
 const props = defineProps<{
-  exchanges: Exchange[];
-}>();
+  exchanges: ExchangeRecord[]
+}>()
 
-const selectedExchange = ref<Exchange | null>(null);
+const emit = defineEmits<{
+  'exchanges-changed': []
+}>()
+
+const selectedExchange = ref<ExchangeRecord | null>(null)
 const selectedExchanges = ref<number[]>([]);
 const currentPage = ref(1);
 const itemsPerPage = 25;
 const showConfirmModal = ref(false);
 const confirmModalTitle = ref('');
 const confirmModalMessage = ref('');
-const exchangeToDelete = ref<Exchange | null>(null);
-const sortKey = ref<keyof Exchange | 'num_currencies'>('id');
-const sortOrder = ref<'asc' | 'dsc'>('asc');
+const exchangeToDelete = ref<ExchangeRecord | null>(null)
+const sortKey = ref<keyof ExchangeRecord | 'num_currencies'>('id')
+const sortOrder = ref<'asc' | 'dsc'>('asc')
 
-function sortBy(key: keyof Exchange | 'num_currencies') {
+function sortBy(key: keyof ExchangeRecord | 'num_currencies') {
   if (sortKey.value === key) {
     sortOrder.value = sortOrder.value === 'asc' ? 'dsc' : 'asc';
   } else {
@@ -178,8 +171,8 @@ const sortedExchanges = computed(() => {
       aValue = a.currencies.length;
       bValue = b.currencies.length;
     } else {
-      aValue = a[key as keyof Exchange];
-      bValue = b[key as keyof Exchange];
+      aValue = a[key as keyof ExchangeRecord]
+      bValue = b[key as keyof ExchangeRecord]
     }
 
     if (aValue === bValue) {
@@ -218,15 +211,23 @@ const selectAllExchanges = (event: Event) => {
   }
 };
 
-const openExchangeModal = (exchange: Exchange) => {
-  selectedExchange.value = exchange;
-};
+const openExchangeModal = (exchange: ExchangeRecord) => {
+  selectedExchange.value = exchange
+}
 
 const closeExchangeModal = () => {
-  selectedExchange.value = null;
-};
+  selectedExchange.value = null
+}
 
-const confirmDeleteExchange = (exchange: Exchange) => {
+async function onExchangeDetailSaved(saved: ExchangeRecord & { id?: number }) {
+  if (saved.id != null) {
+    await updateExchange({ ...saved, id: saved.id })
+  }
+  closeExchangeModal()
+  emit('exchanges-changed')
+}
+
+const confirmDeleteExchange = (exchange: ExchangeRecord) => {
   exchangeToDelete.value = exchange;
   confirmModalTitle.value = 'Delete Exchange';
   confirmModalMessage.value = `Are you sure you want to delete the exchange ${exchange.name}?`;
@@ -235,15 +236,11 @@ const confirmDeleteExchange = (exchange: Exchange) => {
 
 const onConfirmDelete = async () => {
   if (exchangeToDelete.value) {
-    // TODO: This should delete the exchange from the database
-    // for now we just remove it from the array
-    const index = props.exchanges.findIndex(e => e.id === exchangeToDelete.value!.id);
-    if (index > -1) {
-      props.exchanges.splice(index, 1);
-    }
+    await deleteExchange(exchangeToDelete.value.id)
+    emit('exchanges-changed')
   }
-  closeConfirmModal();
-};
+  closeConfirmModal()
+}
 
 const closeConfirmModal = () => {
   showConfirmModal.value = false;
