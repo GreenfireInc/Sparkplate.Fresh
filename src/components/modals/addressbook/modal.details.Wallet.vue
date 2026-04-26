@@ -92,7 +92,13 @@
                       class="cd-exch-sidebar-social__link"
                       :title="item.url"
                     >
+                      <i
+                        v-if="item.biClass"
+                        :class="[item.biClass, 'cd-exch-sidebar-social__icon', 'cd-exch-sidebar-social__icon--bi']"
+                        aria-hidden="true"
+                      />
                       <component
+                        v-else
                         :is="item.icon"
                         :size="16"
                         class="cd-exch-sidebar-social__icon"
@@ -267,11 +273,7 @@ import {
   Instagram,
   Youtube,
   Facebook,
-  Send,
-  MessageCircle,
-  Share2,
   Github,
-  BookOpen,
 } from 'lucide-vue-next'
 import {
   getWalletPickerOptions,
@@ -291,15 +293,22 @@ const SOCIAL_PLATFORM_ICONS: Record<string, Component> = {
   instagram: Instagram,
   youtube: Youtube,
   facebook: Facebook,
-  telegram: Send,
-  discord: MessageCircle,
-  reddit: Share2,
   github: Github,
-  medium: BookOpen,
 }
 
 function socialIconForPlatform(platform: string): Component {
   return SOCIAL_PLATFORM_ICONS[platform.toLowerCase()] ?? Globe
+}
+
+function socialBiClassForPlatform(
+  platform: string,
+): 'bi bi-discord' | 'bi bi-reddit' | 'bi bi-medium' | 'bi bi-telegram' | null {
+  const p = platform.toLowerCase()
+  if (p === 'discord') return 'bi bi-discord'
+  if (p === 'reddit') return 'bi bi-reddit'
+  if (p === 'medium') return 'bi bi-medium'
+  if (p === 'telegram') return 'bi bi-telegram'
+  return null
 }
 
 function displaySocialUrl(url: string): string {
@@ -439,11 +448,13 @@ const walletOfficialWebsite = computed(() => {
 const walletSocialLinks = computed(() => {
   const sm = getWalletSocialMediaForDisplayName(props.wallet.name)
   if (!sm) return []
-  return Object.entries(sm).map(([platform, url]) => ({
-    platform,
-    url,
-    icon: socialIconForPlatform(platform),
-  }))
+  return Object.entries(sm).map(([platform, url]) => {
+    const biClass = socialBiClassForPlatform(platform)
+    if (biClass) {
+      return { platform, url, biClass }
+    }
+    return { platform, url, icon: socialIconForPlatform(platform) }
+  })
 })
 
 function onWalletLogoError() {
@@ -785,6 +796,17 @@ function onWalletCurrencyDelete(rowIndex: number) {
 .cd-exch-sidebar-social__icon {
   flex-shrink: 0;
   color: #4b5563;
+}
+
+/* Match Lucide :size="16" for Bootstrap Icons */
+.cd-exch-sidebar-social__icon--bi {
+  font-size: 1rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
 }
 
 .cd-exch-sidebar-social__link:hover .cd-exch-sidebar-social__icon {

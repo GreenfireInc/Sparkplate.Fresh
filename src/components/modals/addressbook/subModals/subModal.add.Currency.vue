@@ -7,7 +7,7 @@
   >
     <div class="modal-content" @click.stop>
       <div class="modal-header">
-        <h2>Add Currency for Contact ID: {{ contactId }}</h2>
+        <h2>Add Currency for {{ entityLabel }} ID: {{ contactId }}</h2>
       </div>
       <form @submit.prevent="submitForm" class="modal-form">
         <div class="form-group">
@@ -79,15 +79,32 @@ interface CurrencyData {
   address: string;
 }
 
-const props = defineProps<{
-  show: boolean;
-  contactId: number;
-}>();
+const props = withDefaults(
+  defineProps<{
+    show: boolean
+    contactId: number
+    /** "Contact" (default) or "Wallet" for standalone address book wallets */
+    entityLabel?: string
+    /**
+     * When false, JSON import skips per-contact `addWallet` and emits
+     * `standalone-currencies-imported` once (batch) for the address book Wallets tab.
+     */
+    persistImportedWalletsToContact?: boolean
+  }>(),
+  {
+    entityLabel: 'Contact',
+    persistImportedWalletsToContact: true,
+  },
+)
 
 const emits = defineEmits<{
-  (e: 'close'): void;
-  (e: 'currency-added', currency: CurrencyData): void;
-}>();
+  (e: 'close'): void
+  (e: 'currency-added', currency: CurrencyData): void
+  (
+    e: 'standalone-currencies-imported',
+    payload: { targetId: number; items: ImportedWallet[] },
+  ): void
+}>()
 
 const selectedNetwork = ref('BTC');
 const walletAddress = ref('');
@@ -190,7 +207,17 @@ const closeImportModal = () => {
 
 const handleConfirmImport = async (wallets: ImportedWallet[]) => {
   try {
-    // Add all imported wallets to the database
+    if (!props.persistImportedWalletsToContact) {
+      emits('standalone-currencies-imported', {
+        targetId: props.contactId,
+        items: wallets,
+      })
+      closeImportModal()
+      resetForm()
+      emits('close')
+      return
+    }
+
     for (const wallet of wallets) {
       await addWallet({
         contactId: props.contactId,
@@ -199,19 +226,18 @@ const handleConfirmImport = async (wallets: ImportedWallet[]) => {
         keyFingerprint: wallet.keyFingerprint,
         cryptoPublicKey: wallet.cryptoPublicKey,
         gpgPublicKey: wallet.gpgPublicKey,
-      });
-      
-      // Emit currency-added event for each wallet to maintain consistency
+      })
+
       emits('currency-added', {
         contactId: props.contactId,
         network: wallet.coinTicker,
         address: wallet.address,
-      });
+      })
     }
-    
-    closeImportModal();
-    resetForm();
-    emits('close');
+
+    closeImportModal()
+    resetForm()
+    emits('close')
   } catch (error) {
     console.error('Error adding imported wallets:', error);
     alert('Error adding imported wallets. Please try again.');

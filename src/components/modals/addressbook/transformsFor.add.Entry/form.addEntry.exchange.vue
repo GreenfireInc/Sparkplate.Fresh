@@ -82,7 +82,10 @@
 
     <FormAddEntryFooter
       submit-label="Add Exchange"
+      show-import
+      import-accept=".json,application/json"
       @cancel="emit('cancel')"
+      @file-import="emit('file-import', $event)"
     />
   </form>
 </template>

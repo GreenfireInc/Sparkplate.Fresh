@@ -8,9 +8,66 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { SquareUser, Landmark, Wallet, Building2 } from 'lucide-vue-next'
+import packageJson from '../../../../package.json'
 import { getCompanies } from '@/services/addressBook/service.addressBook.Company'
 
 export type ExportVariant = 'contacts' | 'exchanges' | 'wallets' | 'companies'
+
+const SECTION_LABEL = 'AddressBook'
+
+const TAB_BY_VARIANT: Record<ExportVariant, string> = {
+  contacts: 'Contacts',
+  exchanges: 'Exchanges',
+  wallets: 'Wallets',
+  companies: 'Companies',
+}
+
+/** Safe single segment for download filenames (cross-platform). */
+function sanitizeFileSegment(raw: string): string {
+  const s = String(raw)
+    .trim()
+    .replace(/[^a-zA-Z0-9._-]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^[-.]+|[-.]+$/g, '')
+  return s.length > 0 ? s : 'unnamed'
+}
+
+function getUserForFilename(): string {
+  if (typeof window !== 'undefined' && window.localStorage) {
+    const stored = window.localStorage.getItem('sparkplate_userName')
+    if (stored?.trim()) return sanitizeFileSegment(stored.trim())
+  }
+  return 'user'
+}
+
+function formatDateYmd(d: Date = new Date()): string {
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  return `${y}${m}${day}`
+}
+
+function formatTimeHms24(d: Date = new Date()): string {
+  const h = String(d.getHours()).padStart(2, '0')
+  const m = String(d.getMinutes()).padStart(2, '0')
+  const s = String(d.getSeconds()).padStart(2, '0')
+  return `${h}${m}${s}`
+}
+
+/**
+ * %projectName%.%user%.%date (YYYYMMDD)%.%time (HHMMSS)%.%section%.%tab%.All.%ext%
+ * projectName from package.json; user from localStorage or "user" (aligns with other export std).
+ */
+function buildAddressBookExportFilename(variant: ExportVariant, dataExt: 'json' | 'csv'): string {
+  const projectName = sanitizeFileSegment((packageJson as { name: string }).name)
+  const user = getUserForFilename()
+  const now = new Date()
+  const dateStr = formatDateYmd(now)
+  const timeStr = formatTimeHms24(now)
+  const section = SECTION_LABEL
+  const tab = TAB_BY_VARIANT[variant]
+  return `${projectName}.${user}.${dateStr}.${timeStr}.${section}.${tab}.All.${dataExt}`
+}
 
 const props = withDefaults(
   defineProps<{
@@ -80,21 +137,21 @@ function exportContactsCsv() {
     ),
   ]
   const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8' })
-  downloadBlob('addressbook-contacts.csv', blob)
+  downloadBlob(buildAddressBookExportFilename('contacts', 'csv'), blob)
 }
 
 async function handleExport() {
   try {
     switch (props.variant) {
       case 'exchanges':
-        downloadJson('addressbook-exchanges.json', props.exchanges ?? [])
+        downloadJson(buildAddressBookExportFilename('exchanges', 'json'), props.exchanges ?? [])
         break
       case 'wallets':
-        downloadJson('addressbook-wallets.json', props.wallets ?? [])
+        downloadJson(buildAddressBookExportFilename('wallets', 'json'), props.wallets ?? [])
         break
       case 'companies': {
         const data = await getCompanies()
-        downloadJson('addressbook-companies.json', data)
+        downloadJson(buildAddressBookExportFilename('companies', 'json'), data)
         break
       }
       case 'contacts':

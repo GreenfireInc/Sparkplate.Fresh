@@ -103,7 +103,13 @@
       />
     </TabsRoot>
 
-    <FormAddEntryFooter submit-label="Add wallet" @cancel="emit('cancel')" />
+    <FormAddEntryFooter
+      submit-label="Add wallet"
+      show-import
+      import-accept=".json,application/json"
+      @cancel="emit('cancel')"
+      @file-import="emit('file-import', $event)"
+    />
   </form>
 </template>
 

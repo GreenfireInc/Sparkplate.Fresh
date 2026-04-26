@@ -260,11 +260,13 @@ defineExpose({
 </script>
 
 <style scoped>
+/* Scroll panel height / overflow: match `tab.details.Contact.Wallets.vue` (outer padding 0: sticky header stays flush) */
 .notes-tab {
   padding: 0;
   max-height: 60vh;
   overflow-y: auto;
   overscroll-behavior: contain;
+  padding-right: 0.5rem;
 }
 
 .notes-tab::-webkit-scrollbar {
