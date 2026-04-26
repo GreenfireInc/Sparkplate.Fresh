@@ -70,7 +70,16 @@
             <td class="ab-table__td">{{ wallet.currencies.length }}</td>
             <td class="ab-table__td">{{ wallet.currencies[0]?.address || 'N/A' }}</td>
             <td class="ab-table__td ab-table__td--actions" @click.stop>
-              <ActionsDropdown @edit="" @delete="confirmDeleteWallet(wallet)" />
+              <ActionsDropdown
+                :contact="walletRowContactStub(wallet)"
+                @add-currency-request="openAddCurrencyForWallet(wallet)"
+                @update:edit-mode="(on: boolean) => on && openWalletModal(wallet)"
+                @generate-qrcode-png="noopWalletTableActions"
+                @generate-qrcode-svg="noopWalletTableActions"
+                @export-csv="noopWalletTableActions"
+                @export-vcf="noopWalletTableActions"
+                @export-json="noopWalletTableActions"
+              />
             </td>
           </tr>
         </tbody>
@@ -82,6 +91,16 @@
       :wallet="selectedWallet"
       @close="closeWalletModal"
       @currency-removed="onWalletCurrencyRemoved"
+    />
+    <SubModalAddCurrency
+      v-if="walletForAddCurrency"
+      :show="showAddCurrencyModal"
+      :contact-id="walletForAddCurrency.id"
+      entity-label="Wallet"
+      :persist-imported-wallets-to-contact="false"
+      @close="closeAddCurrencyModal"
+      @currency-added="onAddCurrencyToStandaloneWallet"
+      @standalone-currencies-imported="onStandaloneCurrenciesBulkImport"
     />
     <ModalConfirmDeleteGeneral
       :show="showConfirmModal"
@@ -95,10 +114,14 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
 import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
 import WalletModal from '@/components/modals/addressbook/modal.details.Wallet.vue'
+import SubModalAddCurrency from '@/components/modals/addressbook/subModals/subModal.add.Currency.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
+import type { ImportedWallet } from '@/lib/cores/importStandard/importWallet.json'
 import {
+  getStandaloneWallets,
   deleteStandaloneWallet,
   updateStandaloneWallet,
   type StandaloneWalletRecord,
@@ -122,6 +145,8 @@ const showConfirmModal = ref(false)
 const confirmModalTitle = ref('')
 const confirmModalMessage = ref('')
 const walletToDelete = ref<StandaloneWalletRecord | null>(null)
+const showAddCurrencyModal = ref(false)
+const walletForAddCurrency = ref<StandaloneWalletRecord | null>(null)
 const sortKey = ref<keyof StandaloneWalletRecord | 'num_currencies'>('id')
 const sortOrder = ref<'asc' | 'dsc'>('asc')
 
@@ -180,6 +205,75 @@ const selectAllWallets = (event: Event) => {
   } else {
     selectedWallets.value = selectedWallets.value.filter(id => !visibleWalletIds.includes(id))
   }
+}
+
+/** Contact-shaped row for `ActionsDropdown` (same pattern as `modal.details.Wallet.vue`). */
+function walletRowContactStub(wallet: StandaloneWalletRecord): Contact {
+  return {
+    id: wallet.id,
+    type: 'addressbook_wallet',
+    firstname: wallet.name || 'Wallet',
+    lastname: '',
+    company: '',
+    email: '',
+    notes: wallet.notes ?? '',
+  }
+}
+
+/** QR / export in the pocket menu for wallet rows; full flows live on contact rows. */
+function noopWalletTableActions() {}
+
+const openAddCurrencyForWallet = (wallet: StandaloneWalletRecord) => {
+  walletForAddCurrency.value = wallet
+  showAddCurrencyModal.value = true
+}
+
+const closeAddCurrencyModal = () => {
+  showAddCurrencyModal.value = false
+  walletForAddCurrency.value = null
+}
+
+async function onAddCurrencyToStandaloneWallet(currency: {
+  contactId: number
+  network: string
+  address: string
+}) {
+  const all = await getStandaloneWallets()
+  const w = all.find((x) => x.id === currency.contactId)
+  if (!w) return
+  const newCurrencies = [
+    ...w.currencies.map((c) => ({ ...c })),
+    {
+      name: currency.network,
+      abbreviation: currency.network,
+      address: currency.address,
+    },
+  ]
+  await updateStandaloneWallet({ ...w, currencies: newCurrencies })
+  emit('wallets-changed')
+}
+
+/**
+ * JSON import for standalone wallets: submodal sends one batch so we merge once. Per-row
+ * `currency-added` for many rows raced and each `updateStandalone` overwrote the last.
+ */
+async function onStandaloneCurrenciesBulkImport(payload: {
+  targetId: number
+  items: ImportedWallet[]
+}) {
+  const all = await getStandaloneWallets()
+  const w = all.find((x) => x.id === payload.targetId)
+  if (!w || payload.items.length === 0) return
+  const newCurrencies = [
+    ...w.currencies.map((c) => ({ ...c })),
+    ...payload.items.map((item) => ({
+      name: item.coinTicker,
+      abbreviation: item.coinTicker,
+      address: item.address,
+    })),
+  ]
+  await updateStandaloneWallet({ ...w, currencies: newCurrencies })
+  emit('wallets-changed')
 }
 
 const openWalletModal = (wallet: StandaloneWalletRecord) => {

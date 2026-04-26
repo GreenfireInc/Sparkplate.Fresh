@@ -1,5 +1,12 @@
 <template>
   <div class="ac-modal__actions">
+    <button
+      type="submit"
+      class="ac-btn ac-btn--primary"
+      :disabled="submitDisabled"
+    >
+      {{ submitLabel }}
+    </button>
     <template v-if="showImport">
       <input
         ref="fileInputRef"
@@ -11,13 +18,6 @@
       <button type="button" class="ac-btn ac-btn--import" @click="onImportClick">Import</button>
     </template>
     <button type="button" class="ac-btn ac-btn--secondary" @click="emit('cancel')">Cancel</button>
-    <button
-      type="submit"
-      class="ac-btn ac-btn--primary"
-      :disabled="submitDisabled"
-    >
-      {{ submitLabel }}
-    </button>
   </div>
 </template>
 
@@ -30,8 +30,9 @@ withDefaults(
   defineProps<{
     /** Primary submit button label (e.g. Save contact, Add Exchange). */
     submitLabel: string
-    /** Contact form: show hidden file input + Import button. */
+    /** Show hidden file input + Import (same order as other add-entry forms: submit, import, cancel). */
     showImport?: boolean
+    /** e.g. JSON-only for exchange/wallet rows, or vCard + JSON for contact-style tabs. */
     importAccept?: string
     submitDisabled?: boolean
   }>(),

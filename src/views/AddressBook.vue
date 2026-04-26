@@ -117,44 +117,18 @@
           </div>
 
           <!-- Footer: sibling of scroll area inside the card — never inside the scroll -->
-          <div class="ab-table-footer">
-            <div class="ab-table-footer__left">
-              <button
-                v-if="activeTab === 'Contacts' && selectedContacts.length > 0"
-                type="button"
-                class="ab-btn ab-btn--danger"
-                @click="confirmDeleteSelectedContacts"
-              >
-                Delete selected
-              </button>
-            </div>
-            <div class="ab-table-footer__right">
-              <span v-if="activeTab === 'Contacts'" class="ab-table-footer__count">
-                {{ firstItemIndex }}–{{ lastItemIndex }} of {{ filteredContacts.length }}
-              </span>
-              <span v-else class="ab-table-footer__count">0–0 of 0</span>
-              <div class="ab-table-footer__pagination">
-                <button
-                  type="button"
-                  class="ab-page-btn"
-                  :disabled="activeTab !== 'Contacts' || currentPage === 1 || filteredContacts.length === 0"
-                  aria-label="Previous page"
-                  @click="prevPage"
-                >
-                  <ChevronLeft :size="18" aria-hidden="true" />
-                </button>
-                <button
-                  type="button"
-                  class="ab-page-btn"
-                  :disabled="activeTab !== 'Contacts' || currentPage === totalPages || filteredContacts.length === 0"
-                  aria-label="Next page"
-                  @click="nextPage"
-                >
-                  <ChevronRight :size="18" aria-hidden="true" />
-                </button>
-              </div>
-            </div>
-          </div>
+          <AspectFooterModalAddressBook
+            :is-contacts-active="activeTab === 'Contacts'"
+            :selected-count="selectedContacts.length"
+            :first-item-index="firstItemIndex"
+            :last-item-index="lastItemIndex"
+            :filtered-count="filteredContacts.length"
+            :current-page="currentPage"
+            :total-pages="totalPages"
+            @delete-selected="confirmDeleteSelectedContacts"
+            @prev-page="prevPage"
+            @next-page="nextPage"
+          />
         </div>
       </TabsRoot>
     </section>
@@ -198,7 +172,8 @@ import {
   Separator, Label,
   TooltipProvider, TooltipRoot, TooltipTrigger, TooltipPortal, TooltipContent, TooltipArrow,
 } from 'radix-vue'
-import { NotebookTabs, SquareUser, Landmark, Wallet, Building2, ChevronLeft, ChevronRight } from 'lucide-vue-next'
+import { NotebookTabs, SquareUser, Landmark, Wallet, Building2 } from 'lucide-vue-next'
+import AspectFooterModalAddressBook from '@/components/modals/addressbook/aspects/aspect.footer.modal.addressBook.vue'
 import AddContactModal from '@/components/modals/addressbook/modal.add.entry.vue'
 import type { ExternalWalletForm } from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.externalWallet.vue'
 import ContactDetailsModal from '@/components/modals/addressbook/modal.details.Contact.vue'
@@ -810,61 +785,4 @@ function onExportVcf(contact: Contact) { console.log(`VCF: ${contact.id}`) }
 }
 
 
-/* ── Table footer ────────────────────────────────────────── */
-.ab-table-footer {
-  flex-shrink: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.85rem 1rem;
-  background: #f9fafb;
-  border-top: 1px solid #e5e7eb;
-}
-
-.ab-table-footer__left {
-  min-width: 150px;
-}
-
-.ab-table-footer__right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.ab-table-footer__count {
-  font-size: 0.875rem;
-  color: #6b7280;
-  white-space: nowrap;
-}
-
-.ab-table-footer__pagination {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.ab-page-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  padding: 0;
-  border: 1px solid #d1d5db;
-  border-radius: 0.375rem;
-  background: #fff;
-  color: #374151;
-  cursor: pointer;
-  transition: background 0.12s, border-color 0.12s;
-
-  &:hover:not(:disabled) {
-    background: #f3f4f6;
-    border-color: #9ca3af;
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.45;
-  }
-}
 </style>

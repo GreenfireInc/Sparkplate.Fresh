@@ -110,7 +110,7 @@
           </div>
 
           <div v-else-if="selectedEntity === 'Companies'">
-            <FormAddEntryCompanies
+            <FormAddEntryCompany
               v-model="companyForm"
               @submit="saveCompany"
               @cancel="close"
@@ -188,10 +188,10 @@ import FormAddEntryExternalWallet, {
   makeEmptyExternalWalletForm,
   type ExternalWalletForm,
 } from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.externalWallet.vue'
-import FormAddEntryCompanies, {
+import FormAddEntryCompany, {
   makeEmptyCompanyForm,
   type CompanyForm,
-} from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.companies.vue'
+} from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.company.vue'
 import { parseWalletJsonFile } from '@/lib/cores/importStandard/importWallet.json'
 import { useContactParser } from '@/composables/useContactParser'
 

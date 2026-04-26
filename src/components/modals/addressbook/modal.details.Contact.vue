@@ -796,9 +796,14 @@ const close = () => {
 
 .cd-tabs__content {
   flex: 1;
-  min-height: 0;
+  /* Floor every tab panel at 60vh so switching tabs (populated, empty, or
+     placeholder) never shrinks the modal. Inner tabs (Wallets/GPG/Notes)
+     keep their own max-height: 60vh + overflow scroll, so populated panels
+     still scroll internally without producing a second outer scrollbar. */
+  min-height: 60vh;
   overflow-y: auto;
   padding: 1.25rem;
+  box-sizing: border-box;
 }
 
 /* ── GPG tab ─────────────────────────────────────────────── */

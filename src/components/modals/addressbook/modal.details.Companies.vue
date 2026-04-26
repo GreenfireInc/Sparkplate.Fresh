@@ -607,7 +607,7 @@ function onDialogInteractOutside(event: CustomEvent<{ originalEvent: PointerEven
   padding: 1.25rem;
 }
 
-/* General — field layout aligned with form.addEntry.companies.vue */
+/* General — field layout aligned with form.addEntry.company.vue */
 .cd-co-form {
   display: flex;
   flex-direction: column;

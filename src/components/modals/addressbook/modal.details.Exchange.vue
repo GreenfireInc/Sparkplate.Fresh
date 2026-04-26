@@ -99,7 +99,13 @@
                       class="cd-exch-sidebar-social__link"
                       :title="item.url"
                     >
+                      <i
+                        v-if="item.biClass"
+                        :class="[item.biClass, 'cd-exch-sidebar-social__icon', 'cd-exch-sidebar-social__icon--bi']"
+                        aria-hidden="true"
+                      />
                       <component
+                        v-else
                         :is="item.icon"
                         :size="16"
                         class="cd-exch-sidebar-social__icon"
@@ -298,9 +304,6 @@ import {
   Instagram,
   Youtube,
   Facebook,
-  Send,
-  MessageCircle,
-  Share2,
   Globe,
 } from 'lucide-vue-next'
 import TabDetailsContactNotes from '@/components/modals/addressbook/tabsFor.details/tab.details.Contact.Notes.vue'
@@ -325,13 +328,20 @@ const SOCIAL_PLATFORM_ICONS: Record<string, Component> = {
   instagram: Instagram,
   youtube: Youtube,
   facebook: Facebook,
-  telegram: Send,
-  discord: MessageCircle,
-  reddit: Share2,
 }
 
 function socialIconForPlatform(platform: string): Component {
   return SOCIAL_PLATFORM_ICONS[platform.toLowerCase()] ?? Globe
+}
+
+function socialBiClassForPlatform(
+  platform: string,
+): 'bi bi-discord' | 'bi bi-reddit' | 'bi bi-telegram' | null {
+  const p = platform.toLowerCase()
+  if (p === 'discord') return 'bi bi-discord'
+  if (p === 'reddit') return 'bi bi-reddit'
+  if (p === 'telegram') return 'bi bi-telegram'
+  return null
 }
 
 /** Compact URL for inline display next to the icon */
@@ -500,11 +510,13 @@ const exchangeSocialLinks = computed(() => {
   if (!sm) return []
   return Object.entries(sm)
     .filter(([, url]) => typeof url === 'string' && url.trim().length > 0)
-    .map(([platform, url]) => ({
-      platform,
-      url: url.trim(),
-      icon: socialIconForPlatform(platform),
-    }))
+    .map(([platform, url]) => {
+      const biClass = socialBiClassForPlatform(platform)
+      if (biClass) {
+        return { platform, url: url.trim(), biClass }
+      }
+      return { platform, url: url.trim(), icon: socialIconForPlatform(platform) }
+    })
 })
 
 watch(
@@ -876,6 +888,17 @@ function close() {
 .cd-exch-sidebar-social__icon {
   flex-shrink: 0;
   color: #4b5563;
+}
+
+/* Match Lucide :size="16" for Bootstrap Icons */
+.cd-exch-sidebar-social__icon--bi {
+  font-size: 1rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
 }
 
 .cd-exch-sidebar-social__link:hover .cd-exch-sidebar-social__icon {

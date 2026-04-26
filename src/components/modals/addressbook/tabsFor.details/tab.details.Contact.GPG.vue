@@ -158,8 +158,9 @@ defineExpose({
 </script>
 
 <style scoped>
+/* Scroll panel height / overflow: match `tab.details.Contact.Wallets.vue` */
 .gpg-tab {
-  padding: 1rem;
+  padding: 1rem 0;
   max-height: 60vh;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -188,6 +189,7 @@ defineExpose({
   margin-bottom: 1rem;
   font-size: 1.25rem;
   font-weight: 600;
+  padding: 0 1rem;
 }
 
 .empty-state {
@@ -204,6 +206,7 @@ defineExpose({
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 0 1rem;
 }
 
 .gpg-key-item {

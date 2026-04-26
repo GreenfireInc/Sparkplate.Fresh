@@ -1,5 +1,5 @@
 <template>
-  <form class="ac-companies-form" novalidate @submit.prevent="onSubmit">
+  <form class="ac-company-form" novalidate @submit.prevent="onSubmit">
     <TabsRoot v-model="currentTab" class="ac-tabs">
       <FormAddEntryStructureTabsAll
         list-aria-label="Company sections"
@@ -114,7 +114,12 @@
       />
     </TabsRoot>
 
-    <FormAddEntryStructureFooter submit-label="Add company" @cancel="emit('cancel')" />
+    <FormAddEntryFooter
+      submit-label="Add company"
+      show-import
+      @cancel="emit('cancel')"
+      @file-import="emit('file-import', $event)"
+    />
   </form>
 </template>
 
@@ -149,11 +154,11 @@ export function makeEmptyCompanyForm(): CompanyForm {
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Label, TabsRoot, TabsContent } from 'radix-vue'
-import FormAddEntryStructureFooter from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.structure.footer.vue'
+import FormAddEntryFooter from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.structure.footer.vue'
 import FormAddEntryStructureTabsAll from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.structure.tabs.all.vue'
 import FormAddEntryStructureTabWallet from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.structure.tab.wallet.vue'
 
-defineOptions({ name: 'FormAddEntryCompanies' })
+defineOptions({ name: 'FormAddEntryCompany' })
 
 const companyForm = defineModel<CompanyForm>({ required: true })
 
@@ -176,13 +181,13 @@ function onSubmit() {
 
 <style scoped lang="scss">
 /* Match contact / exchange / external-wallet add-entry: form stack + tab band. */
-.ac-companies-form {
+.ac-company-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.ac-companies-form :deep(.ac-tabs__list) {
+.ac-company-form :deep(.ac-tabs__list) {
   margin-bottom: 0.5rem;
 }
 
@@ -194,7 +199,7 @@ function onSubmit() {
   --ac-contact-tab-panel-height: min(26rem, 52vh);
 }
 
-.ac-companies-form :deep(.ac-tabs__content) {
+.ac-company-form :deep(.ac-tabs__content) {
   padding-bottom: 0;
 }
 
