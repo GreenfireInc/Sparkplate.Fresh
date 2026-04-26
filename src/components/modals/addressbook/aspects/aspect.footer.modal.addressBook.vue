@@ -3,7 +3,7 @@
     <div class="ab-table-footer__left">
       <div class="ab-table-footer__actions">
         <button
-          v-if="isContactsActive && selectedCount > 0"
+          v-if="selectedCount > 0"
           type="button"
           class="ab-btn ab-btn--danger"
           @click="emit('delete-selected')"

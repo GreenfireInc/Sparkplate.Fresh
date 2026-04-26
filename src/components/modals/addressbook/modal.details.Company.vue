@@ -11,6 +11,15 @@
         <div class="cd-header">
           <div class="cd-header__row">
             <DialogTitle class="cd-header__title">Company details</DialogTitle>
+            <div class="cd-header__actions">
+              <ActionsDropdown
+                v-if="company"
+                variant="company"
+                :contact="companyActionsContactStub"
+                :is-editing="false"
+                @delete-requested="onCompanyActionsDeleteRequested"
+              />
+            </div>
             <DialogClose class="cd-header__close" aria-label="Close">
               <svg
                 viewBox="0 0 24 24"
@@ -198,12 +207,13 @@ import CardWalletAddress from '@/components/structure/card.WalletAddress.vue'
 import TabDetailsContactNotes from '@/components/modals/addressbook/tabsFor.details/tab.details.Contact.Notes.vue'
 import AspectSocialMedia from '@/components/modals/addressbook/aspects/aspect.socialMedia.vue'
 import SubModalSocialMedia from '@/components/modals/addressbook/subModals/subModal.socialMedia.vue'
+import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
 import { notesRevision, getNotesForOwnerId } from '@/services/addressBook/service.addressBook.Note'
 
 defineOptions({ name: 'ModalCompanyDetails' })
 
 const props = defineProps<{ company: Company | null }>()
-const emit = defineEmits<{ close: [] }>()
+const emit = defineEmits<{ close: []; 'delete-requested': [company: Company] }>()
 
 const dialogOpen = computed(() => !!props.company)
 const activeTab = ref('general')
@@ -261,6 +271,21 @@ const companyAspectContact = computed<Record<string, unknown>>(() => {
 
 function onCompanySocialEditRequested() {
   if (primaryContact.value?.id) showCompanySocialModal.value = true
+}
+
+/** Contact-shaped payload for header `ActionsDropdown` (matches Companies row pattern). */
+const companyActionsContactStub = computed<Contact>(() => ({
+  id: props.company?.id ?? 0,
+  type: 'addressbook_company',
+  firstname: props.company?.name ?? '',
+  lastname: '',
+  company: props.company?.name ?? '',
+  email: props.company?.email ?? '',
+  notes: displayNotes.value,
+}))
+
+function onCompanyActionsDeleteRequested() {
+  if (props.company) emit('delete-requested', props.company)
 }
 
 async function onCompanySocialSave(fields: Record<string, unknown>) {
@@ -448,6 +473,12 @@ function onDialogInteractOutside(event: CustomEvent<{ originalEvent: PointerEven
   font-size: 1.0625rem;
   font-weight: 700;
   color: #111827;
+}
+
+.cd-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .cd-header__close {

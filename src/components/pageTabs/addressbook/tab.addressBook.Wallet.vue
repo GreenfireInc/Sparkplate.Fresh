@@ -55,12 +55,12 @@
             class="ab-table__row"
             @click="openWalletModal(wallet)"
           >
-            <td class="ab-table__td ab-table__td--checkbox">
+            <td class="ab-table__td ab-table__td--checkbox" @click.stop>
               <input
+                v-model="selectedWalletIdsProxy"
                 type="checkbox"
-                :value="wallet.id"
-                v-model="selectedWallets"
                 class="ab-table__checkbox"
+                :value="wallet.id"
                 :aria-label="`Select wallet ${wallet.name}`"
                 @click.stop
               />
@@ -129,15 +129,24 @@ import {
 
 defineOptions({ name: 'TabAddressBookWallet' })
 
-const props = defineProps<{
-  wallets: StandaloneWalletRecord[]
-}>()
+const props = withDefaults(
+  defineProps<{
+    wallets: StandaloneWalletRecord[]
+    selectedWalletIds?: number[]
+  }>(),
+  { selectedWalletIds: () => [] },
+)
 
 const emit = defineEmits<{
   'wallets-changed': []
+  'update:selectedWalletIds': [value: number[]]
 }>()
 
-const selectedWallets = ref<number[]>([])
+const selectedWalletIdsProxy = computed({
+  get: () => props.selectedWalletIds,
+  set: (value: number[]) => emit('update:selectedWalletIds', value),
+})
+
 const selectedWallet = ref<StandaloneWalletRecord | null>(null)
 const currentPage = ref(1)
 const itemsPerPage = 25
@@ -194,16 +203,17 @@ const paginatedWallets = computed(() => {
 const isCurrentPageSelected = computed(() => {
   const visibleWalletIds = paginatedWallets.value.map(w => w.id)
   if (visibleWalletIds.length === 0) return false
-  return visibleWalletIds.every(id => selectedWallets.value.includes(id))
+  return visibleWalletIds.every(id => props.selectedWalletIds.includes(id))
 })
 
 const selectAllWallets = (event: Event) => {
   const target = event.target as HTMLInputElement
   const visibleWalletIds = paginatedWallets.value.map(w => w.id)
+  const current = [...props.selectedWalletIds]
   if (target.checked) {
-    selectedWallets.value = [...new Set([...selectedWallets.value, ...visibleWalletIds])]
+    emit('update:selectedWalletIds', [...new Set([...current, ...visibleWalletIds])])
   } else {
-    selectedWallets.value = selectedWallets.value.filter(id => !visibleWalletIds.includes(id))
+    emit('update:selectedWalletIds', current.filter(id => !visibleWalletIds.includes(id)))
   }
 }
 

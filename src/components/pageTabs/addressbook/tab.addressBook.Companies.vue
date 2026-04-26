@@ -4,6 +4,16 @@
       <table class="ab-table">
         <thead>
           <tr>
+            <th class="ab-table__th ab-table__th--checkbox" scope="col">
+              <input
+                type="checkbox"
+                class="ab-table__checkbox"
+                :checked="isCurrentPageSelected"
+                :disabled="sortedCompanies.length === 0"
+                aria-label="Select all companies in this list"
+                @change="onSelectAll"
+              />
+            </th>
             <th
               scope="col"
               class="ab-table__th ab-table__th--sortable"
@@ -63,7 +73,7 @@
         </thead>
         <tbody>
           <tr v-if="sortedCompanies.length === 0">
-            <td colspan="7" class="ab-table__empty">No companies found.</td>
+            <td colspan="8" class="ab-table__empty">No companies found.</td>
           </tr>
           <tr
             v-for="company in sortedCompanies"
@@ -71,6 +81,16 @@
             class="ab-table__row ab-table__row--clickable"
             @click="openCompanyModal(company)"
           >
+            <td class="ab-table__td ab-table__td--checkbox" @click.stop>
+              <input
+                v-model="selectedCompanyIdsProxy"
+                type="checkbox"
+                class="ab-table__checkbox"
+                :value="company.id"
+                :aria-label="`Select ${company.name}`"
+                @click.stop
+              />
+            </td>
             <td class="ab-table__td">{{ company.id }}</td>
             <td class="ab-table__td">{{ company.name }}</td>
             <td class="ab-table__td">{{ company.mainContact }}</td>
@@ -93,6 +113,7 @@
       v-if="selectedCompany"
       :company="selectedCompany"
       @close="closeCompanyModal"
+      @delete-requested="onCompanyDeleteFromModal"
     />
     <ModalConfirmDeleteGeneral
       :show="showConfirmModal"
@@ -110,7 +131,7 @@ import { TabsContent } from 'radix-vue'
 import { getCompanies, deleteCompany, type Company } from '@/services/addressBook/service.addressBook.Company'
 import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
 import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
-import CompanyDetailsModal from '@/components/modals/addressbook/modal.details.Companies.vue'
+import CompanyDetailsModal from '@/components/modals/addressbook/modal.details.Company.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 
 defineOptions({ name: 'TabAddressBookCompanies' })
@@ -123,6 +144,23 @@ const confirmModalMessage = ref('')
 const companyToDelete = ref<Company | null>(null)
 const sortKey = ref<keyof Company>('id')
 const sortOrder = ref<'asc' | 'dsc'>('asc')
+
+const props = withDefaults(
+  defineProps<{
+    selectedCompanyIds: number[]
+  }>(),
+  { selectedCompanyIds: () => [] },
+)
+
+const emit = defineEmits<{
+  'update:selectedCompanyIds': [value: number[]]
+  'select-all': [event: Event]
+}>()
+
+const selectedCompanyIdsProxy = computed({
+  get: () => props.selectedCompanyIds,
+  set: (value: number[]) => emit('update:selectedCompanyIds', value),
+})
 
 /** Contact-shaped row for `ActionsDropdown` (same pattern as exchange / wallet detail modals). */
 function companyActionsContactStub(company: Company): Contact {
@@ -176,6 +214,23 @@ const sortedCompanies = computed(() => {
   })
 })
 
+const isCurrentPageSelected = computed(() => {
+  const ids = sortedCompanies.value.map((c) => c.id)
+  return ids.length > 0 && ids.every((id) => props.selectedCompanyIds.includes(id))
+})
+
+function onSelectAll(event: Event) {
+  const target = event.target as HTMLInputElement
+  const ids = sortedCompanies.value.map((c) => c.id)
+  const current = [...props.selectedCompanyIds]
+  if (target.checked) {
+    emit('update:selectedCompanyIds', [...new Set([...current, ...ids])])
+  } else {
+    emit('update:selectedCompanyIds', current.filter((id) => !ids.includes(id)))
+  }
+  emit('select-all', event)
+}
+
 const confirmDeleteCompany = (company: Company) => {
   companyToDelete.value = company
   confirmModalTitle.value = 'Delete Company'
@@ -201,6 +256,11 @@ function openCompanyModal(company: Company) {
 
 function closeCompanyModal() {
   selectedCompany.value = null
+}
+
+function onCompanyDeleteFromModal(company: Company) {
+  closeCompanyModal()
+  confirmDeleteCompany(company)
 }
 
 /** Let `AddressBook` refresh after contact add/edit/delete (companies are derived from contacts). */
@@ -242,6 +302,10 @@ defineExpose({ loadCompanies })
   color: #2563eb;
 }
 
+.ab-table__th--checkbox {
+  width: 4%;
+}
+
 .ab-table__sort-arrow {
   margin-left: 0.25rem;
   font-size: 0.625rem;
@@ -274,6 +338,14 @@ defineExpose({ loadCompanies })
 
 .ab-table__td--actions {
   width: 15%;
+}
+
+.ab-table__td--checkbox {
+  width: 4%;
+}
+
+.ab-table__checkbox {
+  cursor: pointer;
 }
 
 .ab-table__empty {

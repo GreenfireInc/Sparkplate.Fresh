@@ -73,12 +73,13 @@
             class="ab-table__row"
             @click="openExchangeModal(exchange)"
           >
-            <td class="ab-table__td ab-table__td--checkbox">
+            <td class="ab-table__td ab-table__td--checkbox" @click.stop>
               <input
-                v-model="selectedExchanges"
+                v-model="selectedExchangeIdsProxy"
                 type="checkbox"
                 class="ab-table__checkbox"
                 :value="exchange.id"
+                :aria-label="`Select exchange ${exchange.name}`"
                 @click.stop
               />
             </td>
@@ -132,16 +133,25 @@ import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 import { deleteExchange, updateExchange, type ExchangeRecord } from '@/services/addressBook/service.addressBook.Exchange'
 
-const props = defineProps<{
-  exchanges: ExchangeRecord[]
-}>()
+const props = withDefaults(
+  defineProps<{
+    exchanges: ExchangeRecord[]
+    selectedExchangeIds?: number[]
+  }>(),
+  { selectedExchangeIds: () => [] },
+)
 
 const emit = defineEmits<{
   'exchanges-changed': []
+  'update:selectedExchangeIds': [value: number[]]
 }>()
 
+const selectedExchangeIdsProxy = computed({
+  get: () => props.selectedExchangeIds,
+  set: (value: number[]) => emit('update:selectedExchangeIds', value),
+})
+
 const selectedExchange = ref<ExchangeRecord | null>(null)
-const selectedExchanges = ref<number[]>([]);
 const currentPage = ref(1);
 const itemsPerPage = 25;
 const showConfirmModal = ref(false);
@@ -198,16 +208,17 @@ const paginatedExchanges = computed(() => {
 const isCurrentPageSelected = computed(() => {
   const visibleExchangeIds = paginatedExchanges.value.map(e => e.id);
   if (visibleExchangeIds.length === 0) return false;
-  return visibleExchangeIds.every(id => selectedExchanges.value.includes(id));
+  return visibleExchangeIds.every(id => props.selectedExchangeIds.includes(id));
 });
 
 const selectAllExchanges = (event: Event) => {
   const target = event.target as HTMLInputElement;
   const visibleExchangeIds = paginatedExchanges.value.map(e => e.id);
+  const current = [...props.selectedExchangeIds];
   if (target.checked) {
-    selectedExchanges.value = [...new Set([...selectedExchanges.value, ...visibleExchangeIds])];
+    emit('update:selectedExchangeIds', [...new Set([...current, ...visibleExchangeIds])]);
   } else {
-    selectedExchanges.value = selectedExchanges.value.filter(id => !visibleExchangeIds.includes(id));
+    emit('update:selectedExchangeIds', current.filter(id => !visibleExchangeIds.includes(id)));
   }
 };
 

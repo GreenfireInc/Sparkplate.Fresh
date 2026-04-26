@@ -54,6 +54,7 @@
           :contacts="contacts"
           :exchanges="exchanges"
           :wallets="wallets"
+          :selected-ids="exportSelectedIds"
         />
       </div>
 
@@ -106,26 +107,37 @@
             />
 
             <TabsContent value="Exchanges" class="ab-tabs__panel">
-              <ExchangeTab :exchanges="exchanges" @exchanges-changed="loadExchanges" />
+              <ExchangeTab
+                :exchanges="exchanges"
+                v-model:selected-exchange-ids="selectedExchangeIds"
+                @exchanges-changed="loadExchanges"
+              />
             </TabsContent>
 
             <TabsContent value="Wallets" class="ab-tabs__panel">
-              <WalletTab :wallets="wallets" @wallets-changed="loadStandaloneWallets" />
+              <WalletTab
+                :wallets="wallets"
+                v-model:selected-wallet-ids="selectedWalletIds"
+                @wallets-changed="loadStandaloneWallets"
+              />
             </TabsContent>
 
-            <CompaniesTab ref="companiesTabRef" />
+            <CompaniesTab
+              ref="companiesTabRef"
+              v-model:selected-company-ids="selectedCompanyIds"
+            />
           </div>
 
           <!-- Footer: sibling of scroll area inside the card — never inside the scroll -->
           <AspectFooterModalAddressBook
             :is-contacts-active="activeTab === 'Contacts'"
-            :selected-count="selectedContacts.length"
+            :selected-count="footerBulkDeleteCount"
             :first-item-index="firstItemIndex"
             :last-item-index="lastItemIndex"
             :filtered-count="filteredContacts.length"
             :current-page="currentPage"
             :total-pages="totalPages"
-            @delete-selected="confirmDeleteSelectedContacts"
+            @delete-selected="onFooterDeleteSelected"
             @prev-page="prevPage"
             @next-page="nextPage"
           />
@@ -185,7 +197,10 @@ import ExchangeTab from '@/components/pageTabs/addressbook/tab.addressBook.Excha
 import WalletTab from '@/components/pageTabs/addressbook/tab.addressBook.Wallet.vue'
 import CompaniesTab from '@/components/pageTabs/addressbook/tab.addressBook.Companies.vue'
 import ContactsTab from '@/components/pageTabs/addressbook/tab.addressBook.Contact.vue'
+import { deleteCompany } from '@/services/addressBook/service.addressBook.Company'
 import { getContacts, addContact, deleteContact, type Contact } from '@/services/addressBook/service.addressBook.Contact'
+import { deleteExchange } from '@/services/addressBook/service.addressBook.Exchange'
+import { deleteStandaloneWallet } from '@/services/addressBook/service.addressBook.StandaloneWallet'
 import { addWallet, getWalletCountForContact } from '@/services/addressBook/service.addressBook.Wallet'
 import { getExchanges, addExchange, type ExchangeRecord } from '@/services/addressBook/service.addressBook.Exchange'
 import {
@@ -214,6 +229,9 @@ type AddEntity = 'Contacts' | 'Exchanges' | 'Wallets' | 'Companies'
 const initialEntityForAdd = ref<AddEntity>('Contacts')
 const selectedContactForDetails = ref<Contact | null>(null)
 const selectedContacts = ref<number[]>([])
+const selectedCompanyIds = ref<number[]>([])
+const selectedExchangeIds = ref<number[]>([])
+const selectedWalletIds = ref<number[]>([])
 const currentPage = ref(1)
 const itemsPerPage = 25
 const searchQuery = ref('')
@@ -221,6 +239,9 @@ const showConfirmModal = ref(false)
 const confirmModalTitle = ref('')
 const confirmModalMessage = ref('')
 const contactsToDelete = ref<number[]>([])
+const companiesToDelete = ref<number[]>([])
+const exchangesToDelete = ref<number[]>([])
+const walletsToDelete = ref<number[]>([])
 const sortKey = ref<keyof DisplayContact>('id')
 const sortOrder = ref<'asc' | 'dsc'>('asc')
 const showAddCurrencyModal = ref(false)
@@ -298,6 +319,22 @@ const isCurrentPageSelected = computed(() => {
   return ids.length > 0 && ids.every((id) => selectedContacts.value.includes(id))
 })
 
+const footerBulkDeleteCount = computed(() => {
+  if (activeTab.value === 'Contacts') return selectedContacts.value.length
+  if (activeTab.value === 'Companies') return selectedCompanyIds.value.length
+  if (activeTab.value === 'Exchanges') return selectedExchangeIds.value.length
+  if (activeTab.value === 'Wallets') return selectedWalletIds.value.length
+  return 0
+})
+
+const exportSelectedIds = computed<number[]>(() => {
+  if (activeTab.value === 'Contacts') return selectedContacts.value
+  if (activeTab.value === 'Companies') return selectedCompanyIds.value
+  if (activeTab.value === 'Exchanges') return selectedExchangeIds.value
+  if (activeTab.value === 'Wallets') return selectedWalletIds.value
+  return []
+})
+
 const addContacts = async (newContacts: any[]) => {
   for (const c of newContacts) {
     const added = await addContact({
@@ -330,16 +367,79 @@ const selectAllContacts = (event: Event) => {
   }
 }
 
+function clearPendingDeleteQueues() {
+  contactsToDelete.value = []
+  companiesToDelete.value = []
+  exchangesToDelete.value = []
+  walletsToDelete.value = []
+}
+
 const confirmDeleteSelectedContacts = () => {
-  contactsToDelete.value = selectedContacts.value
+  clearPendingDeleteQueues()
+  contactsToDelete.value = [...selectedContacts.value]
   confirmModalTitle.value = 'Delete Selected Contacts'
   confirmModalMessage.value = `Are you sure you want to delete the ${selectedContacts.value.length} selected contacts?`
   showConfirmModal.value = true
 }
 
+function confirmDeleteSelectedCompanies() {
+  clearPendingDeleteQueues()
+  companiesToDelete.value = [...selectedCompanyIds.value]
+  confirmModalTitle.value = 'Delete Selected Companies'
+  confirmModalMessage.value = `Are you sure you want to delete the ${selectedCompanyIds.value.length} selected companies? This will also delete all associated contacts.`
+  showConfirmModal.value = true
+}
+
+function confirmDeleteSelectedExchanges() {
+  clearPendingDeleteQueues()
+  exchangesToDelete.value = [...selectedExchangeIds.value]
+  confirmModalTitle.value = 'Delete Selected Exchanges'
+  confirmModalMessage.value = `Are you sure you want to delete the ${selectedExchangeIds.value.length} selected exchanges?`
+  showConfirmModal.value = true
+}
+
+function confirmDeleteSelectedWallets() {
+  clearPendingDeleteQueues()
+  walletsToDelete.value = [...selectedWalletIds.value]
+  confirmModalTitle.value = 'Delete Selected Wallets'
+  confirmModalMessage.value = `Are you sure you want to delete the ${selectedWalletIds.value.length} selected wallets?`
+  showConfirmModal.value = true
+}
+
+function onFooterDeleteSelected() {
+  if (activeTab.value === 'Contacts') confirmDeleteSelectedContacts()
+  else if (activeTab.value === 'Companies') confirmDeleteSelectedCompanies()
+  else if (activeTab.value === 'Exchanges') confirmDeleteSelectedExchanges()
+  else if (activeTab.value === 'Wallets') confirmDeleteSelectedWallets()
+}
+
 const onConfirmDelete = async () => {
+  if (companiesToDelete.value.length > 0) {
+    for (const id of companiesToDelete.value) await deleteCompany(id)
+    selectedCompanyIds.value = []
+    companiesToDelete.value = []
+    await loadContacts()
+    return
+  }
+  if (exchangesToDelete.value.length > 0) {
+    for (const id of exchangesToDelete.value) await deleteExchange(id)
+    selectedExchangeIds.value = []
+    exchangesToDelete.value = []
+    await loadExchanges()
+    closeConfirmModal()
+    return
+  }
+  if (walletsToDelete.value.length > 0) {
+    for (const id of walletsToDelete.value) await deleteStandaloneWallet(id)
+    selectedWalletIds.value = []
+    walletsToDelete.value = []
+    await loadStandaloneWallets()
+    closeConfirmModal()
+    return
+  }
   for (const id of contactsToDelete.value) await deleteContact(id)
   selectedContacts.value = []
+  contactsToDelete.value = []
   await loadContacts()
 }
 
@@ -504,7 +604,7 @@ const closeContactDetailsModal = () => {
 
 const closeConfirmModal = () => {
   showConfirmModal.value = false
-  contactsToDelete.value = []
+  clearPendingDeleteQueues()
 }
 
 function sortBy(key: keyof DisplayContact) {
