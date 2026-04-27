@@ -14,9 +14,17 @@
             <div class="cd-header__actions">
               <ActionsDropdown
                 v-if="company"
-                variant="company"
                 :contact="companyActionsContactStub"
                 :is-editing="false"
+                @add-currency-request="onCompanyActionsAddCurrencyRequest"
+                @generate-qrcode-png="onCompanyActionsGenerateQrCodePng"
+                @generate-qrcode-svg="onCompanyActionsGenerateQrCodeSvg"
+                @export-csv="onCompanyActionsExportCsv"
+                @export-vcf="onCompanyActionsExportVcf"
+                @export-json="noopCompanyModalActions"
+                @currency-added="noopCompanyModalActions"
+                @save-changes="noopCompanyModalActions"
+                @update:edit-mode="noopCompanyModalActions"
                 @delete-requested="onCompanyActionsDeleteRequested"
               />
             </div>
@@ -287,6 +295,28 @@ const companyActionsContactStub = computed<Contact>(() => ({
 function onCompanyActionsDeleteRequested() {
   if (props.company) emit('delete-requested', props.company)
 }
+
+/** Header dropdown handlers — match `modal.details.Contact.vue`'s placeholder pattern.
+ *  TODO: implement actual QR/export/add-currency pipelines for company entities. */
+function onCompanyActionsAddCurrencyRequest(c: Contact) {
+  console.log(`Company add-currency requested:`, c.id)
+}
+function onCompanyActionsGenerateQrCodePng(c: Contact) {
+  console.log(`Company QR PNG: ${c.id}`)
+}
+function onCompanyActionsGenerateQrCodeSvg(c: Contact) {
+  console.log(`Company QR SVG: ${c.id}`)
+}
+function onCompanyActionsExportCsv(c: Contact) {
+  console.log(`Company CSV: ${c.id}`)
+}
+function onCompanyActionsExportVcf(c: Contact) {
+  console.log(`Company VCF: ${c.id}`)
+}
+
+/** Header dropdown emits a few actions still without backing logic (`export-json`,
+ *  `currency-added`, `save-changes`, `update:edit-mode`) — kept as inert no-ops. */
+function noopCompanyModalActions() {}
 
 async function onCompanySocialSave(fields: Record<string, unknown>) {
   const c = primaryContact.value

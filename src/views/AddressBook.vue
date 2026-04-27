@@ -125,6 +125,11 @@
             <CompaniesTab
               ref="companiesTabRef"
               v-model:selected-company-ids="selectedCompanyIds"
+              @add-currency-request="onAddCurrencyRequest"
+              @generate-qrcode-png="onGenerateQrCodePng"
+              @generate-qrcode-svg="onGenerateQrCodeSvg"
+              @export-csv="onExportCsv"
+              @export-vcf="onExportVcf"
             />
           </div>
 

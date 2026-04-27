@@ -99,8 +99,16 @@
             <td class="ab-table__td">{{ company.numCurrencies }}</td>
             <td class="ab-table__td ab-table__td--actions" @click.stop>
               <ActionsDropdown
-                variant="company"
                 :contact="companyActionsContactStub(company)"
+                @add-currency-request="emit('add-currency-request', companyActionsContactStub(company))"
+                @generate-qrcode-png="emit('generate-qrcode-png', $event)"
+                @generate-qrcode-svg="emit('generate-qrcode-svg', $event)"
+                @export-csv="emit('export-csv', $event)"
+                @export-vcf="emit('export-vcf', $event)"
+                @export-json="noopCompanyTableActions"
+                @currency-added="noopCompanyTableActions"
+                @save-changes="noopCompanyTableActions"
+                @update:edit-mode="(on: boolean) => on && openCompanyModal(company)"
                 @delete-requested="confirmDeleteCompany(company)"
               />
             </td>
@@ -155,12 +163,22 @@ const props = withDefaults(
 const emit = defineEmits<{
   'update:selectedCompanyIds': [value: number[]]
   'select-all': [event: Event]
+  'add-currency-request': [contact: Contact]
+  'generate-qrcode-png': [contact: Contact]
+  'generate-qrcode-svg': [contact: Contact]
+  'export-csv': [contact: Contact]
+  'export-vcf': [contact: Contact]
 }>()
 
 const selectedCompanyIdsProxy = computed({
   get: () => props.selectedCompanyIds,
   set: (value: number[]) => emit('update:selectedCompanyIds', value),
 })
+
+/** QR/export-csv/-vcf and add-currency events bubble up to `AddressBook.vue` (matches the
+ *  `tab.addressBook.Contact.vue` pattern). Remaining events (`export-json`, `currency-added`,
+ *  `save-changes`) aren't wired upstream yet — kept as inert no-ops for forward-compatibility. */
+function noopCompanyTableActions() {}
 
 /** Contact-shaped row for `ActionsDropdown` (same pattern as exchange / wallet detail modals). */
 function companyActionsContactStub(company: Company): Contact {

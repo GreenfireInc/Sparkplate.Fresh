@@ -1,0 +1,5 @@
+<ActionsDropdown
+                variant="company"
+                :contact="companyActionsContactStub(company)"
+                @delete-requested="confirmDeleteCompany(company)"
+              />
