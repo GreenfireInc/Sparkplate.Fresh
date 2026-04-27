@@ -72,13 +72,19 @@
             <td class="ab-table__td ab-table__td--actions" @click.stop>
               <ActionsDropdown
                 :contact="walletRowContactStub(wallet)"
-                @add-currency-request="openAddCurrencyForWallet(wallet)"
+                :is-editing="false"
                 @update:edit-mode="(on: boolean) => on && openWalletModal(wallet)"
-                @generate-qrcode-png="noopWalletTableActions"
-                @generate-qrcode-svg="noopWalletTableActions"
-                @export-csv="noopWalletTableActions"
-                @export-vcf="noopWalletTableActions"
-                @export-json="noopWalletTableActions"
+                @save-changes="noopWalletTableActions"
+                @cancel-edit="noopWalletTableActions"
+                @add-currency-request="openAddCurrencyForWallet(wallet)"
+                @generate-qrcode-png="exportWalletQrPng(wallet)"
+                @generate-qrcode-svg="exportWalletQrSvg(wallet)"
+                @export-csv="exportWalletCsv(wallet)"
+                @export-vcf="exportWalletVcf(wallet)"
+                @export-json="exportWalletJson(wallet)"
+                @export-md="exportWalletMd(wallet)"
+                @currency-added="noopWalletTableActions"
+                @delete-requested="confirmDeleteWallet(wallet)"
               />
             </td>
           </tr>
@@ -91,6 +97,9 @@
       :wallet="selectedWallet"
       @close="closeWalletModal"
       @currency-removed="onWalletCurrencyRemoved"
+      @currency-added="onAddCurrencyToStandaloneWallet"
+      @standalone-currencies-imported="onStandaloneCurrenciesBulkImport"
+      @delete-requested="onWalletModalDeleteRequested"
     />
     <SubModalAddCurrency
       v-if="walletForAddCurrency"
@@ -126,6 +135,16 @@ import {
   updateStandaloneWallet,
   type StandaloneWalletRecord,
 } from '@/services/addressBook/service.addressBook.StandaloneWallet'
+import {
+  exportWalletQrPng,
+  exportWalletQrSvg,
+} from '@/lib/cores/exportStandard/addressBook/filenameStructureAndContent.addressBook.Wallet.qrCode'
+import {
+  exportWalletCsv,
+  exportWalletVcf,
+  exportWalletJson,
+  exportWalletMd,
+} from '@/lib/cores/exportStandard/addressBook/filenameStructureAndContent.addressBook.Wallet.text'
 
 defineOptions({ name: 'TabAddressBookWallet' })
 
@@ -230,7 +249,9 @@ function walletRowContactStub(wallet: StandaloneWalletRecord): Contact {
   }
 }
 
-/** QR / export in the pocket menu for wallet rows; full flows live on contact rows. */
+/* Slots that don't apply at the row level: rows aren't in edit mode, and the
+ * dropdown's own `currency-added` is only relevant in the contact-flow path.
+ * Kept as a single noop to wire the events without breaking the dropdown. */
 function noopWalletTableActions() {}
 
 const openAddCurrencyForWallet = (wallet: StandaloneWalletRecord) => {
@@ -259,8 +280,10 @@ async function onAddCurrencyToStandaloneWallet(currency: {
       address: currency.address,
     },
   ]
-  await updateStandaloneWallet({ ...w, currencies: newCurrencies })
+  const updated: StandaloneWalletRecord = { ...w, currencies: newCurrencies }
+  await updateStandaloneWallet(updated)
   emit('wallets-changed')
+  syncOpenModalWith(updated)
 }
 
 /**
@@ -282,8 +305,24 @@ async function onStandaloneCurrenciesBulkImport(payload: {
       address: item.address,
     })),
   ]
-  await updateStandaloneWallet({ ...w, currencies: newCurrencies })
+  const updated: StandaloneWalletRecord = { ...w, currencies: newCurrencies }
+  await updateStandaloneWallet(updated)
   emit('wallets-changed')
+  syncOpenModalWith(updated)
+}
+
+/* When the Wallet details modal is open and bubbled an add / import that
+ * just got persisted, refresh `selectedWallet` so the modal's currencies tab
+ * reflects the new state. The row-level add path goes through the same
+ * handlers but `selectedWallet` is null in that case, so the guard short-
+ * circuits cleanly. */
+function syncOpenModalWith(updated: StandaloneWalletRecord) {
+  if (selectedWallet.value?.id === updated.id) {
+    selectedWallet.value = {
+      ...updated,
+      currencies: updated.currencies.map((c) => ({ ...c })),
+    }
+  }
 }
 
 const openWalletModal = (wallet: StandaloneWalletRecord) => {
@@ -307,6 +346,14 @@ const confirmDeleteWallet = (wallet: StandaloneWalletRecord) => {
   confirmModalTitle.value = 'Delete Wallet'
   confirmModalMessage.value = `Are you sure you want to delete the wallet ${wallet.name}?`
   showConfirmModal.value = true
+}
+
+/* Wired from `modal.details.Wallet.vue`'s `delete-requested`. Close the
+ * details modal first so the confirm dialog isn't stacked behind it, then
+ * reuse the existing row-level delete flow. */
+const onWalletModalDeleteRequested = (wallet: StandaloneWalletRecord) => {
+  closeWalletModal()
+  confirmDeleteWallet(wallet)
 }
 
 const onConfirmDelete = async () => {
