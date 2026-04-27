@@ -100,16 +100,18 @@
             <td class="ab-table__td ab-table__td--actions" @click.stop>
               <ActionsDropdown
                 :contact="companyActionsContactStub(company)"
-                @add-currency-request="emit('add-currency-request', companyActionsContactStub(company))"
-                @generate-qrcode-png="emit('generate-qrcode-png', $event)"
-                @generate-qrcode-svg="emit('generate-qrcode-svg', $event)"
-                @export-csv="emit('export-csv', $event)"
-                @export-vcf="emit('export-vcf', $event)"
-                @export-md="emit('export-md', $event)"
-                @export-json="noopCompanyTableActions"
-                @currency-added="noopCompanyTableActions"
-                @save-changes="noopCompanyTableActions"
+                :is-editing="false"
                 @update:edit-mode="(on: boolean) => on && openCompanyModal(company)"
+                @save-changes="noopCompanyTableActions"
+                @cancel-edit="noopCompanyTableActions"
+                @add-currency-request="openAddCurrencyForCompany(company)"
+                @generate-qrcode-png="exportCompanyQrPng(company)"
+                @generate-qrcode-svg="exportCompanyQrSvg(company)"
+                @export-csv="exportCompanyCsv(company)"
+                @export-vcf="exportCompanyVcf(company)"
+                @export-json="exportCompanyJson(company)"
+                @export-md="exportCompanyMd(company)"
+                @currency-added="noopCompanyTableActions"
                 @delete-requested="confirmDeleteCompany(company)"
               />
             </td>
@@ -143,7 +145,7 @@ import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
 import CompanyDetailsModal from '@/components/modals/addressbook/modal.details.Company.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 
-defineOptions({ name: 'TabAddressBookCompanies' })
+defineOptions({ name: 'TabAddressBookCompany' })
 
 const companies = ref<Company[]>([])
 const selectedCompany = ref<Company | null>(null)
@@ -164,12 +166,6 @@ const props = withDefaults(
 const emit = defineEmits<{
   'update:selectedCompanyIds': [value: number[]]
   'select-all': [event: Event]
-  'add-currency-request': [contact: Contact]
-  'generate-qrcode-png': [contact: Contact]
-  'generate-qrcode-svg': [contact: Contact]
-  'export-csv': [contact: Contact]
-  'export-vcf': [contact: Contact]
-  'export-md': [contact: Contact]
 }>()
 
 const selectedCompanyIdsProxy = computed({
@@ -177,10 +173,35 @@ const selectedCompanyIdsProxy = computed({
   set: (value: number[]) => emit('update:selectedCompanyIds', value),
 })
 
-/** QR/export-csv/-vcf and add-currency events bubble up to `AddressBook.vue` (matches the
- *  `tab.addressBook.Contact.vue` pattern). Remaining events (`export-json`, `currency-added`,
- *  `save-changes`) aren't wired upstream yet — kept as inert no-ops for forward-compatibility. */
+/* Slots that don't apply at the row level: rows aren't in edit mode, and the dropdown's own
+ * `currency-added` is only relevant in the contact-flow path. Kept as a single noop to wire
+ * the events without breaking the dropdown. (Mirrors `tab.addressBook.Wallet.vue`.) */
 function noopCompanyTableActions() {}
+
+/* Company exporters don't exist yet — placeholders mirror the wallet tab's named-handler
+ * shape so real `exportCompany*` functions can be dropped in later without touching the
+ * template. TODO: implement in `src/lib/cores/exportStandard/addressBook/`. */
+function openAddCurrencyForCompany(c: Company) {
+  console.log(`Company add-currency requested:`, c.id)
+}
+function exportCompanyQrPng(c: Company) {
+  console.log(`Company QR PNG: ${c.id}`)
+}
+function exportCompanyQrSvg(c: Company) {
+  console.log(`Company QR SVG: ${c.id}`)
+}
+function exportCompanyCsv(c: Company) {
+  console.log(`Company CSV: ${c.id}`)
+}
+function exportCompanyVcf(c: Company) {
+  console.log(`Company VCF: ${c.id}`)
+}
+function exportCompanyJson(c: Company) {
+  console.log(`Company JSON: ${c.id}`)
+}
+function exportCompanyMd(c: Company) {
+  console.log(`Company MD: ${c.id}`)
+}
 
 /** Contact-shaped row for `ActionsDropdown` (same pattern as exchange / wallet detail modals). */
 function companyActionsContactStub(company: Company): Contact {

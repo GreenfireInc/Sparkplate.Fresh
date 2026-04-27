@@ -126,12 +126,6 @@
             <CompaniesTab
               ref="companiesTabRef"
               v-model:selected-company-ids="selectedCompanyIds"
-              @add-currency-request="onAddCurrencyRequest"
-              @generate-qrcode-png="onGenerateQrCodePng"
-              @generate-qrcode-svg="onGenerateQrCodeSvg"
-              @export-csv="onExportCsv"
-              @export-vcf="onExportVcf"
-              @export-md="onExportMd"
             />
           </div>
 
@@ -202,7 +196,7 @@ import ImportButton from '@/components/buttons/addressbook/button.addressBook.im
 import ExportButton from '@/components/buttons/addressbook/button.addressBook.export.vue'
 import ExchangeTab from '@/components/pageTabs/addressbook/tab.addressBook.Exchange.vue'
 import WalletTab from '@/components/pageTabs/addressbook/tab.addressBook.Wallet.vue'
-import CompaniesTab from '@/components/pageTabs/addressbook/tab.addressBook.Companies.vue'
+import CompaniesTab from '@/components/pageTabs/addressbook/tab.addressBook.Company.vue'
 import ContactsTab from '@/components/pageTabs/addressbook/tab.addressBook.Contact.vue'
 import { deleteCompany } from '@/services/addressBook/service.addressBook.Company'
 import { getContacts, addContact, deleteContact, type Contact } from '@/services/addressBook/service.addressBook.Contact'

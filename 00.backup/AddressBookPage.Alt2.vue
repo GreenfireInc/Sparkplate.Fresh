@@ -152,7 +152,7 @@ import ImportButton from '@/components/buttons/addressbook/button.addressBook.im
 import ExportButton from '@/components/buttons/addressbook/button.addressBook.export.vue'
 import ExchangeTab from '@/components/pageTabs/addressbook/tab.addressBook.Exchange.vue'
 import WalletTab from '@/components/pageTabs/addressbook/tab.addressBook.Wallet.vue'
-import CompaniesTab from '@/components/pageTabs/addressbook/tab.addressBook.Companies.vue'
+import CompaniesTab from '@/components/pageTabs/addressbook/tab.addressBook.Company.vue'
 import ContactsTab from '@/components/pageTabs/addressbook/tab.addressBook.Contact.vue'
 import { NotebookTabs, SquareUser, ChevronLeft, ChevronRight } from 'lucide-vue-next'
 import { getContacts, addContact, deleteContact, type Contact } from '@/services/addressBook/service.addressBook.Contact'

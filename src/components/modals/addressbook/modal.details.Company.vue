@@ -222,7 +222,7 @@ import { notesRevision, getNotesForOwnerId } from '@/services/addressBook/servic
 defineOptions({ name: 'ModalCompanyDetails' })
 
 const props = defineProps<{ company: Company | null }>()
-/** Mirrors the events bubbled from `tab.addressBook.Companies.vue`'s row dropdown so
+/** Mirrors the events bubbled from `tab.addressBook.Company.vue`'s row dropdown so
  *  the modal participates in the same upstream pipeline (parent listens once, regardless
  *  of which surface fires the action). `update:edit-mode`, `save-changes`, `currency-added`,
  *  and `export-json` stay no-ops here — they have no row-level meaning when already inside
