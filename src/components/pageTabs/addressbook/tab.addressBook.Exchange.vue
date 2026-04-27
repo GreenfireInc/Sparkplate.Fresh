@@ -101,7 +101,21 @@
               <template v-else>N/A</template>
             </td>
             <td class="ab-table__td ab-table__td--actions" @click.stop>
-              <ActionsDropdown @edit="" @delete="confirmDeleteExchange(exchange)" />
+              <ActionsDropdown
+                :contact="exchangeActionsContactStub(exchange)"
+                @update:edit-mode="(on: boolean) => on && openExchangeModal(exchange)"
+                @add-currency-request="openExchangeModal(exchange)"
+                @generate-qrcode-png="exportExchangeQrPng(exchange)"
+                @generate-qrcode-svg="exportExchangeQrSvg(exchange)"
+                @export-csv="exportExchangeCsv(exchange)"
+                @export-vcf="exportExchangeVcf(exchange)"
+                @export-json="exportExchangeJson(exchange)"
+                @export-md="exportExchangeMd(exchange)"
+                @save-changes="onExchangeRowAction"
+                @cancel-edit="onExchangeRowAction"
+                @currency-added="onExchangeRowAction"
+                @delete-requested="confirmDeleteExchange(exchange)"
+              />
             </td>
           </tr>
         </tbody>
@@ -132,6 +146,17 @@ import ExchangeModal from '@/components/modals/addressbook/modal.details.Exchang
 import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 import { deleteExchange, updateExchange, type ExchangeRecord } from '@/services/addressBook/service.addressBook.Exchange'
+import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
+import {
+  exportExchangeQrPng,
+  exportExchangeQrSvg,
+} from '@/lib/cores/exportStandard/addressBook/filenameStructureAndContent.addressBook.Exchange.qrCode'
+import {
+  exportExchangeCsv,
+  exportExchangeVcf,
+  exportExchangeJson,
+  exportExchangeMd,
+} from '@/lib/cores/exportStandard/addressBook/filenameStructureAndContent.addressBook.Exchange.text'
 
 const props = withDefaults(
   defineProps<{
@@ -261,6 +286,32 @@ const closeConfirmModal = () => {
 function truncateAddress(address: string): string {
   if (!address || address.length <= 14) return address
   return `${address.slice(0, 7)}…${address.slice(-7)}`
+}
+
+/**
+ * Contact-shaped stub so the shared ActionsDropdown (which expects a Contact)
+ * can render its menu against an exchange row. Mirrors the pattern used in
+ * the exchange details modal header and the companies tab.
+ */
+function exchangeActionsContactStub(exchange: ExchangeRecord): Contact {
+  return {
+    id: exchange.id,
+    type: 'exchange',
+    firstname: exchange.name || 'Exchange',
+    lastname: '',
+    company: '',
+    email: exchange.email || '',
+    notes: exchange.notes || '',
+  }
+}
+
+/**
+ * Pass-through for ActionsDropdown events that have no row-level meaning on
+ * an exchange row: `save-changes` / `cancel-edit` (only relevant inside the
+ * details modal) and `currency-added` (currencies are managed in the modal).
+ */
+function onExchangeRowAction(payload?: unknown) {
+  console.log('Exchange row action:', payload)
 }
 </script>
 

@@ -21,10 +21,14 @@
                 @save-changes="saveExchange"
                 @cancel-edit="onExchangeActionsCancelEdit"
                 @add-currency-request="addCurrencyRow"
-                @generate-qrcode-png="onExchangeActionsGenerateQrPng"
-                @generate-qrcode-svg="onExchangeActionsGenerateQrSvg"
-                @export-csv="onExchangeActionsExportCsv"
-                @export-vcf="onExchangeActionsExportVcf"
+                @generate-qrcode-png="exportExchangeQrPng(currentExchangeRecord)"
+                @generate-qrcode-svg="exportExchangeQrSvg(currentExchangeRecord)"
+                @export-csv="exportExchangeCsv(currentExchangeRecord)"
+                @export-vcf="exportExchangeVcf(currentExchangeRecord)"
+                @export-json="exportExchangeJson(currentExchangeRecord)"
+                @export-md="exportExchangeMd(currentExchangeRecord)"
+                @currency-added="onModalCurrencyAdded"
+                @delete-requested="onModalDeleteRequested"
               />
             </div>
             <DialogClose class="cd-header__close" aria-label="Close">
@@ -183,6 +187,10 @@
 
                 <TabsContent value="currencies" class="cd-tabs__content">
                   <div class="cd-exch-currencies">
+                    <!-- Toolbar temporarily hidden: "Add currency" + JSON import / QR scan
+                         entry points are now driven from the ActionsDropdown
+                         (which opens SubModalAddCurrency), so the inline toolbar
+                         is redundant. Restore this block to bring it back.
                     <div class="cd-exch-currencies__toolbar">
                       <input
                         ref="exchangeCurrenciesFileInputRef"
@@ -201,6 +209,8 @@
                         @scan-qr="onExchangeCurrenciesScanQr"
                       />
                     </div>
+                    -->
+
 
                     <!-- Layout mirrors tab.details.Contact.Wallets.vue (tabsFor.details):
                          .wallets-tab > .empty-state | .wallets-list with CardWalletAddress children. -->
@@ -273,6 +283,20 @@
             {{ isEditing ? 'Save changes' : 'Add exchange' }}
           </button>
         </div>
+
+        <!-- Stacked sub-modal for picking / importing a currency. Uses the
+             standalone (non-contact) flow so JSON imports return as a single
+             batch we can append to `form.currencies` rather than persisting
+             per-contact wallets via `addWallet`. -->
+        <SubModalAddCurrency
+          :show="showAddCurrencyModal"
+          :contact-id="form.id ?? 0"
+          entity-label="Exchange"
+          :persist-imported-wallets-to-contact="false"
+          @close="onAddCurrencyModalClose"
+          @currency-added="onAddCurrencyModalCurrencyAdded"
+          @standalone-currencies-imported="onAddCurrencyModalImported"
+        />
       </DialogContent>
     </DialogPortal>
   </DialogRoot>
@@ -310,7 +334,8 @@ import TabDetailsContactNotes from '@/components/modals/addressbook/tabsFor.deta
 import DropdownCurrency from '@/components/dropdown/dropdown.currency.vue'
 import CardWalletAddress from '@/components/structure/card.WalletAddress.vue'
 import StructureImportWalletAddress from '@/components/structure/structure.import.walletAddress.vue'
-import { parseWalletJsonFile } from '@/lib/cores/importStandard/importWallet.json'
+import SubModalAddCurrency from '@/components/modals/addressbook/subModals/subModal.add.Currency.vue'
+import { parseWalletJsonFile, type ImportedWallet } from '@/lib/cores/importStandard/importWallet.json'
 import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
 import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
@@ -321,6 +346,17 @@ import {
   getExchangeCountryForDisplayName,
   flagEmojiForCountryName,
 } from '@/lib/cores/currencyCore/exchanges/exchangePickerOptions'
+import type { ExchangeRecord } from '@/services/addressBook/service.addressBook.Exchange'
+import {
+  exportExchangeQrPng,
+  exportExchangeQrSvg,
+} from '@/lib/cores/exportStandard/addressBook/filenameStructureAndContent.addressBook.Exchange.qrCode'
+import {
+  exportExchangeCsv,
+  exportExchangeVcf,
+  exportExchangeJson,
+  exportExchangeMd,
+} from '@/lib/cores/exportStandard/addressBook/filenameStructureAndContent.addressBook.Exchange.text'
 
 const SOCIAL_PLATFORM_ICONS: Record<string, Component> = {
   twitter: Twitter,
@@ -377,10 +413,15 @@ interface Exchange {
 }
 
 const props = defineProps<{ exchange: Exchange | null }>()
-const emit = defineEmits<{ close: []; 'exchange-saved': [exchange: Exchange] }>()
+const emit = defineEmits<{
+  close: []
+  'exchange-saved': [exchange: Exchange]
+  'delete-requested': [exchange: Exchange]
+}>()
 
 const dialogOpen = computed(() => !!props.exchange)
 const activeTab = ref('general')
+const showAddCurrencyModal = ref(false)
 
 function onDialogOpen(open: boolean) {
   if (!open) close()
@@ -447,20 +488,29 @@ function onExchangeActionsCancelEdit() {
   console.log('Exchange details: cancel edit from actions menu')
 }
 
-function onExchangeActionsGenerateQrPng(contact: Contact) {
-  console.log('Exchange details: QR PNG from actions menu:', contact.id)
+/**
+ * Bridge from the modal's local `Exchange` (where `id?: number`) to the
+ * `ExchangeRecord` shape expected by the export pipelines (`id: number`).
+ * Falls back to `0` for unsaved exchanges so exports still produce a file
+ * (the filename helper drops back to `exchange_0` when the name is empty).
+ */
+const currentExchangeRecord = computed<ExchangeRecord>(() => ({
+  ...form.value,
+  id: form.value.id ?? 0,
+}))
+
+/**
+ * `currency-added` has no useful local meaning inside the modal — currencies
+ * are mutated directly via `form.value.currencies` from the form UI. Logged
+ * for parity with the row-level dropdown.
+ */
+function onModalCurrencyAdded(payload?: unknown) {
+  console.log('Exchange modal: currency-added from actions menu:', payload)
 }
 
-function onExchangeActionsGenerateQrSvg(contact: Contact) {
-  console.log('Exchange details: QR SVG from actions menu:', contact.id)
-}
-
-function onExchangeActionsExportCsv(contact: Contact) {
-  console.log('Exchange details: export CSV from actions menu:', contact.id)
-}
-
-function onExchangeActionsExportVcf(contact: Contact) {
-  console.log('Exchange details: export VCF from actions menu:', contact.id)
+/** Bubble delete up to the parent tab so it can run its confirm flow. */
+function onModalDeleteRequested() {
+  if (props.exchange) emit('delete-requested', props.exchange)
 }
 
 const exchangePickerOptions = computed(() => getExchangePickerOptions())
@@ -583,9 +633,52 @@ function onExchangeCurrenciesScanQr() {
   alert('QR Code scanning functionality not yet implemented.')
 }
 
+/* "Add currency" entry point used by both the toolbar button and the
+ * ActionsDropdown's `add-currency-request`. Switches to the Currencies tab so
+ * the newly added rows are immediately visible, and opens the dedicated
+ * SubModalAddCurrency for picking a network / wallet address (or importing a
+ * JSON wallet export). The actual append to `form.currencies` happens in
+ * `onAddCurrencyModalCurrencyAdded` / `onAddCurrencyModalImported`. */
 function addCurrencyRow() {
-  form.value.currencies.push({ name: '', abbreviation: '', address: '' })
   activeTab.value = 'currencies'
+  showAddCurrencyModal.value = true
+}
+
+function onAddCurrencyModalClose() {
+  showAddCurrencyModal.value = false
+}
+
+/* Single currency added via the sub-modal. The exchange's currency rows use
+ * `{ name, abbreviation, address }`; the sub-modal emits `network` (a coin
+ * ticker) and `address`, so the ticker is used for both `name` and
+ * `abbreviation`, mirroring the JSON-import path below. */
+function onAddCurrencyModalCurrencyAdded(payload: {
+  contactId: number
+  network: string
+  address: string
+}) {
+  form.value.currencies.push({
+    name: payload.network,
+    abbreviation: payload.network,
+    address: payload.address,
+  })
+}
+
+/* Batch import path: with `persist-imported-wallets-to-contact="false"` the
+ * sub-modal emits a single `standalone-currencies-imported` event for the
+ * whole JSON file instead of running per-contact `addWallet` calls. Append
+ * each parsed entry as an exchange currency. */
+function onAddCurrencyModalImported(payload: {
+  targetId: number
+  items: ImportedWallet[]
+}) {
+  for (const w of payload.items) {
+    form.value.currencies.push({
+      name: w.coinTicker,
+      abbreviation: w.coinTicker,
+      address: w.address,
+    })
+  }
 }
 
 function removeCurrency(index: number) {

@@ -33,6 +33,7 @@ import {
   Save,
   SaveOff,
   Trash2,
+  FileText,
 } from 'lucide-vue-next'
 import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
 import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
@@ -42,7 +43,7 @@ import {
   exportContactQRCodeAsPNG,
   generateContactQRCodeFilename,
 } from '@/lib/cores/exportStandard/filenameStructureAndContent.AddressBook.Individual.qrCode'
-import { generateQRCodeSvgFilename } from '@/lib/cores/exportStandard/qrCode.filename.standAlone'
+import { generateQRCodeSvgFilename } from '@/lib/cores/exportStandard/filenameStructureAndContent.general.qrCode.individual'
 import {
   generateWalletAddressesCSVContent,
   type GeneralAddress,
@@ -77,6 +78,7 @@ const emit = defineEmits([
   'export-csv',
   'export-vcf',
   'export-json',
+  'export-md',
   'update:edit-mode',
   'save-changes',
   'add-currency-request',
@@ -117,6 +119,64 @@ async function loadWalletsForExport(): Promise<Wallet[]> {
   const id = props.contact.id
   if (id == null) return []
   return getWalletsForContact(id)
+}
+
+function mdEscapeCell(s: string): string {
+  return s.replace(/\|/g, '\\|').replace(/\r?\n/g, ' ').trim()
+}
+
+/** Human-readable Markdown export for a contact + wallets. */
+function contactToMarkdown(c: Contact, wallets: Wallet[]): string {
+  const title = `${c.firstname ?? ''} ${c.lastname ?? ''}`.trim() || 'Contact'
+  const lines: string[] = []
+  lines.push(`# ${title}`)
+  lines.push('')
+  lines.push(`**Exported:** ${new Date().toISOString()}`)
+  lines.push('')
+  const detailRows: [string, string][] = []
+  if (c.email?.trim()) detailRows.push(['Email', c.email.trim()])
+  if (c.company?.trim()) detailRows.push(['Company', c.company.trim()])
+  const companyEmail = (c as { companyEmail?: string }).companyEmail?.trim()
+  if (companyEmail) detailRows.push(['Company email', companyEmail])
+  if (c.phone?.trim()) detailRows.push(['Phone', c.phone.trim()])
+  if (c.website?.trim()) detailRows.push(['Website', c.website.trim()])
+  const relationship = (c as { relationship?: string }).relationship?.trim()
+  if (relationship) detailRows.push(['Relationship', relationship])
+  if (c.twitter?.trim()) detailRows.push(['Twitter', c.twitter.trim()])
+  if (c.linkedin?.trim()) detailRows.push(['LinkedIn', c.linkedin.trim()])
+  if (c.instagram?.trim()) detailRows.push(['Instagram', c.instagram.trim()])
+  if (c.facebook?.trim()) detailRows.push(['Facebook', c.facebook.trim()])
+  for (const [label, value] of detailRows) {
+    lines.push(`- **${label}:** ${mdEscapeCell(value)}`)
+  }
+  if (c.notes?.trim()) {
+    lines.push('')
+    lines.push('## Notes')
+    lines.push('')
+    lines.push(c.notes.trim())
+  }
+  lines.push('')
+  lines.push('## Wallets')
+  lines.push('')
+  if (wallets.length === 0) {
+    lines.push('_No wallet addresses._')
+  } else {
+    lines.push('| Currency | Address |')
+    lines.push('|----------|---------|')
+    for (const w of wallets) {
+      lines.push(`| ${mdEscapeCell(w.coinTicker)} | ${mdEscapeCell(w.address)} |`)
+    }
+    const withFp = wallets.filter((w) => w.keyFingerprint?.trim())
+    if (withFp.length > 0) {
+      lines.push('')
+      lines.push('### Key fingerprints')
+      for (const w of withFp) {
+        lines.push(`- **${w.coinTicker}:** ${mdEscapeCell(w.keyFingerprint!)}`)
+      }
+    }
+  }
+  lines.push('')
+  return lines.join('\n')
 }
 
 function contactOnlyCsv(c: Contact, walletCount: number): string {
@@ -168,6 +228,10 @@ const handleExportVcf = () => {
 
 const handleExportJson = () => {
   void runExportJson()
+}
+
+const handleExportMd = () => {
+  void runExportMd()
 }
 
 async function runExportQrPng() {
@@ -281,6 +345,26 @@ async function runExportJson() {
   }
 }
 
+async function runExportMd() {
+  if (!isRegularAddressBookContact(props.contact)) {
+    emit('export-md', props.contact)
+    isOpen.value = false
+    return
+  }
+  try {
+    const wallets = await loadWalletsForExport()
+    const base = contactExportBasename(props.contact)
+    const filename = generateContactQRCodeFilename({ extension: 'md', contactName: base })
+    const body = contactToMarkdown(props.contact, wallets)
+    downloadBlob(filename, new Blob([body], { type: 'text/markdown;charset=utf-8' }))
+  } catch (e) {
+    console.error('Markdown export failed:', e)
+    alert(e instanceof Error ? e.message : 'Could not export Markdown.')
+  } finally {
+    isOpen.value = false
+  }
+}
+
 const handleEditContact = () => {
   emit('update:edit-mode', true);
   isOpen.value = false;
@@ -314,6 +398,7 @@ const dropdownActions = computed<Action[]>(() => {
     { label: 'Export (csv)', handler: handleExportCsv, icon: FileUser },
     { label: 'Export (vcf)', handler: handleExportVcf, icon: Star },
     { label: 'Export (json)', handler: handleExportJson, icon: FileJson },
+    { label: 'Export (md)', handler: handleExportMd, icon: FileText },
     { label: 'Add Currency', handler: handleAddCurrencyRequest, icon: Coins },
   ];
 

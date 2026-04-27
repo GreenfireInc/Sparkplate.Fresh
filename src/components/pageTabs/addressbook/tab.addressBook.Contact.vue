@@ -107,6 +107,7 @@
               @generate-qrcode-svg="emit('generate-qrcode-svg', $event)"
               @export-csv="emit('export-csv', $event)"
               @export-vcf="emit('export-vcf', $event)"
+              @export-md="emit('export-md', $event)"
             />
           </td>
         </tr>
@@ -146,6 +147,7 @@ const emit = defineEmits<{
   'generate-qrcode-svg': [contact: Contact]
   'export-csv': [contact: Contact]
   'export-vcf': [contact: Contact]
+  'export-md': [contact: Contact]
 }>()
 
 const selectedContactsProxy = computed({

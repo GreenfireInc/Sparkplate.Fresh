@@ -98,7 +98,10 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
 import QRCodeLib from 'qrcode'
-import { generateQRCodeSvgFilename, generateQRCodePngFilename } from '@/lib/cores/exportStandard/qrCode.filename.standAlone'
+import {
+  generateQRCodeSvgFilename,
+  generateQRCodePngFilename,
+} from '@/lib/cores/exportStandard/filenameStructureAndContent.general.qrCode.individual'
 
 function useDebounce<T>(fn: () => T, ms: number) {
   let timeoutId: ReturnType<typeof setTimeout> | null = null

@@ -16,11 +16,12 @@
                 v-if="company"
                 :contact="companyActionsContactStub"
                 :is-editing="false"
-                @add-currency-request="onCompanyActionsAddCurrencyRequest"
-                @generate-qrcode-png="onCompanyActionsGenerateQrCodePng"
-                @generate-qrcode-svg="onCompanyActionsGenerateQrCodeSvg"
-                @export-csv="onCompanyActionsExportCsv"
-                @export-vcf="onCompanyActionsExportVcf"
+                @add-currency-request="emit('add-currency-request', companyActionsContactStub)"
+                @generate-qrcode-png="emit('generate-qrcode-png', $event)"
+                @generate-qrcode-svg="emit('generate-qrcode-svg', $event)"
+                @export-csv="emit('export-csv', $event)"
+                @export-vcf="emit('export-vcf', $event)"
+                @export-md="emit('export-md', $event)"
                 @export-json="noopCompanyModalActions"
                 @currency-added="noopCompanyModalActions"
                 @save-changes="noopCompanyModalActions"
@@ -221,7 +222,21 @@ import { notesRevision, getNotesForOwnerId } from '@/services/addressBook/servic
 defineOptions({ name: 'ModalCompanyDetails' })
 
 const props = defineProps<{ company: Company | null }>()
-const emit = defineEmits<{ close: []; 'delete-requested': [company: Company] }>()
+/** Mirrors the events bubbled from `tab.addressBook.Companies.vue`'s row dropdown so
+ *  the modal participates in the same upstream pipeline (parent listens once, regardless
+ *  of which surface fires the action). `update:edit-mode`, `save-changes`, `currency-added`,
+ *  and `export-json` stay no-ops here — they have no row-level meaning when already inside
+ *  the details modal. */
+const emit = defineEmits<{
+  close: []
+  'delete-requested': [company: Company]
+  'add-currency-request': [contact: Contact]
+  'generate-qrcode-png': [contact: Contact]
+  'generate-qrcode-svg': [contact: Contact]
+  'export-csv': [contact: Contact]
+  'export-vcf': [contact: Contact]
+  'export-md': [contact: Contact]
+}>()
 
 const dialogOpen = computed(() => !!props.company)
 const activeTab = ref('general')
@@ -296,26 +311,9 @@ function onCompanyActionsDeleteRequested() {
   if (props.company) emit('delete-requested', props.company)
 }
 
-/** Header dropdown handlers — match `modal.details.Contact.vue`'s placeholder pattern.
- *  TODO: implement actual QR/export/add-currency pipelines for company entities. */
-function onCompanyActionsAddCurrencyRequest(c: Contact) {
-  console.log(`Company add-currency requested:`, c.id)
-}
-function onCompanyActionsGenerateQrCodePng(c: Contact) {
-  console.log(`Company QR PNG: ${c.id}`)
-}
-function onCompanyActionsGenerateQrCodeSvg(c: Contact) {
-  console.log(`Company QR SVG: ${c.id}`)
-}
-function onCompanyActionsExportCsv(c: Contact) {
-  console.log(`Company CSV: ${c.id}`)
-}
-function onCompanyActionsExportVcf(c: Contact) {
-  console.log(`Company VCF: ${c.id}`)
-}
-
-/** Header dropdown emits a few actions still without backing logic (`export-json`,
- *  `currency-added`, `save-changes`, `update:edit-mode`) — kept as inert no-ops. */
+/** Header dropdown emits a few actions still without modal-level meaning
+ *  (`export-json`, `currency-added`, `save-changes`, `update:edit-mode`) —
+ *  kept as inert no-ops. */
 function noopCompanyModalActions() {}
 
 async function onCompanySocialSave(fields: Record<string, unknown>) {

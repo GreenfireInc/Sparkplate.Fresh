@@ -104,6 +104,7 @@
               @generate-qrcode-svg="onGenerateQrCodeSvg"
               @export-csv="onExportCsv"
               @export-vcf="onExportVcf"
+              @export-md="onExportMd"
             />
 
             <TabsContent value="Exchanges" class="ab-tabs__panel">
@@ -130,6 +131,7 @@
               @generate-qrcode-svg="onGenerateQrCodeSvg"
               @export-csv="onExportCsv"
               @export-vcf="onExportVcf"
+              @export-md="onExportMd"
             />
           </div>
 
@@ -638,6 +640,7 @@ function onGenerateQrCodePng(contact: Contact) { console.log(`QR PNG: ${contact.
 function onGenerateQrCodeSvg(contact: Contact) { console.log(`QR SVG: ${contact.id}`) }
 function onExportCsv(contact: Contact) { console.log(`CSV: ${contact.id}`) }
 function onExportVcf(contact: Contact) { console.log(`VCF: ${contact.id}`) }
+function onExportMd(contact: Contact) { console.log(`Markdown: ${contact.id}`) }
 </script>
 
 <style lang="scss" scoped>
