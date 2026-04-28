@@ -144,6 +144,16 @@ import type { Contact } from '@/services/addressBook/service.addressBook.Contact
 import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
 import CompanyDetailsModal from '@/components/modals/addressbook/modal.details.Company.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
+import {
+  exportCompanyQrPng,
+  exportCompanyQrSvg,
+} from '@/lib/cores/exportStandard/addressBook/filenameStructureAndContent.addressBook.Company.qrCode'
+import {
+  exportCompanyCsv,
+  exportCompanyVcf,
+  exportCompanyJson,
+  exportCompanyMd,
+} from '@/lib/cores/exportStandard/addressBook/filenameStructureAndContent.addressBook.Company.text'
 
 defineOptions({ name: 'TabAddressBookCompany' })
 
@@ -178,29 +188,11 @@ const selectedCompanyIdsProxy = computed({
  * the events without breaking the dropdown. (Mirrors `tab.addressBook.Wallet.vue`.) */
 function noopCompanyTableActions() {}
 
-/* Company exporters don't exist yet — placeholders mirror the wallet tab's named-handler
- * shape so real `exportCompany*` functions can be dropped in later without touching the
- * template. TODO: implement in `src/lib/cores/exportStandard/addressBook/`. */
+/* No company-level "add currency" flow yet — the underlying Company is a derived aggregation
+ * and currencies live on the per-contact wallets. Placeholder until a company-currency
+ * pipeline is designed; QR / CSV / VCF / JSON / MD use the real exporters imported above. */
 function openAddCurrencyForCompany(c: Company) {
   console.log(`Company add-currency requested:`, c.id)
-}
-function exportCompanyQrPng(c: Company) {
-  console.log(`Company QR PNG: ${c.id}`)
-}
-function exportCompanyQrSvg(c: Company) {
-  console.log(`Company QR SVG: ${c.id}`)
-}
-function exportCompanyCsv(c: Company) {
-  console.log(`Company CSV: ${c.id}`)
-}
-function exportCompanyVcf(c: Company) {
-  console.log(`Company VCF: ${c.id}`)
-}
-function exportCompanyJson(c: Company) {
-  console.log(`Company JSON: ${c.id}`)
-}
-function exportCompanyMd(c: Company) {
-  console.log(`Company MD: ${c.id}`)
 }
 
 /** Contact-shaped row for `ActionsDropdown` (same pattern as exchange / wallet detail modals). */

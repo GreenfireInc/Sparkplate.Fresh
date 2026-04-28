@@ -45,7 +45,14 @@
             <!-- Sidebar -->
             <div class="cd-sidebar">
               <div class="cd-avatar" :style="{ backgroundColor: avatarBackgroundColor }">
-                <span>{{ contactInitials }}</span>
+                <img
+                  v-if="contactGravatarUrl && !gravatarError"
+                  :src="contactGravatarUrl"
+                  :alt="contactFullName"
+                  class="cd-avatar__gravatar"
+                  @error="handleGravatarError"
+                />
+                <span v-else>{{ contactInitials }}</span>
               </div>
 
               <h2 class="cd-name">
@@ -231,6 +238,7 @@ import {
 import {
   Wallet as WalletIcon, FileKey, ReceiptText, NotebookPen, QrCode,
 } from 'lucide-vue-next'
+import { gravatarUrl as buildGravatarUrl } from '@/lib/cores/displayStandard/gravatar'
 
 defineOptions({ name: 'ContactDetailsModal' })
 
@@ -254,6 +262,18 @@ const notesTabRef = ref<InstanceType<typeof TabDetailsContactNotes> | null>(null
 const gpgTabRef = ref<InstanceType<typeof TabDetailsContactGPG> | null>(null)
 const gpgKeys = ref<Wallet[]>([])
 const gpgKeysCount = computed(() => gpgKeys.value.length)
+const gravatarError = ref(false)
+
+/** 200px Gravatar with `mp` (mystery-person) fallback; null when no email or load failed.
+ *  Mirrors the legacy `from.greeneryAddressbookUpdate` behavior. */
+const contactGravatarUrl = computed<string | null>(() => {
+  if (!props.contact?.email || gravatarError.value) return null
+  return buildGravatarUrl(props.contact.email, { defaultImg: 'mp', size: 200 })
+})
+
+function handleGravatarError() {
+  gravatarError.value = true
+}
 
 const contactInitials = computed(() => {
   if (!props.contact) return ''
@@ -289,6 +309,7 @@ watch(
       editedContact.value = { ...newContact }
       selectedRelationship.value = (newContact as any).relationship ?? ''
       isEditing.value = false
+      gravatarError.value = false
       await refreshWalletCount()
       await refreshGpgKeys()
     } else {
@@ -296,6 +317,7 @@ watch(
       selectedRelationship.value = ''
       walletCount.value = 0
       gpgKeys.value = []
+      gravatarError.value = false
     }
   },
   { immediate: true },
@@ -580,6 +602,15 @@ const close = () => {
   flex-shrink: 0;
   border: 2px solid rgba(255, 255, 255, 0.35);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.cd-avatar__gravatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 
 .cd-name {
