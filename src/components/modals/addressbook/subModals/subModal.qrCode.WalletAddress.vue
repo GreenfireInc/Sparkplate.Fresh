@@ -195,7 +195,7 @@ import { Copy, Check } from 'lucide-vue-next'
 import QRCode from 'qrcode'
 import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 
-defineOptions({ name: 'SubmodalQrCodeWalletAddress' })
+defineOptions({ name: 'SubModalQrCodeWalletAddress' })
 
 const props = defineProps<{
   show: boolean
