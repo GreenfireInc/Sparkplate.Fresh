@@ -67,9 +67,19 @@ export function walletToVCard(wallet: StandaloneWalletRecord): string {
   return lines.join('\r\n')
 }
 
-/* Filename-safe target segment derived from the wallet name (or id fallback). */
+/**
+ * Filename-safe target segment derived from the wallet's display name.
+ *
+ * `wallet.name` is conventionally a composite label of the form
+ * `<brand> · <mnemonic-hint> · <id-or-count>` (see `matchedWalletOption` in
+ * `modal.details.Wallet.vue`). For filenames we only want the brand head —
+ * matching the modal's visible title and avoiding noisy `___metadata___`
+ * runs created by sanitizing the ` · ` separators.
+ */
 function walletFilenameTarget(wallet: StandaloneWalletRecord): string {
-  return (wallet.name || `wallet_${wallet.id}`).replace(/[^a-zA-Z0-9_]/g, '_') || 'wallet'
+  const raw = wallet.name?.trim() || `wallet_${wallet.id}`
+  const head = raw.split(' · ')[0]?.trim() || raw
+  return head.replace(/[^a-zA-Z0-9_]/g, '_') || 'wallet'
 }
 
 /**

@@ -40,23 +40,37 @@ function formatTimeHHMMSS(date: Date = new Date()): string {
   return `${h}${m}${s}`
 }
 
+/**
+ * Filename-safe target segment derived from the wallet's display name.
+ *
+ * `wallet.name` is conventionally a composite label of the form
+ * `<brand> · <mnemonic-hint> · <id-or-count>` (see `matchedWalletOption` in
+ * `modal.details.Wallet.vue`). For filenames we only want the brand head —
+ * matching the modal's visible title and avoiding noisy `___metadata___`
+ * runs created by sanitizing the ` · ` separators.
+ */
 function walletFilenameTarget(wallet: StandaloneWalletRecord): string {
-  return (wallet.name || `wallet_${wallet.id}`).replace(/[^a-zA-Z0-9_]/g, '_') || 'wallet'
+  const raw = wallet.name?.trim() || `wallet_${wallet.id}`
+  const head = raw.split(' · ')[0]?.trim() || raw
+  return head.replace(/[^a-zA-Z0-9_]/g, '_') || 'wallet'
 }
 
 /**
  * Build the dot-separated filename:
- *   %projectName%.%YYYYMMDD%.%HHMMSS%.addressbook.wallet.%target%.%entry%.%ext%
+ *   %projectName%.%YYYYMMDD%.%HHMMSS%.addressbook.wallet.%target%.%ext%
+ *
+ * The payload kind is intentionally encoded only in the file extension
+ * (`.csv` / `.vcf` / `.json` / `.md`) — no `entry` segment — so a wallet's
+ * exports look like `...addressbook.wallet.MetaMask.json` rather than
+ * `...addressbook.wallet.MetaMask.record.json`.
  */
 function buildWalletTextFilename(
   wallet: StandaloneWalletRecord,
-  entry: string,
   extension: string,
   date: Date = new Date(),
 ): string {
   const projectName = sanitizeForFilename(PACKAGE_PROJECT_NAME) || 'app'
   const target = walletFilenameTarget(wallet)
-  const safeEntry = sanitizeForFilename(entry) || 'record'
   const safeExt = sanitizeForFilename(extension) || 'txt'
   return [
     projectName,
@@ -65,7 +79,6 @@ function buildWalletTextFilename(
     'addressbook',
     'wallet',
     target,
-    safeEntry,
     safeExt,
   ].join('.')
 }
@@ -179,7 +192,7 @@ export function walletToMarkdown(wallet: StandaloneWalletRecord): string {
 /** Download wallet currencies + metadata as CSV. */
 export function exportWalletCsv(wallet: StandaloneWalletRecord): void {
   try {
-    const filename = buildWalletTextFilename(wallet, 'currencies', 'csv')
+    const filename = buildWalletTextFilename(wallet, 'csv')
     const body = walletToCsv(wallet)
     downloadBlob(filename, new Blob([body], { type: 'text/csv;charset=utf-8' }))
   } catch (e) {
@@ -191,7 +204,7 @@ export function exportWalletCsv(wallet: StandaloneWalletRecord): void {
 /** Download a vCard 3.0 representation of the wallet as `.vcf`. */
 export function exportWalletVcf(wallet: StandaloneWalletRecord): void {
   try {
-    const filename = buildWalletTextFilename(wallet, 'vcard', 'vcf')
+    const filename = buildWalletTextFilename(wallet, 'vcf')
     const body = walletToVCard(wallet)
     downloadBlob(filename, new Blob([body], { type: 'text/vcard;charset=utf-8' }))
   } catch (e) {
@@ -203,7 +216,7 @@ export function exportWalletVcf(wallet: StandaloneWalletRecord): void {
 /** Download the wallet record as pretty-printed JSON. */
 export function exportWalletJson(wallet: StandaloneWalletRecord): void {
   try {
-    const filename = buildWalletTextFilename(wallet, 'record', 'json')
+    const filename = buildWalletTextFilename(wallet, 'json')
     const body = walletToJson(wallet)
     downloadBlob(filename, new Blob([body], { type: 'application/json' }))
   } catch (e) {
@@ -215,7 +228,7 @@ export function exportWalletJson(wallet: StandaloneWalletRecord): void {
 /** Download a Markdown summary of the wallet. */
 export function exportWalletMd(wallet: StandaloneWalletRecord): void {
   try {
-    const filename = buildWalletTextFilename(wallet, 'record', 'md')
+    const filename = buildWalletTextFilename(wallet, 'md')
     const body = walletToMarkdown(wallet)
     downloadBlob(filename, new Blob([body], { type: 'text/markdown;charset=utf-8' }))
   } catch (e) {
