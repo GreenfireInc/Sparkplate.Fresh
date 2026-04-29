@@ -73,7 +73,15 @@
                 <template v-if="!wallet.cryptoPublicKey">
                   <span class="cwq-panel__label">Public wallet address</span>
                   <div class="cwq-address-row">
-                    <code class="cwq-address-row__text">{{ fullAddress }}</code>
+                    <code
+                      class="cwq-address-row__text cwq-address-row__text--clickable"
+                      :title="showTickerPrefix ? 'Click to hide ticker prefix' : 'Click to show ticker prefix'"
+                      role="button"
+                      tabindex="0"
+                      @click="toggleTickerPrefix"
+                      @keydown.enter.prevent="toggleTickerPrefix"
+                      @keydown.space.prevent="toggleTickerPrefix"
+                    >{{ fullAddress }}</code>
                     <TooltipRoot v-model:open="tooltipAddress">
                       <TooltipTrigger as-child>
                         <button
@@ -106,7 +114,15 @@
 
                   <TabsContent value="address" class="cwq-tabs__panel">
                     <div class="cwq-address-row">
-                      <code class="cwq-address-row__text">{{ fullAddress }}</code>
+                      <code
+                        class="cwq-address-row__text cwq-address-row__text--clickable"
+                        :title="showTickerPrefix ? 'Click to hide ticker prefix' : 'Click to show ticker prefix'"
+                        role="button"
+                        tabindex="0"
+                        @click="toggleTickerPrefix"
+                        @keydown.enter.prevent="toggleTickerPrefix"
+                        @keydown.space.prevent="toggleTickerPrefix"
+                      >{{ fullAddress }}</code>
                       <TooltipRoot v-model:open="tooltipAddress">
                         <TooltipTrigger as-child>
                           <button
@@ -179,7 +195,7 @@ import { Copy, Check } from 'lucide-vue-next'
 import QRCode from 'qrcode'
 import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 
-defineOptions({ name: 'SubmodalQrCodeWalletAddress' })
+defineOptions({ name: 'SubModalQrCodeWalletAddress' })
 
 const props = defineProps<{
   show: boolean
@@ -207,10 +223,20 @@ const copiedPubkey = ref(false)
 const tooltipAddress = ref(false)
 const tooltipPubkey = ref(false)
 
+/** When true, the displayed/encoded address is `<ticker>://<address>` (URI form);
+ *  when false, just the raw address. Toggled by clicking the address text. */
+const showTickerPrefix = ref(true)
+
 const fullAddress = computed(() => {
   if (!props.wallet) return ''
-  return `${props.wallet.coinTicker.toLowerCase()}://${props.wallet.address}`
+  const prefix = showTickerPrefix.value ? `${props.wallet.coinTicker.toLowerCase()}://` : ''
+  return `${prefix}${props.wallet.address}`
 })
+
+function toggleTickerPrefix() {
+  showTickerPrefix.value = !showTickerPrefix.value
+  if (props.wallet) generateQRCode()
+}
 
 const generateQRCode = async () => {
   if (!props.wallet) {
@@ -221,8 +247,7 @@ const generateQRCode = async () => {
   error.value = null
   qrCodeDataUrl.value = null
   try {
-    const walletAddress = `${props.wallet.coinTicker.toLowerCase()}://${props.wallet.address}`
-    const dataUrl = await QRCode.toDataURL(walletAddress, {
+    const dataUrl = await QRCode.toDataURL(fullAddress.value, {
       width: 400,
       margin: 2,
       color: { dark: '#000000', light: '#FFFFFF' },
@@ -275,6 +300,7 @@ watch(
       activeAddressTab.value = 'address'
       copiedAddress.value = false
       copiedPubkey.value = false
+      showTickerPrefix.value = true
       generateQRCode()
     }
   },
@@ -556,6 +582,22 @@ onMounted(() => {
   flex: 1;
   min-width: 0;
   margin: 0;
+}
+
+.cwq-address-row__text--clickable {
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.2rem;
+  margin: -0.1rem -0.2rem;
+  transition: background 0.12s, color 0.12s;
+
+  &:hover { background: #f3f4f6; color: #2563eb; }
+
+  &:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 1px;
+  }
 }
 
 /* ── Copy button ─────────────────────────────────────────── */

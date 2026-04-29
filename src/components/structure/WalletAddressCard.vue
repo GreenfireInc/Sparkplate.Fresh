@@ -63,7 +63,7 @@ import { ref, onMounted, watch } from 'vue'
 import { Copy, Trash2 } from 'lucide-vue-next'
 import QRCode from 'qrcode'
 import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
-import ModalWalletQRCode from '@/components/modals/addressbook/subModals/submodal.qrCode.WalletAddress.vue'
+import ModalWalletQRCode from '@/components/modals/addressbook/subModals/subModal.qrCode.WalletAddress.vue'
 
 const props = defineProps<{
   wallet: Wallet

@@ -11,6 +11,24 @@
         <div class="cd-header">
           <div class="cd-header__row">
             <DialogTitle class="cd-header__title">Company details</DialogTitle>
+            <div class="cd-header__actions">
+              <ActionsDropdown
+                v-if="company"
+                :contact="companyActionsContactStub"
+                :is-editing="false"
+                @add-currency-request="emit('add-currency-request', companyActionsContactStub)"
+                @generate-qrcode-png="emit('generate-qrcode-png', $event)"
+                @generate-qrcode-svg="emit('generate-qrcode-svg', $event)"
+                @export-csv="emit('export-csv', $event)"
+                @export-vcf="emit('export-vcf', $event)"
+                @export-md="emit('export-md', $event)"
+                @export-json="noopCompanyModalActions"
+                @currency-added="noopCompanyModalActions"
+                @save-changes="noopCompanyModalActions"
+                @update:edit-mode="noopCompanyModalActions"
+                @delete-requested="onCompanyActionsDeleteRequested"
+              />
+            </div>
             <DialogClose class="cd-header__close" aria-label="Close">
               <svg
                 viewBox="0 0 24 24"
@@ -198,12 +216,27 @@ import CardWalletAddress from '@/components/structure/card.WalletAddress.vue'
 import TabDetailsContactNotes from '@/components/modals/addressbook/tabsFor.details/tab.details.Contact.Notes.vue'
 import AspectSocialMedia from '@/components/modals/addressbook/aspects/aspect.socialMedia.vue'
 import SubModalSocialMedia from '@/components/modals/addressbook/subModals/subModal.socialMedia.vue'
+import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
 import { notesRevision, getNotesForOwnerId } from '@/services/addressBook/service.addressBook.Note'
 
 defineOptions({ name: 'ModalCompanyDetails' })
 
 const props = defineProps<{ company: Company | null }>()
-const emit = defineEmits<{ close: [] }>()
+/** Mirrors the events bubbled from `tab.addressBook.Company.vue`'s row dropdown so
+ *  the modal participates in the same upstream pipeline (parent listens once, regardless
+ *  of which surface fires the action). `update:edit-mode`, `save-changes`, `currency-added`,
+ *  and `export-json` stay no-ops here — they have no row-level meaning when already inside
+ *  the details modal. */
+const emit = defineEmits<{
+  close: []
+  'delete-requested': [company: Company]
+  'add-currency-request': [contact: Contact]
+  'generate-qrcode-png': [contact: Contact]
+  'generate-qrcode-svg': [contact: Contact]
+  'export-csv': [contact: Contact]
+  'export-vcf': [contact: Contact]
+  'export-md': [contact: Contact]
+}>()
 
 const dialogOpen = computed(() => !!props.company)
 const activeTab = ref('general')
@@ -262,6 +295,26 @@ const companyAspectContact = computed<Record<string, unknown>>(() => {
 function onCompanySocialEditRequested() {
   if (primaryContact.value?.id) showCompanySocialModal.value = true
 }
+
+/** Contact-shaped payload for header `ActionsDropdown` (matches Companies row pattern). */
+const companyActionsContactStub = computed<Contact>(() => ({
+  id: props.company?.id ?? 0,
+  type: 'addressbook_company',
+  firstname: props.company?.name ?? '',
+  lastname: '',
+  company: props.company?.name ?? '',
+  email: props.company?.email ?? '',
+  notes: displayNotes.value,
+}))
+
+function onCompanyActionsDeleteRequested() {
+  if (props.company) emit('delete-requested', props.company)
+}
+
+/** Header dropdown emits a few actions still without modal-level meaning
+ *  (`export-json`, `currency-added`, `save-changes`, `update:edit-mode`) —
+ *  kept as inert no-ops. */
+function noopCompanyModalActions() {}
 
 async function onCompanySocialSave(fields: Record<string, unknown>) {
   const c = primaryContact.value
@@ -448,6 +501,12 @@ function onDialogInteractOutside(event: CustomEvent<{ originalEvent: PointerEven
   font-size: 1.0625rem;
   font-weight: 700;
   color: #111827;
+}
+
+.cd-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .cd-header__close {

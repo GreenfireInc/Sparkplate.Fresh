@@ -39,103 +39,129 @@
 
           <div class="sm-divider" aria-hidden="true" />
 
-          <!-- Right: links -->
+          <!-- Right: links (split into General / Social tabs) -->
           <div class="sm-col sm-col--links">
-            <span class="sm-col__heading">Contact &amp; Social</span>
-            <div class="sm-fields">
+            <TabsRoot v-model="activeTab" class="sm-tabs">
+              <TabsList class="sm-tabs__list" aria-label="Contact info sections">
+                <TabsTrigger value="general" class="sm-tabs__trigger">General</TabsTrigger>
+                <TabsTrigger value="social" class="sm-tabs__trigger">Social</TabsTrigger>
+              </TabsList>
 
-              <!-- Phone | Email -->
-              <div class="sm-field-row">
-                <div class="sm-field">
-                  <label class="sm-label" for="sm-phone">
-                    <Phone :size="12" class="sm-label__icon" /> Phone
-                  </label>
-                  <input id="sm-phone" type="tel" v-model="draft.phone" placeholder="Phone number" class="sm-input" />
-                </div>
-                <div class="sm-field">
-                  <label class="sm-label" for="sm-email">
-                    <Mailbox :size="12" class="sm-label__icon" /> Email
-                  </label>
-                  <input id="sm-email" type="email" v-model="draft.email" placeholder="Email address" class="sm-input" />
-                </div>
-              </div>
+              <!-- General: company / phone / email / website / location -->
+              <TabsContent value="general" class="sm-tabs__panel">
+                <div class="sm-fields">
 
-              <!-- Website | Location -->
-              <div class="sm-field-row">
-                <div class="sm-field">
-                  <label class="sm-label" for="sm-website">
-                    <Globe :size="12" class="sm-label__icon" /> Website
-                  </label>
-                  <input id="sm-website" type="url" v-model="draft.website" placeholder="https://example.com" class="sm-input" />
-                </div>
-                <div class="sm-field">
-                  <label class="sm-label" for="sm-location">
-                    <MapPinned :size="12" class="sm-label__icon" /> Location
-                  </label>
-                  <input id="sm-location" type="text" v-model="draft.location" placeholder="City, Country" class="sm-input" />
-                </div>
-              </div>
-
-              <!-- GitHub | Telegram -->
-              <div class="sm-field-row">
-                <div class="sm-field">
-                  <label class="sm-label" for="sm-github">
-                    <Github :size="12" class="sm-label__icon" /> GitHub
-                  </label>
-                  <div class="sm-input-affixed">
-                    <span class="sm-input-affixed__prefix">github.com/</span>
-                    <input id="sm-github" type="text" v-model="draft.github" placeholder="username" class="sm-input sm-input--affixed" />
+                  <!-- Company (solo, full-width — populates the Company column on `tab.addressBook.Contact.vue`) -->
+                  <div class="sm-field-row">
+                    <div class="sm-field">
+                      <label class="sm-label" for="sm-company">
+                        <Building2 :size="12" class="sm-label__icon" /> Company
+                      </label>
+                      <input id="sm-company" type="text" v-model="draft.company" placeholder="Company name" autocomplete="organization" class="sm-input" />
+                    </div>
                   </div>
-                </div>
-                <div class="sm-field">
-                  <label class="sm-label" for="sm-telegram">
-                    <i class="bi bi-telegram sm-label__icon sm-label__icon--bs" />
-                    Telegram
-                  </label>
-                  <input id="sm-telegram" type="url" v-model="draft.telegram" placeholder="https://t.me/…" class="sm-input" />
-                </div>
-              </div>
 
-              <!-- Twitter | Instagram -->
-              <div class="sm-field-row">
-                <div class="sm-field">
-                  <label class="sm-label" for="sm-twitter">
-                    <Twitter :size="12" class="sm-label__icon" /> Twitter / X
-                  </label>
-                  <div class="sm-input-affixed">
-                    <span class="sm-input-affixed__prefix">@</span>
-                    <input id="sm-twitter" type="text" v-model="draft.twitter" placeholder="handle" class="sm-input sm-input--affixed" />
+                  <!-- Phone | Email -->
+                  <div class="sm-field-row">
+                    <div class="sm-field">
+                      <label class="sm-label" for="sm-phone">
+                        <Phone :size="12" class="sm-label__icon" /> Phone
+                      </label>
+                      <input id="sm-phone" type="tel" v-model="draft.phone" placeholder="Phone number" class="sm-input" />
+                    </div>
+                    <div class="sm-field">
+                      <label class="sm-label" for="sm-email">
+                        <Mailbox :size="12" class="sm-label__icon" /> Email
+                      </label>
+                      <input id="sm-email" type="email" v-model="draft.email" placeholder="Email address" class="sm-input" />
+                    </div>
                   </div>
-                </div>
-                <div class="sm-field">
-                  <label class="sm-label" for="sm-instagram">
-                    <Instagram :size="12" class="sm-label__icon" /> Instagram
-                  </label>
-                  <div class="sm-input-affixed">
-                    <span class="sm-input-affixed__prefix">@</span>
-                    <input id="sm-instagram" type="text" v-model="draft.instagram" placeholder="handle" class="sm-input sm-input--affixed" />
+
+                  <!-- Website | Location -->
+                  <div class="sm-field-row">
+                    <div class="sm-field">
+                      <label class="sm-label" for="sm-website">
+                        <Globe :size="12" class="sm-label__icon" /> Website
+                      </label>
+                      <input id="sm-website" type="url" v-model="draft.website" placeholder="https://example.com" class="sm-input" />
+                    </div>
+                    <div class="sm-field">
+                      <label class="sm-label" for="sm-location">
+                        <MapPinned :size="12" class="sm-label__icon" /> Location
+                      </label>
+                      <input id="sm-location" type="text" v-model="draft.location" placeholder="City, Country" class="sm-input" />
+                    </div>
                   </div>
-                </div>
-              </div>
 
-              <!-- LinkedIn | Bluesky -->
-              <div class="sm-field-row">
-                <div class="sm-field">
-                  <label class="sm-label" for="sm-linkedin">
-                    <Linkedin :size="12" class="sm-label__icon" /> LinkedIn
-                  </label>
-                  <input id="sm-linkedin" type="url" v-model="draft.linkedin" placeholder="https://linkedin.com/in/…" class="sm-input" />
                 </div>
-                <div class="sm-field">
-                  <label class="sm-label" for="sm-bluesky">
-                    <i class="bi bi-bluesky sm-label__icon sm-label__icon--bs" />
-                    Bluesky
-                  </label>
-                  <input id="sm-bluesky" type="url" v-model="draft.bluesky" placeholder="https://bsky.app/profile/…" class="sm-input" />
-                </div>
-              </div>
+              </TabsContent>
 
-            </div>
+              <!-- Social: GitHub / Telegram / Twitter / Instagram / LinkedIn / Bluesky -->
+              <TabsContent value="social" class="sm-tabs__panel">
+                <div class="sm-fields">
+
+                  <!-- GitHub | Telegram -->
+                  <div class="sm-field-row">
+                    <div class="sm-field">
+                      <label class="sm-label" for="sm-github">
+                        <Github :size="12" class="sm-label__icon" /> GitHub
+                      </label>
+                      <div class="sm-input-affixed">
+                        <span class="sm-input-affixed__prefix">github.com/</span>
+                        <input id="sm-github" type="text" v-model="draft.github" placeholder="username" class="sm-input sm-input--affixed" />
+                      </div>
+                    </div>
+                    <div class="sm-field">
+                      <label class="sm-label" for="sm-telegram">
+                        <i class="bi bi-telegram sm-label__icon sm-label__icon--bs" />
+                        Telegram
+                      </label>
+                      <input id="sm-telegram" type="url" v-model="draft.telegram" placeholder="https://t.me/…" class="sm-input" />
+                    </div>
+                  </div>
+
+                  <!-- Twitter | Instagram -->
+                  <div class="sm-field-row">
+                    <div class="sm-field">
+                      <label class="sm-label" for="sm-twitter">
+                        <Twitter :size="12" class="sm-label__icon" /> Twitter / X
+                      </label>
+                      <div class="sm-input-affixed">
+                        <span class="sm-input-affixed__prefix">@</span>
+                        <input id="sm-twitter" type="text" v-model="draft.twitter" placeholder="handle" class="sm-input sm-input--affixed" />
+                      </div>
+                    </div>
+                    <div class="sm-field">
+                      <label class="sm-label" for="sm-instagram">
+                        <Instagram :size="12" class="sm-label__icon" /> Instagram
+                      </label>
+                      <div class="sm-input-affixed">
+                        <span class="sm-input-affixed__prefix">@</span>
+                        <input id="sm-instagram" type="text" v-model="draft.instagram" placeholder="handle" class="sm-input sm-input--affixed" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- LinkedIn | Bluesky -->
+                  <div class="sm-field-row">
+                    <div class="sm-field">
+                      <label class="sm-label" for="sm-linkedin">
+                        <Linkedin :size="12" class="sm-label__icon" /> LinkedIn
+                      </label>
+                      <input id="sm-linkedin" type="url" v-model="draft.linkedin" placeholder="https://linkedin.com/in/…" class="sm-input" />
+                    </div>
+                    <div class="sm-field">
+                      <label class="sm-label" for="sm-bluesky">
+                        <i class="bi bi-bluesky sm-label__icon sm-label__icon--bs" />
+                        Bluesky
+                      </label>
+                      <input id="sm-bluesky" type="url" v-model="draft.bluesky" placeholder="https://bsky.app/profile/…" class="sm-input" />
+                    </div>
+                  </div>
+
+                </div>
+              </TabsContent>
+            </TabsRoot>
           </div>
         </div>
 
@@ -153,17 +179,20 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, watch } from 'vue'
+import { reactive, ref, watch } from 'vue'
 import {
   DialogRoot, DialogPortal, DialogOverlay, DialogContent, DialogTitle, DialogClose,
   Separator,
+  TabsRoot, TabsList, TabsTrigger, TabsContent,
 } from 'radix-vue'
-import { Phone, MapPinned, Mailbox, Globe, Github, Twitter, Linkedin, Instagram } from 'lucide-vue-next'
+import { Phone, MapPinned, Mailbox, Globe, Github, Twitter, Linkedin, Instagram, Building2 } from 'lucide-vue-next'
 
 defineOptions({ name: 'SubModalSocialMedia' })
 
 interface ContactInfoFields {
   bio?: string
+  /** Top-level Contact column shown in `tab.addressBook.Contact.vue`'s Company header. */
+  company?: string
   phone?: string
   location?: string
   email?: string
@@ -187,9 +216,11 @@ const emit = defineEmits<{
 }>()
 
 const draft = reactive<ContactInfoFields>({})
+const activeTab = ref<'general' | 'social'>('general')
 
 function syncDraft() {
   draft.bio      = props.contact.bio      ?? ''
+  draft.company  = props.contact.company  ?? ''
   draft.phone    = props.contact.phone    ?? ''
   draft.location = props.contact.location ?? ''
   draft.email    = props.contact.email    ?? ''
@@ -202,7 +233,12 @@ function syncDraft() {
   draft.telegram = props.contact.telegram ?? ''
 }
 
-watch(() => props.show, (open) => { if (open) syncDraft() }, { immediate: true })
+watch(() => props.show, (open) => {
+  if (open) {
+    syncDraft()
+    activeTab.value = 'general'
+  }
+}, { immediate: true })
 
 function onDialogOpen(open: boolean) { if (!open) emit('close') }
 function cancel() { emit('close') }
@@ -363,6 +399,60 @@ function save() {
     border-color: #2563eb;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
   }
+}
+
+/* ── Tabs (General / Social) ─────────────────────────────── */
+.sm-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.sm-tabs__list {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sm-tabs__trigger {
+  padding: 0.4rem 0.875rem;
+  border: none;
+  background: none;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.12s;
+  font-family: inherit;
+
+  &:hover { color: #111827; }
+
+  &[data-state='active'] {
+    color: #2563eb;
+    font-weight: 600;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #2563eb;
+      border-radius: 1px;
+    }
+  }
+}
+
+.sm-tabs__panel {
+  outline: none;
+  /* Reserve enough vertical space to fit the larger "Social" tab (3 field rows)
+     so switching between General (2 rows) and Social doesn't change the modal's
+     overall height. */
+  min-height: 12rem;
 }
 
 /* ── Link fields ─────────────────────────────────────────── */

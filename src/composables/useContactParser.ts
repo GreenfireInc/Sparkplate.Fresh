@@ -1,62 +1,18 @@
 import { ref } from 'vue'
 import * as XLSX from 'xlsx'
-import Papa from 'papaparse'
+import { parseContactsCsvFile } from '@/lib/cores/importStandard/contacts/fileImports.addressBook.contacts.csv'
 
 export function useContactParser() {
   const parseFile = async (file: File) => {
     const contacts = ref<any[]>([])
 
-    const getMappedContact = (rawContact: any) => {
-        const headerMappings: { [key: string]: string[] } = {
-            firstname: ['First Name', 'FirstName', 'firstname', 'Given Name'],
-            lastname: ['Last Name', 'LastName', 'lastname', 'Family Name'],
-            email: ['Email', 'email', 'E-mail', 'E-mail 1 - Value', 'E-mail 2 - Value', 'E-mail 3 - Value'],
-            company: ['Company', 'company', 'Organization 1 - Name'],
-            phone: ['Phone', 'phone', 'Phone 1 - Value', 'Phone 2 - Value'],
-        };
-
-        const newContact: { [key: string]: any } = {};
-
-        for (const field in headerMappings) {
-            let valueFound = false;
-            for (const header of headerMappings[field]) {
-                if (rawContact[header]) {
-                    if (field === 'email' || field === 'phone') {
-                        if (!newContact[field]) {
-                            newContact[field] = [];
-                        }
-                        newContact[field].push(rawContact[header]);
-                    } else if (!valueFound) {
-                        newContact[field] = rawContact[header];
-                        valueFound = true;
-                    }
-                }
-            }
-        }
-
-        if (newContact.email) {
-            newContact.email = newContact.email.join(', ');
-        }
-        if (newContact.phone) {
-            newContact.phone = newContact.phone.join(', ');
-        }
-
-        return newContact;
-    };
-
     return new Promise((resolve, reject) => {
       if (file.name.endsWith('.csv')) {
-        Papa.parse(file, {
-          header: true,
-          skipEmptyLines: true,
-          complete: (results) => {
-            const processedContacts = results.data.map(getMappedContact).filter(c => c.firstname || c.lastname || c.email);
-            resolve(processedContacts);
-          },
-          error: (error: any) => {
-            reject(error);
-          },
-        });
+        // CSV parsing lives in the dedicated importStandard module so the
+        // Google-Contacts header variants and BOM/whitespace edge cases stay
+        // in one place.
+        parseContactsCsvFile(file).then(resolve).catch(reject)
+        return
       } else {
         const reader = new FileReader();
         reader.onload = async (e) => {

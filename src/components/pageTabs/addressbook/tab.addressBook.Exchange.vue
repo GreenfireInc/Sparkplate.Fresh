@@ -37,7 +37,7 @@
               :class="{ 'ab-table__th--sorted': sortKey === 'email' }"
               @click="sortBy('email')"
             >
-              Associated Emails
+              Associated Email
               <span v-if="sortKey === 'email'" class="ab-table__sort-arrow" aria-hidden="true">{{ sortOrder === 'asc' ? '▲' : '▼' }}</span>
             </th>
             <!-- Referral Code column hidden -->
@@ -73,12 +73,13 @@
             class="ab-table__row"
             @click="openExchangeModal(exchange)"
           >
-            <td class="ab-table__td ab-table__td--checkbox">
+            <td class="ab-table__td ab-table__td--checkbox" @click.stop>
               <input
-                v-model="selectedExchanges"
+                v-model="selectedExchangeIdsProxy"
                 type="checkbox"
                 class="ab-table__checkbox"
                 :value="exchange.id"
+                :aria-label="`Select exchange ${exchange.name}`"
                 @click.stop
               />
             </td>
@@ -100,7 +101,21 @@
               <template v-else>N/A</template>
             </td>
             <td class="ab-table__td ab-table__td--actions" @click.stop>
-              <ActionsDropdown @edit="" @delete="confirmDeleteExchange(exchange)" />
+              <ActionsDropdown
+                :contact="exchangeActionsContactStub(exchange)"
+                @update:edit-mode="(on: boolean) => on && openExchangeModal(exchange)"
+                @add-currency-request="openExchangeModal(exchange)"
+                @generate-qrcode-png="exportExchangeQrPng(exchange)"
+                @generate-qrcode-svg="exportExchangeQrSvg(exchange)"
+                @export-csv="exportExchangeCsv(exchange)"
+                @export-vcf="exportExchangeVcf(exchange)"
+                @export-json="exportExchangeJson(exchange)"
+                @export-md="exportExchangeMd(exchange)"
+                @save-changes="onExchangeRowAction"
+                @cancel-edit="onExchangeRowAction"
+                @currency-added="onExchangeRowAction"
+                @delete-requested="confirmDeleteExchange(exchange)"
+              />
             </td>
           </tr>
         </tbody>
@@ -131,17 +146,37 @@ import ExchangeModal from '@/components/modals/addressbook/modal.details.Exchang
 import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 import { deleteExchange, updateExchange, type ExchangeRecord } from '@/services/addressBook/service.addressBook.Exchange'
+import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
+import {
+  exportExchangeQrPng,
+  exportExchangeQrSvg,
+} from '@/lib/cores/exportStandard/addressBook/filenameStructureAndContent.addressBook.Exchange.qrCode'
+import {
+  exportExchangeCsv,
+  exportExchangeVcf,
+  exportExchangeJson,
+  exportExchangeMd,
+} from '@/lib/cores/exportStandard/addressBook/filenameStructureAndContent.addressBook.Exchange.text'
 
-const props = defineProps<{
-  exchanges: ExchangeRecord[]
-}>()
+const props = withDefaults(
+  defineProps<{
+    exchanges: ExchangeRecord[]
+    selectedExchangeIds?: number[]
+  }>(),
+  { selectedExchangeIds: () => [] },
+)
 
 const emit = defineEmits<{
   'exchanges-changed': []
+  'update:selectedExchangeIds': [value: number[]]
 }>()
 
+const selectedExchangeIdsProxy = computed({
+  get: () => props.selectedExchangeIds,
+  set: (value: number[]) => emit('update:selectedExchangeIds', value),
+})
+
 const selectedExchange = ref<ExchangeRecord | null>(null)
-const selectedExchanges = ref<number[]>([]);
 const currentPage = ref(1);
 const itemsPerPage = 25;
 const showConfirmModal = ref(false);
@@ -198,16 +233,17 @@ const paginatedExchanges = computed(() => {
 const isCurrentPageSelected = computed(() => {
   const visibleExchangeIds = paginatedExchanges.value.map(e => e.id);
   if (visibleExchangeIds.length === 0) return false;
-  return visibleExchangeIds.every(id => selectedExchanges.value.includes(id));
+  return visibleExchangeIds.every(id => props.selectedExchangeIds.includes(id));
 });
 
 const selectAllExchanges = (event: Event) => {
   const target = event.target as HTMLInputElement;
   const visibleExchangeIds = paginatedExchanges.value.map(e => e.id);
+  const current = [...props.selectedExchangeIds];
   if (target.checked) {
-    selectedExchanges.value = [...new Set([...selectedExchanges.value, ...visibleExchangeIds])];
+    emit('update:selectedExchangeIds', [...new Set([...current, ...visibleExchangeIds])]);
   } else {
-    selectedExchanges.value = selectedExchanges.value.filter(id => !visibleExchangeIds.includes(id));
+    emit('update:selectedExchangeIds', current.filter(id => !visibleExchangeIds.includes(id)));
   }
 };
 
@@ -250,6 +286,32 @@ const closeConfirmModal = () => {
 function truncateAddress(address: string): string {
   if (!address || address.length <= 14) return address
   return `${address.slice(0, 7)}…${address.slice(-7)}`
+}
+
+/**
+ * Contact-shaped stub so the shared ActionsDropdown (which expects a Contact)
+ * can render its menu against an exchange row. Mirrors the pattern used in
+ * the exchange details modal header and the companies tab.
+ */
+function exchangeActionsContactStub(exchange: ExchangeRecord): Contact {
+  return {
+    id: exchange.id,
+    type: 'exchange',
+    firstname: exchange.name || 'Exchange',
+    lastname: '',
+    company: '',
+    email: exchange.email || '',
+    notes: exchange.notes || '',
+  }
+}
+
+/**
+ * Pass-through for ActionsDropdown events that have no row-level meaning on
+ * an exchange row: `save-changes` / `cancel-edit` (only relevant inside the
+ * details modal) and `currency-added` (currencies are managed in the modal).
+ */
+function onExchangeRowAction(payload?: unknown) {
+  console.log('Exchange row action:', payload)
 }
 </script>
 

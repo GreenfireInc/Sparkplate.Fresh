@@ -3,13 +3,22 @@
     <component :is="variantIcon" :size="18" class="btn-icon" />
     {{ label }}
   </button>
+
+  <SubModalExportPreviewAddressBook
+    :show="showPreview"
+    :variant="props.variant"
+    :entries="previewEntries"
+    @close="closePreview"
+    @confirm="confirmPreview"
+  />
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { SquareUser, Landmark, Wallet, Building2 } from 'lucide-vue-next'
 import packageJson from '../../../../package.json'
-import { getCompanies } from '@/services/addressBook/service.addressBook.Company'
+import { getCompanies, type Company } from '@/services/addressBook/service.addressBook.Company'
+import SubModalExportPreviewAddressBook from '@/components/modals/addressbook/subModals/subModal.export.preview.addressBook.vue'
 
 export type ExportVariant = 'contacts' | 'exchanges' | 'wallets' | 'companies'
 
@@ -77,6 +86,8 @@ const props = withDefaults(
     contacts?: unknown[]
     exchanges?: unknown[]
     wallets?: unknown[]
+    /** Optional ids selected on the active tab; non-empty triggers the preview modal. */
+    selectedIds?: number[]
   }>(),
   {
     label: 'Export Contacts',
@@ -84,6 +95,7 @@ const props = withDefaults(
     contacts: () => [],
     exchanges: () => [],
     wallets: () => [],
+    selectedIds: () => [],
   },
 )
 
@@ -115,8 +127,7 @@ function downloadJson(filename: string, data: unknown) {
   downloadBlob(filename, blob)
 }
 
-function exportContactsCsv() {
-  const rows = props.contacts ?? []
+function exportContactsCsv(rows: unknown[]) {
   const headers = ['firstname', 'lastname', 'email', 'company', 'notes', 'wallets']
   const escape = (v: unknown) => {
     const s = v == null ? '' : String(v)
@@ -140,28 +151,95 @@ function exportContactsCsv() {
   downloadBlob(buildAddressBookExportFilename('contacts', 'csv'), blob)
 }
 
+const showPreview = ref(false)
+const previewEntries = ref<Record<string, unknown>[]>([])
+
+function pickById<T extends { id?: number | string }>(rows: T[], ids: number[]): T[] {
+  const set = new Set(ids)
+  return rows.filter((r) => typeof r.id === 'number' && set.has(r.id))
+}
+
+async function exportAll() {
+  switch (props.variant) {
+    case 'exchanges':
+      downloadJson(buildAddressBookExportFilename('exchanges', 'json'), props.exchanges ?? [])
+      break
+    case 'wallets':
+      downloadJson(buildAddressBookExportFilename('wallets', 'json'), props.wallets ?? [])
+      break
+    case 'companies': {
+      const data = await getCompanies()
+      downloadJson(buildAddressBookExportFilename('companies', 'json'), data)
+      break
+    }
+    case 'contacts':
+    default:
+      exportContactsCsv(props.contacts ?? [])
+      break
+  }
+}
+
 async function handleExport() {
   try {
+    const ids = props.selectedIds ?? []
+    if (ids.length === 0) {
+      await exportAll()
+      return
+    }
+
+    let entries: Record<string, unknown>[] = []
     switch (props.variant) {
+      case 'contacts':
+        entries = pickById(props.contacts as { id?: number }[], ids) as Record<string, unknown>[]
+        break
       case 'exchanges':
-        downloadJson(buildAddressBookExportFilename('exchanges', 'json'), props.exchanges ?? [])
+        entries = pickById(props.exchanges as { id?: number }[], ids) as Record<string, unknown>[]
         break
       case 'wallets':
-        downloadJson(buildAddressBookExportFilename('wallets', 'json'), props.wallets ?? [])
+        entries = pickById(props.wallets as { id?: number }[], ids) as Record<string, unknown>[]
         break
       case 'companies': {
-        const data = await getCompanies()
-        downloadJson(buildAddressBookExportFilename('companies', 'json'), data)
+        const all: Company[] = await getCompanies()
+        entries = pickById(all, ids) as unknown as Record<string, unknown>[]
         break
       }
+    }
+
+    previewEntries.value = entries
+    showPreview.value = true
+  } catch (e) {
+    console.error('Export failed:', e)
+    alert(e instanceof Error ? e.message : 'Export failed.')
+  }
+}
+
+function closePreview() {
+  showPreview.value = false
+  previewEntries.value = []
+}
+
+function confirmPreview() {
+  try {
+    const entries = previewEntries.value
+    switch (props.variant) {
       case 'contacts':
-      default:
-        exportContactsCsv()
+        exportContactsCsv(entries)
+        break
+      case 'exchanges':
+        downloadJson(buildAddressBookExportFilename('exchanges', 'json'), entries)
+        break
+      case 'wallets':
+        downloadJson(buildAddressBookExportFilename('wallets', 'json'), entries)
+        break
+      case 'companies':
+        downloadJson(buildAddressBookExportFilename('companies', 'json'), entries)
         break
     }
   } catch (e) {
     console.error('Export failed:', e)
     alert(e instanceof Error ? e.message : 'Export failed.')
+  } finally {
+    closePreview()
   }
 }
 </script>

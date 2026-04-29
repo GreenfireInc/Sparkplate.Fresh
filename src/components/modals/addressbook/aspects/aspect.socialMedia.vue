@@ -7,6 +7,11 @@
   >
     <ul class="cd-links">
       <li class="cd-links__item">
+        <Building2 :size="14" class="cd-links__icon" />
+        <span class="cd-links__value" :class="{ 'cd-links__value--empty': !contact.company }">{{ contact.company || 'N/A' }}</span>
+      </li>
+
+      <li class="cd-links__item">
         <Phone :size="14" class="cd-links__icon" />
         <a v-if="contact.phone" :href="`tel:${contact.phone}`" class="cd-links__value" @click.stop>{{ contact.phone }}</a>
         <span v-else class="cd-links__value cd-links__value--empty">N/A</span>
@@ -74,7 +79,7 @@
 </template>
 
 <script setup lang="ts">
-import { Phone, MapPinned, Mailbox, Globe, Github, Twitter, Linkedin, Instagram, Pencil } from 'lucide-vue-next'
+import { Phone, MapPinned, Mailbox, Globe, Github, Twitter, Linkedin, Instagram, Pencil, Building2 } from 'lucide-vue-next'
 
 defineOptions({ name: 'AspectSocialMedia' })
 

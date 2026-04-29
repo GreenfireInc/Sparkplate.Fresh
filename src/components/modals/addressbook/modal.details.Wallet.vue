@@ -18,11 +18,15 @@
                 @update:edit-mode="onWalletActionsEditMode"
                 @save-changes="onWalletActionsSaveChanges"
                 @cancel-edit="onWalletActionsCancelEdit"
-                @add-currency-request="onWalletActionsAddCurrencyRequest"
-                @generate-qrcode-png="onWalletActionsGenerateQrPng"
-                @generate-qrcode-svg="onWalletActionsGenerateQrSvg"
-                @export-csv="onWalletActionsExportCsv"
-                @export-vcf="onWalletActionsExportVcf"
+                @add-currency-request="openAddCurrencyModal"
+                @generate-qrcode-png="exportWalletQrPng(currentWalletRecord)"
+                @generate-qrcode-svg="exportWalletQrSvg(currentWalletRecord)"
+                @export-csv="exportWalletCsv(currentWalletRecord)"
+                @export-vcf="exportWalletVcf(currentWalletRecord)"
+                @export-json="exportWalletJson(currentWalletRecord)"
+                @export-md="exportWalletMd(currentWalletRecord)"
+                @currency-added="onModalCurrencyAdded"
+                @delete-requested="onModalDeleteRequested"
               />
             </div>
             <DialogClose class="cd-header__close" aria-label="Close">
@@ -243,6 +247,21 @@
         <div class="cd-footer">
           <button type="button" class="cd-footer-btn cd-footer-btn--ghost" @click="emitClose">Close</button>
         </div>
+
+        <!-- Stacked sub-modal for picking / importing a currency. Uses the
+             standalone (non-contact) flow so JSON imports return as a single
+             batch which we bubble up to the parent (`tab.addressBook.Wallet.vue`)
+             via `standalone-currencies-imported`. The parent persists changes
+             through `updateStandaloneWallet`. -->
+        <SubModalAddCurrency
+          :show="showAddCurrencyModal"
+          :contact-id="wallet.id"
+          entity-label="Wallet"
+          :persist-imported-wallets-to-contact="false"
+          @close="closeAddCurrencyModal"
+          @currency-added="onSubModalCurrencyAdded"
+          @standalone-currencies-imported="onSubModalCurrenciesImported"
+        />
       </DialogContent>
     </DialogPortal>
   </DialogRoot>
@@ -284,8 +303,21 @@ import CardWalletAddress from '@/components/structure/card.WalletAddress.vue'
 import TabDetailsContactNotes from '@/components/modals/addressbook/tabsFor.details/tab.details.Contact.Notes.vue'
 import { notesRevision, getNotesForOwnerId } from '@/services/addressBook/service.addressBook.Note'
 import type { Wallet as WalletRecord } from '@/services/addressBook/service.addressBook.Wallet'
+import type { StandaloneWalletRecord } from '@/services/addressBook/service.addressBook.StandaloneWallet'
 import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
 import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
+import SubModalAddCurrency from '@/components/modals/addressbook/subModals/subModal.add.Currency.vue'
+import type { ImportedWallet } from '@/lib/cores/importStandard/importWallet.json'
+import {
+  exportWalletQrPng,
+  exportWalletQrSvg,
+} from '@/lib/cores/exportStandard/addressBook/filenameStructureAndContent.addressBook.Wallet.qrCode'
+import {
+  exportWalletCsv,
+  exportWalletVcf,
+  exportWalletJson,
+  exportWalletMd,
+} from '@/lib/cores/exportStandard/addressBook/filenameStructureAndContent.addressBook.Wallet.text'
 
 const SOCIAL_PLATFORM_ICONS: Record<string, Component> = {
   twitter: Twitter,
@@ -345,7 +377,22 @@ interface Wallet {
 }
 
 const props = defineProps<{ wallet: Wallet }>()
-const emit = defineEmits<{ close: []; 'currency-removed': [currencyIndex: number] }>()
+const emit = defineEmits<{
+  close: []
+  'currency-removed': [currencyIndex: number]
+  /* Bubbled from `SubModalAddCurrency`. The parent tab persists this through
+   * `updateStandaloneWallet` — this modal renders the wallet read-only. */
+  'currency-added': [payload: { contactId: number; network: string; address: string }]
+  /* Bubbled when the SubModalAddCurrency JSON-import path completes — the
+   * parent tab merges everything in a single update to avoid races between
+   * many per-item `currency-added` emissions. */
+  'standalone-currencies-imported': [
+    payload: { targetId: number; items: ImportedWallet[] },
+  ]
+  /* Bubbled when the user picks "Delete" in the ActionsDropdown — the
+   * parent tab owns the confirmation + delete flow. */
+  'delete-requested': [wallet: StandaloneWalletRecord]
+}>()
 
 const walletNotesCount = ref(0)
 
@@ -373,6 +420,9 @@ const walletActionsContactStub = computed<Contact>(() => ({
   notes: props.wallet.notes ?? '',
 }))
 
+/* The Wallet modal is read-only; edit / save / cancel from the menu are
+ * placeholders so the dropdown doesn't break — full editing happens from the
+ * Address Book row. Mirrors the `noopCompanyModalActions` pattern. */
 function onWalletActionsEditMode(value: boolean) {
   console.log('Wallet details: edit mode from actions menu (read-only modal):', value)
 }
@@ -385,24 +435,59 @@ function onWalletActionsCancelEdit() {
   console.log('Wallet details: cancel edit from actions menu')
 }
 
-function onWalletActionsAddCurrencyRequest() {
-  console.log('Wallet details: add currency from actions menu — use Address Book to edit this wallet.')
+/* Bridge the modal's local `Wallet` shape to `StandaloneWalletRecord` (which
+ * the wallet exporters operate on). Both interfaces are structurally
+ * identical — this computed reshapes them with explicit field copies so the
+ * exporters don't see any extra keys and so currencies are deep-copied. */
+const currentWalletRecord = computed<StandaloneWalletRecord>(() => ({
+  id: props.wallet.id,
+  name: props.wallet.name,
+  currencies: props.wallet.currencies.map((c) => ({ ...c })),
+  mnemonicWordCount: props.wallet.mnemonicWordCount,
+  mnemonicFirst: props.wallet.mnemonicFirst,
+  mnemonicLast: props.wallet.mnemonicLast,
+  notes: props.wallet.notes,
+  passwordHint: props.wallet.passwordHint,
+}))
+
+const showAddCurrencyModal = ref(false)
+
+function openAddCurrencyModal() {
+  activeTab.value = 'currencies'
+  showAddCurrencyModal.value = true
 }
 
-function onWalletActionsGenerateQrPng(contact: Contact) {
-  console.log('Wallet details: QR PNG from actions menu:', contact.id)
+function closeAddCurrencyModal() {
+  showAddCurrencyModal.value = false
 }
 
-function onWalletActionsGenerateQrSvg(contact: Contact) {
-  console.log('Wallet details: QR SVG from actions menu:', contact.id)
+/* Modal is read-only, so currency additions are bubbled to the parent tab
+ * which owns `updateStandaloneWallet`. The submodal payload's `contactId` is
+ * actually the wallet id (we passed it as `:contact-id`). */
+function onSubModalCurrencyAdded(payload: {
+  contactId: number
+  network: string
+  address: string
+}) {
+  emit('currency-added', payload)
 }
 
-function onWalletActionsExportCsv(contact: Contact) {
-  console.log('Wallet details: export CSV from actions menu:', contact.id)
+function onSubModalCurrenciesImported(payload: {
+  targetId: number
+  items: ImportedWallet[]
+}) {
+  emit('standalone-currencies-imported', payload)
 }
 
-function onWalletActionsExportVcf(contact: Contact) {
-  console.log('Wallet details: export VCF from actions menu:', contact.id)
+/* `currency-added` from `ActionsDropdown` itself (only emitted by the
+ * dropdown's per-coin contact flow, which doesn't apply here). Kept as a
+ * no-op so the slot is wired and matches the Exchange modal's `onModalCurrencyAdded`. */
+function onModalCurrencyAdded() {
+  /* no-op — wallet currency additions go through `SubModalAddCurrency`. */
+}
+
+function onModalDeleteRequested() {
+  emit('delete-requested', currentWalletRecord.value)
 }
 
 const walletMnemonicLengthSelect = computed(() => {

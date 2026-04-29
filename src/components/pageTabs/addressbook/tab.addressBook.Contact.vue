@@ -41,6 +41,7 @@
             Last name
             <span v-if="sortKey === 'lastname'" class="ab-table__sort-arrow" aria-hidden="true">{{ sortOrder === 'asc' ? '▲' : '▼' }}</span>
           </th>
+          <!--
           <th
             scope="col"
             class="ab-table__th ab-table__th--sortable"
@@ -50,6 +51,8 @@
             Company
             <span v-if="sortKey === 'company'" class="ab-table__sort-arrow" aria-hidden="true">{{ sortOrder === 'asc' ? '▲' : '▼' }}</span>
           </th>
+          -->
+
           <th
             scope="col"
             class="ab-table__th ab-table__th--sortable"
@@ -73,7 +76,7 @@
       </thead>
       <tbody>
         <tr v-if="paginatedContacts.length === 0">
-          <td colspan="8" class="ab-table__empty">
+          <td colspan="7" class="ab-table__empty">
             No contacts found.
           </td>
         </tr>
@@ -96,7 +99,7 @@
           <td class="ab-table__td">{{ contact.id }}</td>
           <td class="ab-table__td">{{ contact.firstname }}</td>
           <td class="ab-table__td">{{ contact.lastname }}</td>
-          <td class="ab-table__td">{{ contact.company }}</td>
+          <!-- <td class="ab-table__td">{{ contact.company }}</td> -->
           <td class="ab-table__td">{{ contact.email }}</td>
           <td class="ab-table__td">{{ contact.wallets }}</td>
           <td class="ab-table__td ab-table__td--actions" @click.stop>
@@ -107,6 +110,7 @@
               @generate-qrcode-svg="emit('generate-qrcode-svg', $event)"
               @export-csv="emit('export-csv', $event)"
               @export-vcf="emit('export-vcf', $event)"
+              @export-md="emit('export-md', $event)"
             />
           </td>
         </tr>
@@ -146,6 +150,7 @@ const emit = defineEmits<{
   'generate-qrcode-svg': [contact: Contact]
   'export-csv': [contact: Contact]
   'export-vcf': [contact: Contact]
+  'export-md': [contact: Contact]
 }>()
 
 const selectedContactsProxy = computed({
