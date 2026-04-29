@@ -338,6 +338,10 @@ const exportSelectedIds = computed<number[]>(() => {
 
 const addContacts = async (newContacts: any[]) => {
   for (const c of newContacts) {
+    /* Forward optional fields from importers (`fileImports.addressBook.contacts.csv.ts`
+     * and friends) so phone / website / relationship / social handles persist instead of
+     * being silently dropped. Only set keys when they're actually present so we don't
+     * write empty strings into otherwise-undefined optional columns. */
     const added = await addContact({
       type: 'regular',
       firstname: c.firstname || '',
@@ -345,6 +349,13 @@ const addContacts = async (newContacts: any[]) => {
       company: c.company || '',
       email: c.email || '',
       notes: c.notes || '',
+      ...(c.phone ? { phone: c.phone } : {}),
+      ...(c.website ? { website: c.website } : {}),
+      ...(c.relationship ? { relationship: c.relationship } : {}),
+      ...(c.twitter ? { twitter: c.twitter } : {}),
+      ...(c.linkedin ? { linkedin: c.linkedin } : {}),
+      ...(c.instagram ? { instagram: c.instagram } : {}),
+      ...(c.facebook ? { facebook: c.facebook } : {}),
     })
     if (c.wallets) {
       for (const wallet of c.wallets.split(',')) {

@@ -68,6 +68,9 @@ const confirm = () => {
 
 .modal-content {
   background-color: #fff;
+  /* Explicit dark text so we don't inherit the near-white default from `:root` in
+     `src/style.css` (which would make the secondary button invisible on its light bg). */
+  color: #111827;
   padding: 2rem;
   border-radius: 0.5rem;
   width: 90%;
@@ -79,6 +82,7 @@ const confirm = () => {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  color: #111827;
 }
 
 .modal-message {
@@ -97,12 +101,20 @@ const confirm = () => {
   border-radius: 0.375rem;
   border: 1px solid #d1d5db;
   background-color: #ffffff;
+  /* Inherit the modal card's dark text instead of the global `<button>` default
+     (which inherits the near-white :root color). */
+  color: inherit;
   cursor: pointer;
   font-weight: 500;
 }
 
 .btn-secondary {
   background-color: #f3f4f6;
+  color: #111827;
+}
+
+.btn-secondary:hover {
+  background-color: #e5e7eb;
 }
 
 .btn-delete {

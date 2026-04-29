@@ -37,7 +37,7 @@
               :class="{ 'ab-table__th--sorted': sortKey === 'email' }"
               @click="sortBy('email')"
             >
-              Associated Emails
+              Associated Email
               <span v-if="sortKey === 'email'" class="ab-table__sort-arrow" aria-hidden="true">{{ sortOrder === 'asc' ? '▲' : '▼' }}</span>
             </th>
             <!-- Referral Code column hidden -->
