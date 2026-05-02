@@ -1,0 +1,20 @@
+import type { IgadCountry } from './types'
+
+export const uganda: IgadCountry = {
+  name: 'Uganda',
+  iso3166Alpha2: 'UG',
+  capital: 'Kampala',
+  coordinates: { latitude: 0.3476, longitude: 32.5825 },
+  independence:
+    '1962-10-09 independence from UK protectorate; IGADD founding state Jan 1986; Great Lakes stabilization dialogue host — informational',
+  topMajorCities: ['Kampala', 'Nansana', 'Kira', 'Makindye', 'Mbarara'],
+  population: 48000000,
+  mainLanguages: ['English', 'Swahili', 'Luganda / regional Bantu / Nilotic'],
+  currency: 'Ugandan shilling (UGX)',
+  timezone: 'Africa/Kampala',
+  foundingLeader: 'Milton Obote independence reference; Museveni NRM post-1986 state — informational',
+  currentLeader: 'President Yoweri Museveni — verify',
+  cryptocurrencyExchanges: ['Binance informal P2P seasonal blocks; Blockchain Association advocacy — informational'],
+  stablecoin: 'USDT/USDC informal settlements; Mobile Money predominant — informational',
+  stockExchange: 'Uganda Securities Exchange (USE, thin listings — informational)',
+}

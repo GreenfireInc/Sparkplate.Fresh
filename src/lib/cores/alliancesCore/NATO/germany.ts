@@ -1,0 +1,20 @@
+import type { NatoCountry } from './types'
+
+export const germany: NatoCountry = {
+  name: 'Germany',
+  iso3166Alpha2: 'DE',
+  capital: 'Berlin',
+  coordinates: { latitude: 52.52, longitude: 13.405 },
+  independence:
+    '1990 reunification continuity; EU founding lineage; NATO Ally FRG ascension May 1955 reunified state inherits — informational',
+  topMajorCities: ['Berlin', 'Hamburg', 'Munich', 'Cologne', 'Frankfurt'],
+  population: 83200000,
+  mainLanguages: ['German', 'Turkish (community)', 'Polish'],
+  currency: 'Euro (EUR)',
+  timezone: 'Europe/Berlin',
+  foundingLeader: 'Konrad Adenauer transatlantic embed reference — informational',
+  currentLeader: 'Federal President Frank-Walter Steinmeier; Chancellor — verify',
+  cryptocurrencyExchanges: ['Bitstamp EU', 'MiCA licences Deutsche Börse narratives — informational'],
+  stablecoin: 'EUR stablecoins — informational',
+  stockExchange: 'Deutsche Börse (Frankfurt)',
+}

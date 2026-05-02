@@ -1,0 +1,19 @@
+import type { ComesaCountry } from './types'
+
+export const eswatini: ComesaCountry = {
+  name: 'Eswatini',
+  iso3166Alpha2: 'SZ',
+  capital: 'Mbabane (administrative); Lobamba (royal and legislative)',
+  coordinates: { latitude: -26.3054, longitude: 31.1367 },
+  independence: '1968-09-06',
+  topMajorCities: ['Manzini', 'Mbabane', 'Big Bend', 'Malkerns', 'Siteki'],
+  population: 1200000,
+  mainLanguages: ['siSwati', 'English', 'Zulu (minority communities)'],
+  currency: 'Swazi lilangeni (SZL); South African rand (ZAR) accepted',
+  timezone: 'Africa/Mbabane',
+  foundingLeader: 'Sobhuza II (King at independence)',
+  currentLeader: 'King Mswati III; Prime Minister Russell Dlamini — verify',
+  cryptocurrencyExchanges: ['Luno', 'VALR', 'Binance (P2P)'],
+  stablecoin: 'USDT / USDC via southern African corridors',
+  stockExchange: 'Eswatini Stock Exchange',
+}

@@ -1,0 +1,20 @@
+import type { NatoCountry } from './types'
+
+export const croatia: NatoCountry = {
+  name: 'Croatia',
+  iso3166Alpha2: 'HR',
+  capital: 'Zagreb',
+  coordinates: { latitude: 45.815, longitude: 15.9819 },
+  independence:
+    '1991 Yugoslav succession; EU since 2013; Euro from 2023; NATO Ally since Apr 2009 — informational',
+  topMajorCities: ['Zagreb', 'Split', 'Rijeka', 'Osijek', 'Zadar'],
+  population: 3900000,
+  mainLanguages: ['Croatian', 'Italian (minority regions)', 'Serbian (community)'],
+  currency: 'Euro (EUR)',
+  timezone: 'Europe/Zagreb',
+  foundingLeader: 'Franjo Tuđman reference — informational',
+  currentLeader: 'President / Prime Minister — verify',
+  cryptocurrencyExchanges: ['EU MiCA-regulated onboarding; Binance EUR context'],
+  stablecoin: 'EUR stablecoins MiCA-aligned — informational',
+  stockExchange: 'Zagreb Stock Exchange',
+}

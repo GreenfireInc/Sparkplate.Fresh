@@ -1,0 +1,19 @@
+import type { ComesaCountry } from './types'
+
+export const comoros: ComesaCountry = {
+  name: 'Comoros',
+  iso3166Alpha2: 'KM',
+  capital: 'Moroni',
+  coordinates: { latitude: -11.7172, longitude: 43.2473 },
+  independence: '1975-07-06 (from France)',
+  topMajorCities: ['Moroni', 'Mutsamudu', 'Fomboni', 'Domoni', 'Tsimbeo'],
+  population: 900000,
+  mainLanguages: ['Comorian (Shikomor)', 'Arabic', 'French'],
+  currency: 'Comorian franc (KMF)',
+  timezone: 'Indian/Comoro',
+  foundingLeader: 'Ahmed Abdallah (first President post-independence)',
+  currentLeader: 'President Azali Assoumani — verify',
+  cryptocurrencyExchanges: ['Binance (P2P)', 'Regional mobile money bridges'],
+  stablecoin: 'USDT / USDC limited official access; KMF peg context',
+  stockExchange: 'No major national stock exchange',
+}
