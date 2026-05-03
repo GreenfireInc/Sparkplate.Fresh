@@ -1,0 +1,20 @@
+import type { NatoCountry } from './types'
+
+export const belgium: NatoCountry = {
+  name: 'Belgium',
+  iso3166Alpha2: 'BE',
+  capital: 'Brussels',
+  coordinates: { latitude: 50.8503, longitude: 4.3517 },
+  independence:
+    '1830 Kingdom; EU founding Treaty of Rome lineage; NATO HQ host state; NATO founding Ally 1949-04-04 — informational',
+  topMajorCities: ['Brussels', 'Antwerp', 'Ghent', 'Charleroi', 'Liège'],
+  population: 11800000,
+  mainLanguages: ['Dutch (Flemish)', 'French', 'German'],
+  currency: 'Euro (EUR)',
+  timezone: 'Europe/Brussels',
+  foundingLeader: 'Leopold I constitutional monarchy reference — informational',
+  currentLeader: 'Monarch Philippe; Prime Minister — verify coalition',
+  cryptocurrencyExchanges: ['Bitstamp (legacy BE ties)', 'EU-licensed CASPs MiCA-era'],
+  stablecoin: 'EUR stablecoins; ECB digital euro exploratory',
+  stockExchange: 'Euronext Brussels',
+}

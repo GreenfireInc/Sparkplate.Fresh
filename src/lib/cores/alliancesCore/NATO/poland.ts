@@ -1,0 +1,20 @@
+import type { NatoCountry } from './types'
+
+export const poland: NatoCountry = {
+  name: 'Poland',
+  iso3166Alpha2: 'PL',
+  capital: 'Warsaw',
+  coordinates: { latitude: 52.2297, longitude: 21.0122 },
+  independence:
+    '1989 democratic transition lineage; EU since 2004; NATO Ally since Mar 1999 eastern flank anchor — informational',
+  topMajorCities: ['Warsaw', 'Kraków', 'Łódź', 'Wrocław', 'Poznań'],
+  population: 36600000,
+  mainLanguages: ['Polish', 'German (minority)', 'Ukrainian (community)'],
+  currency: 'Polish złoty (PLN)',
+  timezone: 'Europe/Warsaw',
+  foundingLeader: 'Lech Wałęsa reference — informational',
+  currentLeader: 'President — verify; Prime Minister — verify (electoral aftermath)',
+  cryptocurrencyExchanges: ['Zonda (BitBay legacy)', 'MiCA passport — informational'],
+  stablecoin: 'PLN pairs; EUR-stable common — informational',
+  stockExchange: 'Warsaw Stock Exchange (GPW)',
+}

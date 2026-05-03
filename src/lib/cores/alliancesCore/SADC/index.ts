@@ -1,0 +1,72 @@
+export type { SadcCountry, SadcOrganizationInfo } from './types'
+
+import type { SadcCountry, SadcOrganizationInfo } from './types'
+import { angola } from './angola'
+import { botswana } from './botswana'
+import { comoros } from './comoros'
+import { democraticRepublicOfTheCongo } from './democraticRepublicOfTheCongo'
+import { eswatini } from './eswatini'
+import { lesotho } from './lesotho'
+import { madagascar } from './madagascar'
+import { malawi } from './malawi'
+import { mauritius } from './mauritius'
+import { mozambique } from './mozambique'
+import { namibia } from './namibia'
+import { seychelles } from './seychelles'
+import { southAfrica } from './southAfrica'
+import { tanzania } from './tanzania'
+import { zambia } from './zambia'
+import { zimbabwe } from './zimbabwe'
+
+export {
+  angola,
+  botswana,
+  comoros,
+  democraticRepublicOfTheCongo,
+  eswatini,
+  lesotho,
+  madagascar,
+  malawi,
+  mauritius,
+  mozambique,
+  namibia,
+  seychelles,
+  southAfrica,
+  tanzania,
+  zambia,
+  zimbabwe,
+}
+
+/** All SADC member country records shipped in this module (16). */
+export const sadcMembers: readonly SadcCountry[] = [
+  angola,
+  botswana,
+  comoros,
+  democraticRepublicOfTheCongo,
+  eswatini,
+  lesotho,
+  madagascar,
+  malawi,
+  mauritius,
+  mozambique,
+  namibia,
+  seychelles,
+  southAfrica,
+  tanzania,
+  zambia,
+  zimbabwe,
+] as const
+
+/**
+ * Southern African Development Community — reference bloc metadata (verify membership and Secretariat details against sadc.int).
+ */
+export const sadc: SadcOrganizationInfo = {
+  officialName: 'Southern African Development Community',
+  abbreviation: 'SADC',
+  established:
+    '1980 precursor Southern African Development Coordination Conference (SADCC); SADC Treaty 1992 — informational',
+  headquartersCity: 'Gaborone',
+  headquartersCountry: 'Botswana',
+  memberStatesIso2: ['AO', 'BW', 'KM', 'CD', 'SZ', 'LS', 'MG', 'MW', 'MU', 'MZ', 'NA', 'SC', 'ZA', 'TZ', 'ZM', 'ZW'],
+  memberRecordsInModule: 16,
+}

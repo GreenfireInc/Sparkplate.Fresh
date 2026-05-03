@@ -1,0 +1,20 @@
+import type { OecdCountry } from './types'
+
+export const hungary: OecdCountry = {
+  name: 'Hungary',
+  iso3166Alpha2: 'HU',
+  capital: 'Budapest',
+  coordinates: { latitude: 47.4979, longitude: 19.0402 },
+  independence:
+    '1989 democratic transition lineage; EU since 2004-05-01; OECD member since May 1996 — informational',
+  topMajorCities: ['Budapest', 'Debrecen', 'Szeged', 'Miskolc', 'Pécs'],
+  population: 9600000,
+  mainLanguages: ['Hungarian', 'German (minority)', 'Romani'],
+  currency: 'Hungarian forint (HUF)',
+  timezone: 'Europe/Budapest',
+  foundingLeader: 'Lajos Kossuth nineteenth-century liberation reference — informational',
+  currentLeader: 'President Tamás Sulyok; Prime Minister Viktor Orbán — verify',
+  cryptocurrencyExchanges: ['Regional EU onboarding; Magyar Nemzeti Bank cautious narratives — informational'],
+  stablecoin: 'HUF OTC; EUR/USDT rails common — informational',
+  stockExchange: 'Budapest Stock Exchange',
+}

@@ -1,0 +1,22 @@
+import type { AseanCountry } from './types'
+
+export const vietnam: AseanCountry = {
+  name: 'Vietnam',
+  iso3166Alpha2: 'VN',
+  capital: 'Hanoi',
+  coordinates: { latitude: 21.0285, longitude: 105.8542 },
+  independence:
+    '1945 proclaimed Democratic Republic lineage; reunification 1975; ASEAN member since Jul 1995 — informational',
+  topMajorCities: ['Ho Chi Minh City', 'Hanoi', 'Da Nang', 'Haiphong', 'Can Tho'],
+  population: 100300000,
+  mainLanguages: ['Vietnamese', 'English', 'Khmer / Hmong ethnic languages regional'],
+  currency: 'Vietnamese dong (VND)',
+  timezone: 'Asia/Ho_Chi_Minh',
+  foundingLeader:
+    'Hồ Chí Minh independence reference; Đổi Mới reform-era stewardship — informational',
+  currentLeader:
+    'Communist Party General Secretary — verify; State President — verify; Prime Minister — verify',
+  cryptocurrencyExchanges: ['State prohibition retail crypto trading; OTC informal — informational'],
+  stablecoin: 'State bank pilot digital currency narratives; predominately VND fiat — informational',
+  stockExchange: 'Ho Chi Minh Stock Exchange; Hanoi Stock Exchange (consolidated plans — informational)',
+}

@@ -1,0 +1,19 @@
+import type { SadcCountry } from './types'
+
+export const malawi: SadcCountry = {
+  name: 'Malawi',
+  iso3166Alpha2: 'MW',
+  capital: 'Lilongwe',
+  coordinates: { latitude: -13.9626, longitude: 33.7741 },
+  independence: '1964-07-06',
+  topMajorCities: ['Lilongwe', 'Blantyre', 'Mzuzu', 'Zomba', 'Kasungu'],
+  population: 21200000,
+  mainLanguages: ['English', 'Chichewa', 'Chinyanja'],
+  currency: 'Malawian kwacha (MWK)',
+  timezone: 'Africa/Blantyre',
+  foundingLeader: 'Hastings Banda (first Prime Minister)',
+  currentLeader: 'President Lazarus Chakwera — verify',
+  cryptocurrencyExchanges: ['Yellow Card context', 'OTC informal'],
+  stablecoin: 'Informal USDT',
+  stockExchange: 'Malawi Stock Exchange',
+}
