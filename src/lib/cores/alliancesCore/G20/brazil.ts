@@ -1,0 +1,21 @@
+import type { G20Country } from './types'
+
+export const brazil: G20Country = {
+  name: 'Brazil',
+  iso3166Alpha2: 'BR',
+  capital: 'Brasília',
+  coordinates: { latitude: -15.7939, longitude: -47.8828 },
+  independence:
+    '1822-09-07 independence from Portugal; 1889 Republic; BRICS / G20 founding member (finance track 1999; 2024 Rio leaders summit host) — informational',
+  topMajorCities: ['São Paulo', 'Rio de Janeiro', 'Brasília', 'Salvador', 'Fortaleza'],
+  population: 215000000,
+  mainLanguages: ['Portuguese (Brazilian)', 'English (business)', 'Spanish (border / Mercosul)'],
+  currency: 'Brazilian real (BRL)',
+  timezone: 'America/Sao_Paulo',
+  foundingLeader:
+    'Dom Pedro I (independence proclamation); Getúlio Vargas (modern industrial state reference — informational)',
+  currentLeader: 'President Luiz Inácio Lula da Silva — verify',
+  cryptocurrencyExchanges: ['Mercado Bitcoin', 'Foxbit', 'Bitso BR / CVM-BCB joint VASP framework — informational'],
+  stablecoin: 'BRL-pegged BRZ; Drex (Real Digital) BCB-led wholesale CBDC pilots — informational',
+  stockExchange: 'B3 — Brasil Bolsa Balcão (São Paulo)',
+}
