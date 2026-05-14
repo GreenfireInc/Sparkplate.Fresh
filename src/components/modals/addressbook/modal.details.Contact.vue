@@ -425,6 +425,7 @@ const handleCurrencyAdded = async (currencyData: { contactId: number; network: s
   await refreshGpgKeys()
   walletsTabRef.value?.refresh()
   gpgTabRef.value?.refresh()
+  emit('contact-updated')
 }
 
 const handleWalletsImported = async () => {
@@ -432,6 +433,7 @@ const handleWalletsImported = async () => {
   await refreshGpgKeys()
   walletsTabRef.value?.refresh()
   gpgTabRef.value?.refresh()
+  emit('contact-updated')
 }
 
 const refreshWalletCount = async () => {

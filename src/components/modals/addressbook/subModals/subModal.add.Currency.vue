@@ -100,6 +100,8 @@ const props = withDefaults(
 const emits = defineEmits<{
   (e: 'close'): void
   (e: 'currency-added', currency: CurrencyData): void
+  /** Batch JSON import when wallets were already persisted via `addWallet` in this modal. */
+  (e: 'wallets-imported'): void
   (
     e: 'standalone-currencies-imported',
     payload: { targetId: number; items: ImportedWallet[] },
@@ -227,13 +229,11 @@ const handleConfirmImport = async (wallets: ImportedWallet[]) => {
         cryptoPublicKey: wallet.cryptoPublicKey,
         gpgPublicKey: wallet.gpgPublicKey,
       })
-
-      emits('currency-added', {
-        contactId: props.contactId,
-        network: wallet.coinTicker,
-        address: wallet.address,
-      })
     }
+
+    /* Avoid per-item `currency-added`: parent handlers re-fetch and would see
+     * rows just inserted here as duplicates. */
+    emits('wallets-imported')
 
     closeImportModal()
     resetForm()
