@@ -1,122 +1,195 @@
 <template>
-  <div class="view techstack">
-    <h1 class="techstack-title">Sparkplate Techstack</h1>
-    <p class="techstack-subtitle">
-      The powerful technologies that drive Sparkplate development
-    </p>
+  <div class="ts-view">
+    <header class="ts-view__header">
+      <h1 class="ts-view__title">
+        <Layers :size="22" class="ts-view__title-icon" aria-hidden="true" />
+        Sparkplate techstack
+      </h1>
+      <p class="ts-view__subtitle">
+        Versions for featured packages follow the semver ranges in
+        <strong class="ts-view__mono">package.json</strong>
+        (app {{ packageLabel }}). Full inventory below is generated from the same file.
+      </p>
+    </header>
 
-    <div class="techstack-layout">
-      <!-- Core Technologies -->
-      <div class="techstack-section">
-        <h2 class="techstack-section-title">Core Technologies</h2>
-        <div class="techstack-section-content">
-          <div
-            v-for="tech in coreTechnologies"
-            :key="tech.name"
-            class="techstack-item"
-          >
-            <div class="techstack-item-icon">
-              <img :src="tech.icon" :alt="tech.name" />
+    <Separator class="ts-view__separator" />
+
+    <section class="ts-view__section" aria-label="Technology stack">
+      <TabsRoot v-model="activeTab" class="ts-tabs">
+        <TabsList class="ts-tabs__list" aria-label="Techstack sections">
+          <TabsTrigger value="core" class="ts-tabs__trigger">
+            <Cpu :size="14" class="ts-tabs__icon" aria-hidden="true" />
+            Core
+            <span class="ts-tabs__badge">{{ coreTechnologies.length }}</span>
+          </TabsTrigger>
+          <TabsTrigger value="tools" class="ts-tabs__trigger">
+            <Wrench :size="14" class="ts-tabs__icon" aria-hidden="true" />
+            Dev tools
+            <span class="ts-tabs__badge ts-tabs__badge--muted">{{ developmentTools.length }}</span>
+          </TabsTrigger>
+          <TabsTrigger value="libraries" class="ts-tabs__trigger">
+            <Library :size="14" class="ts-tabs__icon" aria-hidden="true" />
+            Libraries
+            <span class="ts-tabs__badge ts-tabs__badge--muted">{{ utilityLibraries.length }}</span>
+          </TabsTrigger>
+          <TabsTrigger value="packages" class="ts-tabs__trigger">
+            <Package :size="14" class="ts-tabs__icon" aria-hidden="true" />
+            Packages
+            <span class="ts-tabs__badge">{{ allDependencies.length }}</span>
+          </TabsTrigger>
+        </TabsList>
+
+        <div class="ts-panel-shell">
+          <TabsContent value="core" class="ts-tabs__panel">
+            <div class="ts-scroll ts-scroll--pad">
+              <div class="ts-tech-grid">
+                <div
+                  v-for="tech in coreTechnologies"
+                  :key="tech.name"
+                  class="ts-item"
+                >
+                  <div class="ts-item-icon">
+                    <img :src="tech.icon" :alt="tech.name" loading="lazy" />
+                  </div>
+                  <div class="ts-item-body">
+                    <span class="ts-item-name">{{ tech.name }}</span>
+                    <span class="ts-item-version">v{{ tech.version }}</span>
+                    <p class="ts-item-desc">{{ tech.description }}</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="techstack-item-body">
-              <span class="techstack-item-name">{{ tech.name }}</span>
-              <span class="techstack-item-version">v{{ tech.version }}</span>
-              <p class="techstack-item-desc">{{ tech.description }}</p>
+          </TabsContent>
+
+          <TabsContent value="tools" class="ts-tabs__panel">
+            <div class="ts-scroll ts-scroll--pad">
+              <div class="ts-tech-grid">
+                <div
+                  v-for="tool in developmentTools"
+                  :key="tool.name"
+                  class="ts-item"
+                >
+                  <div class="ts-item-icon">
+                    <img :src="tool.icon" :alt="tool.name" loading="lazy" />
+                  </div>
+                  <div class="ts-item-body">
+                    <span class="ts-item-name">{{ tool.name }}</span>
+                    <span class="ts-item-version">v{{ tool.version }}</span>
+                    <p class="ts-item-desc">{{ tool.description }}</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </TabsContent>
 
-      <!-- Development Tools -->
-      <div class="techstack-section">
-        <h2 class="techstack-section-title">Development Tools</h2>
-        <div class="techstack-section-content">
-          <div
-            v-for="tool in developmentTools"
-            :key="tool.name"
-            class="techstack-item"
-          >
-            <div class="techstack-item-icon">
-              <img :src="tool.icon" :alt="tool.name" />
+          <TabsContent value="libraries" class="ts-tabs__panel">
+            <div class="ts-scroll ts-scroll--pad">
+              <div class="ts-libs-grid">
+                <div
+                  v-for="lib in utilityLibraries"
+                  :key="lib.name"
+                  class="ts-lib-card"
+                >
+                  <div class="ts-lib-header">
+                    <span class="ts-lib-name">{{ lib.name }}</span>
+                    <span class="ts-lib-version">v{{ lib.version }}</span>
+                  </div>
+                  <p class="ts-lib-desc">{{ lib.description }}</p>
+                  <div class="ts-lib-tags">
+                    <span v-for="tag in lib.tags" :key="tag" class="ts-tag">
+                      {{ tag }}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="techstack-item-body">
-              <span class="techstack-item-name">{{ tool.name }}</span>
-              <span class="techstack-item-version">v{{ tool.version }}</span>
-              <p class="techstack-item-desc">{{ tool.description }}</p>
+          </TabsContent>
+
+          <TabsContent value="packages" class="ts-tabs__panel">
+            <div class="ts-packages">
+              <div class="ts-packages__stats">
+                <div class="ts-stat">
+                  <span class="ts-stat-value">{{ packageStats.total }}</span>
+                  <span class="ts-stat-label">Total packages</span>
+                </div>
+                <div class="ts-stat">
+                  <span class="ts-stat-value">{{ packageStats.dependencies }}</span>
+                  <span class="ts-stat-label">Dependencies</span>
+                </div>
+                <div class="ts-stat">
+                  <span class="ts-stat-value">{{ packageStats.devDependencies }}</span>
+                  <span class="ts-stat-label">Dev dependencies</span>
+                </div>
+              </div>
+
+              <Separator class="ts-packages__separator" />
+
+              <div class="ts-packages__filter">
+                <label class="ts-filter-label" for="ts-dep-filter">Filter</label>
+                <input
+                  id="ts-dep-filter"
+                  v-model="depFilter"
+                  type="search"
+                  class="ts-filter-input"
+                  placeholder="Search package name or version…"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+              </div>
+
+              <h3 class="ts-subsection-title">
+                All dependencies
+                <span v-if="depFilter.trim()" class="ts-subsection-meta">
+                  ({{ filteredDependencies.length }} of {{ allDependencies.length }})
+                </span>
+              </h3>
+
+              <div class="ts-dep-list-wrap">
+                <div class="ts-dep-list">
+                  <div
+                    v-for="dep in filteredDependencies"
+                    :key="dep.name + dep.type"
+                    class="ts-dep-item"
+                  >
+                    <div class="ts-dep-info">
+                      <span class="ts-dep-name">{{ dep.name }}</span>
+                      <span class="ts-dep-version">{{ dep.version }}</span>
+                    </div>
+                    <span class="ts-dep-badge" :class="dep.type">
+                      {{ dep.type === 'dependency' ? 'Runtime' : 'Development' }}
+                    </span>
+                  </div>
+                  <p v-if="filteredDependencies.length === 0" class="ts-dep-empty">
+                    No packages match “{{ depFilter.trim() }}”.
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
+          </TabsContent>
         </div>
-      </div>
-    </div>
-
-    <!-- Utility Libraries -->
-    <div class="techstack-section">
-      <h2 class="techstack-section-title">Utility Libraries</h2>
-      <div class="techstack-section-content techstack-libs-grid">
-        <div
-          v-for="lib in utilityLibraries"
-          :key="lib.name"
-          class="techstack-lib-card"
-        >
-          <div class="techstack-lib-header">
-            <span class="techstack-lib-name">{{ lib.name }}</span>
-            <span class="techstack-lib-version">v{{ lib.version }}</span>
-          </div>
-          <p class="techstack-lib-desc">{{ lib.description }}</p>
-          <div class="techstack-lib-tags">
-            <span v-for="tag in lib.tags" :key="tag" class="techstack-tag">
-              {{ tag }}
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Package Statistics -->
-    <div class="techstack-section">
-      <h2 class="techstack-section-title">Package Statistics</h2>
-      <div class="techstack-section-content">
-        <div class="techstack-stats-grid">
-          <div class="techstack-stat">
-            <span class="techstack-stat-value">{{ packageStats.total }}</span>
-            <span class="techstack-stat-label">Total Packages</span>
-          </div>
-          <div class="techstack-stat">
-            <span class="techstack-stat-value">{{ packageStats.dependencies }}</span>
-            <span class="techstack-stat-label">Dependencies</span>
-          </div>
-          <div class="techstack-stat">
-            <span class="techstack-stat-value">{{ packageStats.devDependencies }}</span>
-            <span class="techstack-stat-label">Dev Dependencies</span>
-          </div>
-        </div>
-
-        <Separator class="techstack-separator" />
-
-        <h3 class="techstack-subsection-title">All Dependencies</h3>
-        <div class="techstack-dep-list">
-          <div
-            v-for="dep in allDependencies"
-            :key="dep.name"
-            class="techstack-dep-item"
-          >
-            <div class="techstack-dep-info">
-              <span class="techstack-dep-name">{{ dep.name }}</span>
-              <span class="techstack-dep-version">{{ dep.version }}</span>
-            </div>
-            <span class="techstack-dep-badge" :class="dep.type">
-              {{ dep.type === 'dependency' ? 'Runtime' : 'Development' }}
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
+      </TabsRoot>
+    </section>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Separator } from 'radix-vue'
+import { ref, computed } from 'vue'
+import {
+  TabsRoot,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+  Separator,
+} from 'radix-vue'
+import { Layers, Cpu, Wrench, Library, Package } from 'lucide-vue-next'
+import packageJson from '../../package.json'
+
+defineOptions({ name: 'Techstack' })
+
+const activeTab = ref<'core' | 'tools' | 'libraries' | 'packages'>('core')
+const depFilter = ref('')
+
+const packageLabel = packageJson.version
 
 interface Technology {
   name: string
@@ -138,279 +211,377 @@ interface Dependency {
   type: 'dependency' | 'devDependency'
 }
 
-const coreTechnologies = ref<Technology[]>([
-  {
-    name: 'Electron',
-    version: '37.1.0',
-    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS',
-    icon: '/assets/icons/development/electron.svg'
-  },
-  {
-    name: 'Vue 3',
-    version: '3.5.22',
-    description: 'Progressive JavaScript framework for building user interfaces',
-    icon: '/assets/icons/development/vue.svg'
-  },
-  {
-    name: 'Vite',
-    version: '6.0.0',
-    description: 'Fast build tool and development server for modern web projects',
-    icon: '/assets/icons/development/vite.svg'
-  },
-  {
-    name: 'TypeScript',
-    version: '5.4.2',
-    description: 'Typed superset of JavaScript that compiles to plain JavaScript',
-    icon: '/assets/icons/development/typescript.svg'
-  }
-])
+/** Strip leading range prefix from package.json entries for card display */
+function semverLabel(raw: string | undefined): string {
+  if (!raw) return '—'
+  const t = raw.trim()
+  if (t.startsWith('^') || t.startsWith('~')) return t.slice(1)
+  return t
+}
 
-const developmentTools = ref<Technology[]>([
-  {
-    name: 'Electron Builder',
-    version: '26.0.12',
-    description: 'Complete solution to package and build Electron apps',
-    icon: '/assets/icons/development/electronbuilder.svg'
-  },
-  {
-    name: 'Tailwind CSS',
-    version: '4.1.7',
-    description: 'Utility-first CSS framework for rapid UI development',
-    icon: '/assets/icons/development/tailwindcss.svg'
-  },
-  {
-    name: 'PostCSS',
-    version: '8.5.3',
-    description: 'Tool for transforming CSS with JavaScript',
-    icon: '/assets/icons/development/postcss.svg'
-  },
-  {
-    name: 'Sass',
-    version: '1.89.0',
-    description: 'Syntactically awesome stylesheets preprocessor',
-    icon: '/assets/icons/development/sass.svg'
-  }
-])
+function pickDeps(map: Record<string, string> | undefined, key: string): string {
+  return map?.[key] ?? ''
+}
 
-const utilityLibraries = ref<Library[]>([
-  {
-    name: 'Vue Router',
-    version: '4.5.1',
-    description: 'Official router for Vue.js applications',
-    tags: ['routing', 'navigation', 'SPA']
-  },
-  {
-    name: 'Radix Vue',
-    version: '1.9.17',
-    description: 'Unstyled, accessible components for building design systems',
-    tags: ['UI', 'accessibility', 'components']
-  },
-  {
-    name: 'CryptoJS',
-    version: '4.2.0',
-    description: 'JavaScript library of crypto standards',
-    tags: ['encryption', 'hashing', 'security']
-  },
-  {
-    name: 'BigNumber.js',
-    version: '9.3.0',
-    description: 'Arbitrary precision decimal arithmetic',
-    tags: ['math', 'precision', 'numbers']
-  },
-  {
-    name: 'Lucide Vue Next',
-    version: '0.511.0',
-    description: 'Beautiful & consistent icon toolkit made by the Lucide team',
-    tags: ['icons', 'UI', 'components']
-  },
-  {
-    name: 'TanStack Vue Table',
-    version: '8.21.3',
-    description: 'Headless table utilities for Vue',
-    tags: ['tables', 'data', 'UI']
-  },
-  {
-    name: 'Currency Codes',
-    version: '2.2.0',
-    description: 'ISO 4217 currency codes list',
-    tags: ['currency', 'finance', 'internationalization']
-  }
-])
-
-const packageStats = ref({
-  total: 100,
-  dependencies: 74,
-  devDependencies: 26
+const coreTechnologies = computed<Technology[]>(() => {
+  const dev = packageJson.devDependencies
+  const dep = packageJson.dependencies
+  return [
+    {
+      name: 'Electron',
+      version: semverLabel(pickDeps(dev, 'electron')),
+      description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS',
+      icon: '/assets/icons/development/electron.svg',
+    },
+    {
+      name: 'Vue 3',
+      version: semverLabel(pickDeps(dep, 'vue')),
+      description: 'Progressive JavaScript framework for building user interfaces',
+      icon: '/assets/icons/development/vue.svg',
+    },
+    {
+      name: 'Vite',
+      version: semverLabel(pickDeps(dev, 'vite')),
+      description: 'Fast build tool and development server for modern web projects',
+      icon: '/assets/icons/development/vite.svg',
+    },
+    {
+      name: 'TypeScript',
+      version: semverLabel(pickDeps(dev, 'typescript')),
+      description: 'Typed superset of JavaScript that compiles to plain JavaScript',
+      icon: '/assets/icons/development/typescript.svg',
+    },
+  ]
 })
 
-const allDependencies = ref<Dependency[]>([
-  { name: '@iconify/vue', version: '5.0.0', type: 'dependency' },
-  { name: '@bonfida/spl-name-service', version: '0.1.51', type: 'dependency' },
-  { name: '@cosmjs/proto-signing', version: '0.37.0', type: 'dependency' },
-  { name: '@cosmjs/stargate', version: '0.37.0', type: 'dependency' },
-  { name: '@ensdomains/ensjs', version: '4.0.2', type: 'dependency' },
-  { name: '@lobehub/icons', version: '4.9.0', type: 'dependency' },
-  { name: '@lobehub/icons-static-svg', version: '1.81.0', type: 'dependency' },
-  { name: '@noble/curves', version: '2.0.1', type: 'dependency' },
-  { name: '@noble/ed25519', version: '3.0.0', type: 'dependency' },
-  { name: '@noble/hashes', version: '2.0.1', type: 'dependency' },
-  { name: '@noble/secp256k1', version: '3.0.0', type: 'dependency' },
-  { name: '@polkadot/api', version: '16.5.4', type: 'dependency' },
-  { name: '@polkadot/keyring', version: '14.0.1', type: 'dependency' },
-  { name: '@polkadot/util-crypto', version: '14.0.1', type: 'dependency' },
-  { name: '@radix-icons/vue', version: '1.0.0', type: 'dependency' },
-  { name: '@scure/btc-signer', version: '2.0.1', type: 'dependency' },
-  { name: '@solana/spl-token', version: '0.3.11', type: 'dependency' },
-  { name: '@solana/web3.js', version: '1.95.5', type: 'dependency' },
-  { name: '@stacks/network', version: '7.3.1', type: 'dependency' },
-  { name: '@stacks/transactions', version: '7.3.1', type: 'dependency' },
-  { name: '@stellar/stellar-base', version: '14.0.4', type: 'dependency' },
-  { name: '@stellar/stellar-sdk', version: '14.4.3', type: 'dependency' },
-  { name: '@tanstack/vue-table', version: '8.21.3', type: 'dependency' },
-  { name: '@taquito/signer', version: '23.1.0', type: 'dependency' },
-  { name: '@taquito/taquito', version: '23.1.0', type: 'dependency' },
-  { name: '@taquito/tzip16', version: '23.1.0', type: 'dependency' },
-  { name: '@terra-money/feather.js', version: '2.1.0-beta.3', type: 'dependency' },
-  { name: '@terra-money/terra.js', version: '3.1.10', type: 'dependency' },
-  { name: '@tezos-domains/taquito-client', version: '1.33.1', type: 'dependency' },
-  { name: '@unstoppabledomains/resolution', version: '9.3.3', type: 'dependency' },
-  { name: '@waves/signer', version: '1.1.0', type: 'dependency' },
-  { name: '@waves/ts-lib-crypto', version: '1.4.4', type: 'dependency' },
-  { name: '@waves/waves-transactions', version: '4.3.11', type: 'dependency' },
-  { name: 'algosdk', version: '3.5.2', type: 'dependency' },
-  { name: 'arweave', version: '1.15.7', type: 'dependency' },
-  { name: 'bignumber.js', version: '9.3.0', type: 'dependency' },
-  { name: 'bip32', version: '5.0.0', type: 'dependency' },
-  { name: 'bip39', version: '3.1.0', type: 'dependency' },
-  { name: 'bitcoinjs-lib', version: '7.0.0', type: 'dependency' },
-  { name: 'bitcore-lib-cash', version: '10.10.5', type: 'dependency' },
-  { name: 'bootstrap-icons', version: '1.13.1', type: 'dependency' },
-  { name: 'bs58', version: '6.0.0', type: 'dependency' },
-  { name: 'bs58check', version: '4.0.0', type: 'dependency' },
-  { name: 'country-state-city', version: '1.0.5', type: 'dependency' },
-  { name: 'crypto-js', version: '4.2.0', type: 'dependency' },
-  { name: 'currency-codes', version: '2.2.0', type: 'dependency' },
-  { name: 'currency-symbol-map', version: '5.1.0', type: 'dependency' },
-  { name: 'drivelist', version: '12.0.2', type: 'dependency' },
-  { name: 'ecpair', version: '3.0.0', type: 'dependency' },
-  { name: 'ethers', version: '6.14.3', type: 'dependency' },
-  { name: 'html2canvas', version: '1.4.1', type: 'dependency' },
-  { name: 'is-online', version: '9.0.1', type: 'dependency' },
-  { name: 'jspdf', version: '3.0.4', type: 'dependency' },
-  { name: 'libsodium-wrappers-sumo', version: '0.7.15', type: 'dependency' },
-  { name: 'lucide-vue-next', version: '0.511.0', type: 'dependency' },
-  { name: 'moment', version: '2.30.1', type: 'dependency' },
-  { name: 'openpgp', version: '6.3.0', type: 'dependency' },
-  { name: 'qrcode', version: '1.5.4', type: 'dependency' },
-  { name: 'qrcode.vue', version: '3.6.0', type: 'dependency' },
-  { name: 'radix-vue', version: '1.9.17', type: 'dependency' },
-  { name: 'ripple-keypairs', version: '2.0.0', type: 'dependency' },
-  { name: 'sass', version: '1.89.0', type: 'dependency' },
-  { name: 'scrypt-js', version: '3.0.1', type: 'dependency' },
-  { name: 'systeminformation', version: '5.31.1', type: 'dependency' },
-  { name: 'tiny-secp256k1', version: '2.2.4', type: 'dependency' },
-  { name: 'tronweb', version: '6.1.1', type: 'dependency' },
-  { name: 'tweetnacl', version: '1.0.3', type: 'dependency' },
-  { name: 'usb-detection', version: '4.14.2', type: 'dependency' },
-  { name: 'vue', version: '3.5.22', type: 'dependency' },
-  { name: 'vue-router', version: '4.5.1', type: 'dependency' },
-  { name: 'web3', version: '4.16.0', type: 'dependency' },
-  { name: 'wif', version: '5.0.0', type: 'dependency' },
-  { name: 'xrpl', version: '4.5.0', type: 'dependency' },
-  { name: '@iconify-json/logos', version: '1.2.6', type: 'devDependency' },
-  { name: '@rollup/plugin-commonjs', version: '28.0.8', type: 'devDependency' },
-  { name: '@rollup/plugin-node-resolve', version: '16.0.3', type: 'devDependency' },
-  { name: '@tailwindcss/postcss', version: '4.1.7', type: 'devDependency' },
-  { name: '@tailwindcss/vite', version: '4.1.8', type: 'devDependency' },
-  { name: '@types/crypto-js', version: '4.2.2', type: 'devDependency' },
-  { name: '@vitejs/plugin-vue', version: '6.0.0', type: 'devDependency' },
-  { name: '@vue/runtime-core', version: '3.5.22', type: 'devDependency' },
-  { name: '@vue/runtime-dom', version: '3.5.22', type: 'devDependency' },
-  { name: 'autoprefixer', version: '10.4.21', type: 'devDependency' },
-  { name: 'buffer', version: '6.0.3', type: 'devDependency' },
-  { name: 'electron', version: '37.1.0', type: 'devDependency' },
-  { name: 'electron-builder', version: '26.0.12', type: 'devDependency' },
-  { name: 'postcss', version: '8.5.3', type: 'devDependency' },
-  { name: 'sass-embedded', version: '1.89.0', type: 'devDependency' },
-  { name: 'sharp', version: '0.33.2', type: 'devDependency' },
-  { name: 'stream-browserify', version: '3.0.0', type: 'devDependency' },
-  { name: 'tailwindcss', version: '4.1.7', type: 'devDependency' },
-  { name: 'typescript', version: '5.4.2', type: 'devDependency' },
-  { name: 'vite', version: '6.0.0', type: 'devDependency' },
-  { name: 'vite-plugin-electron', version: '0.29.0', type: 'devDependency' },
-  { name: 'vite-plugin-electron-renderer', version: '0.14.5', type: 'devDependency' },
-  { name: 'vite-plugin-node-polyfills', version: '0.23.0', type: 'devDependency' },
-  { name: 'vite-plugin-top-level-await', version: '1.6.0', type: 'devDependency' },
-  { name: 'vite-plugin-wasm', version: '3.5.0', type: 'devDependency' },
-  { name: 'vue-tsc', version: '3.1.1', type: 'devDependency' }
-])
+const developmentTools = computed<Technology[]>(() => {
+  const dev = packageJson.devDependencies
+  const dep = packageJson.dependencies
+  return [
+    {
+      name: 'Electron Builder',
+      version: semverLabel(pickDeps(dev, 'electron-builder')),
+      description: 'Complete solution to package and build Electron apps',
+      icon: '/assets/icons/development/electronbuilder.svg',
+    },
+    {
+      name: 'Tailwind CSS',
+      version: semverLabel(pickDeps(dev, 'tailwindcss')),
+      description: 'Utility-first CSS framework for rapid UI development',
+      icon: '/assets/icons/development/tailwindcss.svg',
+    },
+    {
+      name: 'PostCSS',
+      version: semverLabel(pickDeps(dev, 'postcss')),
+      description: 'Tool for transforming CSS with JavaScript',
+      icon: '/assets/icons/development/postcss.svg',
+    },
+    {
+      name: 'Sass',
+      version: semverLabel(pickDeps(dep, 'sass')),
+      description: 'Stylesheet preprocessor (runtime) + sass-embedded in dev for builds',
+      icon: '/assets/icons/development/sass.svg',
+    },
+  ]
+})
+
+const utilityLibraries = computed<Library[]>(() => {
+  const dep = packageJson.dependencies
+  return [
+    {
+      name: 'Vue Router',
+      version: semverLabel(pickDeps(dep, 'vue-router')),
+      description: 'Official router for Vue.js applications',
+      tags: ['routing', 'navigation', 'SPA'],
+    },
+    {
+      name: 'Radix Vue',
+      version: semverLabel(pickDeps(dep, 'radix-vue')),
+      description: 'Unstyled, accessible components for building design systems',
+      tags: ['UI', 'accessibility', 'components'],
+    },
+    {
+      name: 'CryptoJS',
+      version: semverLabel(pickDeps(dep, 'crypto-js')),
+      description: 'JavaScript library of crypto standards',
+      tags: ['encryption', 'hashing', 'security'],
+    },
+    {
+      name: 'BigNumber.js',
+      version: semverLabel(pickDeps(dep, 'bignumber.js')),
+      description: 'Arbitrary precision decimal arithmetic',
+      tags: ['math', 'precision', 'numbers'],
+    },
+    {
+      name: 'Lucide Vue Next',
+      version: semverLabel(pickDeps(dep, 'lucide-vue-next')),
+      description: 'Beautiful & consistent icon toolkit made by the Lucide team',
+      tags: ['icons', 'UI', 'components'],
+    },
+    {
+      name: 'TanStack Vue Table',
+      version: semverLabel(pickDeps(dep, '@tanstack/vue-table')),
+      description: 'Headless table utilities for Vue',
+      tags: ['tables', 'data', 'UI'],
+    },
+    {
+      name: 'Currency Codes',
+      version: semverLabel(pickDeps(dep, 'currency-codes')),
+      description: 'ISO 4217 currency codes list',
+      tags: ['currency', 'finance', 'internationalization'],
+    },
+    {
+      name: 'PapaParse',
+      version: semverLabel(pickDeps(dep, 'papaparse')),
+      description: 'CSV parser and stringifier for the browser and Node',
+      tags: ['csv', 'parse', 'import'],
+    },
+    {
+      name: 'SheetJS (xlsx)',
+      version: semverLabel(pickDeps(dep, 'xlsx')),
+      description: 'Spreadsheet read/write for Excel and related workbook formats',
+      tags: ['xlsx', 'export', 'tabular'],
+    },
+  ]
+})
+
+function buildDependencyList(): Dependency[] {
+  const out: Dependency[] = []
+  const deps = packageJson.dependencies ?? {}
+  const devDeps = packageJson.devDependencies ?? {}
+  for (const [name, version] of Object.entries(deps)) {
+    out.push({ name, version: String(version), type: 'dependency' })
+  }
+  for (const [name, version] of Object.entries(devDeps)) {
+    out.push({ name, version: String(version), type: 'devDependency' })
+  }
+  out.sort((a, b) => a.name.localeCompare(b.name))
+  return out
+}
+
+const allDependencies = computed(() => buildDependencyList())
+
+const packageStats = computed(() => {
+  const list = allDependencies.value
+  const dependencies = list.filter((d) => d.type === 'dependency').length
+  const devDependencies = list.filter((d) => d.type === 'devDependency').length
+  return {
+    total: list.length,
+    dependencies,
+    devDependencies,
+  }
+})
+
+const filteredDependencies = computed(() => {
+  const q = depFilter.value.trim().toLowerCase()
+  if (!q) return allDependencies.value
+  return allDependencies.value.filter(
+    (d) =>
+      d.name.toLowerCase().includes(q) ||
+      d.version.toLowerCase().includes(q)
+  )
+})
 </script>
 
 <style lang="scss" scoped>
-.techstack {
-  width: 100%;
-  padding: 2rem;
-  padding-bottom: 3rem;
-  min-height: 100vh;
+.ts-view {
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0.75rem 1.25rem 0.75rem;
+  box-sizing: border-box;
   background: #fff;
+  font-family: inherit;
+  color: #111827;
 }
 
-.techstack-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #111827;
+.ts-view__header {
+  flex-shrink: 0;
   margin-bottom: 0.5rem;
 }
 
-.techstack-subtitle {
-  font-size: 0.875rem;
+.ts-view__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+}
+
+.ts-view__title-icon {
+  flex-shrink: 0;
+  color: #4b5563;
+}
+
+.ts-view__subtitle {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
   color: #6b7280;
-  margin-bottom: 1.5rem;
+  max-width: 44rem;
 }
 
-.techstack-layout {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-.techstack-section {
-  flex: 1;
-  min-width: 280px;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
-  overflow: visible;
-}
-
-.techstack-section-title {
-  font-size: 0.875rem;
+.ts-view__mono {
+  font-family: ui-monospace, 'Cascadia Code', monospace;
+  font-size: 0.95em;
   font-weight: 600;
   color: #374151;
-  padding: 0.75rem 1rem;
-  background: #f3f4f6;
-  border-bottom: 1px solid #e5e7eb;
 }
 
-.techstack-section-content {
-  padding: 1rem;
-  padding-bottom: 1.5rem;
+.ts-view__separator {
+  flex-shrink: 0;
+  height: 1px;
+  margin: 0 0 0.5rem;
+  background: #e5e7eb;
+}
+
+.ts-view__section {
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background: #f9fafb;
+  overflow: hidden;
 }
 
-.techstack-item {
+.ts-tabs {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ts-tabs__list {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  border-bottom: 1px solid #d1d5db;
+  padding: 0 0.65rem;
+  background: #f9fafb;
+}
+
+.ts-tabs__trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.75rem;
+  border: none;
+  background: none;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.15s;
+
+  &:hover {
+    color: #111827;
+  }
+
+  &[data-state='active'] {
+    color: #2563eb;
+    font-weight: 600;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #2563eb;
+      border-radius: 1px;
+    }
+  }
+}
+
+.ts-tabs__icon {
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.ts-tabs__badge {
+  margin-left: 0.15rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  background: #dbeafe;
+  color: #1d4ed8;
+  line-height: 1.4;
+
+  &--muted {
+    background: #e5e7eb;
+    color: #4b5563;
+  }
+}
+
+.ts-panel-shell {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.ts-tabs__panel {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  outline: none;
+
+  &:focus-visible {
+    box-shadow: inset 0 0 0 2px rgba(37, 99, 235, 0.35);
+  }
+}
+
+.ts-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ts-scroll--pad {
+  padding: 0.65rem 0.85rem 0.85rem;
+  box-sizing: border-box;
+}
+
+.ts-tech-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 40rem) {
+  .ts-tech-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ts-item {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
   padding: 0.75rem 1rem;
-  background: #fff;
+  background: #fafafa;
   border: 1px solid #e5e7eb;
   border-radius: 0.375rem;
 }
 
-.techstack-item-icon {
+.ts-item-icon {
   width: 3rem;
   height: 3rem;
   flex-shrink: 0;
@@ -422,12 +593,12 @@ const allDependencies = ref<Dependency[]>([
   }
 }
 
-.techstack-item-body {
+.ts-item-body {
   flex: 1;
   min-width: 0;
 }
 
-.techstack-item-name {
+.ts-item-name {
   display: block;
   font-size: 0.875rem;
   font-weight: 600;
@@ -435,34 +606,47 @@ const allDependencies = ref<Dependency[]>([
   margin-bottom: 0.125rem;
 }
 
-.techstack-item-version {
+.ts-item-version {
+  display: block;
   font-size: 0.75rem;
   font-weight: 500;
   color: #6b7280;
   margin-bottom: 0.25rem;
 }
 
-.techstack-item-desc {
+.ts-item-desc {
   font-size: 0.8125rem;
   color: #6b7280;
   line-height: 1.4;
   margin: 0;
 }
 
-.techstack-libs-grid {
+.ts-libs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 0.75rem;
+  grid-template-columns: 1fr;
 }
 
-.techstack-lib-card {
+@media (min-width: 36rem) {
+  .ts-libs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 56rem) {
+  .ts-libs-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.ts-lib-card {
   padding: 1rem;
-  background: #fff;
+  background: #fafafa;
   border: 1px solid #e5e7eb;
   border-radius: 0.375rem;
 }
 
-.techstack-lib-header {
+.ts-lib-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -470,36 +654,36 @@ const allDependencies = ref<Dependency[]>([
   margin-bottom: 0.5rem;
 }
 
-.techstack-lib-name {
+.ts-lib-name {
   font-size: 0.875rem;
   font-weight: 600;
   color: #111827;
-  color: #111827;
 }
 
-.techstack-lib-version {
+.ts-lib-version {
   font-size: 0.75rem;
   padding: 0.125rem 0.5rem;
   background: #eff6ff;
   color: #1d4ed8;
   border-radius: 0.25rem;
   font-weight: 500;
+  flex-shrink: 0;
 }
 
-.techstack-lib-desc {
+.ts-lib-desc {
   font-size: 0.8125rem;
   color: #6b7280;
   line-height: 1.4;
   margin: 0 0 0.75rem;
 }
 
-.techstack-lib-tags {
+.ts-lib-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem;
 }
 
-.techstack-tag {
+.ts-tag {
   font-size: 0.75rem;
   padding: 0.125rem 0.5rem;
   background: #f3f4f6;
@@ -507,93 +691,159 @@ const allDependencies = ref<Dependency[]>([
   border-radius: 0.25rem;
 }
 
-.techstack-stats-grid {
+.ts-packages {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0.65rem 0.85rem 0.85rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.ts-packages__stats {
+  flex-shrink: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
 }
 
-.techstack-stat {
-  padding: 1rem;
+.ts-stat {
+  padding: 0.85rem 0.5rem;
   text-align: center;
-  background: #fff;
+  background: #fafafa;
   border: 1px solid #e5e7eb;
   border-radius: 0.375rem;
 }
 
-.techstack-stat-value {
+.ts-stat-value {
   display: block;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #111827;
   margin-bottom: 0.25rem;
 }
 
-.techstack-stat-label {
-  font-size: 0.75rem;
+.ts-stat-label {
+  font-size: 0.6875rem;
   color: #6b7280;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
-.techstack-separator {
+.ts-packages__separator {
+  flex-shrink: 0;
   height: 1px;
+  margin: 0.65rem 0 0.5rem;
   background: #e5e7eb;
-  margin: 0.75rem 0;
 }
 
-.techstack-subsection-title {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: #374151;
+.ts-packages__filter {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
   margin-bottom: 0.5rem;
 }
 
-.techstack-dep-list {
-  max-height: 400px;
-  overflow-y: auto;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.375rem;
-  background: #fff;
-  padding-bottom: 0.5rem;
+.ts-filter-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #374151;
 }
 
-.techstack-dep-item {
+.ts-filter-input {
+  width: 100%;
+  max-width: 28rem;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.8125rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-family: inherit;
+  background: #fff;
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.25);
+  }
+}
+
+.ts-subsection-title {
+  flex-shrink: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 0.45rem;
+}
+
+.ts-subsection-meta {
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.ts-dep-list-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.ts-dep-list {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  background: #fafafa;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ts-dep-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.85rem;
   border-bottom: 1px solid #f3f4f6;
+  background: #fff;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
-.techstack-dep-item:last-child {
-  border-bottom: none;
-}
-
-.techstack-dep-info {
+.ts-dep-info {
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
+  min-width: 0;
 }
 
-.techstack-dep-name {
+.ts-dep-name {
   font-size: 0.875rem;
   font-weight: 500;
   color: #111827;
+  word-break: break-word;
 }
 
-.techstack-dep-version {
+.ts-dep-version {
   font-size: 0.75rem;
   color: #6b7280;
   font-family: ui-monospace, monospace;
 }
 
-.techstack-dep-badge {
+.ts-dep-badge {
   font-size: 0.75rem;
   font-weight: 500;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
+  flex-shrink: 0;
 
   &.dependency {
     background: #d1fae5;
@@ -604,5 +854,13 @@ const allDependencies = ref<Dependency[]>([
     background: #dbeafe;
     color: #1e40af;
   }
+}
+
+.ts-dep-empty {
+  margin: 0;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: #6b7280;
 }
 </style>

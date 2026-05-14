@@ -1,166 +1,69 @@
 <template>
-  <nav :class="['side-nav', menuType]">
-    <router-link
-      to="/keyfiles"
-      class="nav-item"
-      :class="{ active: $route.path === '/keyfiles' }"
-      title="Key Files"
-    >
-      <FileTextIcon :size="18" :color="pathColor('/keyfiles')" />
-      <span v-if="menuType === 'macro'" class="nav-text">Key Files</span>
-    </router-link>
-    
-    <router-link
-      to="/cryptocurrency"
-      class="nav-item"
-      :class="{ active: $route.path === '/cryptocurrency' }"
-      title="Cryptocurrency"
-    >
-      <CoinsIcon :size="18" :color="pathColor('/cryptocurrency')" />
-      <span v-if="menuType === 'macro'" class="nav-text">Cryptocurrency</span>
-    </router-link>
-    
-    <router-link
-      to="/cryptography"
-      class="nav-item"
-      :class="{ active: $route.path === '/cryptography' }"
-      title="Cryptography"
-    >
-      <LockIcon :size="18" :color="pathColor('/cryptography')" />
-      <span v-if="menuType === 'macro'" class="nav-text">Cryptography</span>
-    </router-link>
-
-    <!-- Divider -->
-    <div class="nav-divider"></div>
-    
-    <router-link
-      to="/networking"
-      class="nav-item"
-      :class="{ active: $route.path === '/networking' }"
-      title="Networking"
-    >
-      <NetworkIcon :size="18" :color="pathColor('/networking')" />
-      <span v-if="menuType === 'macro'" class="nav-text">Networking</span>
-    </router-link>
-
-    <router-link
-      to="/addressbook"
-      class="nav-item"
-      :class="{ active: $route.path === '/addressbook' }"
-      title="Address Book"
-    >
-      <BookUserIcon :size="18" :color="pathColor('/addressbook')" />
-      <span v-if="menuType === 'macro'" class="nav-text">Address Book</span>
-    </router-link>
-    
-    <router-link
-      to="/techstack"
-      class="nav-item"
-      :class="{ active: $route.path === '/techstack' }"
-      title="Tech Stack"
-    >
-      <LayersIcon :size="18" :color="pathColor('/techstack')" />
-      <span v-if="menuType === 'macro'" class="nav-text">Tech Stack</span>
-    </router-link>
-    
-    <router-link
-      to="/repurposing"
-      class="nav-item"
-      :class="{ active: $route.path === '/repurposing' }"
-      title="Repurposing"
-    >
-      <RecycleIcon :size="18" :color="pathColor('/repurposing')" />
-      <span v-if="menuType === 'macro'" class="nav-text">Repurposing</span>
-    </router-link>
-    
-    <router-link
-      to="/build"
-      class="nav-item"
-      :class="{ active: $route.path === '/build' }"
-      title="Build"
-    >
-      <HammerIcon :size="18" :color="pathColor('/build')" />
-      <span v-if="menuType === 'macro'" class="nav-text">Build</span>
-    </router-link>
-    
-    <router-link
-      to="/package"
-      class="nav-item"
-      :class="{ active: $route.path === '/package' }"
-      title="Package"
-    >
-      <PackageIcon :size="18" :color="pathColor('/package')" />
-      <span v-if="menuType === 'macro'" class="nav-text">Package</span>
-    </router-link>
-    
-    <router-link
-      to="/publish"
-      class="nav-item"
-      :class="{ active: $route.path === '/publish' }"
-      title="Publish"
-    >
-      <UploadIcon :size="18" :color="pathColor('/publish')" />
-      <span v-if="menuType === 'macro'" class="nav-text">Publish</span>
-    </router-link>
-
-    <!-- Divider -->
-    <div class="nav-divider"></div>
-    
-    <router-link
-      to="/games"
-      class="nav-item"
-      :class="{ active: $route.path === '/games' }"
-      title="Games"
-    >
-      <GamepadIcon :size="18" :color="pathColor('/games')" />
-      <span v-if="menuType === 'macro'" class="nav-text">Games</span>
-    </router-link>
-    
-    <router-link
-      to="/sandbox"
-      class="nav-item"
-      :class="{ active: $route.path === '/sandbox' }"
-      title="Sandbox"
-    >
-      <TestTubeIcon :size="18" :color="pathColor('/sandbox')" />
-      <span v-if="menuType === 'macro'" class="nav-text">Sandbox</span>
-    </router-link>
-
-    <router-link
-      to="/qrcode"
-      class="nav-item"
-      :class="{ active: $route.path === '/qrcode' }"
-      title="QR Code"
-    >
-      <i
-        class="bi bi-qr-code side-nav__icon-bi"
-        aria-hidden="true"
-        :style="{ fontSize: '18px', color: pathColor('/qrcode') }"
-      />
-      <span v-if="menuType === 'macro'" class="nav-text">QR Code</span>
-    </router-link>
-
-    <!-- Divider -->
-    <div class="nav-divider"></div>
-    
-    <router-link
-      to="/settings"
-      class="nav-item"
-      :class="{ active: $route.path.startsWith('/settings') }"
-      title="Settings"
-    >
-      <SettingsIcon :size="18" :color="pathColor('/settings')" />
-      <span v-if="menuType === 'macro'" class="nav-text">Settings</span>
-    </router-link>
+  <nav
+    :class="['side-nav', menuType, { 'side-nav--compact': compact }]"
+    :style="navStyle"
+    aria-label="Main navigation"
+  >
+    <div class="side-nav__inner">
+      <template v-for="(section, si) in navSections" :key="'s-' + si">
+        <Separator
+          v-if="si > 0"
+          class="side-nav__separator"
+          orientation="horizontal"
+        />
+        <div class="side-nav__group" role="list">
+          <RouterLink
+            v-for="item in section"
+            :key="item.to"
+            v-slot="{ isActive, href, navigate }"
+            :to="item.to"
+            custom
+          >
+            <a
+              :href="href"
+              role="listitem"
+              class="nav-item"
+              :class="{ active: linkIsActive(item, isActive) }"
+              :title="item.title"
+              :aria-current="linkIsActive(item, isActive) ? 'page' : undefined"
+              @click="navigate($event)"
+            >
+              <component
+                :is="item.icon"
+                v-if="item.iconKind === 'lucide'"
+                :size="iconPx"
+                :color="pathColor(item)"
+              />
+              <i
+                v-else
+                class="bi bi-qr-code side-nav__icon-bi"
+                aria-hidden="true"
+                :style="{ fontSize: iconPx + 'px', color: pathColor(item) }"
+              />
+              <span v-if="menuType === 'macro'" class="nav-text">{{ item.label }}</span>
+            </a>
+          </RouterLink>
+        </div>
+      </template>
+    </div>
   </nav>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import { 
-  TestTubeIcon, 
-  FileTextIcon, 
-  CoinsIcon, 
+import {
+  type Component,
+  computed,
+  onMounted,
+  onUnmounted,
+  ref,
+} from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
+import { Separator } from 'radix-vue'
+import {
+  TestTubeIcon,
+  FileTextIcon,
+  CoinsIcon,
   LockIcon,
   NetworkIcon,
   BookUser as BookUserIcon,
@@ -170,61 +73,103 @@ import {
   PackageIcon,
   UploadIcon,
   GamepadIcon,
-  SettingsIcon
+  SettingsIcon,
 } from 'lucide-vue-next'
-import { useRoute } from 'vue-router'
 import { useMenuState } from '../../composables/useMenuState'
 
-export default {
-  name: 'SideNav',
-  components: {
-    TestTubeIcon,
-    FileTextIcon,
-    CoinsIcon,
-    LockIcon,
-    NetworkIcon,
-    BookUserIcon,
-    LayersIcon,
-    RecycleIcon,
-    HammerIcon,
-    PackageIcon,
-    UploadIcon,
-    GamepadIcon,
-    SettingsIcon
-  },
-  setup() {
-    const route = useRoute()
-    const { menuType } = useMenuState()
+defineOptions({ name: 'SideNav' })
 
-    const pathColor = (path: string) => {
-      const isActive = path === '/settings' 
-        ? route.path.startsWith('/settings')
-        : route.path === path
-      return isActive ? '#3b82f6' : '#6b7280'
-    }
-
-    return {
-      menuType,
-      pathColor
-    }
-  }
+type NavItem = {
+  to: string
+  title: string
+  label: string
+  icon?: Component
+  iconKind: 'lucide' | 'bootstrap-qr'
 }
+
+const NAVBAR_PX = 64
+const COMPACT_VH = 720
+
+const route = useRoute()
+const { menuType } = useMenuState()
+
+const viewportH = ref(typeof window !== 'undefined' ? window.innerHeight : 800)
+
+const compact = computed(() => viewportH.value < COMPACT_VH)
+
+const iconPx = computed(() => (compact.value ? 16 : 18))
+
+const navStyle = computed(() => ({
+  height: `calc(100dvh - ${NAVBAR_PX}px)`,
+  top: `${NAVBAR_PX}px`,
+}))
+
+const navSections: NavItem[][] = [
+  [
+    { to: '/keyfiles', title: 'Key Files', label: 'Key Files', icon: FileTextIcon, iconKind: 'lucide' },
+    { to: '/cryptocurrency', title: 'Cryptocurrency', label: 'Cryptocurrency', icon: CoinsIcon, iconKind: 'lucide' },
+    { to: '/cryptography', title: 'Cryptography', label: 'Cryptography', icon: LockIcon, iconKind: 'lucide' },
+  ],
+  [
+    { to: '/networking', title: 'Networking', label: 'Networking', icon: NetworkIcon, iconKind: 'lucide' },
+    { to: '/addressbook', title: 'Address Book', label: 'Address Book', icon: BookUserIcon, iconKind: 'lucide' },
+    { to: '/techstack', title: 'Tech Stack', label: 'Tech Stack', icon: LayersIcon, iconKind: 'lucide' },
+    { to: '/repurposing', title: 'Repurposing', label: 'Repurposing', icon: RecycleIcon, iconKind: 'lucide' },
+    { to: '/build', title: 'Build', label: 'Build', icon: HammerIcon, iconKind: 'lucide' },
+    { to: '/package', title: 'Package', label: 'Package', icon: PackageIcon, iconKind: 'lucide' },
+    { to: '/publish', title: 'Publish', label: 'Publish', icon: UploadIcon, iconKind: 'lucide' },
+  ],
+  [
+    { to: '/games', title: 'Games', label: 'Games', icon: GamepadIcon, iconKind: 'lucide' },
+    { to: '/sandbox', title: 'Sandbox', label: 'Sandbox', icon: TestTubeIcon, iconKind: 'lucide' },
+    { to: '/qrcode', title: 'QR Code', label: 'QR Code', iconKind: 'bootstrap-qr' },
+  ],
+  [
+    { to: '/settings', title: 'Settings', label: 'Settings', icon: SettingsIcon, iconKind: 'lucide' },
+  ],
+]
+
+function linkIsActive(item: NavItem, routerLinkIsActive: boolean) {
+  if (item.to === '/settings') return route.path.startsWith('/settings')
+  return routerLinkIsActive
+}
+
+function pathColor(item: NavItem) {
+  const isActive =
+    item.to === '/settings'
+      ? route.path.startsWith('/settings')
+      : route.path === item.to
+  return isActive ? '#2563eb' : '#6b7280'
+}
+
+function onViewportResize() {
+  viewportH.value = window.innerHeight
+}
+
+onMounted(() => {
+  window.addEventListener('resize', onViewportResize, { passive: true })
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', onViewportResize)
+})
 </script>
 
 <style scoped>
 .side-nav {
   position: fixed;
-  top: 4rem;
   left: 0;
-  height: calc(100vh - 4rem);
-  background-color: #f8fafc;
-  border-right: 1px solid #e2e8f0;
+  width: 12rem;
+  max-height: calc(100dvh - 4rem);
+  background-color: #f9fafb;
+  border-right: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   z-index: 999;
-  transition: width 0.3s ease;
-  overflow-y: auto;
+  transition: width 0.25s ease, padding 0.2s ease;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .side-nav.macro {
@@ -235,18 +180,55 @@ export default {
   width: 4rem;
 }
 
+.side-nav--compact {
+  padding: 0.35rem 0;
+}
+
+.side-nav__inner {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0;
+  overflow: hidden;
+}
+
+.side-nav__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 0 0 auto;
+}
+
+.side-nav__separator {
+  flex-shrink: 0;
+  height: 1px;
+  margin: 0.45rem 0.65rem;
+  background: #e5e7eb;
+}
+
+.side-nav--compact .side-nav__separator {
+  margin: 0.3rem 0.5rem;
+}
+
 .nav-item {
   display: flex;
   align-items: center;
-  padding: 0.75rem 1rem;
+  padding: 0.65rem 0.85rem;
+  margin: 0 0.4rem;
   text-decoration: none !important;
   color: #6b7280;
-  transition: background-color 0.2s ease;
-  border-radius: 0.5rem;
-  margin: 0 0.5rem;
-  /* Prevent Alt key access-key underline and focus outline from distorting icons */
+  transition: background-color 0.15s ease, color 0.15s ease;
+  border-radius: 0.375rem;
   outline: none;
   -webkit-tap-highlight-color: transparent;
+  position: relative;
+}
+
+.side-nav--compact .nav-item {
+  padding: 0.45rem 0.55rem;
+  margin: 0 0.3rem;
 }
 
 .nav-item:focus {
@@ -254,11 +236,9 @@ export default {
 }
 
 .nav-item:focus-visible {
-  /* Use box-shadow instead of outline to avoid triggering overflow/scrollbar when Alt is pressed */
-  box-shadow: inset 0 0 0 2px #3b82f6;
+  box-shadow: inset 0 0 0 2px #2563eb;
 }
 
-/* Prevent icons from shrinking when focus/Alt causes layout recalculation */
 .nav-item > :first-child {
   flex-shrink: 0;
 }
@@ -269,23 +249,48 @@ export default {
 }
 
 .nav-item:hover {
-  background-color: #e2e8f0;
+  background-color: #e5e7eb;
+  color: #374151;
 }
 
 .nav-item.active {
   background-color: #dbeafe;
-  color: #3b82f6;
+  color: #2563eb;
+}
+
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background: #2563eb;
+  border-radius: 0 2px 2px 0;
+}
+
+.micro .nav-item {
+  justify-content: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.micro .nav-item.active::before {
+  height: 70%;
 }
 
 .nav-text {
-  margin-left: 0.75rem;
+  margin-left: 0.65rem;
   font-size: 0.875rem;
   font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.nav-divider {
-  height: 1px;
-  background-color: #e2e8f0;
-  margin: 1rem 0.5rem;
+.side-nav--compact .nav-text {
+  font-size: 0.8125rem;
+  margin-left: 0.55rem;
 }
 </style>
