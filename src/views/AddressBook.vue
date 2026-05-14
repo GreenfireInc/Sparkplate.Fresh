@@ -160,6 +160,7 @@
       :show="showContactDetailsModal"
       :contact="selectedContactForDetails"
       @close="closeContactDetailsModal"
+      @contact-updated="onContactDetailsUpdated"
     />
     <AddCurrencyModal
       v-if="selectedContactForCurrency?.id"
@@ -167,6 +168,7 @@
       :contact-id="selectedContactForCurrency.id"
       @close="showAddCurrencyModal = false"
       @currency-added="handleCurrencyAddedFromModal"
+      @wallets-imported="handleWalletsImportedFromContactAddCurrency"
     />
     <ModalConfirmDeleteGeneral
       :show="showConfirmModal"
@@ -614,6 +616,16 @@ const closeContactDetailsModal = () => {
   showContactDetailsModal.value = false
 }
 
+/** Re-fetch contact rows (including per-contact wallet counts) and keep the open details modal in sync. */
+async function onContactDetailsUpdated() {
+  const id = selectedContactForDetails.value?.id
+  await loadContacts()
+  if (id != null && showContactDetailsModal.value) {
+    const refreshed = contacts.value.find((c) => c.id === id)
+    if (refreshed) selectedContactForDetails.value = refreshed
+  }
+}
+
 const closeConfirmModal = () => {
   showConfirmModal.value = false
   clearPendingDeleteQueues()
@@ -637,6 +649,12 @@ async function handleCurrencyAddedFromModal(currencyData: { contactId: number; n
     coinTicker: currencyData.network,
     address: currencyData.address,
   })
+  showAddCurrencyModal.value = false
+  await loadContacts()
+}
+
+/** JSON import path persists inside `SubModalAddCurrency`; only refresh the list. */
+async function handleWalletsImportedFromContactAddCurrency() {
   showAddCurrencyModal.value = false
   await loadContacts()
 }

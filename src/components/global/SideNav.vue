@@ -132,7 +132,11 @@
       :class="{ active: $route.path === '/qrcode' }"
       title="QR Code"
     >
-      <QrCodeIcon :size="18" :color="pathColor('/qrcode')" />
+      <i
+        class="bi bi-qr-code side-nav__icon-bi"
+        aria-hidden="true"
+        :style="{ fontSize: '18px', color: pathColor('/qrcode') }"
+      />
       <span v-if="menuType === 'macro'" class="nav-text">QR Code</span>
     </router-link>
 
@@ -152,6 +156,7 @@
 </template>
 
 <script lang="ts">
+import 'bootstrap-icons/font/bootstrap-icons.css'
 import { 
   TestTubeIcon, 
   FileTextIcon, 
@@ -165,7 +170,6 @@ import {
   PackageIcon,
   UploadIcon,
   GamepadIcon,
-  QrCode,
   SettingsIcon
 } from 'lucide-vue-next'
 import { useRoute } from 'vue-router'
@@ -186,7 +190,6 @@ export default {
     PackageIcon,
     UploadIcon,
     GamepadIcon,
-    QrCode,
     SettingsIcon
   },
   setup() {
@@ -258,6 +261,11 @@ export default {
 /* Prevent icons from shrinking when focus/Alt causes layout recalculation */
 .nav-item > :first-child {
   flex-shrink: 0;
+}
+
+.side-nav__icon-bi {
+  line-height: 1;
+  display: inline-block;
 }
 
 .nav-item:hover {
