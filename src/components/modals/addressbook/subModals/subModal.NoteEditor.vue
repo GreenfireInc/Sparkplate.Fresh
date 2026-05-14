@@ -215,7 +215,7 @@ import {
   type Note,
   type NoteOwnerKind,
 } from '@/services/addressBook/service.addressBook.Note'
-import { reverseText, getInitialMirrorState } from '@/lib/cores/displayStandard/mirrorText'
+import { reverseText, getInitialMirrorState } from '@/lib/cores/displayStandard/display.text.mirrored'
 import { exportNoteAsMarkdown, exportNoteAsJson } from '@/lib/cores/exportStandard/filenameStructureAndContent.Contact.notes'
 import NoteDeleteConfirmModal from '@/components/modals/confirmations/modal.confirm.delete.Note.vue'
 

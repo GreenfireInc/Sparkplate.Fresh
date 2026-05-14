@@ -8,7 +8,7 @@
  */
 
 import type { Note } from '@/services/addressBook/service.addressBook.Note'
-import { reverseText } from '@/lib/cores/displayStandard/mirrorText'
+import { reverseText } from '@/lib/cores/displayStandard/display.text.mirrored'
 
 const PROJECT_NAME = 'sparkplate'
 

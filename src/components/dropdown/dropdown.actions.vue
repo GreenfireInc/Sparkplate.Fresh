@@ -38,7 +38,7 @@ import {
 import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
 import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 import { getWalletsForContact } from '@/services/addressBook/service.addressBook.Wallet'
-import { generateVCard, generateContactQRCode } from '@/lib/cores/displayStandard/generateContactVCardQrCode'
+import { generateVCard, generateContactQRCode } from '@/lib/cores/displayStandard/display.qrCode.contact.vCard'
 import {
   exportContactQRCodeAsPNG,
   generateContactQRCodeFilename,

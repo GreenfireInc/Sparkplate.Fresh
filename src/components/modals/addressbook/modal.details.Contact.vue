@@ -238,7 +238,7 @@ import {
 import {
   Wallet as WalletIcon, FileKey, ReceiptText, NotebookPen, QrCode,
 } from 'lucide-vue-next'
-import { gravatarUrl as buildGravatarUrl } from '@/lib/cores/displayStandard/gravatar'
+import { gravatarUrl as buildGravatarUrl } from '@/lib/cores/displayStandard/display.image.gravatar'
 
 defineOptions({ name: 'ContactDetailsModal' })
 
