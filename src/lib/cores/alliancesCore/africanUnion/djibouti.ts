@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const djibouti: AfricanUnionCountry = {
   name: 'Djibouti',
   iso3166Alpha2: 'DJ',
@@ -16,5 +16,6 @@ export const djibouti: AfricanUnionCountry = {
   currentLeader: 'Ismail Omar Guelleh (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'International OTC', 'Regional remittance apps'],
   stablecoin: 'USDT / USDC; DJF pegged to USD (currency board)',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['DJ'],
   stockExchange: 'Djibouti Stock Exchange (thin activity)',
 }

@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const senegal: AfricanUnionCountry = {
   name: 'Senegal',
   iso3166Alpha2: 'SN',
@@ -16,5 +16,6 @@ export const senegal: AfricanUnionCountry = {
   currentLeader: 'Bassirou Diomaye Faye (President)',
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Wave-linked fintech'],
   stablecoin: 'USDT / USDC; XOF peg via CFA',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['SN'],
   stockExchange: 'BRVM (regional; Dakar listings)',
 }

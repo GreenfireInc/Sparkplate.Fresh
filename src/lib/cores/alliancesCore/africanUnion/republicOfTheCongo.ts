@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const republicOfTheCongo: AfricanUnionCountry = {
   name: 'Republic of the Congo',
   iso3166Alpha2: 'CG',
@@ -16,5 +16,6 @@ export const republicOfTheCongo: AfricanUnionCountry = {
   currentLeader: 'Denis Sassou Nguesso (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC'],
   stablecoin: 'USDT P2P; XAF peg',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['CG'],
   stockExchange: 'Bourse des Valeurs du Congo (BVC)',
 }

@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const kenya: AfricanUnionCountry = {
   name: 'Kenya',
   iso3166Alpha2: 'KE',
@@ -16,5 +16,6 @@ export const kenya: AfricanUnionCountry = {
   currentLeader: 'William Ruto (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local blockchain startups'],
   stablecoin: 'USDT / USDC; regulatory environment evolving',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
 }

@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const seychelles: AfricanUnionCountry = {
   name: 'Seychelles',
   iso3166Alpha2: 'SC',
@@ -16,5 +16,6 @@ export const seychelles: AfricanUnionCountry = {
   currentLeader: 'Wavel Ramkalawan (President)',
   cryptocurrencyExchanges: ['Binance (offshore registrations historically)', 'International brokers'],
   stablecoin: 'USDT / USDC; offshore financial services sector',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['SC'],
   stockExchange: 'Merjep (Seychelles Securities Exchange) — niche',
 }

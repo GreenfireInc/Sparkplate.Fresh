@@ -2,6 +2,7 @@ export type {
   AfricanUnionCountry,
   AfricanUnionMembership,
   AfricanUnionOrganizationInfo,
+  DomesticCourierService,
 } from './types'
 
 import type { AfricanUnionCountry, AfricanUnionOrganizationInfo } from './types'

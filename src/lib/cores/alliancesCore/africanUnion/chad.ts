@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const chad: AfricanUnionCountry = {
   name: 'Chad',
   iso3166Alpha2: 'TD',
@@ -16,5 +16,6 @@ export const chad: AfricanUnionCountry = {
   currentLeader: 'Mahamat Idriss Déby Itno (Transitional President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card (regional)', 'OTC'],
   stablecoin: 'USDT informal; XAF peg',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['TD'],
   stockExchange: 'Financial Market of Central Africa (CEMAC hub; thin Chad listings)',
 }

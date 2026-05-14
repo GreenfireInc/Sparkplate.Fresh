@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const ivoryCoast: AfricanUnionCountry = {
   name: "Côte d'Ivoire (Ivory Coast)",
   iso3166Alpha2: 'CI',
@@ -16,5 +16,6 @@ export const ivoryCoast: AfricanUnionCountry = {
   currentLeader: 'Alassane Ouattara (President)',
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Luno (regional)'],
   stablecoin: 'USDT / USDC; XOF pegged via CFA',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['CI'],
   stockExchange: 'BRVM (Abidjan — regional hub)',
 }

@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const lesotho: AfricanUnionCountry = {
   name: 'Lesotho',
   iso3166Alpha2: 'LS',
@@ -16,5 +16,6 @@ export const lesotho: AfricanUnionCountry = {
   currentLeader: 'Letsie III (King); Sam Matekane (Prime Minister)',
   cryptocurrencyExchanges: ['Luno', 'VALR', 'Binance (P2P)'],
   stablecoin: 'USDT via South African financial links',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['LS'],
   stockExchange: 'Maseru Securities Market (limited)',
 }

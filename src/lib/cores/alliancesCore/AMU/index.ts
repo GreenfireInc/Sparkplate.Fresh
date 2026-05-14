@@ -1,4 +1,4 @@
-export type { AmuCountry, AmuMembership, AmuOrganizationInfo } from './types'
+export type { AmuCountry, AmuMembership, AmuOrganizationInfo, DomesticCourierService } from './types'
 
 import type { AmuCountry, AmuOrganizationInfo } from './types'
 import { algeria } from './algeria'

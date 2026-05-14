@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const uganda: AfricanUnionCountry = {
   name: 'Uganda',
   iso3166Alpha2: 'UG',
@@ -16,5 +16,6 @@ export const uganda: AfricanUnionCountry = {
   currentLeader: 'Yoweri Museveni (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Chipper Cash'],
   stablecoin: 'USDT / USDC P2P',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['UG'],
   stockExchange: 'Uganda Securities Exchange',
 }

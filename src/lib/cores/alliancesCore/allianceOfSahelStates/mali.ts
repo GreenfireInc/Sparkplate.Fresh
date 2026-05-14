@@ -1,4 +1,5 @@
 import type { AllianceOfSahelStatesCountry } from './types'
+import { AES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const mali: AllianceOfSahelStatesCountry = {
   name: 'Mali',
@@ -16,5 +17,6 @@ export const mali: AllianceOfSahelStatesCountry = {
   currentLeader: 'Assimi Goïta (Colonel; transitional leadership)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'OTC'],
   stablecoin: 'USDT P2P; XOF peg',
+  domesticCourierServices: AES_DOMESTIC_COURIERS['ML'],
   stockExchange: 'Bourse des Valeurs du Mali (limited)',
 }

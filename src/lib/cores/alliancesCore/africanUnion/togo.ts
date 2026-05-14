@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const togo: AfricanUnionCountry = {
   name: 'Togo',
   iso3166Alpha2: 'TG',
@@ -16,5 +16,6 @@ export const togo: AfricanUnionCountry = {
   currentLeader: 'Faure Gnassingbé (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Regional OTC'],
   stablecoin: 'USDT P2P; XOF peg',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['TG'],
   stockExchange: 'BRVM regional listings; Lomé financial center activity',
 }

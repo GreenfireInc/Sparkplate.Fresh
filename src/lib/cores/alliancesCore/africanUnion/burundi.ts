@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const burundi: AfricanUnionCountry = {
   name: 'Burundi',
   iso3166Alpha2: 'BI',
@@ -16,5 +16,6 @@ export const burundi: AfricanUnionCountry = {
   currentLeader: 'Évariste Ndayishimiye (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Local P2P', 'Yellow Card (regional)'],
   stablecoin: 'USDT informal; no BIF stablecoin',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['BI'],
   stockExchange: 'Burundi Stock Exchange (BSE) — thin liquidity',
 }

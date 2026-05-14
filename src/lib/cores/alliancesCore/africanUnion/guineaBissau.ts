@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const guineaBissau: AfricanUnionCountry = {
   name: 'Guinea-Bissau',
   iso3166Alpha2: 'GW',
@@ -16,5 +16,6 @@ export const guineaBissau: AfricanUnionCountry = {
   currentLeader: 'Umaro Sissoco Embaló (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional P2P'],
   stablecoin: 'USDT P2P; XOF peg',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['GW'],
   stockExchange: 'No significant national exchange; BRVM regional access',
 }

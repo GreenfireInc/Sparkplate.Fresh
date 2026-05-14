@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 /** Sahrawi Arab Democratic Republic — AU member; territorial status disputed (informational). */
 export const sahrawiRepublic: AfricanUnionCountry = {
   name: 'Sahrawi Arab Democratic Republic (Sahrawi Republic)',
@@ -17,5 +17,6 @@ export const sahrawiRepublic: AfricanUnionCountry = {
   currentLeader: 'Brahim Ghali (President, SADR)',
   cryptocurrencyExchanges: ['Diaspora P2P', 'Binance (P2P)', 'Informal remittance channels'],
   stablecoin: 'USDT / USDC informal; no SADR-issued stablecoin',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['EH'],
   stockExchange: 'No national securities exchange',
 }

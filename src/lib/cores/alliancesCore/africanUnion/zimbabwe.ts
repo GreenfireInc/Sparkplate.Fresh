@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const zimbabwe: AfricanUnionCountry = {
   name: 'Zimbabwe',
   iso3166Alpha2: 'ZW',
@@ -16,5 +16,6 @@ export const zimbabwe: AfricanUnionCountry = {
   currentLeader: 'Emmerson Mnangagwa (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Golix (historical)', 'Local P2P'],
   stablecoin: 'USDT / USDC; USD cash economy',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['ZW'],
   stockExchange: 'Zimbabwe Stock Exchange (ZSE)',
 }

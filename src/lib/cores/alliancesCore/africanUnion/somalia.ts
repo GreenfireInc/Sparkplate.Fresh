@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const somalia: AfricanUnionCountry = {
   name: 'Somalia',
   iso3166Alpha2: 'SO',
@@ -16,5 +16,6 @@ export const somalia: AfricanUnionCountry = {
   currentLeader: 'Hassan Sheikh Mohamud (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Hawala-linked OTC', 'Diaspora remittance apps'],
   stablecoin: 'USDT informal; USD cash economy',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['SO'],
   stockExchange: 'No functioning national exchange',
 }

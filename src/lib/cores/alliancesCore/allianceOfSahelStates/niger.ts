@@ -1,4 +1,5 @@
 import type { AllianceOfSahelStatesCountry } from './types'
+import { AES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const niger: AllianceOfSahelStatesCountry = {
   name: 'Niger',
@@ -16,5 +17,6 @@ export const niger: AllianceOfSahelStatesCountry = {
   currentLeader: 'Abdourahamane Tchiani (General; National Council for the Safeguard of the Homeland)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'OTC'],
   stablecoin: 'USDT P2P; XOF peg',
+  domesticCourierServices: AES_DOMESTIC_COURIERS['NE'],
   stockExchange: 'No liquid national bourse; BRVM regional',
 }

@@ -1,4 +1,5 @@
 import type { AmuCountry } from './types'
+import { AMU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const libya: AmuCountry = {
   name: 'Libya',
@@ -16,5 +17,6 @@ export const libya: AmuCountry = {
   currentLeader: 'Mohamed al-Menfi (Chair, Presidential Council — GNU Tripoli)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC; fragmented regulatory environment'],
   stablecoin: 'USDT informal; banking fragmentation',
+  domesticCourierServices: AMU_DOMESTIC_COURIERS['LY'],
   stockExchange: 'Libyan Stock Market (limited operations)',
 }
