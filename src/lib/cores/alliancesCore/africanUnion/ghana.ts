@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const ghana: AfricanUnionCountry = {
   name: 'Ghana',
   iso3166Alpha2: 'GH',
@@ -16,5 +16,6 @@ export const ghana: AfricanUnionCountry = {
   currentLeader: 'John Mahama (President)',
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Busha', 'Quidax'],
   stablecoin: 'USDT / USDC; Bank of Ghana piloting eCedi CBDC',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['GH'],
   stockExchange: 'Ghana Stock Exchange (GSE)',
 }

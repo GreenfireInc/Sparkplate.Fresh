@@ -1,0 +1,347 @@
+import type { DomesticCourierService } from './types'
+
+function c(
+  name: string,
+  website: string,
+  email: string,
+  instagram: string,
+  twitter: string
+): DomesticCourierService {
+  return { name, website, email, instagram, twitter }
+}
+
+/**
+ * Domestic courier reference rows by ISO 3166-1 alpha-2 (verify URLs, emails, and social handles locally).
+ */
+export const AU_DOMESTIC_COURIERS = {
+  AO: [
+    c("CTT Angola (Empresa Nacional de Correios)", "https://www.ctt.ao/", "geral@ctt.ao", "https://www.instagram.com/correiosdeangola/", "https://x.com/cttangola"),
+    c("DHL Angola", "https://www.dhl.com/ao-en/home.html", "customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Angola partner network", "https://www.fedex.com/en-ao", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS service points", "https://www.ups.com/ao/en", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  BF: [
+    c("La Poste Burkina Faso (SONAPOST)", "http://www.sonapost.bf/", "contact@sonapost.bf", "", ""),
+    c("DHL Burkina Faso", "https://www.dhl.com/bf-fr/home.html", "bf.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Burkina Faso", "https://www.fedex.com/en-bf", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Burkina Faso", "https://www.ups.com/bf/fr", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  BI: [
+    c("Régie nationale des Postes du Burundi", "http://www.poste.bi/", "info@burundipost.bi", "", ""),
+    c("DHL Burundi", "https://www.dhl.com/bi-fr/home.html", "bi.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Burundi agents", "https://www.fedex.com/en-bi", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("Aramex Burundi corridor", "https://www.aramex.com/", "support@aramex.com", "https://www.instagram.com/aramex/", "https://x.com/aramex"),
+  ],
+  BJ: [
+    c("La Poste du Bénin", "https://www.poste.bj/", "contact@poste.bj", "", ""),
+    c("DHL Benin", "https://www.dhl.com/bj-en/home.html", "bj.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("Chronopost (partner counters)", "https://www.chronopost.fr/", "commercialinternational.dealears@geopost.com", "https://www.instagram.com/chronopost/", "https://x.com/chronopost"),
+    c("FedEx Benin", "https://www.fedex.com/en-bj", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+  ],
+  BW: [
+    c("BotswanaPost", "https://www.botspost.co.bw/", "customercare@botspost.co.bw", "https://www.instagram.com/botswanapost/", "https://x.com/BotswanaPost"),
+    c("DHL Botswana", "https://www.dhl.com/bw-en/home.html", "bw.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Botswana", "https://www.fedex.com/en-bw", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("The Courier Guy (regional lockers)", "https://thecourierguy.co.za/", "support@thecourierguy.co.za", "https://www.instagram.com/thecourierguy/", "https://x.com/thecourier_guy"),
+  ],
+  CD: [
+    c("SCPT RDC (Services postaux)", "https://scpt.cd/", "info@postesrdc.cd", "", ""),
+    c("DHL Congo (DRC)", "https://www.dhl.com/cd-fr/home.html", "cd.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx DRC hubs", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Congo Kinshasa", "https://www.ups.com/cd/fr", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  CF: [
+    c("Office national des Postes RCA", "https://onet-rca.cf/", "contact@onet-rca.cf", "", ""),
+    c("DHL Central African Republic agents", "https://www.dhl.com/cf-en/home.html", "cf.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx CFA partner desks", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS humanitarian corridor desks", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  CG: [
+    c("La Poste du Congo EMS", "http://laposte.cg/", "contact@lacongolaise.cg", "", ""),
+    c("DHL Republic of the Congo / Brazzaville", "https://www.dhl.com/cg-en/home.html", "cg.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Pointe Noire corridors", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Brazzaville partners", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  CI: [
+    c("La Poste de Côte d’Ivoire", "https://www.la-poste.ci/", "info@laposte.ci", "", ""),
+    c("DHL Ivory Coast", "https://www.dhl.com/ci-fr/home.html", "ci.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Ivory Coast", "https://www.fedex.com/en-ci", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Abidjan", "https://www.ups.com/ci/fr", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  CM: [
+    c("CAMPOST", "http://campost.cm/", "info@campost.cm", "", ""),
+    c("DHL Cameroon", "https://www.dhl.com/cm-fr/home.html", "cm.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Cameroon", "https://www.fedex.com/en-cm", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Cameroon", "https://www.ups.com/cm/fr", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  CV: [
+    c("Correios de Cabo Verde", "https://correios.cv/", "cac@cvcorreios.cv", "https://www.instagram.com/correioscv/", "https://x.com/correioscv"),
+    c("DHL Cabo Verde", "https://www.dhl.com/cv-en/home.html", "cv.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Cabo Verde", "https://www.fedex.com/en-cv", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Cabo Verde", "https://www.ups.com/cv/pt", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  DJ: [
+    c("La Poste de Djibouti", "https://www.investindjibouti.com/", "poste.contact@yahoo.fr", "", ""),
+    c("DHL Djibouti", "https://www.dhl.com/dj-en/home.html", "dj.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Djibouti FZ partners", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Djibouti logistics", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  DZ: [
+    c("Algérie Poste EMS", "https://www.poste.dz/", "contact@poste.dz", "", "https://x.com/AlgPoste"),
+    c("Yalidine", "https://yalidine.co/", "support@yalidine.co", "https://www.instagram.com/yalidine.express/", "https://x.com/yalidineDZ"),
+    c("DHL Algeria", "https://www.dhl.com/dz-en/home.html", "dz.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("EMS / Colis postaux (Barid)", "https://www.poste.dz/", "express@poste.dz", "", ""),
+  ],
+  EG: [
+    c("Egypt Post", "http://www.egpost.org/", "webmaster@egpost.org", "https://www.instagram.com/egypt.post/", "https://x.com/Egyptpost"),
+    c("Aramex Egypt", "https://www.aramex.com/", "customerserviceegypt@aramex.com", "https://www.instagram.com/aramex/", "https://x.com/aramex"),
+    c("DHL Egypt", "https://www.dhl.com/eg-en/home.html", "eg.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Egypt", "https://www.fedex.com/en-eg", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+  ],
+  EH: [
+    c("APS / Algerian corridor postal relay", "https://www.poste.dz/", "contact@poste.dz", "", ""),
+    c("UNHCR logistics / NGO parcel corridors", "https://www.unhcr.org/", "hqac@unhcr.org", "https://www.instagram.com/unhcrarabic/", "https://x.com/UNHCRarabic"),
+    c("Moroccan Post (Laâyoune area — disputed)", "http://www.poste.ma/", "info@poste.ma", "https://www.instagram.com/postemaroc/", "https://x.com/PosteMaroc"),
+    c("Spain Correos diaspora parcels", "https://www.correos.es/", "atencionalcliente@correos.es", "https://www.instagram.com/correos/", "https://x.com/Correos"),
+  ],
+  ER: [
+    c("Eritrean Postal Service", "https://www.shabait.com/category/national-development/telecom-post/", "info@ericsson.com.er", "", ""),
+    c("DHL Eritrea agents", "https://www.dhl.com/er-en/home.html", "er.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx regional forwarding", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("EMS partner routing", "https://www.upu.int/", "", "", ""),
+  ],
+  ET: [
+    c("Ethiopian Postal Service EMS", "", "", "", ""),
+    c("Ethiopian Airlines Cargo / postal programs", "https://www.ethiopianairlines.com/", "cargotracking@ethiopianairlines.com", "https://www.instagram.com/fly.ethiopian/", "https://x.com/flyethiopian"),
+    c("DHL Ethiopia", "https://www.dhl.com/et-en/home.html", "et.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Ethiopia Addis hubs", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+  ],
+  GA: [
+    c("Gabon Poste EMS", "https://www.infosgabon.ga/", "infos@gpost.ga", "", ""),
+    c("DHL Gabon", "https://www.dhl.com/ga-fr/home.html", "ga.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("Chronopost Afrique desks", "https://www.chronopost.fr/", "commercialinternational.dealears@geopost.com", "https://www.instagram.com/chronopost/", "https://x.com/chronopost"),
+    c("FedEx Gabon", "https://www.fedex.com/en-ga", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+  ],
+  GH: [
+    c("Ghana Post", "http://ghanapost.com.gh/", "info@ghanapost.com.gh", "https://www.instagram.com/ghanapostgh/", "https://x.com/ghanapostgh"),
+    c("Ghana EMS", "http://ghanapost.com.gh/", "ems@ghanapost.com.gh", "", ""),
+    c("DHL Ghana", "https://www.dhl.com/gh-en/home.html", "gh.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Ghana", "https://www.fedex.com/en-gh", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+  ],
+  GM: [
+    c("GamPost", "https://gampost.gm/", "info@gampost.gm", "", ""),
+    c("DHL Gambia", "https://www.dhl.com/gm-en/home.html", "gm.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Gambia Banjul", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Senegal–Gambia corridor", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  GN: [
+    c("La Poste Guinée", "https://www.gui.post/", "direction@gui.post", "", ""),
+    c("DHL Guinea", "https://www.dhl.com/gn-fr/home.html", "gn.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Conakry", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Guinea", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  GQ: [
+    c("Guinea ECuatorial Correos — GECELL", "https://www.correosgq.com/", "info@correosgq.com", "", ""),
+    c("DHL Equatorial Guinea", "https://www.dhl.com/gq-en/home.html", "gq.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Malabo/Bata desks", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS oil-sector logistics counters", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  GW: [
+    c("Correios da Guiné-Bissau", "https://www.correios.gw/", "geral@cgb.gw", "", ""),
+    c("DHL Guinea-Bissau agents", "https://www.dhl.com/gw-pt/home.html", "gw.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Bissau partners", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("EMS regional routing", "https://www.ctt.pt/", "cac@ctt.pt", "https://www.instagram.com/cttcorreiosdeportugal/", "https://x.com/cttcorreios"),
+  ],
+  KE: [
+    c("Postal Corporation of Kenya", "http://posta.co.ke/", "customercare@posta.co.ke", "https://www.instagram.com/postakenya/", ""),
+    c("DHL Kenya", "https://www.dhl.com/ke-en/home.html", "ke.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Kenya", "https://www.fedex.com/en-ke", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Kenya", "https://www.ups.com/ke/en", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  KM: [
+    c("Comores Poste", "https://poste-comores.com/", "contact@poste-comores.km", "", ""),
+    c("DHL Comoros", "https://www.dhl.com/km-en/home.html", "km.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Comoros", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("EMS Moroni hubs", "https://www.upu.int/", "upt.contact@poste-comores.km", "", ""),
+  ],
+  LR: [
+    c("LIBPOST", "https://libpost.com.lr/", "info@libpost.com.lr", "", ""),
+    c("DHL Liberia", "https://www.dhl.com/lr-en/home.html", "lr.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Monrovia", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Liberia", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  LS: [
+    c("Lesotho Postal Services", "https://lesothopost.org.ls/", "info@post.org.ls", "", ""),
+    c("DHL Lesotho", "https://www.dhl.com/ls-en/home.html", "ls.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Lesotho Maseru", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("SA PostOffice regional trunk", "https://www.postoffice.co.za/", "custserv@postoffice.co.za", "https://www.instagram.com/sapostoffice/", "https://x.com/PostofficeSa"),
+  ],
+  LY: [
+    c("Libyan Post Company", "http://nlpc.ly/", "info@nlpc.ly", "", ""),
+    c("DHL Libya service partners", "https://www.dhl.com/ly-ar/home.html", "ly.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("Aramex Libya", "https://www.aramex.com/", "customerservicely@aramex.com", "https://www.instagram.com/aramex/", "https://x.com/aramex"),
+    c("FedEx Tripoli corridors", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+  ],
+  MA: [
+    c("Barid Al-Maghrib", "https://www.barid.ma/", "webmaster@barid.ma", "https://www.instagram.com/baridalma_", ""),
+    c("Amana Express", "https://amanacolis.ma/", "contact@amanacolis.ma", "https://www.instagram.com/amanexpress/", "https://x.com/AmanaExpress_"),
+    c("Chrono Post Morocco", "https://www.chronopost.ma/", "client@chronopost.ma", "", ""),
+    c("DHL Morocco", "https://www.dhl.com/ma-fr/home.html", "ma.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+  ],
+  MG: [
+    c("Paositra Malagasy", "http://www.poste.mg/", "contact@paositra.mg", "https://www.instagram.com/paositramalagasy/", "https://x.com/Paositra"),
+    c("Chronopost Madagascar partner", "https://www.chronopost.fr/", "commercialinternational.dealears@geopost.com", "", ""),
+    c("DHL Madagascar", "https://www.dhl.com/mg-fr/home.html", "mg.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Madagascar", "https://www.fedex.com/en-mg", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+  ],
+  ML: [
+    c("La Poste du Mali EMS", "https://www.sap.ml/", "contact@post.ml", "", ""),
+    c("DHL Mali", "https://www.dhl.com/ml-fr/home.html", "ml.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Mali Bamako", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Mali", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  MR: [
+    c("Société mauritanienne des postes (Mauripost)", "https://www.upu.int/en/Mauritania", "", "", ""),
+    c("DHL Mauritania", "https://www.dhl.com/mr-fr/home.html", "mr.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Mauritania Nouakchott", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Mauritania", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  MU: [
+    c("Mauritius Post Ltd", "https://www.mauritiuspost.mu/", "info@mpl.mu", "", ""),
+    c("DHL Mauritius", "https://www.dhl.com/mu-en/home.html", "mu.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Mauritius", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Mauritius", "https://www.ups.com/mu/fr", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  MW: [
+    c("Macpost Malawi", "https://malawipost.gov.mw/", "info@malawipost.gov.mw", "", ""),
+    c("DHL Malawi", "https://www.dhl.com/mw-en/home.html", "mw.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Malawi", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Malawi", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  MZ: [
+    c("Correios de Moçambique", "http://correios.co.mz/", "cac@correios.co.mz", "", ""),
+    c("TEX Courier", "https://www.tex.co.mz/", "info@tex.co.mz", "", ""),
+    c("DHL Mozambique", "https://www.dhl.com/mz-en/home.html", "mz.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Mozambique", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+  ],
+  NA: [
+    c("NamPost Courier", "https://nampost.na/", "customerservice@namibiapost.na", "", ""),
+    c("DHL Namibia domestic", "https://www.dhl.com/na-en/home.html", "na.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Namibia Windhoek–Walvis hubs", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Namibia desks", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  NE: [
+    c("La Poste du Niger", "https://www.nigerpost.ne/", "npn@refer.ne", "", ""),
+    c("DHL Niger", "https://www.dhl.com/ne-fr/home.html", "ne.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Niger Niamey desks", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Niger partners", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  NG: [
+    c("Nigeria Postal Service — NIPOST", "http://nipost.gov.ng/", "info@nipost.gov.ng", "https://www.instagram.com/e_nipost/", "https://x.com/e_nipost"),
+    c("GIG Logistics", "https://giglogistics.com/", "info@gigl.com", "https://www.instagram.com/gigm_logistics/", "https://x.com/gigm_logistics"),
+    c("Red Star Express / Red Star plc", "https://redstarplc.com.ng/", "info@redstarplc.com.ng", "", ""),
+    c("DHL Nigeria", "https://www.dhl.com/ng-en/home.html", "ng.customerservice@dhl.com", "https://www.instagram.com/dhlnigeria/", "https://x.com/dhlnigeria"),
+  ],
+  RW: [
+    c("Rwanda Postal Services/Iposita EMS", "https://i-posita.rw/", "info@ipostarltd.rw", "https://www.instagram.com/ipositaryw/", "https://x.com/ipositaryw"),
+    c("Mara Express (Rwanda) — regional last-mile", "", "", "", ""),
+    c("DHL Rwanda", "https://www.dhl.com/rw-en/home.html", "rw.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Rwanda Kigali", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+  ],
+  SC: [
+    c("Seychelles Postal EMS", "https://www.gov.sc/List-of-Postal-Services.aspx", "info@sib.gov.sc", "", ""),
+    c("DHL Seychelles", "https://www.dhl.com/sc-en/home.html", "sc.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Seychelles MAE", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Seychelles", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  SD: [
+    c("Sudan Postal Service parcel counters", "https://ssc.gov.sd/", "info@ssc.gov.sd", "", ""),
+    c("Aramex Sudan", "https://www.aramex.com/", "sudanoperations@aramex.com", "https://www.instagram.com/aramex/", "https://x.com/aramex"),
+    c("DHL Sudan (where operational)", "https://www.dhl.com/sd-ar/home.html", "sd.customerservice@dhl.com", "", ""),
+    c("FedEx forwarding Khartoum", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+  ],
+  SL: [
+    c("Salone Post EMS", "https://www.slpost.gov.sl/", "info@slipa.gov.sl", "", ""),
+    c("DHL Sierra Leone", "https://www.dhl.com/sl-en/home.html", "sl.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Freetown", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Sierra Leone", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  SN: [
+    c("La Poste Sénégal", "https://www.laposte.sn/", "dircom@laposte.sn", "", ""),
+    c("Chronopost Africa / Geopost Sénégal", "https://www.chronopost.fr/", "commercialinternational.dealears@geopost.com", "https://www.instagram.com/chronopost/", "https://x.com/chronopost"),
+    c("Aramex Senegal", "https://www.aramex.com/", "sn.support@aramex.com", "https://www.instagram.com/aramex/", "https://x.com/aramex"),
+    c("DHL Senegal", "https://www.dhl.com/sn-fr/home.html", "sn.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+  ],
+  SO: [
+    c("Somali Postal Service pilots", "https://www.upu.int/en/Somalia", "minister@mpt.gov.so", "", ""),
+    c("DHL Somalia Mogadishu partners", "https://www.dhl.com/so-en/home.html", "so.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("DaruSalam Express", "https://www.darusalemcargo.com/", "info@darusalemcargo.com", "", ""),
+    c("Aramex Horn of Africa corridors", "https://www.aramex.com/", "support@aramex.com", "https://www.instagram.com/aramex/", "https://x.com/aramex"),
+  ],
+  SS: [
+    c("South Sudan Post", "http://ssscc.org/", "sssccngo@gmail.com", "", ""),
+    c("DHL South Sudan", "https://www.dhl.com/ss-en/home.html", "ss.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Juba corridors", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS South Sudan NGOs", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  ST: [
+    c("Empresa de Correios de São Tomé e Príncipe", "https://www.correios.st/", "cac@correios.st", "", ""),
+    c("DHL Sao Tome", "https://www.dhl.com/st-en/home.html", "st.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx STP desks", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("EMS TAP cargo smalls desks", "https://www.flytap.com/", "customerservice@flytap.com", "https://www.instagram.com/tapairportugal/", "https://x.com/tapairportugal"),
+  ],
+  SZ: [
+    c("Eswatini Posts & Telecommunications Corporation", "https://www.eswatinipost.co.sz/", "info@post.co.sz", "", ""),
+    c("DHL Eswatini", "https://www.dhl.com/sz-en/home.html", "sz.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Eswatini", "https://www.fedex.com/en-sz", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("SA Post Office cross-border (regional)", "https://www.postoffice.co.za/", "custserv@postoffice.co.za", "https://www.instagram.com/sapostoffice/", "https://x.com/PostofficeSa"),
+  ],
+  TD: [
+    c("Direction générale du courrier SCET (La Poste Tchadienne)", "https://www.laposte.td/", "contact@laposte.td", "", ""),
+    c("DHL Chad", "https://www.dhl.com/td-en/home.html", "td.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Chad partners", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Chad contractors", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  TG: [
+    c("La Poste du Togo", "https://www.laposte.tg/", "contact@laposte.tg", "", ""),
+    c("DHL Togo", "https://www.dhl.com/tg-fr/home.html", "tg.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Lomé", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Togo Lomé corridors", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  TN: [
+    c("Rapid-Poste (La Poste Tunisia)", "https://www.pos.tn/", "contact@rapidpost.com.tn", "https://www.instagram.com/rapidpostenetunisienne/", "https://x.com/RapidposteTN"),
+    c("Aramex Tunisia", "https://www.aramex.com/", "customerservicetn@aramex.com", "https://www.instagram.com/aramex/", "https://x.com/aramex"),
+    c("DHL Tunisia", "https://www.dhl.com/tn-en/home.html", "tn.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Tunisia", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+  ],
+  TZ: [
+    c("Tanzania Posts Corporation EMS", "https://posta.co.tz/", "info@tpoc.co.tz", "", ""),
+    c("DHL Tanzania", "https://www.dhl.com/tz-en/home.html", "tz.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Tanzania hubs", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Tanzania Dar es Salaam", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  UG: [
+    c("Uganda Post EMS", "https://www.eposta.ug/", "info@posta.co.ug", "https://www.instagram.com/ugposts/", ""),
+    c("DHL Uganda", "https://www.dhl.com/ug-en/home.html", "ug.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Kampala hubs", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Uganda corridor", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  ZA: [
+    c("South African Post Office", "http://www.postoffice.co.za/", "custserv@postoffice.co.za", "https://www.instagram.com/sapostoffice/", "https://x.com/PostofficeSa"),
+    c("The Courier Guy", "https://thecourierguy.co.za/", "support@thecourierguy.co.za", "https://www.instagram.com/thecourierguy/", "https://x.com/thecourier_guy"),
+    c("Dawn Wing (DHL ecommerce)", "https://www.dw.co.za/", "customer.service@dw.co.za", "https://www.instagram.com/dawnwing/", "https://x.com/Dawnwing"),
+    c("Aramex South Africa domestic", "https://www.aramex.co.za/", "customerservicesa@aramex.co", "https://www.instagram.com/aramex/", "https://x.com/aramex"),
+  ],
+  ZM: [
+    c("Zambia Postal Services", "http://www.zampost.gov.zm/", "info.zampost@gmail.com", "", ""),
+    c("DHL Zambia", "https://www.dhl.com/zm-en/home.html", "zm.customerservice@dhl.com", "https://www.instagram.com/dhlexpress/", "https://x.com/DHLexpress"),
+    c("FedEx Ndola corridor", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("UPS Zambia desks", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+  ZW: [
+    c("Zimpost", "http://www.zimpost.co.zw/", "zimpost@zimpost.co.zw", "https://www.instagram.com/zimpost_/", ""),
+    c("FedEx Zimbabwe partners", "https://www.fedex.com/", "support@fedex.com", "https://www.instagram.com/fedex/", "https://x.com/FedEx"),
+    c("DHL Zimbabwe", "https://www.dhl.com/zw-en/home.html", "zw.customerservice@dhl.com", "", ""),
+    c("UPS Zimbabwe corridors", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS"),
+  ],
+} satisfies Record<string, DomesticCourierService[]>

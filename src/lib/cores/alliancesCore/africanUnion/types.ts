@@ -4,6 +4,15 @@
 
 export type AfricanUnionMembership = 'member' | 'suspended'
 
+/** National / domestic courier row (informational; verify URLs and handles before production). */
+export interface DomesticCourierService {
+  name: string
+  website: string
+  email: string
+  instagram: string
+  twitter: string
+}
+
 export interface AfricanUnionCountry {
   /** Display name */
   name: string
@@ -29,6 +38,8 @@ export interface AfricanUnionCountry {
   cryptocurrencyExchanges: string[]
   /** Common stablecoin usage or locally relevant notes (not legal tender unless stated). */
   stablecoin: string
+  /** Domestic / national courier or parcel carriers with public contact hints (verify locally). */
+  domesticCourierServices: DomesticCourierService[]
   stockExchange: string
 }
 

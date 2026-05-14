@@ -1,4 +1,5 @@
 import type { AmuCountry } from './types'
+import { AMU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const algeria: AmuCountry = {
   name: 'Algeria',
@@ -16,5 +17,6 @@ export const algeria: AmuCountry = {
   currentLeader: 'Abdelmadjid Tebboune (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'KuCoin', 'Regional OTC brokers'],
   stablecoin: 'USDT / USDC common in informal crypto markets; no official DZD stablecoin',
+  domesticCourierServices: AMU_DOMESTIC_COURIERS['DZ'],
   stockExchange: 'Algiers Stock Exchange',
 }

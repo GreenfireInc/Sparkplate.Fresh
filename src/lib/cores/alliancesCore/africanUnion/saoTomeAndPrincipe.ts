@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const saoTomeAndPrincipe: AfricanUnionCountry = {
   name: 'São Tomé and Príncipe',
   iso3166Alpha2: 'ST',
@@ -16,5 +16,6 @@ export const saoTomeAndPrincipe: AfricanUnionCountry = {
   currentLeader: 'Carlos Vila Nova (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'European brokers', 'OTC'],
   stablecoin: 'EUR/USD-linked assets informal; STN',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['ST'],
   stockExchange: 'Bolsa de Valores de São Tomé e Príncipe (limited)',
 }

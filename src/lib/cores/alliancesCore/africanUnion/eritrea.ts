@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const eritrea: AfricanUnionCountry = {
   name: 'Eritrea',
   iso3166Alpha2: 'ER',
@@ -16,5 +16,6 @@ export const eritrea: AfricanUnionCountry = {
   currentLeader: 'Isaias Afwerki (President)',
   cryptocurrencyExchanges: ['Limited formal venues; diaspora P2P', 'Binance (P2P, informal)'],
   stablecoin: 'USDT minimal formal access; cash economy strong',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['ER'],
   stockExchange: 'No public stock exchange',
 }

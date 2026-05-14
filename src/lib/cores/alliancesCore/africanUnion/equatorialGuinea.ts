@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const equatorialGuinea: AfricanUnionCountry = {
   name: 'Equatorial Guinea',
   iso3166Alpha2: 'GQ',
@@ -16,5 +16,6 @@ export const equatorialGuinea: AfricanUnionCountry = {
   currentLeader: 'Teodoro Obiang Nguema Mbasogo (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'OTC', 'International brokers'],
   stablecoin: 'USDT informal; XAF peg',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['GQ'],
   stockExchange: 'CEMAC regional market (limited local listings)',
 }

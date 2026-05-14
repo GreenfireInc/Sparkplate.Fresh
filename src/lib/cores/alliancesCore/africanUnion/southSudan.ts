@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const southSudan: AfricanUnionCountry = {
   name: 'South Sudan',
   iso3166Alpha2: 'SS',
@@ -16,5 +16,6 @@ export const southSudan: AfricanUnionCountry = {
   currentLeader: 'Salva Kiir Mayardit (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Informal P2P', 'Diaspora OTC'],
   stablecoin: 'USDT informal; humanitarian USD economy',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['SS'],
   stockExchange: 'Juba Stock Exchange (nascent / limited)',
 }

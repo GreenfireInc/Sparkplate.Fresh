@@ -4,6 +4,15 @@
 
 export type AllianceOfSahelStatesMembership = 'founding_member'
 
+/** Domestic / national courier row (informational; verify URLs and handles before production). */
+export interface DomesticCourierService {
+  name: string
+  website: string
+  email: string
+  instagram: string
+  twitter: string
+}
+
 export interface AllianceOfSahelStatesCountry {
   name: string
   iso3166Alpha2: string
@@ -20,6 +29,8 @@ export interface AllianceOfSahelStatesCountry {
   currentLeader: string
   cryptocurrencyExchanges: string[]
   stablecoin: string
+  /** Domestic / national courier or parcel carriers with public contact hints (verify locally). */
+  domesticCourierServices: DomesticCourierService[]
   stockExchange: string
 }
 

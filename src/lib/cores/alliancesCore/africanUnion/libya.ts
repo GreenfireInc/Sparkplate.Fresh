@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const libya: AfricanUnionCountry = {
   name: 'Libya',
   iso3166Alpha2: 'LY',
@@ -16,5 +16,6 @@ export const libya: AfricanUnionCountry = {
   currentLeader: 'Mohamed al-Menfi (Chair, Presidential Council — GNU Tripoli)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC; fragmented regulatory environment'],
   stablecoin: 'USDT informal; banking fragmentation',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['LY'],
   stockExchange: 'Libyan Stock Market (limited operations)',
 }

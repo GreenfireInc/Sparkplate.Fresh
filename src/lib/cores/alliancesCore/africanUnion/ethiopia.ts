@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const ethiopia: AfricanUnionCountry = {
   name: 'Ethiopia',
   iso3166Alpha2: 'ET',
@@ -16,5 +16,6 @@ export const ethiopia: AfricanUnionCountry = {
   currentLeader: 'Abiy Ahmed (Prime Minister)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC P2P; National Bank cautious on crypto',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['ET'],
   stockExchange: 'Ethiopian Securities Exchange (launch context varies)',
 }

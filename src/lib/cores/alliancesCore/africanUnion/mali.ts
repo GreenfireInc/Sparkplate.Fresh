@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const mali: AfricanUnionCountry = {
   name: 'Mali',
   iso3166Alpha2: 'ML',
@@ -16,5 +16,6 @@ export const mali: AfricanUnionCountry = {
   currentLeader: 'Assimi Goïta (Colonel; transitional leadership)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'OTC'],
   stablecoin: 'USDT P2P; XOF peg',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['ML'],
   stockExchange: 'Bourse des Valeurs du Mali (limited)',
 }

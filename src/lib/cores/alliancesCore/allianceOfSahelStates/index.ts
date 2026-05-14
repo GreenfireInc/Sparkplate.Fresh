@@ -2,6 +2,7 @@ export type {
   AllianceOfSahelStatesCountry,
   AllianceOfSahelStatesMembership,
   AllianceOfSahelStatesOrganizationInfo,
+  DomesticCourierService,
 } from './types'
 
 import type { AllianceOfSahelStatesCountry, AllianceOfSahelStatesOrganizationInfo } from './types'

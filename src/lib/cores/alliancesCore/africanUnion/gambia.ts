@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const gambia: AfricanUnionCountry = {
   name: 'The Gambia',
   iso3166Alpha2: 'GM',
@@ -16,5 +16,6 @@ export const gambia: AfricanUnionCountry = {
   currentLeader: 'Adama Barrow (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex (diaspora)'],
   stablecoin: 'USDT / USDC P2P',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['GM'],
   stockExchange: 'Gambia Stock Exchange (limited)',
 }

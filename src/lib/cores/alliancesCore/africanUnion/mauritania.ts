@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const mauritania: AfricanUnionCountry = {
   name: 'Mauritania',
   iso3166Alpha2: 'MR',
@@ -16,5 +16,6 @@ export const mauritania: AfricanUnionCountry = {
   currentLeader: 'Mohamed Ould Ghazouani (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC', 'Peer-to-peer networks'],
   stablecoin: 'USDT informal; no MRU stablecoin',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['MR'],
   stockExchange: 'Bourse Notation Agréée (limited)',
 }

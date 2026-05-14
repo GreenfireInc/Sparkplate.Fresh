@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const benin: AfricanUnionCountry = {
   name: 'Benin',
   iso3166Alpha2: 'BJ',
@@ -16,5 +16,6 @@ export const benin: AfricanUnionCountry = {
   currentLeader: 'Patrice Talon (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local brokers'],
   stablecoin: 'USDT common in informal trade; XOF pegged to euro via CFA',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['BJ'],
   stockExchange: 'Regional Securities Exchange (BRVM) — Abidjan (Benin listed)',
 }

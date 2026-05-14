@@ -1,4 +1,5 @@
 import type { AllianceOfSahelStatesCountry } from './types'
+import { AES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const burkinaFaso: AllianceOfSahelStatesCountry = {
   name: 'Burkina Faso',
@@ -16,5 +17,6 @@ export const burkinaFaso: AllianceOfSahelStatesCountry = {
   currentLeader: 'Ibrahim Traoré (Transitional President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Informal P2P'],
   stablecoin: 'USDT via P2P; XOF CFA peg',
+  domesticCourierServices: AES_DOMESTIC_COURIERS['BF'],
   stockExchange: 'Burkina Faso — BRVM listings (limited local activity)',
 }

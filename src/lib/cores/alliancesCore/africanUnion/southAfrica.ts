@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const southAfrica: AfricanUnionCountry = {
   name: 'South Africa',
   iso3166Alpha2: 'ZA',
@@ -16,5 +16,6 @@ export const southAfrica: AfricanUnionCountry = {
   currentLeader: 'Cyril Ramaphosa (President)',
   cryptocurrencyExchanges: ['Luno', 'VALR', 'Binance (P2P)', 'ICE3 (historical)'],
   stablecoin: 'USDT / USDC; ZARP (rand-referenced stable token, private)',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['ZA'],
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
 }

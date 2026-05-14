@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const madagascar: AfricanUnionCountry = {
   name: 'Madagascar',
   iso3166Alpha2: 'MG',
@@ -16,5 +16,6 @@ export const madagascar: AfricanUnionCountry = {
   currentLeader: 'Andry Rajoelina (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Local P2P', 'International brokers'],
   stablecoin: 'USDT informal; no MGA stablecoin',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['MG'],
   stockExchange: 'Madagascar Stock Exchange (SEM)',
 }

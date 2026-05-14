@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const comoros: AfricanUnionCountry = {
   name: 'Comoros',
   iso3166Alpha2: 'KM',
@@ -16,5 +16,6 @@ export const comoros: AfricanUnionCountry = {
   currentLeader: 'Azali Assoumani (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional mobile money bridges'],
   stablecoin: 'USDT / USDC limited; KMF',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['KM'],
   stockExchange: 'No major national stock exchange',
 }

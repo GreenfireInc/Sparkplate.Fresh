@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const capeVerde: AfricanUnionCountry = {
   name: 'Cape Verde',
   iso3166Alpha2: 'CV',
@@ -16,5 +16,6 @@ export const capeVerde: AfricanUnionCountry = {
   currentLeader: 'José Maria Neves (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'European-facing brokers'],
   stablecoin: 'EUR-linked usage; USDT via international apps',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['CV'],
   stockExchange: 'Bolsa de Valores de Cabo Verde (limited listings)',
 }

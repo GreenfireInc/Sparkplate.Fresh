@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const tunisia: AfricanUnionCountry = {
   name: 'Tunisia',
   iso3166Alpha2: 'TN',
@@ -16,5 +16,6 @@ export const tunisia: AfricanUnionCountry = {
   currentLeader: 'Kais Saied (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional brokers', 'OTC'],
   stablecoin: 'USDT informal; e-dinar discussions',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['TN'],
   stockExchange: 'Bourse de Tunis',
 }

@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const niger: AfricanUnionCountry = {
   name: 'Niger',
   iso3166Alpha2: 'NE',
@@ -16,5 +16,6 @@ export const niger: AfricanUnionCountry = {
   currentLeader: 'Abdourahamane Tchiani (General; National Council for the Safeguard of the Homeland)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'OTC'],
   stablecoin: 'USDT P2P; XOF peg',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['NE'],
   stockExchange: 'No liquid national bourse; BRVM regional',
 }

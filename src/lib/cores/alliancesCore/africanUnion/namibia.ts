@@ -1,5 +1,5 @@
 import type { AfricanUnionCountry } from './types'
-
+import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 export const namibia: AfricanUnionCountry = {
   name: 'Namibia',
   iso3166Alpha2: 'NA',
@@ -16,5 +16,6 @@ export const namibia: AfricanUnionCountry = {
   currentLeader: 'Netumbo Nandi-Ndaitwah (President)',
   cryptocurrencyExchanges: ['Luno', 'VALR', 'Binance (P2P)'],
   stablecoin: 'USDT via South African-linked banking',
+  domesticCourierServices: AU_DOMESTIC_COURIERS['NA'],
   stockExchange: 'Namibia Stock Exchange (NSX)',
 }
