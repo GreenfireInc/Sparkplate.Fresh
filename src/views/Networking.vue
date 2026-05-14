@@ -1,131 +1,190 @@
 <template>
-  <div class="net-view">
-    <div class="net-content">
-      <h1 class="net-title">Network Discovery</h1>
-      <p class="net-subtitle">
-        Discover other Sparkplate instances running on your local network
+  <div class="nt-view">
+    <header class="nt-view__header">
+      <h1 class="nt-view__title">
+        <Network :size="22" class="nt-view__title-icon" aria-hidden="true" />
+        Network discovery
+      </h1>
+      <p class="nt-view__subtitle">
+        Inspect local networking status, run discovery, and review instances and logs — fits the main panel; only tab content scrolls.
       </p>
+    </header>
 
-      <div class="net-grid net-grid--top">
-        <div class="net-card">
-          <h3 class="net-card-header">Network Status</h3>
-          <div class="net-card-row">
-            <div class="net-card-main">
-              <NetworkStatus :vertical="true" :showLocalIp="true" :showPublicIp="true" :showCountry="false" />
-            </div>
-            <div class="net-machine">
-              <div class="net-machine-icon-wrap">
-                <i class="bi bi-pc-display net-machine-icon" aria-hidden />
-              </div>
-              <p class="net-machine-prompt">{{ machinePrompt }}</p>
-            </div>
-          </div>
-        </div>
+    <Separator class="nt-view__separator" />
 
-        <div class="net-card">
-          <h3 class="net-card-header">Discovery Controls</h3>
-          <div class="net-actions">
-            <button
-              type="button"
-              class="net-btn net-btn--primary"
-              :disabled="isScanning"
-              @click="startDiscovery"
-            >
-              {{ isScanning ? 'Scanning...' : 'Start Network Scan' }}
-            </button>
-            <button
-              type="button"
-              class="net-btn net-btn--secondary"
-              @click="refreshInstances"
-            >
-              Refresh List
-            </button>
-          </div>
-        </div>
-      </div>
+    <section class="nt-view__section" aria-label="Network tools">
+      <TabsRoot v-model="activeTab" class="nt-tabs">
+        <TabsList class="nt-tabs__list" aria-label="Network sections">
+          <TabsTrigger value="overview" class="nt-tabs__trigger">
+            <Network :size="14" class="nt-tabs__icon" aria-hidden="true" />
+            Overview
+          </TabsTrigger>
+          <TabsTrigger value="instances" class="nt-tabs__trigger">
+            <Server :size="14" class="nt-tabs__icon" aria-hidden="true" />
+            Instances
+            <span v-if="discoveredInstances.length" class="nt-tabs__badge">{{ discoveredInstances.length }}</span>
+          </TabsTrigger>
+          <TabsTrigger value="log" class="nt-tabs__trigger">
+            <ScrollText :size="14" class="nt-tabs__icon" aria-hidden="true" />
+            Log
+            <span v-if="connectionLog.length" class="nt-tabs__badge nt-tabs__badge--muted">{{ connectionLog.length }}</span>
+          </TabsTrigger>
+        </TabsList>
 
-      <div class="net-card">
-        <h3 class="net-card-header">Discovered Instances ({{ discoveredInstances.length }})</h3>
+        <div class="nt-panel-shell">
+          <TabsContent value="overview" class="nt-tabs__panel">
+            <div class="nt-scroll nt-scroll--pad">
+              <div class="nt-grid nt-grid--top">
+                <div class="nt-card">
+                  <h3 class="nt-card-header">Network status</h3>
+                  <div class="nt-card-row">
+                    <div class="nt-card-main">
+                      <NetworkStatus
+                        :vertical="true"
+                        :show-local-ip="true"
+                        :show-public-ip="true"
+                        :show-country="false"
+                      />
+                    </div>
+                    <div class="nt-machine">
+                      <div class="nt-machine-icon-wrap">
+                        <Monitor :size="28" class="nt-machine-icon-lu" aria-hidden="true" />
+                      </div>
+                      <p class="nt-machine-prompt">{{ machinePrompt }}</p>
+                    </div>
+                  </div>
+                </div>
 
-        <div v-if="discoveredInstances.length === 0" class="net-empty">
-          <p>No Sparkplate instances found on the network.</p>
-          <p>Click "Start Network Scan" to search for instances.</p>
-        </div>
-
-        <div v-else class="net-grid net-grid--instances">
-          <div
-            v-for="instance in discoveredInstances"
-            :key="instance.id"
-            class="net-instance"
-          >
-            <div class="net-instance-header">
-              <h4 class="net-instance-name">{{ instance.name }}</h4>
-              <span class="net-instance-badge" :class="instance.online ? 'net-instance-badge--online' : 'net-instance-badge--offline'">
-                {{ instance.online ? 'Online' : 'Offline' }}
-              </span>
-            </div>
-            <div class="net-instance-details">
-              <div class="net-instance-row">
-                <span class="net-instance-label">IP:</span>
-                <span class="net-instance-value">{{ instance.ip }}</span>
-              </div>
-              <div class="net-instance-row">
-                <span class="net-instance-label">Port:</span>
-                <span class="net-instance-value">{{ instance.port }}</span>
-              </div>
-              <div class="net-instance-row">
-                <span class="net-instance-label">Version:</span>
-                <span class="net-instance-value">{{ instance.version }}</span>
-              </div>
-              <div class="net-instance-row">
-                <span class="net-instance-label">Last Seen:</span>
-                <span class="net-instance-value">{{ formatTime(instance.lastSeen) }}</span>
+                <div class="nt-card">
+                  <h3 class="nt-card-header">Discovery controls</h3>
+                  <div class="nt-actions">
+                    <button
+                      type="button"
+                      class="nt-btn nt-btn--primary"
+                      :disabled="isScanning"
+                      @click="startDiscovery"
+                    >
+                      {{ isScanning ? 'Scanning…' : 'Start network scan' }}
+                    </button>
+                    <button
+                      type="button"
+                      class="nt-btn nt-btn--secondary"
+                      @click="refreshInstances"
+                    >
+                      Refresh list
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="net-instance-actions">
-              <button
-                type="button"
-                class="net-btn net-btn--sm net-btn--primary"
-                :disabled="!instance.online"
-                @click="connectToInstance(instance)"
-              >
-                Connect
-              </button>
-              <button
-                type="button"
-                class="net-btn net-btn--sm net-btn--secondary"
-                @click="pingInstance(instance)"
-              >
-                Ping
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+          </TabsContent>
 
-      <div class="net-card">
-        <h3 class="net-card-header">Connection Log</h3>
-        <div class="net-log">
-          <div
-            v-for="(log, index) in connectionLog"
-            :key="index"
-            class="net-log-entry"
-            :class="`net-log-entry--${log.type}`"
-          >
-            <span class="net-log-time">{{ formatTime(log.timestamp) }}</span>
-            <span class="net-log-msg">{{ log.message }}</span>
-          </div>
+          <TabsContent value="instances" class="nt-tabs__panel">
+            <div class="nt-scroll nt-scroll--pad">
+              <div class="nt-card nt-card--flush">
+                <h3 class="nt-card-header">Discovered instances ({{ discoveredInstances.length }})</h3>
+
+                <div v-if="discoveredInstances.length === 0" class="nt-empty">
+                  <p>No Sparkplate instances found on the network.</p>
+                  <p>Use <strong>Start network scan</strong> on the Overview tab.</p>
+                </div>
+
+                <div v-else class="nt-grid nt-grid--instances">
+                  <div
+                    v-for="instance in discoveredInstances"
+                    :key="instance.id"
+                    class="nt-instance"
+                  >
+                    <div class="nt-instance-header">
+                      <h4 class="nt-instance-name">{{ instance.name }}</h4>
+                      <span
+                        class="nt-instance-badge"
+                        :class="instance.online ? 'nt-instance-badge--online' : 'nt-instance-badge--offline'"
+                      >
+                        {{ instance.online ? 'Online' : 'Offline' }}
+                      </span>
+                    </div>
+                    <div class="nt-instance-details">
+                      <div class="nt-instance-row">
+                        <span class="nt-instance-label">IP</span>
+                        <span class="nt-instance-value">{{ instance.ip }}</span>
+                      </div>
+                      <div class="nt-instance-row">
+                        <span class="nt-instance-label">Port</span>
+                        <span class="nt-instance-value">{{ instance.port }}</span>
+                      </div>
+                      <div class="nt-instance-row">
+                        <span class="nt-instance-label">Version</span>
+                        <span class="nt-instance-value">{{ instance.version }}</span>
+                      </div>
+                      <div class="nt-instance-row">
+                        <span class="nt-instance-label">Last seen</span>
+                        <span class="nt-instance-value">{{ formatTime(instance.lastSeen) }}</span>
+                      </div>
+                    </div>
+                    <div class="nt-instance-actions">
+                      <button
+                        type="button"
+                        class="nt-btn nt-btn--sm nt-btn--primary"
+                        :disabled="!instance.online"
+                        @click="connectToInstance(instance)"
+                      >
+                        Connect
+                      </button>
+                      <button
+                        type="button"
+                        class="nt-btn nt-btn--sm nt-btn--secondary"
+                        @click="pingInstance(instance)"
+                      >
+                        Ping
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="log" class="nt-tabs__panel">
+            <div class="nt-log-panel">
+              <div class="nt-card nt-card--flush nt-log-panel__card">
+                <h3 class="nt-card-header">Connection log</h3>
+                <div class="nt-log">
+                  <div
+                    v-for="(log, index) in connectionLog"
+                    :key="index"
+                    class="nt-log-entry"
+                    :class="`nt-log-entry--${log.type}`"
+                  >
+                    <span class="nt-log-time">{{ formatTime(log.timestamp) }}</span>
+                    <span class="nt-log-msg">{{ log.message }}</span>
+                  </div>
+                  <p v-if="connectionLog.length === 0" class="nt-log-empty">No log entries yet.</p>
+                </div>
+              </div>
+            </div>
+          </TabsContent>
         </div>
-      </div>
-    </div>
+      </TabsRoot>
+    </section>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import {
+  TabsRoot,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+  Separator,
+} from 'radix-vue'
+import { Network, Server, ScrollText, Monitor } from 'lucide-vue-next'
 import NetworkStatus from '@/components/global/NetworkStatus.vue'
 
 defineOptions({ name: 'Networking' })
+
+const activeTab = ref<'overview' | 'instances' | 'log'>('overview')
 
 const machinePrompt = computed(() => {
   const hostname = window.appData?.hostname ?? ''
@@ -150,12 +209,6 @@ interface LogEntry {
   message: string
 }
 
-const networkStatus = ref({
-  connected: true,
-  localIP: '192.168.1.100',
-  port: 3344
-})
-
 const isScanning = ref(false)
 const discoveredInstances = ref<NetworkInstance[]>([])
 const connectionLog = ref<LogEntry[]>([])
@@ -164,7 +217,7 @@ const addLog = (type: LogEntry['type'], message: string) => {
   connectionLog.value.unshift({
     timestamp: new Date(),
     type,
-    message
+    message,
   })
   if (connectionLog.value.length > 50) {
     connectionLog.value = connectionLog.value.slice(0, 50)
@@ -173,10 +226,10 @@ const addLog = (type: LogEntry['type'], message: string) => {
 
 const startDiscovery = async () => {
   isScanning.value = true
-  addLog('info', 'Starting network discovery...')
+  addLog('info', 'Starting network discovery…')
 
   try {
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    await new Promise((resolve) => setTimeout(resolve, 2000))
 
     const mockInstances: NetworkInstance[] = [
       {
@@ -186,7 +239,7 @@ const startDiscovery = async () => {
         port: 3344,
         version: '2.0.0',
         online: true,
-        lastSeen: new Date()
+        lastSeen: new Date(),
       },
       {
         id: '2',
@@ -195,29 +248,31 @@ const startDiscovery = async () => {
         port: 3345,
         version: '1.9.5',
         online: true,
-        lastSeen: new Date(Date.now() - 60000)
-      }
+        lastSeen: new Date(Date.now() - 60000),
+      },
     ]
 
     discoveredInstances.value = mockInstances
     addLog('success', `Discovery complete. Found ${mockInstances.length} instances.`)
+    activeTab.value = 'instances'
   } catch (error) {
-    addLog('error', 'Network discovery failed: ' + (error as Error).message)
+    addLog('error', `Network discovery failed: ${(error as Error).message}`)
   } finally {
     isScanning.value = false
   }
 }
 
 const refreshInstances = () => {
-  addLog('info', 'Refreshing instance list...')
-  discoveredInstances.value.forEach(instance => {
+  addLog('info', 'Refreshing instance list…')
+  discoveredInstances.value.forEach((instance) => {
     instance.lastSeen = new Date()
   })
   addLog('success', 'Instance list refreshed.')
 }
 
 const connectToInstance = (instance: NetworkInstance) => {
-  addLog('info', `Attempting to connect to ${instance.name} (${instance.ip}:${instance.port})...`)
+  addLog('info', `Attempting to connect to ${instance.name} (${instance.ip}:${instance.port})…`)
+  activeTab.value = 'log'
   setTimeout(() => {
     if (Math.random() > 0.3) {
       addLog('success', `Successfully connected to ${instance.name}`)
@@ -228,16 +283,15 @@ const connectToInstance = (instance: NetworkInstance) => {
 }
 
 const pingInstance = (instance: NetworkInstance) => {
-  addLog('info', `Pinging ${instance.name}...`)
+  addLog('info', `Pinging ${instance.name}…`)
+  activeTab.value = 'log'
   setTimeout(() => {
     const latency = Math.floor(Math.random() * 100) + 10
     addLog('success', `Ping to ${instance.name}: ${latency}ms`)
   }, 500)
 }
 
-const formatTime = (date: Date) => {
-  return date.toLocaleTimeString()
-}
+const formatTime = (date: Date) => date.toLocaleTimeString()
 
 onMounted(() => {
   addLog('info', 'Network discovery module initialized')
@@ -245,138 +299,301 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.net-view {
+.nt-view {
   height: 100%;
-  overflow-y: auto;
-  padding: 1.5rem;
+  max-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   min-height: 0;
+  padding: 0.75rem 1.25rem 0.75rem;
+  box-sizing: border-box;
   background: #fff;
+  font-family: inherit;
+  color: #111827;
 }
 
-.net-content {
-  max-width: 64rem;
-  margin: 0 auto;
+.nt-view__header {
+  flex-shrink: 0;
+  margin-bottom: 0.5rem;
 }
 
-.net-title {
-  font-size: 1.5rem;
+.nt-view__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.375rem;
   font-weight: 700;
-  text-align: center;
-  margin: 0 0 0.5rem;
-  color: #1f2937;
+  margin: 0 0 0.25rem;
 }
 
-.net-subtitle {
-  font-size: 1rem;
-  text-align: center;
-  margin: 0 0 1.5rem;
+.nt-view__title-icon {
+  flex-shrink: 0;
+  color: #4b5563;
+}
+
+.nt-view__subtitle {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
   color: #6b7280;
+  max-width: 44rem;
 }
 
-/* ── Cards ───────────────────────────────────────────────────────────────── */
-.net-card {
+.nt-view__separator {
+  flex-shrink: 0;
+  height: 1px;
+  margin: 0 0 0.5rem;
+  background: #e5e7eb;
+}
+
+.nt-view__section {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background: #f9fafb;
+  overflow: hidden;
+}
+
+.nt-tabs {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.nt-tabs__list {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  border-bottom: 1px solid #d1d5db;
+  padding: 0 0.65rem;
+  background: #f9fafb;
+}
+
+.nt-tabs__trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.75rem;
+  border: none;
+  background: none;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.15s;
+
+  &:hover {
+    color: #111827;
+  }
+
+  &[data-state='active'] {
+    color: #2563eb;
+    font-weight: 600;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #2563eb;
+      border-radius: 1px;
+    }
+  }
+}
+
+.nt-tabs__icon {
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.nt-tabs__badge {
+  margin-left: 0.15rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  background: #dbeafe;
+  color: #1d4ed8;
+  line-height: 1.4;
+
+  &--muted {
+    background: #e5e7eb;
+    color: #4b5563;
+  }
+}
+
+.nt-panel-shell {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.nt-tabs__panel {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  outline: none;
+
+  &:focus-visible {
+    box-shadow: inset 0 0 0 2px rgba(37, 99, 235, 0.35);
+  }
+}
+
+.nt-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nt-scroll--pad {
+  padding: 0.65rem 0.85rem 0.85rem;
+  box-sizing: border-box;
+}
+
+.nt-log-panel {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0.65rem 0.85rem 0.85rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.nt-log-panel__card {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.nt-card {
   background: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 0.5rem;
-  padding: 1.25rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.1rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+
+  &--flush {
+    margin: 0;
+    height: 100%;
+    min-height: 0;
+  }
 }
 
-.net-card-header {
-  font-size: 1rem;
+.nt-card-header {
+  flex-shrink: 0;
+  font-size: 0.9375rem;
   font-weight: 600;
-  margin: 0 0 1rem;
-  color: #1f2937;
+  margin: 0 0 0.85rem;
+  color: #111827;
 }
 
-.net-card-row {
+.nt-card-row {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
-.net-card-main {
+.nt-card-main {
   flex: 1;
   min-width: 0;
 }
 
-.net-machine {
+.nt-machine {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
   flex-shrink: 0;
 }
 
-.net-machine-icon-wrap {
+.nt-machine-icon-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.net-machine-icon {
-  font-size: 1.75rem;
+.nt-machine-icon-lu {
   color: #6b7280;
 }
 
-.net-machine-prompt {
+.nt-machine-prompt {
   font-family: ui-monospace, 'Cascadia Code', monospace;
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   font-weight: 600;
-  color: #1f2937;
+  color: #111827;
   margin: 0;
   word-break: break-all;
+  text-align: center;
+  max-width: 12rem;
 }
 
-/* ── Grid ─────────────────────────────────────────────────────────────────── */
-.net-grid {
+.nt-grid {
   display: grid;
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
-.net-grid--top {
+.nt-grid--top {
   grid-template-columns: 1fr;
-  margin-bottom: 1rem;
 }
 
 @media (min-width: 48rem) {
-  .net-grid--top {
+  .nt-grid--top {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-.net-grid--instances {
+.nt-grid--instances {
   grid-template-columns: 1fr;
 }
 
 @media (min-width: 48rem) {
-  .net-grid--instances {
+  .nt-grid--instances {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (min-width: 64rem) {
-  .net-grid--instances {
-    grid-template-columns: 1fr 1fr 1fr;
+  .nt-grid--instances {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* ── Actions ─────────────────────────────────────────────────────────────── */
-.net-actions {
+.nt-actions {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.net-btn {
-  padding: 0.625rem 1rem;
+.nt-btn {
+  padding: 0.5rem 0.85rem;
   border-radius: 0.375rem;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
-  transition: background 0.15s, opacity 0.15s;
+  font-family: inherit;
+  transition: background 0.15s, border-color 0.15s, opacity 0.15s;
 
   &:disabled {
     opacity: 0.5;
@@ -384,38 +601,40 @@ onMounted(() => {
   }
 
   &--primary {
-    background: var(--net-accent, #3b82f6);
+    background: #2563eb;
+    border-color: #2563eb;
     color: #fff;
 
     &:hover:not(:disabled) {
-      background: var(--net-accent-hover, #2563eb);
+      background: #1d4ed8;
+      border-color: #1d4ed8;
     }
   }
 
   &--secondary {
-    background: #e5e7eb;
+    background: #fff;
+    border-color: #d1d5db;
     color: #374151;
 
     &:hover:not(:disabled) {
-      background: #d1d5db;
+      background: #f9fafb;
     }
   }
 
   &--sm {
-    padding: 0.375rem 0.75rem;
-    font-size: 0.8125rem;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.75rem;
   }
 }
 
-/* ── Empty state ───────────────────────────────────────────────────────────── */
-.net-empty {
+.nt-empty {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem;
   color: #6b7280;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
 
   p {
-    margin: 0 0 0.25rem;
+    margin: 0 0 0.35rem;
 
     &:last-child {
       margin-bottom: 0;
@@ -423,33 +642,34 @@ onMounted(() => {
   }
 }
 
-/* ── Instances ────────────────────────────────────────────────────────────── */
-.net-instance {
-  background: #f9fafb;
+.nt-instance {
+  background: #fafafa;
   border: 1px solid #e5e7eb;
   border-radius: 0.375rem;
-  padding: 1rem;
+  padding: 0.85rem;
 }
 
-.net-instance-header {
+.nt-instance-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
+  gap: 0.5rem;
 }
 
-.net-instance-name {
-  font-size: 0.9375rem;
+.nt-instance-name {
+  font-size: 0.875rem;
   font-weight: 600;
   margin: 0;
-  color: #1f2937;
+  color: #111827;
 }
 
-.net-instance-badge {
-  padding: 0.25rem 0.5rem;
+.nt-instance-badge {
+  padding: 0.2rem 0.45rem;
   border-radius: 0.25rem;
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   font-weight: 600;
+  flex-shrink: 0;
 
   &--online {
     background: #d1fae5;
@@ -462,81 +682,94 @@ onMounted(() => {
   }
 }
 
-.net-instance-details {
-  margin-bottom: 0.75rem;
+.nt-instance-details {
+  margin-bottom: 0.6rem;
 }
 
-.net-instance-row {
+.nt-instance-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.25rem 0;
-  font-size: 0.8125rem;
+  padding: 0.3rem 0;
+  font-size: 0.75rem;
+  gap: 0.5rem;
 
   &:not(:last-child) {
     border-bottom: 1px solid #e5e7eb;
   }
 }
 
-.net-instance-label {
+.nt-instance-label {
   font-weight: 500;
   color: #6b7280;
 }
 
-.net-instance-value {
-  color: #1f2937;
+.nt-instance-value {
+  color: #111827;
+  text-align: right;
+  word-break: break-all;
 }
 
-.net-instance-actions {
+.nt-instance-actions {
   display: flex;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
-/* ── Log ─────────────────────────────────────────────────────────────────── */
-.net-log {
-  max-height: 16rem;
-  overflow-y: auto;
+.nt-log {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  margin-top: 0.25rem;
   background: #f9fafb;
   border: 1px solid #e5e7eb;
   border-radius: 0.375rem;
-  padding: 0.75rem;
+  padding: 0.5rem 0.65rem;
 }
 
-.net-log-entry {
-  display: flex;
-  gap: 1rem;
-  padding: 0.375rem 0;
-  font-family: ui-monospace, monospace;
+.nt-log-empty {
+  margin: 1rem 0;
+  text-align: center;
   font-size: 0.8125rem;
+  color: #9ca3af;
+}
+
+.nt-log-entry {
+  display: flex;
+  gap: 0.85rem;
+  padding: 0.35rem 0;
+  font-family: ui-monospace, monospace;
+  font-size: 0.75rem;
 
   &:not(:last-child) {
     border-bottom: 1px solid #e5e7eb;
   }
 }
 
-.net-log-time {
+.nt-log-time {
   flex-shrink: 0;
-  min-width: 5rem;
+  min-width: 4.75rem;
   color: #6b7280;
 }
 
-.net-log-msg {
+.nt-log-msg {
   color: inherit;
+  word-break: break-word;
 }
 
-.net-log-entry--info .net-log-msg {
+.nt-log-entry--info .nt-log-msg {
   color: #2563eb;
 }
 
-.net-log-entry--success .net-log-msg {
+.nt-log-entry--success .nt-log-msg {
   color: #059669;
 }
 
-.net-log-entry--warning .net-log-msg {
+.nt-log-entry--warning .nt-log-msg {
   color: #d97706;
 }
 
-.net-log-entry--error .net-log-msg {
+.nt-log-entry--error .nt-log-msg {
   color: #dc2626;
 }
 </style>

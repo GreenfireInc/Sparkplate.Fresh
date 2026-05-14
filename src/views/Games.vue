@@ -1,212 +1,295 @@
 <template>
-  <div class="view games">
-    <div class="content">
-      <h1 class="text-4xl font-bold mb-8 text-center">Classic Games</h1>
-      <p class="text-lg mb-8 text-center text-gray-600">
-        Enjoy classic games built with modern web technologies
+  <div class="games-view">
+    <header class="games-view__header">
+      <h1 class="games-view__title">
+        <Gamepad2 :size="22" class="games-view__title-icon" aria-hidden="true" />
+        Classic games
+      </h1>
+      <p class="games-view__subtitle">
+        Arcade demos fill the panel below — resize the window to scale the playfield; no page scroll.
       </p>
+    </header>
 
-      <div class="game-tabs">
-        <div class="tab-headers">
-          <button 
-            v-for="game in games" 
+    <Separator class="games-view__separator" />
+
+    <section class="games-view__section" aria-label="Games">
+      <TabsRoot v-model="activeGame" class="games-tabs">
+        <TabsList class="games-tabs__list" aria-label="Select game">
+          <TabsTrigger
+            v-for="game in games"
             :key="game.id"
-            @click="activeGame = game.id"
-            :class="['tab-header', { active: activeGame === game.id }]"
+            :value="game.id"
+            class="games-tabs__trigger"
           >
-            <span class="game-icon">{{ game.icon }}</span>
+            <span class="games-tabs__emoji" aria-hidden="true">{{ game.icon }}</span>
             {{ game.name }}
-          </button>
+          </TabsTrigger>
+        </TabsList>
+
+        <div ref="panelShellRef" class="games-panel-shell">
+          <TabsContent value="pong" class="games-tabs__panel">
+            <div class="games-panel games-panel--split">
+              <div ref="pongStageRef" class="games-panel__stage games-panel__stage--fill">
+                <canvas
+                  ref="pongCanvas"
+                  class="games-canvas"
+                  :width="pongSize.w"
+                  :height="pongSize.h"
+                  @mousemove="updatePongPaddle"
+                />
+              </div>
+              <aside class="games-panel__rail">
+                <div class="games-panel__heading">
+                  <h2 class="games-panel__h2">Pong</h2>
+                  <p class="games-panel__lede">Classic two-paddle ball — first to 10 wins.</p>
+                </div>
+                <div class="games-controls">
+                  <button type="button" class="games-btn games-btn--start" @click="startPong" :disabled="pongRunning">
+                    {{ pongRunning ? 'Playing…' : 'Start' }}
+                  </button>
+                  <button
+                    v-if="pongRunning"
+                    type="button"
+                    class="games-btn games-btn--pause"
+                    @click="pausePong"
+                  >
+                    {{ pongPaused ? 'Resume' : 'Pause' }}
+                  </button>
+                  <button type="button" class="games-btn games-btn--reset" @click="resetPong">Reset</button>
+                </div>
+                <div class="games-scoreboard">
+                  <div class="games-stat">
+                    <span class="games-stat__label">You</span>
+                    <span class="games-stat__value">{{ pongScore.player }}</span>
+                  </div>
+                  <div class="games-stat">
+                    <span class="games-stat__label">CPU</span>
+                    <span class="games-stat__value">{{ pongScore.computer }}</span>
+                  </div>
+                </div>
+                <p class="games-hint">Move the mouse over the court to steer your paddle.</p>
+              </aside>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="tictactoe" class="games-tabs__panel">
+            <div class="games-panel games-panel--split">
+              <div class="games-panel__stage games-panel__stage--fill games-panel__stage--ttt">
+                <div class="games-ttt-board">
+                  <button
+                    v-for="(cell, index) in tictactoeBoard"
+                    :key="index"
+                    type="button"
+                    class="games-ttt-cell"
+                    :class="{ 'games-ttt-cell--disabled': cell !== '' || tictactoeGameOver }"
+                    :disabled="cell !== '' || tictactoeGameOver"
+                    @click="makeTictactoeMove(index)"
+                  >
+                    {{ cell }}
+                  </button>
+                </div>
+              </div>
+              <aside class="games-panel__rail">
+                <div class="games-panel__heading">
+                  <h2 class="games-panel__h2">Tic tac toe</h2>
+                  <p class="games-panel__lede">Three in a row — optional vs computer.</p>
+                </div>
+                <div class="games-controls">
+                  <button type="button" class="games-btn games-btn--reset" @click="resetTictactoe">New game</button>
+                  <button type="button" class="games-btn games-btn--mode" @click="toggleTictactoeMode">
+                    {{ tictactoeVsComputer ? 'vs Computer' : 'vs Human' }}
+                  </button>
+                </div>
+                <div class="games-status">
+                  <template v-if="tictactoeWinner">
+                    {{ tictactoeWinner === 'tie' ? "It's a tie" : `${tictactoeWinner} wins` }}
+                  </template>
+                  <template v-else>Turn: {{ tictactoeCurrentPlayer }}</template>
+                </div>
+                <div class="games-scoreboard games-scoreboard--3">
+                  <div class="games-stat">
+                    <span class="games-stat__label">X</span>
+                    <span class="games-stat__value">{{ tictactoeScore.x }}</span>
+                  </div>
+                  <div class="games-stat">
+                    <span class="games-stat__label">O</span>
+                    <span class="games-stat__value">{{ tictactoeScore.o }}</span>
+                  </div>
+                  <div class="games-stat">
+                    <span class="games-stat__label">Ties</span>
+                    <span class="games-stat__value">{{ tictactoeScore.ties }}</span>
+                  </div>
+                </div>
+                <p class="games-hint">Tap a square; in vs Computer, O plays after you.</p>
+              </aside>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="breakout" class="games-tabs__panel">
+            <div class="games-panel games-panel--split">
+              <div ref="breakoutStageRef" class="games-panel__stage games-panel__stage--fill">
+                <canvas
+                  ref="breakoutCanvas"
+                  class="games-canvas"
+                  :width="breakoutSize.w"
+                  :height="breakoutSize.h"
+                  @mousemove="updateBreakoutPaddle"
+                />
+              </div>
+              <aside class="games-panel__rail">
+                <div class="games-panel__heading">
+                  <h2 class="games-panel__h2">Breakout</h2>
+                  <p class="games-panel__lede">Clear bricks; keep the ball in play.</p>
+                </div>
+                <div class="games-controls">
+                  <button type="button" class="games-btn games-btn--start" @click="startBreakout" :disabled="breakoutRunning">
+                    {{ breakoutRunning ? 'Playing…' : 'Start' }}
+                  </button>
+                  <button
+                    v-if="breakoutRunning"
+                    type="button"
+                    class="games-btn games-btn--pause"
+                    @click="pauseBreakout"
+                  >
+                    {{ breakoutPaused ? 'Resume' : 'Pause' }}
+                  </button>
+                  <button type="button" class="games-btn games-btn--reset" @click="resetBreakout">Reset</button>
+                </div>
+                <div class="games-scoreboard games-scoreboard--3">
+                  <div class="games-stat">
+                    <span class="games-stat__label">Score</span>
+                    <span class="games-stat__value">{{ breakoutScore }}</span>
+                  </div>
+                  <div class="games-stat">
+                    <span class="games-stat__label">Lives</span>
+                    <span class="games-stat__value">{{ breakoutLives }}</span>
+                  </div>
+                  <div class="games-stat">
+                    <span class="games-stat__label">Level</span>
+                    <span class="games-stat__value">{{ breakoutLevel }}</span>
+                  </div>
+                </div>
+                <p class="games-hint">Mouse over the canvas to slide the paddle.</p>
+              </aside>
+            </div>
+          </TabsContent>
         </div>
-
-        <div class="tab-content">
-          <!-- Pong Game -->
-          <div v-if="activeGame === 'pong'" class="tab-panel">
-            <div class="game-header">
-              <h2 class="text-2xl font-semibold mb-4">🏓 Pong</h2>
-              <p class="text-gray-600 mb-6">The classic arcade game that started it all</p>
-            </div>
-
-            <div class="game-container">
-              <canvas 
-                ref="pongCanvas" 
-                class="game-canvas" 
-                width="800" 
-                height="400"
-                @mousemove="updatePongPaddle"
-              ></canvas>
-              
-              <div class="game-controls">
-                <button @click="startPong" :disabled="pongRunning" class="game-btn start">
-                  {{ pongRunning ? 'Playing...' : 'Start Game' }}
-                </button>
-                <button @click="pausePong" v-if="pongRunning" class="game-btn pause">
-                  {{ pongPaused ? 'Resume' : 'Pause' }}
-                </button>
-                <button @click="resetPong" class="game-btn reset">Reset</button>
-              </div>
-
-              <div class="game-score">
-                <div class="score-item">
-                  <span class="score-label">Player</span>
-                  <span class="score-value">{{ pongScore.player }}</span>
-                </div>
-                <div class="score-item">
-                  <span class="score-label">Computer</span>
-                  <span class="score-value">{{ pongScore.computer }}</span>
-                </div>
-              </div>
-
-              <div class="game-instructions">
-                <h3>How to Play:</h3>
-                <ul>
-                  <li>Move your mouse to control the left paddle</li>
-                  <li>Prevent the ball from reaching your side</li>
-                  <li>First to 10 points wins!</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Tic Tac Toe Game -->
-          <div v-if="activeGame === 'tictactoe'" class="tab-panel">
-            <div class="game-header">
-              <h2 class="text-2xl font-semibold mb-4">❌ Tic Tac Toe</h2>
-              <p class="text-gray-600 mb-6">The timeless strategy game of X's and O's</p>
-            </div>
-
-            <div class="game-container">
-              <div class="tictactoe-board">
-                <div 
-                  v-for="(cell, index) in tictactoeBoard" 
-                  :key="index"
-                  class="tictactoe-cell"
-                  :class="{ disabled: cell !== '' || tictactoeGameOver }"
-                  @click="makeTictactoeMove(index)"
-                >
-                  {{ cell }}
-                </div>
-              </div>
-
-              <div class="game-controls">
-                <button @click="resetTictactoe" class="game-btn reset">New Game</button>
-                <button @click="toggleTictactoeMode" class="game-btn mode">
-                  {{ tictactoeVsComputer ? 'vs Computer' : 'vs Human' }}
-                </button>
-              </div>
-
-              <div class="game-status">
-                <div v-if="tictactoeWinner" class="winner-message">
-                  {{ tictactoeWinner === 'tie' ? "It's a tie!" : `${tictactoeWinner} wins!` }}
-                </div>
-                <div v-else class="current-player">
-                  Current player: {{ tictactoeCurrentPlayer }}
-                </div>
-              </div>
-
-              <div class="game-score">
-                <div class="score-item">
-                  <span class="score-label">X Wins</span>
-                  <span class="score-value">{{ tictactoeScore.x }}</span>
-                </div>
-                <div class="score-item">
-                  <span class="score-label">O Wins</span>
-                  <span class="score-value">{{ tictactoeScore.o }}</span>
-                </div>
-                <div class="score-item">
-                  <span class="score-label">Ties</span>
-                  <span class="score-value">{{ tictactoeScore.ties }}</span>
-                </div>
-              </div>
-
-              <div class="game-instructions">
-                <h3>How to Play:</h3>
-                <ul>
-                  <li>Click on empty squares to place your mark</li>
-                  <li>Get three in a row horizontally, vertically, or diagonally</li>
-                  <li>Switch between human vs human or vs computer modes</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Breakout Game -->
-          <div v-if="activeGame === 'breakout'" class="tab-panel">
-            <div class="game-header">
-              <h2 class="text-2xl font-semibold mb-4">🧱 Breakout</h2>
-              <p class="text-gray-600 mb-6">Break all the bricks with your bouncing ball</p>
-            </div>
-
-            <div class="game-container">
-              <canvas 
-                ref="breakoutCanvas" 
-                class="game-canvas" 
-                width="800" 
-                height="600"
-                @mousemove="updateBreakoutPaddle"
-              ></canvas>
-              
-              <div class="game-controls">
-                <button @click="startBreakout" :disabled="breakoutRunning" class="game-btn start">
-                  {{ breakoutRunning ? 'Playing...' : 'Start Game' }}
-                </button>
-                <button @click="pauseBreakout" v-if="breakoutRunning" class="game-btn pause">
-                  {{ breakoutPaused ? 'Resume' : 'Pause' }}
-                </button>
-                <button @click="resetBreakout" class="game-btn reset">Reset</button>
-              </div>
-
-              <div class="game-stats">
-                <div class="stat-item">
-                  <span class="stat-label">Score</span>
-                  <span class="stat-value">{{ breakoutScore }}</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-label">Lives</span>
-                  <span class="stat-value">{{ breakoutLives }}</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-label">Level</span>
-                  <span class="stat-value">{{ breakoutLevel }}</span>
-                </div>
-              </div>
-
-              <div class="game-instructions">
-                <h3>How to Play:</h3>
-                <ul>
-                  <li>Move your mouse to control the paddle</li>
-                  <li>Keep the ball in play and break all the bricks</li>
-                  <li>Different colored bricks give different points</li>
-                  <li>Complete each level to advance</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      </TabsRoot>
+    </section>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch, nextTick } from 'vue'
+import {
+  TabsRoot,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+  Separator,
+} from 'radix-vue'
+import { Gamepad2 } from 'lucide-vue-next'
+
+defineOptions({ name: 'GamesPage' })
+
+const PONG_ASPECT = 2
+const BREAKOUT_ASPECT = 800 / 600
+
+/** Default until first layout pass. */
+const pongSize = ref({ w: 480, h: 240 })
+const breakoutSize = ref({ w: 640, h: 480 })
+
+const panelShellRef = ref<HTMLElement | null>(null)
+const pongStageRef = ref<HTMLElement | null>(null)
+const breakoutStageRef = ref<HTMLElement | null>(null)
+let resizeObserver: ResizeObserver | null = null
+
+function fitBox(outerW: number, outerH: number, aspect: number, minW: number, minH: number) {
+  if (outerW <= 4 || outerH <= 4) {
+    return { w: minW, h: minH }
+  }
+  let cw = outerW
+  let ch = cw / aspect
+  if (ch > outerH) {
+    ch = outerH
+    cw = ch * aspect
+  }
+  return {
+    w: Math.max(minW, Math.floor(cw)),
+    h: Math.max(minH, Math.floor(ch)),
+  }
+}
+
+function syncPongLayout() {
+  const el = pongStageRef.value
+  if (!el) return
+  const r = el.getBoundingClientRect()
+  if (r.width < 16 || r.height < 16) return
+  const next = fitBox(r.width, r.height, PONG_ASPECT, 200, 100)
+  if (next.w === pongSize.value.w && next.h === pongSize.value.h) return
+
+  pongSize.value = next
+  if (pongRunning.value) {
+    pongRunning.value = false
+    pongPaused.value = false
+    pongGame = null
+  }
+  void nextTick(() => {
+    const c = pongCanvas.value
+    if (!c) return
+    const ctx = c.getContext('2d')!
+    ctx.fillStyle = '#000'
+    ctx.fillRect(0, 0, next.w, next.h)
+  })
+}
+
+function syncBreakoutLayout() {
+  const el = breakoutStageRef.value
+  if (!el) return
+  const r = el.getBoundingClientRect()
+  if (r.width < 16 || r.height < 16) return
+  const next = fitBox(r.width, r.height, BREAKOUT_ASPECT, 240, 180)
+  if (next.w === breakoutSize.value.w && next.h === breakoutSize.value.h) return
+
+  breakoutSize.value = next
+  if (breakoutRunning.value) {
+    breakoutRunning.value = false
+    breakoutPaused.value = false
+    breakoutGame = null
+  }
+  void nextTick(() => {
+    const c = breakoutCanvas.value
+    if (!c) return
+    const ctx = c.getContext('2d')!
+    ctx.fillStyle = '#000'
+    ctx.fillRect(0, 0, next.w, next.h)
+  })
+}
+
+function syncAllLayouts() {
+  syncPongLayout()
+  syncBreakoutLayout()
+}
 
 const activeGame = ref('pong')
 
 const games = [
   { id: 'pong', name: 'Pong', icon: '🏓' },
-  { id: 'tictactoe', name: 'Tic Tac Toe', icon: '❌' },
-  { id: 'breakout', name: 'Breakout', icon: '🧱' }
-]
+  { id: 'tictactoe', name: 'Tic tac toe', icon: '❌' },
+  { id: 'breakout', name: 'Breakout', icon: '🧱' },
+] as const
 
-// Pong Game State
 const pongCanvas = ref<HTMLCanvasElement>()
 const pongRunning = ref(false)
 const pongPaused = ref(false)
 const pongScore = ref({ player: 0, computer: 0 })
-let pongGame: any = null
+let pongGame: {
+  ball: { x: number; y: number; dx: number; dy: number; size: number }
+  playerPaddle: { x: number; y: number; width: number; height: number }
+  computerPaddle: { x: number; y: number; width: number; height: number }
+  mouseY: number
+} | null = null
 
-// Tic Tac Toe State
 const tictactoeBoard = ref(Array(9).fill(''))
 const tictactoeCurrentPlayer = ref('X')
 const tictactoeWinner = ref('')
@@ -214,116 +297,126 @@ const tictactoeGameOver = ref(false)
 const tictactoeVsComputer = ref(true)
 const tictactoeScore = ref({ x: 0, o: 0, ties: 0 })
 
-// Breakout Game State
 const breakoutCanvas = ref<HTMLCanvasElement>()
 const breakoutRunning = ref(false)
 const breakoutPaused = ref(false)
 const breakoutScore = ref(0)
 const breakoutLives = ref(3)
 const breakoutLevel = ref(1)
-let breakoutGame: any = null
+let breakoutGame: {
+  ball: { x: number; y: number; dx: number; dy: number; size: number }
+  paddle: { x: number; y: number; width: number; height: number }
+  bricks: { x: number; y: number; width: number; height: number; visible: boolean; color: string }[]
+  mouseX: number
+} | null = null
 
-// Pong Game Logic
 const startPong = () => {
   if (!pongCanvas.value) return
-  
+
   pongRunning.value = true
   pongPaused.value = false
-  
+
   const canvas = pongCanvas.value
   const ctx = canvas.getContext('2d')!
-  
+  const w = canvas.width
+  const h = canvas.height
+  const ph = Math.round(h * 0.25)
+  const pw = Math.max(6, Math.round(w * 0.017))
+  const bs = Math.max(5, Math.round(w * 0.017))
+  const baseSpeed = Math.max(2.4, (w / 480) * 4)
+
   const game = {
-    ball: { x: 400, y: 200, dx: 5, dy: 3, size: 10 },
-    playerPaddle: { x: 10, y: 150, width: 10, height: 100 },
-    computerPaddle: { x: 780, y: 150, width: 10, height: 100 },
-    mouseY: 200
+    ball: { x: w / 2, y: h / 2, dx: baseSpeed, dy: baseSpeed * 0.62, size: bs },
+    playerPaddle: { x: Math.round(w * 0.02), y: h / 2 - ph / 2, width: pw, height: ph },
+    computerPaddle: { x: w - Math.round(w * 0.02) - pw, y: h / 2 - ph / 2, width: pw, height: ph },
+    mouseY: h / 2,
   }
-  
+
   const gameLoop = () => {
     if (!pongRunning.value || pongPaused.value) return
-    
-    // Clear canvas
+
     ctx.fillStyle = '#000'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
-    
-    // Update ball
+
     game.ball.x += game.ball.dx
     game.ball.y += game.ball.dy
-    
-    // Ball collision with top/bottom
-    if (game.ball.y <= 0 || game.ball.y >= canvas.height) {
+
+    if (game.ball.y <= 0 || game.ball.y >= canvas.height - game.ball.size) {
       game.ball.dy = -game.ball.dy
     }
-    
-    // Ball collision with paddles
-    if (game.ball.x <= 20 && game.ball.y >= game.playerPaddle.y && game.ball.y <= game.playerPaddle.y + 100) {
-      game.ball.dx = -game.ball.dx
+
+    const pr = game.playerPaddle
+    const cr = game.computerPaddle
+    if (
+      game.ball.x <= pr.x + pr.width
+      && game.ball.y + game.ball.size >= pr.y
+      && game.ball.y <= pr.y + pr.height
+    ) {
+      game.ball.dx = Math.abs(game.ball.dx)
     }
-    
-    if (game.ball.x >= 770 && game.ball.y >= game.computerPaddle.y && game.ball.y <= game.computerPaddle.y + 100) {
-      game.ball.dx = -game.ball.dx
+    if (
+      game.ball.x + game.ball.size >= cr.x
+      && game.ball.y + game.ball.size >= cr.y
+      && game.ball.y <= cr.y + cr.height
+    ) {
+      game.ball.dx = -Math.abs(game.ball.dx)
     }
-    
-    // Score
+
     if (game.ball.x < 0) {
       pongScore.value.computer++
-      game.ball.x = 400
-      game.ball.y = 200
+      game.ball.x = w / 2
+      game.ball.y = h / 2
     }
-    
     if (game.ball.x > canvas.width) {
       pongScore.value.player++
-      game.ball.x = 400
-      game.ball.y = 200
+      game.ball.x = w / 2
+      game.ball.y = h / 2
     }
-    
-    // Update player paddle
-    game.playerPaddle.y = game.mouseY - 50
-    
-    // Update computer paddle (simple AI)
-    if (game.computerPaddle.y + 50 < game.ball.y) {
-      game.computerPaddle.y += 3
-    } else if (game.computerPaddle.y + 50 > game.ball.y) {
-      game.computerPaddle.y -= 3
-    }
-    
-    // Draw everything
+
+    game.playerPaddle.y = game.mouseY - game.playerPaddle.height / 2
+    game.playerPaddle.y = Math.max(0, Math.min(h - game.playerPaddle.height, game.playerPaddle.y))
+
+    const cy = cr.y + cr.height / 2
+    const step = Math.max(2, h * 0.012)
+    if (cy < game.ball.y - 6) cr.y += step
+    else if (cy > game.ball.y + 6) cr.y -= step
+    cr.y = Math.max(0, Math.min(h - cr.height, cr.y))
+
     ctx.fillStyle = '#fff'
     ctx.fillRect(game.ball.x, game.ball.y, game.ball.size, game.ball.size)
-    ctx.fillRect(game.playerPaddle.x, game.playerPaddle.y, game.playerPaddle.width, game.playerPaddle.height)
-    ctx.fillRect(game.computerPaddle.x, game.computerPaddle.y, game.computerPaddle.width, game.computerPaddle.height)
-    
-    // Center line
-    ctx.setLineDash([5, 15])
+    ctx.fillRect(pr.x, pr.y, pr.width, pr.height)
+    ctx.fillRect(cr.x, cr.y, cr.width, cr.height)
+
+    ctx.strokeStyle = 'rgba(255,255,255,0.35)'
+    ctx.setLineDash([5, 12])
     ctx.beginPath()
-    ctx.moveTo(400, 0)
-    ctx.lineTo(400, canvas.height)
+    ctx.moveTo(w / 2, 0)
+    ctx.lineTo(w / 2, h)
     ctx.stroke()
-    
+    ctx.setLineDash([])
+
     requestAnimationFrame(gameLoop)
   }
-  
+
   pongGame = game
   gameLoop()
 }
 
 const pausePong = () => {
   pongPaused.value = !pongPaused.value
-  if (!pongPaused.value) {
-    startPong()
-  }
+  if (!pongPaused.value) startPong()
 }
 
 const resetPong = () => {
   pongRunning.value = false
   pongPaused.value = false
   pongScore.value = { player: 0, computer: 0 }
-  
-  if (pongCanvas.value) {
-    const ctx = pongCanvas.value.getContext('2d')!
+  pongGame = null
+  const c = pongCanvas.value
+  if (c) {
+    const ctx = c.getContext('2d')!
     ctx.fillStyle = '#000'
-    ctx.fillRect(0, 0, pongCanvas.value.width, pongCanvas.value.height)
+    ctx.fillRect(0, 0, pongSize.value.w, pongSize.value.h)
   }
 }
 
@@ -334,42 +427,32 @@ const updatePongPaddle = (event: MouseEvent) => {
   }
 }
 
-// Tic Tac Toe Logic
 const makeTictactoeMove = (index: number) => {
   if (tictactoeBoard.value[index] !== '' || tictactoeGameOver.value) return
-  
+
   tictactoeBoard.value[index] = tictactoeCurrentPlayer.value
-  
+
   if (checkTictactoeWinner()) {
     tictactoeWinner.value = tictactoeCurrentPlayer.value
     tictactoeGameOver.value = true
-    
-    if (tictactoeCurrentPlayer.value === 'X') {
-      tictactoeScore.value.x++
-    } else {
-      tictactoeScore.value.o++
-    }
-  } else if (tictactoeBoard.value.every(cell => cell !== '')) {
+    if (tictactoeCurrentPlayer.value === 'X') tictactoeScore.value.x++
+    else tictactoeScore.value.o++
+  } else if (tictactoeBoard.value.every((cell) => cell !== '')) {
     tictactoeWinner.value = 'tie'
     tictactoeGameOver.value = true
     tictactoeScore.value.ties++
   } else {
     tictactoeCurrentPlayer.value = tictactoeCurrentPlayer.value === 'X' ? 'O' : 'X'
-    
-    // Computer move
     if (tictactoeVsComputer.value && tictactoeCurrentPlayer.value === 'O') {
-      setTimeout(() => {
-        makeComputerMove()
-      }, 500)
+      setTimeout(() => makeComputerMove(), 400)
     }
   }
 }
 
 const makeComputerMove = () => {
   const emptyIndices = tictactoeBoard.value
-    .map((cell, index) => cell === '' ? index : null)
-    .filter(index => index !== null) as number[]
-  
+    .map((cell, index) => (cell === '' ? index : null))
+    .filter((index) => index !== null) as number[]
   if (emptyIndices.length > 0) {
     const randomIndex = emptyIndices[Math.floor(Math.random() * emptyIndices.length)]
     makeTictactoeMove(randomIndex)
@@ -378,16 +461,17 @@ const makeComputerMove = () => {
 
 const checkTictactoeWinner = () => {
   const winPatterns = [
-    [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
-    [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
-    [0, 4, 8], [2, 4, 6] // diagonals
+    [0, 1, 2], [3, 4, 5], [6, 7, 8],
+    [0, 3, 6], [1, 4, 7], [2, 5, 8],
+    [0, 4, 8], [2, 4, 6],
   ]
-  
-  return winPatterns.some(pattern => {
+  return winPatterns.some((pattern) => {
     const [a, b, c] = pattern
-    return tictactoeBoard.value[a] && 
-           tictactoeBoard.value[a] === tictactoeBoard.value[b] && 
-           tictactoeBoard.value[a] === tictactoeBoard.value[c]
+    return (
+      tictactoeBoard.value[a]
+      && tictactoeBoard.value[a] === tictactoeBoard.value[b]
+      && tictactoeBoard.value[a] === tictactoeBoard.value[c]
+    )
   })
 }
 
@@ -403,118 +487,130 @@ const toggleTictactoeMode = () => {
   resetTictactoe()
 }
 
-// Breakout Game Logic
-const startBreakout = () => {
-  if (!breakoutCanvas.value) return
-  
-  breakoutRunning.value = true
-  breakoutPaused.value = false
-  
-  const canvas = breakoutCanvas.value
-  const ctx = canvas.getContext('2d')!
-  
-  const bricks = []
-  for (let i = 0; i < 8; i++) {
-    for (let j = 0; j < 5; j++) {
+function buildBreakoutBricks(BW: number, BH: number) {
+  const padX = Math.max(4, Math.round(BW * 0.017))
+  const padTop = Math.max(20, Math.round(BH * 0.085))
+  const cols = 8
+  const rows = 5
+  const gap = Math.max(2, Math.round(BW * 0.007))
+  const innerW = BW - 2 * padX - (cols - 1) * gap
+  const brickW = innerW / cols
+  const brickH = Math.max(10, Math.round(BH * 0.036))
+  const bricks: { x: number; y: number; width: number; height: number; visible: boolean; color: string }[] = []
+  for (let j = 0; j < rows; j++) {
+    for (let i = 0; i < cols; i++) {
       bricks.push({
-        x: i * 100 + 10,
-        y: j * 30 + 50,
-        width: 90,
-        height: 25,
+        x: padX + i * (brickW + gap),
+        y: padTop + j * (brickH + gap),
+        width: brickW,
+        height: brickH,
         visible: true,
-        color: `hsl(${j * 60}, 70%, 50%)`
+        color: `hsl(${j * 60}, 70%, 50%)`,
       })
     }
   }
-  
+  return bricks
+}
+
+const startBreakout = () => {
+  if (!breakoutCanvas.value) return
+
+  breakoutRunning.value = true
+  breakoutPaused.value = false
+
+  const canvas = breakoutCanvas.value
+  const ctx = canvas.getContext('2d')!
+  const BW = canvas.width
+  const BH = canvas.height
+  const paddleW = Math.max(48, Math.round(BW * 0.15))
+  const paddleH = Math.max(6, Math.round(BH * 0.022))
+  const ballSize = Math.max(5, Math.round(BW * 0.017))
+  const paddleY = BH - Math.max(12, Math.round(BH * 0.052))
+  const ballBaseY = paddleY - Math.round(BH * 0.12)
+  const speed = Math.max(2.5, (BW / 480) * 3)
+
   const game = {
-    ball: { x: 400, y: 500, dx: 4, dy: -4, size: 10 },
-    paddle: { x: 350, y: 580, width: 100, height: 10 },
-    bricks,
-    mouseX: 400
+    ball: { x: BW / 2, y: ballBaseY, dx: speed, dy: -speed, size: ballSize },
+    paddle: { x: BW / 2 - paddleW / 2, y: paddleY, width: paddleW, height: paddleH },
+    bricks: buildBreakoutBricks(BW, BH),
+    mouseX: BW / 2,
   }
-  
+
   const gameLoop = () => {
     if (!breakoutRunning.value || breakoutPaused.value) return
-    
-    // Clear canvas
+
     ctx.fillStyle = '#000'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
-    
-    // Update ball
+
     game.ball.x += game.ball.dx
     game.ball.y += game.ball.dy
-    
-    // Ball collision with walls
+
     if (game.ball.x <= 0 || game.ball.x >= canvas.width - game.ball.size) {
       game.ball.dx = -game.ball.dx
     }
-    
     if (game.ball.y <= 0) {
       game.ball.dy = -game.ball.dy
     }
-    
-    // Ball collision with paddle
-    if (game.ball.y + game.ball.size >= game.paddle.y && 
-        game.ball.x >= game.paddle.x && 
-        game.ball.x <= game.paddle.x + game.paddle.width) {
-      game.ball.dy = -game.ball.dy
+
+    const pad = game.paddle
+    if (
+      game.ball.y + game.ball.size >= pad.y
+      && game.ball.x + game.ball.size >= pad.x
+      && game.ball.x <= pad.x + pad.width
+    ) {
+      game.ball.dy = -Math.abs(game.ball.dy)
     }
-    
-    // Ball collision with bricks
-    game.bricks.forEach(brick => {
-      if (brick.visible && 
-          game.ball.x < brick.x + brick.width &&
-          game.ball.x + game.ball.size > brick.x &&
-          game.ball.y < brick.y + brick.height &&
-          game.ball.y + game.ball.size > brick.y) {
+
+    game.bricks.forEach((brick) => {
+      if (
+        brick.visible
+        && game.ball.x < brick.x + brick.width
+        && game.ball.x + game.ball.size > brick.x
+        && game.ball.y < brick.y + brick.height
+        && game.ball.y + game.ball.size > brick.y
+      ) {
         brick.visible = false
         game.ball.dy = -game.ball.dy
         breakoutScore.value += 10
       }
     })
-    
-    // Check for ball falling
+
     if (game.ball.y > canvas.height) {
       breakoutLives.value--
       if (breakoutLives.value <= 0) {
         breakoutRunning.value = false
       } else {
-        game.ball.x = 400
-        game.ball.y = 500
-        game.ball.dx = 4
-        game.ball.dy = -4
+        game.ball.x = BW / 2
+        game.ball.y = ballBaseY
+        game.ball.dx = speed
+        game.ball.dy = -speed
       }
     }
-    
-    // Update paddle
-    game.paddle.x = game.mouseX - game.paddle.width / 2
-    
-    // Draw everything
+
+    pad.x = game.mouseX - pad.width / 2
+    pad.x = Math.max(0, Math.min(BW - pad.width, pad.x))
+
     ctx.fillStyle = '#fff'
     ctx.fillRect(game.ball.x, game.ball.y, game.ball.size, game.ball.size)
-    ctx.fillRect(game.paddle.x, game.paddle.y, game.paddle.width, game.paddle.height)
-    
-    // Draw bricks
-    game.bricks.forEach(brick => {
+    ctx.fillRect(pad.x, pad.y, pad.width, pad.height)
+
+    game.bricks.forEach((brick) => {
       if (brick.visible) {
         ctx.fillStyle = brick.color
         ctx.fillRect(brick.x, brick.y, brick.width, brick.height)
       }
     })
-    
+
     requestAnimationFrame(gameLoop)
   }
-  
+
   breakoutGame = game
   gameLoop()
 }
 
 const pauseBreakout = () => {
   breakoutPaused.value = !breakoutPaused.value
-  if (!breakoutPaused.value) {
-    startBreakout()
-  }
+  if (!breakoutPaused.value) startBreakout()
 }
 
 const resetBreakout = () => {
@@ -523,11 +619,12 @@ const resetBreakout = () => {
   breakoutScore.value = 0
   breakoutLives.value = 3
   breakoutLevel.value = 1
-  
-  if (breakoutCanvas.value) {
-    const ctx = breakoutCanvas.value.getContext('2d')!
+  breakoutGame = null
+  const c = breakoutCanvas.value
+  if (c) {
+    const ctx = c.getContext('2d')!
     ctx.fillStyle = '#000'
-    ctx.fillRect(0, 0, breakoutCanvas.value.width, breakoutCanvas.value.height)
+    ctx.fillRect(0, 0, breakoutSize.value.w, breakoutSize.value.h)
   }
 }
 
@@ -538,261 +635,397 @@ const updateBreakoutPaddle = (event: MouseEvent) => {
   }
 }
 
+watch(activeGame, () => {
+  void nextTick(() => {
+    requestAnimationFrame(syncAllLayouts)
+  })
+})
+
 onMounted(() => {
-  // Initialize canvases
-  if (pongCanvas.value) {
-    const ctx = pongCanvas.value.getContext('2d')!
-    ctx.fillStyle = '#000'
-    ctx.fillRect(0, 0, pongCanvas.value.width, pongCanvas.value.height)
-  }
-  
-  if (breakoutCanvas.value) {
-    const ctx = breakoutCanvas.value.getContext('2d')!
-    ctx.fillStyle = '#000'
-    ctx.fillRect(0, 0, breakoutCanvas.value.width, breakoutCanvas.value.height)
-  }
+  resizeObserver = new ResizeObserver(() => {
+    syncAllLayouts()
+  })
+  if (panelShellRef.value) resizeObserver.observe(panelShellRef.value)
+
+  void nextTick(() => {
+    requestAnimationFrame(() => {
+      syncAllLayouts()
+      if (pongCanvas.value) {
+        const ctx = pongCanvas.value.getContext('2d')!
+        ctx.fillStyle = '#000'
+        ctx.fillRect(0, 0, pongSize.value.w, pongSize.value.h)
+      }
+      if (breakoutCanvas.value) {
+        const ctx = breakoutCanvas.value.getContext('2d')!
+        ctx.fillStyle = '#000'
+        ctx.fillRect(0, 0, breakoutSize.value.w, breakoutSize.value.h)
+      }
+    })
+  })
 })
 
 onUnmounted(() => {
   pongRunning.value = false
   breakoutRunning.value = false
+  resizeObserver?.disconnect()
+  resizeObserver = null
 })
 </script>
 
 <style lang="scss" scoped>
-.games {
-  padding: 2rem;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+.games-view {
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0.75rem 1.25rem 0.75rem;
+  box-sizing: border-box;
+  background: #fff;
+  font-family: inherit;
+}
 
-  .content {
-    max-width: 1200px;
-    margin: 0 auto;
+.games-view__header {
+  flex-shrink: 0;
+  margin-bottom: 0.5rem;
+}
+
+.games-view__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.25rem;
+}
+
+.games-view__title-icon {
+  flex-shrink: 0;
+  color: #4b5563;
+}
+
+.games-view__subtitle {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #6b7280;
+  max-width: 44rem;
+}
+
+.games-view__separator {
+  flex-shrink: 0;
+  display: block;
+  height: 1px;
+  margin: 0 0 0.5rem;
+  background: #e5e7eb;
+}
+
+.games-view__section {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background: #f9fafb;
+  overflow: hidden;
+}
+
+.games-tabs {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.games-tabs__list {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  border-bottom: 1px solid #d1d5db;
+  padding: 0 0.75rem;
+  background: #f9fafb;
+}
+
+.games-tabs__trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.85rem;
+  border: none;
+  background: none;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 0.15s;
+  font-family: inherit;
+
+  &:hover {
+    color: #111827;
   }
 
-  .game-tabs {
-    .tab-headers {
-      display: flex;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 0.5rem;
-      margin-bottom: 2rem;
-      backdrop-filter: blur(10px);
+  &[data-state='active'] {
+    color: #2563eb;
+    font-weight: 600;
 
-      .tab-header {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 1rem 2rem;
-        background: transparent;
-        border: none;
-        color: rgba(255, 255, 255, 0.7);
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s;
-        border-radius: 8px;
-
-        .game-icon {
-          font-size: 1.5rem;
-        }
-
-        &.active {
-          background: white;
-          color: #8b5cf6;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        &:hover:not(.active) {
-          color: rgba(255, 255, 255, 0.9);
-          background: rgba(255, 255, 255, 0.1);
-        }
-      }
-    }
-
-    .tab-content {
-      background: white;
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    }
-  }
-
-  .game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .game-canvas {
-    border: 2px solid #e5e7eb;
-    border-radius: 8px;
-    background: #000;
-  }
-
-  .game-controls {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-
-    .game-btn {
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-
-      &.start {
-        background: #10b981;
-        color: white;
-
-        &:hover:not(:disabled) {
-          background: #059669;
-        }
-
-        &:disabled {
-          background: #9ca3af;
-          cursor: not-allowed;
-        }
-      }
-
-      &.pause {
-        background: #f59e0b;
-        color: white;
-
-        &:hover {
-          background: #d97706;
-        }
-      }
-
-      &.reset {
-        background: #ef4444;
-        color: white;
-
-        &:hover {
-          background: #dc2626;
-        }
-      }
-
-      &.mode {
-        background: #6366f1;
-        color: white;
-
-        &:hover {
-          background: #4f46e5;
-        }
-      }
-    }
-  }
-
-  .game-score, .game-stats {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    .score-item, .stat-item {
-      text-align: center;
-      padding: 1rem;
-      background: #f8fafc;
-      border-radius: 8px;
-      border: 1px solid #e2e8f0;
-
-      .score-label, .stat-label {
-        display: block;
-        font-size: 0.875rem;
-        color: #6b7280;
-        margin-bottom: 0.25rem;
-      }
-
-      .score-value, .stat-value {
-        display: block;
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #1a202c;
-      }
-    }
-  }
-
-  .tictactoe-board {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4px;
-    background: #374151;
-    padding: 4px;
-    border-radius: 8px;
-
-    .tictactoe-cell {
-      width: 100px;
-      height: 100px;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.2s;
-
-      &:hover:not(.disabled) {
-        background: #f3f4f6;
-      }
-
-      &.disabled {
-        cursor: not-allowed;
-      }
-    }
-  }
-
-  .game-status {
-    text-align: center;
-    padding: 1rem;
-    border-radius: 8px;
-    
-    .winner-message {
-      font-size: 1.25rem;
-      font-weight: bold;
-      color: #10b981;
-    }
-
-    .current-player {
-      font-size: 1.125rem;
-      color: #374151;
-    }
-  }
-
-  .game-instructions {
-    background: #f8fafc;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    max-width: 400px;
-
-    h3 {
-      margin-bottom: 1rem;
-      color: #1a202c;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-
-      li {
-        padding: 0.5rem 0;
-        color: #4a5568;
-        display: flex;
-        align-items: center;
-
-        &:before {
-          content: '•';
-          color: #8b5cf6;
-          font-weight: bold;
-          margin-right: 0.75rem;
-        }
-      }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #2563eb;
+      border-radius: 1px;
     }
   }
 }
-</style> 
+
+.games-tabs__emoji {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.games-panel-shell {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.games-tabs__panel {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  outline: none;
+
+  &:focus-visible {
+    box-shadow: inset 0 0 0 2px rgba(37, 99, 235, 0.35);
+  }
+}
+
+.games-panel {
+  box-sizing: border-box;
+  padding: 0.5rem 0.65rem 0.65rem;
+  overflow: hidden;
+  gap: 0.65rem 0.85rem;
+}
+
+.games-panel--split {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.games-panel__stage--fill {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.games-panel__stage--ttt {
+  padding: 0.25rem;
+}
+
+.games-panel__rail {
+  flex: 0 0 13.5rem;
+  width: 13.5rem;
+  max-width: min(13.5rem, 32vw);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  overflow: hidden;
+}
+
+.games-panel__heading {
+  margin: 0;
+}
+
+.games-panel__h2 {
+  margin: 0 0 0.15rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.games-panel__lede {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: #6b7280;
+}
+
+.games-canvas {
+  display: block;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  background: #000;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+.games-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.games-btn {
+  padding: 0.35rem 0.65rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  font-size: 0.75rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, opacity 0.15s;
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+}
+
+.games-btn--start {
+  background: #10b981;
+  color: #fff;
+  &:hover:not(:disabled) { background: #059669; }
+}
+
+.games-btn--pause {
+  background: #f59e0b;
+  color: #fff;
+  &:hover:not(:disabled) { background: #d97706; }
+}
+
+.games-btn--reset {
+  background: #ef4444;
+  color: #fff;
+  &:hover:not(:disabled) { background: #dc2626; }
+}
+
+.games-btn--mode {
+  background: #6366f1;
+  color: #fff;
+  &:hover:not(:disabled) { background: #4f46e5; }
+}
+
+.games-scoreboard {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.games-scoreboard--3 .games-stat {
+  flex: 1 1 auto;
+  min-width: 3.5rem;
+}
+
+.games-stat {
+  text-align: center;
+  padding: 0.35rem 0.5rem;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+}
+
+.games-stat__label {
+  display: block;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #6b7280;
+  margin-bottom: 0.1rem;
+}
+
+.games-stat__value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.games-status {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #374151;
+  padding: 0.25rem 0;
+}
+
+.games-hint {
+  margin: 0;
+  font-size: 0.6875rem;
+  line-height: 1.35;
+  color: #6b7280;
+}
+
+.games-ttt-board {
+  width: min(100%, min(70vmin, 26rem));
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 3px;
+  background: #374151;
+  padding: 3px;
+  border-radius: 0.375rem;
+  box-sizing: border-box;
+}
+
+.games-ttt-cell {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  background: #fff;
+  font-size: clamp(1rem, 14vmin, 2.25rem);
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  color: #111827;
+  transition: background 0.15s;
+
+  &:hover:not(:disabled) {
+    background: #f3f4f6;
+  }
+
+  &:disabled,
+  &.games-ttt-cell--disabled {
+    cursor: default;
+  }
+}
+
+@media (max-width: 700px) {
+  .games-panel--split {
+    flex-wrap: wrap;
+  }
+
+  .games-panel__rail {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: none;
+  }
+}
+</style>
