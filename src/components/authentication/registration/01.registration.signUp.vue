@@ -137,7 +137,7 @@ import {
 } from 'radix-vue'
 import { User, Mail, Lock, Eye, EyeOff } from 'lucide-vue-next'
 import { useI18n } from '@/composables/useI18n'
-import { gravatarUrl } from '@/lib/cores/displayStandard/gravatar'
+import { gravatarUrl } from '@/lib/cores/displayStandard/display.image.gravatar'
 import EulaStep from './02.registration.eula.vue'
 import MnemonicStep from './03.registration.mnemonicHDSeedPhrase.vue'
 

@@ -2,6 +2,15 @@
   <div class="cwa-card">
     <button
       type="button"
+      class="cwa-encrypt"
+      title="Encrypt File"
+      @click="handleEncryptFile"
+    >
+      <FileLock :size="16" />
+    </button>
+
+    <button
+      type="button"
       class="cwa-delete"
       title="Delete wallet"
       @click="handleDelete"
@@ -63,12 +72,22 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue'
 import { Separator } from 'radix-vue'
-import { Copy, Trash2 } from 'lucide-vue-next'
+import { Copy, FileLock, Trash2 } from 'lucide-vue-next'
 import QRCode from 'qrcode'
 import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 import { useTruncatedAddress } from '@/components/structure/truncate.publicWalletAddress'
 import { useTruncatedFingerprint } from '@/components/structure/truncate.gpgkeyFingerprint'
 import ModalWalletQRCode from '@/components/modals/addressbook/subModals/subModal.qrCode.WalletAddress.vue'
+import {
+  isHexCryptoPublicKey,
+  encryptWithCryptoPublicKey,
+  CRYPTO_PUBKEY_FILE_EXTENSION,
+} from '@/lib/cores/cryptographyCore/encryption/encryption.crypto.PublicKey.general'
+import {
+  isEd25519PublicKey,
+  encryptWithEd25519PublicKey,
+} from '@/lib/cores/cryptographyCore/encryption/encryption.crypto.PublicKey.ed25519'
+import { encryptAndDownloadFile as encryptAndDownloadFileGpg } from '@/lib/cores/cryptographyCore/encryption.gpg/encryption.gpg'
 
 defineOptions({ name: 'CardWalletAddress' })
 
@@ -123,6 +142,86 @@ const handleDelete = () => {
   emit('delete', props.wallet.id)
 }
 
+// SPCK envelope dispatcher mirrors the curve-aware ladder documented in
+// 00.references/From.sparkplate.storage/docs/progress/20260511.sparkplatestorage.SolXtzEd25519X25519Encryption.md:
+//   secp256k1 SEC1 hex → SPCK v1 (encryption.crypto.PublicKey.general)
+//   Ed25519 (Solana base58 / Tezos tz1 hex) → SPCK v2 (encryption.crypto.PublicKey.ed25519)
+//   armored PGP fallback when only `gpgPublicKey` is set.
+const downloadBytes = (bytes: Uint8Array, filename: string) => {
+  const blob = new Blob([bytes as BlobPart], { type: 'application/octet-stream' })
+  const url = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href = url
+  link.download = filename
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+  URL.revokeObjectURL(url)
+}
+
+const pickRecipientCryptoKey = (wallet: Wallet): string => {
+  const candidates = [wallet.cryptoPublicKey, wallet.address]
+  for (const candidate of candidates) {
+    const trimmed = candidate?.trim()
+    if (!trimmed) continue
+    if (isHexCryptoPublicKey(trimmed) || isEd25519PublicKey(trimmed)) return trimmed
+  }
+  return ''
+}
+
+const handleEncryptFile = () => {
+  const recipientKey = pickRecipientCryptoKey(props.wallet)
+  const ticker = (props.wallet.coinTicker || 'CRYPTO').toUpperCase()
+  const armoredGpg = props.wallet.gpgPublicKey
+
+  if (!recipientKey && !armoredGpg) {
+    alert(
+      `${ticker} wallet exposes no SPCK-compatible public key (secp256k1 SEC1 or Ed25519) and no GPG key — nothing to encrypt to.`,
+    )
+    return
+  }
+
+  const input = document.createElement('input')
+  input.type = 'file'
+  input.style.display = 'none'
+
+  input.onchange = async (event: Event) => {
+    const target = event.target as HTMLInputElement
+    const file = target.files?.[0]
+    document.body.removeChild(input)
+    if (!file) return
+
+    try {
+      if (recipientKey && isHexCryptoPublicKey(recipientKey)) {
+        const fileData = new Uint8Array(await file.arrayBuffer())
+        const { envelope } = await encryptWithCryptoPublicKey(recipientKey, fileData)
+        downloadBytes(envelope, `${file.name}.${ticker}.${CRYPTO_PUBKEY_FILE_EXTENSION}`)
+        return
+      }
+
+      if (recipientKey && isEd25519PublicKey(recipientKey)) {
+        const fileData = new Uint8Array(await file.arrayBuffer())
+        const { envelope } = await encryptWithEd25519PublicKey(recipientKey, fileData)
+        downloadBytes(envelope, `${file.name}.${ticker}.${CRYPTO_PUBKEY_FILE_EXTENSION}`)
+        return
+      }
+
+      if (armoredGpg) {
+        await encryptAndDownloadFileGpg(file, armoredGpg)
+        return
+      }
+
+      alert(`No recognized recipient key on this ${ticker} wallet.`)
+    } catch (err) {
+      console.error('Wallet encrypt failed:', err)
+      alert(`Failed to encrypt file: ${err instanceof Error ? err.message : 'Unknown error'}`)
+    }
+  }
+
+  document.body.appendChild(input)
+  input.click()
+}
+
 onMounted(() => {
   generateQRCode()
 })
@@ -157,10 +256,10 @@ watch(
   border-color: #d1d5db;
 }
 
-/* Delete button — pinned to the upper-right corner of the card */
+/* Action buttons — upper-right stack; nudged slightly down vs prior layout */
+.cwa-encrypt,
 .cwa-delete {
   position: absolute;
-  top: 2rem;
   right: 0.5rem;
   z-index: 2;
   display: inline-flex;
@@ -170,12 +269,32 @@ watch(
   height: 2rem;
   padding: 0;
   border: none;
-  background: #fef2f2;
   border-radius: 0.375rem;
-  color: #dc2626;
   cursor: pointer;
   transition: background 0.12s, color 0.12s;
   flex-shrink: 0;
+}
+
+.cwa-encrypt {
+  top: 1rem;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.cwa-encrypt:hover {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.cwa-encrypt:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.cwa-delete {
+  top: 3.5rem;
+  background: #fef2f2;
+  color: #dc2626;
 }
 
 .cwa-delete:hover {
@@ -188,9 +307,9 @@ watch(
   outline-offset: 2px;
 }
 
-/* QR — centered white inset panel; top margin reserves space for the absolute delete button */
+/* QR — tightened top margin vs action stack */
 .cwa-qr-trigger {
-  margin: 1.5rem auto 0;
+  margin: 0.7rem auto 0;
   padding: 0;
   border: none;
   background: transparent;
@@ -229,7 +348,6 @@ watch(
   width: 100%;
   height: auto;
   display: block;
-  vertical-align: middle;
 }
 
 .cwa-qr-frame__loading {

@@ -1,0 +1,16 @@
+Field,Value
+From,keyForge
+Date,12/28/2025
+Time,4:25:39 PM
+User Name,user
+Machine Name,local
+Mnemonic Seed Phrase,keen network book rare shiver art ignore concert nut immune ride urban
+BIP32 Root GPG Key Fingerprint,CD 5E FD D9 99 2D A1 87 DC D5 A4 D6 95 78 F3 C0 EA 8F 48 5A
+Default Derivation Path (BTC),m/44'/0'/0'/0/0
+Default Derivation Path (LTC),m/44'/2'/0'/0/0
+Default Derivation Path (DOGE),m/44'/3'/0'/0/0
+Default Derivation Path (ETH),m/44'/60'/0'/0/0
+Default Derivation Path (TRX),m/44'/195'/0'/0/0
+Default Derivation Path (SOL),m/44'/501'/0'/0'
+Default Derivation Path (XTZ),m/44'/1729'/0'/0'
+Default Derivation Path (LUNC),m/44'/330'/0'/0/0
