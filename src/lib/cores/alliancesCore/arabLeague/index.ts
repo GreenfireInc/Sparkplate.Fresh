@@ -3,9 +3,13 @@ export type {
   ArabLeagueMembership,
   ArabLeagueOrganizationInfo,
   DomesticCourierService,
+  NotableUniversity,
 } from './types'
+export { ARAB_LEAGUE_MEMBER_ISO_CODES } from './arabLeagueMemberIsoCodes'
+export type { ArabLeagueMemberIsoCode } from './arabLeagueMemberIsoCodes'
 
 import type { ArabLeagueCountry, ArabLeagueOrganizationInfo } from './types'
+import { ARAB_LEAGUE_MEMBER_ISO_CODES } from './arabLeagueMemberIsoCodes'
 import { algeria } from './algeria'
 import { bahrain } from './bahrain'
 import { comoros } from './comoros'
@@ -117,29 +121,6 @@ export const arabLeague: ArabLeagueOrganizationInfo = {
     'Collective consideration of Arab affairs in regional and international forums',
   ],
   foundingMembers1945Iso2: ['EG', 'IQ', 'JO', 'LB', 'SA', 'SY', 'YE'],
-  memberStatesIso2: [
-    'DZ',
-    'BH',
-    'KM',
-    'DJ',
-    'EG',
-    'IQ',
-    'JO',
-    'KW',
-    'LB',
-    'LY',
-    'MR',
-    'MA',
-    'OM',
-    'PS',
-    'QA',
-    'SA',
-    'SO',
-    'SD',
-    'SY',
-    'TN',
-    'AE',
-    'YE',
-  ],
+  memberStatesIso2: ARAB_LEAGUE_MEMBER_ISO_CODES,
   memberRecordsInModule: 22,
 }

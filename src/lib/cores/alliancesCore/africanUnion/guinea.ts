@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const guinea: AfricanUnionCountry = {
   name: 'Guinea',
   iso3166Alpha2: 'GN',
@@ -17,5 +18,6 @@ export const guinea: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card (regional)', 'OTC'],
   stablecoin: 'USDT informal; no GNF stablecoin',
   domesticCourierServices: AU_DOMESTIC_COURIERS['GN'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['GN'],
   stockExchange: 'No major national exchange; informal OTC and regional brokers',
 }

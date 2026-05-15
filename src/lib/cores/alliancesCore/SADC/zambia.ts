@@ -1,5 +1,6 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const zambia: SadcCountry = {
   name: 'Zambia',
@@ -17,5 +18,6 @@ export const zambia: SadcCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Regional P2P'],
   stablecoin: 'Informal USDT/USDC alongside kwacha liquidity',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['ZM'],
+  notableUniversities: SADC_NOTABLE_UNIVERSITIES['ZM'],
   stockExchange: 'Lusaka Securities Exchange',
 }

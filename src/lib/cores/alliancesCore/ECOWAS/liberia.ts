@@ -1,5 +1,6 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const liberia: EcowasCountry = {
   name: 'Liberia',
@@ -17,5 +18,6 @@ export const liberia: EcowasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex'],
   stablecoin: 'USDT / USDC; USD dominant cash economy',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['LR'],
+  notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['LR'],
   stockExchange: 'Liberia Stock Exchange (very limited)',
 }

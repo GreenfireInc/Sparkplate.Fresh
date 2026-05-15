@@ -1,4 +1,4 @@
-export type { IoraCountry, IoraOrganizationInfo, DomesticCourierService } from './types'
+export type { IoraCountry, IoraOrganizationInfo, DomesticCourierService, NotableUniversity } from './types'
 
 import type { IoraCountry, IoraOrganizationInfo } from './types'
 import { IORA_MEMBER_ISO_CODES } from './ioraMemberIsoCodes'

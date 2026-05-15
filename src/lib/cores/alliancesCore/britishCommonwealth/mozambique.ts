@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mozambique: CommonwealthCountry = {
   name: 'Mozambique',
@@ -18,5 +19,6 @@ export const mozambique: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['MZ'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['MZ'],
   stockExchange: 'Bolsa de Valores de Moçambique',
 }

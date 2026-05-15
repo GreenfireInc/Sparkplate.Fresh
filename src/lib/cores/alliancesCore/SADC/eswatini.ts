@@ -1,5 +1,6 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const eswatini: SadcCountry = {
   name: 'Eswatini',
@@ -17,5 +18,6 @@ export const eswatini: SadcCountry = {
   cryptocurrencyExchanges: ['Informal P2P; formal regime limited'],
   stablecoin: 'Rand peg context; informal USDT',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['SZ'],
+  notableUniversities: SADC_NOTABLE_UNIVERSITIES['SZ'],
   stockExchange: 'Eswatini Stock Exchange — verify liquidity',
 }

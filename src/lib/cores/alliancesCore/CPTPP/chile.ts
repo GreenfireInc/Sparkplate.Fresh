@@ -1,5 +1,6 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const chile: CptppCountry = {
   name: 'Chile',
@@ -17,5 +18,6 @@ export const chile: CptppCountry = {
   cryptocurrencyExchanges: ['Buda.com', 'Orionx', 'Global exchanges (travel context)'],
   stablecoin: 'USDT/USDC OTC; constitutional reform narratives — verify',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['CL'],
+  notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['CL'],
   stockExchange: 'Santiago Exchange (Bolsa de Comercio de Santiago)',
 }

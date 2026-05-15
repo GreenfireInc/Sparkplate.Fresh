@@ -1,5 +1,6 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const newZealand: RcepCountry = {
   name: 'New Zealand',
@@ -18,5 +19,6 @@ export const newZealand: RcepCountry = {
   cryptocurrencyExchanges: ['Easy Crypto', 'FMCA/DIA onboarding — informational'],
   stablecoin: 'NZD issuance thin; RB NZ digital policy evolution — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['NZ'],
+  notableUniversities: RCEP_NOTABLE_UNIVERSITIES['NZ'],
   stockExchange: 'NZX Limited',
 }

@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const switzerland: OecdCountry = {
   name: 'Switzerland',
@@ -18,5 +19,6 @@ export const switzerland: OecdCountry = {
   cryptocurrencyExchanges: ['Swiss-regulated SIX Digital Exchange; FINMA VQF intermediaries — informational'],
   stablecoin: 'CHF-referenced instruments; stablecoin banking pilot programmes — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['CH'],
+  notableUniversities: OECD_NOTABLE_UNIVERSITIES['CH'],
   stockExchange: 'SIX Swiss Exchange (Zurich)',
 }

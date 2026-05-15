@@ -1,5 +1,6 @@
 import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const montserrat: CaricomCountry = {
   name: 'Montserrat',
@@ -18,5 +19,6 @@ export const montserrat: CaricomCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'XCD peg; USDT informal',
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['MS'],
+  notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['MS'],
   stockExchange: 'Eastern Caribbean Securities Exchange (access context) — informational',
 }

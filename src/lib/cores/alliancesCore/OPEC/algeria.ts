@@ -1,5 +1,6 @@
 import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const algeria: OpecCountry = {
   name: 'Algeria',
@@ -18,5 +19,6 @@ export const algeria: OpecCountry = {
   cryptocurrencyExchanges: ['Official stance historically restrictive; regional OTC narratives — informational'],
   stablecoin: 'DZD informal USD pricing; sanctioned-screening overlays — informational',
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['DZ'],
+  notableUniversities: OPEC_NOTABLE_UNIVERSITIES['DZ'],
   stockExchange: 'Algerian equities segment (regulated bourse liquidity limited — informational)',
 }

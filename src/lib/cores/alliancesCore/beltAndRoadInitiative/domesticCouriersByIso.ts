@@ -5,6 +5,7 @@ import { ASEAN_DOMESTIC_COURIERS } from '../ASEAN/domesticCouriersByIso'
 import { AU_DOMESTIC_COURIERS } from '../africanUnion/domesticCouriersByIso'
 import { ARAB_LEAGUE_DOMESTIC_COURIERS } from '../arabLeague/domesticCouriersByIso'
 import { BELT_AND_ROAD_PARTICIPANT_ISO_CODES } from './participantStatesIsoCodes'
+import type { BriMemberIsoCode } from './participantStatesIsoCodes'
 
 function c(
   name: string,
@@ -87,4 +88,4 @@ export const BRI_DOMESTIC_COURIERS = Object.fromEntries(
     iso2,
     MERGED_MODULES[iso2] ?? fallbackDomesticCouriers(iso2),
   ]),
-) as Record<string, DomesticCourierService[]>
+) as Record<BriMemberIsoCode, DomesticCourierService[]>

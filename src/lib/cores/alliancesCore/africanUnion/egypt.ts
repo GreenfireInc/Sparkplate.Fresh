@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const egypt: AfricanUnionCountry = {
   name: 'Egypt',
   iso3166Alpha2: 'EG',
@@ -17,5 +18,6 @@ export const egypt: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Rain (regional)', 'No official local spot exchange; P2P & OTC'],
   stablecoin: 'USDT / USDC P2P common; central bank exploring CBDC',
   domesticCourierServices: AU_DOMESTIC_COURIERS['EG'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['EG'],
   stockExchange: 'Egyptian Exchange (EGX)',
 }

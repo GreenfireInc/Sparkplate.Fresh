@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const ivoryCoast: CensadCountry = {
   name: "Côte d'Ivoire",
@@ -17,5 +18,6 @@ export const ivoryCoast: CensadCountry = {
   cryptocurrencyExchanges: ['Regional licensed platforms evolution', 'Binance P2P'],
   stablecoin: 'USDT informal alongside CFA',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['CI'],
+  notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['CI'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (BRVM) — seat Abidjan',
 }

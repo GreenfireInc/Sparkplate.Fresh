@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const sweden: EuCountry = {
   name: 'Sweden',
@@ -17,5 +18,6 @@ export const sweden: EuCountry = {
   cryptocurrencyExchanges: ['European brokers; Nasdaq Nordic crypto ETP wrappers'],
   stablecoin: 'EUR/USD-stable pairs; Swedbank / Riksbank e-krona pilot — verify status',
   domesticCourierServices: EU_DOMESTIC_COURIERS['SE'],
+  notableUniversities: EU_NOTABLE_UNIVERSITIES['SE'],
   stockExchange: 'Nasdaq Stockholm',
 }

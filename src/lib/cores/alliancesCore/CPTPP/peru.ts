@@ -1,5 +1,6 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const peru: CptppCountry = {
   name: 'Peru',
@@ -18,5 +19,6 @@ export const peru: CptppCountry = {
   cryptocurrencyExchanges: ['Buda.com (cross-border LATAM)', 'OTC predominant'],
   stablecoin: 'USDT/USDC informal',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['PE'],
+  notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['PE'],
   stockExchange: 'Lima Stock Exchange (Bolsa de Valores de Lima)',
 }

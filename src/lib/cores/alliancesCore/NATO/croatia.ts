@@ -1,5 +1,6 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const croatia: NatoCountry = {
   name: 'Croatia',
@@ -18,5 +19,6 @@ export const croatia: NatoCountry = {
   cryptocurrencyExchanges: ['EU MiCA-regulated onboarding; Binance EUR context'],
   stablecoin: 'EUR stablecoins MiCA-aligned — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['HR'],
+  notableUniversities: NATO_NOTABLE_UNIVERSITIES['HR'],
   stockExchange: 'Zagreb Stock Exchange',
 }

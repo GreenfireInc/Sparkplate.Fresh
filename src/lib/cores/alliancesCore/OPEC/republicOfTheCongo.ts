@@ -1,5 +1,6 @@
 import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const republicOfTheCongo: OpecCountry = {
   name: 'Republic of the Congo',
@@ -18,5 +19,6 @@ export const republicOfTheCongo: OpecCountry = {
   cryptocurrencyExchanges: ['Regional OTC; banking USD rails — informational'],
   stablecoin: 'EUR-pegged XAF; informal USDT overlays — informational',
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['CG'],
+  notableUniversities: OPEC_NOTABLE_UNIVERSITIES['CG'],
   stockExchange: 'Brazaafrica listings thin; Congo regional bourse narratives — informational',
 }

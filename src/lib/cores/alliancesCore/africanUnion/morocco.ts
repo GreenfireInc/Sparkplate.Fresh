@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const morocco: AfricanUnionCountry = {
   name: 'Morocco',
   iso3166Alpha2: 'MA',
@@ -17,5 +18,6 @@ export const morocco: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Rain (regional)', 'Peer OTC'],
   stablecoin: 'USDT informal; Bank Al-Maghrib exploring CBDC',
   domesticCourierServices: AU_DOMESTIC_COURIERS['MA'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['MA'],
   stockExchange: 'Casablanca Stock Exchange',
 }

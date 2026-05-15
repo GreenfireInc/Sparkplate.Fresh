@@ -1,5 +1,6 @@
 import type { MiktaCountry } from './types'
 import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const southKorea: MiktaCountry = {
   name: 'South Korea',
@@ -19,5 +20,6 @@ export const southKorea: MiktaCountry = {
   cryptocurrencyExchanges: ['Upbit', 'Bithumb', 'Coinone / Korbit FSC VASP registration regime — informational'],
   stablecoin: 'KRW-pegged issuance constrained by FSC; offshore USDT/USDC liquidity — informational',
   domesticCourierServices: MIKTA_DOMESTIC_COURIERS['KR'],
+  notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['KR'],
   stockExchange: 'Korea Exchange KRX (KOSPI / KOSDAQ)',
 }

@@ -1,5 +1,6 @@
 import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const equatorialGuinea: EccasCountry = {
   name: 'Equatorial Guinea',
@@ -17,5 +18,6 @@ export const equatorialGuinea: EccasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'OTC', 'International brokers'],
   stablecoin: 'USDT informal; XAF peg',
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['GQ'],
+  notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['GQ'],
   stockExchange: 'CEMAC regional liquidity; limited local listings',
 }

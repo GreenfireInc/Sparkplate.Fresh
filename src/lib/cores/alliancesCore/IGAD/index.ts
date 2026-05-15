@@ -1,4 +1,4 @@
-export type { IgadCountry, IgadOrganizationInfo, DomesticCourierService } from './types'
+export type { IgadCountry, IgadOrganizationInfo, DomesticCourierService, NotableUniversity } from './types'
 
 import type { IgadCountry, IgadOrganizationInfo } from './types'
 import { IGAD_MEMBER_ISO_CODES } from './igadMemberIsoCodes'

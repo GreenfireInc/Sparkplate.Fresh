@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const republicOfTheCongo: BeltAndRoadInitiativeCountry = {
   name: 'Republic of the Congo',
@@ -18,5 +19,6 @@ export const republicOfTheCongo: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC'],
   stablecoin: 'USDT P2P; XAF peg',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['CG'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['CG'],
   stockExchange: 'Bourse des Valeurs du Congo (BVC)',
 }

@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const singapore: CommonwealthCountry = {
   name: 'Singapore',
@@ -18,5 +19,6 @@ export const singapore: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Coinbase', 'Crypto.com', 'Independent Reserve'],
   stablecoin: 'XSGD and USDC (regulated venues); USDT',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['SG'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['SG'],
   stockExchange: 'Singapore Exchange (SGX)',
 }

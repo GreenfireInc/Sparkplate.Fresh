@@ -1,5 +1,6 @@
 import type { ArabLeagueCountry } from './types'
 import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const tunisia: ArabLeagueCountry = {
   name: 'Tunisia',
@@ -18,5 +19,6 @@ export const tunisia: ArabLeagueCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional brokers', 'OTC'],
   stablecoin: 'USDT informal; e-dinar discussions',
   domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['TN'],
+  notableUniversities: ARAB_LEAGUE_NOTABLE_UNIVERSITIES['TN'],
   stockExchange: 'Bourse de Tunis',
 }

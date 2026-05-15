@@ -1,5 +1,6 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const zimbabwe: SadcCountry = {
   name: 'Zimbabwe',
@@ -18,5 +19,6 @@ export const zimbabwe: SadcCountry = {
   cryptocurrencyExchanges: ['Heavy informal USDT/USDC amidst FX stress'],
   stablecoin: 'Informal USD and stablecoins domestically predominant',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['ZW'],
+  notableUniversities: SADC_NOTABLE_UNIVERSITIES['ZW'],
   stockExchange: 'Zimbabwe Stock Exchange (ZSE)',
 }

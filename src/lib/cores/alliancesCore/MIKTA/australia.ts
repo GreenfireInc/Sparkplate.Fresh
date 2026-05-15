@@ -1,5 +1,6 @@
 import type { MiktaCountry } from './types'
 import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const australia: MiktaCountry = {
   name: 'Australia',
@@ -19,5 +20,6 @@ export const australia: MiktaCountry = {
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'CoinJar / Swyftx AUSTRAC registration regime — informational'],
   stablecoin: 'AUDD (Novatti) and AUDC pilots; ANZ A$DC bank-issued settlement experiments — informational',
   domesticCourierServices: MIKTA_DOMESTIC_COURIERS['AU'],
+  notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['AU'],
   stockExchange: 'Australian Securities Exchange ASX (Sydney)',
 }

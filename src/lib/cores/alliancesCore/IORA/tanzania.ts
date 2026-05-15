@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const tanzania: IoraCountry = {
   name: 'Tanzania',
@@ -19,5 +20,6 @@ export const tanzania: IoraCountry = {
   cryptocurrencyExchanges: ['BOT cautious licensing; diaspora OTC — informational'],
   stablecoin: 'USD informal TZS parallel segments — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['TZ'],
+  notableUniversities: IORA_NOTABLE_UNIVERSITIES['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange (DSE)',
 }

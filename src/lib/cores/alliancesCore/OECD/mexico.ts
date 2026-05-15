@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mexico: OecdCountry = {
   name: 'Mexico',
@@ -19,5 +20,6 @@ export const mexico: OecdCountry = {
   cryptocurrencyExchanges: ['Bitso', 'CNBV fintech registration evolution — informational'],
   stablecoin: 'MXN fiat-backed issuance pilots vs informal USDT — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['MX'],
+  notableUniversities: OECD_NOTABLE_UNIVERSITIES['MX'],
   stockExchange: 'Bolsa Mexicana de Valores (BMV)',
 }

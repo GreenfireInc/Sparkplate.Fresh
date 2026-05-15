@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const senegal: AfricanUnionCountry = {
   name: 'Senegal',
   iso3166Alpha2: 'SN',
@@ -17,5 +18,6 @@ export const senegal: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Wave-linked fintech'],
   stablecoin: 'USDT / USDC; XOF peg via CFA',
   domesticCourierServices: AU_DOMESTIC_COURIERS['SN'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['SN'],
   stockExchange: 'BRVM (regional; Dakar listings)',
 }

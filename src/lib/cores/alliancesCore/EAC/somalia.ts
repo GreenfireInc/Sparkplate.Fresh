@@ -1,5 +1,6 @@
 import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const somalia: EacCountry = {
   name: 'Somalia',
@@ -19,5 +20,6 @@ export const somalia: EacCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Hawala-linked OTC', 'Diaspora remittance apps'],
   stablecoin: 'USDT informal; USD cash economy',
   domesticCourierServices: EAC_DOMESTIC_COURIERS['SO'],
+  notableUniversities: EAC_NOTABLE_UNIVERSITIES['SO'],
   stockExchange: 'No functioning national exchange',
 }

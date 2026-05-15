@@ -1,6 +1,14 @@
-export type { AseanCountry, AseanOrganizationInfo, DomesticCourierService } from './types'
+export type {
+  AseanCountry,
+  AseanOrganizationInfo,
+  DomesticCourierService,
+  NotableUniversity,
+} from './types'
+export { ASEAN_MEMBER_ISO_CODES } from './aseanMemberIsoCodes'
+export type { AseanMemberIsoCode } from './aseanMemberIsoCodes'
 
 import type { AseanCountry, AseanOrganizationInfo } from './types'
+import { ASEAN_MEMBER_ISO_CODES } from './aseanMemberIsoCodes'
 import { brunei } from './brunei'
 import { cambodia } from './cambodia'
 import { indonesia } from './indonesia'
@@ -56,6 +64,6 @@ export const asean: AseanOrganizationInfo = {
     '1967-08-08 Bangkok Declaration founding; ASEAN Charter effective 2008-12-15 (Community pillars evolution — informational)',
   headquartersCity: 'Jakarta',
   headquartersCountry: 'Indonesia',
-  memberStatesIso2: ['BN', 'KH', 'ID', 'LA', 'MY', 'MM', 'PH', 'SG', 'TH', 'TL', 'VN'],
+  memberStatesIso2: ASEAN_MEMBER_ISO_CODES,
   memberRecordsInModule: 11,
 }

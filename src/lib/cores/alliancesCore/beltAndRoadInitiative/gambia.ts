@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const gambia: BeltAndRoadInitiativeCountry = {
   name: 'The Gambia',
@@ -18,5 +19,6 @@ export const gambia: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex (diaspora)'],
   stablecoin: 'USDT / USDC P2P',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['GM'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['GM'],
   stockExchange: 'Gambia Stock Exchange (limited)',
 }

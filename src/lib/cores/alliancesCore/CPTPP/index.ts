@@ -1,4 +1,9 @@
-export type { CptppCountry, CptppOrganizationInfo, DomesticCourierService } from './types'
+export type {
+  CptppCountry,
+  CptppOrganizationInfo,
+  DomesticCourierService,
+  NotableUniversity,
+} from './types'
 
 import type { CptppCountry, CptppOrganizationInfo } from './types'
 import { CPTPP_MEMBER_ISO_CODES } from './cptppMemberIsoCodes'

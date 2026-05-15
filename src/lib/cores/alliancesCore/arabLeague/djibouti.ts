@@ -1,5 +1,6 @@
 import type { ArabLeagueCountry } from './types'
 import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const djibouti: ArabLeagueCountry = {
   name: 'Djibouti',
@@ -18,5 +19,6 @@ export const djibouti: ArabLeagueCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'International OTC', 'Regional remittance apps'],
   stablecoin: 'USDT / USDC; DJF pegged to USD (currency board)',
   domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['DJ'],
+  notableUniversities: ARAB_LEAGUE_NOTABLE_UNIVERSITIES['DJ'],
   stockExchange: 'Djibouti Stock Exchange (thin activity)',
 }

@@ -1,4 +1,9 @@
-export type { EccasCountry, EccasOrganizationInfo, DomesticCourierService } from './types'
+export type {
+  DomesticCourierService,
+  EccasCountry,
+  EccasOrganizationInfo,
+  NotableUniversity,
+} from './types'
 
 import type { EccasCountry, EccasOrganizationInfo } from './types'
 import { ECCAS_MEMBER_ISO_CODES } from './eccasMemberIsoCodes'

@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const southAfrica: IoraCountry = {
   name: 'South Africa',
@@ -18,5 +19,6 @@ export const southAfrica: IoraCountry = {
   cryptocurrencyExchanges: ['Luno RSA onboarding; FSCA crypto-asset licences — informational'],
   stablecoin: 'ZAR thin digital issuance; OTC USDT overlays — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['ZA'],
+  notableUniversities: IORA_NOTABLE_UNIVERSITIES['ZA'],
   stockExchange: 'Johannesburg Stock Exchange JSE',
 }

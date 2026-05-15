@@ -1,5 +1,6 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const japan: CptppCountry = {
   name: 'Japan',
@@ -17,5 +18,6 @@ export const japan: CptppCountry = {
   cryptocurrencyExchanges: ['bitFlyer', 'Coincheck', 'GMO Coin', 'Global institutional participation'],
   stablecoin: 'Stablecoin issuance rules evolving — verify ; USDT limited domestic retail',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['JP'],
+  notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['JP'],
   stockExchange: 'Tokyo Stock Exchange (TSE)',
 }

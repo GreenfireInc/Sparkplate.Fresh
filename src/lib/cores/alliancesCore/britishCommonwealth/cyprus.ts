@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const cyprus: CommonwealthCountry = {
   name: 'Cyprus',
@@ -18,5 +19,6 @@ export const cyprus: CommonwealthCountry = {
   cryptocurrencyExchanges: ['EU-licensed venues', 'Binance', 'Kraken'],
   stablecoin: 'EUR stablecoins (EU MiCA context); USDT',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['CY'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['CY'],
   stockExchange: 'Cyprus Stock Exchange (CSE)',
 }

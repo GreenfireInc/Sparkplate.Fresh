@@ -1,5 +1,6 @@
 import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const timorLeste: AseanCountry = {
   name: 'Timor-Leste',
@@ -18,5 +19,6 @@ export const timorLeste: AseanCountry = {
   cryptocurrencyExchanges: ['Thin formal licensing; humanitarian remittance OTC — informational'],
   stablecoin: 'USD cash economy predominant; informal digital overlays — informational',
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['TL'],
+  notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['TL'],
   stockExchange: 'No substantive national equities exchange consolidated — informational',
 }

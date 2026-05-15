@@ -1,5 +1,6 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const democraticRepublicOfTheCongo: SadcCountry = {
   name: 'Democratic Republic of the Congo',
@@ -17,5 +18,6 @@ export const democraticRepublicOfTheCongo: SadcCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Regional OTC'],
   stablecoin: 'USDT/USDC widespread informal P2P',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['CD'],
+  notableUniversities: SADC_NOTABLE_UNIVERSITIES['CD'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (informal linkage); domestic equity market thin — verify',
 }

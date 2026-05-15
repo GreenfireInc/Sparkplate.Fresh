@@ -1,5 +1,6 @@
 import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const centralAfricanRepublic: EccasCountry = {
   name: 'Central African Republic',
@@ -18,5 +19,6 @@ export const centralAfricanRepublic: EccasCountry = {
   cryptocurrencyExchanges: ['National crypto project narratives', 'Binance (P2P)', 'OTC'],
   stablecoin: 'USDT / USDC P2P alongside policy experiments',
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['CF'],
+  notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['CF'],
   stockExchange: 'Bangui Stock Exchange (very limited)',
 }

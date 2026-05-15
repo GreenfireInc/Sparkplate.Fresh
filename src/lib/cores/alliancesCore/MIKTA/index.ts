@@ -1,4 +1,4 @@
-export type { MiktaCountry, MiktaOrganizationInfo, DomesticCourierService } from './types'
+export type { MiktaCountry, MiktaOrganizationInfo, DomesticCourierService, NotableUniversity } from './types'
 
 import type { MiktaCountry, MiktaOrganizationInfo } from './types'
 import { MIKTA_MEMBER_ISO_CODES } from './miktaMemberIsoCodes'

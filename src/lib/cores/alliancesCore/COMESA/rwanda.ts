@@ -1,5 +1,6 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const rwanda: ComesaCountry = {
   name: 'Rwanda',
@@ -17,5 +18,6 @@ export const rwanda: ComesaCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Kigali fintech hubs'],
   stablecoin: 'USDT / USDC; CBDC explorations — verify',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['RW'],
+  notableUniversities: COMESA_NOTABLE_UNIVERSITIES['RW'],
   stockExchange: 'Rwanda Stock Exchange',
 }

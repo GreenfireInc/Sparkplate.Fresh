@@ -1,6 +1,15 @@
-export type { AmuCountry, AmuMembership, AmuOrganizationInfo, DomesticCourierService } from './types'
+export type {
+  AmuCountry,
+  AmuMembership,
+  AmuOrganizationInfo,
+  DomesticCourierService,
+  NotableUniversity,
+} from './types'
+export { AMU_MEMBER_ISO_CODES } from './amuMemberIsoCodes'
+export type { AmuMemberIsoCode } from './amuMemberIsoCodes'
 
 import type { AmuCountry, AmuOrganizationInfo } from './types'
+import { AMU_MEMBER_ISO_CODES } from './amuMemberIsoCodes'
 import { algeria } from './algeria'
 import { libya } from './libya'
 import { mauritania } from './mauritania'
@@ -49,6 +58,6 @@ export const amu: AmuOrganizationInfo = {
     'Harmonize legislation and build shared infrastructure (transport, energy, etc.)',
     'Strengthen a common Maghreb identity and joint institutions over time',
   ],
-  foundingMembersIso2: ['DZ', 'LY', 'MR', 'MA', 'TN'],
+  foundingMembersIso2: AMU_MEMBER_ISO_CODES,
   memberRecordsInModule: 5,
 }

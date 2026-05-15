@@ -1,5 +1,6 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const brunei: CptppCountry = {
   name: 'Brunei',
@@ -17,5 +18,6 @@ export const brunei: CptppCountry = {
   cryptocurrencyExchanges: ['Limited domestic venues; regional Singapore rails'],
   stablecoin: 'BND / SGD peg context; USDT informal access',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['BN'],
+  notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['BN'],
   stockExchange: 'Brunei Darussalam Central Moneymarket (money market; thin equity market — verify)',
 }

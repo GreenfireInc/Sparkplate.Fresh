@@ -2,9 +2,13 @@ export type {
   ApecCountry,
   ApecOrganizationInfo,
   DomesticCourierService,
+  NotableUniversity,
 } from './types'
+export { APEC_MEMBER_ISO_CODES } from './apecMemberIsoCodes'
+export type { ApecMemberIsoCode } from './apecMemberIsoCodes'
 
 import type { ApecCountry, ApecOrganizationInfo } from './types'
+import { APEC_MEMBER_ISO_CODES } from './apecMemberIsoCodes'
 import { australia } from './australia'
 import { brunei } from './brunei'
 import { canada } from './canada'
@@ -87,6 +91,6 @@ export const apec: ApecOrganizationInfo = {
     '1989 Canberra inaugural ministerial; Leaders\' Meeting rotational hosting model evolution — informational',
   headquartersCity: 'Singapore',
   headquartersCountry: 'Singapore',
-  memberStatesIso2: ['AU', 'BN', 'CA', 'CL', 'CN', 'HK', 'ID', 'JP', 'MY', 'MX', 'NZ', 'PG', 'PE', 'PH', 'RU', 'SG', 'KR', 'TW', 'TH', 'US', 'VN'],
+  memberStatesIso2: APEC_MEMBER_ISO_CODES,
   memberRecordsInModule: 21,
 }

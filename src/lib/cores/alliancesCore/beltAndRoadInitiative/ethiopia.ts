@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const ethiopia: BeltAndRoadInitiativeCountry = {
   name: 'Ethiopia',
@@ -18,5 +19,6 @@ export const ethiopia: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC P2P; National Bank cautious on crypto',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['ET'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['ET'],
   stockExchange: 'Ethiopian Securities Exchange (launch context varies)',
 }

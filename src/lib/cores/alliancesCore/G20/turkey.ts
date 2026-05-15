@@ -1,5 +1,6 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const turkey: G20Country = {
   name: 'Turkey',
@@ -19,5 +20,6 @@ export const turkey: G20Country = {
   cryptocurrencyExchanges: ['BtcTurk', 'Paribu', 'MASAK anti-money laundering registration — informational'],
   stablecoin: 'TRY fiat-backed issuance thin; TRY volatility vs USD-stable informal — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['TR'],
+  notableUniversities: G20_NOTABLE_UNIVERSITIES['TR'],
   stockExchange: 'Borsa Istanbul (BİST equities / debt)',
 }

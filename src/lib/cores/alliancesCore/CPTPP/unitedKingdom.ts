@@ -1,5 +1,6 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const unitedKingdom: CptppCountry = {
   name: 'United Kingdom',
@@ -18,5 +19,6 @@ export const unitedKingdom: CptppCountry = {
   cryptocurrencyExchanges: ['Coinbase', 'Kraken', 'Gemini EU/UK hubs', 'FCA-register evolution'],
   stablecoin: 'GBP stablecoins (EMI issuers); USDC institutional',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['GB'],
+  notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['GB'],
   stockExchange: 'London Stock Exchange Group (LSEG)',
 }

@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const zambia: BeltAndRoadInitiativeCountry = {
   name: 'Zambia',
@@ -18,5 +19,6 @@ export const zambia: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Luno'],
   stablecoin: 'USDT / USDC informal',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['ZM'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['ZM'],
   stockExchange: 'Lusaka Securities Exchange (LuSE)',
 }

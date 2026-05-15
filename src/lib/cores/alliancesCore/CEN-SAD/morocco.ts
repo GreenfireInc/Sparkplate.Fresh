@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const morocco: CensadCountry = {
   name: 'Morocco',
@@ -17,5 +18,6 @@ export const morocco: CensadCountry = {
   cryptocurrencyExchanges: ['Regulatory evolution; peer markets reported'],
   stablecoin: 'Informal USDT',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['MA'],
+  notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['MA'],
   stockExchange: 'Casablanca Stock Exchange',
 }

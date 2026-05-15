@@ -1,4 +1,5 @@
 import type { DomesticCourierService } from './types'
+import type { ArabLeagueMemberIsoCode } from './arabLeagueMemberIsoCodes'
 
 function c(
   name: string,
@@ -764,4 +765,4 @@ export const ARAB_LEAGUE_DOMESTIC_COURIERS = {
       'https://apis.fedex.com/',
     ),
   ],
-} satisfies Record<string, DomesticCourierService[]>
+} satisfies Record<ArabLeagueMemberIsoCode, DomesticCourierService[]>

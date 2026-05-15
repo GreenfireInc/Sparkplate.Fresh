@@ -1,6 +1,15 @@
-export type { BricsCountry, BricsMembership, BricsOrganizationInfo, DomesticCourierService } from './types'
+export type {
+  BricsCountry,
+  BricsMembership,
+  BricsOrganizationInfo,
+  DomesticCourierService,
+  NotableUniversity,
+} from './types'
+export { BRICS_MEMBER_ISO_CODES } from './bricsMemberIsoCodes'
+export type { BricsMemberIsoCode } from './bricsMemberIsoCodes'
 
 import type { BricsCountry, BricsOrganizationInfo } from './types'
+import { BRICS_MEMBER_ISO_CODES } from './bricsMemberIsoCodes'
 import { brazil } from './brazil'
 import { china } from './china'
 import { india } from './india'
@@ -47,6 +56,6 @@ export const brics: BricsOrganizationInfo = {
     'Coordinate on multilateral platforms where members’ interests align',
   ],
   foundingMembersBric2009Iso2: ['BR', 'RU', 'IN', 'CN'],
-  foundingBrics2011Iso2: ['BR', 'RU', 'IN', 'CN', 'ZA'],
+  foundingBrics2011Iso2: BRICS_MEMBER_ISO_CODES,
   memberRecordsInModule: 5,
 }

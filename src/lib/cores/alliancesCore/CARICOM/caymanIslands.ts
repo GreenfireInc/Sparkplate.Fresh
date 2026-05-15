@@ -1,5 +1,6 @@
 import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const caymanIslands: CaricomCountry = {
   name: 'Cayman Islands',
@@ -18,5 +19,6 @@ export const caymanIslands: CaricomCountry = {
   cryptocurrencyExchanges: ['CIMA-regulated entities', 'Offshore funds — verify'],
   stablecoin: 'KYD/USD peg; USDT in offshore context',
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['KY'],
+  notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['KY'],
   stockExchange: 'Cayman Islands Stock Exchange (CSX)',
 }

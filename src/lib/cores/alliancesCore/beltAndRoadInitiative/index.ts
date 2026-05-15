@@ -3,7 +3,10 @@ export type {
   BeltAndRoadInitiativeMembership,
   BeltAndRoadInitiativeOrganizationInfo,
   DomesticCourierService,
+  NotableUniversity,
 } from './types'
+export { BELT_AND_ROAD_PARTICIPANT_ISO_CODES } from './participantStatesIsoCodes'
+export type { BriMemberIsoCode } from './participantStatesIsoCodes'
 
 import type { BeltAndRoadInitiativeCountry, BeltAndRoadInitiativeOrganizationInfo } from './types'
 import { BELT_AND_ROAD_PARTICIPANT_ISO_CODES } from './participantStatesIsoCodes'

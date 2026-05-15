@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const sierraLeone: CommonwealthCountry = {
   name: 'Sierra Leone',
@@ -18,5 +19,6 @@ export const sierraLeone: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['SL'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['SL'],
   stockExchange: 'Sierra Leone Stock Exchange',
 }

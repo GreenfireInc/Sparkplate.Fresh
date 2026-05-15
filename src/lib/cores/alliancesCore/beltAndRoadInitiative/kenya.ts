@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const kenya: BeltAndRoadInitiativeCountry = {
   name: 'Kenya',
@@ -18,5 +19,6 @@ export const kenya: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local blockchain startups'],
   stablecoin: 'USDT / USDC; regulatory environment evolving',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['KE'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
 }

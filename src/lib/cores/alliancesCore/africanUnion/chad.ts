@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const chad: AfricanUnionCountry = {
   name: 'Chad',
   iso3166Alpha2: 'TD',
@@ -17,5 +18,6 @@ export const chad: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card (regional)', 'OTC'],
   stablecoin: 'USDT informal; XAF peg',
   domesticCourierServices: AU_DOMESTIC_COURIERS['TD'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['TD'],
   stockExchange: 'Financial Market of Central Africa (CEMAC hub; thin Chad listings)',
 }

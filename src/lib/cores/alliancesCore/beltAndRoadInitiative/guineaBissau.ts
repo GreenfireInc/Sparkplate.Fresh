@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const guineaBissau: BeltAndRoadInitiativeCountry = {
   name: 'Guinea-Bissau',
@@ -18,5 +19,6 @@ export const guineaBissau: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional P2P'],
   stablecoin: 'USDT P2P; XOF peg',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['GW'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['GW'],
   stockExchange: 'No significant national exchange; BRVM regional access',
 }

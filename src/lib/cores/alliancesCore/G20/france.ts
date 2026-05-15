@@ -1,5 +1,6 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const france: G20Country = {
   name: 'France',
@@ -18,5 +19,6 @@ export const france: G20Country = {
   cryptocurrencyExchanges: ['Coinhouse', 'European MiCA-compliant CASPs', 'Paymium'],
   stablecoin: 'EUR stablecoins; ECB digital euro pilots — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['FR'],
+  notableUniversities: G20_NOTABLE_UNIVERSITIES['FR'],
   stockExchange: 'Euronext Paris',
 }

@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const seychelles: CommonwealthCountry = {
   name: 'Seychelles',
@@ -18,5 +19,6 @@ export const seychelles: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['SC'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['SC'],
   stockExchange: 'Merj Exchange Limited (Seychelles; international listings)',
 }

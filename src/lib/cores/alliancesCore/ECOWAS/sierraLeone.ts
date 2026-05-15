@@ -1,5 +1,6 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const sierraLeone: EcowasCountry = {
   name: 'Sierra Leone',
@@ -17,5 +18,6 @@ export const sierraLeone: EcowasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex'],
   stablecoin: 'USDT / USDC P2P',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['SL'],
+  notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['SL'],
   stockExchange: 'Sierra Leone Stock Exchange',
 }

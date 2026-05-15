@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const nigeria: CensadCountry = {
   name: 'Nigeria',
@@ -17,5 +18,6 @@ export const nigeria: CensadCountry = {
   cryptocurrencyExchanges: ['Luno', 'Yellow Card regional', 'informal OTC (CBN policy evolution — verify)'],
   stablecoin: 'eNaira (CBDC); USDT/USDC informal markets',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['NG'],
+  notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['NG'],
   stockExchange: 'Nigerian Exchange Group ( NGX )',
 }

@@ -1,5 +1,6 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const djibouti: ComesaCountry = {
   name: 'Djibouti',
@@ -17,5 +18,6 @@ export const djibouti: ComesaCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'International OTC', 'Regional remittance apps'],
   stablecoin: 'USDT / USDC; DJF pegged to USD (currency board)',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['DJ'],
+  notableUniversities: COMESA_NOTABLE_UNIVERSITIES['DJ'],
   stockExchange: 'Djibouti Stock Exchange (thin activity)',
 }

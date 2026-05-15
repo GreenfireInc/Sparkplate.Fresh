@@ -1,5 +1,6 @@
 import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const vietnam: AseanCountry = {
   name: 'Vietnam',
@@ -20,5 +21,6 @@ export const vietnam: AseanCountry = {
   cryptocurrencyExchanges: ['State prohibition retail crypto trading; OTC informal — informational'],
   stablecoin: 'State bank pilot digital currency narratives; predominately VND fiat — informational',
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['VN'],
+  notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['VN'],
   stockExchange: 'Ho Chi Minh Stock Exchange; Hanoi Stock Exchange (consolidated plans — informational)',
 }

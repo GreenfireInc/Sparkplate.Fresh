@@ -1,5 +1,6 @@
 import type { BricsCountry } from './types'
 import { BRICS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRICS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const russia: BricsCountry = {
   name: 'Russia',
@@ -18,5 +19,6 @@ export const russia: BricsCountry = {
   cryptocurrencyExchanges: ['Garantex', 'Regional OTC', 'P2P platforms (availability varies by jurisdiction)'],
   stablecoin: 'Digital ruble pilot; USDT/USDC used in informal crypto channels where permitted',
   domesticCourierServices: BRICS_DOMESTIC_COURIERS['RU'],
+  notableUniversities: BRICS_NOTABLE_UNIVERSITIES['RU'],
   stockExchange: 'Moscow Exchange (MOEX)',
 }

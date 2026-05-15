@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const vietnam: ApecCountry = {
   name: 'Vietnam',
@@ -19,5 +20,6 @@ export const vietnam: ApecCountry = {
   cryptocurrencyExchanges: ['Retail prohibition (State Bank of Vietnam stance); OTC informal episodic — informational'],
   stablecoin: 'Pilot digital currency sandbox narratives predominant VND — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['VN'],
+  notableUniversities: APEC_NOTABLE_UNIVERSITIES['VN'],
   stockExchange: 'HOSE Ho Chi Minh; HNX consolidation roadmap — informational',
 }

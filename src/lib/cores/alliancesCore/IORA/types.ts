@@ -15,6 +15,18 @@ export interface DomesticCourierService {
   apiEndpoint: string
 }
 
+/**
+ * Notable higher-education row (economics / accounting / CS / EE-style faculties — informational; verify).
+ */
+export interface NotableUniversity {
+  name: string
+  website: string
+  email: string
+  instagram: string
+  twitter: string
+  linkedin: string
+}
+
 export interface IoraCountry {
   name: string
   iso3166Alpha2: string
@@ -32,6 +44,8 @@ export interface IoraCountry {
   stablecoin: string
   /** Domestic / national courier or parcel carriers with public contact hints (verify locally). */
   domesticCourierServices: DomesticCourierService[]
+  /** Three notable universities covering economics / accounting / computer science / electrical engineering style programmes (informational). */
+  notableUniversities: readonly [NotableUniversity, NotableUniversity, NotableUniversity]
   stockExchange: string
 }
 

@@ -1,5 +1,6 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const malawi: SadcCountry = {
   name: 'Malawi',
@@ -17,5 +18,6 @@ export const malawi: SadcCountry = {
   cryptocurrencyExchanges: ['Yellow Card context', 'OTC informal'],
   stablecoin: 'Informal USDT',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['MW'],
+  notableUniversities: SADC_NOTABLE_UNIVERSITIES['MW'],
   stockExchange: 'Malawi Stock Exchange',
 }

@@ -1,4 +1,9 @@
-export type { ComesaCountry, ComesaOrganizationInfo, DomesticCourierService } from './types'
+export type {
+  ComesaCountry,
+  ComesaOrganizationInfo,
+  DomesticCourierService,
+  NotableUniversity,
+} from './types'
 
 import type { ComesaCountry, ComesaOrganizationInfo } from './types'
 import { COMESA_MEMBER_ISO_CODES } from './comesaMemberIsoCodes'

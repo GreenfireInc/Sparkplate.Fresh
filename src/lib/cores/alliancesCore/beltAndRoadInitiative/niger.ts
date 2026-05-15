@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const niger: BeltAndRoadInitiativeCountry = {
   name: 'Niger',
@@ -18,5 +19,6 @@ export const niger: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'OTC'],
   stablecoin: 'USDT P2P; XOF peg',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['NE'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['NE'],
   stockExchange: 'No liquid national bourse; BRVM regional',
 }

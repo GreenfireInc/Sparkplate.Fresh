@@ -1,5 +1,6 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const zimbabwe: ComesaCountry = {
   name: 'Zimbabwe',
@@ -17,5 +18,6 @@ export const zimbabwe: ComesaCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Local P2P'],
   stablecoin: 'USDT / USDC; USD parallel economy',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['ZW'],
+  notableUniversities: COMESA_NOTABLE_UNIVERSITIES['ZW'],
   stockExchange: 'Zimbabwe Stock Exchange (ZSE)',
 }

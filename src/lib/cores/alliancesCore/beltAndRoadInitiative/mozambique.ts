@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mozambique: BeltAndRoadInitiativeCountry = {
   name: 'Mozambique',
@@ -18,5 +19,6 @@ export const mozambique: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC informal',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['MZ'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['MZ'],
   stockExchange: 'Bolsa de Valores de Moçambique (BVM)',
 }

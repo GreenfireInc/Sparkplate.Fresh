@@ -1,4 +1,5 @@
 import type { DomesticCourierService } from './types'
+import type { AuMemberIsoCode } from './auMemberIsoCodes'
 
 function c(
   name: string,
@@ -346,4 +347,4 @@ export const AU_DOMESTIC_COURIERS = {
     c("DHL Zimbabwe", "https://www.dhl.com/zw-en/home.html", "zw.customerservice@dhl.com", "", "", "https://api-eu.dhl.com/"),
     c("UPS Zimbabwe corridors", "https://www.ups.com/", "help@ups.com", "https://www.instagram.com/ups/", "https://x.com/UPS", "https://onlinetools.ups.com/api/"),
   ],
-} satisfies Record<string, DomesticCourierService[]>
+} satisfies Record<AuMemberIsoCode, DomesticCourierService[]>

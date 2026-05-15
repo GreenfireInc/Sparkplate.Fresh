@@ -1,5 +1,6 @@
 import type { AmuCountry } from './types'
 import { AMU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AMU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const algeria: AmuCountry = {
   name: 'Algeria',
@@ -18,5 +19,6 @@ export const algeria: AmuCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'KuCoin', 'Regional OTC brokers'],
   stablecoin: 'USDT / USDC common in informal crypto markets; no official DZD stablecoin',
   domesticCourierServices: AMU_DOMESTIC_COURIERS['DZ'],
+  notableUniversities: AMU_NOTABLE_UNIVERSITIES['DZ'],
   stockExchange: 'Algiers Stock Exchange',
 }

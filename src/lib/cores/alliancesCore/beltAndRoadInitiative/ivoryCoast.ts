@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const ivoryCoast: BeltAndRoadInitiativeCountry = {
   name: 'Côte d\'Ivoire',
@@ -18,5 +19,6 @@ export const ivoryCoast: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Luno (regional)'],
   stablecoin: 'USDT / USDC; XOF pegged via CFA',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['CI'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['CI'],
   stockExchange: 'BRVM (Abidjan — regional hub)',
 }

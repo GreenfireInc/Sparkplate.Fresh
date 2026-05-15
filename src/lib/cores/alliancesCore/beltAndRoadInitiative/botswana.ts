@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const botswana: BeltAndRoadInitiativeCountry = {
   name: 'Botswana',
@@ -18,5 +19,6 @@ export const botswana: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Luno', 'VALR', 'Binance (P2P)'],
   stablecoin: 'USDT / USDC on international platforms; no BWP stablecoin',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['BW'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['BW'],
   stockExchange: 'Botswana Stock Exchange (BSE)',
 }

@@ -1,4 +1,5 @@
 import type { DomesticCourierService } from './types'
+import type { AmuMemberIsoCode } from './amuMemberIsoCodes'
 
 function c(
   name: string,
@@ -186,4 +187,4 @@ export const AMU_DOMESTIC_COURIERS = {
       'https://apis.fedex.com/',
     ),
   ],
-} satisfies Record<string, DomesticCourierService[]>
+} satisfies Record<AmuMemberIsoCode, DomesticCourierService[]>

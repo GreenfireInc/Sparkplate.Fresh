@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const germany: OecdCountry = {
   name: 'Germany',
@@ -18,5 +19,6 @@ export const germany: OecdCountry = {
   cryptocurrencyExchanges: ['Bitstamp EU', 'Börse Stuttgart Digital Custody narratives', 'MiCA licences'],
   stablecoin: 'EUR stablecoins; ECB digital euro projects — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['DE'],
+  notableUniversities: OECD_NOTABLE_UNIVERSITIES['DE'],
   stockExchange: 'Deutsche Börse (Frankfurt)',
 }

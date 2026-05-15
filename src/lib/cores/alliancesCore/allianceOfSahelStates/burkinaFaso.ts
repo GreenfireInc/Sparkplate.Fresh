@@ -1,5 +1,6 @@
 import type { AllianceOfSahelStatesCountry } from './types'
 import { AES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const burkinaFaso: AllianceOfSahelStatesCountry = {
   name: 'Burkina Faso',
@@ -18,5 +19,6 @@ export const burkinaFaso: AllianceOfSahelStatesCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Informal P2P'],
   stablecoin: 'USDT via P2P; XOF CFA peg',
   domesticCourierServices: AES_DOMESTIC_COURIERS['BF'],
+  notableUniversities: AES_NOTABLE_UNIVERSITIES['BF'],
   stockExchange: 'Burkina Faso — BRVM listings (limited local activity)',
 }

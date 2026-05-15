@@ -1,4 +1,9 @@
-export type { CensadCountry, CensadOrganizationInfo, DomesticCourierService } from './types'
+export type {
+  CensadCountry,
+  CensadOrganizationInfo,
+  DomesticCourierService,
+  NotableUniversity,
+} from './types'
 
 import type { CensadCountry, CensadOrganizationInfo } from './types'
 import { CENSAD_MEMBER_ISO_CODES } from './censadMemberIsoCodes'

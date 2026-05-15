@@ -1,5 +1,6 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const unitedKingdom: G20Country = {
   name: 'United Kingdom',
@@ -20,5 +21,6 @@ export const unitedKingdom: G20Country = {
   cryptocurrencyExchanges: ['Coinbase e-money UK', 'Kraken entities', 'FCA-register context — informational'],
   stablecoin: 'GBP stablecoins under evolving UK PSD3/cryptoasset regime — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['GB'],
+  notableUniversities: G20_NOTABLE_UNIVERSITIES['GB'],
   stockExchange: 'London Stock Exchange Group (consolidated UK venues — informational)',
 }

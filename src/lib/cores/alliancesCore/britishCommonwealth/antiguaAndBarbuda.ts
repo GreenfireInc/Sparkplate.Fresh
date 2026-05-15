@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const antiguaAndBarbuda: CommonwealthCountry = {
   name: 'Antigua and Barbuda',
@@ -18,5 +19,6 @@ export const antiguaAndBarbuda: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT/USDC via offshore; XCD pegged to USD regionally',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['AG'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['AG'],
   stockExchange: 'Eastern Caribbean Securities Exchange (regional)',
 }

@@ -17,6 +17,18 @@ export interface DomesticCourierService {
   apiEndpoint: string
 }
 
+/**
+ * Notable higher-education institution (informational; verify programmes and contacts locally).
+ */
+export interface NotableUniversity {
+  name: string
+  website: string
+  email: string
+  instagram: string
+  twitter: string
+  linkedin: string
+}
+
 export interface AmuCountry {
   name: string
   iso3166Alpha2: string
@@ -35,6 +47,8 @@ export interface AmuCountry {
   stablecoin: string
   /** Domestic / national courier or parcel carriers with public contact hints (verify locally). */
   domesticCourierServices: DomesticCourierService[]
+  /** Three notable universities with economics, accounting, computer science and/or electrical-engineering faculties (informational). */
+  notableUniversities: readonly [NotableUniversity, NotableUniversity, NotableUniversity]
   stockExchange: string
 }
 

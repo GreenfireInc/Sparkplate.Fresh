@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const djibouti: BeltAndRoadInitiativeCountry = {
   name: 'Djibouti',
@@ -18,5 +19,6 @@ export const djibouti: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'International OTC', 'Regional remittance apps'],
   stablecoin: 'USDT / USDC; DJF pegged to USD (currency board)',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['DJ'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['DJ'],
   stockExchange: 'Djibouti Stock Exchange (thin activity)',
 }

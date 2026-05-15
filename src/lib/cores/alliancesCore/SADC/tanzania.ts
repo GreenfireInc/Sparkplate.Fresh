@@ -1,5 +1,6 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const tanzania: SadcCountry = {
   name: 'Tanzania',
@@ -17,5 +18,6 @@ export const tanzania: SadcCountry = {
   cryptocurrencyExchanges: ['Bank of Tanzania wary stance historically; OTC informal'],
   stablecoin: 'Informal USD/USDT',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['TZ'],
+  notableUniversities: SADC_NOTABLE_UNIVERSITIES['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange (DSE)',
 }

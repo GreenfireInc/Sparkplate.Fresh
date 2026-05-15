@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const capeVerde: AfricanUnionCountry = {
   name: 'Cape Verde',
   iso3166Alpha2: 'CV',
@@ -17,5 +18,6 @@ export const capeVerde: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'European-facing brokers'],
   stablecoin: 'EUR-linked usage; USDT via international apps',
   domesticCourierServices: AU_DOMESTIC_COURIERS['CV'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['CV'],
   stockExchange: 'Bolsa de Valores de Cabo Verde (limited listings)',
 }

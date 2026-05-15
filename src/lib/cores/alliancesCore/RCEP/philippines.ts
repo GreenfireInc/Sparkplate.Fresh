@@ -1,5 +1,6 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const philippines: RcepCountry = {
   name: 'Philippines',
@@ -18,5 +19,6 @@ export const philippines: RcepCountry = {
   cryptocurrencyExchanges: ['BSP VASP registry; institutional ramps — informational'],
   stablecoin: 'PHP pilots; USDT remittance overlays — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['PH'],
+  notableUniversities: RCEP_NOTABLE_UNIVERSITIES['PH'],
   stockExchange: 'Philippine Stock Exchange (PSE)',
 }

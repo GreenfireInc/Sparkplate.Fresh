@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const sweden: OecdCountry = {
   name: 'Sweden',
@@ -18,5 +19,6 @@ export const sweden: OecdCountry = {
   cryptocurrencyExchanges: ['European brokers; Nasdaq Nordic crypto ETP wrappers — informational'],
   stablecoin: 'EUR/USD-stable pairs; Riksbank e-krona pilot — verify status',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['SE'],
+  notableUniversities: OECD_NOTABLE_UNIVERSITIES['SE'],
   stockExchange: 'Nasdaq Stockholm',
 }

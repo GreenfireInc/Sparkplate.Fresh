@@ -1,5 +1,6 @@
 import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const bahamas: CaricomCountry = {
   name: 'Bahamas',
@@ -18,5 +19,6 @@ export const bahamas: CaricomCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'Sand dollar (CBDC context); USDT/USDC',
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['BS'],
+  notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['BS'],
   stockExchange: 'Bahamas International Securities Exchange (BISX)',
 }

@@ -1,6 +1,7 @@
 import { BRI_DOMESTIC_COURIERS } from '../beltAndRoadInitiative/domesticCouriersByIso'
 import type { DomesticCourierService } from './types'
 import { G20_SOVEREIGN_MEMBER_ISO_CODES } from './g20MemberIsoCodes'
+import type { G20SovereignMemberIsoCode } from './g20MemberIsoCodes'
 
 function c(
   name: string,
@@ -61,7 +62,7 @@ export const G20_DOMESTIC_COURIERS = Object.fromEntries(
     iso2,
     BRI_DOMESTIC_COURIERS[iso2] ?? fallbackDomesticCouriers(iso2),
   ]),
-) as Record<string, DomesticCourierService[]>
+) as Record<G20SovereignMemberIsoCode, DomesticCourierService[]>
 
 /**
  * Informational courier rows for G20 institutional seats (not sovereign ISO keys — HQ / logistics context).

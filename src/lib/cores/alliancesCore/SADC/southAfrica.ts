@@ -1,5 +1,6 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const southAfrica: SadcCountry = {
   name: 'South Africa',
@@ -19,5 +20,6 @@ export const southAfrica: SadcCountry = {
   cryptocurrencyExchanges: ['Revix', 'Global P2P; FSCA licensing evolution'],
   stablecoin: 'ZARP ZAR-pegged token narrative; informal USDT/USDC',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['ZA'],
+  notableUniversities: SADC_NOTABLE_UNIVERSITIES['ZA'],
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
 }

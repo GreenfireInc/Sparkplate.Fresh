@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const finland: EuCountry = {
   name: 'Finland',
@@ -17,5 +18,6 @@ export const finland: EuCountry = {
   cryptocurrencyExchanges: ['Nordics-friendly EU brokers; Finnish FSA supervise'],
   stablecoin: 'EUR stablecoins; MiCA passport',
   domesticCourierServices: EU_DOMESTIC_COURIERS['FI'],
+  notableUniversities: EU_NOTABLE_UNIVERSITIES['FI'],
   stockExchange: 'Nasdaq Helsinki',
 }

@@ -1,5 +1,6 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const guinea: EcowasCountry = {
   name: 'Guinea',
@@ -17,5 +18,6 @@ export const guinea: EcowasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card (regional)', 'OTC'],
   stablecoin: 'USDT informal',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['GN'],
+  notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['GN'],
   stockExchange: 'No major national exchange; informal OTC',
 }

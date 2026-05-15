@@ -1,5 +1,6 @@
 import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const equatorialGuinea: OpecCountry = {
   name: 'Equatorial Guinea',
@@ -18,5 +19,6 @@ export const equatorialGuinea: OpecCountry = {
   cryptocurrencyExchanges: ['Strict banking environment; OTC sparse — informational'],
   stablecoin: 'USD/EUR pricing of hydrocarbons; informal stable settlement — informational',
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['GQ'],
+  notableUniversities: OPEC_NOTABLE_UNIVERSITIES['GQ'],
   stockExchange: 'Malabo regional listings nascent / thin — informational',
 }

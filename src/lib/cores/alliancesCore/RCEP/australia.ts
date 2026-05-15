@@ -1,5 +1,6 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const australia: RcepCountry = {
   name: 'Australia',
@@ -18,5 +19,6 @@ export const australia: RcepCountry = {
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'CoinSpot ASIC context — informational'],
   stablecoin: 'AUD stablecoins; Treasury/ASIC evolution — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['AU'],
+  notableUniversities: RCEP_NOTABLE_UNIVERSITIES['AU'],
   stockExchange: 'Australian Securities Exchange (ASX)',
 }

@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const namibia: AfricanUnionCountry = {
   name: 'Namibia',
   iso3166Alpha2: 'NA',
@@ -17,5 +18,6 @@ export const namibia: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Luno', 'VALR', 'Binance (P2P)'],
   stablecoin: 'USDT via South African-linked banking',
   domesticCourierServices: AU_DOMESTIC_COURIERS['NA'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['NA'],
   stockExchange: 'Namibia Stock Exchange (NSX)',
 }

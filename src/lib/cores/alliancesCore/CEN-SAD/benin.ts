@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const benin: CensadCountry = {
   name: 'Benin',
@@ -17,5 +18,6 @@ export const benin: CensadCountry = {
   cryptocurrencyExchanges: ['Binance (P2P informal)', 'Local OTC'],
   stablecoin: 'USDT/USDC informal; CFA pegged to EUR',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['BJ'],
+  notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['BJ'],
   stockExchange: 'Regional Bourse Régionale des Valeurs Mobilières (BRVM Abidjan, WAEMU listing)',
 }

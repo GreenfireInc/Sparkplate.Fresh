@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const jordan: BeltAndRoadInitiativeCountry = {
   name: 'Jordan',
@@ -18,5 +19,6 @@ export const jordan: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional brokers', 'Rain (regional)'],
   stablecoin: 'USDT / USDC informal; central bank cautious',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['JO'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['JO'],
   stockExchange: 'Amman Stock Exchange',
 }

@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const trinidadAndTobago: CommonwealthCountry = {
   name: 'Trinidad and Tobago',
@@ -18,5 +19,6 @@ export const trinidadAndTobago: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['TT'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['TT'],
   stockExchange: 'Trinidad and Tobago Stock Exchange',
 }

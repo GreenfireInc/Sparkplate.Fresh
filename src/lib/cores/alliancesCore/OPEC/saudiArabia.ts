@@ -1,5 +1,6 @@
 import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const saudiArabia: OpecCountry = {
   name: 'Saudi Arabia',
@@ -19,5 +20,6 @@ export const saudiArabia: OpecCountry = {
   cryptocurrencyExchanges: ['SAMA sandbox licensees; regional institutional custody pilots — informational'],
   stablecoin: 'SAMA stablecoin pilots; fiat SAR anchoring — informational',
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['SA'],
+  notableUniversities: OPEC_NOTABLE_UNIVERSITIES['SA'],
   stockExchange: 'Tadawul Saudi Exchange (national benchmark — informational)',
 }

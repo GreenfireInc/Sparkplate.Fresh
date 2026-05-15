@@ -1,5 +1,6 @@
 import type { ArabLeagueCountry } from './types'
 import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 /** State of Palestine — UN observer; Arab League member; territorial status disputed (informational). */
 export const palestine: ArabLeagueCountry = {
@@ -19,5 +20,6 @@ export const palestine: ArabLeagueCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'OTC', 'Diaspora remittance'],
   stablecoin: 'USDT informal; shekel economy dominant',
   domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['PS'],
+  notableUniversities: ARAB_LEAGUE_NOTABLE_UNIVERSITIES['PS'],
   stockExchange: 'Palestine Securities Exchange (limited)',
 }

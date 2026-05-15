@@ -1,4 +1,5 @@
 import type { DomesticCourierService } from './types'
+import type { BricsMemberIsoCode } from './bricsMemberIsoCodes'
 import { BRI_DOMESTIC_COURIERS } from '../beltAndRoadInitiative/domesticCouriersByIso'
 
 /**
@@ -11,4 +12,4 @@ export const BRICS_DOMESTIC_COURIERS = {
   IN: BRI_DOMESTIC_COURIERS['IN'],
   CN: BRI_DOMESTIC_COURIERS['CN'],
   ZA: BRI_DOMESTIC_COURIERS['ZA'],
-} satisfies Record<string, DomesticCourierService[]>
+} satisfies Record<BricsMemberIsoCode, DomesticCourierService[]>

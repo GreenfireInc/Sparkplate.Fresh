@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const niger: AfricanUnionCountry = {
   name: 'Niger',
   iso3166Alpha2: 'NE',
@@ -17,5 +18,6 @@ export const niger: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'OTC'],
   stablecoin: 'USDT P2P; XOF peg',
   domesticCourierServices: AU_DOMESTIC_COURIERS['NE'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['NE'],
   stockExchange: 'No liquid national bourse; BRVM regional',
 }

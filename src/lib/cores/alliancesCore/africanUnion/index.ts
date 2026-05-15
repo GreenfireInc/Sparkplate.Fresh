@@ -3,7 +3,10 @@ export type {
   AfricanUnionMembership,
   AfricanUnionOrganizationInfo,
   DomesticCourierService,
+  NotableUniversity,
 } from './types'
+export { AU_MEMBER_ISO_CODES } from './auMemberIsoCodes'
+export type { AuMemberIsoCode } from './auMemberIsoCodes'
 
 import type { AfricanUnionCountry, AfricanUnionOrganizationInfo } from './types'
 import { algeria } from './algeria'

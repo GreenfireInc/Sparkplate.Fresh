@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const sudan: CensadCountry = {
   name: 'Sudan',
@@ -18,5 +19,6 @@ export const sudan: CensadCountry = {
   cryptocurrencyExchanges: ['Sanctions regime; OTC informal dominant'],
   stablecoin: 'Informal USD and stablecoins amidst banking stress',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['SD'],
+  notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['SD'],
   stockExchange: 'Khartoum Stock Exchange (operations disrupted — verify)',
 }

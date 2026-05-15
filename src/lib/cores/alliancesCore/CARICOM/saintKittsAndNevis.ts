@@ -1,5 +1,6 @@
 import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const saintKittsAndNevis: CaricomCountry = {
   name: 'Saint Kitts and Nevis',
@@ -18,5 +19,6 @@ export const saintKittsAndNevis: CaricomCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'XCD peg; USDT/USDC',
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['KN'],
+  notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['KN'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

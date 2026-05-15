@@ -1,5 +1,6 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const vietnam: CptppCountry = {
   name: 'Vietnam',
@@ -17,5 +18,6 @@ export const vietnam: CptppCountry = {
   cryptocurrencyExchanges: ['Trading not legal tender; peer OTC despite restrictions — informational'],
   stablecoin: 'No official retail stablecoin; USD cash economy parallels',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['VN'],
+  notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['VN'],
   stockExchange: 'Ho Chi Minh Stock Exchange (HOSE) / Hanoi Stock Exchange (HNX)',
 }

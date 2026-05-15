@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const malaysia: CommonwealthCountry = {
   name: 'Malaysia',
@@ -18,5 +19,6 @@ export const malaysia: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Luno', 'Tokenize', 'Binance (P2P)'],
   stablecoin: 'MYR stablecoins limited; USDT common',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['MY'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['MY'],
   stockExchange: 'Bursa Malaysia',
 }

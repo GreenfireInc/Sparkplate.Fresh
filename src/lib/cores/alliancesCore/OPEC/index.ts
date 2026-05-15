@@ -1,4 +1,4 @@
-export type { OpecCountry, OpecOrganizationInfo, DomesticCourierService } from './types'
+export type { OpecCountry, OpecOrganizationInfo, DomesticCourierService, NotableUniversity } from './types'
 
 import type { OpecCountry, OpecOrganizationInfo } from './types'
 import { OPEC_MEMBER_ISO_CODES } from './opecMemberIsoCodes'

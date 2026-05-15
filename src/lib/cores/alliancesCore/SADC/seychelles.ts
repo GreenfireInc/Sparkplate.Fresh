@@ -1,5 +1,6 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const seychelles: SadcCountry = {
   name: 'Seychelles',
@@ -18,5 +19,6 @@ export const seychelles: SadcCountry = {
   cryptocurrencyExchanges: ['Tourism OTC; sandbox licensing narrative'],
   stablecoin: 'Informal EUR/USD references',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['SC'],
+  notableUniversities: SADC_NOTABLE_UNIVERSITIES['SC'],
   stockExchange: 'Merjex / small domestic market — verify',
 }

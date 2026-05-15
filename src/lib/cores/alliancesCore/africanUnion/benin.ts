@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const benin: AfricanUnionCountry = {
   name: 'Benin',
   iso3166Alpha2: 'BJ',
@@ -17,5 +18,6 @@ export const benin: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local brokers'],
   stablecoin: 'USDT common in informal trade; XOF pegged to euro via CFA',
   domesticCourierServices: AU_DOMESTIC_COURIERS['BJ'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['BJ'],
   stockExchange: 'Regional Securities Exchange (BRVM) — Abidjan (Benin listed)',
 }

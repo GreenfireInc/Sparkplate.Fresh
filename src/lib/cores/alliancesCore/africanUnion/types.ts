@@ -17,6 +17,19 @@ export interface DomesticCourierService {
   apiEndpoint: string
 }
 
+/**
+ * Notable higher-education institution row (informational; verify programmes, URLs, and contacts locally).
+ * Rows are chosen for visibility of economics / accounting / computer science / electrical engineering style faculties.
+ */
+export interface NotableUniversity {
+  name: string
+  website: string
+  email: string
+  instagram: string
+  twitter: string
+  linkedin: string
+}
+
 export interface AfricanUnionCountry {
   /** Display name */
   name: string
@@ -44,6 +57,8 @@ export interface AfricanUnionCountry {
   stablecoin: string
   /** Domestic / national courier or parcel carriers with public contact hints (verify locally). */
   domesticCourierServices: DomesticCourierService[]
+  /** Three notable universities with economics, accounting, computer science and/or electrical-engineering faculties (informational). */
+  notableUniversities: readonly [NotableUniversity, NotableUniversity, NotableUniversity]
   stockExchange: string
 }
 

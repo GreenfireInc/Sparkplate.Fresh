@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const cameroon: AfricanUnionCountry = {
   name: 'Cameroon',
   iso3166Alpha2: 'CM',
@@ -17,5 +18,6 @@ export const cameroon: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC P2P; XAF CFA peg',
   domesticCourierServices: AU_DOMESTIC_COURIERS['CM'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['CM'],
   stockExchange: 'Douala Stock Exchange (DSX)',
 }

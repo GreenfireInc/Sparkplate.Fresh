@@ -1,4 +1,5 @@
 import type { DomesticCourierService } from './types'
+import type { AesMemberIsoCode } from './aesMemberIsoCodes'
 
 function c(
   name: string,
@@ -118,4 +119,4 @@ export const AES_DOMESTIC_COURIERS = {
       'https://onlinetools.ups.com/api/',
     ),
   ],
-} satisfies Record<string, DomesticCourierService[]>
+} satisfies Record<AesMemberIsoCode, DomesticCourierService[]>

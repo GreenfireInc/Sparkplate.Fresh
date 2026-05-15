@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const canada: OecdCountry = {
   name: 'Canada',
@@ -18,5 +19,6 @@ export const canada: OecdCountry = {
   cryptocurrencyExchanges: ['Bitbuy', 'Newton', 'CSA provincial licensing environment — informational'],
   stablecoin: 'CAD fiat-backed tokens; OSFI/OSCB guidance evolution — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['CA'],
+  notableUniversities: OECD_NOTABLE_UNIVERSITIES['CA'],
   stockExchange: 'Toronto Stock Exchange (TMX)',
 }

@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const mozambique: AfricanUnionCountry = {
   name: 'Mozambique',
   iso3166Alpha2: 'MZ',
@@ -17,5 +18,6 @@ export const mozambique: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC informal',
   domesticCourierServices: AU_DOMESTIC_COURIERS['MZ'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['MZ'],
   stockExchange: 'Bolsa de Valores de Moçambique (BVM)',
 }

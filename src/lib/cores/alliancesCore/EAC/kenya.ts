@@ -1,5 +1,6 @@
 import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const kenya: EacCountry = {
   name: 'Kenya',
@@ -17,5 +18,6 @@ export const kenya: EacCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local startups'],
   stablecoin: 'USDT / USDC; regulatory stance evolving — verify',
   domesticCourierServices: EAC_DOMESTIC_COURIERS['KE'],
+  notableUniversities: EAC_NOTABLE_UNIVERSITIES['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
 }

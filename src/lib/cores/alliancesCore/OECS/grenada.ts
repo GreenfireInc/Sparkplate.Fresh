@@ -1,5 +1,6 @@
 import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const grenada: OecsCountry = {
   name: 'Grenada',
@@ -18,5 +19,6 @@ export const grenada: OecsCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'mobile-money predominant — informational'],
   stablecoin: 'XCD peg; USDT overlays — informational',
   domesticCourierServices: OECS_DOMESTIC_COURIERS['GD'],
+  notableUniversities: OECS_NOTABLE_UNIVERSITIES['GD'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

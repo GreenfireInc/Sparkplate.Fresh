@@ -1,5 +1,6 @@
 import type { GccCountry } from './types'
 import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const bahrain: GccCountry = {
   name: 'Bahrain',
@@ -19,5 +20,6 @@ export const bahrain: GccCountry = {
   cryptocurrencyExchanges: ['Rain / regional licensed PSP context', 'Regional OTC hubs — informational'],
   stablecoin: 'USD-pegged regional stable narratives; BD pegged broadly to USD basket — informational',
   domesticCourierServices: GCC_DOMESTIC_COURIERS['BH'],
+  notableUniversities: GCC_NOTABLE_UNIVERSITIES['BH'],
   stockExchange: 'Bahrain Bourse',
 }

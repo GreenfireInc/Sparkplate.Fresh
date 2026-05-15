@@ -1,5 +1,6 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const canada: CptppCountry = {
   name: 'Canada',
@@ -17,5 +18,6 @@ export const canada: CptppCountry = {
   cryptocurrencyExchanges: ['Bitbuy', 'Coinsquare', 'Wealthsimple Crypto', 'Global platforms (regulatory evolution)'],
   stablecoin: 'CAD stablecoins limited; USDC / USDT common',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['CA'],
+  notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['CA'],
   stockExchange: 'Toronto Stock Exchange (TSX) / TMX Group',
 }

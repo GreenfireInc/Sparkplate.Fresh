@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const grenada: CommonwealthCountry = {
   name: 'Grenada',
@@ -18,5 +19,6 @@ export const grenada: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'XCD peg; USDT/USDC',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['GD'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['GD'],
   stockExchange: 'Eastern Caribbean Securities Exchange (regional)',
 }

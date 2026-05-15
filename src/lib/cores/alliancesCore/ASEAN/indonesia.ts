@@ -1,5 +1,6 @@
 import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const indonesia: AseanCountry = {
   name: 'Indonesia',
@@ -18,5 +19,6 @@ export const indonesia: AseanCountry = {
   cryptocurrencyExchanges: ['OJK-supervised digital-asset routes (CFX licensing evolution — informational)'],
   stablecoin: 'IDR digital payment pilots; USDT OTC informal — informational',
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['ID'],
+  notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['ID'],
   stockExchange: 'Indonesia Stock Exchange (IDX Jakarta)',
 }

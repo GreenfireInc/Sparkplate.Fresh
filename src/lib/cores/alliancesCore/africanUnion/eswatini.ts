@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const eswatini: AfricanUnionCountry = {
   name: 'Eswatini',
   iso3166Alpha2: 'SZ',
@@ -17,5 +18,6 @@ export const eswatini: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Luno', 'VALR', 'Binance (P2P)'],
   stablecoin: 'USDT / USDC via South African rails',
   domesticCourierServices: AU_DOMESTIC_COURIERS['SZ'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['SZ'],
   stockExchange: 'Eswatini Stock Exchange',
 }

@@ -17,6 +17,18 @@ export interface DomesticCourierService {
   apiEndpoint: string
 }
 
+/**
+ * Notable higher-education row (economics / accounting / CS / EE-style faculties — informational; verify).
+ */
+export interface NotableUniversity {
+  name: string
+  website: string
+  email: string
+  instagram: string
+  twitter: string
+  linkedin: string
+}
+
 export interface G20Country {
   name: string
   iso3166Alpha2: string
@@ -34,6 +46,8 @@ export interface G20Country {
   stablecoin: string
   /** Domestic / national courier or parcel carriers with public contact hints (verify locally). */
   domesticCourierServices: DomesticCourierService[]
+  /** Three notable universities covering economics / accounting / computer science / electrical engineering style programmes (informational). */
+  notableUniversities: readonly [NotableUniversity, NotableUniversity, NotableUniversity]
   stockExchange: string
 }
 
@@ -62,6 +76,8 @@ export interface G20InstitutionalMember {
   currentRepresentatives: string
   /** Informational courier rows for logistics context (supranational seat — verify applicability). */
   domesticCourierServices: DomesticCourierService[]
+  /** Three notable universities sourced from the institutional seat's HQ economy (informational). */
+  notableUniversities: readonly [NotableUniversity, NotableUniversity, NotableUniversity]
 }
 
 /**

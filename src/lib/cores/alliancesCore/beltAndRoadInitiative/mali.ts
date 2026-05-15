@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mali: BeltAndRoadInitiativeCountry = {
   name: 'Mali',
@@ -18,5 +19,6 @@ export const mali: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'OTC'],
   stablecoin: 'USDT P2P; XOF peg',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['ML'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['ML'],
   stockExchange: 'Bourse des Valeurs du Mali (limited)',
 }
