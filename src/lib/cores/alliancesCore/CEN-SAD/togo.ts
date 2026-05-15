@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const togo: CensadCountry = {
   name: 'Togo',
@@ -15,5 +16,6 @@ export const togo: CensadCountry = {
   currentLeader: 'President Faure Gnassingbé — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Informal crypto markets'],
   stablecoin: 'USDT informal; CFA peg',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['TG'],
   stockExchange: 'BRVM (WAEMU securities context)',
 }

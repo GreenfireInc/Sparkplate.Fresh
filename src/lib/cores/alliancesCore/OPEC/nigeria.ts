@@ -1,4 +1,5 @@
 import type { OpecCountry } from './types'
+import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const nigeria: OpecCountry = {
   name: 'Nigeria',
@@ -16,5 +17,6 @@ export const nigeria: OpecCountry = {
   currentLeader: 'President Bola Ahmed Tinubu — verify',
   cryptocurrencyExchanges: ['SEC cautious licensing; Patricia / Nigerian P2P with CBN evolution — informational'],
   stablecoin: 'e-Naira CBDC experimentation; informal USDT pricing — informational',
+  domesticCourierServices: OPEC_DOMESTIC_COURIERS['NG'],
   stockExchange: 'Nigerian Exchange Group NGX (Lagos equities)',
 }

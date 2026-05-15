@@ -1,4 +1,5 @@
 import type { IgadCountry } from './types'
+import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const djibouti: IgadCountry = {
   name: 'Djibouti',
@@ -16,5 +17,6 @@ export const djibouti: IgadCountry = {
   currentLeader: 'President Ismail Omar Guelleh — verify',
   cryptocurrencyExchanges: ['Regional remittance OTC; DFS regulation evolution — informational'],
   stablecoin: 'USD-stable informal settlement (port/finance-city economy — informational)',
+  domesticCourierServices: IGAD_DOMESTIC_COURIERS['DJ'],
   stockExchange: 'Djibouti Stock Exchange (thin liquidity; sovereign development narrative — informational)',
 }

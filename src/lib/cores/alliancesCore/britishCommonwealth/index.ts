@@ -1,6 +1,12 @@
-export type { CommonwealthCountry, CommonwealthMembership, BritishCommonwealthOrganizationInfo } from './types'
+export type {
+  BritishCommonwealthOrganizationInfo,
+  CommonwealthCountry,
+  CommonwealthMembership,
+  DomesticCourierService,
+} from './types'
 
 import type { CommonwealthCountry, BritishCommonwealthOrganizationInfo } from './types'
+import { COMMONWEALTH_MEMBER_ISO_CODES } from './commonwealthMemberIsoCodes'
 import { antiguaAndBarbuda } from './antiguaAndBarbuda'
 import { australia } from './australia'
 import { bahamas } from './bahamas'
@@ -96,6 +102,6 @@ export const britishCommonwealth: BritishCommonwealthOrganizationInfo = {
     'Facilitate trade, legal cooperation, and technical assistance where agreed',
     'Uphold shared values in the Commonwealth Charter (as adopted and amended)',
   ],
-  memberStatesIso2: ['AG', 'AU', 'BS', 'BD', 'BB', 'BZ', 'BW', 'BN', 'CM', 'CA', 'CY', 'DM', 'SZ', 'FJ', 'GA', 'GM', 'GH', 'GD', 'GY', 'IN', 'JM', 'KE', 'KI', 'LS', 'MW', 'MY', 'MV', 'MT', 'MU', 'MZ', 'NA', 'NR', 'NZ', 'NG', 'PK', 'PG', 'RW', 'KN', 'LC', 'VC', 'WS', 'SC', 'SL', 'SG', 'SB', 'ZA', 'LK', 'TZ', 'TG', 'TO', 'TT', 'TV', 'UG', 'GB', 'VU', 'ZM'],
+  memberStatesIso2: COMMONWEALTH_MEMBER_ISO_CODES,
   memberRecordsInModule: 56,
 }

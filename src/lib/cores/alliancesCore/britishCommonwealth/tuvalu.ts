@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const tuvalu: CommonwealthCountry = {
   name: 'Tuvalu',
@@ -16,5 +17,6 @@ export const tuvalu: CommonwealthCountry = {
   currentLeader: 'Feleti Teo (Prime Minister) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'AUD; USDT informal',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['TV'],
   stockExchange: 'No national stock exchange — informational',
 }

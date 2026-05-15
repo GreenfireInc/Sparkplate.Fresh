@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const tunisia: CensadCountry = {
   name: 'Tunisia',
@@ -16,5 +17,6 @@ export const tunisia: CensadCountry = {
     'President Kais Saied (institutional contested period post-2021 — verify PM/cabinet roster)',
   cryptocurrencyExchanges: ['Startup licensing experiments; OTC informal'],
   stablecoin: 'Informal USD/USDT',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['TN'],
   stockExchange: 'Bourse de Tunis',
 }

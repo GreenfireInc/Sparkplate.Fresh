@@ -1,4 +1,5 @@
 import type { OecdCountry } from './types'
+import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const poland: OecdCountry = {
   name: 'Poland',
@@ -16,5 +17,6 @@ export const poland: OecdCountry = {
   currentLeader: 'President — verify; Prime Minister — verify (2025 electoral cycle aftermath)',
   cryptocurrencyExchanges: ['Zonda (BitBay legacy)', 'European MiCA passporting'],
   stablecoin: 'PLN pairs; EUR-stable conversion customary — informational',
+  domesticCourierServices: OECD_DOMESTIC_COURIERS['PL'],
   stockExchange: 'Warsaw Stock Exchange (GPW)',
 }

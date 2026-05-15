@@ -1,4 +1,5 @@
 import type { MintCountry } from './types'
+import { MINT_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const indonesia: MintCountry = {
   name: 'Indonesia',
@@ -17,5 +18,6 @@ export const indonesia: MintCountry = {
   currentLeader: 'President Prabowo Subianto — verify',
   cryptocurrencyExchanges: ['Indonesia CFX licensed trading (Bappebti-era evolution to OJK oversight — informational)'],
   stablecoin: 'IDR digital rupiah / CBDC narratives; offshore USDT OTC — informational',
+  domesticCourierServices: MINT_DOMESTIC_COURIERS['ID'],
   stockExchange: 'Indonesia Stock Exchange IDX Jakarta',
 }

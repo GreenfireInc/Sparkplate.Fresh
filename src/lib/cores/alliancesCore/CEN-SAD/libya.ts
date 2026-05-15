@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const libya: CensadCountry = {
   name: 'Libya',
@@ -15,5 +16,6 @@ export const libya: CensadCountry = {
   currentLeader: 'Government of National Unity / divided authorities — verify seat',
   cryptocurrencyExchanges: ['Informal OTC under sanctions context'],
   stablecoin: 'Informal USD/USDT',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['LY'],
   stockExchange: 'Libyan Stock Exchange (limited operations — verify)',
 }

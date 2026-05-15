@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const colombia: BeltAndRoadInitiativeCountry = {
   name: 'Colombia',
@@ -16,5 +17,6 @@ export const colombia: BeltAndRoadInitiativeCountry = {
   currentLeader: '(Verify with official government sources)',
   cryptocurrencyExchanges: [ 'Binance (P2P)', 'International OTC', 'Local regulation varies' ],
   stablecoin: 'USDT / USDC common globally; legality varies by jurisdiction',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['CO'],
   stockExchange: 'National or regional exchange (verify)',
 }

@@ -1,4 +1,5 @@
 import type { ApecCountry } from './types'
+import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const indonesia: ApecCountry = {
   name: 'Indonesia',
@@ -16,5 +17,6 @@ export const indonesia: ApecCountry = {
   currentLeader: 'President Prabowo Subianto — verify',
   cryptocurrencyExchanges: ['OJK digital-asset routes licensing evolution — informational'],
   stablecoin: 'IDR payment rails; OTC USDT — informational',
+  domesticCourierServices: APEC_DOMESTIC_COURIERS['ID'],
   stockExchange: 'Indonesia Stock Exchange (IDX)',
 }

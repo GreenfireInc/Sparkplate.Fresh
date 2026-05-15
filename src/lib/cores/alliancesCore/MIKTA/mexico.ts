@@ -1,4 +1,5 @@
 import type { MiktaCountry } from './types'
+import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const mexico: MiktaCountry = {
   name: 'Mexico',
@@ -17,5 +18,6 @@ export const mexico: MiktaCountry = {
   currentLeader: 'President Claudia Sheinbaum — verify',
   cryptocurrencyExchanges: ['Bitso', 'Mexico CNBV fintech-registration evolution — informational'],
   stablecoin: 'MXN fiat-backed issuance pilots vs informal USDT — informational',
+  domesticCourierServices: MIKTA_DOMESTIC_COURIERS['MX'],
   stockExchange: 'Mexican Stock Exchange BMV Bolsa Mexicana de Valores',
 }

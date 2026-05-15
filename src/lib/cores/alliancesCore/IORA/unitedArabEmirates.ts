@@ -1,4 +1,5 @@
 import type { IoraCountry } from './types'
+import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const unitedArabEmirates: IoraCountry = {
   name: 'United Arab Emirates',
@@ -17,5 +18,6 @@ export const unitedArabEmirates: IoraCountry = {
     'President Mohamed bin Zayed Al Nahyan — verify; Dubai Ruler Sheikh Mohammed bin Rashid — verify',
   cryptocurrencyExchanges: ['VARA Dubai', 'ADGM FSRA digital-asset licences — informational'],
   stablecoin: 'AED-referenced issuance supervisory pilots — informational',
+  domesticCourierServices: IORA_DOMESTIC_COURIERS['AE'],
   stockExchange: 'ADX Abu Dhabi; DFM Dubai',
 }

@@ -1,4 +1,5 @@
 import type { ComesaCountry } from './types'
+import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const libya: ComesaCountry = {
   name: 'Libya',
@@ -16,5 +17,6 @@ export const libya: ComesaCountry = {
     'Fragmented administrations — GNU Presidential Council chairs (Mohamed al-Menfi GNU Tripoli baseline) — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC; fragmented regulatory environment'],
   stablecoin: 'USDT informal; banking fragmentation',
+  domesticCourierServices: COMESA_DOMESTIC_COURIERS['LY'],
   stockExchange: 'Libyan Stock Market (limited operations)',
 }

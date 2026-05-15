@@ -1,4 +1,5 @@
 import type { IoraCountry } from './types'
+import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const singapore: IoraCountry = {
   name: 'Singapore',
@@ -16,5 +17,6 @@ export const singapore: IoraCountry = {
   currentLeader: 'President Tharman Shanmugaratnam; Prime Minister Lawrence Wong — verify',
   cryptocurrencyExchanges: ['MAS DPT licensing regime — informational'],
   stablecoin: 'MAS stable-value digital guidance — informational',
+  domesticCourierServices: IORA_DOMESTIC_COURIERS['SG'],
   stockExchange: 'Singapore Exchange (SGX)',
 }

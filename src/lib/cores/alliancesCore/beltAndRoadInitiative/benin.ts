@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const benin: BeltAndRoadInitiativeCountry = {
   name: 'Benin',
@@ -16,5 +17,6 @@ export const benin: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Patrice Talon (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local brokers'],
   stablecoin: 'USDT common in informal trade; XOF pegged to euro via CFA',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['BJ'],
   stockExchange: 'Regional Securities Exchange (BRVM) — Abidjan (Benin listed)',
 }

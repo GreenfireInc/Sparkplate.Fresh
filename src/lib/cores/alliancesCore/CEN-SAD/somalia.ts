@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const somalia: CensadCountry = {
   name: 'Somalia',
@@ -15,5 +16,6 @@ export const somalia: CensadCountry = {
   currentLeader: 'President Hassan Sheikh Mohamud — verify federal vs regional administrations',
   cryptocurrencyExchanges: ['Hawala-adjacent digital; diaspora OTC'],
   stablecoin: 'Informal USDT/USDC',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['SO'],
   stockExchange: 'No functioning national equities market',
 }

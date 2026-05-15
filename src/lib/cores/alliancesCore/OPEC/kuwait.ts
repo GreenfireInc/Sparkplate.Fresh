@@ -1,4 +1,5 @@
 import type { OpecCountry } from './types'
+import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const kuwait: OpecCountry = {
   name: 'Kuwait',
@@ -17,5 +18,6 @@ export const kuwait: OpecCountry = {
   currentLeader: 'Amir Mishal Al-Ahmad Al-Jaber Al-Sabah — verify; Prime Minister — verify',
   cryptocurrencyExchanges: ['Central Bank prohibition historically easing pilots — informational'],
   stablecoin: 'KWD fiat anchoring; digital-payment supervision CBK — informational',
+  domesticCourierServices: OPEC_DOMESTIC_COURIERS['KW'],
   stockExchange: 'Boursa Kuwait',
 }

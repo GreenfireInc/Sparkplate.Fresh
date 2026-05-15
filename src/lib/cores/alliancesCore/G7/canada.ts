@@ -1,4 +1,5 @@
 import type { G7Country } from './types'
+import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const canada: G7Country = {
   name: 'Canada',
@@ -16,5 +17,6 @@ export const canada: G7Country = {
   currentLeader: 'Prime Minister — verify (federal electoral cycle)',
   cryptocurrencyExchanges: ['Bitbuy', 'Newton', 'CSA/PRU provincial licensing environment — informational'],
   stablecoin: 'CAD fiat-backed tokens (regulated money services / evolving OSFI guidance — informational)',
+  domesticCourierServices: G7_DOMESTIC_COURIERS['CA'],
   stockExchange: 'Toronto Stock Exchange (TMX)',
 }

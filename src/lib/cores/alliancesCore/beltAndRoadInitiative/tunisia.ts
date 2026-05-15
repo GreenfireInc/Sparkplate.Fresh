@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const tunisia: BeltAndRoadInitiativeCountry = {
   name: 'Tunisia',
@@ -16,5 +17,6 @@ export const tunisia: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Kais Saied (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional brokers', 'OTC'],
   stablecoin: 'USDT informal; e-dinar discussions',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['TN'],
   stockExchange: 'Bourse de Tunis',
 }

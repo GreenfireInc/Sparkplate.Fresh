@@ -1,4 +1,5 @@
 import type { MiktaCountry } from './types'
+import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const australia: MiktaCountry = {
   name: 'Australia',
@@ -17,5 +18,6 @@ export const australia: MiktaCountry = {
   currentLeader: 'Prime Minister Anthony Albanese — verify',
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'CoinJar / Swyftx AUSTRAC registration regime — informational'],
   stablecoin: 'AUDD (Novatti) and AUDC pilots; ANZ A$DC bank-issued settlement experiments — informational',
+  domesticCourierServices: MIKTA_DOMESTIC_COURIERS['AU'],
   stockExchange: 'Australian Securities Exchange ASX (Sydney)',
 }

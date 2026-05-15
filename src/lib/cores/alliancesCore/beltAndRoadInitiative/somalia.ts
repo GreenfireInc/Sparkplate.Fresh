@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const somalia: BeltAndRoadInitiativeCountry = {
   name: 'Somalia',
@@ -16,5 +17,6 @@ export const somalia: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Hassan Sheikh Mohamud (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Hawala-linked OTC', 'Diaspora remittance apps'],
   stablecoin: 'USDT informal; USD cash economy',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['SO'],
   stockExchange: 'No functioning national exchange',
 }

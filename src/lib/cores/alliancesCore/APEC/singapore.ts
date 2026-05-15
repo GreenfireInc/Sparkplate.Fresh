@@ -1,4 +1,5 @@
 import type { ApecCountry } from './types'
+import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const singapore: ApecCountry = {
   name: 'Singapore',
@@ -16,5 +17,6 @@ export const singapore: ApecCountry = {
   currentLeader: 'President Tharman Shanmugaratnam; Prime Minister Lawrence Wong — verify',
   cryptocurrencyExchanges: ['MAS DPT licensing regime flagship — informational'],
   stablecoin: 'MAS stable-value digital guidance flagship — informational',
+  domesticCourierServices: APEC_DOMESTIC_COURIERS['SG'],
   stockExchange: 'Singapore Exchange (SGX)',
 }

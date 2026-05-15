@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const ivoryCoast: CensadCountry = {
   name: "Côte d'Ivoire",
@@ -15,5 +16,6 @@ export const ivoryCoast: CensadCountry = {
   currentLeader: 'President Alassane Ouattara — verify',
   cryptocurrencyExchanges: ['Regional licensed platforms evolution', 'Binance P2P'],
   stablecoin: 'USDT informal alongside CFA',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['CI'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (BRVM) — seat Abidjan',
 }

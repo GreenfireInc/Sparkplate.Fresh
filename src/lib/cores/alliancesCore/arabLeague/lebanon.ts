@@ -1,4 +1,5 @@
 import type { ArabLeagueCountry } from './types'
+import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const lebanon: ArabLeagueCountry = {
   name: 'Lebanon',
@@ -16,5 +17,6 @@ export const lebanon: ArabLeagueCountry = {
   currentLeader: 'Joseph Aoun (President); Nawaf Salam (Prime Minister)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'OTC', 'Diaspora remittance rails'],
   stablecoin: 'USDT / USDC; USD parallel economy amid crisis',
+  domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['LB'],
   stockExchange: 'Beirut Stock Exchange',
 }

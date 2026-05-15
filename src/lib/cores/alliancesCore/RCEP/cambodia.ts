@@ -1,4 +1,5 @@
 import type { RcepCountry } from './types'
+import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const cambodia: RcepCountry = {
   name: 'Cambodia',
@@ -16,5 +17,6 @@ export const cambodia: RcepCountry = {
   currentLeader: 'King Norodom Sihamoni; Prime Minister Hun Manet — verify',
   cryptocurrencyExchanges: ['NBC licensing evolution; P2P informal — informational'],
   stablecoin: 'USD cash dominant; KHR digital thin — informational',
+  domesticCourierServices: RCEP_DOMESTIC_COURIERS['KH'],
   stockExchange: 'Cambodia Securities Exchange (CSX)',
 }

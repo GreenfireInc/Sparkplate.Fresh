@@ -1,4 +1,5 @@
 import type { RcepCountry } from './types'
+import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const newZealand: RcepCountry = {
   name: 'New Zealand',
@@ -16,5 +17,6 @@ export const newZealand: RcepCountry = {
   currentLeader: 'Prime Minister Christopher Luxon — verify',
   cryptocurrencyExchanges: ['Easy Crypto', 'FMCA/DIA onboarding — informational'],
   stablecoin: 'NZD issuance thin; RB NZ digital policy evolution — informational',
+  domesticCourierServices: RCEP_DOMESTIC_COURIERS['NZ'],
   stockExchange: 'NZX Limited',
 }

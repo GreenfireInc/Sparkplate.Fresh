@@ -1,4 +1,5 @@
 import type { OecdCountry } from './types'
+import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const costaRica: OecdCountry = {
   name: 'Costa Rica',
@@ -16,5 +17,6 @@ export const costaRica: OecdCountry = {
   currentLeader: 'President Rodrigo Chaves Robles — verify',
   cryptocurrencyExchanges: ['Retail fiat ramps; banking-sector supervision overlays — informational'],
   stablecoin: 'USD-stable predominant; CB digital payment pilots — informational',
+  domesticCourierServices: OECD_DOMESTIC_COURIERS['CR'],
   stockExchange: 'Bolsa Nacional de Valores (BNV Costa Rica)',
 }

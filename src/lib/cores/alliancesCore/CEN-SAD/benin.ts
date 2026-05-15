@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const benin: CensadCountry = {
   name: 'Benin',
@@ -15,5 +16,6 @@ export const benin: CensadCountry = {
   currentLeader: 'President Patrice Talon — verify',
   cryptocurrencyExchanges: ['Binance (P2P informal)', 'Local OTC'],
   stablecoin: 'USDT/USDC informal; CFA pegged to EUR',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['BJ'],
   stockExchange: 'Regional Bourse Régionale des Valeurs Mobilières (BRVM Abidjan, WAEMU listing)',
 }

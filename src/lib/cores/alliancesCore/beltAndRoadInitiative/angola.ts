@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const angola: BeltAndRoadInitiativeCountry = {
   name: 'Angola',
@@ -16,5 +17,6 @@ export const angola: BeltAndRoadInitiativeCountry = {
   currentLeader: 'João Lourenço (President)',
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Local OTC'],
   stablecoin: 'USDT / USDC via P2P; no AOA stablecoin',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['AO'],
   stockExchange: 'Bodiva (Angola Securities Exchange)',
 }

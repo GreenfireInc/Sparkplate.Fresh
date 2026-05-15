@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const syria: BeltAndRoadInitiativeCountry = {
   name: 'Syria',
@@ -16,5 +17,6 @@ export const syria: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Ahmed al-Sharaa (President; transitional context — verify)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'OTC', 'Sanctions-affected rails'],
   stablecoin: 'USDT informal; heavily depreciated SYP',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['SY'],
   stockExchange: 'Damascus Securities Exchange (limited)',
 }

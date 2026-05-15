@@ -1,6 +1,7 @@
-export type { MiktaCountry, MiktaOrganizationInfo } from './types'
+export type { MiktaCountry, MiktaOrganizationInfo, DomesticCourierService } from './types'
 
 import type { MiktaCountry, MiktaOrganizationInfo } from './types'
+import { MIKTA_MEMBER_ISO_CODES } from './miktaMemberIsoCodes'
 import { mexico } from './mexico'
 import { indonesia } from './indonesia'
 import { southKorea } from './southKorea'
@@ -31,6 +32,6 @@ export const mikta: MiktaOrganizationInfo = {
   headquartersCity: '— (rotating chair; no permanent secretariat)',
   headquartersCountry:
     'Cross-regional grouping; chairmanship rotates among members annually — informational',
-  memberStatesIso2: ['MX', 'ID', 'KR', 'TR', 'AU'],
+  memberStatesIso2: MIKTA_MEMBER_ISO_CODES,
   memberRecordsInModule: 5,
 }

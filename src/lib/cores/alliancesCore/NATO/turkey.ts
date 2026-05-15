@@ -1,4 +1,5 @@
 import type { NatoCountry } from './types'
+import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const turkey: NatoCountry = {
   name: 'Turkey',
@@ -17,5 +18,6 @@ export const turkey: NatoCountry = {
     'President Recep Tayyip Erdoğan — verify; Vice President — verify cabinet',
   cryptocurrencyExchanges: ['BtcTurk', 'Paribu', 'MASAK registration — informational'],
   stablecoin: 'TRY volatility; USD-stable informal — informational',
+  domesticCourierServices: NATO_DOMESTIC_COURIERS['TR'],
   stockExchange: 'Borsa Istanbul (BİST)',
 }

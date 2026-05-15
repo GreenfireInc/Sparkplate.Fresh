@@ -1,6 +1,7 @@
-export type { CensadCountry, CensadOrganizationInfo } from './types'
+export type { CensadCountry, CensadOrganizationInfo, DomesticCourierService } from './types'
 
 import type { CensadCountry, CensadOrganizationInfo } from './types'
+import { CENSAD_MEMBER_ISO_CODES } from './censadMemberIsoCodes'
 import { benin } from './benin'
 import { burkinaFaso } from './burkinaFaso'
 import { centralAfricanRepublic } from './centralAfricanRepublic'
@@ -94,32 +95,6 @@ export const censad: CensadOrganizationInfo = {
     '1998-02 (founding treaty; Ndjamena; subsequent institutional evolution — informational)',
   headquartersCity: 'Tripoli',
   headquartersCountry: 'Libya',
-  memberStatesIso2: [
-    'BJ',
-    'BF',
-    'CF',
-    'TD',
-    'KM',
-    'DJ',
-    'EG',
-    'ER',
-    'GM',
-    'GH',
-    'GN',
-    'GW',
-    'CI',
-    'LY',
-    'ML',
-    'MR',
-    'MA',
-    'NE',
-    'NG',
-    'SN',
-    'SL',
-    'SO',
-    'SD',
-    'TG',
-    'TN',
-  ],
+  memberStatesIso2: CENSAD_MEMBER_ISO_CODES,
   memberRecordsInModule: 25,
 }

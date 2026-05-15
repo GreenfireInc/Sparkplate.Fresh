@@ -1,4 +1,5 @@
 import type { ApecCountry } from './types'
+import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const brunei: ApecCountry = {
   name: 'Brunei',
@@ -17,5 +18,6 @@ export const brunei: ApecCountry = {
     'Sultan Hassanal Bolkiah; Crown Prince Prince Al-Muhtadee Billah — verify',
   cryptocurrencyExchanges: ['Autoriti Monetari cautious; regional OTC — informational'],
   stablecoin: 'BND monetary board USD anchor — informational',
+  domesticCourierServices: APEC_DOMESTIC_COURIERS['BN'],
   stockExchange: 'No consolidated national equities exchange narrative — informational',
 }

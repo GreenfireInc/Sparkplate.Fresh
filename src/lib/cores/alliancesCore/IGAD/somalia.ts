@@ -1,4 +1,5 @@
 import type { IgadCountry } from './types'
+import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const somalia: IgadCountry = {
   name: 'Somalia',
@@ -17,5 +18,6 @@ export const somalia: IgadCountry = {
   currentLeader: 'President Hassan Sheikh Mohamud — verify; Prime Minister — verify clan-federal bargains',
   cryptocurrencyExchanges: ['Hargeisa OTC informal; Mogadishu mobile-money predominance — informational'],
   stablecoin: 'USD/USDT hawala overlays; SOS thin banknote supply — informational',
+  domesticCourierServices: IGAD_DOMESTIC_COURIERS['SO'],
   stockExchange: 'No substantive national equities exchange consolidated (subsidiary regional plans — informational)',
 }

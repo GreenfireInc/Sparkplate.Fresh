@@ -1,4 +1,5 @@
 import type { ComesaCountry } from './types'
+import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const madagascar: ComesaCountry = {
   name: 'Madagascar',
@@ -16,5 +17,6 @@ export const madagascar: ComesaCountry = {
     'President Andry Rajoelina — verify (AU suspended status informational; COMESA participation — verify)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Local P2P', 'International brokers'],
   stablecoin: 'USDT informal; no MGA stablecoin',
+  domesticCourierServices: COMESA_DOMESTIC_COURIERS['MG'],
   stockExchange: 'Madagascar Stock Exchange (SEM)',
 }

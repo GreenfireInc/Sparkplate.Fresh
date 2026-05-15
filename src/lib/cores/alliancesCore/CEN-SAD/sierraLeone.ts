@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const sierraLeone: CensadCountry = {
   name: 'Sierra Leone',
@@ -15,5 +16,6 @@ export const sierraLeone: CensadCountry = {
   currentLeader: 'President Julius Maada Bio — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance P2P informal'],
   stablecoin: 'Informal USD/USDT',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['SL'],
   stockExchange: 'Sierra Leone Stock Exchange — verify liquidity',
 }

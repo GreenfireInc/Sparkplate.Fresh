@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const guinea: CensadCountry = {
   name: 'Guinea',
@@ -15,5 +16,6 @@ export const guinea: CensadCountry = {
   currentLeader: 'Colonel Mamadi Doumbouya-led transition — verify',
   cryptocurrencyExchanges: ['Informal OTC predominant'],
   stablecoin: 'Informal USD/USDT',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['GN'],
   stockExchange: 'Regional BRVM not primary; no major national bourse',
 }

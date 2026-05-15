@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const niger: BeltAndRoadInitiativeCountry = {
   name: 'Niger',
@@ -16,5 +17,6 @@ export const niger: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Abdourahamane Tchiani (General; National Council for the Safeguard of the Homeland)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'OTC'],
   stablecoin: 'USDT P2P; XOF peg',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['NE'],
   stockExchange: 'No liquid national bourse; BRVM regional',
 }

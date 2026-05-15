@@ -1,6 +1,7 @@
-export type { ComesaCountry, ComesaOrganizationInfo } from './types'
+export type { ComesaCountry, ComesaOrganizationInfo, DomesticCourierService } from './types'
 
 import type { ComesaCountry, ComesaOrganizationInfo } from './types'
+import { COMESA_MEMBER_ISO_CODES } from './comesaMemberIsoCodes'
 import { djibouti } from './djibouti'
 import { egypt } from './egypt'
 import { eritrea } from './eritrea'
@@ -79,27 +80,6 @@ export const comesa: ComesaOrganizationInfo = {
     '1993-11-08 (Treaty signed Port Louis, Mauritius); launched 1994-12-08 — informational',
   headquartersCity: 'Lusaka',
   headquartersCountry: 'Zambia',
-  memberStatesIso2: [
-    'DJ',
-    'EG',
-    'ER',
-    'ET',
-    'LY',
-    'SD',
-    'TN',
-    'KM',
-    'MG',
-    'MU',
-    'SC',
-    'BI',
-    'KE',
-    'MW',
-    'RW',
-    'UG',
-    'SZ',
-    'ZM',
-    'ZW',
-    'CD',
-  ],
+  memberStatesIso2: COMESA_MEMBER_ISO_CODES,
   memberRecordsInModule: 20,
 }

@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const malawi: CommonwealthCountry = {
   name: 'Malawi',
@@ -16,5 +17,6 @@ export const malawi: CommonwealthCountry = {
   currentLeader: 'Lazarus Chakwera (President)',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['MW'],
   stockExchange: 'Malawi Stock Exchange',
 }

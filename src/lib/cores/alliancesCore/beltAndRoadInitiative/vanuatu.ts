@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const vanuatu: BeltAndRoadInitiativeCountry = {
   name: 'Vanuatu',
@@ -16,5 +17,6 @@ export const vanuatu: BeltAndRoadInitiativeCountry = {
   currentLeader: '(Verify with official government sources)',
   cryptocurrencyExchanges: [ 'Binance (P2P)', 'International OTC', 'Local regulation varies' ],
   stablecoin: 'USDT / USDC common globally; legality varies by jurisdiction',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['VU'],
   stockExchange: 'National or regional exchange (verify)',
 }

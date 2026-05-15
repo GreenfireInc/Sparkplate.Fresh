@@ -1,4 +1,5 @@
 import type { OpecCountry } from './types'
+import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const libya: OpecCountry = {
   name: 'Libya',
@@ -17,5 +18,6 @@ export const libya: OpecCountry = {
     'UN-recognised Government of National Unity presidency / dual-power episodes — verify',
   cryptocurrencyExchanges: ['Infrastructure disruption; OTC informal miners reported — informational'],
   stablecoin: 'USD informal oil settlement references — informational',
+  domesticCourierServices: OPEC_DOMESTIC_COURIERS['LY'],
   stockExchange: 'Libyan Stock Market operational disruption narratives — informational',
 }

@@ -1,6 +1,7 @@
-export type { G7Country, G7OrganizationInfo } from './types'
+export type { G7Country, G7OrganizationInfo, DomesticCourierService } from './types'
 
 import type { G7Country, G7OrganizationInfo } from './types'
+import { G7_MEMBER_ISO_CODES } from './g7MemberIsoCodes'
 import { canada } from './canada'
 import { france } from './france'
 import { germany } from './germany'
@@ -33,6 +34,6 @@ export const g7: G7OrganizationInfo = {
     '1975-11 Rambouillet summit (annual economic/finance coordination among major advanced economies; Russia G8-era accession reversed to G7 posture from 2014 — informational)',
   headquartersCity: 'Rotating presidency',
   headquartersCountry: 'Host member changes annually (ministerial sherpa process — informational)',
-  memberStatesIso2: ['CA', 'FR', 'DE', 'IT', 'JP', 'GB', 'US'],
+  memberStatesIso2: G7_MEMBER_ISO_CODES,
   memberRecordsInModule: 7,
 }

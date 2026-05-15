@@ -1,4 +1,5 @@
 import type { G20Country } from './types'
+import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const saudiArabia: G20Country = {
   name: 'Saudi Arabia',
@@ -17,5 +18,6 @@ export const saudiArabia: G20Country = {
   currentLeader: 'King Salman bin Abdulaziz; Crown Prince / Prime Minister Mohammed bin Salman — verify',
   cryptocurrencyExchanges: ['Onshore exchange offering constrained; SAMA cautious VA stance; regional Rain / BitOasis adjacency — informational'],
   stablecoin: 'mBridge wholesale CBDC participation; SAR-pegged issuance thin — informational',
+  domesticCourierServices: G20_DOMESTIC_COURIERS['SA'],
   stockExchange: 'Saudi Exchange (Tadawul)',
 }

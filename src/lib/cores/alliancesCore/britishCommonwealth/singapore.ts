@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const singapore: CommonwealthCountry = {
   name: 'Singapore',
@@ -16,5 +17,6 @@ export const singapore: CommonwealthCountry = {
   currentLeader: 'Lawrence Wong (Prime Minister) — verify',
   cryptocurrencyExchanges: ['Coinbase', 'Crypto.com', 'Independent Reserve'],
   stablecoin: 'XSGD and USDC (regulated venues); USDT',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['SG'],
   stockExchange: 'Singapore Exchange (SGX)',
 }

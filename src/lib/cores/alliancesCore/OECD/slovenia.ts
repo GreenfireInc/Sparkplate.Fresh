@@ -1,4 +1,5 @@
 import type { OecdCountry } from './types'
+import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const slovenia: OecdCountry = {
   name: 'Slovenia',
@@ -16,5 +17,6 @@ export const slovenia: OecdCountry = {
   currentLeader: 'President Nataša Pirc Musar; Prime Minister Robert Golob — verify',
   cryptocurrencyExchanges: ['EU-compliant brokers; Ljubljana fintech corridors — informational'],
   stablecoin: 'EUR stablecoins under MiCA — informational',
+  domesticCourierServices: OECD_DOMESTIC_COURIERS['SI'],
   stockExchange: 'Ljubljana Stock Exchange',
 }

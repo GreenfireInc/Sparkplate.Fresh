@@ -1,4 +1,5 @@
 import type { EacCountry } from './types'
+import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const tanzania: EacCountry = {
   name: 'Tanzania',
@@ -15,6 +16,7 @@ export const tanzania: EacCountry = {
   currentLeader: 'President Samia Suluhu Hassan — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local fintech'],
   stablecoin: 'USDT / USDC P2P',
+  domesticCourierServices: EAC_DOMESTIC_COURIERS['TZ'],
   stockExchange:
     'Dar es Salaam Stock Exchange (DSE); EAC Secretariat located in Arusha — informational',
 }

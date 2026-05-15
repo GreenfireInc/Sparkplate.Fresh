@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const zimbabwe: BeltAndRoadInitiativeCountry = {
   name: 'Zimbabwe',
@@ -16,5 +17,6 @@ export const zimbabwe: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Emmerson Mnangagwa (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Golix (historical)', 'Local P2P'],
   stablecoin: 'USDT / USDC; USD cash economy',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['ZW'],
   stockExchange: 'Zimbabwe Stock Exchange (ZSE)',
 }

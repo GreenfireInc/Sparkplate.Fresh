@@ -1,4 +1,5 @@
 import type { NatoCountry } from './types'
+import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const albania: NatoCountry = {
   name: 'Albania',
@@ -16,5 +17,6 @@ export const albania: NatoCountry = {
   currentLeader: 'President Bajram Begaj — verify; Prime Minister Edi Rama — verify',
   cryptocurrencyExchanges: ['Regional EU brokers onboarding; OTC informal — informational'],
   stablecoin: 'EUR-USD informal rails predominant — informational',
+  domesticCourierServices: NATO_DOMESTIC_COURIERS['AL'],
   stockExchange: 'Tirana Stock Exchange (thin listings — informational)',
 }

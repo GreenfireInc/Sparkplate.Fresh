@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const papuaNewGuinea: CommonwealthCountry = {
   name: 'Papua New Guinea',
@@ -16,5 +17,6 @@ export const papuaNewGuinea: CommonwealthCountry = {
   currentLeader: 'James Marape (Prime Minister)',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['PG'],
   stockExchange: 'PNG National Stock Exchange',
 }

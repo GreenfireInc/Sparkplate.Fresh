@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const nigeria: CensadCountry = {
   name: 'Nigeria',
@@ -15,5 +16,6 @@ export const nigeria: CensadCountry = {
   currentLeader: 'President Bola Tinubu — verify',
   cryptocurrencyExchanges: ['Luno', 'Yellow Card regional', 'informal OTC (CBN policy evolution — verify)'],
   stablecoin: 'eNaira (CBDC); USDT/USDC informal markets',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['NG'],
   stockExchange: 'Nigerian Exchange Group ( NGX )',
 }

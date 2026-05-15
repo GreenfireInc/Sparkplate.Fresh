@@ -1,6 +1,7 @@
-export type { SadcCountry, SadcOrganizationInfo } from './types'
+export type { SadcCountry, SadcOrganizationInfo, DomesticCourierService } from './types'
 
 import type { SadcCountry, SadcOrganizationInfo } from './types'
+import { SADC_MEMBER_ISO_CODES } from './sadcMemberIsoCodes'
 import { angola } from './angola'
 import { botswana } from './botswana'
 import { comoros } from './comoros'
@@ -67,6 +68,6 @@ export const sadc: SadcOrganizationInfo = {
     '1980 precursor Southern African Development Coordination Conference (SADCC); SADC Treaty 1992 — informational',
   headquartersCity: 'Gaborone',
   headquartersCountry: 'Botswana',
-  memberStatesIso2: ['AO', 'BW', 'KM', 'CD', 'SZ', 'LS', 'MG', 'MW', 'MU', 'MZ', 'NA', 'SC', 'ZA', 'TZ', 'ZM', 'ZW'],
+  memberStatesIso2: SADC_MEMBER_ISO_CODES,
   memberRecordsInModule: 16,
 }

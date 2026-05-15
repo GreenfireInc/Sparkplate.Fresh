@@ -1,4 +1,5 @@
 import type { BricsCountry } from './types'
+import { BRICS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const china: BricsCountry = {
   name: 'China',
@@ -16,5 +17,6 @@ export const china: BricsCountry = {
   currentLeader: 'Xi Jinping (President; CPC General Secretary)',
   cryptocurrencyExchanges: ['Offshore access only for mainland residents; Hong Kong SAR has separate licensed venues — verify jurisdiction'],
   stablecoin: 'e-CNY pilot (central bank digital currency); private stablecoin trading restricted onshore',
+  domesticCourierServices: BRICS_DOMESTIC_COURIERS['CN'],
   stockExchange: 'Shanghai Stock Exchange; Shenzhen Stock Exchange',
 }

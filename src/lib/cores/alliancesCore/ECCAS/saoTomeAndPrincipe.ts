@@ -1,4 +1,5 @@
 import type { EccasCountry } from './types'
+import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const saoTomeAndPrincipe: EccasCountry = {
   name: 'São Tomé and Príncipe',
@@ -15,5 +16,6 @@ export const saoTomeAndPrincipe: EccasCountry = {
   currentLeader: 'President Carlos Vila Nova — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'European brokers', 'OTC'],
   stablecoin: 'EUR/USD-linked holdings informal alongside STN',
+  domesticCourierServices: ECCAS_DOMESTIC_COURIERS['ST'],
   stockExchange: 'Bolsa de Valores de São Tomé e Príncipe (limited)',
 }

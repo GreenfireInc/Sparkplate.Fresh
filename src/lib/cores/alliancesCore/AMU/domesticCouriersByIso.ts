@@ -6,13 +6,14 @@ function c(
   email: string,
   instagram: string,
   twitter: string,
+  apiEndpoint: string,
 ): DomesticCourierService {
-  return { name, website, email, instagram, twitter }
+  return { name, website, email, instagram, twitter, apiEndpoint }
 }
 
 /**
  * Domestic courier reference rows by ISO 3166-1 alpha-2 for Arab Maghreb Union (AMU) members.
- * Verify URLs, emails, and social handles locally before production use.
+ * Verify URLs, emails, social handles, and `apiEndpoint` bases locally before production use.
  */
 export const AMU_DOMESTIC_COURIERS = {
   DZ: [
@@ -22,6 +23,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'contact@poste.dz',
       'https://www.instagram.com/algerie_poste/',
       'https://x.com/AlgeriePoste',
+      '',
     ),
     c(
       'Yalidine Express',
@@ -29,6 +31,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'support@yalidine.co',
       'https://www.instagram.com/yalidine.express/',
       'https://x.com/yalidineDZ',
+      '',
     ),
     c(
       'Zimou Express',
@@ -36,6 +39,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'contact@zimou.app',
       'https://www.instagram.com/zimouexpress/',
       'https://x.com/ZimouExpress',
+      '',
     ),
     c(
       'DHL Algeria',
@@ -43,6 +47,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'dz.customerservice@dhl.com',
       'https://www.instagram.com/dhlexpress/',
       'https://x.com/DHLexpress',
+      'https://api-eu.dhl.com/',
     ),
   ],
   LY: [
@@ -52,6 +57,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'info@nlpc.ly',
       '',
       '',
+      '',
     ),
     c(
       'DHL Libya (service partners)',
@@ -59,6 +65,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'ly.customerservice@dhl.com',
       'https://www.instagram.com/dhlexpress/',
       'https://x.com/DHLexpress',
+      'https://api-eu.dhl.com/',
     ),
     c(
       'Aramex Libya',
@@ -66,6 +73,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'customerservicely@aramex.com',
       'https://www.instagram.com/aramex/',
       'https://x.com/aramex',
+      'https://ws.aramex.net/',
     ),
     c(
       'FedEx Libya (forwarding desks)',
@@ -73,6 +81,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'support@fedex.com',
       'https://www.instagram.com/fedex/',
       'https://x.com/FedEx',
+      'https://apis.fedex.com/',
     ),
   ],
   MR: [
@@ -82,6 +91,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'contact@mauripost.mr',
       '',
       '',
+      '',
     ),
     c(
       'DHL Mauritania',
@@ -89,6 +99,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'mr.customerservice@dhl.com',
       'https://www.instagram.com/dhlexpress/',
       'https://x.com/DHLexpress',
+      'https://api-eu.dhl.com/',
     ),
     c(
       'FedEx Mauritania (Nouakchott)',
@@ -96,6 +107,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'support@fedex.com',
       'https://www.instagram.com/fedex/',
       'https://x.com/FedEx',
+      'https://apis.fedex.com/',
     ),
     c(
       'UPS Mauritania',
@@ -103,6 +115,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'help@ups.com',
       'https://www.instagram.com/ups/',
       'https://x.com/UPS',
+      'https://onlinetools.ups.com/api/',
     ),
   ],
   MA: [
@@ -112,6 +125,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'webmaster@barid.ma',
       'https://www.instagram.com/barid.ma/',
       'https://x.com/BaridAlMaghrib',
+      '',
     ),
     c(
       'Amana Express',
@@ -119,6 +133,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'contact@amanacolis.ma',
       'https://www.instagram.com/amanexpress/',
       'https://x.com/AmanaExpress_',
+      '',
     ),
     c(
       'Chronopost Maroc',
@@ -126,6 +141,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'client@chronopost.ma',
       'https://www.instagram.com/chronopostmaroc/',
       'https://x.com/ChronopostMaroc',
+      '',
     ),
     c(
       'DHL Morocco',
@@ -133,6 +149,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'ma.customerservice@dhl.com',
       'https://www.instagram.com/dhlexpress/',
       'https://x.com/DHLexpress',
+      'https://api-eu.dhl.com/',
     ),
   ],
   TN: [
@@ -142,6 +159,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'contact@rapidposte.com.tn',
       'https://www.instagram.com/rapidpostenetunisienne/',
       'https://x.com/RapidposteTN',
+      '',
     ),
     c(
       'Aramex Tunisia',
@@ -149,6 +167,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'customerservicetn@aramex.com',
       'https://www.instagram.com/aramex/',
       'https://x.com/aramex',
+      'https://ws.aramex.net/',
     ),
     c(
       'DHL Tunisia',
@@ -156,6 +175,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'tn.customerservice@dhl.com',
       'https://www.instagram.com/dhlexpress/',
       'https://x.com/DHLexpress',
+      'https://api-eu.dhl.com/',
     ),
     c(
       'FedEx Tunisia',
@@ -163,6 +183,7 @@ export const AMU_DOMESTIC_COURIERS = {
       'support@fedex.com',
       'https://www.instagram.com/fedex/',
       'https://x.com/FedEx',
+      'https://apis.fedex.com/',
     ),
   ],
 } satisfies Record<string, DomesticCourierService[]>

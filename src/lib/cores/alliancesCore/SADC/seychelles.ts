@@ -1,4 +1,5 @@
 import type { SadcCountry } from './types'
+import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const seychelles: SadcCountry = {
   name: 'Seychelles',
@@ -16,5 +17,6 @@ export const seychelles: SadcCountry = {
     'President Wavel Ramkalawan — verify (dual-island administrations informational only)',
   cryptocurrencyExchanges: ['Tourism OTC; sandbox licensing narrative'],
   stablecoin: 'Informal EUR/USD references',
+  domesticCourierServices: SADC_DOMESTIC_COURIERS['SC'],
   stockExchange: 'Merjex / small domestic market — verify',
 }

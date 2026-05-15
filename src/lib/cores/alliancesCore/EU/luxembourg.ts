@@ -1,4 +1,5 @@
 import type { EuCountry } from './types'
+import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const luxembourg: EuCountry = {
   name: 'Luxembourg',
@@ -15,5 +16,6 @@ export const luxembourg: EuCountry = {
   currentLeader: 'Grand Duke Henri; Prime Minister — verify',
   cryptocurrencyExchanges: ['Bitstamp historical HQ LU; MiCA-compliant EU crypto hub'],
   stablecoin: 'EUR stablecoins; asset servicing sector',
+  domesticCourierServices: EU_DOMESTIC_COURIERS['LU'],
   stockExchange: 'Luxembourg Stock Exchange',
 }

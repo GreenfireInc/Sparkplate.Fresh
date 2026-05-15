@@ -1,4 +1,5 @@
 import type { ApecCountry } from './types'
+import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const malaysia: ApecCountry = {
   name: 'Malaysia',
@@ -17,5 +18,6 @@ export const malaysia: ApecCountry = {
     'Yang di-Pertuan Agong — verify rotation; Prime Minister Anwar Ibrahim — verify coalition',
   cryptocurrencyExchanges: ['SC regulated digital-exchange pilots — informational'],
   stablecoin: 'MYR digital bank experimentation — informational',
+  domesticCourierServices: APEC_DOMESTIC_COURIERS['MY'],
   stockExchange: 'Bursa Malaysia',
 }

@@ -1,4 +1,5 @@
 import type { EuCountry } from './types'
+import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const slovakia: EuCountry = {
   name: 'Slovakia',
@@ -15,5 +16,6 @@ export const slovakia: EuCountry = {
   currentLeader: 'President Peter Pellegrini; Prime Minister Robert Fico — verify',
   cryptocurrencyExchanges: ['European MiCA CASPs onboarding SK retail'],
   stablecoin: 'EUR stablecoins; banking integration',
+  domesticCourierServices: EU_DOMESTIC_COURIERS['SK'],
   stockExchange: 'Bratislava Stock Exchange',
 }

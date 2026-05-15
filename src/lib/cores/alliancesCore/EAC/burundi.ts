@@ -1,4 +1,5 @@
 import type { EacCountry } from './types'
+import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const burundi: EacCountry = {
   name: 'Burundi',
@@ -15,5 +16,6 @@ export const burundi: EacCountry = {
   currentLeader: 'President Évariste Ndayishimiye — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card (regional)', 'Local OTC'],
   stablecoin: 'USDT informal',
+  domesticCourierServices: EAC_DOMESTIC_COURIERS['BI'],
   stockExchange: 'Burundi Stock Exchange — thin liquidity',
 }

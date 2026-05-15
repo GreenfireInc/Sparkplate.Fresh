@@ -1,4 +1,5 @@
 import type { CaricomCountry } from './types'
+import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const trinidadAndTobago: CaricomCountry = {
   name: 'Trinidad and Tobago',
@@ -16,5 +17,6 @@ export const trinidadAndTobago: CaricomCountry = {
   currentLeader: 'Kamla Persad-Bissessar (Prime Minister) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
+  domesticCourierServices: CARICOM_DOMESTIC_COURIERS['TT'],
   stockExchange: 'Trinidad and Tobago Stock Exchange',
 }

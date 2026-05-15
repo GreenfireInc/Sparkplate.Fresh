@@ -1,4 +1,5 @@
 import type { OpecCountry } from './types'
+import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const iran: OpecCountry = {
   name: 'Iran',
@@ -18,5 +19,6 @@ export const iran: OpecCountry = {
   cryptocurrencyExchanges:
     ['US/EU sanction-screened miners / informal mining; regulated pilot contradictions — informational'],
   stablecoin: 'Stable references via informal USD IRR parallel rates — informational',
+  domesticCourierServices: OPEC_DOMESTIC_COURIERS['IR'],
   stockExchange: 'Tehran Stock Exchange (irrational volatility episodes — informational)',
 }

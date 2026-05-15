@@ -1,6 +1,15 @@
-export type { CaricomCountry, CaricomMembership, CaricomOrganizationInfo } from './types'
+export type {
+  CaricomCountry,
+  CaricomMembership,
+  CaricomOrganizationInfo,
+  DomesticCourierService,
+} from './types'
 
 import type { CaricomCountry, CaricomOrganizationInfo } from './types'
+import {
+  CARICOM_ASSOCIATE_MEMBER_ISO_CODES,
+  CARICOM_FULL_MEMBER_ISO_CODES,
+} from './caricomMemberIsoCodes'
 import { antiguaAndBarbuda } from './antiguaAndBarbuda'
 import { bahamas } from './bahamas'
 import { barbados } from './barbados'
@@ -66,7 +75,7 @@ export const caricom: CaricomOrganizationInfo = {
     'Human and social development, security, and disaster risk reduction cooperation',
     'Representation in international forums as a coordinated region where agreed',
   ],
-  fullMemberStatesIso2: ['AG', 'BS', 'BB', 'BZ', 'DM', 'GD', 'GY', 'HT', 'JM', 'MS', 'KN', 'LC', 'VC', 'SR', 'TT'],
-  associateMemberStatesIso2: ['AI', 'BM', 'VG', 'KY', 'TC'],
+  fullMemberStatesIso2: CARICOM_FULL_MEMBER_ISO_CODES,
+  associateMemberStatesIso2: CARICOM_ASSOCIATE_MEMBER_ISO_CODES,
   memberRecordsInModule: 20,
 }

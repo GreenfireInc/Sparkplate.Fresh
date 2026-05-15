@@ -1,4 +1,5 @@
 import type { AseanCountry } from './types'
+import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const laos: AseanCountry = {
   name: 'Laos',
@@ -16,5 +17,6 @@ export const laos: AseanCountry = {
   currentLeader: 'General Secretary / President Thongloun Sisoulith — verify titles',
   cryptocurrencyExchanges: ['BOL restrictive licensing; OTC sparse — informational'],
   stablecoin: 'LAK thin digital rails; USD/Baht informal — informational',
+  domesticCourierServices: ASEAN_DOMESTIC_COURIERS['LA'],
   stockExchange: 'Lao Securities Exchange (Vientiane — thin listings — informational)',
 }

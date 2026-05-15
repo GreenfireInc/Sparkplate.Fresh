@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const uganda: BeltAndRoadInitiativeCountry = {
   name: 'Uganda',
@@ -16,5 +17,6 @@ export const uganda: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Yoweri Museveni (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Chipper Cash'],
   stablecoin: 'USDT / USDC P2P',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['UG'],
   stockExchange: 'Uganda Securities Exchange',
 }

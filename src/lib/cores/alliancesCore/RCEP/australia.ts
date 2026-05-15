@@ -1,4 +1,5 @@
 import type { RcepCountry } from './types'
+import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const australia: RcepCountry = {
   name: 'Australia',
@@ -16,5 +17,6 @@ export const australia: RcepCountry = {
   currentLeader: 'Prime Minister Anthony Albanese — verify',
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'CoinSpot ASIC context — informational'],
   stablecoin: 'AUD stablecoins; Treasury/ASIC evolution — informational',
+  domesticCourierServices: RCEP_DOMESTIC_COURIERS['AU'],
   stockExchange: 'Australian Securities Exchange (ASX)',
 }

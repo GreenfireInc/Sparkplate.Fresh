@@ -1,4 +1,5 @@
 import type { CaricomCountry } from './types'
+import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const saintLucia: CaricomCountry = {
   name: 'Saint Lucia',
@@ -16,5 +17,6 @@ export const saintLucia: CaricomCountry = {
   currentLeader: 'Philip J. Pierre (Prime Minister)',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'XCD peg; USDT/USDC',
+  domesticCourierServices: CARICOM_DOMESTIC_COURIERS['LC'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

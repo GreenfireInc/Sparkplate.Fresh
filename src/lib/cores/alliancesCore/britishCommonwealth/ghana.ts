@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const ghana: CommonwealthCountry = {
   name: 'Ghana',
@@ -16,5 +17,6 @@ export const ghana: CommonwealthCountry = {
   currentLeader: 'John Mahama (President) — verify',
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Paxful context'],
   stablecoin: 'eCedi (CBDC pilot); USDT informal',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['GH'],
   stockExchange: 'Ghana Stock Exchange',
 }

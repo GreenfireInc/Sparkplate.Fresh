@@ -1,4 +1,5 @@
 import type { IoraCountry } from './types'
+import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const tanzania: IoraCountry = {
   name: 'Tanzania',
@@ -17,5 +18,6 @@ export const tanzania: IoraCountry = {
     'President Samia Suluhu Hassan — verify Zanzibar co-sovereignty politics',
   cryptocurrencyExchanges: ['BOT cautious licensing; diaspora OTC — informational'],
   stablecoin: 'USD informal TZS parallel segments — informational',
+  domesticCourierServices: IORA_DOMESTIC_COURIERS['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange (DSE)',
 }

@@ -1,4 +1,5 @@
 import type { OecdCountry } from './types'
+import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const ireland: OecdCountry = {
   name: 'Ireland',
@@ -16,5 +17,6 @@ export const ireland: OecdCountry = {
   currentLeader: 'President Michael D. Higgins; Taoiseach — verify',
   cryptocurrencyExchanges: ['Kraken EU', 'IDA tech hub onboarding; MiCA-aligned — informational'],
   stablecoin: 'EUR stablecoins; Irish issuer vehicles referencing SFDR — informational',
+  domesticCourierServices: OECD_DOMESTIC_COURIERS['IE'],
   stockExchange: 'Euronext Dublin',
 }

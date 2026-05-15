@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const cameroon: BeltAndRoadInitiativeCountry = {
   name: 'Cameroon',
@@ -16,5 +17,6 @@ export const cameroon: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Paul Biya (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC P2P; XAF CFA peg',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['CM'],
   stockExchange: 'Douala Stock Exchange (DSX)',
 }

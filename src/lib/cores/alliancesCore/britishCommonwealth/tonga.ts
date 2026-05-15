@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const tonga: CommonwealthCountry = {
   name: 'Tonga',
@@ -16,5 +17,6 @@ export const tonga: CommonwealthCountry = {
   currentLeader: 'Tupou VI (King); PM — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['TO'],
   stockExchange: 'Tonga Stock Exchange',
 }

@@ -1,4 +1,5 @@
 import type { IgadCountry } from './types'
+import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const kenya: IgadCountry = {
   name: 'Kenya',
@@ -16,5 +17,6 @@ export const kenya: IgadCountry = {
   currentLeader: 'President William Ruto — verify',
   cryptocurrencyExchanges: ['BitPesa / Yellow Card regional; Capital Markets Authority ICO guidance — informational'],
   stablecoin: 'KES-referenced pilots; informal USDT overlays — informational',
+  domesticCourierServices: IGAD_DOMESTIC_COURIERS['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
 }

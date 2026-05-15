@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const samoa: BeltAndRoadInitiativeCountry = {
   name: 'Samoa',
@@ -16,5 +17,6 @@ export const samoa: BeltAndRoadInitiativeCountry = {
   currentLeader: '(Verify with official government sources)',
   cryptocurrencyExchanges: [ 'Binance (P2P)', 'International OTC', 'Local regulation varies' ],
   stablecoin: 'USDT / USDC common globally; legality varies by jurisdiction',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['WS'],
   stockExchange: 'National or regional exchange (verify)',
 }

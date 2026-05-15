@@ -1,4 +1,5 @@
 import type { G7Country } from './types'
+import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const japan: G7Country = {
   name: 'Japan',
@@ -16,5 +17,6 @@ export const japan: G7Country = {
   currentLeader: 'Prime Minister — verify (Liberal Democratic Party–led cabinets rotate)',
   cryptocurrencyExchanges: ['bitFlyer', 'Zaif / registered PSAP-era providers — informational'],
   stablecoin: 'JPY-stable experiments; Bank of Japan CBDC pilots — informational',
+  domesticCourierServices: G7_DOMESTIC_COURIERS['JP'],
   stockExchange: 'Tokyo Stock Exchange (Japan Exchange Group)',
 }

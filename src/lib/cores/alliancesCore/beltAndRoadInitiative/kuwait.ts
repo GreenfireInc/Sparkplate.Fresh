@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const kuwait: BeltAndRoadInitiativeCountry = {
   name: 'Kuwait',
@@ -16,5 +17,6 @@ export const kuwait: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Mishal Al-Ahmad Al-Jaber Al-Sabah (Emir)',
   cryptocurrencyExchanges: ['Regional OTC', 'International brokers; no major local spot exchange'],
   stablecoin: 'USDT / USDC informal; oil-economy USD links',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['KW'],
   stockExchange: 'Boursa Kuwait',
 }

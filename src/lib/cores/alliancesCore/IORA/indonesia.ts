@@ -1,4 +1,5 @@
 import type { IoraCountry } from './types'
+import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const indonesia: IoraCountry = {
   name: 'Indonesia',
@@ -16,5 +17,6 @@ export const indonesia: IoraCountry = {
   currentLeader: 'President Prabowo Subianto — verify',
   cryptocurrencyExchanges: ['OJK digital-asset licensing evolution — informational'],
   stablecoin: 'IDR payment stacks; OTC USDT — informational',
+  domesticCourierServices: IORA_DOMESTIC_COURIERS['ID'],
   stockExchange: 'Indonesia Stock Exchange (IDX)',
 }

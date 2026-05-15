@@ -1,4 +1,5 @@
 import type { NatoCountry } from './types'
+import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const spain: NatoCountry = {
   name: 'Spain',
@@ -16,5 +17,6 @@ export const spain: NatoCountry = {
   currentLeader: 'King Felipe VI; President of Government Pedro Sánchez — verify elections',
   cryptocurrencyExchanges: ['Bit2Me', 'CNMV MiCA registry — informational'],
   stablecoin: 'EUR stablecoins — informational',
+  domesticCourierServices: NATO_DOMESTIC_COURIERS['ES'],
   stockExchange: 'BME / Euronext Spain consolidated context — informational',
 }

@@ -1,4 +1,5 @@
 import type { NatoCountry } from './types'
+import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const norway: NatoCountry = {
   name: 'Norway',
@@ -16,5 +17,6 @@ export const norway: NatoCountry = {
   currentLeader: 'Monarch Harald V; Prime Minister Jonas Gahr Støre — verify coalition',
   cryptocurrencyExchanges: ['Finanstilsynet registered providers — informational'],
   stablecoin: 'NOK OTC; EUR-stable common — informational',
+  domesticCourierServices: NATO_DOMESTIC_COURIERS['NO'],
   stockExchange: 'Oslo Børs (Euronext)',
 }

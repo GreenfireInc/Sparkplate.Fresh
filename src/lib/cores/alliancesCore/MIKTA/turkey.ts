@@ -1,4 +1,5 @@
 import type { MiktaCountry } from './types'
+import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const turkey: MiktaCountry = {
   name: 'Turkey',
@@ -17,5 +18,6 @@ export const turkey: MiktaCountry = {
     'President Recep Tayyip Erdoğan — verify; Vice President Cevdet Yılmaz / cabinet — informational',
   cryptocurrencyExchanges: ['BtcTurk', 'Paribu', 'MASAK anti-money laundering registration — informational'],
   stablecoin: 'TRY fiat-backed issuance thin; TRY volatility vs USD-stable informal — informational',
+  domesticCourierServices: MIKTA_DOMESTIC_COURIERS['TR'],
   stockExchange: 'Borsa Istanbul (BİST equities / debt)',
 }

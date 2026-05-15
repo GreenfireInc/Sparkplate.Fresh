@@ -1,6 +1,7 @@
-export type { CptppCountry, CptppOrganizationInfo } from './types'
+export type { CptppCountry, CptppOrganizationInfo, DomesticCourierService } from './types'
 
 import type { CptppCountry, CptppOrganizationInfo } from './types'
+import { CPTPP_MEMBER_ISO_CODES } from './cptppMemberIsoCodes'
 import { australia } from './australia'
 import { brunei } from './brunei'
 import { canada } from './canada'
@@ -55,6 +56,6 @@ export const cptpp: CptppOrganizationInfo = {
     '2018-12-30 (first entrants into force); successive accessions including United Kingdom — informational; verify dates',
   headquartersCity: 'Auckland',
   headquartersCountry: 'New Zealand',
-  memberStatesIso2: ['AU', 'BN', 'CA', 'CL', 'JP', 'MY', 'MX', 'NZ', 'PE', 'SG', 'GB', 'VN'],
+  memberStatesIso2: CPTPP_MEMBER_ISO_CODES,
   memberRecordsInModule: 12,
 }

@@ -1,4 +1,5 @@
 import type { CaricomCountry } from './types'
+import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const grenada: CaricomCountry = {
   name: 'Grenada',
@@ -16,5 +17,6 @@ export const grenada: CaricomCountry = {
   currentLeader: 'Dickon Mitchell (Prime Minister) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'XCD peg; USDT/USDC',
+  domesticCourierServices: CARICOM_DOMESTIC_COURIERS['GD'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

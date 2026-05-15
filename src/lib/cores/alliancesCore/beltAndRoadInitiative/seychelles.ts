@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const seychelles: BeltAndRoadInitiativeCountry = {
   name: 'Seychelles',
@@ -16,5 +17,6 @@ export const seychelles: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Wavel Ramkalawan (President)',
   cryptocurrencyExchanges: ['Binance (offshore registrations historically)', 'International brokers'],
   stablecoin: 'USDT / USDC; offshore financial services sector',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['SC'],
   stockExchange: 'Merjep (Seychelles Securities Exchange) — niche',
 }

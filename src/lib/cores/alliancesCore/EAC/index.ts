@@ -1,6 +1,7 @@
-export type { EacCountry, EacOrganizationInfo } from './types'
+export type { EacCountry, EacOrganizationInfo, DomesticCourierService } from './types'
 
 import type { EacCountry, EacOrganizationInfo } from './types'
+import { EAC_MEMBER_ISO_CODES } from './eacMemberIsoCodes'
 import { burundi } from './burundi'
 import { democraticRepublicOfTheCongo } from './democraticRepublicOfTheCongo'
 import { kenya } from './kenya'
@@ -43,6 +44,6 @@ export const eac: EacOrganizationInfo = {
     '1967-12-01 (original EAC, dissolved 1977); revived 1999-11-30 / Treaty 2000-07-07 Arusha; DRC ascension timelines — informational — verify',
   headquartersCity: 'Arusha',
   headquartersCountry: 'Tanzania',
-  memberStatesIso2: ['BI', 'CD', 'KE', 'RW', 'SO', 'SS', 'TZ', 'UG'],
+  memberStatesIso2: EAC_MEMBER_ISO_CODES,
   memberRecordsInModule: 8,
 }

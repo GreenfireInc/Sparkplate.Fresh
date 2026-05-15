@@ -1,4 +1,5 @@
 import type { CaricomCountry } from './types'
+import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const turksAndCaicosIslands: CaricomCountry = {
   name: 'Turks and Caicos Islands',
@@ -16,5 +17,6 @@ export const turksAndCaicosIslands: CaricomCountry = {
   currentLeader: 'Premier — verify; Governor (UK) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USD; USDT/USDC informal',
+  domesticCourierServices: CARICOM_DOMESTIC_COURIERS['TC'],
   stockExchange: 'No major national exchange — informational',
 }

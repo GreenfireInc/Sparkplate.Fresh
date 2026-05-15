@@ -1,4 +1,5 @@
 import type { SadcCountry } from './types'
+import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const mauritius: SadcCountry = {
   name: 'Mauritius',
@@ -16,5 +17,6 @@ export const mauritius: SadcCountry = {
     'President Dharambeer Gokhool; Prime Minister Navin Ramgoolam — verify cabinet composition',
   cryptocurrencyExchanges: ['Regulatory sandbox / VASP discourse — informal markets exist'],
   stablecoin: 'Informal USD/USDT in tourism-finance corridors',
+  domesticCourierServices: SADC_DOMESTIC_COURIERS['MU'],
   stockExchange: 'Stock Exchange of Mauritius (SEM)',
 }

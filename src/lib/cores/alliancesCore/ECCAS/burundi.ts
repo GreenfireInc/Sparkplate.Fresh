@@ -1,4 +1,5 @@
 import type { EccasCountry } from './types'
+import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const burundi: EccasCountry = {
   name: 'Burundi',
@@ -15,5 +16,6 @@ export const burundi: EccasCountry = {
   currentLeader: 'President Évariste Ndayishimiye — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card (regional)', 'Local OTC'],
   stablecoin: 'USDT informal',
+  domesticCourierServices: ECCAS_DOMESTIC_COURIERS['BI'],
   stockExchange: 'Burundi Stock Exchange — thin liquidity',
 }

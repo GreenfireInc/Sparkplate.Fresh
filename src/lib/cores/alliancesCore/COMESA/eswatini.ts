@@ -1,4 +1,5 @@
 import type { ComesaCountry } from './types'
+import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const eswatini: ComesaCountry = {
   name: 'Eswatini',
@@ -15,5 +16,6 @@ export const eswatini: ComesaCountry = {
   currentLeader: 'King Mswati III; Prime Minister Russell Dlamini — verify',
   cryptocurrencyExchanges: ['Luno', 'VALR', 'Binance (P2P)'],
   stablecoin: 'USDT / USDC via southern African corridors',
+  domesticCourierServices: COMESA_DOMESTIC_COURIERS['SZ'],
   stockExchange: 'Eswatini Stock Exchange',
 }

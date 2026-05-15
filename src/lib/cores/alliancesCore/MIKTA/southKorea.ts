@@ -1,4 +1,5 @@
 import type { MiktaCountry } from './types'
+import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const southKorea: MiktaCountry = {
   name: 'South Korea',
@@ -17,5 +18,6 @@ export const southKorea: MiktaCountry = {
   currentLeader: 'President Lee Jae-myung — verify',
   cryptocurrencyExchanges: ['Upbit', 'Bithumb', 'Coinone / Korbit FSC VASP registration regime — informational'],
   stablecoin: 'KRW-pegged issuance constrained by FSC; offshore USDT/USDC liquidity — informational',
+  domesticCourierServices: MIKTA_DOMESTIC_COURIERS['KR'],
   stockExchange: 'Korea Exchange KRX (KOSPI / KOSDAQ)',
 }

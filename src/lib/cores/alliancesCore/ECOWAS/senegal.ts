@@ -1,4 +1,5 @@
 import type { EcowasCountry } from './types'
+import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const senegal: EcowasCountry = {
   name: 'Senegal',
@@ -15,5 +16,6 @@ export const senegal: EcowasCountry = {
   currentLeader: 'President Bassirou Diomaye Faye — verify',
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Wave-linked fintech'],
   stablecoin: 'USDT / USDC; XOF CFA peg via BCEAO',
+  domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['SN'],
   stockExchange: 'BRVM (Dakar listings)',
 }

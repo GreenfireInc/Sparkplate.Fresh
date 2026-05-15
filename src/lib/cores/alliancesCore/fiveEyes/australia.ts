@@ -1,4 +1,5 @@
 import type { FiveEyesCountry } from './types'
+import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const australia: FiveEyesCountry = {
   name: 'Australia',
@@ -17,5 +18,6 @@ export const australia: FiveEyesCountry = {
   currentLeader: 'Prime Minister Anthony Albanese — verify',
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'CoinSpot (ASIC-regulated AU context — informational)'],
   stablecoin: 'AUD stablecoins (private); regulatory evolution under AU Treasury/ASIC — informational',
+  domesticCourierServices: FIVE_EYES_DOMESTIC_COURIERS['AU'],
   stockExchange: 'Australian Securities Exchange (ASX, Sydney)',
 }

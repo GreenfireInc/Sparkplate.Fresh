@@ -1,4 +1,5 @@
 import type { EuCountry } from './types'
+import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const malta: EuCountry = {
   name: 'Malta',
@@ -15,5 +16,6 @@ export const malta: EuCountry = {
   currentLeader: 'President Myriam Spiteri Debono / successor — verify; Prime Minister — verify',
   cryptocurrencyExchanges: ['Remote gaming licensed firms; MiCA EU passport base'],
   stablecoin: 'EUR stablecoins servicing',
+  domesticCourierServices: EU_DOMESTIC_COURIERS['MT'],
   stockExchange: 'Malta Stock Exchange',
 }

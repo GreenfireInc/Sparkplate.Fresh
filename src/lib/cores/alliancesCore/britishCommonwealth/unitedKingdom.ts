@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const unitedKingdom: CommonwealthCountry = {
   name: 'United Kingdom',
@@ -16,5 +17,6 @@ export const unitedKingdom: CommonwealthCountry = {
   currentLeader: 'Keir Starmer (Prime Minister) — verify',
   cryptocurrencyExchanges: ['Coinbase', 'Kraken', 'Revolut crypto'],
   stablecoin: 'GBP stablecoins limited; USDC/USDT on exchanges',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['GB'],
   stockExchange: 'London Stock Exchange (LSE)',
 }

@@ -1,4 +1,5 @@
 import type { G20InstitutionalMember } from './types'
+import { G20_INSTITUTIONAL_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const africanUnion: G20InstitutionalMember = {
   name: 'African Union',
@@ -28,4 +29,5 @@ export const africanUnion: G20InstitutionalMember = {
   ],
   currentRepresentatives:
     'AU Commission Chairperson Mahmoud Ali Youssouf; Assembly Chair (rotating annually) — verify',
+  domesticCourierServices: G20_INSTITUTIONAL_DOMESTIC_COURIERS.AFRICAN_UNION,
 }

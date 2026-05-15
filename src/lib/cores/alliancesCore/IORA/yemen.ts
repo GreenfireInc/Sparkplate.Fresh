@@ -1,4 +1,5 @@
 import type { IoraCountry } from './types'
+import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const yemen: IoraCountry = {
   name: 'Yemen',
@@ -17,5 +18,6 @@ export const yemen: IoraCountry = {
     'Dual-authority fragmentation Presidential Leadership Council vs Sana’a administration — verify',
   cryptocurrencyExchanges: ['Infrastructure collapse; OTC informal hawala predominant — informational'],
   stablecoin: 'USD predominant informal economy — informational',
+  domesticCourierServices: IORA_DOMESTIC_COURIERS['YE'],
   stockExchange: 'Aden Securities micro-market disruptions — informational',
 }

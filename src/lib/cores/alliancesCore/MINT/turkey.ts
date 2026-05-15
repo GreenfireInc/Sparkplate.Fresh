@@ -1,4 +1,5 @@
 import type { MintCountry } from './types'
+import { MINT_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const turkey: MintCountry = {
   name: 'Turkey',
@@ -17,5 +18,6 @@ export const turkey: MintCountry = {
     'President Recep Tayyip Erdoğan — verify; Vice President Cevdet Yılmaz / cabinet — informational',
   cryptocurrencyExchanges: ['BtcTurk', 'Paribu', 'MASAK anti-money laundering registration — informational'],
   stablecoin: 'TRY fiat-backed issuance thin; TRY volatility vs USD-stable informal — informational',
+  domesticCourierServices: MINT_DOMESTIC_COURIERS['TR'],
   stockExchange: 'Borsa Istanbul (BİST equities / debt)',
 }

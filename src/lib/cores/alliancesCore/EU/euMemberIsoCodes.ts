@@ -1,0 +1,32 @@
+/** EU member states represented in this module (27 — post-UK withdrawal subset). */
+export const EU_MEMBER_ISO_CODES = [
+  'AT',
+  'BE',
+  'BG',
+  'HR',
+  'CY',
+  'CZ',
+  'DK',
+  'EE',
+  'FI',
+  'FR',
+  'DE',
+  'GR',
+  'HU',
+  'IE',
+  'IT',
+  'LV',
+  'LT',
+  'LU',
+  'MT',
+  'NL',
+  'PL',
+  'PT',
+  'RO',
+  'SK',
+  'SI',
+  'ES',
+  'SE',
+] as const
+
+export type EuMemberIsoCode = (typeof EU_MEMBER_ISO_CODES)[number]

@@ -1,4 +1,5 @@
 import type { RcepCountry } from './types'
+import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const philippines: RcepCountry = {
   name: 'Philippines',
@@ -16,5 +17,6 @@ export const philippines: RcepCountry = {
   currentLeader: 'President Ferdinand Marcos Jr. — verify',
   cryptocurrencyExchanges: ['BSP VASP registry; institutional ramps — informational'],
   stablecoin: 'PHP pilots; USDT remittance overlays — informational',
+  domesticCourierServices: RCEP_DOMESTIC_COURIERS['PH'],
   stockExchange: 'Philippine Stock Exchange (PSE)',
 }

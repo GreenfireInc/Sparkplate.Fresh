@@ -1,4 +1,5 @@
 import type { SadcCountry } from './types'
+import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const namibia: SadcCountry = {
   name: 'Namibia',
@@ -15,5 +16,6 @@ export const namibia: SadcCountry = {
   currentLeader: 'President Netumbo Nandi-Ndaitwah — verify',
   cryptocurrencyExchanges: ['Informal OTC; regulatory posture evolving'],
   stablecoin: 'Rand-pegged NAD; informal USDT',
+  domesticCourierServices: SADC_DOMESTIC_COURIERS['NA'],
   stockExchange: 'Namibian Stock Exchange (NSX)',
 }

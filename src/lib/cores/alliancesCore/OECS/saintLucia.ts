@@ -1,4 +1,5 @@
 import type { OecsCountry } from './types'
+import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const saintLucia: OecsCountry = {
   name: 'Saint Lucia',
@@ -16,5 +17,6 @@ export const saintLucia: OecsCountry = {
   currentLeader: 'Prime Minister Philip J. Pierre — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'ECCB digital policy evolution — informational'],
   stablecoin: 'XCD peg; informal stable rails — informational',
+  domesticCourierServices: OECS_DOMESTIC_COURIERS['LC'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

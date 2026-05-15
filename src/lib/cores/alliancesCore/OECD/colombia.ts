@@ -1,4 +1,5 @@
 import type { OecdCountry } from './types'
+import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const colombia: OecdCountry = {
   name: 'Colombia',
@@ -17,5 +18,6 @@ export const colombia: OecdCountry = {
   currentLeader: 'President Gustavo Petro — verify successor per elections',
   cryptocurrencyExchanges: ['Buda LATAM onboarding; Colombian UIF supervisory evolution — informational'],
   stablecoin: 'COP digital pilots; predominant USD-stable informal — informational',
+  domesticCourierServices: OECD_DOMESTIC_COURIERS['CO'],
   stockExchange: 'Bolsa de Valores de Colombia (bvc Colombia)',
 }

@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const ghana: BeltAndRoadInitiativeCountry = {
   name: 'Ghana',
@@ -16,5 +17,6 @@ export const ghana: BeltAndRoadInitiativeCountry = {
   currentLeader: 'John Mahama (President)',
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Busha', 'Quidax'],
   stablecoin: 'USDT / USDC; Bank of Ghana piloting eCedi CBDC',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['GH'],
   stockExchange: 'Ghana Stock Exchange (GSE)',
 }

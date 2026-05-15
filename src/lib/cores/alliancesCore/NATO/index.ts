@@ -1,6 +1,7 @@
-export type { NatoCountry, NatoOrganizationInfo } from './types'
+export type { NatoCountry, NatoOrganizationInfo, DomesticCourierService } from './types'
 
 import type { NatoCountry, NatoOrganizationInfo } from './types'
+import { NATO_MEMBER_ISO_CODES } from './natoMemberIsoCodes'
 import { albania } from './albania'
 import { belgium } from './belgium'
 import { bulgaria } from './bulgaria'
@@ -116,39 +117,6 @@ export const nato: NatoOrganizationInfo = {
     '1949-04-04 Washington Treaty signed (collective-defence Article 5 core; successive enlargement waves — informational)',
   headquartersCity: 'Brussels',
   headquartersCountry: 'Belgium',
-  memberStatesIso2: [
-    'AL',
-    'BE',
-    'BG',
-    'CA',
-    'HR',
-    'CZ',
-    'DK',
-    'EE',
-    'FI',
-    'FR',
-    'DE',
-    'GR',
-    'HU',
-    'IS',
-    'IT',
-    'LV',
-    'LT',
-    'LU',
-    'ME',
-    'NL',
-    'MK',
-    'NO',
-    'PL',
-    'PT',
-    'RO',
-    'SK',
-    'SI',
-    'ES',
-    'SE',
-    'TR',
-    'GB',
-    'US',
-  ],
+  memberStatesIso2: NATO_MEMBER_ISO_CODES,
   memberRecordsInModule: 32,
 }

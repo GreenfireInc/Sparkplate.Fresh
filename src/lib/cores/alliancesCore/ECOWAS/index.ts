@@ -1,6 +1,7 @@
-export type { EcowasCountry, EcowasOrganizationInfo } from './types'
+export type { EcowasCountry, EcowasOrganizationInfo, DomesticCourierService } from './types'
 
 import type { EcowasCountry, EcowasOrganizationInfo } from './types'
+import { ECOWAS_MEMBER_ISO_CODES } from './ecowasMemberIsoCodes'
 import { benin } from './benin'
 import { capeVerde } from './capeVerde'
 import { gambia } from './gambia'
@@ -55,6 +56,6 @@ export const ecowas: EcowasOrganizationInfo = {
     '1975-05-28 (Treaty of Lagos); revisions and institutions evolution — informational; ECO single-currency programme narrative — verify status',
   headquartersCity: 'Abuja',
   headquartersCountry: 'Nigeria',
-  memberStatesIso2: ['BJ', 'CV', 'GM', 'GH', 'GN', 'GW', 'CI', 'LR', 'NG', 'SN', 'SL', 'TG'],
+  memberStatesIso2: ECOWAS_MEMBER_ISO_CODES,
   memberRecordsInModule: 12,
 }

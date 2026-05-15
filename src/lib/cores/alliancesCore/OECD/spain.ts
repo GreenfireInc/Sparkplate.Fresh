@@ -1,4 +1,5 @@
 import type { OecdCountry } from './types'
+import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const spain: OecdCountry = {
   name: 'Spain',
@@ -16,5 +17,6 @@ export const spain: OecdCountry = {
   currentLeader: 'King Felipe VI; President of Government Pedro Sánchez — verify elections',
   cryptocurrencyExchanges: ['Bit2Me', 'CNMV MiCA registry — informational'],
   stablecoin: 'EUR stablecoins; Iberian liquidity — informational',
+  domesticCourierServices: OECD_DOMESTIC_COURIERS['ES'],
   stockExchange: 'BME / Euronext Spain consolidation — informational',
 }

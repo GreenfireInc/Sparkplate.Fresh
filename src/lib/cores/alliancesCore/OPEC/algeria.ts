@@ -1,4 +1,5 @@
 import type { OpecCountry } from './types'
+import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const algeria: OpecCountry = {
   name: 'Algeria',
@@ -16,5 +17,6 @@ export const algeria: OpecCountry = {
   currentLeader: 'President Abdelmadjid Tebboune — verify; Prime Minister — verify',
   cryptocurrencyExchanges: ['Official stance historically restrictive; regional OTC narratives — informational'],
   stablecoin: 'DZD informal USD pricing; sanctioned-screening overlays — informational',
+  domesticCourierServices: OPEC_DOMESTIC_COURIERS['DZ'],
   stockExchange: 'Algerian equities segment (regulated bourse liquidity limited — informational)',
 }

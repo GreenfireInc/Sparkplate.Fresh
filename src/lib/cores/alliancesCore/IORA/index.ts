@@ -1,6 +1,7 @@
-export type { IoraCountry, IoraOrganizationInfo } from './types'
+export type { IoraCountry, IoraOrganizationInfo, DomesticCourierService } from './types'
 
 import type { IoraCountry, IoraOrganizationInfo } from './types'
+import { IORA_MEMBER_ISO_CODES } from './ioraMemberIsoCodes'
 import { australia } from './australia'
 import { bangladesh } from './bangladesh'
 import { comoros } from './comoros'
@@ -88,30 +89,6 @@ export const iora: IoraOrganizationInfo = {
     '1997 Charter era institutionalised (later instrument updates; tripartite government-business-academic engagement model — informational)',
   headquartersCity: 'Ebene',
   headquartersCountry: 'Mauritius',
-  memberStatesIso2: [
-    'AU',
-    'BD',
-    'KM',
-    'FR',
-    'IN',
-    'ID',
-    'IR',
-    'KE',
-    'MG',
-    'MY',
-    'MV',
-    'MU',
-    'MZ',
-    'OM',
-    'SC',
-    'SG',
-    'SO',
-    'ZA',
-    'LK',
-    'TZ',
-    'TH',
-    'AE',
-    'YE',
-  ],
+  memberStatesIso2: IORA_MEMBER_ISO_CODES,
   memberRecordsInModule: 23,
 }

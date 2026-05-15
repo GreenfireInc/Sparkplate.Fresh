@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const yemen: BeltAndRoadInitiativeCountry = {
   name: 'Yemen',
@@ -16,5 +17,6 @@ export const yemen: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Rashad Muhammad al-Alimi (Chair, Presidential Leadership Council — informational)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'OTC', 'Hawala-dominated economy'],
   stablecoin: 'USDT informal; humanitarian USD economy',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['YE'],
   stockExchange: 'No functioning unified national exchange',
 }

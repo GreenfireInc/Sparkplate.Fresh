@@ -4,6 +4,16 @@
 
 export type ArabLeagueMembership = 'member'
 
+/** Domestic / national courier row (informational; verify URLs, handles, and API bases before production). */
+export interface DomesticCourierService {
+  name: string
+  website: string
+  email: string
+  instagram: string
+  twitter: string
+  apiEndpoint: string
+}
+
 export interface ArabLeagueCountry {
   name: string
   iso3166Alpha2: string
@@ -20,6 +30,8 @@ export interface ArabLeagueCountry {
   currentLeader: string
   cryptocurrencyExchanges: string[]
   stablecoin: string
+  /** Domestic / national courier or parcel carriers with public contact hints (verify locally). */
+  domesticCourierServices: DomesticCourierService[]
   stockExchange: string
 }
 

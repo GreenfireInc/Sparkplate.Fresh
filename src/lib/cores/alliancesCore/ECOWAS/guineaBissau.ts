@@ -1,4 +1,5 @@
 import type { EcowasCountry } from './types'
+import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const guineaBissau: EcowasCountry = {
   name: 'Guinea-Bissau',
@@ -15,5 +16,6 @@ export const guineaBissau: EcowasCountry = {
   currentLeader: 'President Umaro Sissoco Embaló — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional P2P'],
   stablecoin: 'USDT P2P; XOF CFA peg',
+  domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['GW'],
   stockExchange: 'BRVM regional access; no deep domestic bourse',
 }

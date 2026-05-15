@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const gabon: BeltAndRoadInitiativeCountry = {
   name: 'Gabon',
@@ -16,5 +17,6 @@ export const gabon: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Brice Clotaire Oligui Nguema (Transitional President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'CFA-region OTC'],
   stablecoin: 'USDT P2P; XAF peg',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['GA'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (BRVM) — regional',
 }

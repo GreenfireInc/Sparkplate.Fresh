@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const kiribati: CommonwealthCountry = {
   name: 'Kiribati',
@@ -16,5 +17,6 @@ export const kiribati: CommonwealthCountry = {
   currentLeader: 'Taneti Maamau (President) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'AUD; USDT informal',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['KI'],
   stockExchange: 'No major national exchange — informational',
 }

@@ -1,4 +1,5 @@
 import type { EcowasCountry } from './types'
+import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const gambia: EcowasCountry = {
   name: 'The Gambia',
@@ -15,5 +16,6 @@ export const gambia: EcowasCountry = {
   currentLeader: 'President Adama Barrow — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex (diaspora)'],
   stablecoin: 'USDT / USDC P2P',
+  domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['GM'],
   stockExchange: 'Gambia Stock Exchange (limited)',
 }

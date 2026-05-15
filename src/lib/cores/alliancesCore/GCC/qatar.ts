@@ -1,4 +1,5 @@
 import type { GccCountry } from './types'
+import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const qatar: GccCountry = {
   name: 'Qatar',
@@ -17,5 +18,6 @@ export const qatar: GccCountry = {
     'Amir Tamim bin Hamad Al Thani — verify; Sheikh Mohammed bin Abdulrahman Al Thani Prime Minister — verify',
   cryptocurrencyExchanges: ['QFCRA licensing evolution; regional institutional custody narratives — informational'],
   stablecoin: 'QCB fintech sandbox; USD/QAR-stable experiments — informational',
+  domesticCourierServices: GCC_DOMESTIC_COURIERS['QA'],
   stockExchange: 'Qatar Stock Exchange',
 }

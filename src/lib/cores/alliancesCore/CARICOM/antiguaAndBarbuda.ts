@@ -1,4 +1,5 @@
 import type { CaricomCountry } from './types'
+import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const antiguaAndBarbuda: CaricomCountry = {
   name: 'Antigua and Barbuda',
@@ -16,5 +17,6 @@ export const antiguaAndBarbuda: CaricomCountry = {
   currentLeader: 'Gaston Browne (Prime Minister) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'XCD peg to USD; USDT/USDC',
+  domesticCourierServices: CARICOM_DOMESTIC_COURIERS['AG'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

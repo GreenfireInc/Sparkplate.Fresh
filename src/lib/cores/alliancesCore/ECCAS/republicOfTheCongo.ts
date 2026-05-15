@@ -1,4 +1,5 @@
 import type { EccasCountry } from './types'
+import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const republicOfTheCongo: EccasCountry = {
   name: 'Republic of the Congo',
@@ -15,5 +16,6 @@ export const republicOfTheCongo: EccasCountry = {
   currentLeader: 'President Denis Sassou Nguesso — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC'],
   stablecoin: 'USDT P2P; XAF peg via BEAC',
+  domesticCourierServices: ECCAS_DOMESTIC_COURIERS['CG'],
   stockExchange: 'Bourse des Valeurs du Congo (BVC)',
 }

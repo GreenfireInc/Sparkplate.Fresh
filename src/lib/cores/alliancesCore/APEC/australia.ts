@@ -1,4 +1,5 @@
 import type { ApecCountry } from './types'
+import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const australia: ApecCountry = {
   name: 'Australia',
@@ -17,5 +18,6 @@ export const australia: ApecCountry = {
   currentLeader: 'Prime Minister Anthony Albanese — verify',
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'ASIC onboarding — informational'],
   stablecoin: 'AUD stablecoins supervisory evolution — informational',
+  domesticCourierServices: APEC_DOMESTIC_COURIERS['AU'],
   stockExchange: 'Australian Securities Exchange (ASX)',
 }

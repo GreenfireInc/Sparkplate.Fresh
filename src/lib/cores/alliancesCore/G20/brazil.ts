@@ -1,4 +1,5 @@
 import type { G20Country } from './types'
+import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const brazil: G20Country = {
   name: 'Brazil',
@@ -17,5 +18,6 @@ export const brazil: G20Country = {
   currentLeader: 'President Luiz Inácio Lula da Silva — verify',
   cryptocurrencyExchanges: ['Mercado Bitcoin', 'Foxbit', 'Bitso BR / CVM-BCB joint VASP framework — informational'],
   stablecoin: 'BRL-pegged BRZ; Drex (Real Digital) BCB-led wholesale CBDC pilots — informational',
+  domesticCourierServices: G20_DOMESTIC_COURIERS['BR'],
   stockExchange: 'B3 — Brasil Bolsa Balcão (São Paulo)',
 }

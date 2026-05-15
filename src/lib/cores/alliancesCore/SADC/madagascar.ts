@@ -1,4 +1,5 @@
 import type { SadcCountry } from './types'
+import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const madagascar: SadcCountry = {
   name: 'Madagascar',
@@ -15,5 +16,6 @@ export const madagascar: SadcCountry = {
   currentLeader: 'President Andry Rajoelina — verify',
   cryptocurrencyExchanges: ['Informal P2P; regulatory evolution'],
   stablecoin: 'Informal EUR/USD-stable references',
+  domesticCourierServices: SADC_DOMESTIC_COURIERS['MG'],
   stockExchange: 'Madagascar Stock Exchange (SEM) — thin market',
 }

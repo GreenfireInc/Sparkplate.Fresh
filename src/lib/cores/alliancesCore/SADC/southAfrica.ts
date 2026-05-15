@@ -1,4 +1,5 @@
 import type { SadcCountry } from './types'
+import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const southAfrica: SadcCountry = {
   name: 'South Africa',
@@ -17,5 +18,6 @@ export const southAfrica: SadcCountry = {
     'President Cyril Ramaphosa — verify (cabinet may reflect coalition eras post-2024)',
   cryptocurrencyExchanges: ['Revix', 'Global P2P; FSCA licensing evolution'],
   stablecoin: 'ZARP ZAR-pegged token narrative; informal USDT/USDC',
+  domesticCourierServices: SADC_DOMESTIC_COURIERS['ZA'],
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
 }

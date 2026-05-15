@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const bangladesh: CommonwealthCountry = {
   name: 'Bangladesh',
@@ -16,5 +17,6 @@ export const bangladesh: CommonwealthCountry = {
   currentLeader: 'Sheikh Hasina (Prime Minister) — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional brokers'],
   stablecoin: 'USDT common in informal markets; no official BDT stablecoin',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['BD'],
   stockExchange: 'Dhaka Stock Exchange (DSE); Chittagong Stock Exchange',
 }

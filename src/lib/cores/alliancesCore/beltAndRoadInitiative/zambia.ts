@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const zambia: BeltAndRoadInitiativeCountry = {
   name: 'Zambia',
@@ -16,5 +17,6 @@ export const zambia: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Hakainde Hichilema (President)',
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Luno'],
   stablecoin: 'USDT / USDC informal',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['ZM'],
   stockExchange: 'Lusaka Securities Exchange (LuSE)',
 }

@@ -1,4 +1,5 @@
 import type { CptppCountry } from './types'
+import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const vietnam: CptppCountry = {
   name: 'Vietnam',
@@ -15,5 +16,6 @@ export const vietnam: CptppCountry = {
   currentLeader: 'Communist Party leadership collective (General Secretary, President, PM) — verify',
   cryptocurrencyExchanges: ['Trading not legal tender; peer OTC despite restrictions — informational'],
   stablecoin: 'No official retail stablecoin; USD cash economy parallels',
+  domesticCourierServices: CPTPP_DOMESTIC_COURIERS['VN'],
   stockExchange: 'Ho Chi Minh Stock Exchange (HOSE) / Hanoi Stock Exchange (HNX)',
 }

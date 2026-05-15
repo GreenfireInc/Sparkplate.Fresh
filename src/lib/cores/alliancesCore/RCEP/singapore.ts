@@ -1,4 +1,5 @@
 import type { RcepCountry } from './types'
+import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const singapore: RcepCountry = {
   name: 'Singapore',
@@ -16,5 +17,6 @@ export const singapore: RcepCountry = {
   currentLeader: 'President Tharman Shanmugaratnam; Prime Minister Lawrence Wong — verify',
   cryptocurrencyExchanges: ['MAS DPT licensing; institutional OTC — informational'],
   stablecoin: 'MAS stable-token guidelines — informational',
+  domesticCourierServices: RCEP_DOMESTIC_COURIERS['SG'],
   stockExchange: 'Singapore Exchange SGX',
 }

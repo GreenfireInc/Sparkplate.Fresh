@@ -1,4 +1,5 @@
 import type { CaricomCountry } from './types'
+import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const guyana: CaricomCountry = {
   name: 'Guyana',
@@ -16,5 +17,6 @@ export const guyana: CaricomCountry = {
   currentLeader: 'Irfaan Ali (President)',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
+  domesticCourierServices: CARICOM_DOMESTIC_COURIERS['GY'],
   stockExchange: 'Guyana Stock Exchange',
 }

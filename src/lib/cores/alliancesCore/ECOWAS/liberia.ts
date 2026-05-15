@@ -1,4 +1,5 @@
 import type { EcowasCountry } from './types'
+import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const liberia: EcowasCountry = {
   name: 'Liberia',
@@ -15,5 +16,6 @@ export const liberia: EcowasCountry = {
   currentLeader: 'President Joseph Boakai — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex'],
   stablecoin: 'USDT / USDC; USD dominant cash economy',
+  domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['LR'],
   stockExchange: 'Liberia Stock Exchange (very limited)',
 }

@@ -1,4 +1,5 @@
 import type { SadcCountry } from './types'
+import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const lesotho: SadcCountry = {
   name: 'Lesotho',
@@ -15,5 +16,6 @@ export const lesotho: SadcCountry = {
   currentLeader: 'King Letsie III; Prime Minister Sam Matekane — verify',
   cryptocurrencyExchanges: ['Regional OTC informal'],
   stablecoin: 'Rand-pegged framework; informal USDT',
+  domesticCourierServices: SADC_DOMESTIC_COURIERS['LS'],
   stockExchange: 'Maseru Securities Market — verify',
 }

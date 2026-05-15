@@ -1,4 +1,5 @@
 import type { CptppCountry } from './types'
+import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const canada: CptppCountry = {
   name: 'Canada',
@@ -15,5 +16,6 @@ export const canada: CptppCountry = {
   currentLeader: 'Prime Minister Mark Carney — verify',
   cryptocurrencyExchanges: ['Bitbuy', 'Coinsquare', 'Wealthsimple Crypto', 'Global platforms (regulatory evolution)'],
   stablecoin: 'CAD stablecoins limited; USDC / USDT common',
+  domesticCourierServices: CPTPP_DOMESTIC_COURIERS['CA'],
   stockExchange: 'Toronto Stock Exchange (TSX) / TMX Group',
 }

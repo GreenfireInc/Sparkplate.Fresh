@@ -1,4 +1,5 @@
 import type { G7Country } from './types'
+import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const germany: G7Country = {
   name: 'Germany',
@@ -16,5 +17,6 @@ export const germany: G7Country = {
   currentLeader: 'Federal President Frank-Walter Steinmeier; Federal Chancellor — verify',
   cryptocurrencyExchanges: ['Bitstamp EU', 'Börse Stuttgart Digital Custody narratives', 'MiCA licences'],
   stablecoin: 'EUR stablecoins; ECB digital euro projects — informational',
+  domesticCourierServices: G7_DOMESTIC_COURIERS['DE'],
   stockExchange: 'Deutsche Börse (Frankfurt)',
 }

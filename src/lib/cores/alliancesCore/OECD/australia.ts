@@ -1,4 +1,5 @@
 import type { OecdCountry } from './types'
+import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const australia: OecdCountry = {
   name: 'Australia',
@@ -16,5 +17,6 @@ export const australia: OecdCountry = {
   currentLeader: 'Prime Minister Anthony Albanese — verify',
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'CoinSpot (ASIC-regulated context — informational)'],
   stablecoin: 'AUD stablecoins (private); Treasury/ASIC supervisory evolution — informational',
+  domesticCourierServices: OECD_DOMESTIC_COURIERS['AU'],
   stockExchange: 'Australian Securities Exchange (ASX, Sydney)',
 }

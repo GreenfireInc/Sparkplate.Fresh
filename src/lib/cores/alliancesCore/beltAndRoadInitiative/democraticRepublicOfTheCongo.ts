@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const democraticRepublicOfTheCongo: BeltAndRoadInitiativeCountry = {
   name: 'Democratic Republic of the Congo',
@@ -16,5 +17,6 @@ export const democraticRepublicOfTheCongo: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Félix Tshisekedi (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC widespread P2P; no official CDF stablecoin',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['CD'],
   stockExchange: 'No liquid national exchange; informal OTC and regional listings',
 }

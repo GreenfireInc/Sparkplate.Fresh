@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const centralAfricanRepublic: BeltAndRoadInitiativeCountry = {
   name: 'Central African Republic',
@@ -16,5 +17,6 @@ export const centralAfricanRepublic: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Faustin-Archange Touadéra (President)',
   cryptocurrencyExchanges: ['Sango Coin ecosystem (national project)', 'Binance (P2P)', 'OTC'],
   stablecoin: 'USDT / USDC P2P; experimental sovereign crypto references',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['CF'],
   stockExchange: 'Bangui Stock Exchange (very limited)',
 }

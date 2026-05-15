@@ -1,4 +1,5 @@
 import type { ArabLeagueCountry } from './types'
+import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const bahrain: ArabLeagueCountry = {
   name: 'Bahrain',
@@ -16,5 +17,6 @@ export const bahrain: ArabLeagueCountry = {
   currentLeader: 'Hamad bin Isa Al Khalifa (King); Salman bin Hamad Al Khalifa (Crown Prince & Prime Minister)',
   cryptocurrencyExchanges: ['Rain', 'Binance (regional)', 'International OTC'],
   stablecoin: 'USDT / USDC; CBDC pilots in Gulf context',
+  domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['BH'],
   stockExchange: 'Bahrain Bourse',
 }

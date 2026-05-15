@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const lesotho: BeltAndRoadInitiativeCountry = {
   name: 'Lesotho',
@@ -16,5 +17,6 @@ export const lesotho: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Letsie III (King); Sam Matekane (Prime Minister)',
   cryptocurrencyExchanges: ['Luno', 'VALR', 'Binance (P2P)'],
   stablecoin: 'USDT via South African financial links',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['LS'],
   stockExchange: 'Maseru Securities Market (limited)',
 }

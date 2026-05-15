@@ -1,4 +1,5 @@
 import type { OecdCountry } from './types'
+import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const unitedStates: OecdCountry = {
   name: 'United States',
@@ -17,5 +18,6 @@ export const unitedStates: OecdCountry = {
   currentLeader: 'President / Vice-President — verify (federal inauguration cycle)',
   cryptocurrencyExchanges: ['Coinbase', 'Kraken', 'Gemini MSB state patchwork — informational'],
   stablecoin: 'USDT/USDC and USD fiat-backed issuance (federal legislation evolution — informational)',
+  domesticCourierServices: OECD_DOMESTIC_COURIERS['US'],
   stockExchange: 'NYSE / Nasdaq consolidated US equity liquidity',
 }

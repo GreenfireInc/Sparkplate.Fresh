@@ -1,4 +1,5 @@
 import type { FiveEyesCountry } from './types'
+import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const canada: FiveEyesCountry = {
   name: 'Canada',
@@ -16,5 +17,6 @@ export const canada: FiveEyesCountry = {
   currentLeader: 'Prime Minister — verify (federal electoral cycle)',
   cryptocurrencyExchanges: ['Bitbuy', 'Newton', 'CSA/PRU provincial licensing environment — informational'],
   stablecoin: 'CAD fiat-backed tokens (regulated money services / evolving OSFI/OSCB guidance — informational)',
+  domesticCourierServices: FIVE_EYES_DOMESTIC_COURIERS['CA'],
   stockExchange: 'Toronto Stock Exchange (TMX)',
 }

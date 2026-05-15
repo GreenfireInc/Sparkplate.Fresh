@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const liberia: BeltAndRoadInitiativeCountry = {
   name: 'Liberia',
@@ -16,5 +17,6 @@ export const liberia: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Joseph Boakai (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex'],
   stablecoin: 'USDT / USDC; USD cash economy dominant',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['LR'],
   stockExchange: 'Liberia Stock Exchange (very limited)',
 }

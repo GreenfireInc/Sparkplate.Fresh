@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const newZealand: CommonwealthCountry = {
   name: 'New Zealand',
@@ -16,5 +17,6 @@ export const newZealand: CommonwealthCountry = {
   currentLeader: 'Christopher Luxon (Prime Minister) — verify',
   cryptocurrencyExchanges: ['Easy Crypto', 'Independent Reserve NZ', 'Binance (P2P)'],
   stablecoin: 'NZD stablecoins limited; USDC/USDT',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['NZ'],
   stockExchange: 'NZX (New Zealand Exchange)',
 }

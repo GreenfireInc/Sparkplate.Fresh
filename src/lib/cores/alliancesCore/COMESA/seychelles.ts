@@ -1,4 +1,5 @@
 import type { ComesaCountry } from './types'
+import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const seychelles: ComesaCountry = {
   name: 'Seychelles',
@@ -15,5 +16,6 @@ export const seychelles: ComesaCountry = {
   currentLeader: 'President Wavel Ramkalawan — verify',
   cryptocurrencyExchanges: ['International brokers; offshore finance sector registrations'],
   stablecoin: 'USDT / USDC; offshore financial services sector',
+  domesticCourierServices: COMESA_DOMESTIC_COURIERS['SC'],
   stockExchange: 'MERJ Exchange (securities niche — verify branding)',
 }

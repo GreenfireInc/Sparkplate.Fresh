@@ -1,4 +1,5 @@
 import type { IoraCountry } from './types'
+import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const australia: IoraCountry = {
   name: 'Australia',
@@ -16,5 +17,6 @@ export const australia: IoraCountry = {
   currentLeader: 'Prime Minister Anthony Albanese — verify',
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'ASIC-regulated onboarding — informational'],
   stablecoin: 'AUD stablecoins; Treasury supervisory evolution — informational',
+  domesticCourierServices: IORA_DOMESTIC_COURIERS['AU'],
   stockExchange: 'Australian Securities Exchange (ASX)',
 }

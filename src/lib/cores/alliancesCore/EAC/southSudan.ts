@@ -1,4 +1,5 @@
 import type { EacCountry } from './types'
+import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const southSudan: EacCountry = {
   name: 'South Sudan',
@@ -15,5 +16,6 @@ export const southSudan: EacCountry = {
   currentLeader: 'President Salva Kiir Mayardit — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Informal P2P', 'Diaspora OTC'],
   stablecoin: 'USDT informal; humanitarian USD economy',
+  domesticCourierServices: EAC_DOMESTIC_COURIERS['SS'],
   stockExchange: 'Juba Stock Exchange (nascent / limited)',
 }

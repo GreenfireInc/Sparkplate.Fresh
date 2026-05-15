@@ -1,4 +1,5 @@
 import type { EcowasCountry } from './types'
+import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const ghana: EcowasCountry = {
   name: 'Ghana',
@@ -15,5 +16,6 @@ export const ghana: EcowasCountry = {
   currentLeader: 'President John Mahama — verify',
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Quidax', 'Licensed VASP evolution'],
   stablecoin: 'USDT / USDC; Bank of Ghana eCedi CBDC pilots — verify',
+  domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['GH'],
   stockExchange: 'Ghana Stock Exchange (GSE)',
 }

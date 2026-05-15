@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const southAfrica: BeltAndRoadInitiativeCountry = {
   name: 'South Africa',
@@ -16,5 +17,6 @@ export const southAfrica: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Cyril Ramaphosa (President)',
   cryptocurrencyExchanges: ['Luno', 'VALR', 'Binance (P2P)', 'ICE3 (historical)'],
   stablecoin: 'USDT / USDC; ZARP (rand-referenced stable token, private)',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['ZA'],
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
 }

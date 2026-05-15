@@ -1,4 +1,5 @@
 import type { CaricomCountry } from './types'
+import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const bahamas: CaricomCountry = {
   name: 'Bahamas',
@@ -16,5 +17,6 @@ export const bahamas: CaricomCountry = {
   currentLeader: 'Philip Davis (Prime Minister) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'Sand dollar (CBDC context); USDT/USDC',
+  domesticCourierServices: CARICOM_DOMESTIC_COURIERS['BS'],
   stockExchange: 'Bahamas International Securities Exchange (BISX)',
 }

@@ -1,4 +1,5 @@
 import type { ArabLeagueCountry } from './types'
+import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const djibouti: ArabLeagueCountry = {
   name: 'Djibouti',
@@ -16,5 +17,6 @@ export const djibouti: ArabLeagueCountry = {
   currentLeader: 'Ismail Omar Guelleh (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'International OTC', 'Regional remittance apps'],
   stablecoin: 'USDT / USDC; DJF pegged to USD (currency board)',
+  domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['DJ'],
   stockExchange: 'Djibouti Stock Exchange (thin activity)',
 }

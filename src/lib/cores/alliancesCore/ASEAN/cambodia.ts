@@ -1,4 +1,5 @@
 import type { AseanCountry } from './types'
+import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const cambodia: AseanCountry = {
   name: 'Cambodia',
@@ -16,5 +17,6 @@ export const cambodia: AseanCountry = {
   currentLeader: 'King Norodom Sihamoni; Prime Minister Hun Manet — verify',
   cryptocurrencyExchanges: ['NBC licensing evolution; regional P2P informal — informational'],
   stablecoin: 'USD cash economy dominant; KHR digital thin — informational',
+  domesticCourierServices: ASEAN_DOMESTIC_COURIERS['KH'],
   stockExchange: 'Cambodia Securities Exchange (CSX Phnom Penh)',
 }

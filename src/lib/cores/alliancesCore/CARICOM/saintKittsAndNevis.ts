@@ -1,4 +1,5 @@
 import type { CaricomCountry } from './types'
+import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const saintKittsAndNevis: CaricomCountry = {
   name: 'Saint Kitts and Nevis',
@@ -16,5 +17,6 @@ export const saintKittsAndNevis: CaricomCountry = {
   currentLeader: 'Terrance Drew (Prime Minister) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'XCD peg; USDT/USDC',
+  domesticCourierServices: CARICOM_DOMESTIC_COURIERS['KN'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const tanzania: BeltAndRoadInitiativeCountry = {
   name: 'Tanzania',
@@ -16,5 +17,6 @@ export const tanzania: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Samia Suluhu Hassan (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local fintech'],
   stablecoin: 'USDT / USDC P2P',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange (DSE)',
 }

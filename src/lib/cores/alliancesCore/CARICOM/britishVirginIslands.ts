@@ -1,4 +1,5 @@
 import type { CaricomCountry } from './types'
+import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const britishVirginIslands: CaricomCountry = {
   name: 'British Virgin Islands',
@@ -16,5 +17,6 @@ export const britishVirginIslands: CaricomCountry = {
   currentLeader: 'Premier — verify; Governor (UK) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Offshore crypto funds context — verify'],
   stablecoin: 'USD; USDT/USDC common',
+  domesticCourierServices: CARICOM_DOMESTIC_COURIERS['VG'],
   stockExchange: 'BVI finance centre; no large local bourse like major markets',
 }

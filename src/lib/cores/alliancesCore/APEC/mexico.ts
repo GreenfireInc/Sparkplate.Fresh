@@ -1,4 +1,5 @@
 import type { ApecCountry } from './types'
+import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const mexico: ApecCountry = {
   name: 'Mexico',
@@ -16,5 +17,6 @@ export const mexico: ApecCountry = {
   currentLeader: 'President Claudia Sheinbaum — verify',
   cryptocurrencyExchanges: ['Bitso CNBV fintech onboarding — informational'],
   stablecoin: 'MXN issuance pilots OTC USDT overlays — informational',
+  domesticCourierServices: APEC_DOMESTIC_COURIERS['MX'],
   stockExchange: 'Bolsa Mexicana de Valores (BMV)',
 }

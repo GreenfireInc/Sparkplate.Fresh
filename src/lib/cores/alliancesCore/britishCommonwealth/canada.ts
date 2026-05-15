@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const canada: CommonwealthCountry = {
   name: 'Canada',
@@ -16,5 +17,6 @@ export const canada: CommonwealthCountry = {
   currentLeader: 'Justin Trudeau (Prime Minister) — verify',
   cryptocurrencyExchanges: ['Newton', 'Shakepay', 'Coinbase (eligible provinces)'],
   stablecoin: 'CAD stablecoins limited; USDC/USDT common',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['CA'],
   stockExchange: 'Toronto Stock Exchange (TSX)',
 }

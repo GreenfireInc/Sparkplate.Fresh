@@ -1,4 +1,5 @@
 import type { ArabLeagueCountry } from './types'
+import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 /** State of Palestine — UN observer; Arab League member; territorial status disputed (informational). */
 export const palestine: ArabLeagueCountry = {
@@ -17,5 +18,6 @@ export const palestine: ArabLeagueCountry = {
   currentLeader: 'Mahmoud Abbas (President, Palestinian Authority — verify mandate)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'OTC', 'Diaspora remittance'],
   stablecoin: 'USDT informal; shekel economy dominant',
+  domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['PS'],
   stockExchange: 'Palestine Securities Exchange (limited)',
 }

@@ -1,4 +1,5 @@
 import type { G20Country } from './types'
+import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const italy: G20Country = {
   name: 'Italy',
@@ -17,5 +18,6 @@ export const italy: G20Country = {
   currentLeader: 'President Sergio Mattarella / successor — verify; Prime Minister Giorgia Meloni — verify',
   cryptocurrencyExchanges: ['Conio', 'Young Platform', 'MiCA-aligned CASPs'],
   stablecoin: 'EUR stablecoins; ECB digital euro pilots — informational',
+  domesticCourierServices: G20_DOMESTIC_COURIERS['IT'],
   stockExchange: 'Euronext Milan (Borsa Italiana legacy)',
 }

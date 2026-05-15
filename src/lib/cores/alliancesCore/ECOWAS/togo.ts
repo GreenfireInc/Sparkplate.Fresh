@@ -1,4 +1,5 @@
 import type { EcowasCountry } from './types'
+import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const togo: EcowasCountry = {
   name: 'Togo',
@@ -15,5 +16,6 @@ export const togo: EcowasCountry = {
   currentLeader: 'President Faure Gnassingbé — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Regional OTC'],
   stablecoin: 'USDT P2P; XOF CFA peg via BCEAO',
+  domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['TG'],
   stockExchange: 'BRVM listings; Lomé banking hub — verify depth',
 }

@@ -1,4 +1,5 @@
 import type { RcepCountry } from './types'
+import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const vietnam: RcepCountry = {
   name: 'Vietnam',
@@ -17,5 +18,6 @@ export const vietnam: RcepCountry = {
     'Party General Secretary — verify; State President — verify; Prime Minister — verify',
   cryptocurrencyExchanges: ['Retail trading prohibited; OTC informal mining episodes — informational'],
   stablecoin: 'Digital currency pilot narratives; predominant VND — informational',
+  domesticCourierServices: RCEP_DOMESTIC_COURIERS['VN'],
   stockExchange: 'Ho Chi Minh City Stock Exchange (HOSE); HNX consolidated roadmap — informational',
 }

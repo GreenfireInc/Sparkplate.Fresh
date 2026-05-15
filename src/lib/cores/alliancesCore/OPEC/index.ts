@@ -1,6 +1,7 @@
-export type { OpecCountry, OpecOrganizationInfo } from './types'
+export type { OpecCountry, OpecOrganizationInfo, DomesticCourierService } from './types'
 
 import type { OpecCountry, OpecOrganizationInfo } from './types'
+import { OPEC_MEMBER_ISO_CODES } from './opecMemberIsoCodes'
 import { algeria } from './algeria'
 import { republicOfTheCongo } from './republicOfTheCongo'
 import { equatorialGuinea } from './equatorialGuinea'
@@ -56,6 +57,6 @@ export const opec: OpecOrganizationInfo = {
     '1960-09-14 Baghdad conference founding (Secretariat subsequently Vienna HQ from 1965 — informational)',
   headquartersCity: 'Vienna',
   headquartersCountry: 'Austria',
-  memberStatesIso2: ['DZ', 'CG', 'GQ', 'GA', 'IR', 'IQ', 'KW', 'LY', 'NG', 'SA', 'AE', 'VE'],
+  memberStatesIso2: OPEC_MEMBER_ISO_CODES,
   memberRecordsInModule: 12,
 }

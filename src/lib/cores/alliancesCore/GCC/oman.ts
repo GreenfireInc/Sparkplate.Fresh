@@ -1,4 +1,5 @@
 import type { GccCountry } from './types'
+import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const oman: GccCountry = {
   name: 'Oman',
@@ -16,5 +17,6 @@ export const oman: GccCountry = {
   currentLeader: 'Sultan Haitham bin Tariq — verify; heir-apparent Crown Prince — verify',
   cryptocurrencyExchanges: ['CBO cautious licensing evolution; OTC regional — informational'],
   stablecoin: 'OMR dollar peg narratives; sovereign digital-payment pilots — informational',
+  domesticCourierServices: GCC_DOMESTIC_COURIERS['OM'],
   stockExchange: 'Muscat Stock Exchange',
 }

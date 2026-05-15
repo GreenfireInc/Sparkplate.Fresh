@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const tanzania: CommonwealthCountry = {
   name: 'Tanzania',
@@ -16,5 +17,6 @@ export const tanzania: CommonwealthCountry = {
   currentLeader: 'Samia Suluhu Hassan (President)',
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange',
 }

@@ -1,4 +1,5 @@
 import type { G20Country } from './types'
+import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const russia: G20Country = {
   name: 'Russia',
@@ -17,5 +18,6 @@ export const russia: G20Country = {
   currentLeader: 'President Vladimir Putin; Prime Minister Mikhail Mishustin — verify',
   cryptocurrencyExchanges: ['Garantex (sanctioned context — informational)', 'Domestic OTC / P2P USDT corridors — informational'],
   stablecoin: 'Digital ruble Bank of Russia CBDC pilots; sanctions-era stablecoin payment narratives — informational',
+  domesticCourierServices: G20_DOMESTIC_COURIERS['RU'],
   stockExchange: 'Moscow Exchange (MOEX)',
 }

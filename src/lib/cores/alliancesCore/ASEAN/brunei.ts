@@ -1,4 +1,5 @@
 import type { AseanCountry } from './types'
+import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const brunei: AseanCountry = {
   name: 'Brunei',
@@ -18,5 +19,6 @@ export const brunei: AseanCountry = {
     'Sultan Hassanal Bolkiah Yang Di-Pertuan; Crown Prince Prince Al-Muhtadee Billah — verify',
   cryptocurrencyExchanges: ['Autoriti Monetari Brunei cautious posture; regional OTC — informational'],
   stablecoin: 'BND-USD-linked monetary board; informal USDT overlays — informational',
+  domesticCourierServices: ASEAN_DOMESTIC_COURIERS['BN'],
   stockExchange: 'No national retail exchange consolidated; regional ASEAN bond context — informational',
 }

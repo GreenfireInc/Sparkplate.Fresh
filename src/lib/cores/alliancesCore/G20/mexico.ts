@@ -1,4 +1,5 @@
 import type { G20Country } from './types'
+import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const mexico: G20Country = {
   name: 'Mexico',
@@ -17,5 +18,6 @@ export const mexico: G20Country = {
   currentLeader: 'President Claudia Sheinbaum — verify',
   cryptocurrencyExchanges: ['Bitso', 'Mexico CNBV fintech-registration evolution — informational'],
   stablecoin: 'MXN fiat-backed issuance pilots vs informal USDT — informational',
+  domesticCourierServices: G20_DOMESTIC_COURIERS['MX'],
   stockExchange: 'Mexican Stock Exchange BMV Bolsa Mexicana de Valores',
 }

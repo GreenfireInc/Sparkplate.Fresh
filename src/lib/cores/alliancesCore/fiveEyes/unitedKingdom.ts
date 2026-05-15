@@ -1,4 +1,5 @@
 import type { FiveEyesCountry } from './types'
+import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const unitedKingdom: FiveEyesCountry = {
   name: 'United Kingdom',
@@ -17,5 +18,6 @@ export const unitedKingdom: FiveEyesCountry = {
     'Monarch Charles III head of state; Prime Minister Sir Keir Starmer head of government — verify',
   cryptocurrencyExchanges: ['Coinbase e-money UK', 'Kraken entities', 'FCA-register context — informational'],
   stablecoin: 'GBP stablecoins under evolving UK PSD3/cryptoasset regime — informational',
+  domesticCourierServices: FIVE_EYES_DOMESTIC_COURIERS['GB'],
   stockExchange: 'London Stock Exchange Group (post-Brexit consolidated venues — informational)',
 }

@@ -1,4 +1,5 @@
 import type { EuCountry } from './types'
+import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const italy: EuCountry = {
   name: 'Italy',
@@ -15,5 +16,6 @@ export const italy: EuCountry = {
   currentLeader: 'President Sergio Mattarella / successor — verify; Prime Minister — verify',
   cryptocurrencyExchanges: ['Conio', 'Young Platform', 'MiCA-aligned CASPs'],
   stablecoin: 'EUR stablecoins; ECB digital euro pilots',
+  domesticCourierServices: EU_DOMESTIC_COURIERS['IT'],
   stockExchange: 'Euronext Milan (Borsa Italiana legacy)',
 }

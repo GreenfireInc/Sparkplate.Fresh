@@ -1,4 +1,5 @@
 import type { EuCountry } from './types'
+import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const poland: EuCountry = {
   name: 'Poland',
@@ -15,5 +16,6 @@ export const poland: EuCountry = {
   currentLeader: 'President Karol Nawrocki — verify; Prime Minister Donald Tusk — verify',
   cryptocurrencyExchanges: ['Zonda (BitBay legacy)', 'European MiCA passporting'],
   stablecoin: 'PLN pairs; EUR-stable conversion common',
+  domesticCourierServices: EU_DOMESTIC_COURIERS['PL'],
   stockExchange: 'Warsaw Stock Exchange (GPW)',
 }

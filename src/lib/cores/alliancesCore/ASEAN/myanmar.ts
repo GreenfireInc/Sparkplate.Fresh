@@ -1,4 +1,5 @@
 import type { AseanCountry } from './types'
+import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const myanmar: AseanCountry = {
   name: 'Myanmar',
@@ -17,5 +18,6 @@ export const myanmar: AseanCountry = {
     'State Administration Council chair Senior General Min Aung Hlaing — verify international recognition',
   cryptocurrencyExchanges: ['CBM restrictive; informal USDT prevalent under sanctions context — informational'],
   stablecoin: 'USD informal settlement; MMK volatility — informational',
+  domesticCourierServices: ASEAN_DOMESTIC_COURIERS['MM'],
   stockExchange: 'Yangon Stock Exchange (operational constraints — informational)',
 }

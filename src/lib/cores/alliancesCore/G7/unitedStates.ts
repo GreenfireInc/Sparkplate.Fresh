@@ -1,4 +1,5 @@
 import type { G7Country } from './types'
+import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const unitedStates: G7Country = {
   name: 'United States',
@@ -17,5 +18,6 @@ export const unitedStates: G7Country = {
   currentLeader: 'President / Vice-President — verify (federal inauguration cycle)',
   cryptocurrencyExchanges: ['Coinbase', 'Kraken', 'Gemini state MSB/licensing patchwork — informational'],
   stablecoin: 'USDT/USDC and USD fiat-backed issuance (federal/stablecoin legislation evolution — informational)',
+  domesticCourierServices: G7_DOMESTIC_COURIERS['US'],
   stockExchange: 'NYSE/Nasdaq consolidated US equity liquidity (dual listing customary — informational)',
 }

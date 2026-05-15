@@ -1,4 +1,5 @@
 import type { ApecCountry } from './types'
+import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const papuaNewGuinea: ApecCountry = {
   name: 'Papua New Guinea',
@@ -17,5 +18,6 @@ export const papuaNewGuinea: ApecCountry = {
   currentLeader: 'Prime Minister James Marape — verify',
   cryptocurrencyExchanges: ['Bank Papua New Guinea cautious; informal OTC — informational'],
   stablecoin: 'PGK thin; AUD informal adjacent — informational',
+  domesticCourierServices: APEC_DOMESTIC_COURIERS['PG'],
   stockExchange: 'PNG National Stock Exchange (Port Moresby — thin — informational)',
 }

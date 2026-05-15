@@ -1,4 +1,5 @@
 import type { EacCountry } from './types'
+import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const somalia: EacCountry = {
   name: 'Somalia',
@@ -17,5 +18,6 @@ export const somalia: EacCountry = {
     'President Hassan Sheikh Mohamud — verify (Federal Government vs regions)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Hawala-linked OTC', 'Diaspora remittance apps'],
   stablecoin: 'USDT informal; USD cash economy',
+  domesticCourierServices: EAC_DOMESTIC_COURIERS['SO'],
   stockExchange: 'No functioning national exchange',
 }

@@ -1,4 +1,5 @@
 import type { CptppCountry } from './types'
+import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const singapore: CptppCountry = {
   name: 'Singapore',
@@ -15,5 +16,6 @@ export const singapore: CptppCountry = {
   currentLeader: 'Prime Minister Lawrence Wong — verify',
   cryptocurrencyExchanges: ['Independent Reserve SG', 'Coinbase (institutional licensing)', 'MAS-regulated pilots'],
   stablecoin: 'StraitsX XSGD; USDC institutional rails',
+  domesticCourierServices: CPTPP_DOMESTIC_COURIERS['SG'],
   stockExchange: 'Singapore Exchange (SGX)',
 }

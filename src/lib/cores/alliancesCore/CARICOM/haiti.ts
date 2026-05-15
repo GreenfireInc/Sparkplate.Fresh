@@ -1,4 +1,5 @@
 import type { CaricomCountry } from './types'
+import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const haiti: CaricomCountry = {
   name: 'Haiti',
@@ -16,5 +17,6 @@ export const haiti: CaricomCountry = {
   currentLeader: 'Transitional context — verify official Head of State',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal; HTG volatility — verify',
+  domesticCourierServices: CARICOM_DOMESTIC_COURIERS['HT'],
   stockExchange: 'No major national exchange — informational',
 }

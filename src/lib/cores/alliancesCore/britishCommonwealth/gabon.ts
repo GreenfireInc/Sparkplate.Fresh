@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const gabon: CommonwealthCountry = {
   name: 'Gabon',
@@ -16,5 +17,6 @@ export const gabon: CommonwealthCountry = {
   currentLeader: 'Brice Clotaire Oligui Nguema (Transitional) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'XAF peg; USDT informal',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['GA'],
   stockExchange: 'Bourse des Valeurs Mobilières de l\'Afrique Centrale (regional)',
 }

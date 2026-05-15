@@ -1,4 +1,5 @@
 import type { RcepCountry } from './types'
+import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const japan: RcepCountry = {
   name: 'Japan',
@@ -17,5 +18,6 @@ export const japan: RcepCountry = {
     'Emperor Naruhito; Prime Minister — verify (cabinet reshuffle cycles)',
   cryptocurrencyExchanges: ['bitFlyer', 'Coincheck PSAP-registered narratives — informational'],
   stablecoin: 'JPY-stable experiments; Bank of Japan pilots — informational',
+  domesticCourierServices: RCEP_DOMESTIC_COURIERS['JP'],
   stockExchange: 'Tokyo Stock Exchange (Japan Exchange Group)',
 }

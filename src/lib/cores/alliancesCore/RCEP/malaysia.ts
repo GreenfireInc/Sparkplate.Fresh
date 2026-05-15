@@ -1,4 +1,5 @@
 import type { RcepCountry } from './types'
+import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const malaysia: RcepCountry = {
   name: 'Malaysia',
@@ -17,5 +18,6 @@ export const malaysia: RcepCountry = {
     'Yang di-Pertuan Agong — verify rotation; Prime Minister Anwar Ibrahim — verify coalition',
   cryptocurrencyExchanges: ['SC-regulated digital exchange pilots — informational'],
   stablecoin: 'MYR digital bank narratives; ringgit controls — informational',
+  domesticCourierServices: RCEP_DOMESTIC_COURIERS['MY'],
   stockExchange: 'Bursa Malaysia',
 }
