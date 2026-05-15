@@ -1,4 +1,5 @@
 import type { EcowasCountry } from './types'
+import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const ivoryCoast: EcowasCountry = {
   name: "Côte d'Ivoire",
@@ -15,5 +16,6 @@ export const ivoryCoast: EcowasCountry = {
   currentLeader: 'President Alassane Ouattara — verify',
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Luno (regional)'],
   stablecoin: 'USDT / USDC; XOF CFA peg via BCEAO',
+  domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['CI'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (BRVM — seat Abidjan)',
 }

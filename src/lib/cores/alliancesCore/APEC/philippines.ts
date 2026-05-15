@@ -1,4 +1,5 @@
 import type { ApecCountry } from './types'
+import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const philippines: ApecCountry = {
   name: 'Philippines',
@@ -16,5 +17,6 @@ export const philippines: ApecCountry = {
   currentLeader: 'President Ferdinand Marcos Jr. — verify',
   cryptocurrencyExchanges: ['BSP VASP registry evolution — informational'],
   stablecoin: 'PHP pilots; USDT remittance overlays — informational',
+  domesticCourierServices: APEC_DOMESTIC_COURIERS['PH'],
   stockExchange: 'Philippine Stock Exchange (PSE)',
 }

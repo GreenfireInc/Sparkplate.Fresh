@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const centralAfricanRepublic: CensadCountry = {
   name: 'Central African Republic',
@@ -15,5 +16,6 @@ export const centralAfricanRepublic: CensadCountry = {
   currentLeader: 'President Faustin-Archange Touadéra — verify',
   cryptocurrencyExchanges: ['Bitcoin Law experimentation narrative — OTC predominant'],
   stablecoin: 'SANGO crypto-project historically debated — CFA dominates domestically',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['CF'],
   stockExchange: 'Douala Stock Exchange (CEMAC linkage informal)',
 }

@@ -1,4 +1,5 @@
 import type { EccasCountry } from './types'
+import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const chad: EccasCountry = {
   name: 'Chad',
@@ -15,5 +16,6 @@ export const chad: EccasCountry = {
   currentLeader: 'Mahamat Déby transitional presidency — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card (regional)', 'OTC'],
   stablecoin: 'USDT informal; XAF peg via BEAC',
+  domesticCourierServices: ECCAS_DOMESTIC_COURIERS['TD'],
   stockExchange: 'CEMAC regional capital markets (thin Chad footprint)',
 }

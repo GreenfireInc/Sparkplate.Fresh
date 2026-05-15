@@ -1,4 +1,5 @@
 import type { CptppCountry } from './types'
+import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const malaysia: CptppCountry = {
   name: 'Malaysia',
@@ -15,5 +16,6 @@ export const malaysia: CptppCountry = {
   currentLeader: 'Prime Minister Anwar Ibrahim — verify',
   cryptocurrencyExchanges: ['Luno', 'Tokenize', 'Regulated DAX evolution — verify'],
   stablecoin: 'MYR token pilots; USDT dominant informal',
+  domesticCourierServices: CPTPP_DOMESTIC_COURIERS['MY'],
   stockExchange: 'Bursa Malaysia',
 }

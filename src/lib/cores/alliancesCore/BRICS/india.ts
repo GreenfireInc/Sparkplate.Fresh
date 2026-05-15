@@ -1,4 +1,5 @@
 import type { BricsCountry } from './types'
+import { BRICS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const india: BricsCountry = {
   name: 'India',
@@ -16,5 +17,6 @@ export const india: BricsCountry = {
   currentLeader: 'Narendra Modi (Prime Minister)',
   cryptocurrencyExchanges: ['CoinDCX', 'WazirX', 'ZebPay', 'International P2P (regulatory environment evolving)'],
   stablecoin: 'No INR official stablecoin at central-bank retail scale; USDT/USDC common on global platforms',
+  domesticCourierServices: BRICS_DOMESTIC_COURIERS['IN'],
   stockExchange: 'National Stock Exchange of India (NSE); BSE',
 }

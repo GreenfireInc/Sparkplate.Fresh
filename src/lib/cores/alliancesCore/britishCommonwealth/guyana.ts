@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const guyana: CommonwealthCountry = {
   name: 'Guyana',
@@ -16,5 +17,6 @@ export const guyana: CommonwealthCountry = {
   currentLeader: 'Irfaan Ali (President)',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['GY'],
   stockExchange: 'Guyana Stock Exchange',
 }

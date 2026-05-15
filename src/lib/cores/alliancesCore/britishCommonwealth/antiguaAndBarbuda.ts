@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const antiguaAndBarbuda: CommonwealthCountry = {
   name: 'Antigua and Barbuda',
@@ -16,5 +17,6 @@ export const antiguaAndBarbuda: CommonwealthCountry = {
   currentLeader: 'Gaston Browne (Prime Minister)',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT/USDC via offshore; XCD pegged to USD regionally',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['AG'],
   stockExchange: 'Eastern Caribbean Securities Exchange (regional)',
 }

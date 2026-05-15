@@ -1,4 +1,5 @@
 import type { SadcCountry } from './types'
+import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const zambia: SadcCountry = {
   name: 'Zambia',
@@ -15,5 +16,6 @@ export const zambia: SadcCountry = {
   currentLeader: 'President Hakainde Hichilema — verify',
   cryptocurrencyExchanges: ['Yellow Card', 'Regional P2P'],
   stablecoin: 'Informal USDT/USDC alongside kwacha liquidity',
+  domesticCourierServices: SADC_DOMESTIC_COURIERS['ZM'],
   stockExchange: 'Lusaka Securities Exchange',
 }

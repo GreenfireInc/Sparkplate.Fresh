@@ -1,4 +1,5 @@
 import type { RcepCountry } from './types'
+import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const southKorea: RcepCountry = {
   name: 'South Korea',
@@ -17,5 +18,6 @@ export const southKorea: RcepCountry = {
     'President — verify (Yoon / successor electoral cycle); Prime Minister — verify',
   cryptocurrencyExchanges: ['Upbit', 'Bithumb', 'FSC VASP registrations — informational'],
   stablecoin: 'KRW won-linked experimentation thin; predominant USDT OTC — informational',
+  domesticCourierServices: RCEP_DOMESTIC_COURIERS['KR'],
   stockExchange: 'Korea Exchange KOSPI/KOSDAQ',
 }

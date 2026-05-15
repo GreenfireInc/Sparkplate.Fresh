@@ -1,6 +1,7 @@
-export type { EccasCountry, EccasOrganizationInfo } from './types'
+export type { EccasCountry, EccasOrganizationInfo, DomesticCourierService } from './types'
 
 import type { EccasCountry, EccasOrganizationInfo } from './types'
+import { ECCAS_MEMBER_ISO_CODES } from './eccasMemberIsoCodes'
 import { angola } from './angola'
 import { burundi } from './burundi'
 import { cameroon } from './cameroon'
@@ -49,6 +50,6 @@ export const eccas: EccasOrganizationInfo = {
     '1983-10-18 (Libreville founding treaty); revived / reinforced post-1990s — informational — verify current instruments',
   headquartersCity: 'Libreville',
   headquartersCountry: 'Gabon',
-  memberStatesIso2: ['AO', 'BI', 'CM', 'CF', 'TD', 'CD', 'GQ', 'GA', 'CG', 'ST'],
+  memberStatesIso2: ECCAS_MEMBER_ISO_CODES,
   memberRecordsInModule: 10,
 }

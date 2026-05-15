@@ -1,4 +1,5 @@
 import type { AseanCountry } from './types'
+import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const timorLeste: AseanCountry = {
   name: 'Timor-Leste',
@@ -16,5 +17,6 @@ export const timorLeste: AseanCountry = {
   currentLeader: 'President José Ramos-Horta — verify; Prime Minister Xanana Gusmão — verify',
   cryptocurrencyExchanges: ['Thin formal licensing; humanitarian remittance OTC — informational'],
   stablecoin: 'USD cash economy predominant; informal digital overlays — informational',
+  domesticCourierServices: ASEAN_DOMESTIC_COURIERS['TL'],
   stockExchange: 'No substantive national equities exchange consolidated — informational',
 }

@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const iraq: BeltAndRoadInitiativeCountry = {
   name: 'Iraq',
@@ -16,5 +17,6 @@ export const iraq: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Abdul Latif Rashid (President); Mohammed Shia\\',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC', 'Limited licensed venues'],
   stablecoin: 'USDT informal; banking sector rebuilding',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['IQ'],
   stockExchange: 'Iraq Stock Exchange',
 }

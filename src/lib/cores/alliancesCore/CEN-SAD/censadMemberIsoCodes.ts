@@ -1,0 +1,30 @@
+/** CEN-SAD members represented in this module (25). */
+export const CENSAD_MEMBER_ISO_CODES = [
+  'BJ',
+  'BF',
+  'CF',
+  'TD',
+  'KM',
+  'DJ',
+  'EG',
+  'ER',
+  'GM',
+  'GH',
+  'GN',
+  'GW',
+  'CI',
+  'LY',
+  'ML',
+  'MR',
+  'MA',
+  'NE',
+  'NG',
+  'SN',
+  'SL',
+  'SO',
+  'SD',
+  'TG',
+  'TN',
+] as const
+
+export type CensadMemberIsoCode = (typeof CENSAD_MEMBER_ISO_CODES)[number]

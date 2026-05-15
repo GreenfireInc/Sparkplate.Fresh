@@ -1,4 +1,5 @@
 import type { GccCountry } from './types'
+import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const saudiArabia: GccCountry = {
   name: 'Saudi Arabia',
@@ -17,5 +18,6 @@ export const saudiArabia: GccCountry = {
     'Custodian King Salman bin Abdulaziz Al Saud — verify; Crown Prime Minister Mohammed bin Salman — verify titles',
   cryptocurrencyExchanges: ['SAMA regulatory sandbox licensees; Binance Gulf regional licences — informational'],
   stablecoin: 'SAMA stablecoin issuance pilots; fiat SAR anchoring — informational',
+  domesticCourierServices: GCC_DOMESTIC_COURIERS['SA'],
   stockExchange: 'Tadawul Saudi Exchange (national), parallel regional listings — informational',
 }

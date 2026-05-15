@@ -1,4 +1,5 @@
 import type { SadcCountry } from './types'
+import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const democraticRepublicOfTheCongo: SadcCountry = {
   name: 'Democratic Republic of the Congo',
@@ -15,5 +16,6 @@ export const democraticRepublicOfTheCongo: SadcCountry = {
   currentLeader: 'President Félix Tshisekedi — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Regional OTC'],
   stablecoin: 'USDT/USDC widespread informal P2P',
+  domesticCourierServices: SADC_DOMESTIC_COURIERS['CD'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (informal linkage); domestic equity market thin — verify',
 }

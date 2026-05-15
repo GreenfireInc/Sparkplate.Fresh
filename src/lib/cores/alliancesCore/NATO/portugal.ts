@@ -1,4 +1,5 @@
 import type { NatoCountry } from './types'
+import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const portugal: NatoCountry = {
   name: 'Portugal',
@@ -16,5 +17,6 @@ export const portugal: NatoCountry = {
   currentLeader: 'President Marcelo Rebelo de Sousa — verify; Prime Minister Luís Montenegro — verify',
   cryptocurrencyExchanges: ['European brokers; CMVM supervision MiCA-era — informational'],
   stablecoin: 'EUR stablecoins — informational',
+  domesticCourierServices: NATO_DOMESTIC_COURIERS['PT'],
   stockExchange: 'Euronext Lisbon',
 }

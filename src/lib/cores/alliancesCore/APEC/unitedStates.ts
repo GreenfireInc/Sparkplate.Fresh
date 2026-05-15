@@ -1,4 +1,5 @@
 import type { ApecCountry } from './types'
+import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const unitedStates: ApecCountry = {
   name: 'United States',
@@ -17,5 +18,6 @@ export const unitedStates: ApecCountry = {
   currentLeader: 'President / Vice-President — verify inaugural cycle',
   cryptocurrencyExchanges: ['Coinbase Kraken Gemini regulatory patchwork — informational'],
   stablecoin: 'USDT USDC fiat-backed issuance congressional evolution — informational',
+  domesticCourierServices: APEC_DOMESTIC_COURIERS['US'],
   stockExchange: 'NYSE / Nasdaq consolidated equities',
 }

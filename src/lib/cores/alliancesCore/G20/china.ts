@@ -1,4 +1,5 @@
 import type { G20Country } from './types'
+import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const china: G20Country = {
   name: 'China',
@@ -18,5 +19,6 @@ export const china: G20Country = {
     'President Xi Jinping; Premier Li Qiang — verify',
   cryptocurrencyExchanges: ['Mainland exchange trading restricted post-2021; HKVASP regime onshore-adjacent — informational'],
   stablecoin: 'e-CNY (Digital Yuan) PBoC retail CBDC pilots; offshore CNH stablecoin narratives — informational',
+  domesticCourierServices: G20_DOMESTIC_COURIERS['CN'],
   stockExchange: 'Shanghai Stock Exchange (SSE) / Shenzhen Stock Exchange (SZSE)',
 }

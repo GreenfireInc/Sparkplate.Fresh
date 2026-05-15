@@ -1,6 +1,7 @@
-export type { FiveEyesCountry, FiveEyesOrganizationInfo } from './types'
+export type { FiveEyesCountry, FiveEyesOrganizationInfo, DomesticCourierService } from './types'
 
 import type { FiveEyesCountry, FiveEyesOrganizationInfo } from './types'
+import { FIVE_EYES_MEMBER_ISO_CODES } from './fiveEyesMemberIsoCodes'
 import { australia } from './australia'
 import { canada } from './canada'
 import { newZealand } from './newZealand'
@@ -29,6 +30,6 @@ export const fiveEyes: FiveEyesOrganizationInfo = {
     '1946 UKUSA Agreement (UK–US signals); later AU/CA/NZ integrations under evolving multilateral compacts — informational',
   headquartersCity: 'Distributed',
   headquartersCountry: 'No unified secretariat; coordination across national signals agencies — informational',
-  memberStatesIso2: ['AU', 'CA', 'NZ', 'GB', 'US'],
+  memberStatesIso2: FIVE_EYES_MEMBER_ISO_CODES,
   memberRecordsInModule: 5,
 }

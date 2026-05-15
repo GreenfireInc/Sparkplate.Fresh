@@ -1,4 +1,5 @@
 import type { IoraCountry } from './types'
+import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const france: IoraCountry = {
   name: 'France',
@@ -16,5 +17,6 @@ export const france: IoraCountry = {
   currentLeader: 'President Emmanuel Macron; Prime Minister — verify',
   cryptocurrencyExchanges: ['Coinhouse', 'MiCA-compliant CASPs', 'Paymium'],
   stablecoin: 'EUR stablecoins; ECB digital euro pilots — informational',
+  domesticCourierServices: IORA_DOMESTIC_COURIERS['FR'],
   stockExchange: 'Euronext Paris',
 }

@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const chad: BeltAndRoadInitiativeCountry = {
   name: 'Chad',
@@ -16,5 +17,6 @@ export const chad: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Mahamat Idriss Déby Itno (Transitional President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card (regional)', 'OTC'],
   stablecoin: 'USDT informal; XAF peg',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['TD'],
   stockExchange: 'Financial Market of Central Africa (CEMAC hub; thin Chad listings)',
 }

@@ -1,4 +1,5 @@
 import type { EccasCountry } from './types'
+import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const gabon: EccasCountry = {
   name: 'Gabon',
@@ -16,5 +17,6 @@ export const gabon: EccasCountry = {
     'Transitional presidency Brice Clotaire Oligui Nguema — verify (constitutional order)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'CFA-region OTC'],
   stablecoin: 'USDT P2P; XAF peg via BEAC',
+  domesticCourierServices: ECCAS_DOMESTIC_COURIERS['GA'],
   stockExchange: 'Regional CEMAC markets; Libreville financial hub — verify listings',
 }

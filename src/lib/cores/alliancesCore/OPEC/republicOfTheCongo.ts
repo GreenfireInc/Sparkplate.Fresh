@@ -1,4 +1,5 @@
 import type { OpecCountry } from './types'
+import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const republicOfTheCongo: OpecCountry = {
   name: 'Republic of the Congo',
@@ -16,5 +17,6 @@ export const republicOfTheCongo: OpecCountry = {
   currentLeader: 'President Denis Sassou-Nguesso — verify',
   cryptocurrencyExchanges: ['Regional OTC; banking USD rails — informational'],
   stablecoin: 'EUR-pegged XAF; informal USDT overlays — informational',
+  domesticCourierServices: OPEC_DOMESTIC_COURIERS['CG'],
   stockExchange: 'Brazaafrica listings thin; Congo regional bourse narratives — informational',
 }

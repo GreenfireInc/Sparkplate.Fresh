@@ -2,6 +2,19 @@
  * Reference payloads for IORA members (Indian Ocean Rim Association — informational; verify for production).
  */
 
+/**
+ * Domestic / national courier row (informational; verify URLs, handles, and API bases before production).
+ * `apiEndpoint` is a public developer / REST base URL when documented; otherwise empty string.
+ */
+export interface DomesticCourierService {
+  name: string
+  website: string
+  email: string
+  instagram: string
+  twitter: string
+  apiEndpoint: string
+}
+
 export interface IoraCountry {
   name: string
   iso3166Alpha2: string
@@ -17,6 +30,8 @@ export interface IoraCountry {
   currentLeader: string
   cryptocurrencyExchanges: string[]
   stablecoin: string
+  /** Domestic / national courier or parcel carriers with public contact hints (verify locally). */
+  domesticCourierServices: DomesticCourierService[]
   stockExchange: string
 }
 

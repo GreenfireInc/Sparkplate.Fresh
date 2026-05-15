@@ -1,4 +1,5 @@
 import type { IgadCountry } from './types'
+import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const ethiopia: IgadCountry = {
   name: 'Ethiopia',
@@ -16,5 +17,6 @@ export const ethiopia: IgadCountry = {
   currentLeader: 'Prime Minister Abiy Ahmed — verify; President (ceremonial) — verify',
   cryptocurrencyExchanges: ['Ethiopian Securities Exchange digital pilots; peer informal — informational'],
   stablecoin: 'ETB-referenced digital payments; CBDC study narratives — informational',
+  domesticCourierServices: IGAD_DOMESTIC_COURIERS['ET'],
   stockExchange: 'Ethiopian Securities Exchange Addis debut-era listings — informational',
 }

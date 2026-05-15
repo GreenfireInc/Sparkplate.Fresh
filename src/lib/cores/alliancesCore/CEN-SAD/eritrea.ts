@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const eritrea: CensadCountry = {
   name: 'Eritrea',
@@ -15,5 +16,6 @@ export const eritrea: CensadCountry = {
   currentLeader: 'President Isaias Afwerki — verify',
   cryptocurrencyExchanges: ['Very limited formal footprint; diaspora OTC'],
   stablecoin: 'Informal USD economy alongside ERN',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['ER'],
   stockExchange: 'No national stock exchange',
 }

@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const mozambique: BeltAndRoadInitiativeCountry = {
   name: 'Mozambique',
@@ -16,5 +17,6 @@ export const mozambique: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Daniel Chapo (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC informal',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['MZ'],
   stockExchange: 'Bolsa de Valores de Moçambique (BVM)',
 }

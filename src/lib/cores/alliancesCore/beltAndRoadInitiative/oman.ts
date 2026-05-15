@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const oman: BeltAndRoadInitiativeCountry = {
   name: 'Oman',
@@ -16,5 +17,6 @@ export const oman: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Haitham bin Tariq (Sultan)',
   cryptocurrencyExchanges: ['Regional OTC', 'International brokers'],
   stablecoin: 'USDT informal; pegged rial economy',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['OM'],
   stockExchange: 'Muscat Stock Exchange',
 }

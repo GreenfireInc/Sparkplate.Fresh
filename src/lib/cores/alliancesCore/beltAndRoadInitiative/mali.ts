@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const mali: BeltAndRoadInitiativeCountry = {
   name: 'Mali',
@@ -16,5 +17,6 @@ export const mali: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Assimi Goïta (Colonel; transitional leadership)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'OTC'],
   stablecoin: 'USDT P2P; XOF peg',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['ML'],
   stockExchange: 'Bourse des Valeurs du Mali (limited)',
 }

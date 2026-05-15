@@ -1,4 +1,5 @@
 import type { EccasCountry } from './types'
+import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const angola: EccasCountry = {
   name: 'Angola',
@@ -15,5 +16,6 @@ export const angola: EccasCountry = {
   currentLeader: 'President João Lourenço — verify',
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Local OTC'],
   stablecoin: 'USDT / USDC via P2P; no dominant AOA stablecoin',
+  domesticCourierServices: ECCAS_DOMESTIC_COURIERS['AO'],
   stockExchange: 'Bodiva (Angola Securities Exchange)',
 }

@@ -1,4 +1,5 @@
 import type { OecdCountry } from './types'
+import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const japan: OecdCountry = {
   name: 'Japan',
@@ -18,5 +19,6 @@ export const japan: OecdCountry = {
     'Emperor Naruhito; Prime Minister — verify (LDP/coalition cabinet cycles)',
   cryptocurrencyExchanges: ['bitFlyer', 'Coincheck / PSAP-registered narratives — informational'],
   stablecoin: 'JPY-linked experiments; Bank of Japan CBDC pilots — informational',
+  domesticCourierServices: OECD_DOMESTIC_COURIERS['JP'],
   stockExchange: 'Tokyo Stock Exchange (Japan Exchange Group)',
 }

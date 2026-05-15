@@ -1,4 +1,5 @@
 import type { GccCountry } from './types'
+import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const bahrain: GccCountry = {
   name: 'Bahrain',
@@ -17,5 +18,6 @@ export const bahrain: GccCountry = {
     'King Hamad bin Isa Al Khalifa; Crown Prince Salman bin Hamad Al Khalifa Crown Prince Prime Minister — verify',
   cryptocurrencyExchanges: ['Rain / regional licensed PSP context', 'Regional OTC hubs — informational'],
   stablecoin: 'USD-pegged regional stable narratives; BD pegged broadly to USD basket — informational',
+  domesticCourierServices: GCC_DOMESTIC_COURIERS['BH'],
   stockExchange: 'Bahrain Bourse',
 }

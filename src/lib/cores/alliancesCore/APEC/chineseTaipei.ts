@@ -1,4 +1,5 @@
 import type { ApecCountry } from './types'
+import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 /**
  * Listed as **Chinese Taipei** in official APEC fora — informational.
@@ -20,5 +21,6 @@ export const chineseTaipei: ApecCountry = {
   currentLeader: 'President Lai Ching-te — verify cross-strait diplomacy volatility',
   cryptocurrencyExchanges: ['MaiCoin MAX regulated VA platforms — informational'],
   stablecoin: 'Taiwan-dollar stable experiments FinTech Sandbox — informational',
+  domesticCourierServices: APEC_DOMESTIC_COURIERS['TW'],
   stockExchange: 'Taiwan Stock Exchange TWSE Taipei',
 }

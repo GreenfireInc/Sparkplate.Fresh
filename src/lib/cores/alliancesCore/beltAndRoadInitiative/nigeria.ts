@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const nigeria: BeltAndRoadInitiativeCountry = {
   name: 'Nigeria',
@@ -16,5 +17,6 @@ export const nigeria: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Bola Tinubu (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Luno', 'Quidax', 'Busha', 'Yellow Card'],
   stablecoin: 'USDT / USDC P2P dominant; cNGN stablecoin pilots',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['NG'],
   stockExchange: 'Nigerian Exchange Group (NGX)',
 }

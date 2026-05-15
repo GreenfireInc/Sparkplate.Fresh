@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const morocco: CensadCountry = {
   name: 'Morocco',
@@ -15,5 +16,6 @@ export const morocco: CensadCountry = {
   currentLeader: 'King Mohammed VI; Head of Government Aziz Akhannouch — verify',
   cryptocurrencyExchanges: ['Regulatory evolution; peer markets reported'],
   stablecoin: 'Informal USDT',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['MA'],
   stockExchange: 'Casablanca Stock Exchange',
 }

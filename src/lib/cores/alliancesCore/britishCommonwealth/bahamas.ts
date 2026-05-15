@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const bahamas: CommonwealthCountry = {
   name: 'Bahamas',
@@ -16,5 +17,6 @@ export const bahamas: CommonwealthCountry = {
   currentLeader: 'Philip Davis (Prime Minister)',
   cryptocurrencyExchanges: ['FTX legacy context; regional OTC', 'Binance (P2P)'],
   stablecoin: 'Sand dollar (CBDC pilot context); USDT/USDC',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['BS'],
   stockExchange: 'Bahamas International Securities Exchange (BISX)',
 }

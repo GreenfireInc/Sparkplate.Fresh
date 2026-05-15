@@ -1,4 +1,5 @@
 import type { RcepCountry } from './types'
+import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const myanmar: RcepCountry = {
   name: 'Myanmar',
@@ -17,5 +18,6 @@ export const myanmar: RcepCountry = {
     'Senior General Min Aung Hlaing SAC chair — verify international recognition nuances',
   cryptocurrencyExchanges: ['Sanctions overlays; informal USDT economy — informational'],
   stablecoin: 'USD informal; MMK volatility — informational',
+  domesticCourierServices: RCEP_DOMESTIC_COURIERS['MM'],
   stockExchange: 'Yangon Stock Exchange (constrained liquidity — informational)',
 }

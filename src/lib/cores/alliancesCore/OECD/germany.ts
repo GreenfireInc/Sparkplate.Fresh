@@ -1,4 +1,5 @@
 import type { OecdCountry } from './types'
+import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const germany: OecdCountry = {
   name: 'Germany',
@@ -16,5 +17,6 @@ export const germany: OecdCountry = {
   currentLeader: 'Federal President Frank-Walter Steinmeier; Chancellor — verify',
   cryptocurrencyExchanges: ['Bitstamp EU', 'Börse Stuttgart Digital Custody narratives', 'MiCA licences'],
   stablecoin: 'EUR stablecoins; ECB digital euro projects — informational',
+  domesticCourierServices: OECD_DOMESTIC_COURIERS['DE'],
   stockExchange: 'Deutsche Börse (Frankfurt)',
 }

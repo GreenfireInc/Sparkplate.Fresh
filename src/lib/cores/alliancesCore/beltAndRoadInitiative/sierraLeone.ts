@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const sierraLeone: BeltAndRoadInitiativeCountry = {
   name: 'Sierra Leone',
@@ -16,5 +17,6 @@ export const sierraLeone: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Julius Maada Bio (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex'],
   stablecoin: 'USDT / USDC P2P',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['SL'],
   stockExchange: 'Sierra Leone Stock Exchange',
 }

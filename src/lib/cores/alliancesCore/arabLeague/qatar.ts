@@ -1,4 +1,5 @@
 import type { ArabLeagueCountry } from './types'
+import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const qatar: ArabLeagueCountry = {
   name: 'Qatar',
@@ -16,5 +17,6 @@ export const qatar: ArabLeagueCountry = {
   currentLeader: 'Tamim bin Hamad Al Thani (Emir)',
   cryptocurrencyExchanges: ['Regional OTC', 'International brokers; cautious local licensing'],
   stablecoin: 'USDT / USDC informal; wealth-fund economy',
+  domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['QA'],
   stockExchange: 'Qatar Stock Exchange',
 }

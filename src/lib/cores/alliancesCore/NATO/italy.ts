@@ -1,4 +1,5 @@
 import type { NatoCountry } from './types'
+import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const italy: NatoCountry = {
   name: 'Italy',
@@ -16,5 +17,6 @@ export const italy: NatoCountry = {
   currentLeader: 'President / Prime Minister — verify',
   cryptocurrencyExchanges: ['Conio', 'Young Platform', 'MiCA-aligned CASPs'],
   stablecoin: 'EUR stablecoins — informational',
+  domesticCourierServices: NATO_DOMESTIC_COURIERS['IT'],
   stockExchange: 'Euronext Milan (Borsa Italiana legacy)',
 }

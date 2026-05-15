@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const malta: CommonwealthCountry = {
   name: 'Malta',
@@ -16,5 +17,6 @@ export const malta: CommonwealthCountry = {
   currentLeader: 'Robert Abela (Prime Minister) — verify',
   cryptocurrencyExchanges: ['EU-licensed venues', 'Binance', 'Kraken'],
   stablecoin: 'EUR stablecoins (MiCA); USDT',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['MT'],
   stockExchange: 'Malta Stock Exchange',
 }

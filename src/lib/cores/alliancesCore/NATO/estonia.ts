@@ -1,4 +1,5 @@
 import type { NatoCountry } from './types'
+import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const estonia: NatoCountry = {
   name: 'Estonia',
@@ -16,5 +17,6 @@ export const estonia: NatoCountry = {
   currentLeader: 'President Alar Karis; Prime Minister — verify',
   cryptocurrencyExchanges: ['EU CASPs onboarding; Startup Estonia narratives — informational'],
   stablecoin: 'EUR stablecoins; MiCA-aligned — informational',
+  domesticCourierServices: NATO_DOMESTIC_COURIERS['EE'],
   stockExchange: 'Nasdaq Tallinn',
 }

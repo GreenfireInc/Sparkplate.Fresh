@@ -1,4 +1,5 @@
 import type { MintCountry } from './types'
+import { MINT_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const nigeria: MintCountry = {
   name: 'Nigeria',
@@ -17,5 +18,6 @@ export const nigeria: MintCountry = {
   currentLeader: 'President Bola Ahmed Tinubu — verify',
   cryptocurrencyExchanges: ['SEC cautious licensing; Patricia / regional P2P with CBN overlays — informational'],
   stablecoin: 'CBN e-Naira experimentation; informal USDT pricing — informational',
+  domesticCourierServices: MINT_DOMESTIC_COURIERS['NG'],
   stockExchange: 'Nigerian Exchange Group NGX (Lagos equities)',
 }

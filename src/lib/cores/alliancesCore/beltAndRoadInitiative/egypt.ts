@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const egypt: BeltAndRoadInitiativeCountry = {
   name: 'Egypt',
@@ -16,5 +17,6 @@ export const egypt: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Abdel Fattah el-Sisi (President)',
   cryptocurrencyExchanges: ['Rain (regional)', 'No official local spot exchange; P2P & OTC'],
   stablecoin: 'USDT / USDC P2P common; central bank exploring CBDC',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['EG'],
   stockExchange: 'Egyptian Exchange (EGX)',
 }

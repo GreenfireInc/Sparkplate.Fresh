@@ -1,6 +1,7 @@
-export type { RcepCountry, RcepOrganizationInfo } from './types'
+export type { RcepCountry, RcepOrganizationInfo, DomesticCourierService } from './types'
 
 import type { RcepCountry, RcepOrganizationInfo } from './types'
+import { RCEP_MEMBER_ISO_CODES } from './rcepMemberIsoCodes'
 import { australia } from './australia'
 import { brunei } from './brunei'
 import { cambodia } from './cambodia'
@@ -66,6 +67,6 @@ export const rcep: RcepOrganizationInfo = {
   headquartersCity: 'Jakarta',
   headquartersCountry:
     'Indonesia (ASEAN Secretariat depositary/administrative support per Agreement — informational)',
-  memberStatesIso2: ['AU', 'BN', 'KH', 'CN', 'ID', 'JP', 'KR', 'LA', 'MY', 'MM', 'NZ', 'PH', 'SG', 'TH', 'VN'],
+  memberStatesIso2: RCEP_MEMBER_ISO_CODES,
   memberRecordsInModule: 15,
 }

@@ -1,4 +1,5 @@
 import type { CptppCountry } from './types'
+import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const brunei: CptppCountry = {
   name: 'Brunei',
@@ -15,5 +16,6 @@ export const brunei: CptppCountry = {
   currentLeader: 'Sultan Hassanal Bolkiah — verify',
   cryptocurrencyExchanges: ['Limited domestic venues; regional Singapore rails'],
   stablecoin: 'BND / SGD peg context; USDT informal access',
+  domesticCourierServices: CPTPP_DOMESTIC_COURIERS['BN'],
   stockExchange: 'Brunei Darussalam Central Moneymarket (money market; thin equity market — verify)',
 }

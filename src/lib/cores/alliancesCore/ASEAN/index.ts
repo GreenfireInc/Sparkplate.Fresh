@@ -1,4 +1,4 @@
-export type { AseanCountry, AseanOrganizationInfo } from './types'
+export type { AseanCountry, AseanOrganizationInfo, DomesticCourierService } from './types'
 
 import type { AseanCountry, AseanOrganizationInfo } from './types'
 import { brunei } from './brunei'

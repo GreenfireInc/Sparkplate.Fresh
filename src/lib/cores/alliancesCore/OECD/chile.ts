@@ -1,4 +1,5 @@
 import type { OecdCountry } from './types'
+import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const chile: OecdCountry = {
   name: 'Chile',
@@ -16,5 +17,6 @@ export const chile: OecdCountry = {
   currentLeader: 'President — verify (Congressional-presidential electoral cycle)',
   cryptocurrencyExchanges: ['Buda.com', 'CMF-registered onboarding evolution — informational'],
   stablecoin: 'CLP digital pilots; predominant USD OTC rails — informational',
+  domesticCourierServices: OECD_DOMESTIC_COURIERS['CL'],
   stockExchange: 'Bolsa de Santiago (Bolsa Electrónica de Chile contextual listings — informational)',
 }

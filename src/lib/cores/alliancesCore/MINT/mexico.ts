@@ -1,4 +1,5 @@
 import type { MintCountry } from './types'
+import { MINT_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const mexico: MintCountry = {
   name: 'Mexico',
@@ -17,5 +18,6 @@ export const mexico: MintCountry = {
   currentLeader: 'President Claudia Sheinbaum — verify',
   cryptocurrencyExchanges: ['Bitso', 'Mexico CNBV fintech-registration evolution — informational'],
   stablecoin: 'MXN fiat-backed issuance pilots vs informal USDT — informational',
+  domesticCourierServices: MINT_DOMESTIC_COURIERS['MX'],
   stockExchange: 'Mexican Stock Exchange BMV Bolsa Mexicana de Valores',
 }

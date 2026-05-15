@@ -1,4 +1,5 @@
 import type { OpecCountry } from './types'
+import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const equatorialGuinea: OpecCountry = {
   name: 'Equatorial Guinea',
@@ -16,5 +17,6 @@ export const equatorialGuinea: OpecCountry = {
   currentLeader: 'President Teodoro Obiang Nguema — verify succession planning',
   cryptocurrencyExchanges: ['Strict banking environment; OTC sparse — informational'],
   stablecoin: 'USD/EUR pricing of hydrocarbons; informal stable settlement — informational',
+  domesticCourierServices: OPEC_DOMESTIC_COURIERS['GQ'],
   stockExchange: 'Malabo regional listings nascent / thin — informational',
 }

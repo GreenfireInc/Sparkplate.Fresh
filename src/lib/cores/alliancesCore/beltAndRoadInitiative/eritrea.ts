@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const eritrea: BeltAndRoadInitiativeCountry = {
   name: 'Eritrea',
@@ -16,5 +17,6 @@ export const eritrea: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Isaias Afwerki (President)',
   cryptocurrencyExchanges: ['Limited formal venues; diaspora P2P', 'Binance (P2P, informal)'],
   stablecoin: 'USDT minimal formal access; cash economy strong',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['ER'],
   stockExchange: 'No public stock exchange',
 }

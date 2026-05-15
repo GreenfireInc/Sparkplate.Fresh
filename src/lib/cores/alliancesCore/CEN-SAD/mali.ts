@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const mali: CensadCountry = {
   name: 'Mali',
@@ -15,5 +16,6 @@ export const mali: CensadCountry = {
   currentLeader: 'Assimi Goïta (transitional military administration) — verify',
   cryptocurrencyExchanges: ['Informal OTC'],
   stablecoin: 'Informal USDT/USDC',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['ML'],
   stockExchange: 'BRVM listing context (WAEMU)',
 }

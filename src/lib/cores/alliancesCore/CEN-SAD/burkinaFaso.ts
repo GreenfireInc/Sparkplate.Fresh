@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const burkinaFaso: CensadCountry = {
   name: 'Burkina Faso',
@@ -16,5 +17,6 @@ export const burkinaFaso: CensadCountry = {
   currentLeader: 'Ibrahim Traoré (Captain, transitional authorities) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Informal USDT peer markets'],
   stablecoin: 'USDT/USDC informal',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['BF'],
   stockExchange: 'BRVM (WAEMU listings)',
 }

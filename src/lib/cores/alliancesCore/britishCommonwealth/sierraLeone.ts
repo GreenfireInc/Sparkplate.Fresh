@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const sierraLeone: CommonwealthCountry = {
   name: 'Sierra Leone',
@@ -16,5 +17,6 @@ export const sierraLeone: CommonwealthCountry = {
   currentLeader: 'Julius Maada Bio (President) — verify',
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['SL'],
   stockExchange: 'Sierra Leone Stock Exchange',
 }

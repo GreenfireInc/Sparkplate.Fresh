@@ -1,4 +1,5 @@
 import type { AseanCountry } from './types'
+import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const singapore: AseanCountry = {
   name: 'Singapore',
@@ -17,5 +18,6 @@ export const singapore: AseanCountry = {
   currentLeader: 'President Tharman Shanmugaratnam; Prime Minister Lawrence Wong — verify',
   cryptocurrencyExchanges: ['MAS DPT licensing regime; regulated institutional ramps — informational'],
   stablecoin: 'MAS stable-value digital guidelines; institutional SGD/USDC — informational',
+  domesticCourierServices: ASEAN_DOMESTIC_COURIERS['SG'],
   stockExchange: 'Singapore Exchange SGX',
 }

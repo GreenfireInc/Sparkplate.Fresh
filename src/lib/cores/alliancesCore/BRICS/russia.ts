@@ -1,4 +1,5 @@
 import type { BricsCountry } from './types'
+import { BRICS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const russia: BricsCountry = {
   name: 'Russia',
@@ -16,5 +17,6 @@ export const russia: BricsCountry = {
   currentLeader: 'Vladimir Putin (President)',
   cryptocurrencyExchanges: ['Garantex', 'Regional OTC', 'P2P platforms (availability varies by jurisdiction)'],
   stablecoin: 'Digital ruble pilot; USDT/USDC used in informal crypto channels where permitted',
+  domesticCourierServices: BRICS_DOMESTIC_COURIERS['RU'],
   stockExchange: 'Moscow Exchange (MOEX)',
 }

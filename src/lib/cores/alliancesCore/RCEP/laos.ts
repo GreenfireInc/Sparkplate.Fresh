@@ -1,4 +1,5 @@
 import type { RcepCountry } from './types'
+import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const laos: RcepCountry = {
   name: 'Laos',
@@ -16,5 +17,6 @@ export const laos: RcepCountry = {
   currentLeader: 'Party General Secretary / President — verify titles',
   cryptocurrencyExchanges: ['BOL restrictive; OTC sparse — informational'],
   stablecoin: 'LAK rails thin; USD/Baht informal — informational',
+  domesticCourierServices: RCEP_DOMESTIC_COURIERS['LA'],
   stockExchange: 'Lao Securities Exchange (thin listings — informational)',
 }

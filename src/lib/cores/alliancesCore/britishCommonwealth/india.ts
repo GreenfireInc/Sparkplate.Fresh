@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const india: CommonwealthCountry = {
   name: 'India',
@@ -16,5 +17,6 @@ export const india: CommonwealthCountry = {
   currentLeader: 'Narendra Modi (Prime Minister)',
   cryptocurrencyExchanges: ['CoinDCX', 'WazirX', 'ZebPay'],
   stablecoin: 'No INR retail CBDC at scale; USDT on global platforms',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['IN'],
   stockExchange: 'National Stock Exchange (NSE); BSE',
 }

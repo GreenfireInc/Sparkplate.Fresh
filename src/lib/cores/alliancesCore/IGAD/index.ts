@@ -1,6 +1,7 @@
-export type { IgadCountry, IgadOrganizationInfo } from './types'
+export type { IgadCountry, IgadOrganizationInfo, DomesticCourierService } from './types'
 
 import type { IgadCountry, IgadOrganizationInfo } from './types'
+import { IGAD_MEMBER_ISO_CODES } from './igadMemberIsoCodes'
 import { djibouti } from './djibouti'
 import { ethiopia } from './ethiopia'
 import { somalia } from './somalia'
@@ -36,6 +37,6 @@ export const igad: IgadOrganizationInfo = {
     '1986-01 IGADD Djibouti founding; reorganized IGAD Nairobi Mar 1996 (peace-security-development mandate evolution — informational)',
   headquartersCity: 'Djibouti',
   headquartersCountry: 'Djibouti',
-  memberStatesIso2: ['DJ', 'ET', 'SO', 'SS', 'SD', 'KE', 'UG'],
+  memberStatesIso2: IGAD_MEMBER_ISO_CODES,
   memberRecordsInModule: 7,
 }

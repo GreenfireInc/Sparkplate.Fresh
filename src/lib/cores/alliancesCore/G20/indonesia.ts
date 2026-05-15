@@ -1,4 +1,5 @@
 import type { G20Country } from './types'
+import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const indonesia: G20Country = {
   name: 'Indonesia',
@@ -17,5 +18,6 @@ export const indonesia: G20Country = {
   currentLeader: 'President Prabowo Subianto — verify',
   cryptocurrencyExchanges: ['Indonesia CFX licensed trading (Bappebti-era evolution to OJK oversight — informational)'],
   stablecoin: 'IDR digital rupiah / CBDC narratives; offshore USDT OTC — informational',
+  domesticCourierServices: G20_DOMESTIC_COURIERS['ID'],
   stockExchange: 'Indonesia Stock Exchange IDX Jakarta',
 }

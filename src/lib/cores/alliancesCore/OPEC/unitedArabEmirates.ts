@@ -1,4 +1,5 @@
 import type { OpecCountry } from './types'
+import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const unitedArabEmirates: OpecCountry = {
   name: 'United Arab Emirates',
@@ -18,5 +19,6 @@ export const unitedArabEmirates: OpecCountry = {
     'President Mohamed bin Zayed Al Nahyan — verify; Dubai Ruler Sheikh Mohammed bin Rashid — verify',
   cryptocurrencyExchanges: ['VARA Dubai regime', 'ADGM FSRA digital-asset licences', 'MENA liquidity — informational'],
   stablecoin: 'AED-referenced issuance pilots; CBUAE supervision evolution — informational',
+  domesticCourierServices: OPEC_DOMESTIC_COURIERS['AE'],
   stockExchange: 'Abu Dhabi Securities Exchange (ADX); Dubai Financial Market (DFM)',
 }

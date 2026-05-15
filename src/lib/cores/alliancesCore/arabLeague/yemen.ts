@@ -1,4 +1,5 @@
 import type { ArabLeagueCountry } from './types'
+import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const yemen: ArabLeagueCountry = {
   name: 'Yemen',
@@ -16,5 +17,6 @@ export const yemen: ArabLeagueCountry = {
   currentLeader: 'Rashad Muhammad al-Alimi (Chair, Presidential Leadership Council — informational)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'OTC', 'Hawala-dominated economy'],
   stablecoin: 'USDT informal; humanitarian USD economy',
+  domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['YE'],
   stockExchange: 'No functioning unified national exchange',
 }

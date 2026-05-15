@@ -1,4 +1,4 @@
-export type { BricsCountry, BricsMembership, BricsOrganizationInfo } from './types'
+export type { BricsCountry, BricsMembership, BricsOrganizationInfo, DomesticCourierService } from './types'
 
 import type { BricsCountry, BricsOrganizationInfo } from './types'
 import { brazil } from './brazil'

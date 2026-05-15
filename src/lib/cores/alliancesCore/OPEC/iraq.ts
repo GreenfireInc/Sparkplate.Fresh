@@ -1,4 +1,5 @@
 import type { OpecCountry } from './types'
+import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const iraq: OpecCountry = {
   name: 'Iraq',
@@ -17,5 +18,6 @@ export const iraq: OpecCountry = {
     'President Abdul Latif Rashid — verify; Prime Minister Mohammed Shia al-Sudani — verify coalition',
   cryptocurrencyExchanges: ['CBI cautious posture; OTC informal dollarisation — informational'],
   stablecoin: 'USD settlement oil exports; IQD volatility — informational',
+  domesticCourierServices: OPEC_DOMESTIC_COURIERS['IQ'],
   stockExchange: 'Iraq Stock Exchange Baghdad (liquidity episodic — informational)',
 }

@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const cyprus: CommonwealthCountry = {
   name: 'Cyprus',
@@ -16,5 +17,6 @@ export const cyprus: CommonwealthCountry = {
   currentLeader: 'Nikos Christodoulides (President) — verify',
   cryptocurrencyExchanges: ['EU-licensed venues', 'Binance', 'Kraken'],
   stablecoin: 'EUR stablecoins (EU MiCA context); USDT',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['CY'],
   stockExchange: 'Cyprus Stock Exchange (CSE)',
 }

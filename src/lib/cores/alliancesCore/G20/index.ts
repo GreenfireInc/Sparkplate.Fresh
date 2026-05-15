@@ -1,6 +1,7 @@
-export type { G20Country, G20InstitutionalMember, G20OrganizationInfo } from './types'
+export type { G20Country, G20InstitutionalMember, G20OrganizationInfo, DomesticCourierService } from './types'
 
 import type { G20Country, G20InstitutionalMember, G20OrganizationInfo } from './types'
+import { G20_SOVEREIGN_MEMBER_ISO_CODES } from './g20MemberIsoCodes'
 import { argentina } from './argentina'
 import { australia } from './australia'
 import { brazil } from './brazil'
@@ -91,10 +92,7 @@ export const g20: G20OrganizationInfo = {
   headquartersCity: 'Rotating presidency',
   headquartersCountry:
     'Host member changes annually (sherpa + finance tracks; institutional EU & African Union seats coordinated via their own secretariats — informational)',
-  memberStatesIso2: [
-    'AR', 'AU', 'BR', 'CA', 'CN', 'FR', 'DE', 'IN', 'ID', 'IT',
-    'JP', 'MX', 'RU', 'SA', 'ZA', 'KR', 'TR', 'GB', 'US',
-  ],
+  memberStatesIso2: G20_SOVEREIGN_MEMBER_ISO_CODES,
   institutionalMembersCode: ['EU', 'AU'],
   memberRecordsInModule: 21,
 }

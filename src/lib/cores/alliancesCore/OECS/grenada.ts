@@ -1,4 +1,5 @@
 import type { OecsCountry } from './types'
+import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const grenada: OecsCountry = {
   name: 'Grenada',
@@ -16,5 +17,6 @@ export const grenada: OecsCountry = {
   currentLeader: 'Prime Minister Dickon Mitchell — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'mobile-money predominant — informational'],
   stablecoin: 'XCD peg; USDT overlays — informational',
+  domesticCourierServices: OECS_DOMESTIC_COURIERS['GD'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

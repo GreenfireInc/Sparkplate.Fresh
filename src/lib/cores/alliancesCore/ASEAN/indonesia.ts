@@ -1,4 +1,5 @@
 import type { AseanCountry } from './types'
+import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const indonesia: AseanCountry = {
   name: 'Indonesia',
@@ -16,5 +17,6 @@ export const indonesia: AseanCountry = {
   currentLeader: 'President Prabowo Subianto — verify',
   cryptocurrencyExchanges: ['OJK-supervised digital-asset routes (CFX licensing evolution — informational)'],
   stablecoin: 'IDR digital payment pilots; USDT OTC informal — informational',
+  domesticCourierServices: ASEAN_DOMESTIC_COURIERS['ID'],
   stockExchange: 'Indonesia Stock Exchange (IDX Jakarta)',
 }

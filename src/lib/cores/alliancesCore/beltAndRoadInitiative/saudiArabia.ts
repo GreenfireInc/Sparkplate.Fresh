@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const saudiArabia: BeltAndRoadInitiativeCountry = {
   name: 'Saudi Arabia',
@@ -16,5 +17,6 @@ export const saudiArabia: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Salman bin Abdulaziz Al Saud (King); Mohammed bin Salman (Crown Prince & Prime Minister)',
   cryptocurrencyExchanges: ['Rain', 'Regional OTC', 'International P2P'],
   stablecoin: 'USDT informal; sandbox experiments',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['SA'],
   stockExchange: 'Saudi Exchange (Tadawul)',
 }

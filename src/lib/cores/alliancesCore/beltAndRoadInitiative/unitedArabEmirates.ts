@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const unitedArabEmirates: BeltAndRoadInitiativeCountry = {
   name: 'United Arab Emirates',
@@ -16,5 +17,6 @@ export const unitedArabEmirates: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Mohamed bin Zayed Al Nahyan (President); Mohammed bin Rashid Al Maktoum (Vice President & PM of UAE, Ruler of Dubai)',
   cryptocurrencyExchanges: ['BitOasis (historical)', 'International brokers', 'VARA-regulated Dubai activity'],
   stablecoin: 'USDT / USDC; AED-linked experiments',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['AE'],
   stockExchange: 'Abu Dhabi Securities Exchange (ADX); Dubai Financial Market (DFM)',
 }

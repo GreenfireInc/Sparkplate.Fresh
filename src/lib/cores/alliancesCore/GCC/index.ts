@@ -1,6 +1,7 @@
-export type { GccCountry, GccOrganizationInfo } from './types'
+export type { GccCountry, GccOrganizationInfo, DomesticCourierService } from './types'
 
 import type { GccCountry, GccOrganizationInfo } from './types'
+import { GCC_MEMBER_ISO_CODES } from './gccMemberIsoCodes'
 import { bahrain } from './bahrain'
 import { kuwait } from './kuwait'
 import { oman } from './oman'
@@ -31,6 +32,6 @@ export const gcc: GccOrganizationInfo = {
     '1981-05-25 treaty signed Abu Dhabi UAE (Council charter; supplementary institutions Customs Union/Common Market evolution — informational)',
   headquartersCity: 'Riyadh',
   headquartersCountry: 'Saudi Arabia',
-  memberStatesIso2: ['BH', 'KW', 'OM', 'QA', 'SA', 'AE'],
+  memberStatesIso2: GCC_MEMBER_ISO_CODES,
   memberRecordsInModule: 6,
 }

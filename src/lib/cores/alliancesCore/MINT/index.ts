@@ -1,6 +1,7 @@
-export type { MintCountry, MintOrganizationInfo } from './types'
+export type { MintCountry, MintOrganizationInfo, DomesticCourierService } from './types'
 
 import type { MintCountry, MintOrganizationInfo } from './types'
+import { MINT_MEMBER_ISO_CODES } from './mintMemberIsoCodes'
 import { mexico } from './mexico'
 import { indonesia } from './indonesia'
 import { nigeria } from './nigeria'
@@ -23,6 +24,6 @@ export const mint: MintOrganizationInfo = {
   headquartersCity: '—',
   headquartersCountry:
     'No intergovernmental secretariat; juxtaposed only in investment narratives — informational',
-  memberStatesIso2: ['MX', 'ID', 'NG', 'TR'],
+  memberStatesIso2: MINT_MEMBER_ISO_CODES,
   memberRecordsInModule: 4,
 }

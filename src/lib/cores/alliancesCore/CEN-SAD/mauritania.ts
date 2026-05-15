@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const mauritania: CensadCountry = {
   name: 'Mauritania',
@@ -15,5 +16,6 @@ export const mauritania: CensadCountry = {
   currentLeader: 'President Mohamed Ould Ghazouani — verify',
   cryptocurrencyExchanges: ['Informal P2P'],
   stablecoin: 'Informal USD/USDT',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['MR'],
   stockExchange: 'Bourse de Mauritanie (Nouakchott — verify depth)',
 }

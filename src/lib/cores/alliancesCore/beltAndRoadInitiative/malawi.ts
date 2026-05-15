@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const malawi: BeltAndRoadInitiativeCountry = {
   name: 'Malawi',
@@ -16,5 +17,6 @@ export const malawi: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Lazarus Chakwera (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC informal',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['MW'],
   stockExchange: 'Malawi Stock Exchange',
 }

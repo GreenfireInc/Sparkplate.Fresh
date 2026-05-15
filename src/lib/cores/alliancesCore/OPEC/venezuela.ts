@@ -1,4 +1,5 @@
 import type { OpecCountry } from './types'
+import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const venezuela: OpecCountry = {
   name: 'Venezuela',
@@ -18,5 +19,6 @@ export const venezuela: OpecCountry = {
   currentLeader: 'President Nicolás Maduro — verify international recognition nuances',
   cryptocurrencyExchanges: ['Petro state token controversies; P2P mining informal — informational'],
   stablecoin: 'USD/USDT predominant retail settlement overlays — informational',
+  domesticCourierServices: OPEC_DOMESTIC_COURIERS['VE'],
   stockExchange: 'Bolsa de Valores de Caracas (thin vs macro distress — informational)',
 }

@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const australia: CommonwealthCountry = {
   name: 'Australia',
@@ -16,5 +17,6 @@ export const australia: CommonwealthCountry = {
   currentLeader: 'Anthony Albanese (Prime Minister)',
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'Binance AU'],
   stablecoin: 'AUD stablecoins limited; USDC/USDT common',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['AU'],
   stockExchange: 'Australian Securities Exchange (ASX)',
 }

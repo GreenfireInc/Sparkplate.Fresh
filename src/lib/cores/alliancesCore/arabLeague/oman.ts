@@ -1,4 +1,5 @@
 import type { ArabLeagueCountry } from './types'
+import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const oman: ArabLeagueCountry = {
   name: 'Oman',
@@ -16,5 +17,6 @@ export const oman: ArabLeagueCountry = {
   currentLeader: 'Haitham bin Tariq (Sultan)',
   cryptocurrencyExchanges: ['Regional OTC', 'International brokers'],
   stablecoin: 'USDT informal; pegged rial economy',
+  domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['OM'],
   stockExchange: 'Muscat Stock Exchange',
 }

@@ -1,4 +1,5 @@
 import type { ApecCountry } from './types'
+import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const canada: ApecCountry = {
   name: 'Canada',
@@ -16,5 +17,6 @@ export const canada: ApecCountry = {
   currentLeader: 'Prime Minister — verify federal cycle',
   cryptocurrencyExchanges: ['Bitbuy', 'Newton CSA climate — informational'],
   stablecoin: 'CAD fiat-backed pilots — informational',
+  domesticCourierServices: APEC_DOMESTIC_COURIERS['CA'],
   stockExchange: 'Toronto Stock Exchange (TMX)',
 }

@@ -1,4 +1,5 @@
 import type { G20Country } from './types'
+import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const argentina: G20Country = {
   name: 'Argentina',
@@ -17,5 +18,6 @@ export const argentina: G20Country = {
   currentLeader: 'President Javier Milei — verify',
   cryptocurrencyExchanges: ['Lemon Cash', 'Ripio', 'Belo / CNV-evolving VASP register — informational'],
   stablecoin: 'USDT dominant retail savings instrument vs ARS depreciation; ARS-backed issuance thin — informational',
+  domesticCourierServices: G20_DOMESTIC_COURIERS['AR'],
   stockExchange: 'Bolsas y Mercados Argentinos BYMA (Buenos Aires)',
 }

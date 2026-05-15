@@ -1,4 +1,5 @@
 import type { G20Country } from './types'
+import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const unitedKingdom: G20Country = {
   name: 'United Kingdom',
@@ -18,5 +19,6 @@ export const unitedKingdom: G20Country = {
     'Monarch Charles III head of state; Prime Minister Sir Keir Starmer head of government — verify',
   cryptocurrencyExchanges: ['Coinbase e-money UK', 'Kraken entities', 'FCA-register context — informational'],
   stablecoin: 'GBP stablecoins under evolving UK PSD3/cryptoasset regime — informational',
+  domesticCourierServices: G20_DOMESTIC_COURIERS['GB'],
   stockExchange: 'London Stock Exchange Group (consolidated UK venues — informational)',
 }

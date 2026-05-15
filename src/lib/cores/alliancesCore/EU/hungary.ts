@@ -1,4 +1,5 @@
 import type { EuCountry } from './types'
+import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const hungary: EuCountry = {
   name: 'Hungary',
@@ -15,5 +16,6 @@ export const hungary: EuCountry = {
   currentLeader: 'President Tamás Sulyok; Prime Minister Viktor Orbán — verify',
   cryptocurrencyExchanges: ['Regional EU onboarding; Hungarian central bank skeptic tone — informational'],
   stablecoin: 'HUF OTC; predominant EUR/USDT rails',
+  domesticCourierServices: EU_DOMESTIC_COURIERS['HU'],
   stockExchange: 'Budapest Stock Exchange',
 }

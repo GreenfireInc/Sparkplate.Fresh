@@ -1,4 +1,5 @@
 import type { ApecCountry } from './types'
+import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const southKorea: ApecCountry = {
   name: 'South Korea',
@@ -17,5 +18,6 @@ export const southKorea: ApecCountry = {
   currentLeader: 'President — verify (ROK executive branch cycle)',
   cryptocurrencyExchanges: ['Upbit Bithumb FSC VASP regime — informational'],
   stablecoin: 'KRW won-linked CBDC sandbox Bank of Korea — informational',
+  domesticCourierServices: APEC_DOMESTIC_COURIERS['KR'],
   stockExchange: 'Korea Exchange KOSPI / KOSDAQ',
 }

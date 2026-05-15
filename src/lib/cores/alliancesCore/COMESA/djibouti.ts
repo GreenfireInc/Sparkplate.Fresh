@@ -1,4 +1,5 @@
 import type { ComesaCountry } from './types'
+import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const djibouti: ComesaCountry = {
   name: 'Djibouti',
@@ -15,5 +16,6 @@ export const djibouti: ComesaCountry = {
   currentLeader: 'President Ismail Omar Guelleh — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'International OTC', 'Regional remittance apps'],
   stablecoin: 'USDT / USDC; DJF pegged to USD (currency board)',
+  domesticCourierServices: COMESA_DOMESTIC_COURIERS['DJ'],
   stockExchange: 'Djibouti Stock Exchange (thin activity)',
 }

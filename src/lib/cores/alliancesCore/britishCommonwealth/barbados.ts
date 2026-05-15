@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const barbados: CommonwealthCountry = {
   name: 'Barbados',
@@ -16,5 +17,6 @@ export const barbados: CommonwealthCountry = {
   currentLeader: 'Mia Mottley (Prime Minister)',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'BBD pegged to USD; USDT/USDC',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['BB'],
   stockExchange: 'Barbados Stock Exchange',
 }

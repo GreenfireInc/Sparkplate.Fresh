@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const kenya: BeltAndRoadInitiativeCountry = {
   name: 'Kenya',
@@ -16,5 +17,6 @@ export const kenya: BeltAndRoadInitiativeCountry = {
   currentLeader: 'William Ruto (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local blockchain startups'],
   stablecoin: 'USDT / USDC; regulatory environment evolving',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
 }

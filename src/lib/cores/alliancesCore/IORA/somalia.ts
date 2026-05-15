@@ -1,4 +1,5 @@
 import type { IoraCountry } from './types'
+import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const somalia: IoraCountry = {
   name: 'Somalia',
@@ -16,5 +17,6 @@ export const somalia: IoraCountry = {
   currentLeader: 'President Hassan Sheikh Mohamud — verify; Prime Minister — verify federal bargains',
   cryptocurrencyExchanges: ['Mobile-money economy; OTC informal — informational'],
   stablecoin: 'USD/USDT hawala overlays predominant — informational',
+  domesticCourierServices: IORA_DOMESTIC_COURIERS['SO'],
   stockExchange: 'No consolidated national exchange (fragmented governance — informational)',
 }

@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const gambia: BeltAndRoadInitiativeCountry = {
   name: 'The Gambia',
@@ -16,5 +17,6 @@ export const gambia: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Adama Barrow (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex (diaspora)'],
   stablecoin: 'USDT / USDC P2P',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['GM'],
   stockExchange: 'Gambia Stock Exchange (limited)',
 }

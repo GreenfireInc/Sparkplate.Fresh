@@ -1,4 +1,5 @@
 import type { FiveEyesCountry } from './types'
+import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const newZealand: FiveEyesCountry = {
   name: 'New Zealand',
@@ -16,5 +17,6 @@ export const newZealand: FiveEyesCountry = {
   currentLeader: 'Prime Minister Christopher Luxon — verify',
   cryptocurrencyExchanges: ['Easy Crypto', 'Digital asset providers under FMCA/DIA registration context — informational'],
   stablecoin: 'NZD-referenced crypto (private); RB NZ policy evolution — informational',
+  domesticCourierServices: FIVE_EYES_DOMESTIC_COURIERS['NZ'],
   stockExchange: 'NZX Limited (NZ markets — informational)',
 }

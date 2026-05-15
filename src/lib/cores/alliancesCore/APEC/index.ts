@@ -1,4 +1,8 @@
-export type { ApecCountry, ApecOrganizationInfo } from './types'
+export type {
+  ApecCountry,
+  ApecOrganizationInfo,
+  DomesticCourierService,
+} from './types'
 
 import type { ApecCountry, ApecOrganizationInfo } from './types'
 import { australia } from './australia'

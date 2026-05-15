@@ -1,4 +1,5 @@
 import type { OecdCountry } from './types'
+import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const mexico: OecdCountry = {
   name: 'Mexico',
@@ -17,5 +18,6 @@ export const mexico: OecdCountry = {
   currentLeader: 'President Claudia Sheinbaum — verify',
   cryptocurrencyExchanges: ['Bitso', 'CNBV fintech registration evolution — informational'],
   stablecoin: 'MXN fiat-backed issuance pilots vs informal USDT — informational',
+  domesticCourierServices: OECD_DOMESTIC_COURIERS['MX'],
   stockExchange: 'Bolsa Mexicana de Valores (BMV)',
 }

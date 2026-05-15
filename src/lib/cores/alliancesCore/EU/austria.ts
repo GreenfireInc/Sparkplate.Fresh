@@ -1,4 +1,5 @@
 import type { EuCountry } from './types'
+import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const austria: EuCountry = {
   name: 'Austria',
@@ -15,5 +16,6 @@ export const austria: EuCountry = {
   currentLeader: 'Federal President / Federal Chancellor coalition — verify',
   cryptocurrencyExchanges: ['European MiCA-aligned providers; Kraken EUR', 'Bitpanda (AT)'],
   stablecoin: 'EUR-stable tokens under MiCA; USDC/USDT EUR pairs',
+  domesticCourierServices: EU_DOMESTIC_COURIERS['AT'],
   stockExchange: 'Wiener Börse (Vienna Stock Exchange)',
 }

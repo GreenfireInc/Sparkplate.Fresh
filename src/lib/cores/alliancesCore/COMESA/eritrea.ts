@@ -1,4 +1,5 @@
 import type { ComesaCountry } from './types'
+import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const eritrea: ComesaCountry = {
   name: 'Eritrea',
@@ -15,5 +16,6 @@ export const eritrea: ComesaCountry = {
   currentLeader: 'President Isaias Afwerki — verify',
   cryptocurrencyExchanges: ['Limited formal venues; diaspora P2P', 'Binance (P2P, informal)'],
   stablecoin: 'USDT minimal formal access; cash economy strong',
+  domesticCourierServices: COMESA_DOMESTIC_COURIERS['ER'],
   stockExchange: 'No public stock exchange',
 }

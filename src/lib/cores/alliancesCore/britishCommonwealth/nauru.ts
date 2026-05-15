@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const nauru: CommonwealthCountry = {
   name: 'Nauru',
@@ -16,5 +17,6 @@ export const nauru: CommonwealthCountry = {
   currentLeader: 'David Adeang (President) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'AUD; USDT informal',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['NR'],
   stockExchange: 'No national stock exchange — informational',
 }

@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const lebanon: BeltAndRoadInitiativeCountry = {
   name: 'Lebanon',
@@ -16,5 +17,6 @@ export const lebanon: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Joseph Aoun (President); Nawaf Salam (Prime Minister)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'OTC', 'Diaspora remittance rails'],
   stablecoin: 'USDT / USDC; USD parallel economy amid crisis',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['LB'],
   stockExchange: 'Beirut Stock Exchange',
 }

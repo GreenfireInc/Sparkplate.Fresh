@@ -1,4 +1,5 @@
 import type { ApecCountry } from './types'
+import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const russia: ApecCountry = {
   name: 'Russia',
@@ -16,5 +17,6 @@ export const russia: ApecCountry = {
   currentLeader: 'President Vladimir Putin — verify succession narratives',
   cryptocurrencyExchanges: ['Domestic licences thin vs sanctions; OTC mining episodes — informational'],
   stablecoin: 'RUB digital sandbox narratives predominant cashless push — informational',
+  domesticCourierServices: APEC_DOMESTIC_COURIERS['RU'],
   stockExchange: 'Moscow Exchange (sanctions segregation vs Western indices — informational)',
 }

@@ -1,4 +1,5 @@
 import type { OecdCountry } from './types'
+import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const newZealand: OecdCountry = {
   name: 'New Zealand',
@@ -16,5 +17,6 @@ export const newZealand: OecdCountry = {
   currentLeader: 'Prime Minister Christopher Luxon — verify',
   cryptocurrencyExchanges: ['Easy Crypto', 'FMCA/DIA licensing context — informational'],
   stablecoin: 'NZD-referenced issuance (thin); RB NZ supervisory evolution — informational',
+  domesticCourierServices: OECD_DOMESTIC_COURIERS['NZ'],
   stockExchange: 'NZX Limited',
 }

@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const lesotho: CommonwealthCountry = {
   name: 'Lesotho',
@@ -16,5 +17,6 @@ export const lesotho: CommonwealthCountry = {
   currentLeader: 'Sam Matekane (Prime Minister) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['LS'],
   stockExchange: 'Maseru Securities Market',
 }

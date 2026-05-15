@@ -1,4 +1,5 @@
 import type { OecsCountry } from './types'
+import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const saintKittsAndNevis: OecsCountry = {
   name: 'Saint Kitts and Nevis',
@@ -16,5 +17,6 @@ export const saintKittsAndNevis: OecsCountry = {
   currentLeader: 'Prime Minister Terrance Drew — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Nevis IBC fintech proximity — informational'],
   stablecoin: 'XCD peg; informal USDT — informational',
+  domesticCourierServices: OECS_DOMESTIC_COURIERS['KN'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

@@ -1,4 +1,5 @@
 import type { EcowasCountry } from './types'
+import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const nigeria: EcowasCountry = {
   name: 'Nigeria',
@@ -15,5 +16,6 @@ export const nigeria: EcowasCountry = {
   currentLeader: 'President Bola Tinubu — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Luno', 'Quidax', 'Yellow Card', 'CBN stance evolution — verify'],
   stablecoin: 'USDT / USDC P2P; cNGN / stablecoin pilots — verify',
+  domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['NG'],
   stockExchange: 'Nigerian Exchange Group (NGX); ECOWAS Commission host country — informational',
 }

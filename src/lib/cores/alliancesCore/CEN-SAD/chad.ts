@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const chad: CensadCountry = {
   name: 'Chad',
@@ -16,5 +17,6 @@ export const chad: CensadCountry = {
   currentLeader: 'Mahamat Déby Itno (Transitional Military Council era) — verify',
   cryptocurrencyExchanges: ['Regional OTC'],
   stablecoin: 'USDT/USDC informal where present',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['TD'],
   stockExchange: 'No dedicated national equity market',
 }

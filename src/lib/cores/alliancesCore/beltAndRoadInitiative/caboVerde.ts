@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const caboVerde: BeltAndRoadInitiativeCountry = {
   name: 'Cabo Verde',
@@ -16,5 +17,6 @@ export const caboVerde: BeltAndRoadInitiativeCountry = {
   currentLeader: 'José Maria Neves (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'European-facing brokers'],
   stablecoin: 'EUR-linked usage; USDT via international apps',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['CV'],
   stockExchange: 'Bolsa de Valores de Cabo Verde (limited listings)',
 }

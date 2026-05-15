@@ -1,4 +1,5 @@
 import type { EuCountry } from './types'
+import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const spain: EuCountry = {
   name: 'Spain',
@@ -15,5 +16,6 @@ export const spain: EuCountry = {
   currentLeader: 'King Felipe VI; President of Government Pedro Sánchez — verify elections',
   cryptocurrencyExchanges: ['Bit2Me', 'European MiCA registry ES CNMV'],
   stablecoin: 'EUR stablecoins; Iberian liquidity',
+  domesticCourierServices: EU_DOMESTIC_COURIERS['ES'],
   stockExchange: 'BME Growth / Euronext Spain context',
 }

@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const djibouti: CensadCountry = {
   name: 'Djibouti',
@@ -15,5 +16,6 @@ export const djibouti: CensadCountry = {
   currentLeader: 'President Ismail Omar Guelleh — verify',
   cryptocurrencyExchanges: ['Limited formal; regional OTC'],
   stablecoin: 'DJF peg; USDT/USDC informal',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['DJ'],
   stockExchange: 'No major national stock exchange',
 }

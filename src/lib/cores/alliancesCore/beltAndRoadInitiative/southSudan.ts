@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const southSudan: BeltAndRoadInitiativeCountry = {
   name: 'South Sudan',
@@ -16,5 +17,6 @@ export const southSudan: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Salva Kiir Mayardit (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Informal P2P', 'Diaspora OTC'],
   stablecoin: 'USDT informal; humanitarian USD economy',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['SS'],
   stockExchange: 'Juba Stock Exchange (nascent / limited)',
 }

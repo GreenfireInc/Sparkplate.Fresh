@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const qatar: BeltAndRoadInitiativeCountry = {
   name: 'Qatar',
@@ -16,5 +17,6 @@ export const qatar: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Tamim bin Hamad Al Thani (Emir)',
   cryptocurrencyExchanges: ['Regional OTC', 'International brokers; cautious local licensing'],
   stablecoin: 'USDT / USDC informal; wealth-fund economy',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['QA'],
   stockExchange: 'Qatar Stock Exchange',
 }

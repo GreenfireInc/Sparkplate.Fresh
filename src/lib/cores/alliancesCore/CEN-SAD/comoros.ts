@@ -1,4 +1,5 @@
 import type { CensadCountry } from './types'
+import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const comoros: CensadCountry = {
   name: 'Comoros',
@@ -15,5 +16,6 @@ export const comoros: CensadCountry = {
   currentLeader: 'President Azali Assoumani — verify',
   cryptocurrencyExchanges: ['Informal P2P'],
   stablecoin: 'Euro peg via KMF',
+  domesticCourierServices: CENSAD_DOMESTIC_COURIERS['KM'],
   stockExchange: 'No national stock exchange',
 }

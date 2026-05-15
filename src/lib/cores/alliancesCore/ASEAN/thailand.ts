@@ -1,4 +1,5 @@
 import type { AseanCountry } from './types'
+import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const thailand: AseanCountry = {
   name: 'Thailand',
@@ -16,5 +17,6 @@ export const thailand: AseanCountry = {
   currentLeader: 'King Maha Vajiralongkorn; Prime Minister — verify parliamentary cycle',
   cryptocurrencyExchanges: ['SEC Thai digital-asset operator licences (evolving — informational)'],
   stablecoin: 'BOT CBDC sandbox; THB OTC pairs — informational',
+  domesticCourierServices: ASEAN_DOMESTIC_COURIERS['TH'],
   stockExchange: 'Stock Exchange of Thailand SET Bangkok',
 }

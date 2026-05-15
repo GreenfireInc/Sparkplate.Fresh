@@ -1,4 +1,5 @@
 import type { GccCountry } from './types'
+import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const unitedArabEmirates: GccCountry = {
   name: 'United Arab Emirates',
@@ -18,5 +19,6 @@ export const unitedArabEmirates: GccCountry = {
     'President Mohamed bin Zayed Al Nahyan federation President — verify; Dubai Ruler Sheikh Mohammed bin Rashid — verify',
   cryptocurrencyExchanges: ['VARA Dubai regime', 'ADGM FSRA digital-asset licences', 'MENA OTC liquidity — informational'],
   stablecoin: 'AED-referenced issuance (private); CBUAE stablecoin supervisory pilots — informational',
+  domesticCourierServices: GCC_DOMESTIC_COURIERS['AE'],
   stockExchange: 'Abu Dhabi Securities Exchange (ADX); Dubai Financial Market (DFM)',
 }

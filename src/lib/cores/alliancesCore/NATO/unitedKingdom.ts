@@ -1,4 +1,5 @@
 import type { NatoCountry } from './types'
+import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const unitedKingdom: NatoCountry = {
   name: 'United Kingdom',
@@ -18,5 +19,6 @@ export const unitedKingdom: NatoCountry = {
     'Monarch Charles III; Prime Minister Sir Keir Starmer — verify',
   cryptocurrencyExchanges: ['Coinbase e-money UK', 'Kraken', 'FCA context — informational'],
   stablecoin: 'GBP stablecoins UK cryptoasset regime evolution — informational',
+  domesticCourierServices: NATO_DOMESTIC_COURIERS['GB'],
   stockExchange: 'London Stock Exchange Group',
 }

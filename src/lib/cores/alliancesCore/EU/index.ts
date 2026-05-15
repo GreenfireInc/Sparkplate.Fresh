@@ -1,6 +1,7 @@
-export type { EuCountry, EuOrganizationInfo } from './types'
+export type { EuCountry, EuOrganizationInfo, DomesticCourierService } from './types'
 
 import type { EuCountry, EuOrganizationInfo } from './types'
+import { EU_MEMBER_ISO_CODES } from './euMemberIsoCodes'
 import { austria } from './austria'
 import { belgium } from './belgium'
 import { bulgaria } from './bulgaria'
@@ -100,34 +101,6 @@ export const eu: EuOrganizationInfo = {
     '1993-11-01 Maastricht Treaty (EU legal personality); Lisbon Treaty 2009; continuous acquis evolution — informational',
   headquartersCity: 'Brussels',
   headquartersCountry: 'Belgium',
-  memberStatesIso2: [
-    'AT',
-    'BE',
-    'BG',
-    'HR',
-    'CY',
-    'CZ',
-    'DK',
-    'EE',
-    'FI',
-    'FR',
-    'DE',
-    'GR',
-    'HU',
-    'IE',
-    'IT',
-    'LV',
-    'LT',
-    'LU',
-    'MT',
-    'NL',
-    'PL',
-    'PT',
-    'RO',
-    'SK',
-    'SI',
-    'ES',
-    'SE',
-  ],
+  memberStatesIso2: EU_MEMBER_ISO_CODES,
   memberRecordsInModule: 27,
 }

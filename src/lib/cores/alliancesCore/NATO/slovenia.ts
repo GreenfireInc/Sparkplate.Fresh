@@ -1,4 +1,5 @@
 import type { NatoCountry } from './types'
+import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const slovenia: NatoCountry = {
   name: 'Slovenia',
@@ -16,5 +17,6 @@ export const slovenia: NatoCountry = {
   currentLeader: 'President Nataša Pirc Musar; Prime Minister Robert Golob — verify',
   cryptocurrencyExchanges: ['EU-compliant brokers Ljubljana corridor — informational'],
   stablecoin: 'EUR stablecoins MiCA — informational',
+  domesticCourierServices: NATO_DOMESTIC_COURIERS['SI'],
   stockExchange: 'Ljubljana Stock Exchange',
 }

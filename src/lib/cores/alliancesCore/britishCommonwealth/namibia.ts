@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const namibia: CommonwealthCountry = {
   name: 'Namibia',
@@ -16,5 +17,6 @@ export const namibia: CommonwealthCountry = {
   currentLeader: 'Netumbo Nandi-Ndaitwah (President) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['NA'],
   stockExchange: 'Namibian Stock Exchange',
 }

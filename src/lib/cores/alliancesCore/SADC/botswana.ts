@@ -1,4 +1,5 @@
 import type { SadcCountry } from './types'
+import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const botswana: SadcCountry = {
   name: 'Botswana',
@@ -15,5 +16,6 @@ export const botswana: SadcCountry = {
   currentLeader: 'President Duma Boko — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Compliance evolving — verify'],
   stablecoin: 'Pula floated; informal USD/USDT',
+  domesticCourierServices: SADC_DOMESTIC_COURIERS['BW'],
   stockExchange: 'Botswana Stock Exchange (BSE)',
 }

@@ -1,4 +1,5 @@
 import type { IoraCountry } from './types'
+import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const malaysia: IoraCountry = {
   name: 'Malaysia',
@@ -17,5 +18,6 @@ export const malaysia: IoraCountry = {
     'Yang di-Pertuan Agong — verify rotation; Prime Minister Anwar Ibrahim — verify coalition',
   cryptocurrencyExchanges: ['SC digital-asset exchange pilots — informational'],
   stablecoin: 'MYR digital bank pilots — informational',
+  domesticCourierServices: IORA_DOMESTIC_COURIERS['MY'],
   stockExchange: 'Bursa Malaysia',
 }

@@ -1,4 +1,9 @@
-export type { ArabLeagueCountry, ArabLeagueMembership, ArabLeagueOrganizationInfo } from './types'
+export type {
+  ArabLeagueCountry,
+  ArabLeagueMembership,
+  ArabLeagueOrganizationInfo,
+  DomesticCourierService,
+} from './types'
 
 import type { ArabLeagueCountry, ArabLeagueOrganizationInfo } from './types'
 import { algeria } from './algeria'

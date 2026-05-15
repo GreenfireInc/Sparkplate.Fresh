@@ -1,4 +1,5 @@
 import type { EacCountry } from './types'
+import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const kenya: EacCountry = {
   name: 'Kenya',
@@ -15,5 +16,6 @@ export const kenya: EacCountry = {
   currentLeader: 'President William Ruto — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local startups'],
   stablecoin: 'USDT / USDC; regulatory stance evolving — verify',
+  domesticCourierServices: EAC_DOMESTIC_COURIERS['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
 }

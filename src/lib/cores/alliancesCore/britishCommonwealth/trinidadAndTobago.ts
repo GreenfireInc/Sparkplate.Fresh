@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const trinidadAndTobago: CommonwealthCountry = {
   name: 'Trinidad and Tobago',
@@ -16,5 +17,6 @@ export const trinidadAndTobago: CommonwealthCountry = {
   currentLeader: 'Kamla Persad-Bissessar (Prime Minister) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['TT'],
   stockExchange: 'Trinidad and Tobago Stock Exchange',
 }

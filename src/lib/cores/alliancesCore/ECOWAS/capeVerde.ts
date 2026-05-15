@@ -1,4 +1,5 @@
 import type { EcowasCountry } from './types'
+import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const capeVerde: EcowasCountry = {
   name: 'Cape Verde',
@@ -15,5 +16,6 @@ export const capeVerde: EcowasCountry = {
   currentLeader: 'President José Maria Neves — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'European-facing brokers'],
   stablecoin: 'EUR-linked usage; USDT via international rails',
+  domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['CV'],
   stockExchange: 'Bolsa de Valores de Cabo Verde (limited listings)',
 }

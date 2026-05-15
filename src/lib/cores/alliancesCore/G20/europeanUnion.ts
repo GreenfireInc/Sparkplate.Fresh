@@ -1,4 +1,5 @@
 import type { G20InstitutionalMember } from './types'
+import { G20_INSTITUTIONAL_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const europeanUnion: G20InstitutionalMember = {
   name: 'European Union',
@@ -25,4 +26,5 @@ export const europeanUnion: G20InstitutionalMember = {
   ],
   currentRepresentatives:
     'European Commission President Ursula von der Leyen; European Council President António Costa; ECB President Christine Lagarde — verify',
+  domesticCourierServices: G20_INSTITUTIONAL_DOMESTIC_COURIERS.EU,
 }

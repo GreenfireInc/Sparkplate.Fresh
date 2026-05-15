@@ -1,4 +1,5 @@
 import type { AseanCountry } from './types'
+import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const malaysia: AseanCountry = {
   name: 'Malaysia',
@@ -17,5 +18,6 @@ export const malaysia: AseanCountry = {
     'Yang di-Pertuan Agong — verify rotation; Prime Minister Anwar Ibrahim — verify coalition',
   cryptocurrencyExchanges: ['SC-registered digital exchanges pilot evolution — informational'],
   stablecoin: 'MYR digital bank pilots; ringgit non-internationalised policy — informational',
+  domesticCourierServices: ASEAN_DOMESTIC_COURIERS['MY'],
   stockExchange: 'Bursa Malaysia (Kuala Lumpur)',
 }

@@ -1,4 +1,5 @@
 import type { SadcCountry } from './types'
+import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const malawi: SadcCountry = {
   name: 'Malawi',
@@ -15,5 +16,6 @@ export const malawi: SadcCountry = {
   currentLeader: 'President Lazarus Chakwera — verify',
   cryptocurrencyExchanges: ['Yellow Card context', 'OTC informal'],
   stablecoin: 'Informal USDT',
+  domesticCourierServices: SADC_DOMESTIC_COURIERS['MW'],
   stockExchange: 'Malawi Stock Exchange',
 }

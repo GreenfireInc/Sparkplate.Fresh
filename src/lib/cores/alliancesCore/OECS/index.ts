@@ -1,6 +1,7 @@
-export type { OecsCountry, OecsOrganizationInfo } from './types'
+export type { OecsCountry, OecsOrganizationInfo, DomesticCourierService } from './types'
 
 import type { OecsCountry, OecsOrganizationInfo } from './types'
+import { OECS_MEMBER_ISO_CODES } from './oecsMemberIsoCodes'
 import { antiguaAndBarbuda } from './antiguaAndBarbuda'
 import { anguilla } from './anguilla'
 import { dominica } from './dominica'
@@ -44,6 +45,6 @@ export const oecs: OecsOrganizationInfo = {
     '1981-06-18 Treaty of Basseterre; Revised Treaty of Basseterre 2010 (ECEU / single market evolution — informational)',
   headquartersCity: 'Castries',
   headquartersCountry: 'Saint Lucia',
-  memberStatesIso2: ['AG', 'DM', 'GD', 'MS', 'KN', 'LC', 'VC', 'AI'],
+  memberStatesIso2: OECS_MEMBER_ISO_CODES,
   memberRecordsInModule: 8,
 }

@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const togo: BeltAndRoadInitiativeCountry = {
   name: 'Togo',
@@ -16,5 +17,6 @@ export const togo: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Faure Gnassingbé (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Regional OTC'],
   stablecoin: 'USDT P2P; XOF peg',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['TG'],
   stockExchange: 'BRVM regional listings; Lomé financial center activity',
 }

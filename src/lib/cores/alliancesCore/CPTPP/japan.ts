@@ -1,4 +1,5 @@
 import type { CptppCountry } from './types'
+import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const japan: CptppCountry = {
   name: 'Japan',
@@ -15,5 +16,6 @@ export const japan: CptppCountry = {
   currentLeader: 'Prime Minister — verify',
   cryptocurrencyExchanges: ['bitFlyer', 'Coincheck', 'GMO Coin', 'Global institutional participation'],
   stablecoin: 'Stablecoin issuance rules evolving — verify ; USDT limited domestic retail',
+  domesticCourierServices: CPTPP_DOMESTIC_COURIERS['JP'],
   stockExchange: 'Tokyo Stock Exchange (TSE)',
 }

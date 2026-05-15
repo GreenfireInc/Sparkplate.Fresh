@@ -1,4 +1,5 @@
 import type { CptppCountry } from './types'
+import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const mexico: CptppCountry = {
   name: 'Mexico',
@@ -15,5 +16,6 @@ export const mexico: CptppCountry = {
   currentLeader: 'President Claudia Sheinbaum — verify',
   cryptocurrencyExchanges: ['Bitso', 'VOLTA', 'Global platforms (travel context)'],
   stablecoin: 'USDT / USDC; CBDC exploratory discourse',
+  domesticCourierServices: CPTPP_DOMESTIC_COURIERS['MX'],
   stockExchange: 'Mexican Stock Exchange (Bolsa Mexicana de Valores)',
 }

@@ -1,4 +1,5 @@
 import type { EccasCountry } from './types'
+import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const cameroon: EccasCountry = {
   name: 'Cameroon',
@@ -16,5 +17,6 @@ export const cameroon: EccasCountry = {
   currentLeader: 'President Paul Biya — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC P2P; XAF euro peg via BEAC',
+  domesticCourierServices: ECCAS_DOMESTIC_COURIERS['CM'],
   stockExchange: 'Douala Stock Exchange (DSX)',
 }

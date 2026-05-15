@@ -1,4 +1,5 @@
 import type { SadcCountry } from './types'
+import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const tanzania: SadcCountry = {
   name: 'Tanzania',
@@ -15,5 +16,6 @@ export const tanzania: SadcCountry = {
   currentLeader: 'President Samia Suluhu Hassan — verify',
   cryptocurrencyExchanges: ['Bank of Tanzania wary stance historically; OTC informal'],
   stablecoin: 'Informal USD/USDT',
+  domesticCourierServices: SADC_DOMESTIC_COURIERS['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange (DSE)',
 }

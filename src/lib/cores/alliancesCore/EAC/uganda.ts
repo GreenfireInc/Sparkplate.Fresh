@@ -1,4 +1,5 @@
 import type { EacCountry } from './types'
+import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const uganda: EacCountry = {
   name: 'Uganda',
@@ -15,5 +16,6 @@ export const uganda: EacCountry = {
   currentLeader: 'President Yoweri Museveni — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Chipper Cash'],
   stablecoin: 'USDT / USDC P2P',
+  domesticCourierServices: EAC_DOMESTIC_COURIERS['UG'],
   stockExchange: 'Uganda Securities Exchange',
 }

@@ -1,4 +1,5 @@
 import type { OecsCountry } from './types'
+import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const saintVincentAndTheGrenadines: OecsCountry = {
   name: 'Saint Vincent and the Grenadines',
@@ -16,5 +17,6 @@ export const saintVincentAndTheGrenadines: OecsCountry = {
   currentLeader: 'Prime Minister Ralph Gonsalves — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'CBDC pilot narratives (ECCB regional) — informational'],
   stablecoin: 'XCD peg; informal USDT — informational',
+  domesticCourierServices: OECS_DOMESTIC_COURIERS['VC'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

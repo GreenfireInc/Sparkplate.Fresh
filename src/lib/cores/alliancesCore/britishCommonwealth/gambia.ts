@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const gambia: CommonwealthCountry = {
   name: 'Gambia',
@@ -16,5 +17,6 @@ export const gambia: CommonwealthCountry = {
   currentLeader: 'Adama Barrow (President)',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal; no major GMD stablecoin',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['GM'],
   stockExchange: 'Gambia Stock Exchange',
 }

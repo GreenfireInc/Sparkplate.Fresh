@@ -1,4 +1,5 @@
 import type { EacCountry } from './types'
+import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const democraticRepublicOfTheCongo: EacCountry = {
   name: 'Democratic Republic of the Congo',
@@ -15,5 +16,6 @@ export const democraticRepublicOfTheCongo: EacCountry = {
   currentLeader: 'President Félix Tshisekedi — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC widespread P2P',
+  domesticCourierServices: EAC_DOMESTIC_COURIERS['CD'],
   stockExchange: 'Domestic equities thin — informal OTC and regional linkage',
 }

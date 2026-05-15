@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const madagascar: BeltAndRoadInitiativeCountry = {
   name: 'Madagascar',
@@ -16,5 +17,6 @@ export const madagascar: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Andry Rajoelina (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Local P2P', 'International brokers'],
   stablecoin: 'USDT informal; no MGA stablecoin',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['MG'],
   stockExchange: 'Madagascar Stock Exchange (SEM)',
 }

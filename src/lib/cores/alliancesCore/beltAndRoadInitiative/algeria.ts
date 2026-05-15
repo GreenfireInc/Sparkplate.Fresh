@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const algeria: BeltAndRoadInitiativeCountry = {
   name: 'Algeria',
@@ -16,5 +17,6 @@ export const algeria: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Abdelmadjid Tebboune (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'KuCoin', 'Regional OTC brokers'],
   stablecoin: 'USDT / USDC common in informal crypto markets; no official DZD stablecoin',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['DZ'],
   stockExchange: 'Algiers Stock Exchange',
 }

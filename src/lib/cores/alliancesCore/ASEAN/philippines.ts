@@ -1,4 +1,5 @@
 import type { AseanCountry } from './types'
+import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const philippines: AseanCountry = {
   name: 'Philippines',
@@ -16,5 +17,6 @@ export const philippines: AseanCountry = {
   currentLeader: 'President Ferdinand Marcos Jr. — verify',
   cryptocurrencyExchanges: ['BSP VASP registration regime; Coinbase PH reference — informational'],
   stablecoin: 'PHP stable experiments; USDT remittance rails — informational',
+  domesticCourierServices: ASEAN_DOMESTIC_COURIERS['PH'],
   stockExchange: 'Philippine Stock Exchange (PSE)',
 }

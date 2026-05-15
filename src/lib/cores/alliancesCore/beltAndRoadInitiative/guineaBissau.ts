@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const guineaBissau: BeltAndRoadInitiativeCountry = {
   name: 'Guinea-Bissau',
@@ -16,5 +17,6 @@ export const guineaBissau: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Umaro Sissoco Embaló (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional P2P'],
   stablecoin: 'USDT P2P; XOF peg',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['GW'],
   stockExchange: 'No significant national exchange; BRVM regional access',
 }

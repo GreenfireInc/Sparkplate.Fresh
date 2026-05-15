@@ -4,13 +4,17 @@
 
 export type AfricanUnionMembership = 'member' | 'suspended'
 
-/** National / domestic courier row (informational; verify URLs and handles before production). */
+/**
+ * National / domestic courier row (informational; verify URLs, handles, and API bases before production).
+ * `apiEndpoint` is a public developer / REST base URL when documented; otherwise empty string.
+ */
 export interface DomesticCourierService {
   name: string
   website: string
   email: string
   instagram: string
   twitter: string
+  apiEndpoint: string
 }
 
 export interface AfricanUnionCountry {

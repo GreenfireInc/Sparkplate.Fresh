@@ -1,6 +1,7 @@
-export type { OecdCountry, OecdOrganizationInfo } from './types'
+export type { OecdCountry, OecdOrganizationInfo, DomesticCourierService } from './types'
 
 import type { OecdCountry, OecdOrganizationInfo } from './types'
+import { OECD_MEMBER_ISO_CODES } from './oecdMemberIsoCodes'
 import { australia } from './australia'
 import { austria } from './austria'
 import { belgium } from './belgium'
@@ -128,43 +129,6 @@ export const oecd: OecdOrganizationInfo = {
     '1961-09-30 Convention signed superseding Organisation for European Economic Co-operation lineage (institutional successors and enlargements — informational)',
   headquartersCity: 'Paris',
   headquartersCountry: 'France',
-  memberStatesIso2: [
-    'AU',
-    'AT',
-    'BE',
-    'CA',
-    'CL',
-    'CO',
-    'CR',
-    'CZ',
-    'DK',
-    'EE',
-    'FI',
-    'FR',
-    'DE',
-    'GR',
-    'HU',
-    'IS',
-    'IE',
-    'IT',
-    'JP',
-    'LV',
-    'LT',
-    'LU',
-    'MX',
-    'NL',
-    'NZ',
-    'NO',
-    'PL',
-    'PT',
-    'SK',
-    'SI',
-    'ES',
-    'SE',
-    'CH',
-    'TR',
-    'GB',
-    'US',
-  ],
+  memberStatesIso2: OECD_MEMBER_ISO_CODES,
   memberRecordsInModule: 36,
 }

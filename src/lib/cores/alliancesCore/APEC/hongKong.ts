@@ -1,4 +1,5 @@
 import type { ApecCountry } from './types'
+import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const hongKong: ApecCountry = {
   name: 'Hong Kong',
@@ -18,5 +19,6 @@ export const hongKong: ApecCountry = {
     'Chief Executive — verify SAR appointment cycle; Liaison oversight — informational',
   cryptocurrencyExchanges: ['HashKey OSL licensed VA trading evolution — informational'],
   stablecoin: 'HKMA stable-token regulatory sandbox narratives — informational',
+  domesticCourierServices: APEC_DOMESTIC_COURIERS['HK'],
   stockExchange: 'Hong Kong Stock Exchange (HKEX)',
 }

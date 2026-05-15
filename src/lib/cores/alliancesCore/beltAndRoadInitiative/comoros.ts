@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const comoros: BeltAndRoadInitiativeCountry = {
   name: 'Comoros',
@@ -16,5 +17,6 @@ export const comoros: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Azali Assoumani (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional mobile money bridges'],
   stablecoin: 'USDT / USDC limited; KMF',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['KM'],
   stockExchange: 'No major national stock exchange',
 }

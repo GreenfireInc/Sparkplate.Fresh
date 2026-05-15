@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const nigeria: CommonwealthCountry = {
   name: 'Nigeria',
@@ -16,5 +17,6 @@ export const nigeria: CommonwealthCountry = {
   currentLeader: 'Bola Tinubu (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Luno', 'Yellow Card'],
   stablecoin: 'eNaira (CBDC); USDT informal',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['NG'],
   stockExchange: 'Nigerian Exchange Group',
 }

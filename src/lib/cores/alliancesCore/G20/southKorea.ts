@@ -1,4 +1,5 @@
 import type { G20Country } from './types'
+import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const southKorea: G20Country = {
   name: 'South Korea',
@@ -17,5 +18,6 @@ export const southKorea: G20Country = {
   currentLeader: 'President Lee Jae-myung — verify',
   cryptocurrencyExchanges: ['Upbit', 'Bithumb', 'Coinone / Korbit FSC VASP registration regime — informational'],
   stablecoin: 'KRW-pegged issuance constrained by FSC; offshore USDT/USDC liquidity — informational',
+  domesticCourierServices: G20_DOMESTIC_COURIERS['KR'],
   stockExchange: 'Korea Exchange KRX (KOSPI / KOSDAQ)',
 }

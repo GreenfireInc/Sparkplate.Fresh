@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const vanuatu: CommonwealthCountry = {
   name: 'Vanuatu',
@@ -16,5 +17,6 @@ export const vanuatu: CommonwealthCountry = {
   currentLeader: 'Charlot Salwai (Prime Minister) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['VU'],
   stockExchange: 'Vanuatu Securities Exchange',
 }

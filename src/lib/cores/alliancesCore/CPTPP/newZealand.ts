@@ -1,4 +1,5 @@
 import type { CptppCountry } from './types'
+import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const newZealand: CptppCountry = {
   name: 'New Zealand',
@@ -15,5 +16,6 @@ export const newZealand: CptppCountry = {
   currentLeader: 'Prime Minister Christopher Luxon — verify',
   cryptocurrencyExchanges: ['Easy Crypto', 'Independent Reserve AU/NZ corridor', 'Global brokers'],
   stablecoin: 'NZD-pegged limited; USDC adoption in fintech — verify',
+  domesticCourierServices: CPTPP_DOMESTIC_COURIERS['NZ'],
   stockExchange: 'NZX Limited',
 }

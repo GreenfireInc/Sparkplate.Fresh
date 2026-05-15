@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const malaysia: CommonwealthCountry = {
   name: 'Malaysia',
@@ -16,5 +17,6 @@ export const malaysia: CommonwealthCountry = {
   currentLeader: 'Anwar Ibrahim (Prime Minister)',
   cryptocurrencyExchanges: ['Luno', 'Tokenize', 'Binance (P2P)'],
   stablecoin: 'MYR stablecoins limited; USDT common',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['MY'],
   stockExchange: 'Bursa Malaysia',
 }

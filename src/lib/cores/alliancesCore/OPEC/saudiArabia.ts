@@ -1,4 +1,5 @@
 import type { OpecCountry } from './types'
+import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const saudiArabia: OpecCountry = {
   name: 'Saudi Arabia',
@@ -17,5 +18,6 @@ export const saudiArabia: OpecCountry = {
     'Custodian King Salman bin Abdulaziz Al Saud — verify; Crown Prime Minister Mohammed bin Salman — verify',
   cryptocurrencyExchanges: ['SAMA sandbox licensees; regional institutional custody pilots — informational'],
   stablecoin: 'SAMA stablecoin pilots; fiat SAR anchoring — informational',
+  domesticCourierServices: OPEC_DOMESTIC_COURIERS['SA'],
   stockExchange: 'Tadawul Saudi Exchange (national benchmark — informational)',
 }

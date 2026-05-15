@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const papuaNewGuinea: BeltAndRoadInitiativeCountry = {
   name: 'Papua New Guinea',
@@ -16,5 +17,6 @@ export const papuaNewGuinea: BeltAndRoadInitiativeCountry = {
   currentLeader: '(Verify with official government sources)',
   cryptocurrencyExchanges: [ 'Binance (P2P)', 'International OTC', 'Local regulation varies' ],
   stablecoin: 'USDT / USDC common globally; legality varies by jurisdiction',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['PG'],
   stockExchange: 'National or regional exchange (verify)',
 }

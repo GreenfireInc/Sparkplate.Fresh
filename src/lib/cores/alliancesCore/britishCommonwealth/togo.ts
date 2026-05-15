@@ -1,4 +1,5 @@
 import type { CommonwealthCountry } from './types'
+import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const togo: CommonwealthCountry = {
   name: 'Togo',
@@ -16,5 +17,6 @@ export const togo: CommonwealthCountry = {
   currentLeader: 'Faure Gnassingbé (President) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'XOF peg to EUR; USDT informal',
+  domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['TG'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (regional)',
 }

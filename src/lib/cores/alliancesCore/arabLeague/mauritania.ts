@@ -1,4 +1,5 @@
 import type { ArabLeagueCountry } from './types'
+import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const mauritania: ArabLeagueCountry = {
   name: 'Mauritania',
@@ -16,5 +17,6 @@ export const mauritania: ArabLeagueCountry = {
   currentLeader: 'Mohamed Ould Ghazouani (President)',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC', 'Peer-to-peer networks'],
   stablecoin: 'USDT informal; no MRU stablecoin',
+  domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['MR'],
   stockExchange: 'Bourse Notation Agréée (limited)',
 }

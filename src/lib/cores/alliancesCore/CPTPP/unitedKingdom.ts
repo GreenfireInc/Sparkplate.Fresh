@@ -1,4 +1,5 @@
 import type { CptppCountry } from './types'
+import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const unitedKingdom: CptppCountry = {
   name: 'United Kingdom',
@@ -16,5 +17,6 @@ export const unitedKingdom: CptppCountry = {
   currentLeader: 'King Charles III; Prime Minister Keir Starmer — verify',
   cryptocurrencyExchanges: ['Coinbase', 'Kraken', 'Gemini EU/UK hubs', 'FCA-register evolution'],
   stablecoin: 'GBP stablecoins (EMI issuers); USDC institutional',
+  domesticCourierServices: CPTPP_DOMESTIC_COURIERS['GB'],
   stockExchange: 'London Stock Exchange Group (LSEG)',
 }

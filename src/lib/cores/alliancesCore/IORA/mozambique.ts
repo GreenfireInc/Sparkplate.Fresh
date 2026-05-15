@@ -1,4 +1,5 @@
 import type { IoraCountry } from './types'
+import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const mozambique: IoraCountry = {
   name: 'Mozambique',
@@ -16,5 +17,6 @@ export const mozambique: IoraCountry = {
   currentLeader: 'President Daniel Chapo — verify; Prime Minister — verify',
   cryptocurrencyExchanges: ['Informal P2P; banking dollarisation episodes — informational'],
   stablecoin: 'USD informal settlement in extractives corridors — informational',
+  domesticCourierServices: IORA_DOMESTIC_COURIERS['MZ'],
   stockExchange: 'Bolsa de Valores de Moçambique (Maputo — informational)',
 }

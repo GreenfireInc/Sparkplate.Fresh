@@ -1,4 +1,5 @@
 import type { OecsCountry } from './types'
+import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const anguilla: OecsCountry = {
   name: 'Anguilla',
@@ -16,5 +17,6 @@ export const anguilla: OecsCountry = {
   currentLeader: 'Premier — verify; Governor (UK) — verify',
   cryptocurrencyExchanges: ['Regional OTC', 'offshore services proximity — informational'],
   stablecoin: 'XCD peg; informal USDT — informational',
+  domesticCourierServices: OECS_DOMESTIC_COURIERS['AI'],
   stockExchange: 'No dedicated national exchange; regional ECSE context — informational',
 }

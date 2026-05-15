@@ -1,4 +1,5 @@
 import type { ComesaCountry } from './types'
+import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const democraticRepublicOfTheCongo: ComesaCountry = {
   name: 'Democratic Republic of the Congo',
@@ -15,5 +16,6 @@ export const democraticRepublicOfTheCongo: ComesaCountry = {
   currentLeader: 'President Félix Tshisekedi — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC widespread P2P',
+  domesticCourierServices: COMESA_DOMESTIC_COURIERS['CD'],
   stockExchange: 'BRVM / thin domestic equity context — informal OTC predominant',
 }

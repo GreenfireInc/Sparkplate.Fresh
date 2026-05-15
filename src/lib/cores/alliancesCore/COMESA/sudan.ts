@@ -1,4 +1,5 @@
 import type { ComesaCountry } from './types'
+import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const sudan: ComesaCountry = {
   name: 'Sudan',
@@ -15,5 +16,6 @@ export const sudan: ComesaCountry = {
   currentLeader: 'Effective authority fragmented — Abdel Fattah al-Burhan (Chair, Sovereignty Council) baseline — verify',
   cryptocurrencyExchanges: ['Binance (P2P)', 'OTC; informal amid conflict'],
   stablecoin: 'USDT informal; banking disruption during conflict',
+  domesticCourierServices: COMESA_DOMESTIC_COURIERS['SD'],
   stockExchange: 'Khartoum Stock Exchange (operations disrupted)',
 }

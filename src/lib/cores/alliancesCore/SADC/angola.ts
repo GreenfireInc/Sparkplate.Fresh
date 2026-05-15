@@ -1,4 +1,5 @@
 import type { SadcCountry } from './types'
+import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const angola: SadcCountry = {
   name: 'Angola',
@@ -15,5 +16,6 @@ export const angola: SadcCountry = {
   currentLeader: 'President João Lourenço — verify',
   cryptocurrencyExchanges: ['Limited formal footprint; OTC / diaspora informal'],
   stablecoin: 'USDT/USDC informal alongside AOA volatility',
+  domesticCourierServices: SADC_DOMESTIC_COURIERS['AO'],
   stockExchange: 'Bodiva (Bolsa de Dívida e Valores de Angola — equity depth limited)',
 }

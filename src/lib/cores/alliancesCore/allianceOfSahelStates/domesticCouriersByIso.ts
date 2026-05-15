@@ -5,14 +5,15 @@ function c(
   website: string,
   email: string,
   instagram: string,
-  twitter: string
+  twitter: string,
+  apiEndpoint: string,
 ): DomesticCourierService {
-  return { name, website, email, instagram, twitter }
+  return { name, website, email, instagram, twitter, apiEndpoint }
 }
 
 /**
  * Domestic courier reference rows by ISO 3166-1 alpha-2 for Alliance of Sahel States members.
- * Verify URLs, emails, and social handles locally before production use.
+ * Verify URLs, emails, social handles, and `apiEndpoint` bases locally before production use.
  */
 export const AES_DOMESTIC_COURIERS = {
   BF: [
@@ -22,6 +23,7 @@ export const AES_DOMESTIC_COURIERS = {
       'contact@sonapost.bf',
       '',
       '',
+      '',
     ),
     c(
       'DHL Burkina Faso',
@@ -29,6 +31,7 @@ export const AES_DOMESTIC_COURIERS = {
       'bf.customerservice@dhl.com',
       'https://www.instagram.com/dhlexpress/',
       'https://x.com/DHLexpress',
+      'https://api-eu.dhl.com/',
     ),
     c(
       'FedEx Burkina Faso',
@@ -36,6 +39,7 @@ export const AES_DOMESTIC_COURIERS = {
       'support@fedex.com',
       'https://www.instagram.com/fedex/',
       'https://x.com/FedEx',
+      'https://apis.fedex.com/',
     ),
     c(
       'UPS Burkina Faso',
@@ -43,6 +47,7 @@ export const AES_DOMESTIC_COURIERS = {
       'help@ups.com',
       'https://www.instagram.com/ups/',
       'https://x.com/UPS',
+      'https://onlinetools.ups.com/api/',
     ),
   ],
   ML: [
@@ -52,6 +57,7 @@ export const AES_DOMESTIC_COURIERS = {
       'contact@post.ml',
       '',
       '',
+      '',
     ),
     c(
       'DHL Mali',
@@ -59,6 +65,7 @@ export const AES_DOMESTIC_COURIERS = {
       'ml.customerservice@dhl.com',
       'https://www.instagram.com/dhlexpress/',
       'https://x.com/DHLexpress',
+      'https://api-eu.dhl.com/',
     ),
     c(
       'FedEx Mali (Bamako)',
@@ -66,6 +73,7 @@ export const AES_DOMESTIC_COURIERS = {
       'support@fedex.com',
       'https://www.instagram.com/fedex/',
       'https://x.com/FedEx',
+      'https://apis.fedex.com/',
     ),
     c(
       'UPS Mali',
@@ -73,13 +81,15 @@ export const AES_DOMESTIC_COURIERS = {
       'help@ups.com',
       'https://www.instagram.com/ups/',
       'https://x.com/UPS',
+      'https://onlinetools.ups.com/api/',
     ),
   ],
   NE: [
     c(
       'La Poste du Niger',
-      'http://www.nigerpost.ne/',
+      'https://www.nigerpost.ne/',
       'npn@refer.ne',
+      '',
       '',
       '',
     ),
@@ -89,6 +99,7 @@ export const AES_DOMESTIC_COURIERS = {
       'ne.customerservice@dhl.com',
       'https://www.instagram.com/dhlexpress/',
       'https://x.com/DHLexpress',
+      'https://api-eu.dhl.com/',
     ),
     c(
       'FedEx Niger (Niamey)',
@@ -96,6 +107,7 @@ export const AES_DOMESTIC_COURIERS = {
       'support@fedex.com',
       'https://www.instagram.com/fedex/',
       'https://x.com/FedEx',
+      'https://apis.fedex.com/',
     ),
     c(
       'UPS Niger',
@@ -103,6 +115,7 @@ export const AES_DOMESTIC_COURIERS = {
       'help@ups.com',
       'https://www.instagram.com/ups/',
       'https://x.com/UPS',
+      'https://onlinetools.ups.com/api/',
     ),
   ],
 } satisfies Record<string, DomesticCourierService[]>

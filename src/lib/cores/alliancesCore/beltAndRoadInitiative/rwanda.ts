@@ -1,4 +1,5 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
+import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 
 export const rwanda: BeltAndRoadInitiativeCountry = {
   name: 'Rwanda',
@@ -16,5 +17,6 @@ export const rwanda: BeltAndRoadInitiativeCountry = {
   currentLeader: 'Paul Kagame (President)',
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Blockchain hub initiatives'],
   stablecoin: 'USDT / USDC; central bank exploring CBDC',
+  domesticCourierServices: BRI_DOMESTIC_COURIERS['RW'],
   stockExchange: 'Rwanda Stock Exchange',
 }
