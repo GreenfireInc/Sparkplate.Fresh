@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const philippines: ApecCountry = {
   name: 'Philippines',
@@ -18,5 +19,6 @@ export const philippines: ApecCountry = {
   cryptocurrencyExchanges: ['BSP VASP registry evolution — informational'],
   stablecoin: 'PHP pilots; USDT remittance overlays — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['PH'],
+  notableUniversities: APEC_NOTABLE_UNIVERSITIES['PH'],
   stockExchange: 'Philippine Stock Exchange (PSE)',
 }

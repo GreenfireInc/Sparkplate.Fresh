@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const italy: EuCountry = {
   name: 'Italy',
@@ -17,5 +18,6 @@ export const italy: EuCountry = {
   cryptocurrencyExchanges: ['Conio', 'Young Platform', 'MiCA-aligned CASPs'],
   stablecoin: 'EUR stablecoins; ECB digital euro pilots',
   domesticCourierServices: EU_DOMESTIC_COURIERS['IT'],
+  notableUniversities: EU_NOTABLE_UNIVERSITIES['IT'],
   stockExchange: 'Euronext Milan (Borsa Italiana legacy)',
 }

@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const austria: OecdCountry = {
   name: 'Austria',
@@ -18,5 +19,6 @@ export const austria: OecdCountry = {
   cryptocurrencyExchanges: ['European MiCA-aligned providers; Kraken EUR', 'Bitpanda (AT)'],
   stablecoin: 'EUR-stable tokens under MiCA; USDC/USDT EUR pairs',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['AT'],
+  notableUniversities: OECD_NOTABLE_UNIVERSITIES['AT'],
   stockExchange: 'Wiener Börse (Vienna Stock Exchange)',
 }

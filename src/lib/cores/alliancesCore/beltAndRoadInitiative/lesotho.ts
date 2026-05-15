@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const lesotho: BeltAndRoadInitiativeCountry = {
   name: 'Lesotho',
@@ -18,5 +19,6 @@ export const lesotho: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Luno', 'VALR', 'Binance (P2P)'],
   stablecoin: 'USDT via South African financial links',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['LS'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['LS'],
   stockExchange: 'Maseru Securities Market (limited)',
 }

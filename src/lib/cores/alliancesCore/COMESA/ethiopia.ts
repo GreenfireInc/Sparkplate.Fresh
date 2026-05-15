@@ -1,5 +1,6 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const ethiopia: ComesaCountry = {
   name: 'Ethiopia',
@@ -18,5 +19,6 @@ export const ethiopia: ComesaCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC P2P; National Bank cautious on crypto',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['ET'],
+  notableUniversities: COMESA_NOTABLE_UNIVERSITIES['ET'],
   stockExchange: 'Ethiopian Securities Exchange — verify launch / listings',
 }

@@ -1,5 +1,6 @@
 import type { FiveEyesCountry } from './types'
 import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const unitedStates: FiveEyesCountry = {
   name: 'United States',
@@ -19,5 +20,6 @@ export const unitedStates: FiveEyesCountry = {
   cryptocurrencyExchanges: ['Coinbase', 'Kraken', 'Gemini state MSB/licensing patchwork — informational'],
   stablecoin: 'USDT/USDC and USD fiat-backed issuance (federal/stablecoin legislative evolution — informational)',
   domesticCourierServices: FIVE_EYES_DOMESTIC_COURIERS['US'],
+  notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['US'],
   stockExchange: 'NYSE/Nasdaq consolidated US equity liquidity (dual listing customary — informational)',
 }

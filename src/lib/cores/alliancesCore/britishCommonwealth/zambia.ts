@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const zambia: CommonwealthCountry = {
   name: 'Zambia',
@@ -18,5 +19,6 @@ export const zambia: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['ZM'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['ZM'],
   stockExchange: 'Lusaka Securities Exchange',
 }

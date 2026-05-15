@@ -1,4 +1,9 @@
-export type { EcowasCountry, EcowasOrganizationInfo, DomesticCourierService } from './types'
+export type {
+  DomesticCourierService,
+  EcowasCountry,
+  EcowasOrganizationInfo,
+  NotableUniversity,
+} from './types'
 
 import type { EcowasCountry, EcowasOrganizationInfo } from './types'
 import { ECOWAS_MEMBER_ISO_CODES } from './ecowasMemberIsoCodes'

@@ -1,5 +1,6 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const newZealand: CptppCountry = {
   name: 'New Zealand',
@@ -17,5 +18,6 @@ export const newZealand: CptppCountry = {
   cryptocurrencyExchanges: ['Easy Crypto', 'Independent Reserve AU/NZ corridor', 'Global brokers'],
   stablecoin: 'NZD-pegged limited; USDC adoption in fintech — verify',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['NZ'],
+  notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['NZ'],
   stockExchange: 'NZX Limited',
 }

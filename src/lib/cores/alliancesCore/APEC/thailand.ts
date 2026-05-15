@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const thailand: ApecCountry = {
   name: 'Thailand',
@@ -19,5 +20,6 @@ export const thailand: ApecCountry = {
   cryptocurrencyExchanges: ['SEC Thai DMA operator licences evolving — informational'],
   stablecoin: 'BOT sandbox CBDC — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['TH'],
+  notableUniversities: APEC_NOTABLE_UNIVERSITIES['TH'],
   stockExchange: 'Stock Exchange of Thailand SET',
 }

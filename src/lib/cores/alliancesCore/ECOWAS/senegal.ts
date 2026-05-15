@@ -1,5 +1,6 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const senegal: EcowasCountry = {
   name: 'Senegal',
@@ -17,5 +18,6 @@ export const senegal: EcowasCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Wave-linked fintech'],
   stablecoin: 'USDT / USDC; XOF CFA peg via BCEAO',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['SN'],
+  notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['SN'],
   stockExchange: 'BRVM (Dakar listings)',
 }

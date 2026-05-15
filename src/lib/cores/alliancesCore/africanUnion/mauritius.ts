@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const mauritius: AfricanUnionCountry = {
   name: 'Mauritius',
   iso3166Alpha2: 'MU',
@@ -17,5 +18,6 @@ export const mauritius: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Luno', 'Binance (international)', 'VALR (regional)'],
   stablecoin: 'USDT / USDC; offshore financial center activity',
   domesticCourierServices: AU_DOMESTIC_COURIERS['MU'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['MU'],
   stockExchange: 'Stock Exchange of Mauritius (SEM)',
 }

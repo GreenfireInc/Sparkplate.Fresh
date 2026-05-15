@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const slovenia: EuCountry = {
   name: 'Slovenia',
@@ -17,5 +18,6 @@ export const slovenia: EuCountry = {
   cryptocurrencyExchanges: ['EU-compliant brokers Ljubljana fintech corridor'],
   stablecoin: 'EUR stablecoins under MiCA',
   domesticCourierServices: EU_DOMESTIC_COURIERS['SI'],
+  notableUniversities: EU_NOTABLE_UNIVERSITIES['SI'],
   stockExchange: 'Ljubljana Stock Exchange',
 }

@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const somalia: IoraCountry = {
   name: 'Somalia',
@@ -18,5 +19,6 @@ export const somalia: IoraCountry = {
   cryptocurrencyExchanges: ['Mobile-money economy; OTC informal — informational'],
   stablecoin: 'USD/USDT hawala overlays predominant — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['SO'],
+  notableUniversities: IORA_NOTABLE_UNIVERSITIES['SO'],
   stockExchange: 'No consolidated national exchange (fragmented governance — informational)',
 }

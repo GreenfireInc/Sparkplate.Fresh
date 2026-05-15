@@ -1,5 +1,6 @@
 import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const cameroon: EccasCountry = {
   name: 'Cameroon',
@@ -18,5 +19,6 @@ export const cameroon: EccasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC P2P; XAF euro peg via BEAC',
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['CM'],
+  notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['CM'],
   stockExchange: 'Douala Stock Exchange (DSX)',
 }

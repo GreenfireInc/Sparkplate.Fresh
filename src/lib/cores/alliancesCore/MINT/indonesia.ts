@@ -1,5 +1,6 @@
 import type { MintCountry } from './types'
 import { MINT_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { MINT_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const indonesia: MintCountry = {
   name: 'Indonesia',
@@ -19,5 +20,6 @@ export const indonesia: MintCountry = {
   cryptocurrencyExchanges: ['Indonesia CFX licensed trading (Bappebti-era evolution to OJK oversight — informational)'],
   stablecoin: 'IDR digital rupiah / CBDC narratives; offshore USDT OTC — informational',
   domesticCourierServices: MINT_DOMESTIC_COURIERS['ID'],
+  notableUniversities: MINT_NOTABLE_UNIVERSITIES['ID'],
   stockExchange: 'Indonesia Stock Exchange IDX Jakarta',
 }

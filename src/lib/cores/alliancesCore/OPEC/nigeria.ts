@@ -1,5 +1,6 @@
 import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const nigeria: OpecCountry = {
   name: 'Nigeria',
@@ -18,5 +19,6 @@ export const nigeria: OpecCountry = {
   cryptocurrencyExchanges: ['SEC cautious licensing; Patricia / Nigerian P2P with CBN evolution — informational'],
   stablecoin: 'e-Naira CBDC experimentation; informal USDT pricing — informational',
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['NG'],
+  notableUniversities: OPEC_NOTABLE_UNIVERSITIES['NG'],
   stockExchange: 'Nigerian Exchange Group NGX (Lagos equities)',
 }

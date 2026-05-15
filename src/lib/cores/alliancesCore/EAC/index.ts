@@ -1,4 +1,9 @@
-export type { EacCountry, EacOrganizationInfo, DomesticCourierService } from './types'
+export type {
+  DomesticCourierService,
+  EacCountry,
+  EacOrganizationInfo,
+  NotableUniversity,
+} from './types'
 
 import type { EacCountry, EacOrganizationInfo } from './types'
 import { EAC_MEMBER_ISO_CODES } from './eacMemberIsoCodes'

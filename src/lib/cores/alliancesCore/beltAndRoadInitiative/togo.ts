@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const togo: BeltAndRoadInitiativeCountry = {
   name: 'Togo',
@@ -18,5 +19,6 @@ export const togo: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Regional OTC'],
   stablecoin: 'USDT P2P; XOF peg',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['TG'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['TG'],
   stockExchange: 'BRVM regional listings; Lomé financial center activity',
 }

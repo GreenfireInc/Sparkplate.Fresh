@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mauritius: CommonwealthCountry = {
   name: 'Mauritius',
@@ -18,5 +19,6 @@ export const mauritius: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['MU'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['MU'],
   stockExchange: 'Stock Exchange of Mauritius',
 }

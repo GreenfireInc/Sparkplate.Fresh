@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const iran: IoraCountry = {
   name: 'Iran',
@@ -18,5 +19,6 @@ export const iran: IoraCountry = {
   cryptocurrencyExchanges: ['Sanction-screened mining / informal trade — informational'],
   stablecoin: 'USD informal parallel rate settlement — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['IR'],
+  notableUniversities: IORA_NOTABLE_UNIVERSITIES['IR'],
   stockExchange: 'Tehran Stock Exchange',
 }

@@ -1,4 +1,12 @@
-export type { G20Country, G20InstitutionalMember, G20OrganizationInfo, DomesticCourierService } from './types'
+export type {
+  DomesticCourierService,
+  G20Country,
+  G20InstitutionalMember,
+  G20OrganizationInfo,
+  NotableUniversity,
+} from './types'
+export { G20_SOVEREIGN_MEMBER_ISO_CODES } from './g20MemberIsoCodes'
+export type { G20SovereignMemberIsoCode } from './g20MemberIsoCodes'
 
 import type { G20Country, G20InstitutionalMember, G20OrganizationInfo } from './types'
 import { G20_SOVEREIGN_MEMBER_ISO_CODES } from './g20MemberIsoCodes'

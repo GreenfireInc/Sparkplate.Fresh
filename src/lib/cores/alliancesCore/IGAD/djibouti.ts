@@ -1,5 +1,6 @@
 import type { IgadCountry } from './types'
 import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const djibouti: IgadCountry = {
   name: 'Djibouti',
@@ -18,5 +19,6 @@ export const djibouti: IgadCountry = {
   cryptocurrencyExchanges: ['Regional remittance OTC; DFS regulation evolution — informational'],
   stablecoin: 'USD-stable informal settlement (port/finance-city economy — informational)',
   domesticCourierServices: IGAD_DOMESTIC_COURIERS['DJ'],
+  notableUniversities: IGAD_NOTABLE_UNIVERSITIES['DJ'],
   stockExchange: 'Djibouti Stock Exchange (thin liquidity; sovereign development narrative — informational)',
 }

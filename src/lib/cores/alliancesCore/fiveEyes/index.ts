@@ -1,4 +1,9 @@
-export type { FiveEyesCountry, FiveEyesOrganizationInfo, DomesticCourierService } from './types'
+export type {
+  DomesticCourierService,
+  FiveEyesCountry,
+  FiveEyesOrganizationInfo,
+  NotableUniversity,
+} from './types'
 
 import type { FiveEyesCountry, FiveEyesOrganizationInfo } from './types'
 import { FIVE_EYES_MEMBER_ISO_CODES } from './fiveEyesMemberIsoCodes'

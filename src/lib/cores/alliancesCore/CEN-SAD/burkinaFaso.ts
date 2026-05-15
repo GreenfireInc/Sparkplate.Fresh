@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const burkinaFaso: CensadCountry = {
   name: 'Burkina Faso',
@@ -18,5 +19,6 @@ export const burkinaFaso: CensadCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Informal USDT peer markets'],
   stablecoin: 'USDT/USDC informal',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['BF'],
+  notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['BF'],
   stockExchange: 'BRVM (WAEMU listings)',
 }

@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const sierraLeone: AfricanUnionCountry = {
   name: 'Sierra Leone',
   iso3166Alpha2: 'SL',
@@ -17,5 +18,6 @@ export const sierraLeone: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex'],
   stablecoin: 'USDT / USDC P2P',
   domesticCourierServices: AU_DOMESTIC_COURIERS['SL'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['SL'],
   stockExchange: 'Sierra Leone Stock Exchange',
 }

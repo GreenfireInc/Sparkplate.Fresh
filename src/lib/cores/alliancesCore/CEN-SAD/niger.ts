@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const niger: CensadCountry = {
   name: 'Niger',
@@ -18,5 +19,6 @@ export const niger: CensadCountry = {
   cryptocurrencyExchanges: ['Informal regional P2P'],
   stablecoin: 'Informal USDT',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['NE'],
+  notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['NE'],
   stockExchange: 'BRVM linkage context',
 }

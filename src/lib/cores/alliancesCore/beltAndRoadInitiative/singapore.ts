@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const singapore: BeltAndRoadInitiativeCountry = {
   name: 'Singapore',
@@ -18,5 +19,6 @@ export const singapore: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: [ 'Binance (P2P)', 'International OTC', 'Local regulation varies' ],
   stablecoin: 'USDT / USDC common globally; legality varies by jurisdiction',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['SG'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['SG'],
   stockExchange: 'National or regional exchange (verify)',
 }

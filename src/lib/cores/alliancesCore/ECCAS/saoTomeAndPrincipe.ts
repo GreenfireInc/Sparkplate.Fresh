@@ -1,5 +1,6 @@
 import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const saoTomeAndPrincipe: EccasCountry = {
   name: 'São Tomé and Príncipe',
@@ -17,5 +18,6 @@ export const saoTomeAndPrincipe: EccasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'European brokers', 'OTC'],
   stablecoin: 'EUR/USD-linked holdings informal alongside STN',
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['ST'],
+  notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['ST'],
   stockExchange: 'Bolsa de Valores de São Tomé e Príncipe (limited)',
 }

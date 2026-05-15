@@ -1,5 +1,6 @@
 import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const saintKittsAndNevis: OecsCountry = {
   name: 'Saint Kitts and Nevis',
@@ -18,5 +19,6 @@ export const saintKittsAndNevis: OecsCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Nevis IBC fintech proximity — informational'],
   stablecoin: 'XCD peg; informal USDT — informational',
   domesticCourierServices: OECS_DOMESTIC_COURIERS['KN'],
+  notableUniversities: OECS_NOTABLE_UNIVERSITIES['KN'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

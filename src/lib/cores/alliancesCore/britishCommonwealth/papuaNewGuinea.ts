@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const papuaNewGuinea: CommonwealthCountry = {
   name: 'Papua New Guinea',
@@ -18,5 +19,6 @@ export const papuaNewGuinea: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['PG'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['PG'],
   stockExchange: 'PNG National Stock Exchange',
 }

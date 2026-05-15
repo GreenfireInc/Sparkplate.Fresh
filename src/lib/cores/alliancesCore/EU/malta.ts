@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const malta: EuCountry = {
   name: 'Malta',
@@ -17,5 +18,6 @@ export const malta: EuCountry = {
   cryptocurrencyExchanges: ['Remote gaming licensed firms; MiCA EU passport base'],
   stablecoin: 'EUR stablecoins servicing',
   domesticCourierServices: EU_DOMESTIC_COURIERS['MT'],
+  notableUniversities: EU_NOTABLE_UNIVERSITIES['MT'],
   stockExchange: 'Malta Stock Exchange',
 }

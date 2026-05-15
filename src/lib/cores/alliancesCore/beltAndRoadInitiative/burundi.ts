@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const burundi: BeltAndRoadInitiativeCountry = {
   name: 'Burundi',
@@ -18,5 +19,6 @@ export const burundi: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Local P2P', 'Yellow Card (regional)'],
   stablecoin: 'USDT informal; no BIF stablecoin',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['BI'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['BI'],
   stockExchange: 'Burundi Stock Exchange (BSE) — thin liquidity',
 }

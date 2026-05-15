@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const comoros: BeltAndRoadInitiativeCountry = {
   name: 'Comoros',
@@ -18,5 +19,6 @@ export const comoros: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional mobile money bridges'],
   stablecoin: 'USDT / USDC limited; KMF',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['KM'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['KM'],
   stockExchange: 'No major national stock exchange',
 }

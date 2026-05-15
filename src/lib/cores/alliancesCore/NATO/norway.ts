@@ -1,5 +1,6 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const norway: NatoCountry = {
   name: 'Norway',
@@ -18,5 +19,6 @@ export const norway: NatoCountry = {
   cryptocurrencyExchanges: ['Finanstilsynet registered providers — informational'],
   stablecoin: 'NOK OTC; EUR-stable common — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['NO'],
+  notableUniversities: NATO_NOTABLE_UNIVERSITIES['NO'],
   stockExchange: 'Oslo Børs (Euronext)',
 }

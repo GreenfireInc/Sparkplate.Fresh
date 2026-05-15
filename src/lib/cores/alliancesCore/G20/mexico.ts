@@ -1,5 +1,6 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mexico: G20Country = {
   name: 'Mexico',
@@ -19,5 +20,6 @@ export const mexico: G20Country = {
   cryptocurrencyExchanges: ['Bitso', 'Mexico CNBV fintech-registration evolution — informational'],
   stablecoin: 'MXN fiat-backed issuance pilots vs informal USDT — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['MX'],
+  notableUniversities: G20_NOTABLE_UNIVERSITIES['MX'],
   stockExchange: 'Mexican Stock Exchange BMV Bolsa Mexicana de Valores',
 }

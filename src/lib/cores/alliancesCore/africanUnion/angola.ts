@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const angola: AfricanUnionCountry = {
   name: 'Angola',
   iso3166Alpha2: 'AO',
@@ -17,5 +18,6 @@ export const angola: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Local OTC'],
   stablecoin: 'USDT / USDC via P2P; no AOA stablecoin',
   domesticCourierServices: AU_DOMESTIC_COURIERS['AO'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['AO'],
   stockExchange: 'Bodiva (Angola Securities Exchange)',
 }

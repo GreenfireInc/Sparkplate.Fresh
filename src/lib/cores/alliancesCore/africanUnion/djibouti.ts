@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const djibouti: AfricanUnionCountry = {
   name: 'Djibouti',
   iso3166Alpha2: 'DJ',
@@ -17,5 +18,6 @@ export const djibouti: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'International OTC', 'Regional remittance apps'],
   stablecoin: 'USDT / USDC; DJF pegged to USD (currency board)',
   domesticCourierServices: AU_DOMESTIC_COURIERS['DJ'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['DJ'],
   stockExchange: 'Djibouti Stock Exchange (thin activity)',
 }

@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const southAfrica: CommonwealthCountry = {
   name: 'South Africa',
@@ -18,5 +19,6 @@ export const southAfrica: CommonwealthCountry = {
   cryptocurrencyExchanges: ['VALR', 'Luno', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['ZA'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['ZA'],
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
 }

@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const unitedStates: ApecCountry = {
   name: 'United States',
@@ -19,5 +20,6 @@ export const unitedStates: ApecCountry = {
   cryptocurrencyExchanges: ['Coinbase Kraken Gemini regulatory patchwork — informational'],
   stablecoin: 'USDT USDC fiat-backed issuance congressional evolution — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['US'],
+  notableUniversities: APEC_NOTABLE_UNIVERSITIES['US'],
   stockExchange: 'NYSE / Nasdaq consolidated equities',
 }

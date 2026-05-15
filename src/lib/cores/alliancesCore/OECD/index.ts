@@ -1,4 +1,4 @@
-export type { OecdCountry, OecdOrganizationInfo, DomesticCourierService } from './types'
+export type { OecdCountry, OecdOrganizationInfo, DomesticCourierService, NotableUniversity } from './types'
 
 import type { OecdCountry, OecdOrganizationInfo } from './types'
 import { OECD_MEMBER_ISO_CODES } from './oecdMemberIsoCodes'

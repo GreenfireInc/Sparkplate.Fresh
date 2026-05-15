@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const austria: EuCountry = {
   name: 'Austria',
@@ -17,5 +18,6 @@ export const austria: EuCountry = {
   cryptocurrencyExchanges: ['European MiCA-aligned providers; Kraken EUR', 'Bitpanda (AT)'],
   stablecoin: 'EUR-stable tokens under MiCA; USDC/USDT EUR pairs',
   domesticCourierServices: EU_DOMESTIC_COURIERS['AT'],
+  notableUniversities: EU_NOTABLE_UNIVERSITIES['AT'],
   stockExchange: 'Wiener Börse (Vienna Stock Exchange)',
 }

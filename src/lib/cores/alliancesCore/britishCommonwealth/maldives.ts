@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const maldives: CommonwealthCountry = {
   name: 'Maldives',
@@ -18,5 +19,6 @@ export const maldives: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['MV'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['MV'],
   stockExchange: 'Maldives Stock Exchange',
 }

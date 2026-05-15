@@ -1,5 +1,6 @@
 import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const republicOfTheCongo: EccasCountry = {
   name: 'Republic of the Congo',
@@ -17,5 +18,6 @@ export const republicOfTheCongo: EccasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC'],
   stablecoin: 'USDT P2P; XAF peg via BEAC',
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['CG'],
+  notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['CG'],
   stockExchange: 'Bourse des Valeurs du Congo (BVC)',
 }

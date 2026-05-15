@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const samoa: CommonwealthCountry = {
   name: 'Samoa',
@@ -18,5 +19,6 @@ export const samoa: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['WS'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['WS'],
   stockExchange: 'No major national exchange — informational',
 }

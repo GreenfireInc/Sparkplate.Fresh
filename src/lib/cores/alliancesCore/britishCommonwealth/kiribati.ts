@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const kiribati: CommonwealthCountry = {
   name: 'Kiribati',
@@ -18,5 +19,6 @@ export const kiribati: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'AUD; USDT informal',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['KI'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['KI'],
   stockExchange: 'No major national exchange — informational',
 }

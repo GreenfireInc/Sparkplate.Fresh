@@ -1,5 +1,6 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const argentina: G20Country = {
   name: 'Argentina',
@@ -19,5 +20,6 @@ export const argentina: G20Country = {
   cryptocurrencyExchanges: ['Lemon Cash', 'Ripio', 'Belo / CNV-evolving VASP register — informational'],
   stablecoin: 'USDT dominant retail savings instrument vs ARS depreciation; ARS-backed issuance thin — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['AR'],
+  notableUniversities: G20_NOTABLE_UNIVERSITIES['AR'],
   stockExchange: 'Bolsas y Mercados Argentinos BYMA (Buenos Aires)',
 }

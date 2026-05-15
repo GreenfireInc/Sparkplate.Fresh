@@ -1,5 +1,6 @@
 import type { MiktaCountry } from './types'
 import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const turkey: MiktaCountry = {
   name: 'Turkey',
@@ -19,5 +20,6 @@ export const turkey: MiktaCountry = {
   cryptocurrencyExchanges: ['BtcTurk', 'Paribu', 'MASAK anti-money laundering registration — informational'],
   stablecoin: 'TRY fiat-backed issuance thin; TRY volatility vs USD-stable informal — informational',
   domesticCourierServices: MIKTA_DOMESTIC_COURIERS['TR'],
+  notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['TR'],
   stockExchange: 'Borsa Istanbul (BİST equities / debt)',
 }

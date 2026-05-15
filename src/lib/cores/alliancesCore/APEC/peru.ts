@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const peru: ApecCountry = {
   name: 'Peru',
@@ -18,5 +19,6 @@ export const peru: ApecCountry = {
   cryptocurrencyExchanges: ['Sunat regulatory overlays; OTC informal — informational'],
   stablecoin: 'USD informal predominant mining-export settlements — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['PE'],
+  notableUniversities: APEC_NOTABLE_UNIVERSITIES['PE'],
   stockExchange: 'Bolsa de Valores de Lima (Lima Stock Exchange)',
 }

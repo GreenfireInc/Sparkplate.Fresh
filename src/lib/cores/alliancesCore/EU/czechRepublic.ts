@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const czechRepublic: EuCountry = {
   name: 'Czech Republic',
@@ -17,5 +18,6 @@ export const czechRepublic: EuCountry = {
   cryptocurrencyExchanges: ['European brokers; cautious retail messaging'],
   stablecoin: 'CZK OTC; EUR pairs dominant',
   domesticCourierServices: EU_DOMESTIC_COURIERS['CZ'],
+  notableUniversities: EU_NOTABLE_UNIVERSITIES['CZ'],
   stockExchange: 'Prague Stock Exchange (PX)',
 }

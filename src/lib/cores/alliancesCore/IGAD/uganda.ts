@@ -1,5 +1,6 @@
 import type { IgadCountry } from './types'
 import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const uganda: IgadCountry = {
   name: 'Uganda',
@@ -18,5 +19,6 @@ export const uganda: IgadCountry = {
   cryptocurrencyExchanges: ['Binance informal P2P seasonal blocks; Blockchain Association advocacy — informational'],
   stablecoin: 'USDT/USDC informal settlements; Mobile Money predominant — informational',
   domesticCourierServices: IGAD_DOMESTIC_COURIERS['UG'],
+  notableUniversities: IGAD_NOTABLE_UNIVERSITIES['UG'],
   stockExchange: 'Uganda Securities Exchange (USE, thin listings — informational)',
 }

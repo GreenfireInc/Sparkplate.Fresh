@@ -3,9 +3,13 @@ export type {
   AllianceOfSahelStatesMembership,
   AllianceOfSahelStatesOrganizationInfo,
   DomesticCourierService,
+  NotableUniversity,
 } from './types'
+export { AES_MEMBER_ISO_CODES } from './aesMemberIsoCodes'
+export type { AesMemberIsoCode } from './aesMemberIsoCodes'
 
 import type { AllianceOfSahelStatesCountry, AllianceOfSahelStatesOrganizationInfo } from './types'
+import { AES_MEMBER_ISO_CODES } from './aesMemberIsoCodes'
 import { burkinaFaso } from './burkinaFaso'
 import { mali } from './mali'
 import { niger } from './niger'
@@ -54,6 +58,6 @@ export const allianceOfSahelStates: AllianceOfSahelStatesOrganizationInfo = {
     'Assert collective political positioning and south–south cooperation',
     'Coordinate institutional evolution (including confederation-level integration goals)',
   ],
-  foundingMembersIso2: ['ML', 'NE', 'BF'],
+  foundingMembersIso2: AES_MEMBER_ISO_CODES,
   memberRecordsInModule: 3,
 }

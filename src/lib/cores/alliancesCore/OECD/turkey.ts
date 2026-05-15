@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const turkey: OecdCountry = {
   name: 'Turkey',
@@ -19,5 +20,6 @@ export const turkey: OecdCountry = {
   cryptocurrencyExchanges: ['BtcTurk', 'Paribu', 'MASAK registration environment — informational'],
   stablecoin: 'TRY volatility; USD-stable informal rails — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['TR'],
+  notableUniversities: OECD_NOTABLE_UNIVERSITIES['TR'],
   stockExchange: 'Borsa Istanbul (BİST)',
 }

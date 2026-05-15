@@ -1,5 +1,6 @@
 import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const thailand: AseanCountry = {
   name: 'Thailand',
@@ -18,5 +19,6 @@ export const thailand: AseanCountry = {
   cryptocurrencyExchanges: ['SEC Thai digital-asset operator licences (evolving — informational)'],
   stablecoin: 'BOT CBDC sandbox; THB OTC pairs — informational',
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['TH'],
+  notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['TH'],
   stockExchange: 'Stock Exchange of Thailand SET Bangkok',
 }

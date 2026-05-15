@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const togo: AfricanUnionCountry = {
   name: 'Togo',
   iso3166Alpha2: 'TG',
@@ -17,5 +18,6 @@ export const togo: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Regional OTC'],
   stablecoin: 'USDT P2P; XOF peg',
   domesticCourierServices: AU_DOMESTIC_COURIERS['TG'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['TG'],
   stockExchange: 'BRVM regional listings; Lomé financial center activity',
 }

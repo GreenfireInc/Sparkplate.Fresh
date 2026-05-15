@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const uganda: BeltAndRoadInitiativeCountry = {
   name: 'Uganda',
@@ -18,5 +19,6 @@ export const uganda: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Chipper Cash'],
   stablecoin: 'USDT / USDC P2P',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['UG'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['UG'],
   stockExchange: 'Uganda Securities Exchange',
 }

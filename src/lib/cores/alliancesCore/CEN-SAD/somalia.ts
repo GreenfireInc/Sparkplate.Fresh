@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const somalia: CensadCountry = {
   name: 'Somalia',
@@ -17,5 +18,6 @@ export const somalia: CensadCountry = {
   cryptocurrencyExchanges: ['Hawala-adjacent digital; diaspora OTC'],
   stablecoin: 'Informal USDT/USDC',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['SO'],
+  notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['SO'],
   stockExchange: 'No functioning national equities market',
 }

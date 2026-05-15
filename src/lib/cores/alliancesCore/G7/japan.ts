@@ -1,5 +1,6 @@
 import type { G7Country } from './types'
 import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G7_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const japan: G7Country = {
   name: 'Japan',
@@ -18,5 +19,6 @@ export const japan: G7Country = {
   cryptocurrencyExchanges: ['bitFlyer', 'Zaif / registered PSAP-era providers — informational'],
   stablecoin: 'JPY-stable experiments; Bank of Japan CBDC pilots — informational',
   domesticCourierServices: G7_DOMESTIC_COURIERS['JP'],
+  notableUniversities: G7_NOTABLE_UNIVERSITIES['JP'],
   stockExchange: 'Tokyo Stock Exchange (Japan Exchange Group)',
 }

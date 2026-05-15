@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const ireland: OecdCountry = {
   name: 'Ireland',
@@ -18,5 +19,6 @@ export const ireland: OecdCountry = {
   cryptocurrencyExchanges: ['Kraken EU', 'IDA tech hub onboarding; MiCA-aligned — informational'],
   stablecoin: 'EUR stablecoins; Irish issuer vehicles referencing SFDR — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['IE'],
+  notableUniversities: OECD_NOTABLE_UNIVERSITIES['IE'],
   stockExchange: 'Euronext Dublin',
 }

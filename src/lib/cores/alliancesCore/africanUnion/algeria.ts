@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const algeria: AfricanUnionCountry = {
   name: 'Algeria',
   iso3166Alpha2: 'DZ',
@@ -17,5 +18,6 @@ export const algeria: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'KuCoin', 'Regional OTC brokers'],
   stablecoin: 'USDT / USDC common in informal crypto markets; no official DZD stablecoin',
   domesticCourierServices: AU_DOMESTIC_COURIERS['DZ'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['DZ'],
   stockExchange: 'Algiers Stock Exchange',
 }

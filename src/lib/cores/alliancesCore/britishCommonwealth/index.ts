@@ -3,6 +3,7 @@ export type {
   CommonwealthCountry,
   CommonwealthMembership,
   DomesticCourierService,
+  NotableUniversity,
 } from './types'
 
 import type { CommonwealthCountry, BritishCommonwealthOrganizationInfo } from './types'

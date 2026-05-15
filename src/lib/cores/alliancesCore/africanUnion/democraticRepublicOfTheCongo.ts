@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const democraticRepublicOfTheCongo: AfricanUnionCountry = {
   name: 'Democratic Republic of the Congo',
   iso3166Alpha2: 'CD',
@@ -17,5 +18,6 @@ export const democraticRepublicOfTheCongo: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC widespread P2P; no official CDF stablecoin',
   domesticCourierServices: AU_DOMESTIC_COURIERS['CD'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['CD'],
   stockExchange: 'No liquid national exchange; informal OTC and regional listings',
 }

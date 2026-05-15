@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const centralAfricanRepublic: CensadCountry = {
   name: 'Central African Republic',
@@ -17,5 +18,6 @@ export const centralAfricanRepublic: CensadCountry = {
   cryptocurrencyExchanges: ['Bitcoin Law experimentation narrative — OTC predominant'],
   stablecoin: 'SANGO crypto-project historically debated — CFA dominates domestically',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['CF'],
+  notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['CF'],
   stockExchange: 'Douala Stock Exchange (CEMAC linkage informal)',
 }

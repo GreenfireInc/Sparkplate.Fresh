@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const thailand: IoraCountry = {
   name: 'Thailand',
@@ -18,5 +19,6 @@ export const thailand: IoraCountry = {
   cryptocurrencyExchanges: ['SEC Thai digital-asset licences evolution — informational'],
   stablecoin: 'BOT sandbox CBDC pilots — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['TH'],
+  notableUniversities: IORA_NOTABLE_UNIVERSITIES['TH'],
   stockExchange: 'Stock Exchange of Thailand (SET)',
 }

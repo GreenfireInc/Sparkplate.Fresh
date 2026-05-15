@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const ethiopia: AfricanUnionCountry = {
   name: 'Ethiopia',
   iso3166Alpha2: 'ET',
@@ -17,5 +18,6 @@ export const ethiopia: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC P2P; National Bank cautious on crypto',
   domesticCourierServices: AU_DOMESTIC_COURIERS['ET'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['ET'],
   stockExchange: 'Ethiopian Securities Exchange (launch context varies)',
 }

@@ -1,5 +1,6 @@
 import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const rwanda: EacCountry = {
   name: 'Rwanda',
@@ -17,5 +18,6 @@ export const rwanda: EacCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Kigali fintech hubs'],
   stablecoin: 'USDT / USDC; CBDC narratives — verify',
   domesticCourierServices: EAC_DOMESTIC_COURIERS['RW'],
+  notableUniversities: EAC_NOTABLE_UNIVERSITIES['RW'],
   stockExchange: 'Rwanda Stock Exchange',
 }

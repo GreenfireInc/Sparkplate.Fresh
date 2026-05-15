@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const nigeria: CommonwealthCountry = {
   name: 'Nigeria',
@@ -18,5 +19,6 @@ export const nigeria: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Luno', 'Yellow Card'],
   stablecoin: 'eNaira (CBDC); USDT informal',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['NG'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['NG'],
   stockExchange: 'Nigerian Exchange Group',
 }

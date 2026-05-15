@@ -1,5 +1,6 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const thailand: RcepCountry = {
   name: 'Thailand',
@@ -18,5 +19,6 @@ export const thailand: RcepCountry = {
   cryptocurrencyExchanges: ['SEC Thai DMA licences evolution — informational'],
   stablecoin: 'BOT CBDC sandbox narratives — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['TH'],
+  notableUniversities: RCEP_NOTABLE_UNIVERSITIES['TH'],
   stockExchange: 'Stock Exchange of Thailand (SET)',
 }

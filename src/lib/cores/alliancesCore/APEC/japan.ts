@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const japan: ApecCountry = {
   name: 'Japan',
@@ -19,5 +20,6 @@ export const japan: ApecCountry = {
   cryptocurrencyExchanges: ['bitFlyer', 'Coincheck PSAP context — informational'],
   stablecoin: 'JPY digital pilots Bank of Japan — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['JP'],
+  notableUniversities: APEC_NOTABLE_UNIVERSITIES['JP'],
   stockExchange: 'Tokyo Stock Exchange (Japan Exchange Group)',
 }

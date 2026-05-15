@@ -1,5 +1,6 @@
 import type { IgadCountry } from './types'
 import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const ethiopia: IgadCountry = {
   name: 'Ethiopia',
@@ -18,5 +19,6 @@ export const ethiopia: IgadCountry = {
   cryptocurrencyExchanges: ['Ethiopian Securities Exchange digital pilots; peer informal — informational'],
   stablecoin: 'ETB-referenced digital payments; CBDC study narratives — informational',
   domesticCourierServices: IGAD_DOMESTIC_COURIERS['ET'],
+  notableUniversities: IGAD_NOTABLE_UNIVERSITIES['ET'],
   stockExchange: 'Ethiopian Securities Exchange Addis debut-era listings — informational',
 }

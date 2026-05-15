@@ -1,5 +1,6 @@
 import type { G7Country } from './types'
 import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G7_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const italy: G7Country = {
   name: 'Italy',
@@ -19,5 +20,6 @@ export const italy: G7Country = {
   cryptocurrencyExchanges: ['Conio', 'Young Platform', 'MiCA-aligned CASPs'],
   stablecoin: 'EUR stablecoins; ECB digital euro pilots — informational',
   domesticCourierServices: G7_DOMESTIC_COURIERS['IT'],
+  notableUniversities: G7_NOTABLE_UNIVERSITIES['IT'],
   stockExchange: 'Euronext Milan (Borsa Italiana legacy)',
 }

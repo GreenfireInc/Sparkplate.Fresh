@@ -3,6 +3,7 @@ export type {
   CaricomMembership,
   CaricomOrganizationInfo,
   DomesticCourierService,
+  NotableUniversity,
 } from './types'
 
 import type { CaricomCountry, CaricomOrganizationInfo } from './types'

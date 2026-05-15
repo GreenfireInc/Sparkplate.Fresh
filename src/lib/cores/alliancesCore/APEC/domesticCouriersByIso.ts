@@ -1,4 +1,5 @@
 import type { DomesticCourierService } from './types'
+import type { ApecMemberIsoCode } from './apecMemberIsoCodes'
 
 function c(
   name: string,
@@ -730,4 +731,4 @@ export const APEC_DOMESTIC_COURIERS = {
       '',
     ),
   ],
-} satisfies Record<string, DomesticCourierService[]>
+} satisfies Record<ApecMemberIsoCode, DomesticCourierService[]>

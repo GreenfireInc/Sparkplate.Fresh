@@ -1,5 +1,6 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const singapore: RcepCountry = {
   name: 'Singapore',
@@ -18,5 +19,6 @@ export const singapore: RcepCountry = {
   cryptocurrencyExchanges: ['MAS DPT licensing; institutional OTC — informational'],
   stablecoin: 'MAS stable-token guidelines — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['SG'],
+  notableUniversities: RCEP_NOTABLE_UNIVERSITIES['SG'],
   stockExchange: 'Singapore Exchange SGX',
 }

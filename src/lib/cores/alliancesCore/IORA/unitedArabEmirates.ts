@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const unitedArabEmirates: IoraCountry = {
   name: 'United Arab Emirates',
@@ -19,5 +20,6 @@ export const unitedArabEmirates: IoraCountry = {
   cryptocurrencyExchanges: ['VARA Dubai', 'ADGM FSRA digital-asset licences — informational'],
   stablecoin: 'AED-referenced issuance supervisory pilots — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['AE'],
+  notableUniversities: IORA_NOTABLE_UNIVERSITIES['AE'],
   stockExchange: 'ADX Abu Dhabi; DFM Dubai',
 }

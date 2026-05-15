@@ -1,5 +1,6 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const myanmar: RcepCountry = {
   name: 'Myanmar',
@@ -19,5 +20,6 @@ export const myanmar: RcepCountry = {
   cryptocurrencyExchanges: ['Sanctions overlays; informal USDT economy — informational'],
   stablecoin: 'USD informal; MMK volatility — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['MM'],
+  notableUniversities: RCEP_NOTABLE_UNIVERSITIES['MM'],
   stockExchange: 'Yangon Stock Exchange (constrained liquidity — informational)',
 }

@@ -1,5 +1,6 @@
 import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const uganda: EacCountry = {
   name: 'Uganda',
@@ -17,5 +18,6 @@ export const uganda: EacCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Chipper Cash'],
   stablecoin: 'USDT / USDC P2P',
   domesticCourierServices: EAC_DOMESTIC_COURIERS['UG'],
+  notableUniversities: EAC_NOTABLE_UNIVERSITIES['UG'],
   stockExchange: 'Uganda Securities Exchange',
 }

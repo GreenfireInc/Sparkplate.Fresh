@@ -1,5 +1,6 @@
 import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const grenada: CaricomCountry = {
   name: 'Grenada',
@@ -18,5 +19,6 @@ export const grenada: CaricomCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'XCD peg; USDT/USDC',
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['GD'],
+  notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['GD'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

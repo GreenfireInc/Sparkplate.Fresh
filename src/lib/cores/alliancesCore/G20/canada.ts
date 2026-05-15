@@ -1,5 +1,6 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const canada: G20Country = {
   name: 'Canada',
@@ -18,5 +19,6 @@ export const canada: G20Country = {
   cryptocurrencyExchanges: ['Bitbuy', 'Newton', 'CSA/PRU provincial licensing environment — informational'],
   stablecoin: 'CAD fiat-backed tokens (regulated money services / evolving OSFI guidance — informational)',
   domesticCourierServices: G20_DOMESTIC_COURIERS['CA'],
+  notableUniversities: G20_NOTABLE_UNIVERSITIES['CA'],
   stockExchange: 'Toronto Stock Exchange (TMX)',
 }

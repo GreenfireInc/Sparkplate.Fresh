@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mali: CensadCountry = {
   name: 'Mali',
@@ -17,5 +18,6 @@ export const mali: CensadCountry = {
   cryptocurrencyExchanges: ['Informal OTC'],
   stablecoin: 'Informal USDT/USDC',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['ML'],
+  notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['ML'],
   stockExchange: 'BRVM listing context (WAEMU)',
 }

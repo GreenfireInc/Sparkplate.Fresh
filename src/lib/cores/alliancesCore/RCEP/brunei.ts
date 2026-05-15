@@ -1,5 +1,6 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const brunei: RcepCountry = {
   name: 'Brunei',
@@ -19,5 +20,6 @@ export const brunei: RcepCountry = {
   cryptocurrencyExchanges: ['Autoriti Monetari Brunei cautious; regional OTC — informational'],
   stablecoin: 'BND monetary board; informal USD-stable — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['BN'],
+  notableUniversities: RCEP_NOTABLE_UNIVERSITIES['BN'],
   stockExchange: 'No dedicated national exchange consolidated; regional ECM context — informational',
 }

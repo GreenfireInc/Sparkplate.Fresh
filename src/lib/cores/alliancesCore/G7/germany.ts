@@ -1,5 +1,6 @@
 import type { G7Country } from './types'
 import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G7_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const germany: G7Country = {
   name: 'Germany',
@@ -18,5 +19,6 @@ export const germany: G7Country = {
   cryptocurrencyExchanges: ['Bitstamp EU', 'Börse Stuttgart Digital Custody narratives', 'MiCA licences'],
   stablecoin: 'EUR stablecoins; ECB digital euro projects — informational',
   domesticCourierServices: G7_DOMESTIC_COURIERS['DE'],
+  notableUniversities: G7_NOTABLE_UNIVERSITIES['DE'],
   stockExchange: 'Deutsche Börse (Frankfurt)',
 }

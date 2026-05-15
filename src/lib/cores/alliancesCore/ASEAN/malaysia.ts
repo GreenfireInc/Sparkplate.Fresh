@@ -1,5 +1,6 @@
 import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const malaysia: AseanCountry = {
   name: 'Malaysia',
@@ -19,5 +20,6 @@ export const malaysia: AseanCountry = {
   cryptocurrencyExchanges: ['SC-registered digital exchanges pilot evolution — informational'],
   stablecoin: 'MYR digital bank pilots; ringgit non-internationalised policy — informational',
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['MY'],
+  notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['MY'],
   stockExchange: 'Bursa Malaysia (Kuala Lumpur)',
 }

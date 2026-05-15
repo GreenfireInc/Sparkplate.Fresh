@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const liberia: BeltAndRoadInitiativeCountry = {
   name: 'Liberia',
@@ -18,5 +19,6 @@ export const liberia: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex'],
   stablecoin: 'USDT / USDC; USD cash economy dominant',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['LR'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['LR'],
   stockExchange: 'Liberia Stock Exchange (very limited)',
 }

@@ -155,3 +155,5 @@ export const BELT_AND_ROAD_PARTICIPANT_ISO_CODES = [
   'ZM',
   'ZW',
 ] as const
+
+export type BriMemberIsoCode = (typeof BELT_AND_ROAD_PARTICIPANT_ISO_CODES)[number]

@@ -1,5 +1,6 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const nigeria: EcowasCountry = {
   name: 'Nigeria',
@@ -17,5 +18,6 @@ export const nigeria: EcowasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Luno', 'Quidax', 'Yellow Card', 'CBN stance evolution — verify'],
   stablecoin: 'USDT / USDC P2P; cNGN / stablecoin pilots — verify',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['NG'],
+  notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['NG'],
   stockExchange: 'Nigerian Exchange Group (NGX); ECOWAS Commission host country — informational',
 }

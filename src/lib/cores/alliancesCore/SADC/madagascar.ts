@@ -1,5 +1,6 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const madagascar: SadcCountry = {
   name: 'Madagascar',
@@ -17,5 +18,6 @@ export const madagascar: SadcCountry = {
   cryptocurrencyExchanges: ['Informal P2P; regulatory evolution'],
   stablecoin: 'Informal EUR/USD-stable references',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['MG'],
+  notableUniversities: SADC_NOTABLE_UNIVERSITIES['MG'],
   stockExchange: 'Madagascar Stock Exchange (SEM) — thin market',
 }

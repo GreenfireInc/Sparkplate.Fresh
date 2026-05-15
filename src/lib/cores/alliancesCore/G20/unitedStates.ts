@@ -1,5 +1,6 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const unitedStates: G20Country = {
   name: 'United States',
@@ -19,5 +20,6 @@ export const unitedStates: G20Country = {
   cryptocurrencyExchanges: ['Coinbase', 'Kraken', 'Gemini state MSB/licensing patchwork — informational'],
   stablecoin: 'USDT/USDC and USD fiat-backed issuance (federal/stablecoin legislation evolution — informational)',
   domesticCourierServices: G20_DOMESTIC_COURIERS['US'],
+  notableUniversities: G20_NOTABLE_UNIVERSITIES['US'],
   stockExchange: 'NYSE/Nasdaq consolidated US equity liquidity (dual listing customary — informational)',
 }

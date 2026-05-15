@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const cameroon: BeltAndRoadInitiativeCountry = {
   name: 'Cameroon',
@@ -18,5 +19,6 @@ export const cameroon: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC P2P; XAF CFA peg',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['CM'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['CM'],
   stockExchange: 'Douala Stock Exchange (DSX)',
 }

@@ -1,5 +1,6 @@
 import type { G7Country } from './types'
 import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G7_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const france: G7Country = {
   name: 'France',
@@ -18,5 +19,6 @@ export const france: G7Country = {
   cryptocurrencyExchanges: ['Coinhouse', 'European MiCA-compliant CASPs', 'Paymium'],
   stablecoin: 'EUR stablecoins; ECB digital euro pilots — informational',
   domesticCourierServices: G7_DOMESTIC_COURIERS['FR'],
+  notableUniversities: G7_NOTABLE_UNIVERSITIES['FR'],
   stockExchange: 'Euronext Paris',
 }

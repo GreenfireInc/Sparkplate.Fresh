@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const zimbabwe: AfricanUnionCountry = {
   name: 'Zimbabwe',
   iso3166Alpha2: 'ZW',
@@ -17,5 +18,6 @@ export const zimbabwe: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Golix (historical)', 'Local P2P'],
   stablecoin: 'USDT / USDC; USD cash economy',
   domesticCourierServices: AU_DOMESTIC_COURIERS['ZW'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['ZW'],
   stockExchange: 'Zimbabwe Stock Exchange (ZSE)',
 }

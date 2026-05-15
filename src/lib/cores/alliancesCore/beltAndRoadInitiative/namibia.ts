@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const namibia: BeltAndRoadInitiativeCountry = {
   name: 'Namibia',
@@ -18,5 +19,6 @@ export const namibia: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Luno', 'VALR', 'Binance (P2P)'],
   stablecoin: 'USDT via South African-linked banking',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['NA'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['NA'],
   stockExchange: 'Namibia Stock Exchange (NSX)',
 }

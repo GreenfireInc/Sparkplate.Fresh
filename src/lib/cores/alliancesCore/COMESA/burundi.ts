@@ -1,5 +1,6 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const burundi: ComesaCountry = {
   name: 'Burundi',
@@ -17,5 +18,6 @@ export const burundi: ComesaCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card (regional)', 'Local OTC'],
   stablecoin: 'USDT informal',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['BI'],
+  notableUniversities: COMESA_NOTABLE_UNIVERSITIES['BI'],
   stockExchange: 'Burundi Stock Exchange — thin liquidity',
 }

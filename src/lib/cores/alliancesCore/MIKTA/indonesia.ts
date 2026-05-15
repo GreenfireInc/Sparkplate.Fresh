@@ -1,5 +1,6 @@
 import type { MiktaCountry } from './types'
 import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const indonesia: MiktaCountry = {
   name: 'Indonesia',
@@ -19,5 +20,6 @@ export const indonesia: MiktaCountry = {
   cryptocurrencyExchanges: ['Indonesia CFX licensed trading (Bappebti-era evolution to OJK oversight — informational)'],
   stablecoin: 'IDR digital rupiah / CBDC narratives; offshore USDT OTC — informational',
   domesticCourierServices: MIKTA_DOMESTIC_COURIERS['ID'],
+  notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['ID'],
   stockExchange: 'Indonesia Stock Exchange IDX Jakarta',
 }

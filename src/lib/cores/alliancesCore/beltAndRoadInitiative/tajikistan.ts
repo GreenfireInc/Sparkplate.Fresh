@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const tajikistan: BeltAndRoadInitiativeCountry = {
   name: 'Tajikistan',
@@ -18,5 +19,6 @@ export const tajikistan: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: [ 'Binance (P2P)', 'International OTC', 'Local regulation varies' ],
   stablecoin: 'USDT / USDC common globally; legality varies by jurisdiction',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['TJ'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['TJ'],
   stockExchange: 'National or regional exchange (verify)',
 }

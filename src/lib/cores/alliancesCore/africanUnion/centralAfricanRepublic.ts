@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const centralAfricanRepublic: AfricanUnionCountry = {
   name: 'Central African Republic',
   iso3166Alpha2: 'CF',
@@ -17,5 +18,6 @@ export const centralAfricanRepublic: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Sango Coin ecosystem (national project)', 'Binance (P2P)', 'OTC'],
   stablecoin: 'USDT / USDC P2P; experimental sovereign crypto references',
   domesticCourierServices: AU_DOMESTIC_COURIERS['CF'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['CF'],
   stockExchange: 'Bangui Stock Exchange (very limited)',
 }

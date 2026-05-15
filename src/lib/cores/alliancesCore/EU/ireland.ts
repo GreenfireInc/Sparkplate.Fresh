@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const ireland: EuCountry = {
   name: 'Ireland',
@@ -17,5 +18,6 @@ export const ireland: EuCountry = {
   cryptocurrencyExchanges: ['Kraken EU', 'European brokers; IDA tech hub onboarding'],
   stablecoin: 'EUR stablecoins; MiCA-aligned issuers referencing IE vehicles',
   domesticCourierServices: EU_DOMESTIC_COURIERS['IE'],
+  notableUniversities: EU_NOTABLE_UNIVERSITIES['IE'],
   stockExchange: 'Euronext Dublin',
 }

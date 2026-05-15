@@ -1,5 +1,6 @@
 import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const brunei: AseanCountry = {
   name: 'Brunei',
@@ -20,5 +21,6 @@ export const brunei: AseanCountry = {
   cryptocurrencyExchanges: ['Autoriti Monetari Brunei cautious posture; regional OTC — informational'],
   stablecoin: 'BND-USD-linked monetary board; informal USDT overlays — informational',
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['BN'],
+  notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['BN'],
   stockExchange: 'No national retail exchange consolidated; regional ASEAN bond context — informational',
 }

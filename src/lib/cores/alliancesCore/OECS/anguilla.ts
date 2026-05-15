@@ -1,5 +1,6 @@
 import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const anguilla: OecsCountry = {
   name: 'Anguilla',
@@ -18,5 +19,6 @@ export const anguilla: OecsCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'offshore services proximity — informational'],
   stablecoin: 'XCD peg; informal USDT — informational',
   domesticCourierServices: OECS_DOMESTIC_COURIERS['AI'],
+  notableUniversities: OECS_NOTABLE_UNIVERSITIES['AI'],
   stockExchange: 'No dedicated national exchange; regional ECSE context — informational',
 }

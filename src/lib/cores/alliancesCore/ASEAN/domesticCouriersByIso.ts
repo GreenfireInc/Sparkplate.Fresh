@@ -1,4 +1,5 @@
 import type { DomesticCourierService } from './types'
+import type { AseanMemberIsoCode } from './aseanMemberIsoCodes'
 
 function c(
   name: string,
@@ -390,4 +391,4 @@ export const ASEAN_DOMESTIC_COURIERS = {
       '',
     ),
   ],
-} satisfies Record<string, DomesticCourierService[]>
+} satisfies Record<AseanMemberIsoCode, DomesticCourierService[]>

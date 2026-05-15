@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const australia: IoraCountry = {
   name: 'Australia',
@@ -18,5 +19,6 @@ export const australia: IoraCountry = {
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'ASIC-regulated onboarding — informational'],
   stablecoin: 'AUD stablecoins; Treasury supervisory evolution — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['AU'],
+  notableUniversities: IORA_NOTABLE_UNIVERSITIES['AU'],
   stockExchange: 'Australian Securities Exchange (ASX)',
 }

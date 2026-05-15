@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const libya: AfricanUnionCountry = {
   name: 'Libya',
   iso3166Alpha2: 'LY',
@@ -17,5 +18,6 @@ export const libya: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC; fragmented regulatory environment'],
   stablecoin: 'USDT informal; banking fragmentation',
   domesticCourierServices: AU_DOMESTIC_COURIERS['LY'],
+  notableUniversities: AU_NOTABLE_UNIVERSITIES['LY'],
   stockExchange: 'Libyan Stock Market (limited operations)',
 }

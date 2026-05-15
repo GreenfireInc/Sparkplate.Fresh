@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const maldives: IoraCountry = {
   name: 'Maldives',
@@ -18,5 +19,6 @@ export const maldives: IoraCountry = {
   cryptocurrencyExchanges: ['Tourism-driven informal crypto; central bank caution — informational'],
   stablecoin: 'USD resort pricing dominant; USDT informal — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['MV'],
+  notableUniversities: IORA_NOTABLE_UNIVERSITIES['MV'],
   stockExchange: 'Maldives Stock Exchange (Malé — thin — informational)',
 }

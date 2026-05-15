@@ -1,5 +1,6 @@
 import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const britishVirginIslands: CaricomCountry = {
   name: 'British Virgin Islands',
@@ -18,5 +19,6 @@ export const britishVirginIslands: CaricomCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Offshore crypto funds context — verify'],
   stablecoin: 'USD; USDT/USDC common',
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['VG'],
+  notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['VG'],
   stockExchange: 'BVI finance centre; no large local bourse like major markets',
 }

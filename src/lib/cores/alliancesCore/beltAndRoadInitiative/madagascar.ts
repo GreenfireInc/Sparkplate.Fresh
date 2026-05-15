@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const madagascar: BeltAndRoadInitiativeCountry = {
   name: 'Madagascar',
@@ -18,5 +19,6 @@ export const madagascar: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Local P2P', 'International brokers'],
   stablecoin: 'USDT informal; no MGA stablecoin',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['MG'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['MG'],
   stockExchange: 'Madagascar Stock Exchange (SEM)',
 }

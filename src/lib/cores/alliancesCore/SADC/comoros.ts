@@ -1,5 +1,6 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const comoros: SadcCountry = {
   name: 'Comoros',
@@ -17,5 +18,6 @@ export const comoros: SadcCountry = {
   cryptocurrencyExchanges: ['Informal P2P'],
   stablecoin: 'Euro peg via KMF framework',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['KM'],
+  notableUniversities: SADC_NOTABLE_UNIVERSITIES['KM'],
   stockExchange: 'No national stock exchange',
 }

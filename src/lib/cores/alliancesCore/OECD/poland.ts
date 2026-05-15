@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const poland: OecdCountry = {
   name: 'Poland',
@@ -18,5 +19,6 @@ export const poland: OecdCountry = {
   cryptocurrencyExchanges: ['Zonda (BitBay legacy)', 'European MiCA passporting'],
   stablecoin: 'PLN pairs; EUR-stable conversion customary — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['PL'],
+  notableUniversities: OECD_NOTABLE_UNIVERSITIES['PL'],
   stockExchange: 'Warsaw Stock Exchange (GPW)',
 }

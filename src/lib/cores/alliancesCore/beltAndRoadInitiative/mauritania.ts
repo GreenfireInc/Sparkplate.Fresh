@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mauritania: BeltAndRoadInitiativeCountry = {
   name: 'Mauritania',
@@ -18,5 +19,6 @@ export const mauritania: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC', 'Peer-to-peer networks'],
   stablecoin: 'USDT informal; no MRU stablecoin',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['MR'],
+  notableUniversities: BRI_NOTABLE_UNIVERSITIES['MR'],
   stockExchange: 'Bourse Notation Agréée (limited)',
 }

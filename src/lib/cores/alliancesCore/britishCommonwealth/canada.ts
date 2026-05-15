@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const canada: CommonwealthCountry = {
   name: 'Canada',
@@ -18,5 +19,6 @@ export const canada: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Newton', 'Shakepay', 'Coinbase (eligible provinces)'],
   stablecoin: 'CAD stablecoins limited; USDC/USDT common',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['CA'],
+  notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['CA'],
   stockExchange: 'Toronto Stock Exchange (TSX)',
 }
