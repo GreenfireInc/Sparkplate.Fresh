@@ -6,9 +6,7 @@
     </div>
 
     <!-- Subtitle -->
-    <p class="calc-subtitle">
-      Convert between cryptocurrencies and fiat currencies with real-time exchange rates
-    </p>
+    <Separator class="calc-separator" />
 
     <!-- Cards row -->
     <div class="calc-row">
@@ -164,7 +162,7 @@
 
 <script setup lang="ts">
 import { ref, reactive, watch } from 'vue'
-import { Label } from 'radix-vue'
+import { Separator, Label } from 'radix-vue'
 import MarqueeTicker from '../../partials/marqueeTicker/MarqueeTicker.vue'
 
 // Define component name
@@ -450,8 +448,17 @@ watch(() => args.amount, () => {
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-height: 0;
   overflow: hidden;
-  padding: 0 0 8px;
+  padding: 0;
+}
+
+.calc-separator {
+  display: block;
+  flex-shrink: 0;
+  height: 1px;
+  margin: 0 16px 8px;
+  background: #e5e7eb;
 }
 
 .calc-ticker {
@@ -498,11 +505,11 @@ watch(() => args.amount, () => {
 }
 
 .calc-card-header--blue {
-  border-top: 3px solid #6366f1;
+  border-top: 3px solid #2563eb;
 }
 
 .calc-card-header--purple {
-  border-top: 3px solid #a855f7;
+  border-top: 3px solid #7c3aed;
 }
 
 .calc-card-title {
@@ -578,12 +585,12 @@ watch(() => args.amount, () => {
 }
 
 .calc-toggle-input:checked + .calc-toggle-track {
-  background: #6366f1;
+  background: #2563eb;
   &::after { transform: translateX(16px); }
 }
 
 .calc-toggle-input:checked + .calc-toggle-track--purple {
-  background: #a855f7;
+  background: #7c3aed;
 }
 
 .calc-toggle-hint {
@@ -622,7 +629,7 @@ watch(() => args.amount, () => {
 .calc-fiat-symbol {
   font-size: 1rem;
   font-weight: 700;
-  color: #6366f1;
+  color: #2563eb;
 }
 
 /* ── Input ────────────────────────────────────────────────── */
@@ -643,8 +650,8 @@ watch(() => args.amount, () => {
   box-sizing: border-box;
 
   &:focus {
-    border-color: #6366f1;
-    box-shadow: 0 0 0 3px rgba(99,102,241,.12);
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
   }
 
   &--result {
@@ -682,8 +689,8 @@ watch(() => args.amount, () => {
   box-sizing: border-box;
 
   &:focus {
-    border-color: #6366f1;
-    box-shadow: 0 0 0 3px rgba(99,102,241,.12);
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
   }
 }
 
@@ -698,7 +705,7 @@ watch(() => args.amount, () => {
   font-size: 0.875rem;
   font-weight: 600;
   color: #fff;
-  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -783,9 +790,9 @@ watch(() => args.amount, () => {
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
   border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(99,102,241,.35);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
 
   svg {
     width: 18px;

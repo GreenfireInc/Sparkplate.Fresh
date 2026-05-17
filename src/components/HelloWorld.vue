@@ -9,7 +9,7 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1><slot>{{ msg }}</slot></h1>
 
   <div class="card">
     <button type="button" @click="count++">{{ t('countIs') }} {{ count }}</button>
