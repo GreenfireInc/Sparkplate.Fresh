@@ -1,5 +1,6 @@
 <template>
-  <div class="mnemonic-generator bg-background p-2 md:p-3">
+  <div class="mnemonic-page">
+    <div class="mnemonic-page__scroll mnemonic-generator bg-background p-2 md:p-3">
     <div class="max-w-7xl mx-auto space-y-3">
       <!-- Header -->
       <div class="text-center space-y-1 py-1">
@@ -13,6 +14,8 @@
           Generate deterministic cryptocurrency wallets with BIP39 mnemonic seed phrases
         </p>
       </div>
+
+      <Separator class="mn-separator" />
 
       <!-- Seed Phrase Generator Card -->
       <div class="max-w-4xl mx-auto">
@@ -100,13 +103,15 @@
             <div class="flex items-center gap-2 flex-wrap">
               <label class="text-xs font-medium text-gray-700 dark:text-gray-300">Your Seed Phrase</label>
               <button
-                @click="checksumModalOpen = true"
+                type="button"
+                @click="openMnemonicTools('checksum')"
                 class="px-2 py-0.5 rounded text-xs font-medium transition-colors border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-1"
               >
                 Checksum
               </button>
               <button
-                @click="advancedModalOpen = true"
+                type="button"
+                @click="openMnemonicTools('general')"
                 class="px-2 py-0.5 rounded text-xs font-medium transition-colors border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-1"
               >
                 Advanced
@@ -249,19 +254,12 @@
         </ul>
       </div>
     </div>
+    </div>
 
-    <!-- Checksum Modal -->
-    <ChecksumModal
-      :open="checksumModalOpen"
-      :seed-phrase="mnemonic"
-      @update:open="checksumModalOpen = $event"
-      @update:seed-phrase="mnemonic = $event"
-    />
-
-    <!-- Advanced Modal -->
     <AdvancedModal
       :open="advancedModalOpen"
       :seed-phrase="mnemonic"
+      :initial-tab="advancedInitialTab"
       @update:open="advancedModalOpen = $event"
       @update:seed-phrase="mnemonic = $event"
     />
@@ -286,6 +284,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import * as bip39 from 'bip39'
+import { Separator } from 'radix-vue'
 import { Shield, RefreshCw, Upload, Copy, Check, Download, FileImage, FileText } from 'lucide-vue-next'
 import { generateGPGFromRootExtendedPrivateKey } from '@/lib/cores/cryptographyCore/deterministicGPG/deterministicGPG.seed'
 import {
@@ -298,8 +297,7 @@ import {
   exportSeedPhraseAsPNG,
   exportSeedPhraseAsPDF,
 } from '@/lib/cores/exportStandard/currencies/filenameStructureAndContent.seed.visual'
-import ChecksumModal from '@/components/modals/cryptocurrency/ChecksumModal.vue'
-import AdvancedModal from '@/components/modals/cryptocurrency/AdvancedModal.vue'
+import AdvancedModal from '@/components/modals/cryptocurrency/modal.mnemonicSeedPhrase.Advanced.vue'
 import DerivationPathDiveModal from '@/components/modals/cryptocurrency/DerivationPathDiveModal.vue'
 import PrivateKeyToMnemonicModal from '@/components/modals/cryptocurrency/PrivateKeyToMnemonicModal.vue'
 
@@ -309,7 +307,7 @@ const mnemonic = ref<string>('')
 const copied = ref(false)
 const inputMode = ref<'generate' | 'input'>('generate')
 const fileInput = ref<HTMLInputElement | null>(null)
-const checksumModalOpen = ref(false)
+const advancedInitialTab = ref<'general' | 'checksum'>('general')
 const advancedModalOpen = ref(false)
 const derivationDiveModalOpen = ref(false)
 const privateKeyModalOpen = ref(false)
@@ -318,6 +316,11 @@ const isGeneratingGPG = ref(false)
 const gpgCopied = ref(false)
 const downloadMenuOpen = ref(false)
 const downloadMenuRef = ref<HTMLElement | null>(null)
+
+function openMnemonicTools(tab: 'general' | 'checksum' = 'general') {
+  advancedInitialTab.value = tab
+  advancedModalOpen.value = true
+}
 
 // Standard BIP39 word count → entropy bits
 const standardEntropyMap: Record<number, number> = {
@@ -546,6 +549,32 @@ watch(mnemonic, async (newMnemonic) => {
 </script>
 
 <style scoped>
+.mnemonic-page {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.mnemonic-page__scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.mn-separator {
+  display: block;
+  flex-shrink: 0;
+  height: 1px;
+  margin: 0 auto 0.75rem;
+  max-width: 56rem;
+  background: #e5e7eb;
+}
+
 .text-primary {
   color: rgb(37 99 235); /* blue-600 */
 }

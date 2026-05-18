@@ -2,8 +2,11 @@
   <div class="dr-view">
     <p class="dr-desc">Resolve human-readable domain names to cryptocurrency addresses</p>
 
-    <section class="dr-section">
-      <form class="dr-form" @submit.prevent="resolveAddress">
+    <Separator class="dr-separator" />
+
+    <div class="dr-scroll">
+      <section class="dr-section dr-panel" aria-label="Domain lookup">
+        <form class="dr-form" @submit.prevent="resolveAddress">
         <div class="dr-fields">
           <div class="dr-field" role="group" aria-labelledby="dr-label">
             <Label id="dr-label" for="dr-domain" class="dr-label">Domain Name</Label>
@@ -115,6 +118,7 @@
         </div>
       </form>
     </section>
+    </div>
   </div>
 </template>
 
@@ -128,9 +132,9 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   Label,
-  Primitive,
+  Separator,
 } from 'radix-vue'
-import { ChevronDown, Info } from 'lucide-vue-next'
+import { ChevronDown } from 'lucide-vue-next'
 import {
   resolveAddress as resolveDomainAddress,
   isDomain as isDomainInput,
@@ -306,13 +310,46 @@ async function resolveAddress() {
 
 <style lang="scss" scoped>
 .dr-view {
+  height: 100%;
+  min-height: 0;
+  width: 100%;
   max-width: 42rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .dr-desc {
-  margin: 0 0 1.5rem;
-  font-size: 1rem;
+  flex-shrink: 0;
+  margin: 0 0 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
   color: #6b7280;
+}
+
+.dr-separator {
+  display: block;
+  flex-shrink: 0;
+  height: 1px;
+  margin: 0 0 0.75rem;
+  background: #e5e7eb;
+}
+
+.dr-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.dr-panel {
+  padding: 1rem 1.125rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
 }
 
 .dr-section {
@@ -320,7 +357,7 @@ async function resolveAddress() {
 }
 
 .dr-form {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 
 .dr-fields {

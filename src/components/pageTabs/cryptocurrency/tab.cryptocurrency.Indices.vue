@@ -1,7 +1,7 @@
 <template>
-  <div class="indices-container">
+  <div class="indices-page">
     <!-- Index Selection Dropdown and Search -->
-    <div class="mb-6 flex items-end gap-3 flex-wrap">
+    <div class="indices-page__toolbar mb-6 flex items-end gap-3 flex-wrap">
       <IndexSelector
         v-model="selectedIndex"
         :available-indices="availableIndices"
@@ -56,6 +56,11 @@
         </button>
       </div>
     </div>
+
+    <Separator class="indices-sep" />
+
+    <div class="indices-page__body">
+      <div class="indices-page__scroll">
 
     <!-- Chart View -->
     <div v-if="viewMode === 'chart' && filteredCurrencies.length > 0" class="chart-view-container">
@@ -297,13 +302,15 @@
       </table>
     </div>
 
-    <!-- Empty State -->
-    <div v-else class="text-center py-12">
+    <!-- Empty State (no currencies for selection) -->
+    <div v-if="filteredCurrencies.length === 0" class="indices-empty text-center py-12">
       <p class="text-gray-500 dark:text-gray-400">No currencies found for the selected index.</p>
     </div>
 
+      </div>
+
     <!-- Summary Info -->
-    <div v-if="filteredCurrencies.length > 0" class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+    <div v-if="filteredCurrencies.length > 0" class="indices-page__summary mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
       <p class="text-sm text-gray-700 dark:text-gray-300">
         Showing <span class="font-semibold">{{ filteredCurrencies.length }}</span> currencies
         from <span class="font-semibold">{{ getIndexLabel(selectedIndex) }}</span>
@@ -314,6 +321,7 @@
           • Total Market Cap (excl. BTC): <span class="font-semibold">${{ formatPrice(totalMarketCapExcludingBitcoin) }}</span>
         </span>
       </p>
+    </div>
     </div>
 
     <!-- Currency Detail Modal -->
@@ -327,6 +335,7 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue'
+import { Separator } from 'radix-vue'
 import { ChartPie, List, Search, X } from 'lucide-vue-next'
 import * as IndexComposites from '@/lib/cores/currencyCore/indexComposites'
 import CurrencyDetailModal from './indices/CurrencyDetailModal.vue'
@@ -732,8 +741,46 @@ watch([filteredCurrencies, selectedIndex], () => {
 <style scoped>
 @reference "tailwindcss";
 
-.indices-container {
+.indices-page {
   @apply w-full;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.indices-page__toolbar {
+  flex-shrink: 0;
+}
+
+.indices-sep {
+  display: block;
+  flex-shrink: 0;
+  height: 1px;
+  margin: 0 0 0.75rem;
+  background: #e5e7eb;
+}
+
+.indices-page__body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.indices-page__scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.indices-page__summary {
+  flex-shrink: 0;
 }
 
 /* Sorting indicator transition */
@@ -745,11 +792,10 @@ watch([filteredCurrencies, selectedIndex], () => {
   transform: rotate(180deg);
 }
 
-/* Table Container with Scroll */
+/* Table: horizontal scroll only; vertical scroll handled by `.indices-page__scroll` */
 .table-container {
   overflow-x: auto;
-  max-height: calc(100vh - 300px);
-  overflow-y: auto;
+  overflow-y: visible;
 }
 
 /* Sticky Table Header */
@@ -770,12 +816,12 @@ watch([filteredCurrencies, selectedIndex], () => {
 
 /* Table responsive styles */
 @media (max-width: 768px) {
-  .indices-container table {
+  .indices-page table {
     font-size: 0.875rem;
   }
   
-  .indices-container th,
-  .indices-container td {
+  .indices-page th,
+  .indices-page td {
     padding: 0.5rem;
   }
 }
