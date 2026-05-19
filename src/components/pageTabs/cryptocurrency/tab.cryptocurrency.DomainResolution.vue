@@ -96,8 +96,15 @@
 
         <domain-resolution-badge
           v-if="domainAddress.enabled"
+          class="dr-badge-slot"
           :domain-address="domainAddress"
           :currency="effectiveCoinTicker"
+        />
+
+        <div
+          v-if="domainAddress.enabled"
+          class="dr-fill-spacer"
+          aria-hidden="true"
         />
 
         <div v-if="!domainAddress.enabled" class="dr-about">
@@ -310,23 +317,68 @@ async function resolveAddress() {
 
 <style lang="scss" scoped>
 .dr-view {
+  --dr-muted: #6b7280;
+  --dr-border: #e5e7eb;
+  --dr-panel-bg: #f9fafb;
+  --dr-panel-border: #e5e7eb;
+  --dr-label-text: #374151;
+  --dr-input-bg: #f9fafb;
+  --dr-input-fg: #111827;
+  --dr-about-title: #111827;
+  --dr-about-muted: #6b7280;
+  --dr-input-border: #d1d5db;
+  --dr-placeholder: #9ca3af;
+  --dr-about-surface-bg: rgb(249 250 251 / 0.85);
+  --dr-about-surface-border: #e5e7eb;
+  --dr-about-label: #374151;
+
   height: 100%;
-  min-height: 0;
   width: 100%;
-  max-width: 42rem;
-  margin: 0 auto;
+  max-width: none;
+  min-height: 0;
+  margin: 0;
+  padding: 0 0.5rem 0.75rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   box-sizing: border-box;
 }
 
+@media (min-width: 640px) {
+  .dr-view {
+    padding: 0 1rem 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dr-view {
+    padding-inline: clamp(1rem, 4vw, 2.5rem);
+  }
+}
+
+:global(html.dark) .dr-view {
+  --dr-muted: #9ca3af;
+  --dr-border: #374151;
+  --dr-panel-bg: rgb(31 41 55 / 0.45);
+  --dr-panel-border: #4b5563;
+  --dr-label-text: #e5e7eb;
+  --dr-input-bg: #111827;
+  --dr-input-fg: #f9fafb;
+  --dr-about-title: #f9fafb;
+  --dr-about-muted: #9ca3af;
+  --dr-about-label: #d1d5db;
+  --dr-input-border: #4b5563;
+  --dr-placeholder: #9ca3af;
+  --dr-about-surface-bg: rgb(17 24 39 / 0.35);
+  --dr-about-surface-border: #4b5563;
+}
+
 .dr-desc {
   flex-shrink: 0;
   margin: 0 0 0.75rem;
-  font-size: 0.9375rem;
+  font-size: clamp(0.875rem, 1.8vw, 0.9375rem);
   line-height: 1.5;
-  color: #6b7280;
+  color: var(--dr-muted);
 }
 
 .dr-separator {
@@ -334,7 +386,7 @@ async function resolveAddress() {
   flex-shrink: 0;
   height: 1px;
   margin: 0 0 0.75rem;
-  background: #e5e7eb;
+  background: var(--dr-border);
 }
 
 .dr-scroll {
@@ -343,13 +395,23 @@ async function resolveAddress() {
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
 }
 
 .dr-panel {
-  padding: 1rem 1.125rem;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
+  flex: 1;
+  width: 100%;
+  max-width: min(72rem, 100%);
+  margin: 0 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+  background: var(--dr-panel-bg);
+  border: 1px solid var(--dr-panel-border);
   border-radius: 0.5rem;
+  box-sizing: border-box;
 }
 
 .dr-section {
@@ -357,13 +419,28 @@ async function resolveAddress() {
 }
 
 .dr-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
   margin-bottom: 0;
 }
 
 .dr-fields {
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.dr-badge-slot {
+  flex-shrink: 0;
+  margin-top: 0.75rem;
+}
+
+.dr-fill-spacer {
+  flex: 1;
+  min-height: 2rem;
 }
 
 .dr-field {
@@ -376,20 +453,32 @@ async function resolveAddress() {
   display: block;
   font-size: 0.875rem;
   font-weight: 500;
-  color: #374151;
+  color: var(--dr-label-text);
 }
 
 .dr-input-row {
-  display: flex;
-  max-width: 42rem;
-  gap: 0.375rem;
+  display: grid;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: none;
+  align-items: stretch;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .dr-input-row {
+    grid-template-columns: minmax(min(12rem, 100%), auto) minmax(0, 1fr) auto;
+    gap: 0.375rem;
+  }
 }
 
 .dr-trigger {
   display: inline-flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.5rem;
   flex-shrink: 0;
+  width: 100%;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   font-weight: 500;
@@ -399,6 +488,12 @@ async function resolveAddress() {
   border-radius: 0.375rem;
   cursor: pointer;
   transition: background 0.15s;
+}
+
+@media (min-width: 640px) {
+  .dr-trigger {
+    width: auto;
+  }
 }
 
 .dr-trigger:hover {
@@ -418,20 +513,21 @@ async function resolveAddress() {
 .dr-input {
   flex: 1;
   min-width: 0;
+  width: 100%;
   padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
-  color: #111827;
-  background: #f9fafb;
-  border: 1px solid #d1d5db;
+  color: var(--dr-input-fg);
+  background: var(--dr-input-bg);
+  border: 1px solid var(--dr-input-border);
   border-radius: 0.375rem;
 
   &::placeholder {
-    color: #9ca3af;
+    color: var(--dr-placeholder);
   }
 
   &:focus {
     outline: none;
-    background: #fff;
+    background: var(--dr-input-bg);
     border-color: #2563eb;
   }
 }
@@ -485,8 +581,8 @@ async function resolveAddress() {
 .dr-hint {
   margin: 0;
   font-size: 0.75rem;
-  color: #6b7280;
-  line-height: 1.4;
+  color: var(--dr-muted);
+  line-height: 1.45;
 }
 
 .dr-info {
@@ -512,23 +608,26 @@ async function resolveAddress() {
 }
 
 .dr-about {
-  margin-top: 2rem;
-  padding: 1rem;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
+  flex: 1;
+  min-height: 0;
+  margin-top: clamp(1rem, 3vw, 1.75rem);
+  padding: clamp(0.875rem, 2vw, 1.125rem);
+  background: var(--dr-about-surface-bg);
+  border: 1px solid var(--dr-about-surface-border);
   border-radius: 0.5rem;
+  overflow-y: auto;
 }
 
 .dr-about-title {
-  font-size: 1rem;
+  font-size: clamp(0.9375rem, 1.6vw, 1rem);
   font-weight: 600;
-  color: #111827;
+  color: var(--dr-about-title);
   margin: 0 0 0.5rem;
 }
 
 .dr-about-desc {
   font-size: 0.875rem;
-  color: #6b7280;
+  color: var(--dr-about-muted);
   margin: 0 0 0.75rem;
 }
 
@@ -536,7 +635,7 @@ async function resolveAddress() {
   margin: 0;
   padding-left: 1.25rem;
   font-size: 0.875rem;
-  color: #6b7280;
+  color: var(--dr-about-muted);
 }
 
 .dr-about-item {
@@ -553,7 +652,7 @@ async function resolveAddress() {
 
 .dr-about-label {
   font-weight: 500;
-  color: #374151;
+  color: var(--dr-about-label);
 }
 
 .dr-about-strike {
