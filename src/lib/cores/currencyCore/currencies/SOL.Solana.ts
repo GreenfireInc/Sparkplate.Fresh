@@ -327,11 +327,15 @@ export const solanaData: CurrencyData = {
     const solanaWeb3 = await import('@solana/web3.js');
     const { sha512 } = await import('@noble/hashes/sha2.js');
     
-    // Import and configure noble/ed25519 with required hash function
+    // Import and configure noble/ed25519 with required hash function.
+    // v3 API: `hashes.sha512` (the v2 `etc.sha512Sync` slot was removed and
+    // `etc` is now a frozen object — assigning to it throws
+    // "Cannot add property sha512Sync, object is not extensible").
     const ed25519Module = await import('@noble/ed25519');
-    
-    // Set the required SHA-512 implementation for noble/ed25519
-    ed25519Module.etc.sha512Sync = (...m) => sha512(ed25519Module.etc.concatBytes(...m));
+
+    if (!ed25519Module.hashes.sha512) {
+      ed25519Module.hashes.sha512 = sha512;
+    }
 
     // Solana uses Ed25519 keys - private key should be 32 bytes
     const SOLANA_PRIVATE_KEY_LENGTH = 32;

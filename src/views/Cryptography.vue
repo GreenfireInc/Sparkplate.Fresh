@@ -26,6 +26,12 @@
         Encrypt/Decrypt
       </TabComponent>
       <TabComponent
+        :active="activeTab === 'crypto-encrypt'"
+        :onClick="() => (activeTab = 'crypto-encrypt')"
+      >
+        Crypto Encrypt/Decrypt
+      </TabComponent>
+      <TabComponent
         :active="activeTab === 'pgp'"
         :onClick="() => (activeTab = 'pgp')"
       >
@@ -49,7 +55,10 @@
       
       <!-- Encrypt/Decrypt Tab -->
       <encrypt-decrypt-tool v-if="activeTab === 'encrypt'" />
-      
+
+      <!-- Cryptocurrency-aware Encrypt/Decrypt Tab -->
+      <CryptocurrencyEncryptDecryptTool v-if="activeTab === 'crypto-encrypt'" />
+
       <!-- PGP/GPG Keys Tab -->
       <PGPKeyTool v-if="activeTab === 'pgp'" />
 
@@ -61,11 +70,12 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import HashTool from '../components/pageTabs/cryptography/HashTool.vue'
-import VerifyTool from '../components/pageTabs/cryptography/VerifyTool.vue'
-import EncryptDecryptTool from '../components/pageTabs/cryptography/EncryptDecryptTool.vue'
-import PGPKeyTool from '@/components/pageTabs/cryptography/PGPKeyTool.vue'
-import PGPGenerateTool from '@/components/pageTabs/cryptography/PGPGenerateTool.vue'
+import HashTool from '../components/pageTabs/cryptography/tab.cryptography.tool.Hash.vue'
+import VerifyTool from '../components/pageTabs/cryptography/tab.cryptography.tool.Verification.vue'
+import EncryptDecryptTool from '../components/pageTabs/cryptography/tab.cryptography.tool.EncryptDecrypt.vue'
+import CryptocurrencyEncryptDecryptTool from '../components/pageTabs/cryptography/tab.cryptography.tool.CryptocurrencyEncryptDecrypt.vue'
+import PGPKeyTool from '@/components/pageTabs/cryptography/tab.cryptography.tool.PGPKey.vue'
+import PGPGenerateTool from '@/components/pageTabs/cryptography/tab.cryptography.tool.PGPGeneration.vue'
 import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
 
