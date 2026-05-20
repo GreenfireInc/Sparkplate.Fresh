@@ -1,14 +1,14 @@
-import { SUPPORTED_TICKERS } from '../bridge/bridge.Cryptography.Via.Currency';
+import { SUPPORTED_TICKERS } from '../../bridge/bridge.Cryptography.Via.Currency';
 import {
   CRYPTO_PUBKEY_FILE_EXTENSION,
   SPCK_MAGIC,
   decryptWithCryptoPrivateKey,
-} from './encryption.crypto.PublicKey.general';
+} from '../encryption/encryption.crypto.PublicKey.general';
 import {
   SPCK_VERSION_X25519,
   decryptWithEd25519PrivateKey,
   hasSpckX25519Header,
-} from './encryption.crypto.PublicKey.ed25519';
+} from '../encryption/encryption.crypto.PublicKey.ed25519';
 
 const SUPPORTED_TICKER_SET = new Set(SUPPORTED_TICKERS.map((t) => t.toUpperCase()));
 

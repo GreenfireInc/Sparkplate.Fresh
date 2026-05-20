@@ -1,0 +1,65 @@
+// Chainlink Oracle for Bitcoin (BTC)
+// Leading Decentralized Oracle Network
+
+export const chainlinkOracle = {
+  name: "Chainlink Oracle",
+  blockchain: "Bitcoin (BTC) via Layer 2",
+  type: "Decentralized Oracle Network (DON)",
+  description: "Chainlink is the most widely used oracle network for fetching BTC/USD and cross-asset prices. While not deploying smart contracts on Bitcoin L1, it provides reliable aggregated prices from numerous sources and pushes this data on-chain to EVM, Cosmos, and other chains, as well as to off-chain applications. Available on Bitcoin Layer 2 solutions like Stacks and Rootstock (RSK).",
+  url: "https://chain.link/",
+  docs: "https://docs.chain.link/",
+  educationUrl: "https://chain.link/education/blockchain-oracles",
+  api: {
+    priceFeeds: "https://docs.chain.link/data-feeds/price-feeds",
+    addressesEthereum: "https://docs.chain.link/data-feeds/price-feeds/addresses?network=ethereum",
+    btcUsdFeed: "0xF4030086522a5beEA4988F8cA5B36dbC97BeE88c",
+    documentation: "https://docs.chain.link/",
+    dataProviders: "https://docs.chain.link/resources/data-providers",
+  },
+  features: [
+    "BTC/USD price feeds on multiple chains",
+    "Decentralized node operators",
+    "Tamper-proof data aggregation",
+    "Support for Bitcoin L2s (Stacks, RSK)",
+    "VRF (Verifiable Random Function)",
+    "Any API connectivity",
+    "Cross-chain interoperability (CCIP)",
+    "High data quality and reliability",
+    "Extensive track record since 2018",
+    "200+ price feed pairs",
+  ],
+  useCases: [
+    "DeFi applications on Bitcoin L2s",
+    "BTC price feeds for smart contracts",
+    "Cross-chain data integration",
+    "Derivatives and options protocols",
+    "Lending and borrowing platforms",
+    "Stablecoins pegged to BTC",
+    "Insurance protocols",
+    "Gaming and NFT applications",
+  ],
+  integrationMethod: "Smart Contract (L2) / REST API / ethers.js / web3.js",
+  dataFrequency: "Real-time with configurable deviation thresholds",
+  pricing: "Free for read access, paid for custom feeds",
+  coverage: "200+ cryptocurrency pairs, 1000+ assets total",
+  layer2Support: {
+    stacks: "Available via Stacks smart contracts",
+    rootstock: "Native support on RSK (EVM-compatible)",
+    lightning: "Indirect support via off-chain integration",
+  },
+  socialMedia: {
+    twitter: "https://twitter.com/chainlink",
+    telegram: "https://t.me/chainlinkofficial",
+    discord: "https://discord.gg/chainlink",
+    github: "https://github.com/smartcontractkit/chainlink",
+    linkedin: "https://www.linkedin.com/company/chainlink-labs/",
+    reddit: "https://www.reddit.com/r/Chainlink/",
+  },
+  integrationNotes: "For Bitcoin L2 integration, use Clarinet for Stacks or Web3.js for RSK. Off-chain applications can query Chainlink nodes via ethers.js on EVM chains. BTC feeds have been available since 2018.",
+  sampleContractAddress: "0xF4030086522a5beEA4988F8cA5B36dbC97BeE88c (Ethereum Mainnet BTC/USD)",
+  sampleEndpoints: [
+    "Contract: latestAnswer() - Get latest BTC price",
+    "Contract: latestRoundData() - Get detailed round data",
+  ],
+};
+
