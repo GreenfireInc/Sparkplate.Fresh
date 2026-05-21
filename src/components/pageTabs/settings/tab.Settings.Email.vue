@@ -144,6 +144,8 @@ import {
   CollapsibleContent,
 } from 'radix-vue'
 
+defineOptions({ name: 'TabSettingsEmail' })
+
 const STORAGE_PREFIX = 'sparkplate_email_'
 
 const activeTab = ref<'oauth' | 'smtp'>('oauth')

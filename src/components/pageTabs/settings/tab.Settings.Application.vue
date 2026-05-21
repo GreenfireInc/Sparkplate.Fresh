@@ -49,7 +49,7 @@ import { defineComponent, ref, onMounted } from 'vue'
 import { useI18n } from '@/composables/useI18n'
 
 export default defineComponent({
-  name: 'ApplicationSettings',
+  name: 'TabSettingsApplication',
   setup() {
     const { locale, setLocale, languages, t } = useI18n()
     

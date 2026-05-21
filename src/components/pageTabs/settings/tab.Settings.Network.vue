@@ -34,6 +34,8 @@ import AdaptersAndProxies from '@/components/pageTabs/settings/aspect.Network/Ad
 import ServicesProtocols from '@/components/pageTabs/settings/aspect.Network/ServicesProtocols.vue'
 import Bittorrent from '@/components/pageTabs/settings/aspect.Network/Bittorrent.vue'
 
+defineOptions({ name: 'TabSettingsNetwork' })
+
 const activeNetworkTab = ref<'adapters' | 'services' | 'bittorrent'>('adapters')
 const networkTabLabels = {
   adapters: 'Adapters & Proxies',

@@ -75,6 +75,8 @@ import {
   Separator,
 } from 'radix-vue'
 
+defineOptions({ name: 'TabSettingsMisc' })
+
 const theme = ref('System')
 const closeToTray = ref(false)
 

@@ -132,6 +132,8 @@ import TwoFactorAuthControls from '@/components/modals/settings/security/TwoFact
 import PasswordManagement from '@/components/modals/settings/security/PasswordManagement.vue'
 import HDWalletManagement from '@/components/modals/settings/security/HDWalletManagement.vue'
 
+defineOptions({ name: 'TabSettingsSecurity' })
+
 const mfaEnabled = ref(false)
 const twoFAControlsOpen = ref(false)
 const passwordManagementOpen = ref(false)

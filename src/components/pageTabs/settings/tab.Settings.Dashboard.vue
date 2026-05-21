@@ -1,5 +1,5 @@
 <!--
-  Dashboard Settings — Toggle visibility and network options for dashboard currencies.
+  tab.Settings.Dashboard — Toggle visibility and network options for dashboard currencies.
   Reference: 00.references/from.Greenery/DashboardSettings.vue
   Currencies: src/lib/cores/currencyCore/currencies
 -->
@@ -107,16 +107,21 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
-import { allCurrencies, NETWORKS } from '@/lib/cores/currencyCore/currencies'
-import type { CurrencyData } from '@/lib/cores/currencyCore/currencies'
+import { ref, computed } from 'vue'
+import { NETWORKS, type CurrencyData } from '@/lib/cores/currencyCore/currencies'
 import DashboardNetworks from '@/components/modals/settings/dashboard/dashboardNetworks.vue'
+import { useDashboardCurrencies } from '@/composables/useDashboardCurrencies'
 
-defineOptions({ name: 'DashboardSettings' })
+defineOptions({ name: 'TabSettingsDashboard' })
 
-const STORAGE_KEY_VISIBILITY = 'sparkplate_dashboard_visibility'
+// Single source of truth for visibility — also consumed by Dashboard.vue.
+const {
+  visibilityToggles,
+  currenciesOrdered,
+  activeCount,
+  toggleVisibility,
+} = useDashboardCurrencies()
 
-const visibilityToggles = ref<Record<string, boolean>>({})
 const searchQuery = ref('')
 
 // ── RPC Endpoints modal ──────────────────────────────────────────────────────
@@ -132,24 +137,14 @@ function openEndpointsModal(currency: CurrencyData) {
   networksModal.value?.open(currency)
 }
 
-const currenciesOrdered = computed(() => {
-  return [...allCurrencies].sort((a, b) =>
-    a.basicInfo.name.localeCompare(b.basicInfo.name)
-  ) as CurrencyData[]
-})
-
 const filteredCurrencies = computed(() => {
   const q = searchQuery.value.trim().toLowerCase()
-  if (!q) return currenciesOrdered.value
-  return currenciesOrdered.value.filter(
+  if (!q) return currenciesOrdered
+  return currenciesOrdered.filter(
     (c) =>
       c.basicInfo.name.toLowerCase().includes(q) ||
       c.basicInfo.symbolTicker.toLowerCase().includes(q)
   )
-})
-
-const activeCount = computed(() => {
-  return Object.entries(visibilityToggles.value).filter(([, v]) => v).length
 })
 
 function getTags(currency: CurrencyData): string {
@@ -178,49 +173,6 @@ function getIcon(ticker: string): string | null {
   const n = NETWORKS.find((x) => x.ticker === ticker.toUpperCase())
   return n?.icon ?? null
 }
-
-function toggleVisibility(ticker: string, value: boolean) {
-  if (activeCount.value <= 1 && (visibilityToggles.value[ticker] ?? true)) return
-  visibilityToggles.value = { ...visibilityToggles.value, [ticker]: value }
-  saveVisibility()
-}
-
-function loadVisibility() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY_VISIBILITY)
-    if (raw) {
-      visibilityToggles.value = { ...visibilityToggles.value, ...JSON.parse(raw) }
-    }
-  } catch {
-    // keep defaults
-  }
-}
-
-function saveVisibility() {
-  try {
-    localStorage.setItem(STORAGE_KEY_VISIBILITY, JSON.stringify(visibilityToggles.value))
-  } catch {
-    // ignore
-  }
-}
-
-onMounted(() => {
-  loadVisibility()
-  // Ensure all currencies have a visibility entry (default: true)
-  const next: Record<string, boolean> = { ...visibilityToggles.value }
-  let changed = false
-  currenciesOrdered.value.forEach((c) => {
-    const ticker = c.basicInfo.symbolTicker
-    if (!(ticker in next)) {
-      next[ticker] = true
-      changed = true
-    }
-  })
-  if (changed) {
-    visibilityToggles.value = next
-    saveVisibility()
-  }
-})
 </script>
 
 <style lang="scss" scoped>

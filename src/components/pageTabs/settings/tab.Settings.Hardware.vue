@@ -54,6 +54,8 @@ import { Separator } from 'radix-vue'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import { useUsbDrives } from '@/components/partials/hardware/usb'
 import { useNetworkAdapters } from '@/components/partials/hardware/network'
+
+defineOptions({ name: 'TabSettingsHardware' })
 import { useGpu } from '@/components/partials/hardware/gpu'
 import NetworkModal from '@/components/modals/settings/hardware/Network.vue'
 import type { NetworkAdapterInfo } from '@/components/partials/hardware/network'

@@ -216,6 +216,8 @@ import {
   SwitchThumb,
 } from 'radix-vue'
 
+defineOptions({ name: 'TabSettingsNotifications' })
+
 const STORAGE_KEY = 'sparkplate_notification_prefs'
 
 interface NotificationPrefs {
