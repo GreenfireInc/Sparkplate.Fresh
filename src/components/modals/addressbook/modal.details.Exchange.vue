@@ -331,7 +331,7 @@ import {
   Globe,
 } from 'lucide-vue-next'
 import TabDetailsContactNotes from '@/components/modals/addressbook/tabsFor.details/tab.details.Contact.Notes.vue'
-import DropdownCurrency from '@/components/dropdown/dropdown.currency.vue'
+import DropdownCurrency from '@/components/dropdown/dropdown.currency.from.publicIcons.vue'
 import CardWalletAddress from '@/components/structure/card.WalletAddress.vue'
 import StructureImportWalletAddress from '@/components/structure/structure.import.walletAddress.vue'
 import SubModalAddCurrency from '@/components/modals/addressbook/subModals/subModal.add.Currency.vue'

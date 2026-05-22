@@ -64,7 +64,7 @@
 
 <script setup lang="ts">
 import { ref, watch, computed } from 'vue';
-import CurrencyDropdown from '@/components/dropdown/dropdown.currency.vue';
+import CurrencyDropdown from '@/components/dropdown/dropdown.currency.from.publicIcons.vue';
 import StructureImportWalletAddress from '@/components/structure/structure.import.walletAddress.vue';
 import ModalConfirmImportWallets from '@/components/modals/confirmations/modal.confirm.import.Wallets.vue'
 import SubModalInputWalletAddress from '@/components/modals/addressbook/subModals/subModal.input.WalletAddress.vue'
