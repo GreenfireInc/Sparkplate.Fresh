@@ -42,7 +42,7 @@ import AiLLMProviders from '@/components/pageTabs/settings/aspect.APIs/AiLLMProv
 import IPFSProviders from '@/components/pageTabs/settings/aspect.APIs/IPFSProviders.vue'
 
 export default defineComponent({
-  name: 'ApiSettings',
+  name: 'TabSettingsAPIs',
   components: { Exchanges, AiLLMProviders, IPFSProviders },
   setup() {
     const activeApiTab = ref<'exchanges' | 'llms' | 'ipfs'>('exchanges')

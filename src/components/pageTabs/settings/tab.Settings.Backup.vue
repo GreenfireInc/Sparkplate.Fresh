@@ -34,6 +34,6 @@
 
 <script>
 export default {
-  name: 'BackupSettings'
+  name: 'TabSettingsBackup'
 }
 </script> 

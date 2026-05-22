@@ -209,6 +209,8 @@ import DomainsAndSocialMedia from '@/components/modals/settings/userprofile/Doma
 import { useI18n } from '@/composables/useI18n'
 import { useAuth } from '@/composables/useAuth'
 
+defineOptions({ name: 'TabSettingsUser' })
+
 const { locale, setLocale, languages, t } = useI18n()
 const { currentUser } = useAuth()
 

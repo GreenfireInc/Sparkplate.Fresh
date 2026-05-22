@@ -1,6 +1,6 @@
 /**
  * GPU composable - fetches GPU info for display.
- * Used by HardwareSettings.vue to show GPU information.
+ * Used by tab.Settings.Hardware.vue to show GPU information.
  */
 import { ref, onMounted } from 'vue'
 
@@ -30,7 +30,7 @@ async function fetchGpuInfo(): Promise<void> {
 }
 
 /**
- * Composable for GPU data in HardwareSettings.
+ * Composable for GPU data in tab.Settings.Hardware.
  * Call useGpu() and use gpuDisplayValue for the table cell.
  */
 export function useGpu() {

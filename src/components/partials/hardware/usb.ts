@@ -1,6 +1,6 @@
 /**
  * USB drives composable - fetches and formats connected USB drives for display.
- * Used by HardwareSettings.vue to show USB drive information.
+ * Used by tab.Settings.Hardware.vue to show USB drive information.
  */
 import { ref, onMounted } from 'vue'
 
@@ -61,7 +61,7 @@ async function fetchUsbDrives(): Promise<void> {
 }
 
 /**
- * Composable for USB drive data in HardwareSettings.
+ * Composable for USB drive data in tab.Settings.Hardware.
  * Call useUsbDrives() and use usbDisplayValue for the table cell.
  */
 export function useUsbDrives() {

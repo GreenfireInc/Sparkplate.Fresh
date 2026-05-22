@@ -1,6 +1,6 @@
 /**
  * Network adapters composable - fetches and formats network interface info for display.
- * Used by HardwareSettings.vue to show network adapter information.
+ * Used by tab.Settings.Hardware.vue to show network adapter information.
  */
 import { ref, onMounted } from 'vue'
 
@@ -52,7 +52,7 @@ async function fetchNetworkAdapters(): Promise<void> {
 }
 
 /**
- * Composable for network adapter data in HardwareSettings.
+ * Composable for network adapter data in tab.Settings.Hardware.
  * Call useNetworkAdapters() and use networkDisplayValue for the table cell.
  */
 export function useNetworkAdapters() {

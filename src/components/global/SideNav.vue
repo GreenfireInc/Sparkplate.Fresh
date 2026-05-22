@@ -68,6 +68,7 @@ import {
   NetworkIcon,
   BookUser as BookUserIcon,
   LayersIcon,
+  LayoutDashboardIcon,
   RecycleIcon,
   HammerIcon,
   PackageIcon,
@@ -106,6 +107,7 @@ const navStyle = computed(() => ({
 
 const navSections: NavItem[][] = [
   [
+    { to: '/dashboard', title: 'Dashboard', label: 'Dashboard', icon: LayoutDashboardIcon, iconKind: 'lucide' },
     { to: '/keyfiles', title: 'Key Files', label: 'Key Files', icon: FileTextIcon, iconKind: 'lucide' },
     { to: '/cryptocurrency', title: 'Cryptocurrency', label: 'Cryptocurrency', icon: CoinsIcon, iconKind: 'lucide' },
     { to: '/cryptography', title: 'Cryptography', label: 'Cryptography', icon: LockIcon, iconKind: 'lucide' },
