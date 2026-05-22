@@ -101,7 +101,7 @@
 import { computed, ref } from 'vue'
 import { TabsContent, Separator } from 'radix-vue'
 import { Plus, Trash2, ShieldCheck } from 'lucide-vue-next'
-import CurrencyDropdown from '@/components/dropdown/dropdown.currency.vue'
+import CurrencyDropdown from '@/components/dropdown/dropdown.currency.from.publicIcons.vue'
 import StructureImportWalletAddress from '@/components/structure/structure.import.walletAddress.vue'
 import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 

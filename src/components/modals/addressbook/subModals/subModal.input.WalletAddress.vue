@@ -146,7 +146,7 @@ import {
   Separator,
 } from 'radix-vue'
 import { AlertTriangle, Check, Eye, EyeOff } from 'lucide-vue-next'
-import CurrencyDropdown from '@/components/dropdown/dropdown.currency.vue'
+import CurrencyDropdown from '@/components/dropdown/dropdown.currency.from.publicIcons.vue'
 
 defineOptions({ name: 'SubModalInputWalletAddress' })
 

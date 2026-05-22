@@ -69,21 +69,17 @@
             class="btn btn--ghost"
             type="button"
             :disabled="!activeCurrency"
-            @click="onImportWallet"
+            @click="showImportModal = true"
           >
             Import Wallet
             <DownloadIcon :size="16" />
           </button>
 
-          <button
-            class="btn btn--primary"
-            type="button"
+          <ButtonDashboardNewWallet
             :disabled="!activeCurrency"
-            @click="onNewWallet"
-          >
-            New Wallet
-            <PlusIcon :size="16" />
-          </button>
+            @from-mnemonic="onNewWalletFromMnemonic"
+            @throwaway-wallet="onNewWalletThrowaway"
+          />
         </div>
       </div>
     </header>
@@ -118,14 +114,12 @@
             will appear here. Generate a new wallet or import an existing one
             using the buttons above.
           </p>
-          <button
-            class="btn btn--primary dashboard-wallets__cta"
-            type="button"
-            @click="onNewWallet"
-          >
-            Generate {{ activeCurrency.basicInfo.name }} Wallet
-            <PlusIcon :size="16" />
-          </button>
+          <ButtonDashboardNewWallet
+            class="dashboard-wallets__cta"
+            :label="`Generate ${activeCurrency.basicInfo.name} Wallet`"
+            @from-mnemonic="onNewWalletFromMnemonic"
+            @throwaway-wallet="onNewWalletThrowaway"
+          />
         </div>
       </div>
 
@@ -245,17 +239,28 @@
         <span class="dashboard-summary__value">—</span>
       </div>
     </footer>
+
+    <ModalDashboardImport
+      :show="showImportModal"
+      :default-ticker="activeTicker"
+      @close="showImportModal = false"
+      @imported="onWalletImported"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
-import { Plus as PlusIcon, Download as DownloadIcon } from 'lucide-vue-next'
+import { Download as DownloadIcon } from 'lucide-vue-next'
 import { NETWORKS, type CurrencyData } from '@/lib/cores/currencyCore/currencies'
 import { useDashboardCurrencies } from '@/composables/useDashboardCurrencies'
 import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
+import ButtonDashboardNewWallet from '@/components/buttons/dashboard/button.dashboard.newWallet.vue'
+import ModalDashboardImport, {
+  type DashboardImportedWallet,
+} from '@/components/modals/dashboard/modal.dashboard.import.vue'
 
 defineOptions({ name: 'DashboardView' })
 
@@ -270,6 +275,7 @@ const contentTabs: ContentTab[] = ['wallets', 'history', 'information']
 const activeContentTab = ref<ContentTab>('wallets')
 
 const activeTicker = ref<string>('')
+const showImportModal = ref(false)
 
 const activeCurrency = computed<CurrencyData | undefined>(() =>
   visibleCurrencies.value.find(
@@ -341,14 +347,22 @@ watch(
   { deep: false },
 )
 
-function onImportWallet(): void {
-  /* TODO: wire up to wallet-import flow once the V2 wallet store lands. */
-  console.info('[Dashboard] import wallet:', activeTicker.value)
+function onWalletImported(payload: DashboardImportedWallet): void {
+  /* TODO: persist imported wallet once the V2 wallet store lands. */
+  console.info('[Dashboard] wallet imported:', {
+    dashboardTicker: activeTicker.value,
+    ...payload,
+  })
 }
 
-function onNewWallet(): void {
-  /* TODO: wire up to wallet-creation flow once the V2 wallet store lands. */
-  console.info('[Dashboard] new wallet:', activeTicker.value)
+function onNewWalletFromMnemonic(): void {
+  /* TODO: wire up mnemonic → wallet flow once the V2 wallet store lands. */
+  console.info('[Dashboard] new wallet from mnemonic:', activeTicker.value)
+}
+
+function onNewWalletThrowaway(): void {
+  /* TODO: wire up throwaway wallet flow once the V2 wallet store lands. */
+  console.info('[Dashboard] new throwaway wallet:', activeTicker.value)
 }
 </script>
 
