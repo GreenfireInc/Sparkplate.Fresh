@@ -64,6 +64,12 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue';
+import {
+  PUBLIC_ICON_CRYPTO_TICKERS,
+  getCryptoIconPath,
+} from '@/lib/cores/bridge/bridge.shared.publicIcons.for.currencies';
+
+defineOptions({ name: 'DropdownCurrencyFromPublicIcons' });
 
 const props = defineProps<{
   modelValue: string;
@@ -89,35 +95,7 @@ const dropdownStyle = computed(() => ({
   zIndex: DROPDOWN_Z_INDEX,
 }));
 
-// Available cryptocurrencies — derived from public/assets/icons/crypto/ (base icons only, no variants)
-const availableCurrencies = [
-  '1INCH', 'AAVE', 'ACU', 'ADA', 'AERO', 'ALEPH', 'ALGO', 'ALI', 'ALICE', 'AMP',
-  'ANKR', 'APE', 'API3', 'APT', 'AR', 'ARB', 'ATOM', 'AUCTION', 'AVAX', 'AXS',
-  'BAL', 'BAND', 'BASE', 'BAT', 'BCD', 'BCH', 'BCN', 'BDX', 'BEAM', 'BICO',
-  'BLUR', 'BLZ', 'BNB', 'BNT', 'BONK', 'BSV', 'BTC', 'BTG', 'BTM', 'BTT',
-  'BUSD', 'CFX', 'CHZ', 'CKB', 'CLORE', 'COIN98', 'COMP', 'CRO', 'CRV', 'CTSI',
-  'CTX', 'CUBE', 'CVC', 'DAI', 'DASH', 'DCR', 'DGB', 'DIA', 'DIME', 'DOGE',
-  'DOT', 'DRIFT', 'EFL', 'EGLD', 'ELON', 'ENA', 'ENJ', 'ENS', 'EOS', 'ERG',
-  'ETC', 'ETH', 'ETHW', 'EUR', 'EUROC', 'FARM', 'FET', 'FIL', 'FLOW', 'FLR',
-  'FRAX', 'FTM', 'GALA', 'GFI', 'GLM', 'GMT', 'GNO', 'GRT', 'GUSD', 'GYEN',
-  'HBAR', 'HNS', 'HNT', 'HUSH', 'ICP', 'IMX', 'INJ', 'IOTX', 'JASMY', 'JITOSOL',
-  'JST', 'JTO', 'JUP', 'KAS', 'KDA', 'KMD', 'KMNO', 'KSM', 'LBC', 'LDO',
-  'LINK', 'LPT', 'LRC', 'LTC', 'LUNA', 'LUNC', 'MANA', 'MASK', 'MATIC', 'MINA',
-  'MKR', 'MLN', 'NEAR', 'NEO', 'NMR', 'OGN', 'ONT', 'OP', 'ORCA', 'OSMO',
-  'OXT', 'PAXG', 'PENDLE', 'PEPE', 'PERP', 'POL', 'POWR', 'PYTH', 'PYUSD', 'QNT',
-  'QRL', 'QTUM', 'RAD', 'RADICLE', 'RARI', 'RDD', 'RED', 'RENDER', 'REQ', 'REV',
-  'RLC', 'RLUSD', 'RNDR', 'RONIN', 'ROSE', 'RVN', 'SAFE', 'SAMO', 'SAND', 'SC',
-  'SEI', 'SHIB', 'SKL', 'SKY', 'SNX', 'SOL', 'SPELL', 'STORJ', 'STRK', 'STX',
-  'SUI', 'SUSHI', 'SWTCH', 'SYRUP', 'TAO', 'TELLOR', 'TRAC', 'TRB', 'TRU', 'TRX',
-  'TUSD', 'UMA', 'UMB', 'UNI', 'USD', 'USDC', 'USDE', 'USDT', 'VET', 'VIRTUAL',
-  'VTHO', 'WAVES', 'WIF', 'XCN', 'XLM', 'XMR', 'XRP', 'XTZ', 'XYO', 'YFI',
-  'ZCL', 'ZEC', 'ZEN', 'ZIL', 'ZRX', 'ZUSD'
-].sort();
-
-const getCryptoIconPath = (coinTicker: string): string | null => {
-  if (!coinTicker) return null;
-  return `/assets/icons/crypto/${coinTicker.toLowerCase()}.svg`;
-};
+const availableCurrencies = PUBLIC_ICON_CRYPTO_TICKERS;
 
 const toggleDropdown = () => {
   if (!isOpen.value && triggerRef.value) {
