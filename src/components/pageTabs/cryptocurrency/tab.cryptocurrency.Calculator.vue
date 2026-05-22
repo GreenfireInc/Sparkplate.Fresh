@@ -57,11 +57,11 @@
               />
               <span v-else-if="fromIsFiat" class="calc-fiat-symbol">{{ getCurrencySymbol(args.from.symbol) }}</span>
             </div>
-            <select v-if="!fromIsFiat" v-model="args.from" class="calc-select">
-              <option v-for="coin in cryptoCurrencies" :key="coin.id" :value="coin">
-                {{ coin.name }} ({{ coin.symbol }})
-              </option>
-            </select>
+            <CurrencyDropdown
+              v-if="!fromIsFiat"
+              v-model="fromCryptoTicker"
+              class="calc-currency-dropdown"
+            />
             <select v-else v-model="args.from" class="calc-select">
               <option v-for="fiat in fiatCurrencies" :key="fiat.symbol" :value="fiat">
                 {{ fiat.name }}
@@ -132,11 +132,11 @@
               />
               <span v-else-if="!toIsCrypto" class="calc-fiat-symbol">{{ getCurrencySymbol(args.to.symbol) }}</span>
             </div>
-            <select v-if="toIsCrypto" v-model="args.to" class="calc-select">
-              <option v-for="coin in cryptoCurrencies" :key="coin.id" :value="coin">
-                {{ coin.name }} ({{ coin.symbol }})
-              </option>
-            </select>
+            <CurrencyDropdown
+              v-if="toIsCrypto"
+              v-model="toCryptoTicker"
+              class="calc-currency-dropdown"
+            />
             <select v-else v-model="args.to" class="calc-select">
               <option v-for="fiat in fiatCurrencies" :key="fiat.symbol" :value="fiat">
                 {{ fiat.name }}
@@ -164,6 +164,8 @@
 import { ref, reactive, watch } from 'vue'
 import { Separator, Label } from 'radix-vue'
 import MarqueeTicker from '../../partials/marqueeTicker/MarqueeTicker.vue'
+import CurrencyDropdown from '@/components/dropdown/dropdown.currency.from.publicIcons.fullNames.vue'
+import { COINBASE50 } from '@/lib/cores/currencyCore/indexComposites/coinbase50'
 
 // Define component name
 defineOptions({
@@ -183,60 +185,6 @@ interface FiatCurrency {
 }
 
 type Currency = CryptoCurrency | FiatCurrency
-
-// Import the same cryptocurrency list from MarqueeTicker
-const COINBASE50: CryptoCurrency[] = [
-  { id: 'bitcoin', symbol: 'BTC', name: 'Bitcoin' },
-  { id: 'ethereum', symbol: 'ETH', name: 'Ethereum' },
-  { id: 'ripple', symbol: 'XRP', name: 'XRP' },
-  { id: 'solana', symbol: 'SOL', name: 'Solana' },
-  { id: 'dogecoin', symbol: 'DOGE', name: 'Dogecoin' },
-  { id: 'cardano', symbol: 'ADA', name: 'Cardano' },
-  { id: 'avalanche-2', symbol: 'AVAX', name: 'Avalanche' },
-  { id: 'chainlink', symbol: 'LINK', name: 'Chainlink' },
-  { id: 'stellar', symbol: 'XLM', name: 'Stellar' },
-  { id: 'tezos', symbol: 'XTZ', name: 'Tezos' },
-  { id: 'near', symbol: 'NEAR', name: 'Near' },
-  { id: 'render-token', symbol: 'RENDER', name: 'Render' },
-  { id: 'blockstack', symbol: 'STX', name: 'Stacks' },
-  { id: 'zcash', symbol: 'ZEC', name: 'ZCash' },
-  { id: 'shiba-inu', symbol: 'SHIB', name: 'Shiba Inu' },
-  { id: 'mina-protocol', symbol: 'MINA', name: 'Mina Protocol' },
-  { id: 'apecoin', symbol: 'APE', name: 'ApeCoin' },
-  { id: 'immutable-x', symbol: 'IMX', name: 'Immutable X' },
-  { id: 'oasis-network', symbol: 'ROSE', name: 'Oasis Network' },
-  { id: 'lido-dao', symbol: 'LDO', name: 'Lido DAO' },
-  { id: 'bonk', symbol: 'BONK', name: 'BONK' },
-  { id: 'elrond-erd-2', symbol: 'EGLD', name: 'MultiversX' },
-  { id: 'helium', symbol: 'HNT', name: 'Helium' },
-  { id: 'jasmycoin', symbol: 'JASMY', name: 'JasmyCoin' },
-  { id: 'blur', symbol: 'BLUR', name: 'Blur' },
-  { id: 'polkadot', symbol: 'DOT', name: 'Polkadot' },
-  { id: 'bitcoin-cash', symbol: 'BCH', name: 'Bitcoin Cash' },
-  { id: 'uniswap', symbol: 'UNI', name: 'Uniswap' },
-  { id: 'litecoin', symbol: 'LTC', name: 'Litecoin' },
-  { id: 'aave', symbol: 'AAVE', name: 'Aave' },
-  { id: 'internet-computer', symbol: 'ICP', name: 'Internet Computer' },
-  { id: 'ethereum-classic', symbol: 'ETC', name: 'Ethereum Classic' },
-  { id: 'matic-network', symbol: 'MATIC', name: 'Polygon' },
-  { id: 'fetch-ai', symbol: 'FET', name: 'Fetch.ai' },
-  { id: 'algorand', symbol: 'ALGO', name: 'Algorand' },
-  { id: 'cosmos', symbol: 'ATOM', name: 'Cosmos' },
-  { id: 'injective-protocol', symbol: 'INJ', name: 'Injective' },
-  { id: 'the-graph', symbol: 'GRT', name: 'The Graph' },
-  { id: 'quant-network', symbol: 'QNT', name: 'Quant Network' },
-  { id: 'maker', symbol: 'MKR', name: 'Maker' },
-  { id: 'the-sandbox', symbol: 'SAND', name: 'Sand' },
-  { id: 'curve-dao-token', symbol: 'CRV', name: 'Curve DAO Token' },
-  { id: 'eos', symbol: 'EOS', name: 'EOS' },
-  { id: 'axie-infinity', symbol: 'AXS', name: 'Axie Infinity' },
-  { id: 'decentraland', symbol: 'MANA', name: 'Decentraland' },
-  { id: 'chiliz', symbol: 'CHZ', name: 'Chiliz' },
-  { id: 'havven', symbol: 'SNX', name: 'Synthetix' },
-  { id: 'livepeer', symbol: 'LPT', name: 'Livepeer' },
-  { id: 'kusama', symbol: 'KSM', name: 'Kusama' },
-  { id: '1inch', symbol: '1INCH', name: '1inch' }
-]
 
 // Major fiat currencies
 const FIAT_CURRENCIES: FiatCurrency[] = [
@@ -274,8 +222,9 @@ const CURRENCY_SYMBOLS = {
 const fromIsFiat = ref(false)
 const toIsCrypto = ref(false)
 const isLoading = ref(false)
-const cryptoCurrencies = ref(COINBASE50)
 const fiatCurrencies = ref(FIAT_CURRENCIES)
+const fromCryptoTicker = ref('BTC')
+const toCryptoTicker = ref('BTC')
 
 const args = reactive({
   from: { id: 'bitcoin', symbol: 'BTC', name: 'Bitcoin' } as Currency,
@@ -300,6 +249,15 @@ function isFiatCurrency(currency: Currency): currency is FiatCurrency {
 // Methods
 function getCurrencySymbol(code: string) {
   return CURRENCY_SYMBOLS[code as keyof typeof CURRENCY_SYMBOLS] || code
+}
+
+function cryptoCurrencyFromTicker(ticker: string): CryptoCurrency {
+  const upper = ticker.toUpperCase()
+  const entry = COINBASE50.find((c) => c.symbol.toUpperCase() === upper)
+  if (entry) {
+    return { id: entry.id, symbol: entry.symbol, name: entry.name }
+  }
+  return { id: upper.toLowerCase(), symbol: upper, name: upper }
 }
 
 async function convertCurrency() {
@@ -403,13 +361,19 @@ function formatNumber(num: number, decimals = 6) {
 
 function resetToDefaults(toggleType: string) {
   if (toggleType === 'from') {
-    args.from = fromIsFiat.value 
-      ? { symbol: 'USD', name: 'US Dollar (USD)' } as FiatCurrency
-      : { id: 'bitcoin', symbol: 'BTC', name: 'Bitcoin' } as CryptoCurrency
+    if (fromIsFiat.value) {
+      args.from = { symbol: 'USD', name: 'US Dollar (USD)' } as FiatCurrency
+    } else {
+      fromCryptoTicker.value = 'BTC'
+      args.from = cryptoCurrencyFromTicker('BTC')
+    }
   } else {
-    args.to = toIsCrypto.value
-      ? { id: 'bitcoin', symbol: 'BTC', name: 'Bitcoin' } as CryptoCurrency
-      : { symbol: 'USD', name: 'US Dollar (USD)' } as FiatCurrency
+    if (toIsCrypto.value) {
+      toCryptoTicker.value = 'BTC'
+      args.to = cryptoCurrencyFromTicker('BTC')
+    } else {
+      args.to = { symbol: 'USD', name: 'US Dollar (USD)' } as FiatCurrency
+    }
   }
   
   // Clear previous results
@@ -424,6 +388,18 @@ watch(fromIsFiat, () => {
 
 watch(toIsCrypto, () => {
   resetToDefaults('to')
+})
+
+watch(fromCryptoTicker, (ticker) => {
+  if (!fromIsFiat.value && ticker) {
+    args.from = cryptoCurrencyFromTicker(ticker)
+  }
+})
+
+watch(toCryptoTicker, (ticker) => {
+  if (toIsCrypto.value && ticker) {
+    args.to = cryptoCurrencyFromTicker(ticker)
+  }
 })
 
 watch(() => args.from, () => {
@@ -672,6 +648,33 @@ watch(() => args.amount, () => {
   border-radius: 50%;
   background: #22c55e;
   animation: dot-pulse 1.5s ease-in-out infinite;
+}
+
+/* ── Currency dropdown (public icons) ─────────────────────── */
+.calc-currency-dropdown {
+  width: 100%;
+
+  :deep(.custom-select-wrapper),
+  :deep(.custom-select) {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  :deep(.custom-select) {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    background: #fff;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    color: #111827;
+    transition: border-color 0.15s;
+  }
+
+  :deep(.custom-select.open),
+  :deep(.custom-select:focus-within) {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  }
 }
 
 /* ── Select ───────────────────────────────────────────────── */

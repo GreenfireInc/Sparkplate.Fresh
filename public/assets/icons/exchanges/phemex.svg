@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="4.6108899mm"
+   height="7.40833mm"
+   viewBox="0 0 4.6108899 7.40833"
+   version="1.1"
+   id="svg350"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="phemex.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview352"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="4.3540636"
+     inkscape:cx="150.89353"
+     inkscape:cy="4.3637397"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="1600"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs347" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-113.0303,-179.50831)">
+    <path
+       d="m 113.0303,185.06456 c 0,1.02288 0.82576,1.85208 1.84441,1.85208 v -3.70416 c 0,1.02288 -0.82577,1.85208 -1.84415,1.85208"
+       fill="#38d102"
+       id="path4"
+       style="stroke-width:0.264583" />
+    <path
+       d="m 113.0303,181.36039 v 3.70417 c 1.01864,0 1.84441,-0.8292 1.84441,-1.85208 0,-1.02288 -0.82577,-1.85209 -1.84415,-1.85209 m 2.76622,1.85209 c 0,1.02288 0.82576,1.85208 1.84441,1.85208 v -3.70417 c 0,1.02288 -0.8255,1.85209 -1.84415,1.85209"
+       fill="#0b5be0"
+       id="path6"
+       style="stroke-width:0.264583" />
+    <path
+       d="m 115.79678,179.50831 v 3.70417 c 1.01864,0 1.84441,-0.82921 1.84441,-1.85209 0,-1.02288 -0.8255,-1.85208 -1.84415,-1.85208"
+       fill="#3ceaf3"
+       id="path8"
+       style="stroke-width:0.264583" />
+  </g>
+</svg>
