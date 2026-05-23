@@ -1,5 +1,6 @@
 import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const saintVincentAndTheGrenadines: OecsCountry = {
@@ -19,6 +20,7 @@ export const saintVincentAndTheGrenadines: OecsCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'CBDC pilot narratives (ECCB regional) — informational'],
   stablecoin: 'XCD peg; informal USDT — informational',
   domesticCourierServices: OECS_DOMESTIC_COURIERS['VC'],
+  newsOutlets: OECS_NEWS_OUTLETS['VC'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['VC'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

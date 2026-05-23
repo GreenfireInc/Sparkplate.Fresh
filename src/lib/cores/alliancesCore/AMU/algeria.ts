@@ -1,5 +1,6 @@
 import type { AmuCountry } from './types'
 import { AMU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AMU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AMU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const algeria: AmuCountry = {
@@ -19,6 +20,7 @@ export const algeria: AmuCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'KuCoin', 'Regional OTC brokers'],
   stablecoin: 'USDT / USDC common in informal crypto markets; no official DZD stablecoin',
   domesticCourierServices: AMU_DOMESTIC_COURIERS['DZ'],
+  newsOutlets: AMU_NEWS_OUTLETS['DZ'],
   notableUniversities: AMU_NOTABLE_UNIVERSITIES['DZ'],
   stockExchange: 'Algiers Stock Exchange',
 }

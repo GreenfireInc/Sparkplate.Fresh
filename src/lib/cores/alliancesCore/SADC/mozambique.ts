@@ -1,5 +1,6 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mozambique: SadcCountry = {
@@ -18,6 +19,7 @@ export const mozambique: SadcCountry = {
   cryptocurrencyExchanges: ['Regional OTC informal'],
   stablecoin: 'Informal USD/USDT',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['MZ'],
+  newsOutlets: SADC_NEWS_OUTLETS['MZ'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['MZ'],
   stockExchange: 'Bolsa de Valores de Moçambique — verify activity',
 }

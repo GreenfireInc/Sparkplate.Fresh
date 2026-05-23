@@ -1,4 +1,11 @@
-export type { DomesticCourierService, GccCountry, GccOrganizationInfo, NotableUniversity } from './types'
+export type {
+  DomesticCourierService,
+  GccCountry,
+  GccOrganizationInfo,
+  NewsOutlet,
+  NewsOutletsRoster,
+  NotableUniversity,
+} from './types'
 
 import type { GccCountry, GccOrganizationInfo } from './types'
 import { GCC_MEMBER_ISO_CODES } from './gccMemberIsoCodes'

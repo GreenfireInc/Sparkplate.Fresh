@@ -1,4 +1,11 @@
-export type { SadcCountry, SadcOrganizationInfo, DomesticCourierService, NotableUniversity } from './types'
+export type {
+  SadcCountry,
+  SadcOrganizationInfo,
+  DomesticCourierService,
+  NewsOutlet,
+  NewsOutletsRoster,
+  NotableUniversity,
+} from './types'
 
 import type { SadcCountry, SadcOrganizationInfo } from './types'
 import { SADC_MEMBER_ISO_CODES } from './sadcMemberIsoCodes'

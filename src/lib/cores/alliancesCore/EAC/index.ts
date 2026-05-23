@@ -3,6 +3,8 @@ export type {
   EacCountry,
   EacOrganizationInfo,
   NotableUniversity,
+  NewsOutlet,
+  NewsOutletsRoster,
 } from './types'
 
 import type { EacCountry, EacOrganizationInfo } from './types'

@@ -1,5 +1,6 @@
 import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const dominica: OecsCountry = {
@@ -19,6 +20,7 @@ export const dominica: OecsCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance-style P2P informal — informational'],
   stablecoin: 'XCD USD peg; informal stable settlement — informational',
   domesticCourierServices: OECS_DOMESTIC_COURIERS['DM'],
+  newsOutlets: OECS_NEWS_OUTLETS['DM'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['DM'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

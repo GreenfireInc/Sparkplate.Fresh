@@ -1,5 +1,6 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const botswana: SadcCountry = {
@@ -18,6 +19,7 @@ export const botswana: SadcCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Compliance evolving — verify'],
   stablecoin: 'Pula floated; informal USD/USDT',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['BW'],
+  newsOutlets: SADC_NEWS_OUTLETS['BW'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['BW'],
   stockExchange: 'Botswana Stock Exchange (BSE)',
 }

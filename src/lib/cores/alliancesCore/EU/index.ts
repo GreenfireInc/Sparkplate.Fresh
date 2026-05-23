@@ -1,4 +1,11 @@
-export type { DomesticCourierService, EuCountry, EuOrganizationInfo, NotableUniversity } from './types'
+export type {
+  DomesticCourierService,
+  EuCountry,
+  EuOrganizationInfo,
+  NotableUniversity,
+  NewsOutlet,
+  NewsOutletsRoster,
+} from './types'
 
 import type { EuCountry, EuOrganizationInfo } from './types'
 import { EU_MEMBER_ISO_CODES } from './euMemberIsoCodes'

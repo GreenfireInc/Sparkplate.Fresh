@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const kyrgyzstan: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const kyrgyzstan: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: [ 'Binance (P2P)', 'International OTC', 'Local regulation varies' ],
   stablecoin: 'USDT / USDC common globally; legality varies by jurisdiction',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['KG'],
+  newsOutlets: BRI_NEWS_OUTLETS['KG'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['KG'],
   stockExchange: 'National or regional exchange (verify)',
 }

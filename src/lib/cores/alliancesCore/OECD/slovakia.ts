@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const slovakia: OecdCountry = {
@@ -19,6 +20,7 @@ export const slovakia: OecdCountry = {
   cryptocurrencyExchanges: ['MiCA-aligned EU CASPs Slovak retail onboarding — informational'],
   stablecoin: 'EUR stablecoins — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['SK'],
+  newsOutlets: OECD_NEWS_OUTLETS['SK'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['SK'],
   stockExchange: 'Bratislava Stock Exchange',
 }

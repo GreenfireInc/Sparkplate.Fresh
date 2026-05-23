@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const ghana: CommonwealthCountry = {
@@ -19,6 +20,7 @@ export const ghana: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Paxful context'],
   stablecoin: 'eCedi (CBDC pilot); USDT informal',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['GH'],
+  newsOutlets: COMMONWEALTH_NEWS_OUTLETS['GH'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['GH'],
   stockExchange: 'Ghana Stock Exchange',
 }

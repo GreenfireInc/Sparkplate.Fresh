@@ -1,5 +1,6 @@
 import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const democraticRepublicOfTheCongo: EccasCountry = {
@@ -18,6 +19,7 @@ export const democraticRepublicOfTheCongo: EccasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC widespread P2P',
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['CD'],
+  newsOutlets: ECCAS_NEWS_OUTLETS['CD'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['CD'],
   stockExchange: 'Domestic equities thin — informal OTC predominant',
 }

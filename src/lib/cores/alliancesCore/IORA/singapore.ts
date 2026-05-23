@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const singapore: IoraCountry = {
@@ -19,6 +20,7 @@ export const singapore: IoraCountry = {
   cryptocurrencyExchanges: ['MAS DPT licensing regime — informational'],
   stablecoin: 'MAS stable-value digital guidance — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['SG'],
+  newsOutlets: IORA_NEWS_OUTLETS['SG'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['SG'],
   stockExchange: 'Singapore Exchange (SGX)',
 }

@@ -3,6 +3,8 @@ export type {
   EccasCountry,
   EccasOrganizationInfo,
   NotableUniversity,
+  NewsOutlet,
+  NewsOutletsRoster,
 } from './types'
 
 import type { EccasCountry, EccasOrganizationInfo } from './types'

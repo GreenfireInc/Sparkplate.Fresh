@@ -1,5 +1,6 @@
 import type { IgadCountry } from './types'
 import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const somalia: IgadCountry = {
@@ -20,6 +21,7 @@ export const somalia: IgadCountry = {
   cryptocurrencyExchanges: ['Hargeisa OTC informal; Mogadishu mobile-money predominance — informational'],
   stablecoin: 'USD/USDT hawala overlays; SOS thin banknote supply — informational',
   domesticCourierServices: IGAD_DOMESTIC_COURIERS['SO'],
+  newsOutlets: IGAD_NEWS_OUTLETS['SO'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['SO'],
   stockExchange: 'No substantive national equities exchange consolidated (subsidiary regional plans — informational)',
 }

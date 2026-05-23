@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const kenya: IoraCountry = {
@@ -19,6 +20,7 @@ export const kenya: IoraCountry = {
   cryptocurrencyExchanges: ['Yellow Card regional; CMA onboarding narratives — informational'],
   stablecoin: 'KES informal USDT overlays — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['KE'],
+  newsOutlets: IORA_NEWS_OUTLETS['KE'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
 }

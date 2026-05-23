@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const belgium: OecdCountry = {
@@ -19,6 +20,7 @@ export const belgium: OecdCountry = {
   cryptocurrencyExchanges: ['Bitstamp (legacy BE ties)', 'EU-licensed CASPs MiCA-era'],
   stablecoin: 'EUR stablecoins; ECB digital euro exploratory',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['BE'],
+  newsOutlets: OECD_NEWS_OUTLETS['BE'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['BE'],
   stockExchange: 'Euronext Brussels',
 }

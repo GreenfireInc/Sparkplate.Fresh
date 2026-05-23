@@ -3,6 +3,8 @@ export type {
   AseanOrganizationInfo,
   DomesticCourierService,
   NotableUniversity,
+  NewsOutlet,
+  NewsOutletsRoster,
 } from './types'
 export { ASEAN_MEMBER_ISO_CODES } from './aseanMemberIsoCodes'
 export type { AseanMemberIsoCode } from './aseanMemberIsoCodes'

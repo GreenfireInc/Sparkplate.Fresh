@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const newZealand: OecdCountry = {
@@ -19,6 +20,7 @@ export const newZealand: OecdCountry = {
   cryptocurrencyExchanges: ['Easy Crypto', 'FMCA/DIA licensing context — informational'],
   stablecoin: 'NZD-referenced issuance (thin); RB NZ supervisory evolution — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['NZ'],
+  newsOutlets: OECD_NEWS_OUTLETS['NZ'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['NZ'],
   stockExchange: 'NZX Limited',
 }

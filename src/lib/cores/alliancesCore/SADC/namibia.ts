@@ -1,5 +1,6 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const namibia: SadcCountry = {
@@ -18,6 +19,7 @@ export const namibia: SadcCountry = {
   cryptocurrencyExchanges: ['Informal OTC; regulatory posture evolving'],
   stablecoin: 'Rand-pegged NAD; informal USDT',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['NA'],
+  newsOutlets: SADC_NEWS_OUTLETS['NA'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['NA'],
   stockExchange: 'Namibian Stock Exchange (NSX)',
 }

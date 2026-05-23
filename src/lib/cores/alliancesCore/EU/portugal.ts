@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const portugal: EuCountry = {
@@ -18,6 +19,7 @@ export const portugal: EuCountry = {
   cryptocurrencyExchanges: ['European brokers; Portuguese CMVM supervision MiCA-era'],
   stablecoin: 'EUR stablecoins; digital euro preparedness',
   domesticCourierServices: EU_DOMESTIC_COURIERS['PT'],
+  newsOutlets: EU_NEWS_OUTLETS['PT'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['PT'],
   stockExchange: 'Euronext Lisbon',
 }

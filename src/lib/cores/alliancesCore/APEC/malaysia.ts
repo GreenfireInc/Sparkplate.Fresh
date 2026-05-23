@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const malaysia: ApecCountry = {
@@ -20,6 +21,7 @@ export const malaysia: ApecCountry = {
   cryptocurrencyExchanges: ['SC regulated digital-exchange pilots — informational'],
   stablecoin: 'MYR digital bank experimentation — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['MY'],
+  newsOutlets: APEC_NEWS_OUTLETS['MY'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['MY'],
   stockExchange: 'Bursa Malaysia',
 }

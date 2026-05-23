@@ -1,5 +1,6 @@
 import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const antiguaAndBarbuda: OecsCountry = {
@@ -19,6 +20,7 @@ export const antiguaAndBarbuda: OecsCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'ECCB-region Binance P2P overlays — informational'],
   stablecoin: 'XCD USD peg via ECCB; informal USDT/USDC — informational',
   domesticCourierServices: OECS_DOMESTIC_COURIERS['AG'],
+  newsOutlets: OECS_NEWS_OUTLETS['AG'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['AG'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

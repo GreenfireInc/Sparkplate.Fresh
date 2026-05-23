@@ -4,6 +4,8 @@ export type {
   ArabLeagueOrganizationInfo,
   DomesticCourierService,
   NotableUniversity,
+  NewsOutlet,
+  NewsOutletsRoster,
 } from './types'
 export { ARAB_LEAGUE_MEMBER_ISO_CODES } from './arabLeagueMemberIsoCodes'
 export type { ArabLeagueMemberIsoCode } from './arabLeagueMemberIsoCodes'

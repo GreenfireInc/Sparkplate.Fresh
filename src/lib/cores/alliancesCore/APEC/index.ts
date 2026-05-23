@@ -3,6 +3,8 @@ export type {
   ApecOrganizationInfo,
   DomesticCourierService,
   NotableUniversity,
+  NewsOutlet,
+  NewsOutletsRoster,
 } from './types'
 export { APEC_MEMBER_ISO_CODES } from './apecMemberIsoCodes'
 export type { ApecMemberIsoCode } from './apecMemberIsoCodes'

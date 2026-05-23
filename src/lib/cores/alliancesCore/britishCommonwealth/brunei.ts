@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const brunei: CommonwealthCountry = {
@@ -19,6 +20,7 @@ export const brunei: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Limited onshore retail crypto; offshore access restricted — verify'],
   stablecoin: 'BND/SGD peg context; USDT via offshore',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['BN'],
+  newsOutlets: COMMONWEALTH_NEWS_OUTLETS['BN'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['BN'],
   stockExchange: 'Brunei Investment Agency context; no large public bourse like peers',
 }

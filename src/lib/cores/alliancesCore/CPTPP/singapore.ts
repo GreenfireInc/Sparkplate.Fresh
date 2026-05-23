@@ -1,5 +1,6 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const singapore: CptppCountry = {
@@ -18,6 +19,7 @@ export const singapore: CptppCountry = {
   cryptocurrencyExchanges: ['Independent Reserve SG', 'Coinbase (institutional licensing)', 'MAS-regulated pilots'],
   stablecoin: 'StraitsX XSGD; USDC institutional rails',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['SG'],
+  newsOutlets: CPTPP_NEWS_OUTLETS['SG'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['SG'],
   stockExchange: 'Singapore Exchange (SGX)',
 }

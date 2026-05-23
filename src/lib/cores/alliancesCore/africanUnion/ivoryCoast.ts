@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const ivoryCoast: AfricanUnionCountry = {
   name: "Côte d'Ivoire (Ivory Coast)",
@@ -18,6 +19,7 @@ export const ivoryCoast: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Luno (regional)'],
   stablecoin: 'USDT / USDC; XOF pegged via CFA',
   domesticCourierServices: AU_DOMESTIC_COURIERS['CI'],
+  newsOutlets: AU_NEWS_OUTLETS['CI'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['CI'],
   stockExchange: 'BRVM (Abidjan — regional hub)',
 }

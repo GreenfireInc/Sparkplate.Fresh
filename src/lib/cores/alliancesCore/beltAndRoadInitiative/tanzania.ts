@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const tanzania: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const tanzania: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local fintech'],
   stablecoin: 'USDT / USDC P2P',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['TZ'],
+  newsOutlets: BRI_NEWS_OUTLETS['TZ'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange (DSE)',
 }

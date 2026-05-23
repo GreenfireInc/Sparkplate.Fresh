@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const benin: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const benin: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local brokers'],
   stablecoin: 'USDT common in informal trade; XOF pegged to euro via CFA',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['BJ'],
+  newsOutlets: BRI_NEWS_OUTLETS['BJ'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['BJ'],
   stockExchange: 'Regional Securities Exchange (BRVM) — Abidjan (Benin listed)',
 }

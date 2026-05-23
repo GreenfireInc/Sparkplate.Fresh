@@ -1,5 +1,6 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const japan: RcepCountry = {
@@ -20,6 +21,7 @@ export const japan: RcepCountry = {
   cryptocurrencyExchanges: ['bitFlyer', 'Coincheck PSAP-registered narratives — informational'],
   stablecoin: 'JPY-stable experiments; Bank of Japan pilots — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['JP'],
+  newsOutlets: RCEP_NEWS_OUTLETS['JP'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['JP'],
   stockExchange: 'Tokyo Stock Exchange (Japan Exchange Group)',
 }

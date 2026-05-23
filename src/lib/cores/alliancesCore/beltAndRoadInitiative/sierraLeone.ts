@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const sierraLeone: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const sierraLeone: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex'],
   stablecoin: 'USDT / USDC P2P',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['SL'],
+  newsOutlets: BRI_NEWS_OUTLETS['SL'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['SL'],
   stockExchange: 'Sierra Leone Stock Exchange',
 }

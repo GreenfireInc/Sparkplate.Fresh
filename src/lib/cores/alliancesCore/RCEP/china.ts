@@ -1,5 +1,6 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const china: RcepCountry = {
@@ -21,6 +22,7 @@ export const china: RcepCountry = {
   cryptocurrencyExchanges: ['Onshore trading prohibited; Hong Kong SAR adjacent venues — informational'],
   stablecoin: 'e-CNY pilot; offshore USDT OTC narratives — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['CN'],
+  newsOutlets: RCEP_NEWS_OUTLETS['CN'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['CN'],
   stockExchange:
     'Shanghai Stock Exchange; Shenzhen Stock Exchange; Beijing Stock Exchange context — informational',

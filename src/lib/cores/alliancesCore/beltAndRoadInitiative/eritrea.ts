@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const eritrea: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const eritrea: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Limited formal venues; diaspora P2P', 'Binance (P2P, informal)'],
   stablecoin: 'USDT minimal formal access; cash economy strong',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['ER'],
+  newsOutlets: BRI_NEWS_OUTLETS['ER'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['ER'],
   stockExchange: 'No public stock exchange',
 }

@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const egypt: CensadCountry = {
@@ -19,6 +20,7 @@ export const egypt: CensadCountry = {
   cryptocurrencyExchanges: ['Local licensed platforms context; global P2P informally reported'],
   stablecoin: 'USDT informal; CBDC pilot narrative',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['EG'],
+  newsOutlets: CENSAD_NEWS_OUTLETS['EG'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['EG'],
   stockExchange: 'Egyptian Exchange (EGX)',
 }

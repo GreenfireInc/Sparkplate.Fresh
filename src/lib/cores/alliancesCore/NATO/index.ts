@@ -1,4 +1,11 @@
-export type { NatoCountry, NatoOrganizationInfo, DomesticCourierService, NotableUniversity } from './types'
+export type {
+  NatoCountry,
+  NatoOrganizationInfo,
+  DomesticCourierService,
+  NewsOutlet,
+  NewsOutletsRoster,
+  NotableUniversity,
+} from './types'
 
 import type { NatoCountry, NatoOrganizationInfo } from './types'
 import { NATO_MEMBER_ISO_CODES } from './natoMemberIsoCodes'

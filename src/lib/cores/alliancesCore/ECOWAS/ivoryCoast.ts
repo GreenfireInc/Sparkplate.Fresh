@@ -1,5 +1,6 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const ivoryCoast: EcowasCountry = {
@@ -18,6 +19,7 @@ export const ivoryCoast: EcowasCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Luno (regional)'],
   stablecoin: 'USDT / USDC; XOF CFA peg via BCEAO',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['CI'],
+  newsOutlets: ECOWAS_NEWS_OUTLETS['CI'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['CI'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (BRVM — seat Abidjan)',
 }

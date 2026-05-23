@@ -1,5 +1,6 @@
 import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const venezuela: OpecCountry = {
@@ -21,6 +22,7 @@ export const venezuela: OpecCountry = {
   cryptocurrencyExchanges: ['Petro state token controversies; P2P mining informal — informational'],
   stablecoin: 'USD/USDT predominant retail settlement overlays — informational',
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['VE'],
+  newsOutlets: OPEC_NEWS_OUTLETS['VE'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['VE'],
   stockExchange: 'Bolsa de Valores de Caracas (thin vs macro distress — informational)',
 }

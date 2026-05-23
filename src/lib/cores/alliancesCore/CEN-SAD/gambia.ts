@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const gambia: CensadCountry = {
@@ -18,6 +19,7 @@ export const gambia: CensadCountry = {
   cryptocurrencyExchanges: ['Regional Binance P2P reported', 'Informal'],
   stablecoin: 'USDT informal',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['GM'],
+  newsOutlets: CENSAD_NEWS_OUTLETS['GM'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['GM'],
   stockExchange: 'Gambia Stock Exchange (small / developing — verify)',
 }

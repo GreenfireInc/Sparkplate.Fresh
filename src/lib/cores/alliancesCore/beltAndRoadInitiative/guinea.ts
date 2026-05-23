@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const guinea: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const guinea: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card (regional)', 'OTC'],
   stablecoin: 'USDT informal; no GNF stablecoin',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['GN'],
+  newsOutlets: BRI_NEWS_OUTLETS['GN'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['GN'],
   stockExchange: 'No major national exchange; informal OTC and regional brokers',
 }

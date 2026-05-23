@@ -1,5 +1,6 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const indonesia: RcepCountry = {
@@ -19,6 +20,7 @@ export const indonesia: RcepCountry = {
   cryptocurrencyExchanges: ['OJK supervised digital-asset routes (licensing evolution — informational)'],
   stablecoin: 'IDR payment pilots; OTC USDT — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['ID'],
+  newsOutlets: RCEP_NEWS_OUTLETS['ID'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['ID'],
   stockExchange: 'Indonesia Stock Exchange (IDX)',
 }

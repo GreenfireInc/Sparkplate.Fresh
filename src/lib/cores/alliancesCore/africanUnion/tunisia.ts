@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const tunisia: AfricanUnionCountry = {
   name: 'Tunisia',
@@ -18,6 +19,7 @@ export const tunisia: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional brokers', 'OTC'],
   stablecoin: 'USDT informal; e-dinar discussions',
   domesticCourierServices: AU_DOMESTIC_COURIERS['TN'],
+  newsOutlets: AU_NEWS_OUTLETS['TN'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['TN'],
   stockExchange: 'Bourse de Tunis',
 }

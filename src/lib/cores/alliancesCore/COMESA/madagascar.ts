@@ -1,5 +1,6 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const madagascar: ComesaCountry = {
@@ -19,6 +20,7 @@ export const madagascar: ComesaCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Local P2P', 'International brokers'],
   stablecoin: 'USDT informal; no MGA stablecoin',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['MG'],
+  newsOutlets: COMESA_NEWS_OUTLETS['MG'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['MG'],
   stockExchange: 'Madagascar Stock Exchange (SEM)',
 }

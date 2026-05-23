@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const greece: OecdCountry = {
@@ -19,6 +20,7 @@ export const greece: OecdCountry = {
   cryptocurrencyExchanges: ['EU gateways; OTC alongside historic capital-control episodes lifted — informational'],
   stablecoin: 'EUR stablecoins — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['GR'],
+  newsOutlets: OECD_NEWS_OUTLETS['GR'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['GR'],
   stockExchange: 'Athens Stock Exchange',
 }

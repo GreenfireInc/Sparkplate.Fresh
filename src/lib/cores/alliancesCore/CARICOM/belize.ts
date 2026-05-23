@@ -1,5 +1,6 @@
 import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const belize: CaricomCountry = {
@@ -19,6 +20,7 @@ export const belize: CaricomCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'BZD peg to USD; USDT/USDC',
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['BZ'],
+  newsOutlets: CARICOM_NEWS_OUTLETS['BZ'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['BZ'],
   stockExchange: 'Belize Stock Exchange',
 }

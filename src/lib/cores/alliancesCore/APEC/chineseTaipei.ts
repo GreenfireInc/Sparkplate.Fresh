@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 /**
@@ -23,6 +24,7 @@ export const chineseTaipei: ApecCountry = {
   cryptocurrencyExchanges: ['MaiCoin MAX regulated VA platforms — informational'],
   stablecoin: 'Taiwan-dollar stable experiments FinTech Sandbox — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['TW'],
+  newsOutlets: APEC_NEWS_OUTLETS['TW'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['TW'],
   stockExchange: 'Taiwan Stock Exchange TWSE Taipei',
 }

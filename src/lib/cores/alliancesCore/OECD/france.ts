@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const france: OecdCountry = {
@@ -19,6 +20,7 @@ export const france: OecdCountry = {
   cryptocurrencyExchanges: ['Coinhouse', 'European MiCA-compliant CASPs', 'Paymium'],
   stablecoin: 'EUR stablecoins; ECB digital euro pilots — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['FR'],
+  newsOutlets: OECD_NEWS_OUTLETS['FR'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['FR'],
   stockExchange: 'Euronext Paris',
 }

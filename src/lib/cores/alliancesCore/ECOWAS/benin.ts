@@ -1,5 +1,6 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const benin: EcowasCountry = {
@@ -18,6 +19,7 @@ export const benin: EcowasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local brokers'],
   stablecoin: 'USDT common informal; XOF CFA euro peg via BCEAO',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['BJ'],
+  newsOutlets: ECOWAS_NEWS_OUTLETS['BJ'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['BJ'],
   stockExchange: 'Regional BRVM — Abidjan listings (WAEMU securities)',
 }

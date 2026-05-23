@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const southAfrica: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const southAfrica: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Luno', 'VALR', 'Binance (P2P)', 'ICE3 (historical)'],
   stablecoin: 'USDT / USDC; ZARP (rand-referenced stable token, private)',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['ZA'],
+  newsOutlets: BRI_NEWS_OUTLETS['ZA'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['ZA'],
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
 }

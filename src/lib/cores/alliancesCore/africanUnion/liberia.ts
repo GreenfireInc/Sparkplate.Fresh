@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const liberia: AfricanUnionCountry = {
   name: 'Liberia',
@@ -18,6 +19,7 @@ export const liberia: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex'],
   stablecoin: 'USDT / USDC; USD cash economy dominant',
   domesticCourierServices: AU_DOMESTIC_COURIERS['LR'],
+  newsOutlets: AU_NEWS_OUTLETS['LR'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['LR'],
   stockExchange: 'Liberia Stock Exchange (very limited)',
 }

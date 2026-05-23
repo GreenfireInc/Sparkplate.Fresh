@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const eritrea: CensadCountry = {
@@ -18,6 +19,7 @@ export const eritrea: CensadCountry = {
   cryptocurrencyExchanges: ['Very limited formal footprint; diaspora OTC'],
   stablecoin: 'Informal USD economy alongside ERN',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['ER'],
+  newsOutlets: CENSAD_NEWS_OUTLETS['ER'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['ER'],
   stockExchange: 'No national stock exchange',
 }

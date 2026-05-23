@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const australia: CommonwealthCountry = {
@@ -19,6 +20,7 @@ export const australia: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'Binance AU'],
   stablecoin: 'AUD stablecoins limited; USDC/USDT common',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['AU'],
+  newsOutlets: COMMONWEALTH_NEWS_OUTLETS['AU'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['AU'],
   stockExchange: 'Australian Securities Exchange (ASX)',
 }

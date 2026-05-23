@@ -1,5 +1,6 @@
 import type { GccCountry } from './types'
 import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { GCC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const qatar: GccCountry = {
@@ -20,6 +21,7 @@ export const qatar: GccCountry = {
   cryptocurrencyExchanges: ['QFCRA licensing evolution; regional institutional custody narratives — informational'],
   stablecoin: 'QCB fintech sandbox; USD/QAR-stable experiments — informational',
   domesticCourierServices: GCC_DOMESTIC_COURIERS['QA'],
+  newsOutlets: GCC_NEWS_OUTLETS['QA'],
   notableUniversities: GCC_NOTABLE_UNIVERSITIES['QA'],
   stockExchange: 'Qatar Stock Exchange',
 }

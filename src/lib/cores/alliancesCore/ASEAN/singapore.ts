@@ -1,5 +1,6 @@
 import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const singapore: AseanCountry = {
@@ -20,6 +21,7 @@ export const singapore: AseanCountry = {
   cryptocurrencyExchanges: ['MAS DPT licensing regime; regulated institutional ramps — informational'],
   stablecoin: 'MAS stable-value digital guidelines; institutional SGD/USDC — informational',
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['SG'],
+  newsOutlets: ASEAN_NEWS_OUTLETS['SG'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['SG'],
   stockExchange: 'Singapore Exchange SGX',
 }

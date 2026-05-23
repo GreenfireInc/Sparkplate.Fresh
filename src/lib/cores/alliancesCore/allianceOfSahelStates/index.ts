@@ -4,6 +4,8 @@ export type {
   AllianceOfSahelStatesOrganizationInfo,
   DomesticCourierService,
   NotableUniversity,
+  NewsOutlet,
+  NewsOutletsRoster,
 } from './types'
 export { AES_MEMBER_ISO_CODES } from './aesMemberIsoCodes'
 export type { AesMemberIsoCode } from './aesMemberIsoCodes'

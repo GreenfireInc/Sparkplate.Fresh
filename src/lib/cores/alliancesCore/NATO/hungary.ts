@@ -1,5 +1,6 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const hungary: NatoCountry = {
@@ -19,6 +20,7 @@ export const hungary: NatoCountry = {
   cryptocurrencyExchanges: ['Regional EU onboarding; MNB sceptic messaging — informational'],
   stablecoin: 'HUF OTC; EUR/USDT rails — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['HU'],
+  newsOutlets: NATO_NEWS_OUTLETS['HU'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['HU'],
   stockExchange: 'Budapest Stock Exchange',
 }

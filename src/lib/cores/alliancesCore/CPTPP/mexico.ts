@@ -1,5 +1,6 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mexico: CptppCountry = {
@@ -18,6 +19,7 @@ export const mexico: CptppCountry = {
   cryptocurrencyExchanges: ['Bitso', 'VOLTA', 'Global platforms (travel context)'],
   stablecoin: 'USDT / USDC; CBDC exploratory discourse',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['MX'],
+  newsOutlets: CPTPP_NEWS_OUTLETS['MX'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['MX'],
   stockExchange: 'Mexican Stock Exchange (Bolsa Mexicana de Valores)',
 }

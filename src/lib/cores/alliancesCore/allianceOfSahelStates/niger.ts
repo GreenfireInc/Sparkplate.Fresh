@@ -1,5 +1,6 @@
 import type { AllianceOfSahelStatesCountry } from './types'
 import { AES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const niger: AllianceOfSahelStatesCountry = {
@@ -19,6 +20,7 @@ export const niger: AllianceOfSahelStatesCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'OTC'],
   stablecoin: 'USDT P2P; XOF peg',
   domesticCourierServices: AES_DOMESTIC_COURIERS['NE'],
+  newsOutlets: AES_NEWS_OUTLETS['NE'],
   notableUniversities: AES_NOTABLE_UNIVERSITIES['NE'],
   stockExchange: 'No liquid national bourse; BRVM regional',
 }

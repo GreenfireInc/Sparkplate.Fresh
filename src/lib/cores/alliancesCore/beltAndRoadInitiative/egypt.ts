@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const egypt: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const egypt: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Rain (regional)', 'No official local spot exchange; P2P & OTC'],
   stablecoin: 'USDT / USDC P2P common; central bank exploring CBDC',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['EG'],
+  newsOutlets: BRI_NEWS_OUTLETS['EG'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['EG'],
   stockExchange: 'Egyptian Exchange (EGX)',
 }

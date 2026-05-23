@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const australia: ApecCountry = {
@@ -20,6 +21,7 @@ export const australia: ApecCountry = {
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'ASIC onboarding — informational'],
   stablecoin: 'AUD stablecoins supervisory evolution — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['AU'],
+  newsOutlets: APEC_NEWS_OUTLETS['AU'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['AU'],
   stockExchange: 'Australian Securities Exchange (ASX)',
 }

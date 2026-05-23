@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const gabon: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const gabon: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'CFA-region OTC'],
   stablecoin: 'USDT P2P; XAF peg',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['GA'],
+  newsOutlets: BRI_NEWS_OUTLETS['GA'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['GA'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (BRVM) — regional',
 }

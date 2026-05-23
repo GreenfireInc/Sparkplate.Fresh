@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const madagascar: IoraCountry = {
@@ -19,6 +20,7 @@ export const madagascar: IoraCountry = {
   cryptocurrencyExchanges: ['Thin OTC; artisanal gemstone economy predominates — informational'],
   stablecoin: 'EUR/USDT diaspora overlays — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['MG'],
+  newsOutlets: IORA_NEWS_OUTLETS['MG'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['MG'],
   stockExchange: 'Madagascar Stock Exchange (thin listings — informational)',
 }

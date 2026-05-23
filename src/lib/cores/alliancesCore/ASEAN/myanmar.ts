@@ -1,5 +1,6 @@
 import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const myanmar: AseanCountry = {
@@ -20,6 +21,7 @@ export const myanmar: AseanCountry = {
   cryptocurrencyExchanges: ['CBM restrictive; informal USDT prevalent under sanctions context — informational'],
   stablecoin: 'USD informal settlement; MMK volatility — informational',
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['MM'],
+  newsOutlets: ASEAN_NEWS_OUTLETS['MM'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['MM'],
   stockExchange: 'Yangon Stock Exchange (operational constraints — informational)',
 }

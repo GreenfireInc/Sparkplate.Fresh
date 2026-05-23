@@ -1,4 +1,11 @@
-export type { RcepCountry, RcepOrganizationInfo, DomesticCourierService, NotableUniversity } from './types'
+export type {
+  RcepCountry,
+  RcepOrganizationInfo,
+  DomesticCourierService,
+  NewsOutlet,
+  NewsOutletsRoster,
+  NotableUniversity,
+} from './types'
 
 import type { RcepCountry, RcepOrganizationInfo } from './types'
 import { RCEP_MEMBER_ISO_CODES } from './rcepMemberIsoCodes'

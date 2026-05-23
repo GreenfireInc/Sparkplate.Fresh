@@ -1,5 +1,6 @@
 import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const cambodia: AseanCountry = {
@@ -19,6 +20,7 @@ export const cambodia: AseanCountry = {
   cryptocurrencyExchanges: ['NBC licensing evolution; regional P2P informal — informational'],
   stablecoin: 'USD cash economy dominant; KHR digital thin — informational',
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['KH'],
+  newsOutlets: ASEAN_NEWS_OUTLETS['KH'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['KH'],
   stockExchange: 'Cambodia Securities Exchange (CSX Phnom Penh)',
 }

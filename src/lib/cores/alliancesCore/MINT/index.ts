@@ -1,4 +1,11 @@
-export type { MintCountry, MintOrganizationInfo, DomesticCourierService, NotableUniversity } from './types'
+export type {
+  MintCountry,
+  MintOrganizationInfo,
+  DomesticCourierService,
+  NewsOutlet,
+  NewsOutletsRoster,
+  NotableUniversity,
+} from './types'
 
 import type { MintCountry, MintOrganizationInfo } from './types'
 import { MINT_MEMBER_ISO_CODES } from './mintMemberIsoCodes'

@@ -1,5 +1,6 @@
 import type { FiveEyesCountry } from './types'
 import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { FIVE_EYES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const unitedKingdom: FiveEyesCountry = {
@@ -20,6 +21,7 @@ export const unitedKingdom: FiveEyesCountry = {
   cryptocurrencyExchanges: ['Coinbase e-money UK', 'Kraken entities', 'FCA-register context — informational'],
   stablecoin: 'GBP stablecoins under evolving UK PSD3/cryptoasset regime — informational',
   domesticCourierServices: FIVE_EYES_DOMESTIC_COURIERS['GB'],
+  newsOutlets: FIVE_EYES_NEWS_OUTLETS['GB'],
   notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['GB'],
   stockExchange: 'London Stock Exchange Group (post-Brexit consolidated venues — informational)',
 }

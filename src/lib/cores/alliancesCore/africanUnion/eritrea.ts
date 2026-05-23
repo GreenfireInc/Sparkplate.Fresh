@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const eritrea: AfricanUnionCountry = {
   name: 'Eritrea',
@@ -18,6 +19,7 @@ export const eritrea: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Limited formal venues; diaspora P2P', 'Binance (P2P, informal)'],
   stablecoin: 'USDT minimal formal access; cash economy strong',
   domesticCourierServices: AU_DOMESTIC_COURIERS['ER'],
+  newsOutlets: AU_NEWS_OUTLETS['ER'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['ER'],
   stockExchange: 'No public stock exchange',
 }

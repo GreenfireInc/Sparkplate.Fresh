@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const gabon: AfricanUnionCountry = {
   name: 'Gabon',
@@ -18,6 +19,7 @@ export const gabon: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'CFA-region OTC'],
   stablecoin: 'USDT P2P; XAF peg',
   domesticCourierServices: AU_DOMESTIC_COURIERS['GA'],
+  newsOutlets: AU_NEWS_OUTLETS['GA'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['GA'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (BRVM) — regional',
 }

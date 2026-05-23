@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const unitedKingdom: OecdCountry = {
@@ -21,6 +22,7 @@ export const unitedKingdom: OecdCountry = {
   cryptocurrencyExchanges: ['Coinbase e-money UK', 'Kraken entities', 'FCA-register context — informational'],
   stablecoin: 'GBP stablecoins under evolving UK cryptoasset regime — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['GB'],
+  newsOutlets: OECD_NEWS_OUTLETS['GB'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['GB'],
   stockExchange: 'London Stock Exchange Group',
 }

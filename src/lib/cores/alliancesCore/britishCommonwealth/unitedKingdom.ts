@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const unitedKingdom: CommonwealthCountry = {
@@ -19,6 +20,7 @@ export const unitedKingdom: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Coinbase', 'Kraken', 'Revolut crypto'],
   stablecoin: 'GBP stablecoins limited; USDC/USDT on exchanges',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['GB'],
+  newsOutlets: COMMONWEALTH_NEWS_OUTLETS['GB'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['GB'],
   stockExchange: 'London Stock Exchange (LSE)',
 }

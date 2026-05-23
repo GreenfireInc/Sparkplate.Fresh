@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const india: CommonwealthCountry = {
@@ -19,6 +20,7 @@ export const india: CommonwealthCountry = {
   cryptocurrencyExchanges: ['CoinDCX', 'WazirX', 'ZebPay'],
   stablecoin: 'No INR retail CBDC at scale; USDT on global platforms',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['IN'],
+  newsOutlets: COMMONWEALTH_NEWS_OUTLETS['IN'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['IN'],
   stockExchange: 'National Stock Exchange (NSE); BSE',
 }

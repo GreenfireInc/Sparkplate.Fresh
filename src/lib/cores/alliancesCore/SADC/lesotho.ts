@@ -1,5 +1,6 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const lesotho: SadcCountry = {
@@ -18,6 +19,7 @@ export const lesotho: SadcCountry = {
   cryptocurrencyExchanges: ['Regional OTC informal'],
   stablecoin: 'Rand-pegged framework; informal USDT',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['LS'],
+  newsOutlets: SADC_NEWS_OUTLETS['LS'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['LS'],
   stockExchange: 'Maseru Securities Market — verify',
 }

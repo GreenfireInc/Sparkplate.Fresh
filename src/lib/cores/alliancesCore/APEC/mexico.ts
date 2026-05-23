@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mexico: ApecCountry = {
@@ -19,6 +20,7 @@ export const mexico: ApecCountry = {
   cryptocurrencyExchanges: ['Bitso CNBV fintech onboarding — informational'],
   stablecoin: 'MXN issuance pilots OTC USDT overlays — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['MX'],
+  newsOutlets: APEC_NEWS_OUTLETS['MX'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['MX'],
   stockExchange: 'Bolsa Mexicana de Valores (BMV)',
 }

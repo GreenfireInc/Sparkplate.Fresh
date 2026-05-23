@@ -1,5 +1,6 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const poland: NatoCountry = {
@@ -19,6 +20,7 @@ export const poland: NatoCountry = {
   cryptocurrencyExchanges: ['Zonda (BitBay legacy)', 'MiCA passport — informational'],
   stablecoin: 'PLN pairs; EUR-stable common — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['PL'],
+  newsOutlets: NATO_NEWS_OUTLETS['PL'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['PL'],
   stockExchange: 'Warsaw Stock Exchange (GPW)',
 }

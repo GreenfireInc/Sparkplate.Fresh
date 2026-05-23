@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const bangladesh: CommonwealthCountry = {
@@ -19,6 +20,7 @@ export const bangladesh: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional brokers'],
   stablecoin: 'USDT common in informal markets; no official BDT stablecoin',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['BD'],
+  newsOutlets: COMMONWEALTH_NEWS_OUTLETS['BD'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['BD'],
   stockExchange: 'Dhaka Stock Exchange (DSE); Chittagong Stock Exchange',
 }

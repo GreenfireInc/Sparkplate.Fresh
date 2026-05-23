@@ -30,6 +30,27 @@ export interface NotableUniversity {
   linkedin: string
 }
 
+/**
+ * National news outlet row (informational; verify URLs, handles, and API bases before production).
+ * `apiEndpoint` is a public developer / REST / RSS / feed base URL when documented; otherwise empty string.
+ */
+export interface NewsOutlet {
+  name: string
+  website: string
+  email: string
+  instagram: string
+  twitter: string
+  apiEndpoint: string
+}
+
+/**
+ * Three major + four minor national news outlets per economy (informational; verify).
+ */
+export interface NewsOutletsRoster {
+  major: readonly [NewsOutlet, NewsOutlet, NewsOutlet]
+  minor: readonly [NewsOutlet, NewsOutlet, NewsOutlet, NewsOutlet]
+}
+
 export interface AfricanUnionCountry {
   /** Display name */
   name: string
@@ -59,6 +80,8 @@ export interface AfricanUnionCountry {
   domesticCourierServices: DomesticCourierService[]
   /** Three notable universities with economics, accounting, computer science and/or electrical-engineering faculties (informational). */
   notableUniversities: readonly [NotableUniversity, NotableUniversity, NotableUniversity]
+  /** Three major + four minor national news outlets with public contact hints (verify locally). */
+  newsOutlets: NewsOutletsRoster
   stockExchange: string
 }
 

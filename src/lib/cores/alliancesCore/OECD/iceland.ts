@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const iceland: OecdCountry = {
@@ -20,6 +21,7 @@ export const iceland: OecdCountry = {
   cryptocurrencyExchanges: ['Nordic EU passport venues; OTC limited licensed retail — informational'],
   stablecoin: 'EUR/ISK pairs onshore thin; predominant USD-stable — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['IS'],
+  newsOutlets: OECD_NEWS_OUTLETS['IS'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['IS'],
   stockExchange: 'Nasdaq Iceland (equities thin vs fishing/tourism economies — informational)',
 }

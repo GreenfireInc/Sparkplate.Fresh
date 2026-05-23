@@ -1,5 +1,6 @@
 import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const angola: EccasCountry = {
@@ -18,6 +19,7 @@ export const angola: EccasCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Local OTC'],
   stablecoin: 'USDT / USDC via P2P; no dominant AOA stablecoin',
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['AO'],
+  newsOutlets: ECCAS_NEWS_OUTLETS['AO'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['AO'],
   stockExchange: 'Bodiva (Angola Securities Exchange)',
 }

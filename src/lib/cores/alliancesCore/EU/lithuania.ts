@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const lithuania: EuCountry = {
@@ -18,6 +19,7 @@ export const lithuania: EuCountry = {
   cryptocurrencyExchanges: ['EU-licensed onboarding; Baltic fintech'],
   stablecoin: 'EUR stablecoins; ECB digital euro research participation',
   domesticCourierServices: EU_DOMESTIC_COURIERS['LT'],
+  newsOutlets: EU_NEWS_OUTLETS['LT'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['LT'],
   stockExchange: 'Nasdaq Vilnius',
 }

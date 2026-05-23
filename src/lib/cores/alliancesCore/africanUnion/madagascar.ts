@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const madagascar: AfricanUnionCountry = {
   name: 'Madagascar',
@@ -18,6 +19,7 @@ export const madagascar: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Local P2P', 'International brokers'],
   stablecoin: 'USDT informal; no MGA stablecoin',
   domesticCourierServices: AU_DOMESTIC_COURIERS['MG'],
+  newsOutlets: AU_NEWS_OUTLETS['MG'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['MG'],
   stockExchange: 'Madagascar Stock Exchange (SEM)',
 }

@@ -1,5 +1,6 @@
 import type { ArabLeagueCountry } from './types'
 import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ARAB_LEAGUE_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const morocco: ArabLeagueCountry = {
@@ -19,6 +20,7 @@ export const morocco: ArabLeagueCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Rain (regional)', 'Peer OTC'],
   stablecoin: 'USDT informal; Bank Al-Maghrib exploring CBDC',
   domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['MA'],
+  newsOutlets: ARAB_LEAGUE_NEWS_OUTLETS['MA'],
   notableUniversities: ARAB_LEAGUE_NOTABLE_UNIVERSITIES['MA'],
   stockExchange: 'Casablanca Stock Exchange',
 }

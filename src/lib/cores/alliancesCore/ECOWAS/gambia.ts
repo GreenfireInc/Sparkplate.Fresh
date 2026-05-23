@@ -1,5 +1,6 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const gambia: EcowasCountry = {
@@ -18,6 +19,7 @@ export const gambia: EcowasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex (diaspora)'],
   stablecoin: 'USDT / USDC P2P',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['GM'],
+  newsOutlets: ECOWAS_NEWS_OUTLETS['GM'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['GM'],
   stockExchange: 'Gambia Stock Exchange (limited)',
 }

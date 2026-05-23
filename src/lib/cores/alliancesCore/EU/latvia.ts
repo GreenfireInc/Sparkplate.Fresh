@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const latvia: EuCountry = {
@@ -18,6 +19,7 @@ export const latvia: EuCountry = {
   cryptocurrencyExchanges: ['Baltic-regulated gateways; Nasdaq Baltic'],
   stablecoin: 'EUR stablecoins; MiCA supervision',
   domesticCourierServices: EU_DOMESTIC_COURIERS['LV'],
+  newsOutlets: EU_NEWS_OUTLETS['LV'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['LV'],
   stockExchange: 'Nasdaq Riga',
 }

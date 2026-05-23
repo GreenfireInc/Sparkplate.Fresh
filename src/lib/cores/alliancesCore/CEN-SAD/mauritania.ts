@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mauritania: CensadCountry = {
@@ -18,6 +19,7 @@ export const mauritania: CensadCountry = {
   cryptocurrencyExchanges: ['Informal P2P'],
   stablecoin: 'Informal USD/USDT',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['MR'],
+  newsOutlets: CENSAD_NEWS_OUTLETS['MR'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['MR'],
   stockExchange: 'Bourse de Mauritanie (Nouakchott — verify depth)',
 }

@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const lesotho: AfricanUnionCountry = {
   name: 'Lesotho',
@@ -18,6 +19,7 @@ export const lesotho: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Luno', 'VALR', 'Binance (P2P)'],
   stablecoin: 'USDT via South African financial links',
   domesticCourierServices: AU_DOMESTIC_COURIERS['LS'],
+  newsOutlets: AU_NEWS_OUTLETS['LS'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['LS'],
   stockExchange: 'Maseru Securities Market (limited)',
 }

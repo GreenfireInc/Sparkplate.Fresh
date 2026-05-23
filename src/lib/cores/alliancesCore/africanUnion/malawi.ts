@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const malawi: AfricanUnionCountry = {
   name: 'Malawi',
@@ -18,6 +19,7 @@ export const malawi: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC informal',
   domesticCourierServices: AU_DOMESTIC_COURIERS['MW'],
+  newsOutlets: AU_NEWS_OUTLETS['MW'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['MW'],
   stockExchange: 'Malawi Stock Exchange',
 }

@@ -4,6 +4,8 @@ export type {
   CaricomOrganizationInfo,
   DomesticCourierService,
   NotableUniversity,
+  NewsOutlet,
+  NewsOutletsRoster,
 } from './types'
 
 import type { CaricomCountry, CaricomOrganizationInfo } from './types'

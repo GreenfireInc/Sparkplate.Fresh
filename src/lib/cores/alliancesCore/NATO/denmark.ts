@@ -1,5 +1,6 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const denmark: NatoCountry = {
@@ -19,6 +20,7 @@ export const denmark: NatoCountry = {
   cryptocurrencyExchanges: ['MiCA-aligned EU passport; Nordic fintech — informational'],
   stablecoin: 'DKK pilots; EUR/USD crypto pairs — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['DK'],
+  newsOutlets: NATO_NEWS_OUTLETS['DK'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['DK'],
   stockExchange: 'Nasdaq Copenhagen',
 }

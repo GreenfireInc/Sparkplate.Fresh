@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const namibia: CommonwealthCountry = {
@@ -19,6 +20,7 @@ export const namibia: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['NA'],
+  newsOutlets: COMMONWEALTH_NEWS_OUTLETS['NA'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['NA'],
   stockExchange: 'Namibian Stock Exchange',
 }

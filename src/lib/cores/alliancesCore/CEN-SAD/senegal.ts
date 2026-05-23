@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const senegal: CensadCountry = {
@@ -18,6 +19,7 @@ export const senegal: CensadCountry = {
   cryptocurrencyExchanges: ['Regional P2P', 'Partnership/licensing evolution'],
   stablecoin: 'USDT informal; CFA peg',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['SN'],
+  newsOutlets: CENSAD_NEWS_OUTLETS['SN'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['SN'],
   stockExchange: 'BRVM (multiple Senegalese listings)',
 }

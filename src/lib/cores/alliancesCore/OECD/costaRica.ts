@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const costaRica: OecdCountry = {
@@ -19,6 +20,7 @@ export const costaRica: OecdCountry = {
   cryptocurrencyExchanges: ['Retail fiat ramps; banking-sector supervision overlays — informational'],
   stablecoin: 'USD-stable predominant; CB digital payment pilots — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['CR'],
+  newsOutlets: OECD_NEWS_OUTLETS['CR'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['CR'],
   stockExchange: 'Bolsa Nacional de Valores (BNV Costa Rica)',
 }

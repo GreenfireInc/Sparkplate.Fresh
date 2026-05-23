@@ -1,5 +1,6 @@
 import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const democraticRepublicOfTheCongo: EacCountry = {
@@ -18,6 +19,7 @@ export const democraticRepublicOfTheCongo: EacCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC widespread P2P',
   domesticCourierServices: EAC_DOMESTIC_COURIERS['CD'],
+  newsOutlets: EAC_NEWS_OUTLETS['CD'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['CD'],
   stockExchange: 'Domestic equities thin — informal OTC and regional linkage',
 }

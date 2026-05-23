@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const centralAfricanRepublic: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const centralAfricanRepublic: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Sango Coin ecosystem (national project)', 'Binance (P2P)', 'OTC'],
   stablecoin: 'USDT / USDC P2P; experimental sovereign crypto references',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['CF'],
+  newsOutlets: BRI_NEWS_OUTLETS['CF'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['CF'],
   stockExchange: 'Bangui Stock Exchange (very limited)',
 }

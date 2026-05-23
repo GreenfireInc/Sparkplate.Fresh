@@ -1,5 +1,6 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const france: NatoCountry = {
@@ -19,6 +20,7 @@ export const france: NatoCountry = {
   cryptocurrencyExchanges: ['Coinhouse', 'MiCA-compliant CASPs', 'Paymium'],
   stablecoin: 'EUR stablecoins; ECB digital euro pilots — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['FR'],
+  newsOutlets: NATO_NEWS_OUTLETS['FR'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['FR'],
   stockExchange: 'Euronext Paris',
 }

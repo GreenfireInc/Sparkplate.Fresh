@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const hongKong: ApecCountry = {
@@ -21,6 +22,7 @@ export const hongKong: ApecCountry = {
   cryptocurrencyExchanges: ['HashKey OSL licensed VA trading evolution — informational'],
   stablecoin: 'HKMA stable-token regulatory sandbox narratives — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['HK'],
+  newsOutlets: APEC_NEWS_OUTLETS['HK'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['HK'],
   stockExchange: 'Hong Kong Stock Exchange (HKEX)',
 }

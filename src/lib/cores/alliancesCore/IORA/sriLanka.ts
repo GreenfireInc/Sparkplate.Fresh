@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const sriLanka: IoraCountry = {
@@ -19,6 +20,7 @@ export const sriLanka: IoraCountry = {
   cryptocurrencyExchanges: ['CB restrictive retail screens; OTC informal diaspora rails — informational'],
   stablecoin: 'USD informal dollarisation overlays — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['LK'],
+  newsOutlets: IORA_NEWS_OUTLETS['LK'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['LK'],
   stockExchange: 'Colombo Stock Exchange (CSE)',
 }

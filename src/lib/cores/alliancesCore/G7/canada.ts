@@ -1,5 +1,6 @@
 import type { G7Country } from './types'
 import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G7_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G7_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const canada: G7Country = {
@@ -19,6 +20,7 @@ export const canada: G7Country = {
   cryptocurrencyExchanges: ['Bitbuy', 'Newton', 'CSA/PRU provincial licensing environment — informational'],
   stablecoin: 'CAD fiat-backed tokens (regulated money services / evolving OSFI guidance — informational)',
   domesticCourierServices: G7_DOMESTIC_COURIERS['CA'],
+  newsOutlets: G7_NEWS_OUTLETS['CA'],
   notableUniversities: G7_NOTABLE_UNIVERSITIES['CA'],
   stockExchange: 'Toronto Stock Exchange (TMX)',
 }

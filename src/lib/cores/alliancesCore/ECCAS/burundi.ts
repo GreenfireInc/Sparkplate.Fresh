@@ -1,5 +1,6 @@
 import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const burundi: EccasCountry = {
@@ -18,6 +19,7 @@ export const burundi: EccasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card (regional)', 'Local OTC'],
   stablecoin: 'USDT informal',
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['BI'],
+  newsOutlets: ECCAS_NEWS_OUTLETS['BI'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['BI'],
   stockExchange: 'Burundi Stock Exchange — thin liquidity',
 }

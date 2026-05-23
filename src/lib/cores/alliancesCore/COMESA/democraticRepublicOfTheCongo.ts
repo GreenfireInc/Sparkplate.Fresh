@@ -1,5 +1,6 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const democraticRepublicOfTheCongo: ComesaCountry = {
@@ -18,6 +19,7 @@ export const democraticRepublicOfTheCongo: ComesaCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC widespread P2P',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['CD'],
+  newsOutlets: COMESA_NEWS_OUTLETS['CD'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['CD'],
   stockExchange: 'BRVM / thin domestic equity context — informal OTC predominant',
 }

@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const nigeria: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const nigeria: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Luno', 'Quidax', 'Busha', 'Yellow Card'],
   stablecoin: 'USDT / USDC P2P dominant; cNGN stablecoin pilots',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['NG'],
+  newsOutlets: BRI_NEWS_OUTLETS['NG'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['NG'],
   stockExchange: 'Nigerian Exchange Group (NGX)',
 }

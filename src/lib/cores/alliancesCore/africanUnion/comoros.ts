@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const comoros: AfricanUnionCountry = {
   name: 'Comoros',
@@ -18,6 +19,7 @@ export const comoros: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional mobile money bridges'],
   stablecoin: 'USDT / USDC limited; KMF',
   domesticCourierServices: AU_DOMESTIC_COURIERS['KM'],
+  newsOutlets: AU_NEWS_OUTLETS['KM'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['KM'],
   stockExchange: 'No major national stock exchange',
 }

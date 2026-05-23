@@ -1,5 +1,6 @@
 import type { G7Country } from './types'
 import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G7_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G7_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const unitedKingdom: G7Country = {
@@ -21,6 +22,7 @@ export const unitedKingdom: G7Country = {
   cryptocurrencyExchanges: ['Coinbase e-money UK', 'Kraken entities', 'FCA-register context — informational'],
   stablecoin: 'GBP stablecoins under evolving UK PSD3/cryptoasset regime — informational',
   domesticCourierServices: G7_DOMESTIC_COURIERS['GB'],
+  newsOutlets: G7_NEWS_OUTLETS['GB'],
   notableUniversities: G7_NOTABLE_UNIVERSITIES['GB'],
   stockExchange: 'London Stock Exchange Group (consolidated UK venues — informational)',
 }

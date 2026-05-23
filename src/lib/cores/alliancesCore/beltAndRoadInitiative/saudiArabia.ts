@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const saudiArabia: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const saudiArabia: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Rain', 'Regional OTC', 'International P2P'],
   stablecoin: 'USDT informal; sandbox experiments',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['SA'],
+  newsOutlets: BRI_NEWS_OUTLETS['SA'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['SA'],
   stockExchange: 'Saudi Exchange (Tadawul)',
 }

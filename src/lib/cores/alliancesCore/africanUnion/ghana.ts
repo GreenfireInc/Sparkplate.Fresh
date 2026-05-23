@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const ghana: AfricanUnionCountry = {
   name: 'Ghana',
@@ -18,6 +19,7 @@ export const ghana: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Busha', 'Quidax'],
   stablecoin: 'USDT / USDC; Bank of Ghana piloting eCedi CBDC',
   domesticCourierServices: AU_DOMESTIC_COURIERS['GH'],
+  newsOutlets: AU_NEWS_OUTLETS['GH'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['GH'],
   stockExchange: 'Ghana Stock Exchange (GSE)',
 }

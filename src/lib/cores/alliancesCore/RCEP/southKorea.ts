@@ -1,5 +1,6 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const southKorea: RcepCountry = {
@@ -20,6 +21,7 @@ export const southKorea: RcepCountry = {
   cryptocurrencyExchanges: ['Upbit', 'Bithumb', 'FSC VASP registrations — informational'],
   stablecoin: 'KRW won-linked experimentation thin; predominant USDT OTC — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['KR'],
+  newsOutlets: RCEP_NEWS_OUTLETS['KR'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['KR'],
   stockExchange: 'Korea Exchange KOSPI/KOSDAQ',
 }

@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mozambique: IoraCountry = {
@@ -19,6 +20,7 @@ export const mozambique: IoraCountry = {
   cryptocurrencyExchanges: ['Informal P2P; banking dollarisation episodes — informational'],
   stablecoin: 'USD informal settlement in extractives corridors — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['MZ'],
+  newsOutlets: IORA_NEWS_OUTLETS['MZ'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['MZ'],
   stockExchange: 'Bolsa de Valores de Moçambique (Maputo — informational)',
 }

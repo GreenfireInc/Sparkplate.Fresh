@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const sierraLeone: CensadCountry = {
@@ -18,6 +19,7 @@ export const sierraLeone: CensadCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance P2P informal'],
   stablecoin: 'Informal USD/USDT',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['SL'],
+  newsOutlets: CENSAD_NEWS_OUTLETS['SL'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['SL'],
   stockExchange: 'Sierra Leone Stock Exchange — verify liquidity',
 }

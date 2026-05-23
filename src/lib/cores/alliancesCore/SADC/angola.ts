@@ -1,5 +1,6 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const angola: SadcCountry = {
@@ -18,6 +19,7 @@ export const angola: SadcCountry = {
   cryptocurrencyExchanges: ['Limited formal footprint; OTC / diaspora informal'],
   stablecoin: 'USDT/USDC informal alongside AOA volatility',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['AO'],
+  newsOutlets: SADC_NEWS_OUTLETS['AO'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['AO'],
   stockExchange: 'Bodiva (Bolsa de Dívida e Valores de Angola — equity depth limited)',
 }

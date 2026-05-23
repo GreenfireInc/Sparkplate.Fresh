@@ -1,5 +1,6 @@
 import type { BricsCountry } from './types'
 import { BRICS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRICS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRICS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const brazil: BricsCountry = {
@@ -19,6 +20,7 @@ export const brazil: BricsCountry = {
   cryptocurrencyExchanges: ['Mercado Bitcoin', 'Foxbit', 'Binance (P2P)', 'Regional OTC'],
   stablecoin: 'BRZ and BRL-pegged tokens on some platforms; USDT/USDC widely used in crypto markets',
   domesticCourierServices: BRICS_DOMESTIC_COURIERS['BR'],
+  newsOutlets: BRICS_NEWS_OUTLETS['BR'],
   notableUniversities: BRICS_NOTABLE_UNIVERSITIES['BR'],
   stockExchange: 'B3 — Brasil Bolsa Balcão',
 }

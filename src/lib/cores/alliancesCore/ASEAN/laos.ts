@@ -1,5 +1,6 @@
 import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const laos: AseanCountry = {
@@ -19,6 +20,7 @@ export const laos: AseanCountry = {
   cryptocurrencyExchanges: ['BOL restrictive licensing; OTC sparse — informational'],
   stablecoin: 'LAK thin digital rails; USD/Baht informal — informational',
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['LA'],
+  newsOutlets: ASEAN_NEWS_OUTLETS['LA'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['LA'],
   stockExchange: 'Lao Securities Exchange (Vientiane — thin listings — informational)',
 }

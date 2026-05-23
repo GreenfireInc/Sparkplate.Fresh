@@ -4,6 +4,8 @@ export type {
   AmuOrganizationInfo,
   DomesticCourierService,
   NotableUniversity,
+  NewsOutlet,
+  NewsOutletsRoster,
 } from './types'
 export { AMU_MEMBER_ISO_CODES } from './amuMemberIsoCodes'
 export type { AmuMemberIsoCode } from './amuMemberIsoCodes'
