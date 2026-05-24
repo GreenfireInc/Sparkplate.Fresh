@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const capeVerde: AfricanUnionCountry = {
   name: 'Cape Verde',
   iso3166Alpha2: 'CV',
@@ -21,5 +22,6 @@ export const capeVerde: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['CV'],
   newsOutlets: AU_NEWS_OUTLETS['CV'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['CV'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['CV'],
   stockExchange: 'Bolsa de Valores de Cabo Verde (limited listings)',
 }

@@ -2,6 +2,7 @@ import type { ArabLeagueCountry } from './types'
 import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ARAB_LEAGUE_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const unitedArabEmirates: ArabLeagueCountry = {
   name: 'United Arab Emirates',
@@ -22,5 +23,6 @@ export const unitedArabEmirates: ArabLeagueCountry = {
   domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['AE'],
   newsOutlets: ARAB_LEAGUE_NEWS_OUTLETS['AE'],
   notableUniversities: ARAB_LEAGUE_NOTABLE_UNIVERSITIES['AE'],
+  mainExportCommodities: ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES['AE'],
   stockExchange: 'Abu Dhabi Securities Exchange (ADX); Dubai Financial Market (DFM)',
 }

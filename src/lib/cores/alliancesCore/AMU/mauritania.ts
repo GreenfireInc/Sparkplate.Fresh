@@ -2,6 +2,7 @@ import type { AmuCountry } from './types'
 import { AMU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AMU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AMU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AMU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const mauritania: AmuCountry = {
   name: 'Mauritania',
@@ -22,5 +23,6 @@ export const mauritania: AmuCountry = {
   domesticCourierServices: AMU_DOMESTIC_COURIERS['MR'],
   newsOutlets: AMU_NEWS_OUTLETS['MR'],
   notableUniversities: AMU_NOTABLE_UNIVERSITIES['MR'],
+  mainExportCommodities: AMU_MAIN_EXPORT_COMMODITIES['MR'],
   stockExchange: 'Bourse Notation Agréée (limited)',
 }

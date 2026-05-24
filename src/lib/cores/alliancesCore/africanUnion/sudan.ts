@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const sudan: AfricanUnionCountry = {
   name: 'Sudan',
   iso3166Alpha2: 'SD',
@@ -21,5 +22,6 @@ export const sudan: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['SD'],
   newsOutlets: AU_NEWS_OUTLETS['SD'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['SD'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['SD'],
   stockExchange: 'Khartoum Stock Exchange (operations disrupted)',
 }

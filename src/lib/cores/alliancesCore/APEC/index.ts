@@ -2,6 +2,7 @@ export type {
   ApecCountry,
   ApecOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,

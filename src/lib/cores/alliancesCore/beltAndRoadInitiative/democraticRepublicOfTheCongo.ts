@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const democraticRepublicOfTheCongo: BeltAndRoadInitiativeCountry = {
   name: 'Democratic Republic of the Congo',
@@ -22,5 +23,6 @@ export const democraticRepublicOfTheCongo: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['CD'],
   newsOutlets: BRI_NEWS_OUTLETS['CD'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['CD'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['CD'],
   stockExchange: 'No liquid national exchange; informal OTC and regional listings',
 }

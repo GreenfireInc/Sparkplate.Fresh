@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const cameroon: CommonwealthCountry = {
   name: 'Cameroon',
@@ -22,5 +23,6 @@ export const cameroon: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['CM'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['CM'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['CM'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['CM'],
   stockExchange: 'Douala Stock Exchange',
 }

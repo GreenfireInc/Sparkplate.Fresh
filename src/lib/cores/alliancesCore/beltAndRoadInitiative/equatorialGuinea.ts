@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const equatorialGuinea: BeltAndRoadInitiativeCountry = {
   name: 'Equatorial Guinea',
@@ -22,5 +23,6 @@ export const equatorialGuinea: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['GQ'],
   newsOutlets: BRI_NEWS_OUTLETS['GQ'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['GQ'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['GQ'],
   stockExchange: 'CEMAC regional market (limited local listings)',
 }

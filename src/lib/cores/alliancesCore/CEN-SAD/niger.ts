@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const niger: CensadCountry = {
   name: 'Niger',
@@ -22,5 +23,6 @@ export const niger: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['NE'],
   newsOutlets: CENSAD_NEWS_OUTLETS['NE'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['NE'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['NE'],
   stockExchange: 'BRVM linkage context',
 }

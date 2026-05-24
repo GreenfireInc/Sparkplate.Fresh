@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const botswana: BeltAndRoadInitiativeCountry = {
   name: 'Botswana',
@@ -22,5 +23,6 @@ export const botswana: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['BW'],
   newsOutlets: BRI_NEWS_OUTLETS['BW'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['BW'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['BW'],
   stockExchange: 'Botswana Stock Exchange (BSE)',
 }

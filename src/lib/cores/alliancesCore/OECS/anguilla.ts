@@ -2,6 +2,7 @@ import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const anguilla: OecsCountry = {
   name: 'Anguilla',
@@ -22,5 +23,6 @@ export const anguilla: OecsCountry = {
   domesticCourierServices: OECS_DOMESTIC_COURIERS['AI'],
   newsOutlets: OECS_NEWS_OUTLETS['AI'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['AI'],
+  mainExportCommodities: OECS_MAIN_EXPORT_COMMODITIES['AI'],
   stockExchange: 'No dedicated national exchange; regional ECSE context — informational',
 }

@@ -2,6 +2,7 @@ import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const mauritius: SadcCountry = {
   name: 'Mauritius',
@@ -22,5 +23,6 @@ export const mauritius: SadcCountry = {
   domesticCourierServices: SADC_DOMESTIC_COURIERS['MU'],
   newsOutlets: SADC_NEWS_OUTLETS['MU'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['MU'],
+  mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['MU'],
   stockExchange: 'Stock Exchange of Mauritius (SEM)',
 }

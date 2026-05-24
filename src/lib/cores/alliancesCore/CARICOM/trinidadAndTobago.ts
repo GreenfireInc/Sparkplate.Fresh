@@ -2,6 +2,7 @@ import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const trinidadAndTobago: CaricomCountry = {
   name: 'Trinidad and Tobago',
@@ -22,5 +23,6 @@ export const trinidadAndTobago: CaricomCountry = {
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['TT'],
   newsOutlets: CARICOM_NEWS_OUTLETS['TT'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['TT'],
+  mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['TT'],
   stockExchange: 'Trinidad and Tobago Stock Exchange',
 }

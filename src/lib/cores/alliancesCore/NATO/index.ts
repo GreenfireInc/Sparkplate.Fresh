@@ -2,6 +2,7 @@ export type {
   NatoCountry,
   NatoOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,

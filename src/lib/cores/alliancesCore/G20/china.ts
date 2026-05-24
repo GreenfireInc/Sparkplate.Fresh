@@ -2,6 +2,7 @@ import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const china: G20Country = {
   name: 'China',
@@ -24,5 +25,6 @@ export const china: G20Country = {
   domesticCourierServices: G20_DOMESTIC_COURIERS['CN'],
   newsOutlets: G20_NEWS_OUTLETS['CN'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['CN'],
+  mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['CN'],
   stockExchange: 'Shanghai Stock Exchange (SSE) / Shenzhen Stock Exchange (SZSE)',
 }

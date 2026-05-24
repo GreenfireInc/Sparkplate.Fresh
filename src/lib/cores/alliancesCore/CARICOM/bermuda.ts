@@ -2,6 +2,7 @@ import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const bermuda: CaricomCountry = {
   name: 'Bermuda',
@@ -22,5 +23,6 @@ export const bermuda: CaricomCountry = {
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['BM'],
   newsOutlets: CARICOM_NEWS_OUTLETS['BM'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['BM'],
+  mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['BM'],
   stockExchange: 'Bermuda Stock Exchange',
 }

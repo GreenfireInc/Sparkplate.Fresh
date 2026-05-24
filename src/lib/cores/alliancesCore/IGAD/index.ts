@@ -2,6 +2,7 @@ export type {
   IgadCountry,
   IgadOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,

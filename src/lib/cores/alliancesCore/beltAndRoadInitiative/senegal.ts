@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const senegal: BeltAndRoadInitiativeCountry = {
   name: 'Senegal',
@@ -22,5 +23,6 @@ export const senegal: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['SN'],
   newsOutlets: BRI_NEWS_OUTLETS['SN'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['SN'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['SN'],
   stockExchange: 'BRVM (regional; Dakar listings)',
 }

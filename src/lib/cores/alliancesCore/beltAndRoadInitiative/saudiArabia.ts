@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const saudiArabia: BeltAndRoadInitiativeCountry = {
   name: 'Saudi Arabia',
@@ -22,5 +23,6 @@ export const saudiArabia: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['SA'],
   newsOutlets: BRI_NEWS_OUTLETS['SA'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['SA'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['SA'],
   stockExchange: 'Saudi Exchange (Tadawul)',
 }

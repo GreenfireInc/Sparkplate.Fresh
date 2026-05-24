@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const tanzania: AfricanUnionCountry = {
   name: 'Tanzania',
   iso3166Alpha2: 'TZ',
@@ -21,5 +22,6 @@ export const tanzania: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['TZ'],
   newsOutlets: AU_NEWS_OUTLETS['TZ'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['TZ'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange (DSE)',
 }

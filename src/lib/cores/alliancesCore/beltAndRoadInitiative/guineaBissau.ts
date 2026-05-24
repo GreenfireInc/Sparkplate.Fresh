@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const guineaBissau: BeltAndRoadInitiativeCountry = {
   name: 'Guinea-Bissau',
@@ -22,5 +23,6 @@ export const guineaBissau: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['GW'],
   newsOutlets: BRI_NEWS_OUTLETS['GW'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['GW'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['GW'],
   stockExchange: 'No significant national exchange; BRVM regional access',
 }

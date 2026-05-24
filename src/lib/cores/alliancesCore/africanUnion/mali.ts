@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const mali: AfricanUnionCountry = {
   name: 'Mali',
   iso3166Alpha2: 'ML',
@@ -21,5 +22,6 @@ export const mali: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['ML'],
   newsOutlets: AU_NEWS_OUTLETS['ML'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['ML'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['ML'],
   stockExchange: 'Bourse des Valeurs du Mali (limited)',
 }

@@ -2,6 +2,7 @@ export type {
   IoraCountry,
   IoraOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,

@@ -2,6 +2,7 @@ import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const northMacedonia: NatoCountry = {
   name: 'North Macedonia',
@@ -22,5 +23,6 @@ export const northMacedonia: NatoCountry = {
   domesticCourierServices: NATO_DOMESTIC_COURIERS['MK'],
   newsOutlets: NATO_NEWS_OUTLETS['MK'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['MK'],
+  mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['MK'],
   stockExchange: 'Macedonian Stock Exchange (Skopje — informational)',
 }

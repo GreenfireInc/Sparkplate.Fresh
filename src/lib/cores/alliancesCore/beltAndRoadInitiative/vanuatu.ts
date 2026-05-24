@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const vanuatu: BeltAndRoadInitiativeCountry = {
   name: 'Vanuatu',
@@ -22,5 +23,6 @@ export const vanuatu: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['VU'],
   newsOutlets: BRI_NEWS_OUTLETS['VU'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['VU'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['VU'],
   stockExchange: 'National or regional exchange (verify)',
 }

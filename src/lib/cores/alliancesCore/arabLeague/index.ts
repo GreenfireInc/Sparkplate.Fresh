@@ -3,6 +3,7 @@ export type {
   ArabLeagueMembership,
   ArabLeagueOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,

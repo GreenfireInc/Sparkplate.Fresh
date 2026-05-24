@@ -2,6 +2,7 @@ export type {
   RcepCountry,
   RcepOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,

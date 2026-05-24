@@ -2,6 +2,7 @@ import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const burundi: EacCountry = {
   name: 'Burundi',
@@ -21,5 +22,6 @@ export const burundi: EacCountry = {
   domesticCourierServices: EAC_DOMESTIC_COURIERS['BI'],
   newsOutlets: EAC_NEWS_OUTLETS['BI'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['BI'],
+  mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['BI'],
   stockExchange: 'Burundi Stock Exchange — thin liquidity',
 }

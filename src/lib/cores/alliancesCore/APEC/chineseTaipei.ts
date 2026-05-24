@@ -2,6 +2,7 @@ import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 /**
  * Listed as **Chinese Taipei** in official APEC fora — informational.
@@ -26,5 +27,6 @@ export const chineseTaipei: ApecCountry = {
   domesticCourierServices: APEC_DOMESTIC_COURIERS['TW'],
   newsOutlets: APEC_NEWS_OUTLETS['TW'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['TW'],
+  mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['TW'],
   stockExchange: 'Taiwan Stock Exchange TWSE Taipei',
 }

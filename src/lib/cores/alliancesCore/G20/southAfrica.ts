@@ -2,6 +2,7 @@ import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const southAfrica: G20Country = {
   name: 'South Africa',
@@ -23,5 +24,6 @@ export const southAfrica: G20Country = {
   domesticCourierServices: G20_DOMESTIC_COURIERS['ZA'],
   newsOutlets: G20_NEWS_OUTLETS['ZA'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['ZA'],
+  mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['ZA'],
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
 }

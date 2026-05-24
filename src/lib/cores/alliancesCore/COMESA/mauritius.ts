@@ -2,6 +2,7 @@ import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const mauritius: ComesaCountry = {
   name: 'Mauritius',
@@ -22,5 +23,6 @@ export const mauritius: ComesaCountry = {
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['MU'],
   newsOutlets: COMESA_NEWS_OUTLETS['MU'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['MU'],
+  mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['MU'],
   stockExchange: 'Stock Exchange of Mauritius (SEM)',
 }

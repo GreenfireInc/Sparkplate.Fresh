@@ -2,6 +2,7 @@ import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const yemen: IoraCountry = {
   name: 'Yemen',
@@ -23,5 +24,6 @@ export const yemen: IoraCountry = {
   domesticCourierServices: IORA_DOMESTIC_COURIERS['YE'],
   newsOutlets: IORA_NEWS_OUTLETS['YE'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['YE'],
+  mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['YE'],
   stockExchange: 'Aden Securities micro-market disruptions — informational',
 }

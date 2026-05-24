@@ -2,6 +2,7 @@ import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const china: RcepCountry = {
   name: 'China',
@@ -24,6 +25,7 @@ export const china: RcepCountry = {
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['CN'],
   newsOutlets: RCEP_NEWS_OUTLETS['CN'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['CN'],
+  mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['CN'],
   stockExchange:
     'Shanghai Stock Exchange; Shenzhen Stock Exchange; Beijing Stock Exchange context — informational',
 }

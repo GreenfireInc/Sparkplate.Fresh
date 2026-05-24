@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const sudan: CensadCountry = {
   name: 'Sudan',
@@ -22,5 +23,6 @@ export const sudan: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['SD'],
   newsOutlets: CENSAD_NEWS_OUTLETS['SD'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['SD'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['SD'],
   stockExchange: 'Khartoum Stock Exchange (operations disrupted — verify)',
 }

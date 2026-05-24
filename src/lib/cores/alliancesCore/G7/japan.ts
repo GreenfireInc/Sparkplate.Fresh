@@ -2,6 +2,7 @@ import type { G7Country } from './types'
 import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G7_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G7_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { G7_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const japan: G7Country = {
   name: 'Japan',
@@ -22,5 +23,6 @@ export const japan: G7Country = {
   domesticCourierServices: G7_DOMESTIC_COURIERS['JP'],
   newsOutlets: G7_NEWS_OUTLETS['JP'],
   notableUniversities: G7_NOTABLE_UNIVERSITIES['JP'],
+  mainExportCommodities: G7_MAIN_EXPORT_COMMODITIES['JP'],
   stockExchange: 'Tokyo Stock Exchange (Japan Exchange Group)',
 }

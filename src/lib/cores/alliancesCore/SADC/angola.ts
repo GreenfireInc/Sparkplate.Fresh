@@ -2,6 +2,7 @@ import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const angola: SadcCountry = {
   name: 'Angola',
@@ -21,5 +22,6 @@ export const angola: SadcCountry = {
   domesticCourierServices: SADC_DOMESTIC_COURIERS['AO'],
   newsOutlets: SADC_NEWS_OUTLETS['AO'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['AO'],
+  mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['AO'],
   stockExchange: 'Bodiva (Bolsa de Dívida e Valores de Angola — equity depth limited)',
 }

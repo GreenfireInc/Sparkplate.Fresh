@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const lesotho: AfricanUnionCountry = {
   name: 'Lesotho',
   iso3166Alpha2: 'LS',
@@ -21,5 +22,6 @@ export const lesotho: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['LS'],
   newsOutlets: AU_NEWS_OUTLETS['LS'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['LS'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['LS'],
   stockExchange: 'Maseru Securities Market (limited)',
 }

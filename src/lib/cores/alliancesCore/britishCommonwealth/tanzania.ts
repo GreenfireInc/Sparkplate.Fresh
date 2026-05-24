@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const tanzania: CommonwealthCountry = {
   name: 'Tanzania',
@@ -22,5 +23,6 @@ export const tanzania: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['TZ'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['TZ'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['TZ'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange',
 }

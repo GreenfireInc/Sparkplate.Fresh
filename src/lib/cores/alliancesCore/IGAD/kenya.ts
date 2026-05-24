@@ -2,6 +2,7 @@ import type { IgadCountry } from './types'
 import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const kenya: IgadCountry = {
   name: 'Kenya',
@@ -22,5 +23,6 @@ export const kenya: IgadCountry = {
   domesticCourierServices: IGAD_DOMESTIC_COURIERS['KE'],
   newsOutlets: IGAD_NEWS_OUTLETS['KE'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['KE'],
+  mainExportCommodities: IGAD_MAIN_EXPORT_COMMODITIES['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
 }

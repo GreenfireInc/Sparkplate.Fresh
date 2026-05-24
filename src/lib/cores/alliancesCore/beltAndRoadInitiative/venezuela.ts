@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const venezuela: BeltAndRoadInitiativeCountry = {
   name: 'Venezuela',
@@ -22,5 +23,6 @@ export const venezuela: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['VE'],
   newsOutlets: BRI_NEWS_OUTLETS['VE'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['VE'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['VE'],
   stockExchange: 'National or regional exchange (verify)',
 }

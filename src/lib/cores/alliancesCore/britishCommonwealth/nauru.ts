@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const nauru: CommonwealthCountry = {
   name: 'Nauru',
@@ -22,5 +23,6 @@ export const nauru: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['NR'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['NR'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['NR'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['NR'],
   stockExchange: 'No national stock exchange — informational',
 }

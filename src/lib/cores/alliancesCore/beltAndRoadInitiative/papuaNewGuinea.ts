@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const papuaNewGuinea: BeltAndRoadInitiativeCountry = {
   name: 'Papua New Guinea',
@@ -22,5 +23,6 @@ export const papuaNewGuinea: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['PG'],
   newsOutlets: BRI_NEWS_OUTLETS['PG'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['PG'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['PG'],
   stockExchange: 'National or regional exchange (verify)',
 }

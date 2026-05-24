@@ -2,6 +2,7 @@ import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const antiguaAndBarbuda: OecsCountry = {
   name: 'Antigua and Barbuda',
@@ -22,5 +23,6 @@ export const antiguaAndBarbuda: OecsCountry = {
   domesticCourierServices: OECS_DOMESTIC_COURIERS['AG'],
   newsOutlets: OECS_NEWS_OUTLETS['AG'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['AG'],
+  mainExportCommodities: OECS_MAIN_EXPORT_COMMODITIES['AG'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

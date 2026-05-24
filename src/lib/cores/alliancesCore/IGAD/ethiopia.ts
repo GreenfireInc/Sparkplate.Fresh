@@ -2,6 +2,7 @@ import type { IgadCountry } from './types'
 import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const ethiopia: IgadCountry = {
   name: 'Ethiopia',
@@ -22,5 +23,6 @@ export const ethiopia: IgadCountry = {
   domesticCourierServices: IGAD_DOMESTIC_COURIERS['ET'],
   newsOutlets: IGAD_NEWS_OUTLETS['ET'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['ET'],
+  mainExportCommodities: IGAD_MAIN_EXPORT_COMMODITIES['ET'],
   stockExchange: 'Ethiopian Securities Exchange Addis debut-era listings — informational',
 }

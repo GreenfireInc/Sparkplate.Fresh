@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const rwanda: AfricanUnionCountry = {
   name: 'Rwanda',
   iso3166Alpha2: 'RW',
@@ -21,5 +22,6 @@ export const rwanda: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['RW'],
   newsOutlets: AU_NEWS_OUTLETS['RW'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['RW'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['RW'],
   stockExchange: 'Rwanda Stock Exchange',
 }

@@ -3,6 +3,7 @@ export type {
   CommonwealthCountry,
   CommonwealthMembership,
   DomesticCourierService,
+  MainExportCommodities,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,

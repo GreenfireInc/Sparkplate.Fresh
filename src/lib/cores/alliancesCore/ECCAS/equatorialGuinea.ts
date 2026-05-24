@@ -2,6 +2,7 @@ import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const equatorialGuinea: EccasCountry = {
   name: 'Equatorial Guinea',
@@ -21,5 +22,6 @@ export const equatorialGuinea: EccasCountry = {
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['GQ'],
   newsOutlets: ECCAS_NEWS_OUTLETS['GQ'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['GQ'],
+  mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['GQ'],
   stockExchange: 'CEMAC regional liquidity; limited local listings',
 }

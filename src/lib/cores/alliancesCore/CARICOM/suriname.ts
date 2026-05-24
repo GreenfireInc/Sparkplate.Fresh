@@ -2,6 +2,7 @@ import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const suriname: CaricomCountry = {
   name: 'Suriname',
@@ -22,5 +23,6 @@ export const suriname: CaricomCountry = {
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['SR'],
   newsOutlets: CARICOM_NEWS_OUTLETS['SR'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['SR'],
+  mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['SR'],
   stockExchange: 'Suriname Stock Exchange',
 }

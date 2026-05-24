@@ -2,6 +2,7 @@ import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const australia: OecdCountry = {
   name: 'Australia',
@@ -22,5 +23,6 @@ export const australia: OecdCountry = {
   domesticCourierServices: OECD_DOMESTIC_COURIERS['AU'],
   newsOutlets: OECD_NEWS_OUTLETS['AU'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['AU'],
+  mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['AU'],
   stockExchange: 'Australian Securities Exchange (ASX, Sydney)',
 }

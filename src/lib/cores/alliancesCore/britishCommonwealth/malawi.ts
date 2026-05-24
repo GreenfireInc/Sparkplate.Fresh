@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const malawi: CommonwealthCountry = {
   name: 'Malawi',
@@ -22,5 +23,6 @@ export const malawi: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['MW'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['MW'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['MW'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['MW'],
   stockExchange: 'Malawi Stock Exchange',
 }

@@ -2,6 +2,7 @@ import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const argentina: G20Country = {
   name: 'Argentina',
@@ -23,5 +24,6 @@ export const argentina: G20Country = {
   domesticCourierServices: G20_DOMESTIC_COURIERS['AR'],
   newsOutlets: G20_NEWS_OUTLETS['AR'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['AR'],
+  mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['AR'],
   stockExchange: 'Bolsas y Mercados Argentinos BYMA (Buenos Aires)',
 }

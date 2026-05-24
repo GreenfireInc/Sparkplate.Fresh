@@ -2,6 +2,7 @@ import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const lesotho: SadcCountry = {
   name: 'Lesotho',
@@ -21,5 +22,6 @@ export const lesotho: SadcCountry = {
   domesticCourierServices: SADC_DOMESTIC_COURIERS['LS'],
   newsOutlets: SADC_NEWS_OUTLETS['LS'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['LS'],
+  mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['LS'],
   stockExchange: 'Maseru Securities Market — verify',
 }

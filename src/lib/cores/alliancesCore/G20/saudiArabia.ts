@@ -2,6 +2,7 @@ import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const saudiArabia: G20Country = {
   name: 'Saudi Arabia',
@@ -23,5 +24,6 @@ export const saudiArabia: G20Country = {
   domesticCourierServices: G20_DOMESTIC_COURIERS['SA'],
   newsOutlets: G20_NEWS_OUTLETS['SA'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['SA'],
+  mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['SA'],
   stockExchange: 'Saudi Exchange (Tadawul)',
 }

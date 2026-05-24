@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const sierraLeone: AfricanUnionCountry = {
   name: 'Sierra Leone',
   iso3166Alpha2: 'SL',
@@ -21,5 +22,6 @@ export const sierraLeone: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['SL'],
   newsOutlets: AU_NEWS_OUTLETS['SL'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['SL'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['SL'],
   stockExchange: 'Sierra Leone Stock Exchange',
 }

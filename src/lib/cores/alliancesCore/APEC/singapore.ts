@@ -2,6 +2,7 @@ import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const singapore: ApecCountry = {
   name: 'Singapore',
@@ -22,5 +23,6 @@ export const singapore: ApecCountry = {
   domesticCourierServices: APEC_DOMESTIC_COURIERS['SG'],
   newsOutlets: APEC_NEWS_OUTLETS['SG'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['SG'],
+  mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['SG'],
   stockExchange: 'Singapore Exchange (SGX)',
 }

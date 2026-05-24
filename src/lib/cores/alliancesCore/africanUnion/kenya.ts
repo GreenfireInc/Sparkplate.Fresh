@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const kenya: AfricanUnionCountry = {
   name: 'Kenya',
   iso3166Alpha2: 'KE',
@@ -21,5 +22,6 @@ export const kenya: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['KE'],
   newsOutlets: AU_NEWS_OUTLETS['KE'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['KE'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
 }

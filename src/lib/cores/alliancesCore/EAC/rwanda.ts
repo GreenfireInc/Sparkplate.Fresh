@@ -2,6 +2,7 @@ import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const rwanda: EacCountry = {
   name: 'Rwanda',
@@ -21,5 +22,6 @@ export const rwanda: EacCountry = {
   domesticCourierServices: EAC_DOMESTIC_COURIERS['RW'],
   newsOutlets: EAC_NEWS_OUTLETS['RW'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['RW'],
+  mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['RW'],
   stockExchange: 'Rwanda Stock Exchange',
 }

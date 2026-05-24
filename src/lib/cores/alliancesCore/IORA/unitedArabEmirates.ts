@@ -2,6 +2,7 @@ import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const unitedArabEmirates: IoraCountry = {
   name: 'United Arab Emirates',
@@ -23,5 +24,6 @@ export const unitedArabEmirates: IoraCountry = {
   domesticCourierServices: IORA_DOMESTIC_COURIERS['AE'],
   newsOutlets: IORA_NEWS_OUTLETS['AE'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['AE'],
+  mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['AE'],
   stockExchange: 'ADX Abu Dhabi; DFM Dubai',
 }

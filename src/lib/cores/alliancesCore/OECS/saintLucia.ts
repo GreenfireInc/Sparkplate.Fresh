@@ -2,6 +2,7 @@ import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const saintLucia: OecsCountry = {
   name: 'Saint Lucia',
@@ -22,5 +23,6 @@ export const saintLucia: OecsCountry = {
   domesticCourierServices: OECS_DOMESTIC_COURIERS['LC'],
   newsOutlets: OECS_NEWS_OUTLETS['LC'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['LC'],
+  mainExportCommodities: OECS_MAIN_EXPORT_COMMODITIES['LC'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

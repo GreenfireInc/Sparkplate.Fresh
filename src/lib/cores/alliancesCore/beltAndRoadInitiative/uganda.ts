@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const uganda: BeltAndRoadInitiativeCountry = {
   name: 'Uganda',
@@ -22,5 +23,6 @@ export const uganda: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['UG'],
   newsOutlets: BRI_NEWS_OUTLETS['UG'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['UG'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['UG'],
   stockExchange: 'Uganda Securities Exchange',
 }

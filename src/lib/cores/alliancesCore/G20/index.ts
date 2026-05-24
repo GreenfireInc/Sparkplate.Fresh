@@ -2,6 +2,7 @@ export type {
   DomesticCourierService,
   G20Country,
   G20InstitutionalMember,
+  MainExportCommodities,
   G20OrganizationInfo,
   NewsOutlet,
   NewsOutletsRoster,

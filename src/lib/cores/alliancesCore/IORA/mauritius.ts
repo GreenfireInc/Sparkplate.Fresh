@@ -2,6 +2,7 @@ import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const mauritius: IoraCountry = {
   name: 'Mauritius',
@@ -22,5 +23,6 @@ export const mauritius: IoraCountry = {
   domesticCourierServices: IORA_DOMESTIC_COURIERS['MU'],
   newsOutlets: IORA_NEWS_OUTLETS['MU'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['MU'],
+  mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['MU'],
   stockExchange: 'Stock Exchange of Mauritius (SEM)',
 }

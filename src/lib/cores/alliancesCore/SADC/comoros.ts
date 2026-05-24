@@ -2,6 +2,7 @@ import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const comoros: SadcCountry = {
   name: 'Comoros',
@@ -21,5 +22,6 @@ export const comoros: SadcCountry = {
   domesticCourierServices: SADC_DOMESTIC_COURIERS['KM'],
   newsOutlets: SADC_NEWS_OUTLETS['KM'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['KM'],
+  mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['KM'],
   stockExchange: 'No national stock exchange',
 }

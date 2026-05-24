@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const saoTomeAndPrincipe: AfricanUnionCountry = {
   name: 'São Tomé and Príncipe',
   iso3166Alpha2: 'ST',
@@ -21,5 +22,6 @@ export const saoTomeAndPrincipe: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['ST'],
   newsOutlets: AU_NEWS_OUTLETS['ST'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['ST'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['ST'],
   stockExchange: 'Bolsa de Valores de São Tomé e Príncipe (limited)',
 }

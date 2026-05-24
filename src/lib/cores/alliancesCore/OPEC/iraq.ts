@@ -2,6 +2,7 @@ import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const iraq: OpecCountry = {
   name: 'Iraq',
@@ -23,5 +24,6 @@ export const iraq: OpecCountry = {
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['IQ'],
   newsOutlets: OPEC_NEWS_OUTLETS['IQ'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['IQ'],
+  mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['IQ'],
   stockExchange: 'Iraq Stock Exchange Baghdad (liquidity episodic — informational)',
 }

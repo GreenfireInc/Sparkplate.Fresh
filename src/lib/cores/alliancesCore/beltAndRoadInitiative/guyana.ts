@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const guyana: BeltAndRoadInitiativeCountry = {
   name: 'Guyana',
@@ -22,5 +23,6 @@ export const guyana: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['GY'],
   newsOutlets: BRI_NEWS_OUTLETS['GY'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['GY'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['GY'],
   stockExchange: 'National or regional exchange (verify)',
 }

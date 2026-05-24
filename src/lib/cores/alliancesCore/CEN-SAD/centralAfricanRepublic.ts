@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const centralAfricanRepublic: CensadCountry = {
   name: 'Central African Republic',
@@ -21,5 +22,6 @@ export const centralAfricanRepublic: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['CF'],
   newsOutlets: CENSAD_NEWS_OUTLETS['CF'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['CF'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['CF'],
   stockExchange: 'Douala Stock Exchange (CEMAC linkage informal)',
 }

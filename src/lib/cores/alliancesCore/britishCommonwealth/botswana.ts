@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const botswana: CommonwealthCountry = {
   name: 'Botswana',
@@ -22,5 +23,6 @@ export const botswana: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['BW'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['BW'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['BW'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['BW'],
   stockExchange: 'Botswana Stock Exchange (BSE)',
 }

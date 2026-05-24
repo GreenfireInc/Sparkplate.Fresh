@@ -2,6 +2,7 @@ import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const saintLucia: CaricomCountry = {
   name: 'Saint Lucia',
@@ -22,5 +23,6 @@ export const saintLucia: CaricomCountry = {
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['LC'],
   newsOutlets: CARICOM_NEWS_OUTLETS['LC'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['LC'],
+  mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['LC'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

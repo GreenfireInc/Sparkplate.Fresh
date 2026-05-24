@@ -2,6 +2,7 @@ import type { AmuCountry } from './types'
 import { AMU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AMU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AMU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AMU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const libya: AmuCountry = {
   name: 'Libya',
@@ -22,5 +23,6 @@ export const libya: AmuCountry = {
   domesticCourierServices: AMU_DOMESTIC_COURIERS['LY'],
   newsOutlets: AMU_NEWS_OUTLETS['LY'],
   notableUniversities: AMU_NOTABLE_UNIVERSITIES['LY'],
+  mainExportCommodities: AMU_MAIN_EXPORT_COMMODITIES['LY'],
   stockExchange: 'Libyan Stock Market (limited operations)',
 }

@@ -2,6 +2,7 @@ import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const benin: EcowasCountry = {
   name: 'Benin',
@@ -21,5 +22,6 @@ export const benin: EcowasCountry = {
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['BJ'],
   newsOutlets: ECOWAS_NEWS_OUTLETS['BJ'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['BJ'],
+  mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['BJ'],
   stockExchange: 'Regional BRVM — Abidjan listings (WAEMU securities)',
 }

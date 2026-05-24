@@ -2,6 +2,7 @@ import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const zambia: ComesaCountry = {
   name: 'Zambia',
@@ -21,5 +22,6 @@ export const zambia: ComesaCountry = {
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['ZM'],
   newsOutlets: COMESA_NEWS_OUTLETS['ZM'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['ZM'],
+  mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['ZM'],
   stockExchange: 'Lusaka Securities Exchange (LuSE); COMESA Secretariat host city — informational',
 }

@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const tunisia: CensadCountry = {
   name: 'Tunisia',
@@ -22,5 +23,6 @@ export const tunisia: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['TN'],
   newsOutlets: CENSAD_NEWS_OUTLETS['TN'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['TN'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['TN'],
   stockExchange: 'Bourse de Tunis',
 }

@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const saintLucia: CommonwealthCountry = {
   name: 'Saint Lucia',
@@ -22,5 +23,6 @@ export const saintLucia: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['LC'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['LC'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['LC'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['LC'],
   stockExchange: 'Eastern Caribbean Securities Exchange (regional)',
 }

@@ -2,6 +2,7 @@ export type {
   CptppCountry,
   CptppOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,

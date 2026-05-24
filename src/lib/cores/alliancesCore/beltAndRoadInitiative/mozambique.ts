@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const mozambique: BeltAndRoadInitiativeCountry = {
   name: 'Mozambique',
@@ -22,5 +23,6 @@ export const mozambique: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['MZ'],
   newsOutlets: BRI_NEWS_OUTLETS['MZ'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['MZ'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['MZ'],
   stockExchange: 'Bolsa de Valores de Moçambique (BVM)',
 }

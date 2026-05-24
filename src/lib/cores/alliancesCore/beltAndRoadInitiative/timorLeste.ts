@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const timorLeste: BeltAndRoadInitiativeCountry = {
   name: 'Timor-Leste',
@@ -22,5 +23,6 @@ export const timorLeste: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['TL'],
   newsOutlets: BRI_NEWS_OUTLETS['TL'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['TL'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['TL'],
   stockExchange: 'National or regional exchange (verify)',
 }

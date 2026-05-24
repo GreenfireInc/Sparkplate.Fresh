@@ -2,6 +2,7 @@ import type { MiktaCountry } from './types'
 import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { MIKTA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { MIKTA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const mexico: MiktaCountry = {
   name: 'Mexico',
@@ -23,5 +24,6 @@ export const mexico: MiktaCountry = {
   domesticCourierServices: MIKTA_DOMESTIC_COURIERS['MX'],
   newsOutlets: MIKTA_NEWS_OUTLETS['MX'],
   notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['MX'],
+  mainExportCommodities: MIKTA_MAIN_EXPORT_COMMODITIES['MX'],
   stockExchange: 'Mexican Stock Exchange BMV Bolsa Mexicana de Valores',
 }

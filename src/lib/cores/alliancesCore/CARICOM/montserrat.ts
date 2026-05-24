@@ -2,6 +2,7 @@ import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const montserrat: CaricomCountry = {
   name: 'Montserrat',
@@ -22,5 +23,6 @@ export const montserrat: CaricomCountry = {
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['MS'],
   newsOutlets: CARICOM_NEWS_OUTLETS['MS'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['MS'],
+  mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['MS'],
   stockExchange: 'Eastern Caribbean Securities Exchange (access context) — informational',
 }

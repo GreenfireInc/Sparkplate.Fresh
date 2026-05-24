@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const chad: BeltAndRoadInitiativeCountry = {
   name: 'Chad',
@@ -22,5 +23,6 @@ export const chad: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['TD'],
   newsOutlets: BRI_NEWS_OUTLETS['TD'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['TD'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['TD'],
   stockExchange: 'Financial Market of Central Africa (CEMAC hub; thin Chad listings)',
 }

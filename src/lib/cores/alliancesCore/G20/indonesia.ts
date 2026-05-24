@@ -2,6 +2,7 @@ import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const indonesia: G20Country = {
   name: 'Indonesia',
@@ -23,5 +24,6 @@ export const indonesia: G20Country = {
   domesticCourierServices: G20_DOMESTIC_COURIERS['ID'],
   newsOutlets: G20_NEWS_OUTLETS['ID'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['ID'],
+  mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['ID'],
   stockExchange: 'Indonesia Stock Exchange IDX Jakarta',
 }

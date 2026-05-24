@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const senegal: AfricanUnionCountry = {
   name: 'Senegal',
   iso3166Alpha2: 'SN',
@@ -21,5 +22,6 @@ export const senegal: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['SN'],
   newsOutlets: AU_NEWS_OUTLETS['SN'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['SN'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['SN'],
   stockExchange: 'BRVM (regional; Dakar listings)',
 }

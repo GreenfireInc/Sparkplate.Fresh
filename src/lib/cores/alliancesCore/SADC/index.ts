@@ -2,6 +2,7 @@ export type {
   SadcCountry,
   SadcOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,

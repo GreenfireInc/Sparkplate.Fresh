@@ -2,6 +2,7 @@ export type {
   OecdCountry,
   OecdOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,

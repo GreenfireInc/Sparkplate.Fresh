@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const india: CommonwealthCountry = {
   name: 'India',
@@ -22,5 +23,6 @@ export const india: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['IN'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['IN'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['IN'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['IN'],
   stockExchange: 'National Stock Exchange (NSE); BSE',
 }

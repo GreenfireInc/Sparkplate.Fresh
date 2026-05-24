@@ -2,6 +2,7 @@ import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const equatorialGuinea: OpecCountry = {
   name: 'Equatorial Guinea',
@@ -22,5 +23,6 @@ export const equatorialGuinea: OpecCountry = {
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['GQ'],
   newsOutlets: OPEC_NEWS_OUTLETS['GQ'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['GQ'],
+  mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['GQ'],
   stockExchange: 'Malabo regional listings nascent / thin — informational',
 }

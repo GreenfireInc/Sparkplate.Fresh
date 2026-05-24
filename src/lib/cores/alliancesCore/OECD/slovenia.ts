@@ -2,6 +2,7 @@ import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const slovenia: OecdCountry = {
   name: 'Slovenia',
@@ -22,5 +23,6 @@ export const slovenia: OecdCountry = {
   domesticCourierServices: OECD_DOMESTIC_COURIERS['SI'],
   newsOutlets: OECD_NEWS_OUTLETS['SI'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['SI'],
+  mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['SI'],
   stockExchange: 'Ljubljana Stock Exchange',
 }

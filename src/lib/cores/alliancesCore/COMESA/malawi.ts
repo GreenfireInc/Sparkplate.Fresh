@@ -2,6 +2,7 @@ import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const malawi: ComesaCountry = {
   name: 'Malawi',
@@ -21,5 +22,6 @@ export const malawi: ComesaCountry = {
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['MW'],
   newsOutlets: COMESA_NEWS_OUTLETS['MW'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['MW'],
+  mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['MW'],
   stockExchange: 'Malawi Stock Exchange',
 }

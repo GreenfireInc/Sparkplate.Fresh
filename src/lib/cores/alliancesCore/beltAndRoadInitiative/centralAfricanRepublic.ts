@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const centralAfricanRepublic: BeltAndRoadInitiativeCountry = {
   name: 'Central African Republic',
@@ -22,5 +23,6 @@ export const centralAfricanRepublic: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['CF'],
   newsOutlets: BRI_NEWS_OUTLETS['CF'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['CF'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['CF'],
   stockExchange: 'Bangui Stock Exchange (very limited)',
 }

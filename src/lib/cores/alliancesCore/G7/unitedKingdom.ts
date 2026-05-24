@@ -2,6 +2,7 @@ import type { G7Country } from './types'
 import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G7_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G7_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { G7_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const unitedKingdom: G7Country = {
   name: 'United Kingdom',
@@ -24,5 +25,6 @@ export const unitedKingdom: G7Country = {
   domesticCourierServices: G7_DOMESTIC_COURIERS['GB'],
   newsOutlets: G7_NEWS_OUTLETS['GB'],
   notableUniversities: G7_NOTABLE_UNIVERSITIES['GB'],
+  mainExportCommodities: G7_MAIN_EXPORT_COMMODITIES['GB'],
   stockExchange: 'London Stock Exchange Group (consolidated UK venues — informational)',
 }

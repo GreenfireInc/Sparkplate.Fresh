@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const mauritius: AfricanUnionCountry = {
   name: 'Mauritius',
   iso3166Alpha2: 'MU',
@@ -21,5 +22,6 @@ export const mauritius: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['MU'],
   newsOutlets: AU_NEWS_OUTLETS['MU'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['MU'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['MU'],
   stockExchange: 'Stock Exchange of Mauritius (SEM)',
 }

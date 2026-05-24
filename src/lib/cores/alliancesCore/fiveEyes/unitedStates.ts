@@ -2,6 +2,7 @@ import type { FiveEyesCountry } from './types'
 import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { FIVE_EYES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { FIVE_EYES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const unitedStates: FiveEyesCountry = {
   name: 'United States',
@@ -23,5 +24,6 @@ export const unitedStates: FiveEyesCountry = {
   domesticCourierServices: FIVE_EYES_DOMESTIC_COURIERS['US'],
   newsOutlets: FIVE_EYES_NEWS_OUTLETS['US'],
   notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['US'],
+  mainExportCommodities: FIVE_EYES_MAIN_EXPORT_COMMODITIES['US'],
   stockExchange: 'NYSE/Nasdaq consolidated US equity liquidity (dual listing customary — informational)',
 }

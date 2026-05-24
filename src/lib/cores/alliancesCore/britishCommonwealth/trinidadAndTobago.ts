@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const trinidadAndTobago: CommonwealthCountry = {
   name: 'Trinidad and Tobago',
@@ -22,5 +23,6 @@ export const trinidadAndTobago: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['TT'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['TT'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['TT'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['TT'],
   stockExchange: 'Trinidad and Tobago Stock Exchange',
 }

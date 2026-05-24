@@ -2,6 +2,7 @@ import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const libya: ComesaCountry = {
   name: 'Libya',
@@ -22,5 +23,6 @@ export const libya: ComesaCountry = {
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['LY'],
   newsOutlets: COMESA_NEWS_OUTLETS['LY'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['LY'],
+  mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['LY'],
   stockExchange: 'Libyan Stock Market (limited operations)',
 }

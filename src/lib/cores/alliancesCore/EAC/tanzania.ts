@@ -2,6 +2,7 @@ import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const tanzania: EacCountry = {
   name: 'Tanzania',
@@ -21,6 +22,7 @@ export const tanzania: EacCountry = {
   domesticCourierServices: EAC_DOMESTIC_COURIERS['TZ'],
   newsOutlets: EAC_NEWS_OUTLETS['TZ'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['TZ'],
+  mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['TZ'],
   stockExchange:
     'Dar es Salaam Stock Exchange (DSE); EAC Secretariat located in Arusha — informational',
 }

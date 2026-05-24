@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const djibouti: AfricanUnionCountry = {
   name: 'Djibouti',
   iso3166Alpha2: 'DJ',
@@ -21,5 +22,6 @@ export const djibouti: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['DJ'],
   newsOutlets: AU_NEWS_OUTLETS['DJ'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['DJ'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['DJ'],
   stockExchange: 'Djibouti Stock Exchange (thin activity)',
 }

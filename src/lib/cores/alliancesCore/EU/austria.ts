@@ -2,6 +2,7 @@ import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const austria: EuCountry = {
   name: 'Austria',
@@ -21,5 +22,6 @@ export const austria: EuCountry = {
   domesticCourierServices: EU_DOMESTIC_COURIERS['AT'],
   newsOutlets: EU_NEWS_OUTLETS['AT'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['AT'],
+  mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['AT'],
   stockExchange: 'Wiener Börse (Vienna Stock Exchange)',
 }

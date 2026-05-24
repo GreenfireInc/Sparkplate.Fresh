@@ -2,6 +2,7 @@ export type {
   CensadCountry,
   CensadOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,

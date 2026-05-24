@@ -5,13 +5,52 @@ import { APEC_NOTABLE_UNIVERSITIES } from '../APEC/notableUniversitiesByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from '../ASEAN/notableUniversitiesByIso'
 import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from '../arabLeague/notableUniversitiesByIso'
 import { EU_NOTABLE_UNIVERSITIES } from '../EU/notableUniversitiesByIso'
-import { REGIONAL_NOTABLE_UNIVERSITIES_SUPPLEMENT } from '../regionalNotableUniversitiesSupplement'
+
+function u(
+  name: string,
+  website: string,
+  email: string,
+  instagram: string,
+  twitter: string,
+  linkedin: string,
+): NotableUniversity {
+  return { name, website, email, instagram, twitter, linkedin }
+}
 
 type Triple = readonly [NotableUniversity, NotableUniversity, NotableUniversity]
 
+/** Member-specific notable universities not covered by other layer maps. */
+const IORA_LOCAL: Partial<Record<string, Triple>> = {
+  BD: [
+    u('University of Dhaka', 'https://du.ac.bd/', '', '', '', ''),
+    u('Bangladesh University of Engineering and Technology BUET', 'https://www.buet.ac.bd/', '', '', '', ''),
+    u('BRAC University', 'https://www.bracu.ac.bd/', '', '', '', ''),
+  ],
+  IN: [
+    u('Indian Institute of Technology Bombay', 'https://www.iitb.ac.in/', '', '', '', 'https://www.linkedin.com/school/indian-institute-of-technology-bombay/'),
+    u('Indian Institute of Science Bangalore', 'https://iisc.ac.in/', '', '', '', 'https://www.linkedin.com/school/indian-institute-of-science/'),
+    u('University of Delhi', 'https://www.du.ac.in/', '', '', '', 'https://www.linkedin.com/school/university-of-delhi/'),
+  ],
+  IR: [
+    u('University of Tehran', 'https://ut.ac.ir/', '', '', '', ''),
+    u('Sharif University of Technology', '', '', '', '', ''),
+    u('Amirkabir University of Technology Tehran Polytechnic', '', '', '', '', ''),
+  ],
+  LK: [
+    u('University of Colombo', 'https://cmb.ac.lk/', '', '', '', ''),
+    u('University of Moratuwa', 'https://uom.lk/', '', '', '', ''),
+    u('University of Peradeniya', '', '', '', '', ''),
+  ],
+  MV: [
+    u('Maldives National University', 'https://www.mnu.edu.mv/', '', '', '', ''),
+    u('Cyryx College business / computing adjunct', '', '', '', '', ''),
+    u('Regional hospitality finance certificate institutes', '', '', '', '', ''),
+  ],
+}
+
 /** Layer order — earlier wins (regional specifics override broad AU adjunct rows). */
 const LAYERS: ReadonlyArray<Partial<Record<string, Triple>>> = [
-  REGIONAL_NOTABLE_UNIVERSITIES_SUPPLEMENT as Partial<Record<string, Triple>>,
+  IORA_LOCAL,
   EU_NOTABLE_UNIVERSITIES as unknown as Partial<Record<string, Triple>>,
   APEC_NOTABLE_UNIVERSITIES as unknown as Partial<Record<string, Triple>>,
   ASEAN_NOTABLE_UNIVERSITIES as unknown as Partial<Record<string, Triple>>,

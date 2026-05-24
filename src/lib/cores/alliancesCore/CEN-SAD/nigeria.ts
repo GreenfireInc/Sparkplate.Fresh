@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const nigeria: CensadCountry = {
   name: 'Nigeria',
@@ -21,5 +22,6 @@ export const nigeria: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['NG'],
   newsOutlets: CENSAD_NEWS_OUTLETS['NG'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['NG'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['NG'],
   stockExchange: 'Nigerian Exchange Group ( NGX )',
 }

@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 /** Sahrawi Arab Democratic Republic — AU member; territorial status disputed (informational). */
 export const sahrawiRepublic: AfricanUnionCountry = {
   name: 'Sahrawi Arab Democratic Republic (Sahrawi Republic)',
@@ -22,5 +23,6 @@ export const sahrawiRepublic: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['EH'],
   newsOutlets: AU_NEWS_OUTLETS['EH'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['EH'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['EH'],
   stockExchange: 'No national securities exchange',
 }

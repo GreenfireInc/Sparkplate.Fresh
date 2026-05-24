@@ -2,6 +2,7 @@ import type { MiktaCountry } from './types'
 import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { MIKTA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { MIKTA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const australia: MiktaCountry = {
   name: 'Australia',
@@ -23,5 +24,6 @@ export const australia: MiktaCountry = {
   domesticCourierServices: MIKTA_DOMESTIC_COURIERS['AU'],
   newsOutlets: MIKTA_NEWS_OUTLETS['AU'],
   notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['AU'],
+  mainExportCommodities: MIKTA_MAIN_EXPORT_COMMODITIES['AU'],
   stockExchange: 'Australian Securities Exchange ASX (Sydney)',
 }

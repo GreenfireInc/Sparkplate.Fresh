@@ -2,6 +2,7 @@ import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const sudan: ComesaCountry = {
   name: 'Sudan',
@@ -21,5 +22,6 @@ export const sudan: ComesaCountry = {
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['SD'],
   newsOutlets: COMESA_NEWS_OUTLETS['SD'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['SD'],
+  mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['SD'],
   stockExchange: 'Khartoum Stock Exchange (operations disrupted)',
 }

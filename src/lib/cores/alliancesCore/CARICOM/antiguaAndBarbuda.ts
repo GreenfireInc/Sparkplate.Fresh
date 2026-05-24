@@ -2,6 +2,7 @@ import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const antiguaAndBarbuda: CaricomCountry = {
   name: 'Antigua and Barbuda',
@@ -22,5 +23,6 @@ export const antiguaAndBarbuda: CaricomCountry = {
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['AG'],
   newsOutlets: CARICOM_NEWS_OUTLETS['AG'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['AG'],
+  mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['AG'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

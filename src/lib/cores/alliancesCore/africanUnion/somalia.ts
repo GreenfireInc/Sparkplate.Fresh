@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const somalia: AfricanUnionCountry = {
   name: 'Somalia',
   iso3166Alpha2: 'SO',
@@ -21,5 +22,6 @@ export const somalia: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['SO'],
   newsOutlets: AU_NEWS_OUTLETS['SO'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['SO'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['SO'],
   stockExchange: 'No functioning national exchange',
 }

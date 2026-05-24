@@ -2,6 +2,7 @@ export type {
   MintCountry,
   MintOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,

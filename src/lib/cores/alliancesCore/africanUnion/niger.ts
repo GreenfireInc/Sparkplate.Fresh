@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const niger: AfricanUnionCountry = {
   name: 'Niger',
   iso3166Alpha2: 'NE',
@@ -21,5 +22,6 @@ export const niger: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['NE'],
   newsOutlets: AU_NEWS_OUTLETS['NE'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['NE'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['NE'],
   stockExchange: 'No liquid national bourse; BRVM regional',
 }

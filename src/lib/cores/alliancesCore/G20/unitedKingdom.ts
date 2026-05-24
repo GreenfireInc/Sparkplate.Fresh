@@ -2,6 +2,7 @@ import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const unitedKingdom: G20Country = {
   name: 'United Kingdom',
@@ -24,5 +25,6 @@ export const unitedKingdom: G20Country = {
   domesticCourierServices: G20_DOMESTIC_COURIERS['GB'],
   newsOutlets: G20_NEWS_OUTLETS['GB'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['GB'],
+  mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['GB'],
   stockExchange: 'London Stock Exchange Group (consolidated UK venues — informational)',
 }

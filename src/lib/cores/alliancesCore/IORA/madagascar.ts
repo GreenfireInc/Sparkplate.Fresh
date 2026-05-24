@@ -2,6 +2,7 @@ import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const madagascar: IoraCountry = {
   name: 'Madagascar',
@@ -22,5 +23,6 @@ export const madagascar: IoraCountry = {
   domesticCourierServices: IORA_DOMESTIC_COURIERS['MG'],
   newsOutlets: IORA_NEWS_OUTLETS['MG'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['MG'],
+  mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['MG'],
   stockExchange: 'Madagascar Stock Exchange (thin listings — informational)',
 }

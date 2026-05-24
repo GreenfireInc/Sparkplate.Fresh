@@ -2,6 +2,7 @@ import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const russia: ApecCountry = {
   name: 'Russia',
@@ -22,5 +23,6 @@ export const russia: ApecCountry = {
   domesticCourierServices: APEC_DOMESTIC_COURIERS['RU'],
   newsOutlets: APEC_NEWS_OUTLETS['RU'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['RU'],
+  mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['RU'],
   stockExchange: 'Moscow Exchange (sanctions segregation vs Western indices — informational)',
 }

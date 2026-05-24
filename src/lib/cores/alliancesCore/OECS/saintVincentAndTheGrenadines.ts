@@ -2,6 +2,7 @@ import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const saintVincentAndTheGrenadines: OecsCountry = {
   name: 'Saint Vincent and the Grenadines',
@@ -22,5 +23,6 @@ export const saintVincentAndTheGrenadines: OecsCountry = {
   domesticCourierServices: OECS_DOMESTIC_COURIERS['VC'],
   newsOutlets: OECS_NEWS_OUTLETS['VC'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['VC'],
+  mainExportCommodities: OECS_MAIN_EXPORT_COMMODITIES['VC'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

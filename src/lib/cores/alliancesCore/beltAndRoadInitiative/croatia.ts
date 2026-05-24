@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const croatia: BeltAndRoadInitiativeCountry = {
   name: 'Croatia',
@@ -22,5 +23,6 @@ export const croatia: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['HR'],
   newsOutlets: BRI_NEWS_OUTLETS['HR'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['HR'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['HR'],
   stockExchange: 'National or regional exchange (verify)',
 }

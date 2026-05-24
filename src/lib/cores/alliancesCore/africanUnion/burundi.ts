@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const burundi: AfricanUnionCountry = {
   name: 'Burundi',
   iso3166Alpha2: 'BI',
@@ -21,5 +22,6 @@ export const burundi: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['BI'],
   newsOutlets: AU_NEWS_OUTLETS['BI'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['BI'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['BI'],
   stockExchange: 'Burundi Stock Exchange (BSE) — thin liquidity',
 }

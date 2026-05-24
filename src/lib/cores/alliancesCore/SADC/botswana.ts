@@ -2,6 +2,7 @@ import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const botswana: SadcCountry = {
   name: 'Botswana',
@@ -21,5 +22,6 @@ export const botswana: SadcCountry = {
   domesticCourierServices: SADC_DOMESTIC_COURIERS['BW'],
   newsOutlets: SADC_NEWS_OUTLETS['BW'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['BW'],
+  mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['BW'],
   stockExchange: 'Botswana Stock Exchange (BSE)',
 }

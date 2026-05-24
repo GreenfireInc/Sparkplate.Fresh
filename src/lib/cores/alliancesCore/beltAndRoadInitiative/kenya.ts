@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const kenya: BeltAndRoadInitiativeCountry = {
   name: 'Kenya',
@@ -22,5 +23,6 @@ export const kenya: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['KE'],
   newsOutlets: BRI_NEWS_OUTLETS['KE'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['KE'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
 }

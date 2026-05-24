@@ -5,12 +5,36 @@ import { APEC_NOTABLE_UNIVERSITIES } from '../APEC/notableUniversitiesByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from '../ASEAN/notableUniversitiesByIso'
 import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from '../arabLeague/notableUniversitiesByIso'
 import { EU_NOTABLE_UNIVERSITIES } from '../EU/notableUniversitiesByIso'
-import { REGIONAL_NOTABLE_UNIVERSITIES_SUPPLEMENT } from '../regionalNotableUniversitiesSupplement'
+
+function u(
+  name: string,
+  website: string,
+  email: string,
+  instagram: string,
+  twitter: string,
+  linkedin: string,
+): NotableUniversity {
+  return { name, website, email, instagram, twitter, linkedin }
+}
 
 type Triple = readonly [NotableUniversity, NotableUniversity, NotableUniversity]
 
+/** Member-specific notable universities not covered by other layer maps. */
+const G7_LOCAL: Partial<Record<string, Triple>> = {
+  IT: [
+    u('Politecnico di Milano', 'https://www.polimi.it/', '', '', '', 'https://www.linkedin.com/school/politecnico-di-milano/'),
+    u('Bocconi University', 'https://www.unibocconi.eu/', '', '', '', 'https://www.linkedin.com/school/universit-bocconi/'),
+    u('Sapienza University of Rome', 'https://www.uniroma1.it/', '', '', '', 'https://www.linkedin.com/school/sapienzauniversitadiroma/'),
+  ],
+  GB: [
+    u('University of Oxford', 'https://www.ox.ac.uk/', 'graduate.admissions@ox.ac.uk', '', '', 'https://www.linkedin.com/school/oxforduni/'),
+    u('University of Cambridge', 'https://www.cam.ac.uk/', 'admissions@cam.ac.uk', '', '', 'https://www.linkedin.com/school/university-of-cambridge/'),
+    u('London School of Economics and Political Science', 'https://www.lse.ac.uk/', 'info@lse.ac.uk', 'https://www.instagram.com/londonschoolofeconomics/', 'https://x.com/LSEnews', 'https://www.linkedin.com/school/london-school-of-economics/'),
+  ],
+}
+
 const LAYERS: ReadonlyArray<Partial<Record<string, Triple>>> = [
-  REGIONAL_NOTABLE_UNIVERSITIES_SUPPLEMENT as Partial<Record<string, Triple>>,
+  G7_LOCAL,
   EU_NOTABLE_UNIVERSITIES as unknown as Partial<Record<string, Triple>>,
   APEC_NOTABLE_UNIVERSITIES as unknown as Partial<Record<string, Triple>>,
   ASEAN_NOTABLE_UNIVERSITIES as unknown as Partial<Record<string, Triple>>,

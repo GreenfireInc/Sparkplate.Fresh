@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const antiguaAndBarbuda: CommonwealthCountry = {
   name: 'Antigua and Barbuda',
@@ -22,5 +23,6 @@ export const antiguaAndBarbuda: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['AG'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['AG'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['AG'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['AG'],
   stockExchange: 'Eastern Caribbean Securities Exchange (regional)',
 }

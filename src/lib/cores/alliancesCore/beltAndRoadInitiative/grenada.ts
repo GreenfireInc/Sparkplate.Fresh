@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const grenada: BeltAndRoadInitiativeCountry = {
   name: 'Grenada',
@@ -22,5 +23,6 @@ export const grenada: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['GD'],
   newsOutlets: BRI_NEWS_OUTLETS['GD'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['GD'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['GD'],
   stockExchange: 'National or regional exchange (verify)',
 }

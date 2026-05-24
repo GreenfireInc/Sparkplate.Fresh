@@ -2,6 +2,7 @@ import type { FiveEyesCountry } from './types'
 import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { FIVE_EYES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { FIVE_EYES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const unitedKingdom: FiveEyesCountry = {
   name: 'United Kingdom',
@@ -23,5 +24,6 @@ export const unitedKingdom: FiveEyesCountry = {
   domesticCourierServices: FIVE_EYES_DOMESTIC_COURIERS['GB'],
   newsOutlets: FIVE_EYES_NEWS_OUTLETS['GB'],
   notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['GB'],
+  mainExportCommodities: FIVE_EYES_MAIN_EXPORT_COMMODITIES['GB'],
   stockExchange: 'London Stock Exchange Group (post-Brexit consolidated venues — informational)',
 }

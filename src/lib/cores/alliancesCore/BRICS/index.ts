@@ -3,6 +3,7 @@ export type {
   BricsMembership,
   BricsOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,

@@ -2,6 +2,7 @@ import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const somalia: EacCountry = {
   name: 'Somalia',
@@ -23,5 +24,6 @@ export const somalia: EacCountry = {
   domesticCourierServices: EAC_DOMESTIC_COURIERS['SO'],
   newsOutlets: EAC_NEWS_OUTLETS['SO'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['SO'],
+  mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['SO'],
   stockExchange: 'No functioning national exchange',
 }

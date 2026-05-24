@@ -3,6 +3,7 @@ export type {
   CaricomMembership,
   CaricomOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,

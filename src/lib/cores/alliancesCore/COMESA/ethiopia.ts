@@ -2,6 +2,7 @@ import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const ethiopia: ComesaCountry = {
   name: 'Ethiopia',
@@ -22,5 +23,6 @@ export const ethiopia: ComesaCountry = {
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['ET'],
   newsOutlets: COMESA_NEWS_OUTLETS['ET'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['ET'],
+  mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['ET'],
   stockExchange: 'Ethiopian Securities Exchange — verify launch / listings',
 }

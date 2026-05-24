@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const tanzania: BeltAndRoadInitiativeCountry = {
   name: 'Tanzania',
@@ -22,5 +23,6 @@ export const tanzania: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['TZ'],
   newsOutlets: BRI_NEWS_OUTLETS['TZ'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['TZ'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange (DSE)',
 }

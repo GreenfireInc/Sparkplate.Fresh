@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const uganda: CommonwealthCountry = {
   name: 'Uganda',
@@ -22,5 +23,6 @@ export const uganda: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['UG'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['UG'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['UG'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['UG'],
   stockExchange: 'Uganda Securities Exchange',
 }

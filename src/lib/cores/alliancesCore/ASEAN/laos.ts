@@ -2,6 +2,7 @@ import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const laos: AseanCountry = {
   name: 'Laos',
@@ -22,5 +23,6 @@ export const laos: AseanCountry = {
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['LA'],
   newsOutlets: ASEAN_NEWS_OUTLETS['LA'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['LA'],
+  mainExportCommodities: ASEAN_MAIN_EXPORT_COMMODITIES['LA'],
   stockExchange: 'Lao Securities Exchange (Vientiane — thin listings — informational)',
 }

@@ -2,6 +2,7 @@ import type { GccCountry } from './types'
 import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { GCC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { GCC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const oman: GccCountry = {
   name: 'Oman',
@@ -22,5 +23,6 @@ export const oman: GccCountry = {
   domesticCourierServices: GCC_DOMESTIC_COURIERS['OM'],
   newsOutlets: GCC_NEWS_OUTLETS['OM'],
   notableUniversities: GCC_NOTABLE_UNIVERSITIES['OM'],
+  mainExportCommodities: GCC_MAIN_EXPORT_COMMODITIES['OM'],
   stockExchange: 'Muscat Stock Exchange',
 }

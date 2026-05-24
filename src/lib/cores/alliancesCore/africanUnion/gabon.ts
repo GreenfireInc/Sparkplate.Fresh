@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const gabon: AfricanUnionCountry = {
   name: 'Gabon',
   iso3166Alpha2: 'GA',
@@ -21,5 +22,6 @@ export const gabon: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['GA'],
   newsOutlets: AU_NEWS_OUTLETS['GA'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['GA'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['GA'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (BRVM) — regional',
 }

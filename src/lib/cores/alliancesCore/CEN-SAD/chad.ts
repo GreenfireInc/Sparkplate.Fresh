@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const chad: CensadCountry = {
   name: 'Chad',
@@ -22,5 +23,6 @@ export const chad: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['TD'],
   newsOutlets: CENSAD_NEWS_OUTLETS['TD'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['TD'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['TD'],
   stockExchange: 'No dedicated national equity market',
 }

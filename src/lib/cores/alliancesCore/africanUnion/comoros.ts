@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const comoros: AfricanUnionCountry = {
   name: 'Comoros',
   iso3166Alpha2: 'KM',
@@ -21,5 +22,6 @@ export const comoros: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['KM'],
   newsOutlets: AU_NEWS_OUTLETS['KM'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['KM'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['KM'],
   stockExchange: 'No major national stock exchange',
 }

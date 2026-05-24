@@ -2,6 +2,7 @@ import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const papuaNewGuinea: ApecCountry = {
   name: 'Papua New Guinea',
@@ -23,5 +24,6 @@ export const papuaNewGuinea: ApecCountry = {
   domesticCourierServices: APEC_DOMESTIC_COURIERS['PG'],
   newsOutlets: APEC_NEWS_OUTLETS['PG'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['PG'],
+  mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['PG'],
   stockExchange: 'PNG National Stock Exchange (Port Moresby — thin — informational)',
 }

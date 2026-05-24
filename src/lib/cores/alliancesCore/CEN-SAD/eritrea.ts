@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const eritrea: CensadCountry = {
   name: 'Eritrea',
@@ -21,5 +22,6 @@ export const eritrea: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['ER'],
   newsOutlets: CENSAD_NEWS_OUTLETS['ER'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['ER'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['ER'],
   stockExchange: 'No national stock exchange',
 }

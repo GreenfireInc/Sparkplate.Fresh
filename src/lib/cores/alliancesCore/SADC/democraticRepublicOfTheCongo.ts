@@ -2,6 +2,7 @@ import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const democraticRepublicOfTheCongo: SadcCountry = {
   name: 'Democratic Republic of the Congo',
@@ -21,5 +22,6 @@ export const democraticRepublicOfTheCongo: SadcCountry = {
   domesticCourierServices: SADC_DOMESTIC_COURIERS['CD'],
   newsOutlets: SADC_NEWS_OUTLETS['CD'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['CD'],
+  mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['CD'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (informal linkage); domestic equity market thin — verify',
 }

@@ -2,6 +2,7 @@ import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const tanzania: SadcCountry = {
   name: 'Tanzania',
@@ -21,5 +22,6 @@ export const tanzania: SadcCountry = {
   domesticCourierServices: SADC_DOMESTIC_COURIERS['TZ'],
   newsOutlets: SADC_NEWS_OUTLETS['TZ'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['TZ'],
+  mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange (DSE)',
 }

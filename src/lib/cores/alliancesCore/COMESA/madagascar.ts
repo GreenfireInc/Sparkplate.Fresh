@@ -2,6 +2,7 @@ import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const madagascar: ComesaCountry = {
   name: 'Madagascar',
@@ -22,5 +23,6 @@ export const madagascar: ComesaCountry = {
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['MG'],
   newsOutlets: COMESA_NEWS_OUTLETS['MG'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['MG'],
+  mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['MG'],
   stockExchange: 'Madagascar Stock Exchange (SEM)',
 }

@@ -2,6 +2,7 @@ import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const hongKong: ApecCountry = {
   name: 'Hong Kong',
@@ -24,5 +25,6 @@ export const hongKong: ApecCountry = {
   domesticCourierServices: APEC_DOMESTIC_COURIERS['HK'],
   newsOutlets: APEC_NEWS_OUTLETS['HK'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['HK'],
+  mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['HK'],
   stockExchange: 'Hong Kong Stock Exchange (HKEX)',
 }

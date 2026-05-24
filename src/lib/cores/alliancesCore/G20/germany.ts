@@ -2,6 +2,7 @@ import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const germany: G20Country = {
   name: 'Germany',
@@ -22,5 +23,6 @@ export const germany: G20Country = {
   domesticCourierServices: G20_DOMESTIC_COURIERS['DE'],
   newsOutlets: G20_NEWS_OUTLETS['DE'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['DE'],
+  mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['DE'],
   stockExchange: 'Deutsche Börse (Frankfurt)',
 }

@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const senegal: CensadCountry = {
   name: 'Senegal',
@@ -21,5 +22,6 @@ export const senegal: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['SN'],
   newsOutlets: CENSAD_NEWS_OUTLETS['SN'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['SN'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['SN'],
   stockExchange: 'BRVM (multiple Senegalese listings)',
 }

@@ -2,6 +2,7 @@ export type {
   ComesaCountry,
   ComesaOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
