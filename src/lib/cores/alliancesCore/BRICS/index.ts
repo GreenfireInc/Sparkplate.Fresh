@@ -4,6 +4,8 @@ export type {
   BricsOrganizationInfo,
   DomesticCourierService,
   NotableUniversity,
+  NewsOutlet,
+  NewsOutletsRoster,
 } from './types'
 export { BRICS_MEMBER_ISO_CODES } from './bricsMemberIsoCodes'
 export type { BricsMemberIsoCode } from './bricsMemberIsoCodes'

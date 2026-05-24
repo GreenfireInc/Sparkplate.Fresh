@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const poland: EuCountry = {
@@ -18,6 +19,7 @@ export const poland: EuCountry = {
   cryptocurrencyExchanges: ['Zonda (BitBay legacy)', 'European MiCA passporting'],
   stablecoin: 'PLN pairs; EUR-stable conversion common',
   domesticCourierServices: EU_DOMESTIC_COURIERS['PL'],
+  newsOutlets: EU_NEWS_OUTLETS['PL'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['PL'],
   stockExchange: 'Warsaw Stock Exchange (GPW)',
 }

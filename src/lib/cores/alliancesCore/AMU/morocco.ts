@@ -1,5 +1,6 @@
 import type { AmuCountry } from './types'
 import { AMU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AMU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AMU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const morocco: AmuCountry = {
@@ -19,6 +20,7 @@ export const morocco: AmuCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Rain (regional)', 'Peer OTC'],
   stablecoin: 'USDT informal; Bank Al-Maghrib exploring CBDC',
   domesticCourierServices: AMU_DOMESTIC_COURIERS['MA'],
+  newsOutlets: AMU_NEWS_OUTLETS['MA'],
   notableUniversities: AMU_NOTABLE_UNIVERSITIES['MA'],
   stockExchange: 'Casablanca Stock Exchange',
 }

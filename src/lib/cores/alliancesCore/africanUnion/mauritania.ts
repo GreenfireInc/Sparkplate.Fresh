@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const mauritania: AfricanUnionCountry = {
   name: 'Mauritania',
@@ -18,6 +19,7 @@ export const mauritania: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC', 'Peer-to-peer networks'],
   stablecoin: 'USDT informal; no MRU stablecoin',
   domesticCourierServices: AU_DOMESTIC_COURIERS['MR'],
+  newsOutlets: AU_NEWS_OUTLETS['MR'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['MR'],
   stockExchange: 'Bourse Notation Agréée (limited)',
 }

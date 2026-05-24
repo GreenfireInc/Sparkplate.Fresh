@@ -4,6 +4,8 @@ export type {
   BeltAndRoadInitiativeOrganizationInfo,
   DomesticCourierService,
   NotableUniversity,
+  NewsOutlet,
+  NewsOutletsRoster,
 } from './types'
 export { BELT_AND_ROAD_PARTICIPANT_ISO_CODES } from './participantStatesIsoCodes'
 export type { BriMemberIsoCode } from './participantStatesIsoCodes'

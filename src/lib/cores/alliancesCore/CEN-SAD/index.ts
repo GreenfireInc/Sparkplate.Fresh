@@ -3,6 +3,8 @@ export type {
   CensadOrganizationInfo,
   DomesticCourierService,
   NotableUniversity,
+  NewsOutlet,
+  NewsOutletsRoster,
 } from './types'
 
 import type { CensadCountry, CensadOrganizationInfo } from './types'

@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const qatar: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const qatar: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'International brokers; cautious local licensing'],
   stablecoin: 'USDT / USDC informal; wealth-fund economy',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['QA'],
+  newsOutlets: BRI_NEWS_OUTLETS['QA'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['QA'],
   stockExchange: 'Qatar Stock Exchange',
 }

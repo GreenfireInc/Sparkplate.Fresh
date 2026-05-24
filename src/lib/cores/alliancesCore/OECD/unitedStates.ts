@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const unitedStates: OecdCountry = {
@@ -20,6 +21,7 @@ export const unitedStates: OecdCountry = {
   cryptocurrencyExchanges: ['Coinbase', 'Kraken', 'Gemini MSB state patchwork — informational'],
   stablecoin: 'USDT/USDC and USD fiat-backed issuance (federal legislation evolution — informational)',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['US'],
+  newsOutlets: OECD_NEWS_OUTLETS['US'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['US'],
   stockExchange: 'NYSE / Nasdaq consolidated US equity liquidity',
 }

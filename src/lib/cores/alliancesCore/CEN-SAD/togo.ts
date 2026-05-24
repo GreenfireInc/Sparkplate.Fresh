@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const togo: CensadCountry = {
@@ -18,6 +19,7 @@ export const togo: CensadCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Informal crypto markets'],
   stablecoin: 'USDT informal; CFA peg',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['TG'],
+  newsOutlets: CENSAD_NEWS_OUTLETS['TG'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['TG'],
   stockExchange: 'BRVM (WAEMU securities context)',
 }

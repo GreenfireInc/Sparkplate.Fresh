@@ -1,5 +1,6 @@
 import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const kuwait: OpecCountry = {
@@ -20,6 +21,7 @@ export const kuwait: OpecCountry = {
   cryptocurrencyExchanges: ['Central Bank prohibition historically easing pilots — informational'],
   stablecoin: 'KWD fiat anchoring; digital-payment supervision CBK — informational',
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['KW'],
+  newsOutlets: OPEC_NEWS_OUTLETS['KW'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['KW'],
   stockExchange: 'Boursa Kuwait',
 }

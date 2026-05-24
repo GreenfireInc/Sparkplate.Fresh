@@ -3,6 +3,8 @@ export type {
   FiveEyesCountry,
   FiveEyesOrganizationInfo,
   NotableUniversity,
+  NewsOutlet,
+  NewsOutletsRoster,
 } from './types'
 
 import type { FiveEyesCountry, FiveEyesOrganizationInfo } from './types'

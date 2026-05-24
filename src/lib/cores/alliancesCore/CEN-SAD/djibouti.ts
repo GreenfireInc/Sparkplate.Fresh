@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const djibouti: CensadCountry = {
@@ -18,6 +19,7 @@ export const djibouti: CensadCountry = {
   cryptocurrencyExchanges: ['Limited formal; regional OTC'],
   stablecoin: 'DJF peg; USDT/USDC informal',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['DJ'],
+  newsOutlets: CENSAD_NEWS_OUTLETS['DJ'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['DJ'],
   stockExchange: 'No major national stock exchange',
 }

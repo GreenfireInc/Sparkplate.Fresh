@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const chad: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const chad: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card (regional)', 'OTC'],
   stablecoin: 'USDT informal; XAF peg',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['TD'],
+  newsOutlets: BRI_NEWS_OUTLETS['TD'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['TD'],
   stockExchange: 'Financial Market of Central Africa (CEMAC hub; thin Chad listings)',
 }

@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const kenya: CommonwealthCountry = {
@@ -19,6 +20,7 @@ export const kenya: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Local brokers'],
   stablecoin: 'USDT informal; CBDC exploration — verify',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['KE'],
+  newsOutlets: COMMONWEALTH_NEWS_OUTLETS['KE'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['KE'],
   stockExchange: 'Nairobi Securities Exchange',
 }

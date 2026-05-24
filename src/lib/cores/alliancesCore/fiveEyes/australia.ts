@@ -1,5 +1,6 @@
 import type { FiveEyesCountry } from './types'
 import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { FIVE_EYES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const australia: FiveEyesCountry = {
@@ -20,6 +21,7 @@ export const australia: FiveEyesCountry = {
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'CoinSpot (ASIC-regulated AU context — informational)'],
   stablecoin: 'AUD stablecoins (private); regulatory evolution under AU Treasury/ASIC — informational',
   domesticCourierServices: FIVE_EYES_DOMESTIC_COURIERS['AU'],
+  newsOutlets: FIVE_EYES_NEWS_OUTLETS['AU'],
   notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['AU'],
   stockExchange: 'Australian Securities Exchange (ASX, Sydney)',
 }

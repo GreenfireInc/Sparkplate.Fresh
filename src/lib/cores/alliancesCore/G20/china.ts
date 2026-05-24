@@ -1,5 +1,6 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const china: G20Country = {
@@ -21,6 +22,7 @@ export const china: G20Country = {
   cryptocurrencyExchanges: ['Mainland exchange trading restricted post-2021; HKVASP regime onshore-adjacent — informational'],
   stablecoin: 'e-CNY (Digital Yuan) PBoC retail CBDC pilots; offshore CNH stablecoin narratives — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['CN'],
+  newsOutlets: G20_NEWS_OUTLETS['CN'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['CN'],
   stockExchange: 'Shanghai Stock Exchange (SSE) / Shenzhen Stock Exchange (SZSE)',
 }

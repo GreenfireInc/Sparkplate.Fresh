@@ -1,5 +1,6 @@
 import type { GccCountry } from './types'
 import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { GCC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const saudiArabia: GccCountry = {
@@ -20,6 +21,7 @@ export const saudiArabia: GccCountry = {
   cryptocurrencyExchanges: ['SAMA regulatory sandbox licensees; Binance Gulf regional licences — informational'],
   stablecoin: 'SAMA stablecoin issuance pilots; fiat SAR anchoring — informational',
   domesticCourierServices: GCC_DOMESTIC_COURIERS['SA'],
+  newsOutlets: GCC_NEWS_OUTLETS['SA'],
   notableUniversities: GCC_NOTABLE_UNIVERSITIES['SA'],
   stockExchange: 'Tadawul Saudi Exchange (national), parallel regional listings — informational',
 }

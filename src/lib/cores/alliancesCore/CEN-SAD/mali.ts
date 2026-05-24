@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mali: CensadCountry = {
@@ -18,6 +19,7 @@ export const mali: CensadCountry = {
   cryptocurrencyExchanges: ['Informal OTC'],
   stablecoin: 'Informal USDT/USDC',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['ML'],
+  newsOutlets: CENSAD_NEWS_OUTLETS['ML'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['ML'],
   stockExchange: 'BRVM listing context (WAEMU)',
 }

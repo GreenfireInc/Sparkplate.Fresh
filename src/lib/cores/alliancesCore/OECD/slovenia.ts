@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const slovenia: OecdCountry = {
@@ -19,6 +20,7 @@ export const slovenia: OecdCountry = {
   cryptocurrencyExchanges: ['EU-compliant brokers; Ljubljana fintech corridors — informational'],
   stablecoin: 'EUR stablecoins under MiCA — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['SI'],
+  newsOutlets: OECD_NEWS_OUTLETS['SI'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['SI'],
   stockExchange: 'Ljubljana Stock Exchange',
 }

@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const rwanda: AfricanUnionCountry = {
   name: 'Rwanda',
@@ -18,6 +19,7 @@ export const rwanda: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Blockchain hub initiatives'],
   stablecoin: 'USDT / USDC; central bank exploring CBDC',
   domesticCourierServices: AU_DOMESTIC_COURIERS['RW'],
+  newsOutlets: AU_NEWS_OUTLETS['RW'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['RW'],
   stockExchange: 'Rwanda Stock Exchange',
 }

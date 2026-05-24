@@ -26,6 +26,22 @@ export interface NotableUniversity {
   linkedin: string
 }
 
+/** National news outlet row (informational; verify URLs, handles, RSS/API bases). */
+export interface NewsOutlet {
+  name: string
+  website: string
+  email: string
+  instagram: string
+  twitter: string
+  apiEndpoint: string
+}
+
+/** Three major + four minor national outlets per BRICS economy. */
+export interface NewsOutletsRoster {
+  major: readonly [NewsOutlet, NewsOutlet, NewsOutlet]
+  minor: readonly [NewsOutlet, NewsOutlet, NewsOutlet, NewsOutlet]
+}
+
 export interface BricsCountry {
   name: string
   iso3166Alpha2: string
@@ -44,6 +60,8 @@ export interface BricsCountry {
   stablecoin: string
   /** Domestic / national courier or parcel carriers with public contact hints (verify locally). */
   domesticCourierServices: DomesticCourierService[]
+  /** Three major + four minor national news outlets with public hints (informational). */
+  newsOutlets: NewsOutletsRoster
   /** Three notable universities covering economics / accounting / computer science / electrical engineering style programmes (informational). */
   notableUniversities: readonly [NotableUniversity, NotableUniversity, NotableUniversity]
   stockExchange: string

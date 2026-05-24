@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const sudan: AfricanUnionCountry = {
   name: 'Sudan',
@@ -18,6 +19,7 @@ export const sudan: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'OTC', 'Informal P2P amid conflict'],
   stablecoin: 'USDT informal; banking disruption during conflict',
   domesticCourierServices: AU_DOMESTIC_COURIERS['SD'],
+  newsOutlets: AU_NEWS_OUTLETS['SD'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['SD'],
   stockExchange: 'Khartoum Stock Exchange (operations disrupted)',
 }

@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const comoros: IoraCountry = {
@@ -19,6 +20,7 @@ export const comoros: IoraCountry = {
   cryptocurrencyExchanges: ['Thin formal licensing; diaspora OTC — informational'],
   stablecoin: 'EUR informal pricing; scarce onshore rails — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['KM'],
+  newsOutlets: IORA_NEWS_OUTLETS['KM'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['KM'],
   stockExchange: 'No substantive national equities market — informational',
 }

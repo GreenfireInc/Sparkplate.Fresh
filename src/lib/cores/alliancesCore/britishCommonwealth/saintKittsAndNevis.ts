@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const saintKittsAndNevis: CommonwealthCountry = {
@@ -19,6 +20,7 @@ export const saintKittsAndNevis: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'XCD peg; USDT/USDC',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['KN'],
+  newsOutlets: COMMONWEALTH_NEWS_OUTLETS['KN'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['KN'],
   stockExchange: 'Eastern Caribbean Securities Exchange (regional)',
 }

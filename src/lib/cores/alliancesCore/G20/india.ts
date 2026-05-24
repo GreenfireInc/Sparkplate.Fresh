@@ -1,5 +1,6 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const india: G20Country = {
@@ -20,6 +21,7 @@ export const india: G20Country = {
   cryptocurrencyExchanges: ['CoinDCX', 'WazirX', 'CoinSwitch / FIU-IND VDA registration regime — informational'],
   stablecoin: 'eINR (Digital Rupee) RBI retail/wholesale CBDC pilots; INR-pegged private issuance constrained — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['IN'],
+  newsOutlets: G20_NEWS_OUTLETS['IN'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['IN'],
   stockExchange: 'National Stock Exchange of India (NSE) / Bombay Stock Exchange (BSE)',
 }

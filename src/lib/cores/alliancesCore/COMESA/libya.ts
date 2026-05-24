@@ -1,5 +1,6 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const libya: ComesaCountry = {
@@ -19,6 +20,7 @@ export const libya: ComesaCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC; fragmented regulatory environment'],
   stablecoin: 'USDT informal; banking fragmentation',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['LY'],
+  newsOutlets: COMESA_NEWS_OUTLETS['LY'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['LY'],
   stockExchange: 'Libyan Stock Market (limited operations)',
 }

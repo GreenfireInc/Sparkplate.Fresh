@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const bulgaria: EuCountry = {
@@ -18,6 +19,7 @@ export const bulgaria: EuCountry = {
   cryptocurrencyExchanges: ['EU CASP passporting; localized brokers'],
   stablecoin: 'BGN euro peg-mechanism; preparatory euro-era — verify',
   domesticCourierServices: EU_DOMESTIC_COURIERS['BG'],
+  newsOutlets: EU_NEWS_OUTLETS['BG'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['BG'],
   stockExchange: 'Bulgarian Stock Exchange',
 }

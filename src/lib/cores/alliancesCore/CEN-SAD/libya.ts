@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const libya: CensadCountry = {
@@ -18,6 +19,7 @@ export const libya: CensadCountry = {
   cryptocurrencyExchanges: ['Informal OTC under sanctions context'],
   stablecoin: 'Informal USD/USDT',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['LY'],
+  newsOutlets: CENSAD_NEWS_OUTLETS['LY'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['LY'],
   stockExchange: 'Libyan Stock Exchange (limited operations — verify)',
 }

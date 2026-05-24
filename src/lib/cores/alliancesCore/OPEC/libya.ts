@@ -1,5 +1,6 @@
 import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const libya: OpecCountry = {
@@ -20,6 +21,7 @@ export const libya: OpecCountry = {
   cryptocurrencyExchanges: ['Infrastructure disruption; OTC informal miners reported — informational'],
   stablecoin: 'USD informal oil settlement references — informational',
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['LY'],
+  newsOutlets: OPEC_NEWS_OUTLETS['LY'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['LY'],
   stockExchange: 'Libyan Stock Market operational disruption narratives — informational',
 }

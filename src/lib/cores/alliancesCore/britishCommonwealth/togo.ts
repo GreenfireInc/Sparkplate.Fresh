@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const togo: CommonwealthCountry = {
@@ -19,6 +20,7 @@ export const togo: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'XOF peg to EUR; USDT informal',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['TG'],
+  newsOutlets: COMMONWEALTH_NEWS_OUTLETS['TG'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['TG'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (regional)',
 }

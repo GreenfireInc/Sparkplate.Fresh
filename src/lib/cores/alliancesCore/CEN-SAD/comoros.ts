@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const comoros: CensadCountry = {
@@ -18,6 +19,7 @@ export const comoros: CensadCountry = {
   cryptocurrencyExchanges: ['Informal P2P'],
   stablecoin: 'Euro peg via KMF',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['KM'],
+  newsOutlets: CENSAD_NEWS_OUTLETS['KM'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['KM'],
   stockExchange: 'No national stock exchange',
 }

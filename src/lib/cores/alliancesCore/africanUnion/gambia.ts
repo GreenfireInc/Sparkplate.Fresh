@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const gambia: AfricanUnionCountry = {
   name: 'The Gambia',
@@ -18,6 +19,7 @@ export const gambia: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex (diaspora)'],
   stablecoin: 'USDT / USDC P2P',
   domesticCourierServices: AU_DOMESTIC_COURIERS['GM'],
+  newsOutlets: AU_NEWS_OUTLETS['GM'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['GM'],
   stockExchange: 'Gambia Stock Exchange (limited)',
 }

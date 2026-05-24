@@ -1,5 +1,6 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const vietnam: RcepCountry = {
@@ -20,6 +21,7 @@ export const vietnam: RcepCountry = {
   cryptocurrencyExchanges: ['Retail trading prohibited; OTC informal mining episodes — informational'],
   stablecoin: 'Digital currency pilot narratives; predominant VND — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['VN'],
+  newsOutlets: RCEP_NEWS_OUTLETS['VN'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['VN'],
   stockExchange: 'Ho Chi Minh City Stock Exchange (HOSE); HNX consolidated roadmap — informational',
 }

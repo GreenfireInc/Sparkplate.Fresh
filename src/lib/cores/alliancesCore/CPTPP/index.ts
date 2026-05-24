@@ -3,6 +3,8 @@ export type {
   CptppOrganizationInfo,
   DomesticCourierService,
   NotableUniversity,
+  NewsOutlet,
+  NewsOutletsRoster,
 } from './types'
 
 import type { CptppCountry, CptppOrganizationInfo } from './types'

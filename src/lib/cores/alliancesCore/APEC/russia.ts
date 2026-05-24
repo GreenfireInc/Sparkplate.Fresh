@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const russia: ApecCountry = {
@@ -19,6 +20,7 @@ export const russia: ApecCountry = {
   cryptocurrencyExchanges: ['Domestic licences thin vs sanctions; OTC mining episodes — informational'],
   stablecoin: 'RUB digital sandbox narratives predominant cashless push — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['RU'],
+  newsOutlets: APEC_NEWS_OUTLETS['RU'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['RU'],
   stockExchange: 'Moscow Exchange (sanctions segregation vs Western indices — informational)',
 }

@@ -1,5 +1,6 @@
 import type { AmuCountry } from './types'
 import { AMU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AMU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AMU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const libya: AmuCountry = {
@@ -19,6 +20,7 @@ export const libya: AmuCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC; fragmented regulatory environment'],
   stablecoin: 'USDT informal; banking fragmentation',
   domesticCourierServices: AMU_DOMESTIC_COURIERS['LY'],
+  newsOutlets: AMU_NEWS_OUTLETS['LY'],
   notableUniversities: AMU_NOTABLE_UNIVERSITIES['LY'],
   stockExchange: 'Libyan Stock Market (limited operations)',
 }

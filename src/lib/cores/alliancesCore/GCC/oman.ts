@@ -1,5 +1,6 @@
 import type { GccCountry } from './types'
 import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { GCC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const oman: GccCountry = {
@@ -19,6 +20,7 @@ export const oman: GccCountry = {
   cryptocurrencyExchanges: ['CBO cautious licensing evolution; OTC regional — informational'],
   stablecoin: 'OMR dollar peg narratives; sovereign digital-payment pilots — informational',
   domesticCourierServices: GCC_DOMESTIC_COURIERS['OM'],
+  newsOutlets: GCC_NEWS_OUTLETS['OM'],
   notableUniversities: GCC_NOTABLE_UNIVERSITIES['OM'],
   stockExchange: 'Muscat Stock Exchange',
 }

@@ -1,5 +1,6 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const ghana: EcowasCountry = {
@@ -18,6 +19,7 @@ export const ghana: EcowasCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Quidax', 'Licensed VASP evolution'],
   stablecoin: 'USDT / USDC; Bank of Ghana eCedi CBDC pilots — verify',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['GH'],
+  newsOutlets: ECOWAS_NEWS_OUTLETS['GH'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['GH'],
   stockExchange: 'Ghana Stock Exchange (GSE)',
 }

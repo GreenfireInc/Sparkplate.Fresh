@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const botswana: CommonwealthCountry = {
@@ -19,6 +20,7 @@ export const botswana: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT/USDC via P2P; no major BWP stablecoin',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['BW'],
+  newsOutlets: COMMONWEALTH_NEWS_OUTLETS['BW'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['BW'],
   stockExchange: 'Botswana Stock Exchange (BSE)',
 }

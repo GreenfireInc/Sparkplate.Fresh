@@ -1,5 +1,6 @@
 import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const iraq: OpecCountry = {
@@ -20,6 +21,7 @@ export const iraq: OpecCountry = {
   cryptocurrencyExchanges: ['CBI cautious posture; OTC informal dollarisation — informational'],
   stablecoin: 'USD settlement oil exports; IQD volatility — informational',
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['IQ'],
+  newsOutlets: OPEC_NEWS_OUTLETS['IQ'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['IQ'],
   stockExchange: 'Iraq Stock Exchange Baghdad (liquidity episodic — informational)',
 }

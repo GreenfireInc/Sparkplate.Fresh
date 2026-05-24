@@ -1,4 +1,11 @@
-export type { DomesticCourierService, G7Country, G7OrganizationInfo, NotableUniversity } from './types'
+export type {
+  DomesticCourierService,
+  G7Country,
+  G7OrganizationInfo,
+  NewsOutlet,
+  NewsOutletsRoster,
+  NotableUniversity,
+} from './types'
 
 import type { G7Country, G7OrganizationInfo } from './types'
 import { G7_MEMBER_ISO_CODES } from './g7MemberIsoCodes'

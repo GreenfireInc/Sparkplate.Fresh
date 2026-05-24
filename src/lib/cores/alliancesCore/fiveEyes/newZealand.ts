@@ -1,5 +1,6 @@
 import type { FiveEyesCountry } from './types'
 import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { FIVE_EYES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const newZealand: FiveEyesCountry = {
@@ -19,6 +20,7 @@ export const newZealand: FiveEyesCountry = {
   cryptocurrencyExchanges: ['Easy Crypto', 'Digital asset providers under FMCA/DIA registration context — informational'],
   stablecoin: 'NZD-referenced crypto (private); RB NZ policy evolution — informational',
   domesticCourierServices: FIVE_EYES_DOMESTIC_COURIERS['NZ'],
+  newsOutlets: FIVE_EYES_NEWS_OUTLETS['NZ'],
   notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['NZ'],
   stockExchange: 'NZX Limited (NZ markets — informational)',
 }

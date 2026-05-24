@@ -1,5 +1,6 @@
 import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const burundi: EacCountry = {
@@ -18,6 +19,7 @@ export const burundi: EacCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card (regional)', 'Local OTC'],
   stablecoin: 'USDT informal',
   domesticCourierServices: EAC_DOMESTIC_COURIERS['BI'],
+  newsOutlets: EAC_NEWS_OUTLETS['BI'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['BI'],
   stockExchange: 'Burundi Stock Exchange — thin liquidity',
 }

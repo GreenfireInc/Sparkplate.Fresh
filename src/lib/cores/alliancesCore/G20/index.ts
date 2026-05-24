@@ -3,6 +3,8 @@ export type {
   G20Country,
   G20InstitutionalMember,
   G20OrganizationInfo,
+  NewsOutlet,
+  NewsOutletsRoster,
   NotableUniversity,
 } from './types'
 export { G20_SOVEREIGN_MEMBER_ISO_CODES } from './g20MemberIsoCodes'

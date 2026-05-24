@@ -1,5 +1,6 @@
 import type { IgadCountry } from './types'
 import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const kenya: IgadCountry = {
@@ -19,6 +20,7 @@ export const kenya: IgadCountry = {
   cryptocurrencyExchanges: ['BitPesa / Yellow Card regional; Capital Markets Authority ICO guidance — informational'],
   stablecoin: 'KES-referenced pilots; informal USDT overlays — informational',
   domesticCourierServices: IGAD_DOMESTIC_COURIERS['KE'],
+  newsOutlets: IGAD_NEWS_OUTLETS['KE'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
 }

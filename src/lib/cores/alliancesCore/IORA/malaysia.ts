@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const malaysia: IoraCountry = {
@@ -20,6 +21,7 @@ export const malaysia: IoraCountry = {
   cryptocurrencyExchanges: ['SC digital-asset exchange pilots — informational'],
   stablecoin: 'MYR digital bank pilots — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['MY'],
+  newsOutlets: IORA_NEWS_OUTLETS['MY'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['MY'],
   stockExchange: 'Bursa Malaysia',
 }

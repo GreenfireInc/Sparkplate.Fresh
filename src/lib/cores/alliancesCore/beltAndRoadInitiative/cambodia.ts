@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const cambodia: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const cambodia: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: [ 'Binance (P2P)', 'International OTC', 'Local regulation varies' ],
   stablecoin: 'USDT / USDC common globally; legality varies by jurisdiction',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['KH'],
+  newsOutlets: BRI_NEWS_OUTLETS['KH'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['KH'],
   stockExchange: 'National or regional exchange (verify)',
 }

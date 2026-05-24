@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const india: IoraCountry = {
@@ -20,6 +21,7 @@ export const india: IoraCountry = {
   cryptocurrencyExchanges: ['RBI prohibition retail bank crypto routes; offshore P2P — informational'],
   stablecoin: 'CBDC pilots e-₹ narratives; predominant INR fiat rails — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['IN'],
+  newsOutlets: IORA_NEWS_OUTLETS['IN'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['IN'],
   stockExchange: 'National Stock Exchange (NSE); BSE Bombay context — informational',
 }

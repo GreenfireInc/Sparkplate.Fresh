@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const hungary: EuCountry = {
@@ -18,6 +19,7 @@ export const hungary: EuCountry = {
   cryptocurrencyExchanges: ['Regional EU onboarding; Hungarian central bank skeptic tone — informational'],
   stablecoin: 'HUF OTC; predominant EUR/USDT rails',
   domesticCourierServices: EU_DOMESTIC_COURIERS['HU'],
+  newsOutlets: EU_NEWS_OUTLETS['HU'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['HU'],
   stockExchange: 'Budapest Stock Exchange',
 }

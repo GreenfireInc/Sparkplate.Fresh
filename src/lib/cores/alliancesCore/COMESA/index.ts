@@ -3,6 +3,8 @@ export type {
   ComesaOrganizationInfo,
   DomesticCourierService,
   NotableUniversity,
+  NewsOutlet,
+  NewsOutletsRoster,
 } from './types'
 
 import type { ComesaCountry, ComesaOrganizationInfo } from './types'

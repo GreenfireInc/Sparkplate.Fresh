@@ -1,5 +1,6 @@
 import type { GccCountry } from './types'
 import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { GCC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const kuwait: GccCountry = {
@@ -19,6 +20,7 @@ export const kuwait: GccCountry = {
   cryptocurrencyExchanges: ['Central Bank prohibition stance historically easing toward regulated pilots — informational'],
   stablecoin: 'CBK digital-payment supervision evolution; fiat KWD anchored — informational',
   domesticCourierServices: GCC_DOMESTIC_COURIERS['KW'],
+  newsOutlets: GCC_NEWS_OUTLETS['KW'],
   notableUniversities: GCC_NOTABLE_UNIVERSITIES['KW'],
   stockExchange: 'Boursa Kuwait',
 }

@@ -1,5 +1,6 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const australia: CptppCountry = {
@@ -18,6 +19,7 @@ export const australia: CptppCountry = {
   cryptocurrencyExchanges: ['Independent Reserve', 'CoinSpot', 'Kraken (global)', 'Binance (offshore context)'],
   stablecoin: 'AUD-pegged tokens limited; USDT / USDC widely traded',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['AU'],
+  newsOutlets: CPTPP_NEWS_OUTLETS['AU'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['AU'],
   stockExchange: 'Australian Securities Exchange (ASX)',
 }

@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const indonesia: ApecCountry = {
@@ -19,6 +20,7 @@ export const indonesia: ApecCountry = {
   cryptocurrencyExchanges: ['OJK digital-asset routes licensing evolution — informational'],
   stablecoin: 'IDR payment rails; OTC USDT — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['ID'],
+  newsOutlets: APEC_NEWS_OUTLETS['ID'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['ID'],
   stockExchange: 'Indonesia Stock Exchange (IDX)',
 }

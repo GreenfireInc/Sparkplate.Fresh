@@ -1,5 +1,6 @@
 import type { BricsCountry } from './types'
 import { BRICS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRICS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRICS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const india: BricsCountry = {
@@ -19,6 +20,7 @@ export const india: BricsCountry = {
   cryptocurrencyExchanges: ['CoinDCX', 'WazirX', 'ZebPay', 'International P2P (regulatory environment evolving)'],
   stablecoin: 'No INR official stablecoin at central-bank retail scale; USDT/USDC common on global platforms',
   domesticCourierServices: BRICS_DOMESTIC_COURIERS['IN'],
+  newsOutlets: BRICS_NEWS_OUTLETS['IN'],
   notableUniversities: BRICS_NOTABLE_UNIVERSITIES['IN'],
   stockExchange: 'National Stock Exchange of India (NSE); BSE',
 }

@@ -1,5 +1,6 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const cambodia: RcepCountry = {
@@ -19,6 +20,7 @@ export const cambodia: RcepCountry = {
   cryptocurrencyExchanges: ['NBC licensing evolution; P2P informal — informational'],
   stablecoin: 'USD cash dominant; KHR digital thin — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['KH'],
+  newsOutlets: RCEP_NEWS_OUTLETS['KH'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['KH'],
   stockExchange: 'Cambodia Securities Exchange (CSX)',
 }

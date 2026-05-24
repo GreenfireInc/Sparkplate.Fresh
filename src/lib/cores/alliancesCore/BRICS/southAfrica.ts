@@ -1,5 +1,6 @@
 import type { BricsCountry } from './types'
 import { BRICS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRICS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRICS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const southAfrica: BricsCountry = {
@@ -19,6 +20,7 @@ export const southAfrica: BricsCountry = {
   cryptocurrencyExchanges: ['VALR', 'Luno', 'Binance (P2P)', 'Regional OTC'],
   stablecoin: 'No official ZAR stablecoin at retail scale; USDT/USDC used in crypto markets',
   domesticCourierServices: BRICS_DOMESTIC_COURIERS['ZA'],
+  newsOutlets: BRICS_NEWS_OUTLETS['ZA'],
   notableUniversities: BRICS_NOTABLE_UNIVERSITIES['ZA'],
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
 }

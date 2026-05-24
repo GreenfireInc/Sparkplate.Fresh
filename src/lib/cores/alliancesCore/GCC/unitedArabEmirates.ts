@@ -1,5 +1,6 @@
 import type { GccCountry } from './types'
 import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { GCC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const unitedArabEmirates: GccCountry = {
@@ -21,6 +22,7 @@ export const unitedArabEmirates: GccCountry = {
   cryptocurrencyExchanges: ['VARA Dubai regime', 'ADGM FSRA digital-asset licences', 'MENA OTC liquidity — informational'],
   stablecoin: 'AED-referenced issuance (private); CBUAE stablecoin supervisory pilots — informational',
   domesticCourierServices: GCC_DOMESTIC_COURIERS['AE'],
+  newsOutlets: GCC_NEWS_OUTLETS['AE'],
   notableUniversities: GCC_NOTABLE_UNIVERSITIES['AE'],
   stockExchange: 'Abu Dhabi Securities Exchange (ADX); Dubai Financial Market (DFM)',
 }

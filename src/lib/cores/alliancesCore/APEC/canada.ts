@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const canada: ApecCountry = {
@@ -19,6 +20,7 @@ export const canada: ApecCountry = {
   cryptocurrencyExchanges: ['Bitbuy', 'Newton CSA climate — informational'],
   stablecoin: 'CAD fiat-backed pilots — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['CA'],
+  newsOutlets: APEC_NEWS_OUTLETS['CA'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['CA'],
   stockExchange: 'Toronto Stock Exchange (TMX)',
 }

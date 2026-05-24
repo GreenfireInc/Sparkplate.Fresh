@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const romania: EuCountry = {
@@ -18,6 +19,7 @@ export const romania: EuCountry = {
   cryptocurrencyExchanges: ['EU gateways; OTC alongside banking conservatism — informational'],
   stablecoin: 'RON FX; predominant EUR-stable rails',
   domesticCourierServices: EU_DOMESTIC_COURIERS['RO'],
+  newsOutlets: EU_NEWS_OUTLETS['RO'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['RO'],
   stockExchange: 'Bucharest Stock Exchange',
 }

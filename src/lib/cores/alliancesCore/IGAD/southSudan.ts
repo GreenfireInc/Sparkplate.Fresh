@@ -1,5 +1,6 @@
 import type { IgadCountry } from './types'
 import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const southSudan: IgadCountry = {
@@ -19,6 +20,7 @@ export const southSudan: IgadCountry = {
   cryptocurrencyExchanges: ['Mobile money informal; regional sanctions compliance overlays — informational'],
   stablecoin: 'USD cash economy dominant; SSP digital thin — informational',
   domesticCourierServices: IGAD_DOMESTIC_COURIERS['SS'],
+  newsOutlets: IGAD_NEWS_OUTLETS['SS'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['SS'],
   stockExchange: 'No national exchange consolidated (Juba financial-market nascent — informational)',
 }

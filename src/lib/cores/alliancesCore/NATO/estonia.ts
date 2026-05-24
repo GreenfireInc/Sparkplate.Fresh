@@ -1,5 +1,6 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const estonia: NatoCountry = {
@@ -19,6 +20,7 @@ export const estonia: NatoCountry = {
   cryptocurrencyExchanges: ['EU CASPs onboarding; Startup Estonia narratives — informational'],
   stablecoin: 'EUR stablecoins; MiCA-aligned — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['EE'],
+  newsOutlets: NATO_NEWS_OUTLETS['EE'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['EE'],
   stockExchange: 'Nasdaq Tallinn',
 }

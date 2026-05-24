@@ -1,5 +1,6 @@
 import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const tanzania: EacCountry = {
@@ -18,6 +19,7 @@ export const tanzania: EacCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local fintech'],
   stablecoin: 'USDT / USDC P2P',
   domesticCourierServices: EAC_DOMESTIC_COURIERS['TZ'],
+  newsOutlets: EAC_NEWS_OUTLETS['TZ'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['TZ'],
   stockExchange:
     'Dar es Salaam Stock Exchange (DSE); EAC Secretariat located in Arusha — informational',

@@ -1,4 +1,11 @@
-export type { OecsCountry, OecsOrganizationInfo, DomesticCourierService, NotableUniversity } from './types'
+export type {
+  OecsCountry,
+  OecsOrganizationInfo,
+  DomesticCourierService,
+  NewsOutlet,
+  NewsOutletsRoster,
+  NotableUniversity,
+} from './types'
 
 import type { OecsCountry, OecsOrganizationInfo } from './types'
 import { OECS_MEMBER_ISO_CODES } from './oecsMemberIsoCodes'

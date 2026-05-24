@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const france: IoraCountry = {
@@ -19,6 +20,7 @@ export const france: IoraCountry = {
   cryptocurrencyExchanges: ['Coinhouse', 'MiCA-compliant CASPs', 'Paymium'],
   stablecoin: 'EUR stablecoins; ECB digital euro pilots — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['FR'],
+  newsOutlets: IORA_NEWS_OUTLETS['FR'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['FR'],
   stockExchange: 'Euronext Paris',
 }

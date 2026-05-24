@@ -1,5 +1,6 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const bulgaria: NatoCountry = {
@@ -19,6 +20,7 @@ export const bulgaria: NatoCountry = {
   cryptocurrencyExchanges: ['EU CASP passporting; localized brokers'],
   stablecoin: 'BGN peg mechanism toward euro preparedness — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['BG'],
+  newsOutlets: NATO_NEWS_OUTLETS['BG'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['BG'],
   stockExchange: 'Bulgarian Stock Exchange',
 }

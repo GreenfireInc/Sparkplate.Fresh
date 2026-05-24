@@ -1,5 +1,6 @@
 import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const montserrat: OecsCountry = {
@@ -19,6 +20,7 @@ export const montserrat: OecsCountry = {
   cryptocurrencyExchanges: ['Regional remittance OTC — informational'],
   stablecoin: 'XCD peg; informal USD-stable — informational',
   domesticCourierServices: OECS_DOMESTIC_COURIERS['MS'],
+  newsOutlets: OECS_NEWS_OUTLETS['MS'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['MS'],
   stockExchange: 'Eastern Caribbean Securities Exchange regional access — informational',
 }

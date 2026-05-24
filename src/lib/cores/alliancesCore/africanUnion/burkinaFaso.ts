@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const burkinaFaso: AfricanUnionCountry = {
   name: 'Burkina Faso',
@@ -18,6 +19,7 @@ export const burkinaFaso: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Informal P2P'],
   stablecoin: 'USDT via P2P; XOF CFA peg',
   domesticCourierServices: AU_DOMESTIC_COURIERS['BF'],
+  newsOutlets: AU_NEWS_OUTLETS['BF'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['BF'],
   stockExchange: 'Burkina Faso — BRVM listings (limited local activity)',
 }

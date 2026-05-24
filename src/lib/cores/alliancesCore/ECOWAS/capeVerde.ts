@@ -1,5 +1,6 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const capeVerde: EcowasCountry = {
@@ -18,6 +19,7 @@ export const capeVerde: EcowasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'European-facing brokers'],
   stablecoin: 'EUR-linked usage; USDT via international rails',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['CV'],
+  newsOutlets: ECOWAS_NEWS_OUTLETS['CV'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['CV'],
   stockExchange: 'Bolsa de Valores de Cabo Verde (limited listings)',
 }

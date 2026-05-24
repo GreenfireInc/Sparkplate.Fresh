@@ -1,5 +1,6 @@
 import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const anguilla: OecsCountry = {
@@ -19,6 +20,7 @@ export const anguilla: OecsCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'offshore services proximity — informational'],
   stablecoin: 'XCD peg; informal USDT — informational',
   domesticCourierServices: OECS_DOMESTIC_COURIERS['AI'],
+  newsOutlets: OECS_NEWS_OUTLETS['AI'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['AI'],
   stockExchange: 'No dedicated national exchange; regional ECSE context — informational',
 }

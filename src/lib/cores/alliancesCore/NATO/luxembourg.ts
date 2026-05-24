@@ -1,5 +1,6 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const luxembourg: NatoCountry = {
@@ -19,6 +20,7 @@ export const luxembourg: NatoCountry = {
   cryptocurrencyExchanges: ['Bitstamp LU legacy HQ; MiCA crypto hub vehicles — informational'],
   stablecoin: 'EUR stablecoins; fund servicing sector — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['LU'],
+  newsOutlets: NATO_NEWS_OUTLETS['LU'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['LU'],
   stockExchange: 'Luxembourg Stock Exchange',
 }

@@ -1,5 +1,6 @@
 import type { MintCountry } from './types'
 import { MINT_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { MINT_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MINT_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const nigeria: MintCountry = {
@@ -20,6 +21,7 @@ export const nigeria: MintCountry = {
   cryptocurrencyExchanges: ['SEC cautious licensing; Patricia / regional P2P with CBN overlays — informational'],
   stablecoin: 'CBN e-Naira experimentation; informal USDT pricing — informational',
   domesticCourierServices: MINT_DOMESTIC_COURIERS['NG'],
+  newsOutlets: MINT_NEWS_OUTLETS['NG'],
   notableUniversities: MINT_NOTABLE_UNIVERSITIES['NG'],
   stockExchange: 'Nigerian Exchange Group NGX (Lagos equities)',
 }

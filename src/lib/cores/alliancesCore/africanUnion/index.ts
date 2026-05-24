@@ -4,6 +4,8 @@ export type {
   AfricanUnionOrganizationInfo,
   DomesticCourierService,
   NotableUniversity,
+  NewsOutlet,
+  NewsOutletsRoster,
 } from './types'
 export { AU_MEMBER_ISO_CODES } from './auMemberIsoCodes'
 export type { AuMemberIsoCode } from './auMemberIsoCodes'

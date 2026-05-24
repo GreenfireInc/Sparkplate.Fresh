@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const southKorea: ApecCountry = {
@@ -20,6 +21,7 @@ export const southKorea: ApecCountry = {
   cryptocurrencyExchanges: ['Upbit Bithumb FSC VASP regime — informational'],
   stablecoin: 'KRW won-linked CBDC sandbox Bank of Korea — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['KR'],
+  newsOutlets: APEC_NEWS_OUTLETS['KR'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['KR'],
   stockExchange: 'Korea Exchange KOSPI / KOSDAQ',
 }

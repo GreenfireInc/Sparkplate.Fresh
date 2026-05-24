@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const tanzania: AfricanUnionCountry = {
   name: 'Tanzania',
@@ -18,6 +19,7 @@ export const tanzania: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local fintech'],
   stablecoin: 'USDT / USDC P2P',
   domesticCourierServices: AU_DOMESTIC_COURIERS['TZ'],
+  newsOutlets: AU_NEWS_OUTLETS['TZ'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange (DSE)',
 }

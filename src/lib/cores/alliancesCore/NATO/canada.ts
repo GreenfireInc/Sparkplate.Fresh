@@ -1,5 +1,6 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const canada: NatoCountry = {
@@ -19,6 +20,7 @@ export const canada: NatoCountry = {
   cryptocurrencyExchanges: ['Bitbuy', 'Newton', 'CSA provincial licensing — informational'],
   stablecoin: 'CAD fiat-backed tokens; OSFI guidance evolution — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['CA'],
+  newsOutlets: NATO_NEWS_OUTLETS['CA'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['CA'],
   stockExchange: 'Toronto Stock Exchange (TMX)',
 }

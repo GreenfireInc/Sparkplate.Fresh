@@ -1,5 +1,6 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const yemen: IoraCountry = {
@@ -20,6 +21,7 @@ export const yemen: IoraCountry = {
   cryptocurrencyExchanges: ['Infrastructure collapse; OTC informal hawala predominant — informational'],
   stablecoin: 'USD predominant informal economy — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['YE'],
+  newsOutlets: IORA_NEWS_OUTLETS['YE'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['YE'],
   stockExchange: 'Aden Securities micro-market disruptions — informational',
 }

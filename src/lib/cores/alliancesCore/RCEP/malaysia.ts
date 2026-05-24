@@ -1,5 +1,6 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const malaysia: RcepCountry = {
@@ -20,6 +21,7 @@ export const malaysia: RcepCountry = {
   cryptocurrencyExchanges: ['SC-regulated digital exchange pilots — informational'],
   stablecoin: 'MYR digital bank narratives; ringgit controls — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['MY'],
+  newsOutlets: RCEP_NEWS_OUTLETS['MY'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['MY'],
   stockExchange: 'Bursa Malaysia',
 }

@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const germany: EuCountry = {
@@ -18,6 +19,7 @@ export const germany: EuCountry = {
   cryptocurrencyExchanges: ['Bitstamp EU', 'Börse Stuttgart Digital Custody narratives', 'MiCA licences'],
   stablecoin: 'EUR stablecoins; ECB digital euro projects',
   domesticCourierServices: EU_DOMESTIC_COURIERS['DE'],
+  newsOutlets: EU_NEWS_OUTLETS['DE'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['DE'],
   stockExchange: 'Deutsche Börse (Frankfurt)',
 }

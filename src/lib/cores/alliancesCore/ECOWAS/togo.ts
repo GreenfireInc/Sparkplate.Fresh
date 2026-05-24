@@ -1,5 +1,6 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const togo: EcowasCountry = {
@@ -18,6 +19,7 @@ export const togo: EcowasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Regional OTC'],
   stablecoin: 'USDT P2P; XOF CFA peg via BCEAO',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['TG'],
+  newsOutlets: ECOWAS_NEWS_OUTLETS['TG'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['TG'],
   stockExchange: 'BRVM listings; Lomé banking hub — verify depth',
 }

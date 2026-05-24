@@ -1,5 +1,6 @@
 import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const gabon: OpecCountry = {
@@ -19,6 +20,7 @@ export const gabon: OpecCountry = {
   cryptocurrencyExchanges: ['Regional OTC; Gabonese banking USD clearance — informational'],
   stablecoin: 'XAF EUR peg; informal USDT — informational',
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['GA'],
+  newsOutlets: OPEC_NEWS_OUTLETS['GA'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['GA'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (BRVM context sub-regional — informational)',
 }

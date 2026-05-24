@@ -1,5 +1,6 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const comoros: ComesaCountry = {
@@ -18,6 +19,7 @@ export const comoros: ComesaCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional mobile money bridges'],
   stablecoin: 'USDT / USDC limited official access; KMF peg context',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['KM'],
+  newsOutlets: COMESA_NEWS_OUTLETS['KM'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['KM'],
   stockExchange: 'No major national stock exchange',
 }

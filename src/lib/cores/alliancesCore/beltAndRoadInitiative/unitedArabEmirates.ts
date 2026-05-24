@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const unitedArabEmirates: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const unitedArabEmirates: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['BitOasis (historical)', 'International brokers', 'VARA-regulated Dubai activity'],
   stablecoin: 'USDT / USDC; AED-linked experiments',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['AE'],
+  newsOutlets: BRI_NEWS_OUTLETS['AE'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['AE'],
   stockExchange: 'Abu Dhabi Securities Exchange (ADX); Dubai Financial Market (DFM)',
 }

@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const italy: OecdCountry = {
@@ -19,6 +20,7 @@ export const italy: OecdCountry = {
   cryptocurrencyExchanges: ['Conio', 'Young Platform', 'MiCA-aligned CASPs'],
   stablecoin: 'EUR stablecoins; ECB digital euro pilots — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['IT'],
+  newsOutlets: OECD_NEWS_OUTLETS['IT'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['IT'],
   stockExchange: 'Euronext Milan (Borsa Italiana legacy)',
 }

@@ -1,5 +1,6 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mauritius: SadcCountry = {
@@ -19,6 +20,7 @@ export const mauritius: SadcCountry = {
   cryptocurrencyExchanges: ['Regulatory sandbox / VASP discourse — informal markets exist'],
   stablecoin: 'Informal USD/USDT in tourism-finance corridors',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['MU'],
+  newsOutlets: SADC_NEWS_OUTLETS['MU'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['MU'],
   stockExchange: 'Stock Exchange of Mauritius (SEM)',
 }

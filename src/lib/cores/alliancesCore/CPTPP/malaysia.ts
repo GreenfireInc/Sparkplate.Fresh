@@ -1,5 +1,6 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const malaysia: CptppCountry = {
@@ -18,6 +19,7 @@ export const malaysia: CptppCountry = {
   cryptocurrencyExchanges: ['Luno', 'Tokenize', 'Regulated DAX evolution — verify'],
   stablecoin: 'MYR token pilots; USDT dominant informal',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['MY'],
+  newsOutlets: CPTPP_NEWS_OUTLETS['MY'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['MY'],
   stockExchange: 'Bursa Malaysia',
 }

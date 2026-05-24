@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const pakistan: CommonwealthCountry = {
@@ -19,6 +20,7 @@ export const pakistan: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC'],
   stablecoin: 'USDT informal; no major PKR stablecoin',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['PK'],
+  newsOutlets: COMMONWEALTH_NEWS_OUTLETS['PK'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['PK'],
   stockExchange: 'Pakistan Stock Exchange',
 }

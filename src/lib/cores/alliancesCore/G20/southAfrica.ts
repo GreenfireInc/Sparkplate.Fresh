@@ -1,5 +1,6 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const southAfrica: G20Country = {
@@ -20,6 +21,7 @@ export const southAfrica: G20Country = {
   cryptocurrencyExchanges: ['Luno', 'VALR', 'AltCoinTrader / FSCA CASP licensing regime — informational'],
   stablecoin: 'ZARP (rand-pegged) issuance niche; SARB Project Khokha wholesale settlement experiments — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['ZA'],
+  newsOutlets: G20_NEWS_OUTLETS['ZA'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['ZA'],
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
 }

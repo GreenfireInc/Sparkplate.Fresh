@@ -1,5 +1,6 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const saudiArabia: G20Country = {
@@ -20,6 +21,7 @@ export const saudiArabia: G20Country = {
   cryptocurrencyExchanges: ['Onshore exchange offering constrained; SAMA cautious VA stance; regional Rain / BitOasis adjacency — informational'],
   stablecoin: 'mBridge wholesale CBDC participation; SAR-pegged issuance thin — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['SA'],
+  newsOutlets: G20_NEWS_OUTLETS['SA'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['SA'],
   stockExchange: 'Saudi Exchange (Tadawul)',
 }

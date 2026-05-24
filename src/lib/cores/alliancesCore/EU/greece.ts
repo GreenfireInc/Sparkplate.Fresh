@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const greece: EuCountry = {
@@ -18,6 +19,7 @@ export const greece: EuCountry = {
   cryptocurrencyExchanges: ['EU-licensed gateways; OTC alongside capital controls lifted — informational'],
   stablecoin: 'EUR stablecoins; banking sector cautions historical',
   domesticCourierServices: EU_DOMESTIC_COURIERS['GR'],
+  newsOutlets: EU_NEWS_OUTLETS['GR'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['GR'],
   stockExchange: 'Athens Stock Exchange',
 }

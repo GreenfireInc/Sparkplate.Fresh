@@ -1,5 +1,6 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const unitedKingdom: NatoCountry = {
@@ -21,6 +22,7 @@ export const unitedKingdom: NatoCountry = {
   cryptocurrencyExchanges: ['Coinbase e-money UK', 'Kraken', 'FCA context — informational'],
   stablecoin: 'GBP stablecoins UK cryptoasset regime evolution — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['GB'],
+  newsOutlets: NATO_NEWS_OUTLETS['GB'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['GB'],
   stockExchange: 'London Stock Exchange Group',
 }

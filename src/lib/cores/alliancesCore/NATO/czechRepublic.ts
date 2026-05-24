@@ -1,5 +1,6 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const czechRepublic: NatoCountry = {
@@ -19,6 +20,7 @@ export const czechRepublic: NatoCountry = {
   cryptocurrencyExchanges: ['European brokers; cautious Czech National Bank stance — informational'],
   stablecoin: 'CZK OTC; EUR-stable dominant — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['CZ'],
+  newsOutlets: NATO_NEWS_OUTLETS['CZ'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['CZ'],
   stockExchange: 'Prague Stock Exchange (PX)',
 }

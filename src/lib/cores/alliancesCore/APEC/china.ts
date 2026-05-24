@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const china: ApecCountry = {
@@ -21,6 +22,7 @@ export const china: ApecCountry = {
   cryptocurrencyExchanges: ['Onshore retail crypto prohibited; Hong Kong SAR-adjacent — informational'],
   stablecoin: 'e-CNY pilot — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['CN'],
+  newsOutlets: APEC_NEWS_OUTLETS['CN'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['CN'],
   stockExchange:
     'Shanghai Shenzhen Beijing stock exchanges aggregated context — informational',

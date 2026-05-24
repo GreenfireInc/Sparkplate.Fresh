@@ -1,5 +1,6 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const spain: NatoCountry = {
@@ -19,6 +20,7 @@ export const spain: NatoCountry = {
   cryptocurrencyExchanges: ['Bit2Me', 'CNMV MiCA registry — informational'],
   stablecoin: 'EUR stablecoins — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['ES'],
+  newsOutlets: NATO_NEWS_OUTLETS['ES'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['ES'],
   stockExchange: 'BME / Euronext Spain consolidated context — informational',
 }

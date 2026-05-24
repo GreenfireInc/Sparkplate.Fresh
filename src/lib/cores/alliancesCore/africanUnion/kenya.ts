@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const kenya: AfricanUnionCountry = {
   name: 'Kenya',
@@ -18,6 +19,7 @@ export const kenya: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local blockchain startups'],
   stablecoin: 'USDT / USDC; regulatory environment evolving',
   domesticCourierServices: AU_DOMESTIC_COURIERS['KE'],
+  newsOutlets: AU_NEWS_OUTLETS['KE'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
 }

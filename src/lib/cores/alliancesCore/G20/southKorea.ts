@@ -1,5 +1,6 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const southKorea: G20Country = {
@@ -20,6 +21,7 @@ export const southKorea: G20Country = {
   cryptocurrencyExchanges: ['Upbit', 'Bithumb', 'Coinone / Korbit FSC VASP registration regime — informational'],
   stablecoin: 'KRW-pegged issuance constrained by FSC; offshore USDT/USDC liquidity — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['KR'],
+  newsOutlets: G20_NEWS_OUTLETS['KR'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['KR'],
   stockExchange: 'Korea Exchange KRX (KOSPI / KOSDAQ)',
 }

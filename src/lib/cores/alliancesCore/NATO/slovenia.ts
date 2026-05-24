@@ -1,5 +1,6 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const slovenia: NatoCountry = {
@@ -19,6 +20,7 @@ export const slovenia: NatoCountry = {
   cryptocurrencyExchanges: ['EU-compliant brokers Ljubljana corridor — informational'],
   stablecoin: 'EUR stablecoins MiCA — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['SI'],
+  newsOutlets: NATO_NEWS_OUTLETS['SI'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['SI'],
   stockExchange: 'Ljubljana Stock Exchange',
 }

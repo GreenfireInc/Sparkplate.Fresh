@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const lithuania: OecdCountry = {
@@ -19,6 +20,7 @@ export const lithuania: OecdCountry = {
   cryptocurrencyExchanges: ['EU onboarding; Baltic fintech — informational'],
   stablecoin: 'EUR stablecoins; digital euro preparedness — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['LT'],
+  newsOutlets: OECD_NEWS_OUTLETS['LT'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['LT'],
   stockExchange: 'Nasdaq Vilnius',
 }

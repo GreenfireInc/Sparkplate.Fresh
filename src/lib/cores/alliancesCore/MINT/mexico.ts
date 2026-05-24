@@ -1,5 +1,6 @@
 import type { MintCountry } from './types'
 import { MINT_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { MINT_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MINT_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mexico: MintCountry = {
@@ -20,6 +21,7 @@ export const mexico: MintCountry = {
   cryptocurrencyExchanges: ['Bitso', 'Mexico CNBV fintech-registration evolution — informational'],
   stablecoin: 'MXN fiat-backed issuance pilots vs informal USDT — informational',
   domesticCourierServices: MINT_DOMESTIC_COURIERS['MX'],
+  newsOutlets: MINT_NEWS_OUTLETS['MX'],
   notableUniversities: MINT_NOTABLE_UNIVERSITIES['MX'],
   stockExchange: 'Mexican Stock Exchange BMV Bolsa Mexicana de Valores',
 }

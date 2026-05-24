@@ -1,5 +1,6 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const spain: OecdCountry = {
@@ -19,6 +20,7 @@ export const spain: OecdCountry = {
   cryptocurrencyExchanges: ['Bit2Me', 'CNMV MiCA registry — informational'],
   stablecoin: 'EUR stablecoins; Iberian liquidity — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['ES'],
+  newsOutlets: OECD_NEWS_OUTLETS['ES'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['ES'],
   stockExchange: 'BME / Euronext Spain consolidation — informational',
 }

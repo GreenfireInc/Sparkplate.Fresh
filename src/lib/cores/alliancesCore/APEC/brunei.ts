@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const brunei: ApecCountry = {
@@ -20,6 +21,7 @@ export const brunei: ApecCountry = {
   cryptocurrencyExchanges: ['Autoriti Monetari cautious; regional OTC — informational'],
   stablecoin: 'BND monetary board USD anchor — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['BN'],
+  newsOutlets: APEC_NEWS_OUTLETS['BN'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['BN'],
   stockExchange: 'No consolidated national equities exchange narrative — informational',
 }

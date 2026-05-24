@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const zimbabwe: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const zimbabwe: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Golix (historical)', 'Local P2P'],
   stablecoin: 'USDT / USDC; USD cash economy',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['ZW'],
+  newsOutlets: BRI_NEWS_OUTLETS['ZW'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['ZW'],
   stockExchange: 'Zimbabwe Stock Exchange (ZSE)',
 }

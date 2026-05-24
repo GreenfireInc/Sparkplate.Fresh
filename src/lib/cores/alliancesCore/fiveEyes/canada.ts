@@ -1,5 +1,6 @@
 import type { FiveEyesCountry } from './types'
 import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { FIVE_EYES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const canada: FiveEyesCountry = {
@@ -19,6 +20,7 @@ export const canada: FiveEyesCountry = {
   cryptocurrencyExchanges: ['Bitbuy', 'Newton', 'CSA/PRU provincial licensing environment — informational'],
   stablecoin: 'CAD fiat-backed tokens (regulated money services / evolving OSFI/OSCB guidance — informational)',
   domesticCourierServices: FIVE_EYES_DOMESTIC_COURIERS['CA'],
+  newsOutlets: FIVE_EYES_NEWS_OUTLETS['CA'],
   notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['CA'],
   stockExchange: 'Toronto Stock Exchange (TMX)',
 }

@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const ghana: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const ghana: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Busha', 'Quidax'],
   stablecoin: 'USDT / USDC; Bank of Ghana piloting eCedi CBDC',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['GH'],
+  newsOutlets: BRI_NEWS_OUTLETS['GH'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['GH'],
   stockExchange: 'Ghana Stock Exchange (GSE)',
 }

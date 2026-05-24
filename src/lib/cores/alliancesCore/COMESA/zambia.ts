@@ -1,5 +1,6 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const zambia: ComesaCountry = {
@@ -18,6 +19,7 @@ export const zambia: ComesaCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Luno'],
   stablecoin: 'USDT / USDC informal',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['ZM'],
+  newsOutlets: COMESA_NEWS_OUTLETS['ZM'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['ZM'],
   stockExchange: 'Lusaka Securities Exchange (LuSE); COMESA Secretariat host city — informational',
 }

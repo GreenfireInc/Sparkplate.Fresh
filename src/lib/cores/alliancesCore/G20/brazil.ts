@@ -1,5 +1,6 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const brazil: G20Country = {
@@ -20,6 +21,7 @@ export const brazil: G20Country = {
   cryptocurrencyExchanges: ['Mercado Bitcoin', 'Foxbit', 'Bitso BR / CVM-BCB joint VASP framework — informational'],
   stablecoin: 'BRL-pegged BRZ; Drex (Real Digital) BCB-led wholesale CBDC pilots — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['BR'],
+  newsOutlets: G20_NEWS_OUTLETS['BR'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['BR'],
   stockExchange: 'B3 — Brasil Bolsa Balcão (São Paulo)',
 }

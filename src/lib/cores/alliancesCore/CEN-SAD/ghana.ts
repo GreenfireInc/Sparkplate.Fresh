@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const ghana: CensadCountry = {
@@ -18,6 +19,7 @@ export const ghana: CensadCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance context', 'Licensed VASP evolution'],
   stablecoin: 'Pilot eCedi (CBDC narrative); USDT regional',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['GH'],
+  newsOutlets: CENSAD_NEWS_OUTLETS['GH'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['GH'],
   stockExchange: 'Ghana Stock Exchange',
 }

@@ -1,5 +1,6 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const guinea: CensadCountry = {
@@ -18,6 +19,7 @@ export const guinea: CensadCountry = {
   cryptocurrencyExchanges: ['Informal OTC predominant'],
   stablecoin: 'Informal USD/USDT',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['GN'],
+  newsOutlets: CENSAD_NEWS_OUTLETS['GN'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['GN'],
   stockExchange: 'Regional BRVM not primary; no major national bourse',
 }

@@ -1,5 +1,6 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const papuaNewGuinea: ApecCountry = {
@@ -20,6 +21,7 @@ export const papuaNewGuinea: ApecCountry = {
   cryptocurrencyExchanges: ['Bank Papua New Guinea cautious; informal OTC — informational'],
   stablecoin: 'PGK thin; AUD informal adjacent — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['PG'],
+  newsOutlets: APEC_NEWS_OUTLETS['PG'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['PG'],
   stockExchange: 'PNG National Stock Exchange (Port Moresby — thin — informational)',
 }

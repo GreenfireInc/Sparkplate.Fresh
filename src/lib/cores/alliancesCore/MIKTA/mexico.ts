@@ -1,5 +1,6 @@
 import type { MiktaCountry } from './types'
 import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { MIKTA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mexico: MiktaCountry = {
@@ -20,6 +21,7 @@ export const mexico: MiktaCountry = {
   cryptocurrencyExchanges: ['Bitso', 'Mexico CNBV fintech-registration evolution — informational'],
   stablecoin: 'MXN fiat-backed issuance pilots vs informal USDT — informational',
   domesticCourierServices: MIKTA_DOMESTIC_COURIERS['MX'],
+  newsOutlets: MIKTA_NEWS_OUTLETS['MX'],
   notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['MX'],
   stockExchange: 'Mexican Stock Exchange BMV Bolsa Mexicana de Valores',
 }

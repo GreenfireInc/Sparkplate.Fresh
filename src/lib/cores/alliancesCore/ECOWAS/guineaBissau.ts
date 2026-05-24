@@ -1,5 +1,6 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const guineaBissau: EcowasCountry = {
@@ -18,6 +19,7 @@ export const guineaBissau: EcowasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional P2P'],
   stablecoin: 'USDT P2P; XOF CFA peg',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['GW'],
+  newsOutlets: ECOWAS_NEWS_OUTLETS['GW'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['GW'],
   stockExchange: 'BRVM regional access; no deep domestic bourse',
 }

@@ -1,5 +1,6 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 export const somalia: AfricanUnionCountry = {
   name: 'Somalia',
@@ -18,6 +19,7 @@ export const somalia: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Hawala-linked OTC', 'Diaspora remittance apps'],
   stablecoin: 'USDT informal; USD cash economy',
   domesticCourierServices: AU_DOMESTIC_COURIERS['SO'],
+  newsOutlets: AU_NEWS_OUTLETS['SO'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['SO'],
   stockExchange: 'No functioning national exchange',
 }

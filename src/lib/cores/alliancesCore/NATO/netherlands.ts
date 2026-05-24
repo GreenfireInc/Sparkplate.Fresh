@@ -1,5 +1,6 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const netherlands: NatoCountry = {
@@ -19,6 +20,7 @@ export const netherlands: NatoCountry = {
   cryptocurrencyExchanges: ['Bitstamp', 'MiCA-aligned AFM registry — informational'],
   stablecoin: 'EUR stablecoins; e-money institutions — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['NL'],
+  newsOutlets: NATO_NEWS_OUTLETS['NL'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['NL'],
   stockExchange: 'Euronext Amsterdam',
 }

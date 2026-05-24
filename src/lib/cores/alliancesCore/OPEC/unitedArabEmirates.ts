@@ -1,5 +1,6 @@
 import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const unitedArabEmirates: OpecCountry = {
@@ -21,6 +22,7 @@ export const unitedArabEmirates: OpecCountry = {
   cryptocurrencyExchanges: ['VARA Dubai regime', 'ADGM FSRA digital-asset licences', 'MENA liquidity — informational'],
   stablecoin: 'AED-referenced issuance pilots; CBUAE supervision evolution — informational',
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['AE'],
+  newsOutlets: OPEC_NEWS_OUTLETS['AE'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['AE'],
   stockExchange: 'Abu Dhabi Securities Exchange (ADX); Dubai Financial Market (DFM)',
 }

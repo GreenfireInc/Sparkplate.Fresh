@@ -1,5 +1,6 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const spain: EuCountry = {
@@ -18,6 +19,7 @@ export const spain: EuCountry = {
   cryptocurrencyExchanges: ['Bit2Me', 'European MiCA registry ES CNMV'],
   stablecoin: 'EUR stablecoins; Iberian liquidity',
   domesticCourierServices: EU_DOMESTIC_COURIERS['ES'],
+  newsOutlets: EU_NEWS_OUTLETS['ES'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['ES'],
   stockExchange: 'BME Growth / Euronext Spain context',
 }

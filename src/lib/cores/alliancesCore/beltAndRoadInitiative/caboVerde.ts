@@ -1,5 +1,6 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const caboVerde: BeltAndRoadInitiativeCountry = {
@@ -19,6 +20,7 @@ export const caboVerde: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'European-facing brokers'],
   stablecoin: 'EUR-linked usage; USDT via international apps',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['CV'],
+  newsOutlets: BRI_NEWS_OUTLETS['CV'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['CV'],
   stockExchange: 'Bolsa de Valores de Cabo Verde (limited listings)',
 }

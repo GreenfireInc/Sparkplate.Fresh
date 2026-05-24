@@ -1,5 +1,6 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const mauritius: ComesaCountry = {
@@ -19,6 +20,7 @@ export const mauritius: ComesaCountry = {
   cryptocurrencyExchanges: ['Luno', 'Binance (international)', 'VALR (regional)'],
   stablecoin: 'USDT / USDC; offshore financial center activity',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['MU'],
+  newsOutlets: COMESA_NEWS_OUTLETS['MU'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['MU'],
   stockExchange: 'Stock Exchange of Mauritius (SEM)',
 }

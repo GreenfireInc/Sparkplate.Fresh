@@ -1,5 +1,6 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const newZealand: CommonwealthCountry = {
@@ -19,6 +20,7 @@ export const newZealand: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Easy Crypto', 'Independent Reserve NZ', 'Binance (P2P)'],
   stablecoin: 'NZD stablecoins limited; USDC/USDT',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['NZ'],
+  newsOutlets: COMMONWEALTH_NEWS_OUTLETS['NZ'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['NZ'],
   stockExchange: 'NZX (New Zealand Exchange)',
 }

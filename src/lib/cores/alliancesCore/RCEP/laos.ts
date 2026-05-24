@@ -1,5 +1,6 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 
 export const laos: RcepCountry = {
@@ -19,6 +20,7 @@ export const laos: RcepCountry = {
   cryptocurrencyExchanges: ['BOL restrictive; OTC sparse — informational'],
   stablecoin: 'LAK rails thin; USD/Baht informal — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['LA'],
+  newsOutlets: RCEP_NEWS_OUTLETS['LA'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['LA'],
   stockExchange: 'Lao Securities Exchange (thin listings — informational)',
 }
