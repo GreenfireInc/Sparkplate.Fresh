@@ -2,6 +2,7 @@ import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const seychelles: ComesaCountry = {
   name: 'Seychelles',
@@ -21,5 +22,6 @@ export const seychelles: ComesaCountry = {
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['SC'],
   newsOutlets: COMESA_NEWS_OUTLETS['SC'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['SC'],
+  mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['SC'],
   stockExchange: 'MERJ Exchange (securities niche — verify branding)',
 }

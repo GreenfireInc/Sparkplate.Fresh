@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const angola: BeltAndRoadInitiativeCountry = {
   name: 'Angola',
@@ -22,5 +23,6 @@ export const angola: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['AO'],
   newsOutlets: BRI_NEWS_OUTLETS['AO'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['AO'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['AO'],
   stockExchange: 'Bodiva (Angola Securities Exchange)',
 }

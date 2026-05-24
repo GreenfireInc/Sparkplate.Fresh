@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const benin: AfricanUnionCountry = {
   name: 'Benin',
   iso3166Alpha2: 'BJ',
@@ -21,5 +22,6 @@ export const benin: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['BJ'],
   newsOutlets: AU_NEWS_OUTLETS['BJ'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['BJ'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['BJ'],
   stockExchange: 'Regional Securities Exchange (BRVM) — Abidjan (Benin listed)',
 }

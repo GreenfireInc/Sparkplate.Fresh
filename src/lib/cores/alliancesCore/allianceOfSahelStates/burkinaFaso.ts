@@ -2,6 +2,7 @@ import type { AllianceOfSahelStatesCountry } from './types'
 import { AES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const burkinaFaso: AllianceOfSahelStatesCountry = {
   name: 'Burkina Faso',
@@ -22,5 +23,6 @@ export const burkinaFaso: AllianceOfSahelStatesCountry = {
   domesticCourierServices: AES_DOMESTIC_COURIERS['BF'],
   newsOutlets: AES_NEWS_OUTLETS['BF'],
   notableUniversities: AES_NOTABLE_UNIVERSITIES['BF'],
+  mainExportCommodities: AES_MAIN_EXPORT_COMMODITIES['BF'],
   stockExchange: 'Burkina Faso — BRVM listings (limited local activity)',
 }

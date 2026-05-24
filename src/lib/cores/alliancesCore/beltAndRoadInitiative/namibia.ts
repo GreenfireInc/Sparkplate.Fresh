@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const namibia: BeltAndRoadInitiativeCountry = {
   name: 'Namibia',
@@ -22,5 +23,6 @@ export const namibia: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['NA'],
   newsOutlets: BRI_NEWS_OUTLETS['NA'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['NA'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['NA'],
   stockExchange: 'Namibia Stock Exchange (NSX)',
 }

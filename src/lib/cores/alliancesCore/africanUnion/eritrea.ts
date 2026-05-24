@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const eritrea: AfricanUnionCountry = {
   name: 'Eritrea',
   iso3166Alpha2: 'ER',
@@ -21,5 +22,6 @@ export const eritrea: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['ER'],
   newsOutlets: AU_NEWS_OUTLETS['ER'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['ER'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['ER'],
   stockExchange: 'No public stock exchange',
 }

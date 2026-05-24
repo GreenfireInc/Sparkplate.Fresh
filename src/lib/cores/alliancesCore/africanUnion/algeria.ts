@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const algeria: AfricanUnionCountry = {
   name: 'Algeria',
   iso3166Alpha2: 'DZ',
@@ -21,5 +22,6 @@ export const algeria: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['DZ'],
   newsOutlets: AU_NEWS_OUTLETS['DZ'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['DZ'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['DZ'],
   stockExchange: 'Algiers Stock Exchange',
 }

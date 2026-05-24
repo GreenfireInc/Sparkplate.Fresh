@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const newZealand: CommonwealthCountry = {
   name: 'New Zealand',
@@ -22,5 +23,6 @@ export const newZealand: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['NZ'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['NZ'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['NZ'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['NZ'],
   stockExchange: 'NZX (New Zealand Exchange)',
 }

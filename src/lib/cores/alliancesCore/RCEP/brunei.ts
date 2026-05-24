@@ -2,6 +2,7 @@ import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const brunei: RcepCountry = {
   name: 'Brunei',
@@ -23,5 +24,6 @@ export const brunei: RcepCountry = {
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['BN'],
   newsOutlets: RCEP_NEWS_OUTLETS['BN'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['BN'],
+  mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['BN'],
   stockExchange: 'No dedicated national exchange consolidated; regional ECM context — informational',
 }

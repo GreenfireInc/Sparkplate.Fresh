@@ -2,6 +2,7 @@ import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const brunei: ApecCountry = {
   name: 'Brunei',
@@ -23,5 +24,6 @@ export const brunei: ApecCountry = {
   domesticCourierServices: APEC_DOMESTIC_COURIERS['BN'],
   newsOutlets: APEC_NEWS_OUTLETS['BN'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['BN'],
+  mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['BN'],
   stockExchange: 'No consolidated national equities exchange narrative — informational',
 }

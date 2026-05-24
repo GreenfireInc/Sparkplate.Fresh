@@ -2,6 +2,7 @@ import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const centralAfricanRepublic: EccasCountry = {
   name: 'Central African Republic',
@@ -22,5 +23,6 @@ export const centralAfricanRepublic: EccasCountry = {
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['CF'],
   newsOutlets: ECCAS_NEWS_OUTLETS['CF'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['CF'],
+  mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['CF'],
   stockExchange: 'Bangui Stock Exchange (very limited)',
 }

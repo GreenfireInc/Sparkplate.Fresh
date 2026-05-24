@@ -2,6 +2,7 @@ import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const sriLanka: IoraCountry = {
   name: 'Sri Lanka',
@@ -22,5 +23,6 @@ export const sriLanka: IoraCountry = {
   domesticCourierServices: IORA_DOMESTIC_COURIERS['LK'],
   newsOutlets: IORA_NEWS_OUTLETS['LK'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['LK'],
+  mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['LK'],
   stockExchange: 'Colombo Stock Exchange (CSE)',
 }

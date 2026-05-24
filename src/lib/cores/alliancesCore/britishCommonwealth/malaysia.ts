@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const malaysia: CommonwealthCountry = {
   name: 'Malaysia',
@@ -22,5 +23,6 @@ export const malaysia: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['MY'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['MY'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['MY'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['MY'],
   stockExchange: 'Bursa Malaysia',
 }

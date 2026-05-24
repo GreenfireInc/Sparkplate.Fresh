@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const elSalvador: BeltAndRoadInitiativeCountry = {
   name: 'El Salvador',
@@ -22,5 +23,6 @@ export const elSalvador: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['SV'],
   newsOutlets: BRI_NEWS_OUTLETS['SV'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['SV'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['SV'],
   stockExchange: 'National or regional exchange (verify)',
 }

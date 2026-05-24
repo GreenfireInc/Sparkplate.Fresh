@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const cyprus: CommonwealthCountry = {
   name: 'Cyprus',
@@ -22,5 +23,6 @@ export const cyprus: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['CY'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['CY'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['CY'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['CY'],
   stockExchange: 'Cyprus Stock Exchange (CSE)',
 }

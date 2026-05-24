@@ -2,6 +2,7 @@ import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const laos: RcepCountry = {
   name: 'Laos',
@@ -22,5 +23,6 @@ export const laos: RcepCountry = {
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['LA'],
   newsOutlets: RCEP_NEWS_OUTLETS['LA'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['LA'],
+  mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['LA'],
   stockExchange: 'Lao Securities Exchange (thin listings — informational)',
 }

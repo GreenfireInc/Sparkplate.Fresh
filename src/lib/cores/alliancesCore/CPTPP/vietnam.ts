@@ -2,6 +2,7 @@ import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const vietnam: CptppCountry = {
   name: 'Vietnam',
@@ -21,5 +22,6 @@ export const vietnam: CptppCountry = {
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['VN'],
   newsOutlets: CPTPP_NEWS_OUTLETS['VN'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['VN'],
+  mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['VN'],
   stockExchange: 'Ho Chi Minh Stock Exchange (HOSE) / Hanoi Stock Exchange (HNX)',
 }

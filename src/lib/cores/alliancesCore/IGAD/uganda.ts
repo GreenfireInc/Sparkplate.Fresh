@@ -2,6 +2,7 @@ import type { IgadCountry } from './types'
 import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const uganda: IgadCountry = {
   name: 'Uganda',
@@ -22,5 +23,6 @@ export const uganda: IgadCountry = {
   domesticCourierServices: IGAD_DOMESTIC_COURIERS['UG'],
   newsOutlets: IGAD_NEWS_OUTLETS['UG'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['UG'],
+  mainExportCommodities: IGAD_MAIN_EXPORT_COMMODITIES['UG'],
   stockExchange: 'Uganda Securities Exchange (USE, thin listings — informational)',
 }

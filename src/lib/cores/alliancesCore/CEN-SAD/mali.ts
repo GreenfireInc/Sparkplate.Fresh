@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const mali: CensadCountry = {
   name: 'Mali',
@@ -21,5 +22,6 @@ export const mali: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['ML'],
   newsOutlets: CENSAD_NEWS_OUTLETS['ML'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['ML'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['ML'],
   stockExchange: 'BRVM listing context (WAEMU)',
 }

@@ -2,6 +2,7 @@ import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const grenada: CaricomCountry = {
   name: 'Grenada',
@@ -22,5 +23,6 @@ export const grenada: CaricomCountry = {
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['GD'],
   newsOutlets: CARICOM_NEWS_OUTLETS['GD'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['GD'],
+  mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['GD'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

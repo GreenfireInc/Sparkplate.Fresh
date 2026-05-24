@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const unitedArabEmirates: BeltAndRoadInitiativeCountry = {
   name: 'United Arab Emirates',
@@ -22,5 +23,6 @@ export const unitedArabEmirates: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['AE'],
   newsOutlets: BRI_NEWS_OUTLETS['AE'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['AE'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['AE'],
   stockExchange: 'Abu Dhabi Securities Exchange (ADX); Dubai Financial Market (DFM)',
 }

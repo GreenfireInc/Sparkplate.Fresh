@@ -2,6 +2,7 @@ export type {
   MiktaCountry,
   MiktaOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,

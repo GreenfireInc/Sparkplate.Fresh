@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const micronesia: BeltAndRoadInitiativeCountry = {
   name: 'Micronesia',
@@ -22,5 +23,6 @@ export const micronesia: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['FM'],
   newsOutlets: BRI_NEWS_OUTLETS['FM'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['FM'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['FM'],
   stockExchange: 'National or regional exchange (verify)',
 }

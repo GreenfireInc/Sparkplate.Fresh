@@ -3,6 +3,7 @@ export type {
   AllianceOfSahelStatesMembership,
   AllianceOfSahelStatesOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,

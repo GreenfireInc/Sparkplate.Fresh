@@ -2,6 +2,7 @@ import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const southKorea: ApecCountry = {
   name: 'South Korea',
@@ -23,5 +24,6 @@ export const southKorea: ApecCountry = {
   domesticCourierServices: APEC_DOMESTIC_COURIERS['KR'],
   newsOutlets: APEC_NEWS_OUTLETS['KR'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['KR'],
+  mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['KR'],
   stockExchange: 'Korea Exchange KOSPI / KOSDAQ',
 }

@@ -2,6 +2,7 @@ import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const seychelles: SadcCountry = {
   name: 'Seychelles',
@@ -22,5 +23,6 @@ export const seychelles: SadcCountry = {
   domesticCourierServices: SADC_DOMESTIC_COURIERS['SC'],
   newsOutlets: SADC_NEWS_OUTLETS['SC'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['SC'],
+  mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['SC'],
   stockExchange: 'Merjex / small domestic market — verify',
 }

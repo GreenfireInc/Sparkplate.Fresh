@@ -2,6 +2,7 @@ import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const canada: CptppCountry = {
   name: 'Canada',
@@ -21,5 +22,6 @@ export const canada: CptppCountry = {
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['CA'],
   newsOutlets: CPTPP_NEWS_OUTLETS['CA'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['CA'],
+  mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['CA'],
   stockExchange: 'Toronto Stock Exchange (TSX) / TMX Group',
 }

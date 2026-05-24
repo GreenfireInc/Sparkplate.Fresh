@@ -2,6 +2,7 @@ import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const kenya: IoraCountry = {
   name: 'Kenya',
@@ -22,5 +23,6 @@ export const kenya: IoraCountry = {
   domesticCourierServices: IORA_DOMESTIC_COURIERS['KE'],
   newsOutlets: IORA_NEWS_OUTLETS['KE'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['KE'],
+  mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
 }

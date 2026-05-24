@@ -2,6 +2,7 @@ import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const saintKittsAndNevis: OecsCountry = {
   name: 'Saint Kitts and Nevis',
@@ -22,5 +23,6 @@ export const saintKittsAndNevis: OecsCountry = {
   domesticCourierServices: OECS_DOMESTIC_COURIERS['KN'],
   newsOutlets: OECS_NEWS_OUTLETS['KN'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['KN'],
+  mainExportCommodities: OECS_MAIN_EXPORT_COMMODITIES['KN'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

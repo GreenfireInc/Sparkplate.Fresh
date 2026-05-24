@@ -2,6 +2,7 @@ import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const singapore: CptppCountry = {
   name: 'Singapore',
@@ -21,5 +22,6 @@ export const singapore: CptppCountry = {
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['SG'],
   newsOutlets: CPTPP_NEWS_OUTLETS['SG'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['SG'],
+  mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['SG'],
   stockExchange: 'Singapore Exchange (SGX)',
 }

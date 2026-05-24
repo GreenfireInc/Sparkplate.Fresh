@@ -2,12 +2,31 @@ import type { NotableUniversity } from './types'
 import { MIKTA_MEMBER_ISO_CODES } from './miktaMemberIsoCodes'
 import { APEC_NOTABLE_UNIVERSITIES } from '../APEC/notableUniversitiesByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from '../ASEAN/notableUniversitiesByIso'
-import { REGIONAL_NOTABLE_UNIVERSITIES_SUPPLEMENT } from '../regionalNotableUniversitiesSupplement'
+
+function u(
+  name: string,
+  website: string,
+  email: string,
+  instagram: string,
+  twitter: string,
+  linkedin: string,
+): NotableUniversity {
+  return { name, website, email, instagram, twitter, linkedin }
+}
 
 type Triple = readonly [NotableUniversity, NotableUniversity, NotableUniversity]
 
+/** Member-specific notable universities not covered by other layer maps. */
+const MIKTA_LOCAL: Partial<Record<string, Triple>> = {
+  TR: [
+    u('Istanbul Technical University ITU', 'https://www.itu.edu.tr/', '', '', '', ''),
+    u('Middle East Technical University METU', 'https://www.metu.edu.tr/', '', '', '', ''),
+    u('Bo\u011fazi\u00e7i University', '', '', '', '', ''),
+  ],
+}
+
 const LAYERS: ReadonlyArray<Partial<Record<string, Triple>>> = [
-  REGIONAL_NOTABLE_UNIVERSITIES_SUPPLEMENT as Partial<Record<string, Triple>>,
+  MIKTA_LOCAL,
   APEC_NOTABLE_UNIVERSITIES as unknown as Partial<Record<string, Triple>>,
   ASEAN_NOTABLE_UNIVERSITIES as unknown as Partial<Record<string, Triple>>,
 ]

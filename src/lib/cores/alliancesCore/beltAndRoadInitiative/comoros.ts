@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const comoros: BeltAndRoadInitiativeCountry = {
   name: 'Comoros',
@@ -22,5 +23,6 @@ export const comoros: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['KM'],
   newsOutlets: BRI_NEWS_OUTLETS['KM'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['KM'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['KM'],
   stockExchange: 'No major national stock exchange',
 }

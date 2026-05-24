@@ -2,6 +2,7 @@ import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const ghana: EcowasCountry = {
   name: 'Ghana',
@@ -21,5 +22,6 @@ export const ghana: EcowasCountry = {
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['GH'],
   newsOutlets: ECOWAS_NEWS_OUTLETS['GH'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['GH'],
+  mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['GH'],
   stockExchange: 'Ghana Stock Exchange (GSE)',
 }

@@ -2,6 +2,7 @@ export type {
   OpecCountry,
   OpecOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,

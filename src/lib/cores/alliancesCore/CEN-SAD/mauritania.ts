@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const mauritania: CensadCountry = {
   name: 'Mauritania',
@@ -21,5 +22,6 @@ export const mauritania: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['MR'],
   newsOutlets: CENSAD_NEWS_OUTLETS['MR'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['MR'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['MR'],
   stockExchange: 'Bourse de Mauritanie (Nouakchott — verify depth)',
 }

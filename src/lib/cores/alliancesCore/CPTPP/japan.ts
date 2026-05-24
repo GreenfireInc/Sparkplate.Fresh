@@ -2,6 +2,7 @@ import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const japan: CptppCountry = {
   name: 'Japan',
@@ -21,5 +22,6 @@ export const japan: CptppCountry = {
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['JP'],
   newsOutlets: CPTPP_NEWS_OUTLETS['JP'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['JP'],
+  mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['JP'],
   stockExchange: 'Tokyo Stock Exchange (TSE)',
 }

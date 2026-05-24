@@ -2,6 +2,7 @@ import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const cameroon: EccasCountry = {
   name: 'Cameroon',
@@ -22,5 +23,6 @@ export const cameroon: EccasCountry = {
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['CM'],
   newsOutlets: ECCAS_NEWS_OUTLETS['CM'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['CM'],
+  mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['CM'],
   stockExchange: 'Douala Stock Exchange (DSX)',
 }

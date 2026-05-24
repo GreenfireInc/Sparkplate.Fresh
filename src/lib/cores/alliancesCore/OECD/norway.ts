@@ -2,6 +2,7 @@ import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const norway: OecdCountry = {
   name: 'Norway',
@@ -22,5 +23,6 @@ export const norway: OecdCountry = {
   domesticCourierServices: OECD_DOMESTIC_COURIERS['NO'],
   newsOutlets: OECD_NEWS_OUTLETS['NO'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['NO'],
+  mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['NO'],
   stockExchange: 'Oslo Stock Exchange (Euronext Oslo Børs)',
 }

@@ -2,6 +2,7 @@ import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const republicOfTheCongo: OpecCountry = {
   name: 'Republic of the Congo',
@@ -22,5 +23,6 @@ export const republicOfTheCongo: OpecCountry = {
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['CG'],
   newsOutlets: OPEC_NEWS_OUTLETS['CG'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['CG'],
+  mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['CG'],
   stockExchange: 'Brazaafrica listings thin; Congo regional bourse narratives — informational',
 }

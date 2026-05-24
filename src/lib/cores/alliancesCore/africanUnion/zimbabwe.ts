@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const zimbabwe: AfricanUnionCountry = {
   name: 'Zimbabwe',
   iso3166Alpha2: 'ZW',
@@ -21,5 +22,6 @@ export const zimbabwe: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['ZW'],
   newsOutlets: AU_NEWS_OUTLETS['ZW'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['ZW'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['ZW'],
   stockExchange: 'Zimbabwe Stock Exchange (ZSE)',
 }

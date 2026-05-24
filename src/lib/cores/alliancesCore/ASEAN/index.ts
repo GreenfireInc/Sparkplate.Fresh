@@ -2,6 +2,7 @@ export type {
   AseanCountry,
   AseanOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,

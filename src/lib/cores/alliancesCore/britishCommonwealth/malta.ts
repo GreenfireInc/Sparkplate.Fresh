@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const malta: CommonwealthCountry = {
   name: 'Malta',
@@ -22,5 +23,6 @@ export const malta: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['MT'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['MT'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['MT'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['MT'],
   stockExchange: 'Malta Stock Exchange',
 }

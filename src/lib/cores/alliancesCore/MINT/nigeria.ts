@@ -2,6 +2,7 @@ import type { MintCountry } from './types'
 import { MINT_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { MINT_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MINT_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { MINT_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const nigeria: MintCountry = {
   name: 'Nigeria',
@@ -23,5 +24,6 @@ export const nigeria: MintCountry = {
   domesticCourierServices: MINT_DOMESTIC_COURIERS['NG'],
   newsOutlets: MINT_NEWS_OUTLETS['NG'],
   notableUniversities: MINT_NOTABLE_UNIVERSITIES['NG'],
+  mainExportCommodities: MINT_MAIN_EXPORT_COMMODITIES['NG'],
   stockExchange: 'Nigerian Exchange Group NGX (Lagos equities)',
 }

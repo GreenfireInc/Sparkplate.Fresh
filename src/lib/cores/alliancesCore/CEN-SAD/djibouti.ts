@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const djibouti: CensadCountry = {
   name: 'Djibouti',
@@ -21,5 +22,6 @@ export const djibouti: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['DJ'],
   newsOutlets: CENSAD_NEWS_OUTLETS['DJ'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['DJ'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['DJ'],
   stockExchange: 'No major national stock exchange',
 }

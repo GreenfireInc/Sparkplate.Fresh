@@ -2,6 +2,7 @@ import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const algeria: OpecCountry = {
   name: 'Algeria',
@@ -22,5 +23,6 @@ export const algeria: OpecCountry = {
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['DZ'],
   newsOutlets: OPEC_NEWS_OUTLETS['DZ'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['DZ'],
+  mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['DZ'],
   stockExchange: 'Algerian equities segment (regulated bourse liquidity limited — informational)',
 }

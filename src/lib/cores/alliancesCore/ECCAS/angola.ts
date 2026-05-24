@@ -2,6 +2,7 @@ import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const angola: EccasCountry = {
   name: 'Angola',
@@ -21,5 +22,6 @@ export const angola: EccasCountry = {
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['AO'],
   newsOutlets: ECCAS_NEWS_OUTLETS['AO'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['AO'],
+  mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['AO'],
   stockExchange: 'Bodiva (Angola Securities Exchange)',
 }

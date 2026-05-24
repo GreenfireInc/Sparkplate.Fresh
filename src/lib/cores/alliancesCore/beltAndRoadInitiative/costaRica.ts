@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const costaRica: BeltAndRoadInitiativeCountry = {
   name: 'Costa Rica',
@@ -22,5 +23,6 @@ export const costaRica: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['CR'],
   newsOutlets: BRI_NEWS_OUTLETS['CR'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['CR'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['CR'],
   stockExchange: 'National or regional exchange (verify)',
 }

@@ -2,6 +2,7 @@ import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const peru: CptppCountry = {
   name: 'Peru',
@@ -22,5 +23,6 @@ export const peru: CptppCountry = {
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['PE'],
   newsOutlets: CPTPP_NEWS_OUTLETS['PE'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['PE'],
+  mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['PE'],
   stockExchange: 'Lima Stock Exchange (Bolsa de Valores de Lima)',
 }

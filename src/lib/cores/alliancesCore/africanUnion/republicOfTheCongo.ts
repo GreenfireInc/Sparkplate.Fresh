@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const republicOfTheCongo: AfricanUnionCountry = {
   name: 'Republic of the Congo',
   iso3166Alpha2: 'CG',
@@ -21,5 +22,6 @@ export const republicOfTheCongo: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['CG'],
   newsOutlets: AU_NEWS_OUTLETS['CG'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['CG'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['CG'],
   stockExchange: 'Bourse des Valeurs du Congo (BVC)',
 }

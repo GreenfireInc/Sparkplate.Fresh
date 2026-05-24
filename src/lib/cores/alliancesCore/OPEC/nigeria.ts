@@ -2,6 +2,7 @@ import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const nigeria: OpecCountry = {
   name: 'Nigeria',
@@ -22,5 +23,6 @@ export const nigeria: OpecCountry = {
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['NG'],
   newsOutlets: OPEC_NEWS_OUTLETS['NG'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['NG'],
+  mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['NG'],
   stockExchange: 'Nigerian Exchange Group NGX (Lagos equities)',
 }

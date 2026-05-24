@@ -2,6 +2,7 @@ import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const colombia: OecdCountry = {
   name: 'Colombia',
@@ -23,5 +24,6 @@ export const colombia: OecdCountry = {
   domesticCourierServices: OECD_DOMESTIC_COURIERS['CO'],
   newsOutlets: OECD_NEWS_OUTLETS['CO'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['CO'],
+  mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['CO'],
   stockExchange: 'Bolsa de Valores de Colombia (bvc Colombia)',
 }

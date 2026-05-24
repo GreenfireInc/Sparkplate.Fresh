@@ -2,6 +2,7 @@ import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const somalia: IoraCountry = {
   name: 'Somalia',
@@ -22,5 +23,6 @@ export const somalia: IoraCountry = {
   domesticCourierServices: IORA_DOMESTIC_COURIERS['SO'],
   newsOutlets: IORA_NEWS_OUTLETS['SO'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['SO'],
+  mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['SO'],
   stockExchange: 'No consolidated national exchange (fragmented governance — informational)',
 }

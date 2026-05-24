@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const singapore: CommonwealthCountry = {
   name: 'Singapore',
@@ -22,5 +23,6 @@ export const singapore: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['SG'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['SG'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['SG'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['SG'],
   stockExchange: 'Singapore Exchange (SGX)',
 }

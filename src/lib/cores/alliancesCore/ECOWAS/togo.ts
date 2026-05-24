@@ -2,6 +2,7 @@ import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const togo: EcowasCountry = {
   name: 'Togo',
@@ -21,5 +22,6 @@ export const togo: EcowasCountry = {
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['TG'],
   newsOutlets: ECOWAS_NEWS_OUTLETS['TG'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['TG'],
+  mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['TG'],
   stockExchange: 'BRVM listings; Lomé banking hub — verify depth',
 }

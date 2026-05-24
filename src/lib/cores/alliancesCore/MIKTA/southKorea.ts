@@ -2,6 +2,7 @@ import type { MiktaCountry } from './types'
 import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { MIKTA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { MIKTA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const southKorea: MiktaCountry = {
   name: 'South Korea',
@@ -23,5 +24,6 @@ export const southKorea: MiktaCountry = {
   domesticCourierServices: MIKTA_DOMESTIC_COURIERS['KR'],
   newsOutlets: MIKTA_NEWS_OUTLETS['KR'],
   notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['KR'],
+  mainExportCommodities: MIKTA_MAIN_EXPORT_COMMODITIES['KR'],
   stockExchange: 'Korea Exchange KRX (KOSPI / KOSDAQ)',
 }

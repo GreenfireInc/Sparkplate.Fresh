@@ -2,6 +2,7 @@ import type { IgadCountry } from './types'
 import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const southSudan: IgadCountry = {
   name: 'South Sudan',
@@ -22,5 +23,6 @@ export const southSudan: IgadCountry = {
   domesticCourierServices: IGAD_DOMESTIC_COURIERS['SS'],
   newsOutlets: IGAD_NEWS_OUTLETS['SS'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['SS'],
+  mainExportCommodities: IGAD_MAIN_EXPORT_COMMODITIES['SS'],
   stockExchange: 'No national exchange consolidated (Juba financial-market nascent — informational)',
 }

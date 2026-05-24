@@ -3,6 +3,7 @@ export type {
   AmuMembership,
   AmuOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,

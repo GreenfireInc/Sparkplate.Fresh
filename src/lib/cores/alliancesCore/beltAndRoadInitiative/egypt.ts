@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const egypt: BeltAndRoadInitiativeCountry = {
   name: 'Egypt',
@@ -22,5 +23,6 @@ export const egypt: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['EG'],
   newsOutlets: BRI_NEWS_OUTLETS['EG'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['EG'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['EG'],
   stockExchange: 'Egyptian Exchange (EGX)',
 }

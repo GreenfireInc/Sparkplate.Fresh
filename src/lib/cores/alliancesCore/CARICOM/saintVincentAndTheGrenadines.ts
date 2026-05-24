@@ -2,6 +2,7 @@ import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const saintVincentAndTheGrenadines: CaricomCountry = {
   name: 'Saint Vincent and the Grenadines',
@@ -22,5 +23,6 @@ export const saintVincentAndTheGrenadines: CaricomCountry = {
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['VC'],
   newsOutlets: CARICOM_NEWS_OUTLETS['VC'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['VC'],
+  mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['VC'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const zambia: CommonwealthCountry = {
   name: 'Zambia',
@@ -22,5 +23,6 @@ export const zambia: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['ZM'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['ZM'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['ZM'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['ZM'],
   stockExchange: 'Lusaka Securities Exchange',
 }

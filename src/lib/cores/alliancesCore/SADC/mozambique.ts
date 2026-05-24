@@ -2,6 +2,7 @@ import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const mozambique: SadcCountry = {
   name: 'Mozambique',
@@ -21,5 +22,6 @@ export const mozambique: SadcCountry = {
   domesticCourierServices: SADC_DOMESTIC_COURIERS['MZ'],
   newsOutlets: SADC_NEWS_OUTLETS['MZ'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['MZ'],
+  mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['MZ'],
   stockExchange: 'Bolsa de Valores de Moçambique — verify activity',
 }

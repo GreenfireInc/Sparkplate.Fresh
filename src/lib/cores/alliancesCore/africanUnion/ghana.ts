@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const ghana: AfricanUnionCountry = {
   name: 'Ghana',
   iso3166Alpha2: 'GH',
@@ -21,5 +22,6 @@ export const ghana: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['GH'],
   newsOutlets: AU_NEWS_OUTLETS['GH'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['GH'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['GH'],
   stockExchange: 'Ghana Stock Exchange (GSE)',
 }

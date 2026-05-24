@@ -2,6 +2,7 @@ import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const zambia: SadcCountry = {
   name: 'Zambia',
@@ -21,5 +22,6 @@ export const zambia: SadcCountry = {
   domesticCourierServices: SADC_DOMESTIC_COURIERS['ZM'],
   newsOutlets: SADC_NEWS_OUTLETS['ZM'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['ZM'],
+  mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['ZM'],
   stockExchange: 'Lusaka Securities Exchange',
 }

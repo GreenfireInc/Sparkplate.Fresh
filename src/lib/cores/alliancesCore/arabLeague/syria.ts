@@ -2,6 +2,7 @@ import type { ArabLeagueCountry } from './types'
 import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ARAB_LEAGUE_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const syria: ArabLeagueCountry = {
   name: 'Syria',
@@ -22,5 +23,6 @@ export const syria: ArabLeagueCountry = {
   domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['SY'],
   newsOutlets: ARAB_LEAGUE_NEWS_OUTLETS['SY'],
   notableUniversities: ARAB_LEAGUE_NOTABLE_UNIVERSITIES['SY'],
+  mainExportCommodities: ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES['SY'],
   stockExchange: 'Damascus Securities Exchange (limited)',
 }

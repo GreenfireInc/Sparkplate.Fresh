@@ -2,6 +2,7 @@ import type { BricsCountry } from './types'
 import { BRICS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRICS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRICS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRICS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const brazil: BricsCountry = {
   name: 'Brazil',
@@ -22,5 +23,6 @@ export const brazil: BricsCountry = {
   domesticCourierServices: BRICS_DOMESTIC_COURIERS['BR'],
   newsOutlets: BRICS_NEWS_OUTLETS['BR'],
   notableUniversities: BRICS_NOTABLE_UNIVERSITIES['BR'],
+  mainExportCommodities: BRICS_MAIN_EXPORT_COMMODITIES['BR'],
   stockExchange: 'B3 — Brasil Bolsa Balcão',
 }

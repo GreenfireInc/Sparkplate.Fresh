@@ -2,6 +2,7 @@ import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const chad: EccasCountry = {
   name: 'Chad',
@@ -21,5 +22,6 @@ export const chad: EccasCountry = {
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['TD'],
   newsOutlets: ECCAS_NEWS_OUTLETS['TD'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['TD'],
+  mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['TD'],
   stockExchange: 'CEMAC regional capital markets (thin Chad footprint)',
 }

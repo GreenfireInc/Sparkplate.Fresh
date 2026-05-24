@@ -2,6 +2,7 @@ import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const india: G20Country = {
   name: 'India',
@@ -23,5 +24,6 @@ export const india: G20Country = {
   domesticCourierServices: G20_DOMESTIC_COURIERS['IN'],
   newsOutlets: G20_NEWS_OUTLETS['IN'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['IN'],
+  mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['IN'],
   stockExchange: 'National Stock Exchange of India (NSE) / Bombay Stock Exchange (BSE)',
 }

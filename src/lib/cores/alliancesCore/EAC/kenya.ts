@@ -2,6 +2,7 @@ import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const kenya: EacCountry = {
   name: 'Kenya',
@@ -21,5 +22,6 @@ export const kenya: EacCountry = {
   domesticCourierServices: EAC_DOMESTIC_COURIERS['KE'],
   newsOutlets: EAC_NEWS_OUTLETS['KE'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['KE'],
+  mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
 }

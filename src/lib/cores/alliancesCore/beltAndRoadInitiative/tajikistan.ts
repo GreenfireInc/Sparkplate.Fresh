@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const tajikistan: BeltAndRoadInitiativeCountry = {
   name: 'Tajikistan',
@@ -22,5 +23,6 @@ export const tajikistan: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['TJ'],
   newsOutlets: BRI_NEWS_OUTLETS['TJ'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['TJ'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['TJ'],
   stockExchange: 'National or regional exchange (verify)',
 }

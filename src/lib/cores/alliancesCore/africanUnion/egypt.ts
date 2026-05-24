@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const egypt: AfricanUnionCountry = {
   name: 'Egypt',
   iso3166Alpha2: 'EG',
@@ -21,5 +22,6 @@ export const egypt: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['EG'],
   newsOutlets: AU_NEWS_OUTLETS['EG'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['EG'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['EG'],
   stockExchange: 'Egyptian Exchange (EGX)',
 }

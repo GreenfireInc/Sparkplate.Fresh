@@ -2,6 +2,7 @@ import type { BricsCountry } from './types'
 import { BRICS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRICS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRICS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRICS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const southAfrica: BricsCountry = {
   name: 'South Africa',
@@ -22,5 +23,6 @@ export const southAfrica: BricsCountry = {
   domesticCourierServices: BRICS_DOMESTIC_COURIERS['ZA'],
   newsOutlets: BRICS_NEWS_OUTLETS['ZA'],
   notableUniversities: BRICS_NOTABLE_UNIVERSITIES['ZA'],
+  mainExportCommodities: BRICS_MAIN_EXPORT_COMMODITIES['ZA'],
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
 }

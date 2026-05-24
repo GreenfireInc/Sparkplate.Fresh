@@ -2,6 +2,7 @@ import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const tanzania: IoraCountry = {
   name: 'Tanzania',
@@ -23,5 +24,6 @@ export const tanzania: IoraCountry = {
   domesticCourierServices: IORA_DOMESTIC_COURIERS['TZ'],
   newsOutlets: IORA_NEWS_OUTLETS['TZ'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['TZ'],
+  mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange (DSE)',
 }

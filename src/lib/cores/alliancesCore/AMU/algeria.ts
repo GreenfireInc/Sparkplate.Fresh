@@ -2,6 +2,7 @@ import type { AmuCountry } from './types'
 import { AMU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AMU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AMU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AMU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const algeria: AmuCountry = {
   name: 'Algeria',
@@ -22,5 +23,6 @@ export const algeria: AmuCountry = {
   domesticCourierServices: AMU_DOMESTIC_COURIERS['DZ'],
   newsOutlets: AMU_NEWS_OUTLETS['DZ'],
   notableUniversities: AMU_NOTABLE_UNIVERSITIES['DZ'],
+  mainExportCommodities: AMU_MAIN_EXPORT_COMMODITIES['DZ'],
   stockExchange: 'Algiers Stock Exchange',
 }

@@ -42,6 +42,17 @@ export interface NewsOutletsRoster {
   minor: readonly [NewsOutlet, NewsOutlet, NewsOutlet, NewsOutlet]
 }
 
+/** Seven principal export commodities by trade value (informational; verify periodically). */
+export type MainExportCommodities = readonly [
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+]
+
 export interface BricsCountry {
   name: string
   iso3166Alpha2: string
@@ -64,6 +75,8 @@ export interface BricsCountry {
   newsOutlets: NewsOutletsRoster
   /** Three notable universities covering economics / accounting / computer science / electrical engineering style programmes (informational). */
   notableUniversities: readonly [NotableUniversity, NotableUniversity, NotableUniversity]
+  /** Seven principal export commodities (informational; verify trade statistics periodically). */
+  mainExportCommodities: MainExportCommodities
   stockExchange: string
 }
 

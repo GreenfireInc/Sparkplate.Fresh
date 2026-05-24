@@ -2,6 +2,7 @@ import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const southSudan: EacCountry = {
   name: 'South Sudan',
@@ -21,5 +22,6 @@ export const southSudan: EacCountry = {
   domesticCourierServices: EAC_DOMESTIC_COURIERS['SS'],
   newsOutlets: EAC_NEWS_OUTLETS['SS'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['SS'],
+  mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['SS'],
   stockExchange: 'Juba Stock Exchange (nascent / limited)',
 }

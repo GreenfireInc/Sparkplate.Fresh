@@ -2,6 +2,7 @@ import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const uganda: EacCountry = {
   name: 'Uganda',
@@ -21,5 +22,6 @@ export const uganda: EacCountry = {
   domesticCourierServices: EAC_DOMESTIC_COURIERS['UG'],
   newsOutlets: EAC_NEWS_OUTLETS['UG'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['UG'],
+  mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['UG'],
   stockExchange: 'Uganda Securities Exchange',
 }

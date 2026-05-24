@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const sudan: BeltAndRoadInitiativeCountry = {
   name: 'Sudan',
@@ -22,5 +23,6 @@ export const sudan: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['SD'],
   newsOutlets: BRI_NEWS_OUTLETS['SD'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['SD'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['SD'],
   stockExchange: 'Khartoum Stock Exchange (operations disrupted)',
 }

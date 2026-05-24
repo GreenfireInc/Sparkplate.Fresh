@@ -2,6 +2,7 @@ import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const newZealand: RcepCountry = {
   name: 'New Zealand',
@@ -22,5 +23,6 @@ export const newZealand: RcepCountry = {
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['NZ'],
   newsOutlets: RCEP_NEWS_OUTLETS['NZ'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['NZ'],
+  mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['NZ'],
   stockExchange: 'NZX Limited',
 }

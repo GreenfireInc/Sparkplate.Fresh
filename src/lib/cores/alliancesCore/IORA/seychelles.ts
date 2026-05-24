@@ -2,6 +2,7 @@ import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const seychelles: IoraCountry = {
   name: 'Seychelles',
@@ -22,5 +23,6 @@ export const seychelles: IoraCountry = {
   domesticCourierServices: IORA_DOMESTIC_COURIERS['SC'],
   newsOutlets: IORA_NEWS_OUTLETS['SC'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['SC'],
+  mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['SC'],
   stockExchange: 'Merjex SME market / thin equities — informational',
 }

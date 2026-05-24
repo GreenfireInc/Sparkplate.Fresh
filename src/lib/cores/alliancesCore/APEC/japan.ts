@@ -2,6 +2,7 @@ import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const japan: ApecCountry = {
   name: 'Japan',
@@ -23,5 +24,6 @@ export const japan: ApecCountry = {
   domesticCourierServices: APEC_DOMESTIC_COURIERS['JP'],
   newsOutlets: APEC_NEWS_OUTLETS['JP'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['JP'],
+  mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['JP'],
   stockExchange: 'Tokyo Stock Exchange (Japan Exchange Group)',
 }

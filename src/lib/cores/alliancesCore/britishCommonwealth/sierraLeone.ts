@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const sierraLeone: CommonwealthCountry = {
   name: 'Sierra Leone',
@@ -22,5 +23,6 @@ export const sierraLeone: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['SL'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['SL'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['SL'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['SL'],
   stockExchange: 'Sierra Leone Stock Exchange',
 }

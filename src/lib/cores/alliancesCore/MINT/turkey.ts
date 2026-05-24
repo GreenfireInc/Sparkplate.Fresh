@@ -2,6 +2,7 @@ import type { MintCountry } from './types'
 import { MINT_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { MINT_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MINT_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { MINT_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const turkey: MintCountry = {
   name: 'Turkey',
@@ -23,5 +24,6 @@ export const turkey: MintCountry = {
   domesticCourierServices: MINT_DOMESTIC_COURIERS['TR'],
   newsOutlets: MINT_NEWS_OUTLETS['TR'],
   notableUniversities: MINT_NOTABLE_UNIVERSITIES['TR'],
+  mainExportCommodities: MINT_MAIN_EXPORT_COMMODITIES['TR'],
   stockExchange: 'Borsa Istanbul (BİST equities / debt)',
 }

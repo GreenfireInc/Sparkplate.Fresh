@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const nepal: BeltAndRoadInitiativeCountry = {
   name: 'Nepal',
@@ -22,5 +23,6 @@ export const nepal: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['NP'],
   newsOutlets: BRI_NEWS_OUTLETS['NP'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['NP'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['NP'],
   stockExchange: 'National or regional exchange (verify)',
 }

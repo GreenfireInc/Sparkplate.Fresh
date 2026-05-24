@@ -2,6 +2,7 @@ import type { FiveEyesCountry } from './types'
 import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { FIVE_EYES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { FIVE_EYES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const australia: FiveEyesCountry = {
   name: 'Australia',
@@ -23,5 +24,6 @@ export const australia: FiveEyesCountry = {
   domesticCourierServices: FIVE_EYES_DOMESTIC_COURIERS['AU'],
   newsOutlets: FIVE_EYES_NEWS_OUTLETS['AU'],
   notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['AU'],
+  mainExportCommodities: FIVE_EYES_MAIN_EXPORT_COMMODITIES['AU'],
   stockExchange: 'Australian Securities Exchange (ASX, Sydney)',
 }

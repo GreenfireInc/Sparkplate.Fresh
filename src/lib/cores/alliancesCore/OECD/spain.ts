@@ -2,6 +2,7 @@ import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const spain: OecdCountry = {
   name: 'Spain',
@@ -22,5 +23,6 @@ export const spain: OecdCountry = {
   domesticCourierServices: OECD_DOMESTIC_COURIERS['ES'],
   newsOutlets: OECD_NEWS_OUTLETS['ES'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['ES'],
+  mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['ES'],
   stockExchange: 'BME / Euronext Spain consolidation — informational',
 }

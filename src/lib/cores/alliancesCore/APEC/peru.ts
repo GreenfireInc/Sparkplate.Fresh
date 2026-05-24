@@ -2,6 +2,7 @@ import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const peru: ApecCountry = {
   name: 'Peru',
@@ -22,5 +23,6 @@ export const peru: ApecCountry = {
   domesticCourierServices: APEC_DOMESTIC_COURIERS['PE'],
   newsOutlets: APEC_NEWS_OUTLETS['PE'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['PE'],
+  mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['PE'],
   stockExchange: 'Bolsa de Valores de Lima (Lima Stock Exchange)',
 }

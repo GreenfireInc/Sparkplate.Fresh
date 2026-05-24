@@ -2,6 +2,7 @@ import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const madagascar: SadcCountry = {
   name: 'Madagascar',
@@ -21,5 +22,6 @@ export const madagascar: SadcCountry = {
   domesticCourierServices: SADC_DOMESTIC_COURIERS['MG'],
   newsOutlets: SADC_NEWS_OUTLETS['MG'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['MG'],
+  mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['MG'],
   stockExchange: 'Madagascar Stock Exchange (SEM) — thin market',
 }

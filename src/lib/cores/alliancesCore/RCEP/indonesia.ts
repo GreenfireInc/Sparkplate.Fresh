@@ -2,6 +2,7 @@ import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const indonesia: RcepCountry = {
   name: 'Indonesia',
@@ -22,5 +23,6 @@ export const indonesia: RcepCountry = {
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['ID'],
   newsOutlets: RCEP_NEWS_OUTLETS['ID'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['ID'],
+  mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['ID'],
   stockExchange: 'Indonesia Stock Exchange (IDX)',
 }

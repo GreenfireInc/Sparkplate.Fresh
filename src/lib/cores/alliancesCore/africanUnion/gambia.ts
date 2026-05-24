@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const gambia: AfricanUnionCountry = {
   name: 'The Gambia',
   iso3166Alpha2: 'GM',
@@ -21,5 +22,6 @@ export const gambia: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['GM'],
   newsOutlets: AU_NEWS_OUTLETS['GM'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['GM'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['GM'],
   stockExchange: 'Gambia Stock Exchange (limited)',
 }

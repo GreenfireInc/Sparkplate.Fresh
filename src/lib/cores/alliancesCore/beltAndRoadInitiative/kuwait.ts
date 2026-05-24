@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const kuwait: BeltAndRoadInitiativeCountry = {
   name: 'Kuwait',
@@ -22,5 +23,6 @@ export const kuwait: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['KW'],
   newsOutlets: BRI_NEWS_OUTLETS['KW'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['KW'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['KW'],
   stockExchange: 'Boursa Kuwait',
 }

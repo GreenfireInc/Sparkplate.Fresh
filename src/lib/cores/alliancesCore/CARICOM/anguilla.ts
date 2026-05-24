@@ -2,6 +2,7 @@ import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const anguilla: CaricomCountry = {
   name: 'Anguilla',
@@ -22,5 +23,6 @@ export const anguilla: CaricomCountry = {
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['AI'],
   newsOutlets: CARICOM_NEWS_OUTLETS['AI'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['AI'],
+  mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['AI'],
   stockExchange: 'No national exchange — informational',
 }

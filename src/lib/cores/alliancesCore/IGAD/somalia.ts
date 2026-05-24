@@ -2,6 +2,7 @@ import type { IgadCountry } from './types'
 import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const somalia: IgadCountry = {
   name: 'Somalia',
@@ -23,5 +24,6 @@ export const somalia: IgadCountry = {
   domesticCourierServices: IGAD_DOMESTIC_COURIERS['SO'],
   newsOutlets: IGAD_NEWS_OUTLETS['SO'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['SO'],
+  mainExportCommodities: IGAD_MAIN_EXPORT_COMMODITIES['SO'],
   stockExchange: 'No substantive national equities exchange consolidated (subsidiary regional plans — informational)',
 }

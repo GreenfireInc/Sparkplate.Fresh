@@ -2,6 +2,7 @@ import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const italy: G20Country = {
   name: 'Italy',
@@ -23,5 +24,6 @@ export const italy: G20Country = {
   domesticCourierServices: G20_DOMESTIC_COURIERS['IT'],
   newsOutlets: G20_NEWS_OUTLETS['IT'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['IT'],
+  mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['IT'],
   stockExchange: 'Euronext Milan (Borsa Italiana legacy)',
 }

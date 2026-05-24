@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const niger: BeltAndRoadInitiativeCountry = {
   name: 'Niger',
@@ -22,5 +23,6 @@ export const niger: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['NE'],
   newsOutlets: BRI_NEWS_OUTLETS['NE'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['NE'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['NE'],
   stockExchange: 'No liquid national bourse; BRVM regional',
 }

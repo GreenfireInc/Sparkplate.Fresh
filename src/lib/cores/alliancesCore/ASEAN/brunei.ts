@@ -2,6 +2,7 @@ import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const brunei: AseanCountry = {
   name: 'Brunei',
@@ -24,5 +25,6 @@ export const brunei: AseanCountry = {
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['BN'],
   newsOutlets: ASEAN_NEWS_OUTLETS['BN'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['BN'],
+  mainExportCommodities: ASEAN_MAIN_EXPORT_COMMODITIES['BN'],
   stockExchange: 'No national retail exchange consolidated; regional ASEAN bond context — informational',
 }

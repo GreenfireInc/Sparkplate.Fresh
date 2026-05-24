@@ -2,6 +2,7 @@ import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const caymanIslands: CaricomCountry = {
   name: 'Cayman Islands',
@@ -22,5 +23,6 @@ export const caymanIslands: CaricomCountry = {
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['KY'],
   newsOutlets: CARICOM_NEWS_OUTLETS['KY'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['KY'],
+  mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['KY'],
   stockExchange: 'Cayman Islands Stock Exchange (CSX)',
 }

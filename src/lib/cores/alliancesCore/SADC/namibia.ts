@@ -2,6 +2,7 @@ import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const namibia: SadcCountry = {
   name: 'Namibia',
@@ -21,5 +22,6 @@ export const namibia: SadcCountry = {
   domesticCourierServices: SADC_DOMESTIC_COURIERS['NA'],
   newsOutlets: SADC_NEWS_OUTLETS['NA'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['NA'],
+  mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['NA'],
   stockExchange: 'Namibian Stock Exchange (NSX)',
 }

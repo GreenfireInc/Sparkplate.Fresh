@@ -2,12 +2,10 @@ import type { NotableUniversity } from './types'
 import { RCEP_MEMBER_ISO_CODES } from './rcepMemberIsoCodes'
 import { APEC_NOTABLE_UNIVERSITIES } from '../APEC/notableUniversitiesByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from '../ASEAN/notableUniversitiesByIso'
-import { REGIONAL_NOTABLE_UNIVERSITIES_SUPPLEMENT } from '../regionalNotableUniversitiesSupplement'
 
 type Triple = readonly [NotableUniversity, NotableUniversity, NotableUniversity]
 
 const LAYERS: ReadonlyArray<Partial<Record<string, Triple>>> = [
-  REGIONAL_NOTABLE_UNIVERSITIES_SUPPLEMENT as unknown as Partial<Record<string, Triple>>,
   APEC_NOTABLE_UNIVERSITIES as unknown as Partial<Record<string, Triple>>,
   ASEAN_NOTABLE_UNIVERSITIES as unknown as Partial<Record<string, Triple>>,
 ]

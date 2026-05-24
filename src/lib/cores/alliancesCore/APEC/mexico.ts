@@ -2,6 +2,7 @@ import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const mexico: ApecCountry = {
   name: 'Mexico',
@@ -22,5 +23,6 @@ export const mexico: ApecCountry = {
   domesticCourierServices: APEC_DOMESTIC_COURIERS['MX'],
   newsOutlets: APEC_NEWS_OUTLETS['MX'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['MX'],
+  mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['MX'],
   stockExchange: 'Bolsa Mexicana de Valores (BMV)',
 }

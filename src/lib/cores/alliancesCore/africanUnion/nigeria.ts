@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const nigeria: AfricanUnionCountry = {
   name: 'Nigeria',
   iso3166Alpha2: 'NG',
@@ -21,5 +22,6 @@ export const nigeria: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['NG'],
   newsOutlets: AU_NEWS_OUTLETS['NG'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['NG'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['NG'],
   stockExchange: 'Nigerian Exchange Group (NGX)',
 }

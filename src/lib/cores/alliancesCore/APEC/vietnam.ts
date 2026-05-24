@@ -2,6 +2,7 @@ import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const vietnam: ApecCountry = {
   name: 'Vietnam',
@@ -23,5 +24,6 @@ export const vietnam: ApecCountry = {
   domesticCourierServices: APEC_DOMESTIC_COURIERS['VN'],
   newsOutlets: APEC_NEWS_OUTLETS['VN'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['VN'],
+  mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['VN'],
   stockExchange: 'HOSE Ho Chi Minh; HNX consolidation roadmap — informational',
 }

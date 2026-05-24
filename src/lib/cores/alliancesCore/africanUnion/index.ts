@@ -3,6 +3,7 @@ export type {
   AfricanUnionMembership,
   AfricanUnionOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,

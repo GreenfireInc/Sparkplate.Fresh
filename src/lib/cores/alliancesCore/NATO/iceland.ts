@@ -2,6 +2,7 @@ import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const iceland: NatoCountry = {
   name: 'Iceland',
@@ -22,5 +23,6 @@ export const iceland: NatoCountry = {
   domesticCourierServices: NATO_DOMESTIC_COURIERS['IS'],
   newsOutlets: NATO_NEWS_OUTLETS['IS'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['IS'],
+  mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['IS'],
   stockExchange: 'Nasdaq Iceland',
 }

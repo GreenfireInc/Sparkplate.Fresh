@@ -2,6 +2,7 @@ import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const saintKittsAndNevis: CaricomCountry = {
   name: 'Saint Kitts and Nevis',
@@ -22,5 +23,6 @@ export const saintKittsAndNevis: CaricomCountry = {
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['KN'],
   newsOutlets: CARICOM_NEWS_OUTLETS['KN'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['KN'],
+  mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['KN'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

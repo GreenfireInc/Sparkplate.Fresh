@@ -2,6 +2,7 @@ import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const chile: ApecCountry = {
   name: 'Chile',
@@ -22,5 +23,6 @@ export const chile: ApecCountry = {
   domesticCourierServices: APEC_DOMESTIC_COURIERS['CL'],
   newsOutlets: APEC_NEWS_OUTLETS['CL'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['CL'],
+  mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['CL'],
   stockExchange: 'Bolsa de Santiago',
 }

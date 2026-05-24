@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const malawi: BeltAndRoadInitiativeCountry = {
   name: 'Malawi',
@@ -22,5 +23,6 @@ export const malawi: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['MW'],
   newsOutlets: BRI_NEWS_OUTLETS['MW'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['MW'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['MW'],
   stockExchange: 'Malawi Stock Exchange',
 }

@@ -2,6 +2,7 @@ import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const australia: CptppCountry = {
   name: 'Australia',
@@ -21,5 +22,6 @@ export const australia: CptppCountry = {
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['AU'],
   newsOutlets: CPTPP_NEWS_OUTLETS['AU'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['AU'],
+  mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['AU'],
   stockExchange: 'Australian Securities Exchange (ASX)',
 }

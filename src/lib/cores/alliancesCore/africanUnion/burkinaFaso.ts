@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const burkinaFaso: AfricanUnionCountry = {
   name: 'Burkina Faso',
   iso3166Alpha2: 'BF',
@@ -21,5 +22,6 @@ export const burkinaFaso: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['BF'],
   newsOutlets: AU_NEWS_OUTLETS['BF'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['BF'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['BF'],
   stockExchange: 'Burkina Faso — BRVM listings (limited local activity)',
 }

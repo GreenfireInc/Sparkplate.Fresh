@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const togo: CensadCountry = {
   name: 'Togo',
@@ -21,5 +22,6 @@ export const togo: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['TG'],
   newsOutlets: CENSAD_NEWS_OUTLETS['TG'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['TG'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['TG'],
   stockExchange: 'BRVM (WAEMU securities context)',
 }

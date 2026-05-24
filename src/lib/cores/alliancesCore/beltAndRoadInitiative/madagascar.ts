@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const madagascar: BeltAndRoadInitiativeCountry = {
   name: 'Madagascar',
@@ -22,5 +23,6 @@ export const madagascar: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['MG'],
   newsOutlets: BRI_NEWS_OUTLETS['MG'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['MG'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['MG'],
   stockExchange: 'Madagascar Stock Exchange (SEM)',
 }

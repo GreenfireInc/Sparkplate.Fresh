@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const ivoryCoast: CensadCountry = {
   name: "Côte d'Ivoire",
@@ -21,5 +22,6 @@ export const ivoryCoast: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['CI'],
   newsOutlets: CENSAD_NEWS_OUTLETS['CI'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['CI'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['CI'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (BRVM) — seat Abidjan',
 }

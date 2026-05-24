@@ -2,6 +2,7 @@ import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const saudiArabia: OpecCountry = {
   name: 'Saudi Arabia',
@@ -23,5 +24,6 @@ export const saudiArabia: OpecCountry = {
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['SA'],
   newsOutlets: OPEC_NEWS_OUTLETS['SA'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['SA'],
+  mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['SA'],
   stockExchange: 'Tadawul Saudi Exchange (national benchmark — informational)',
 }

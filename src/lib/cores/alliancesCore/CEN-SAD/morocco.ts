@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const morocco: CensadCountry = {
   name: 'Morocco',
@@ -21,5 +22,6 @@ export const morocco: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['MA'],
   newsOutlets: CENSAD_NEWS_OUTLETS['MA'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['MA'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['MA'],
   stockExchange: 'Casablanca Stock Exchange',
 }

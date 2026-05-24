@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const gambia: CensadCountry = {
   name: 'Gambia',
@@ -21,5 +22,6 @@ export const gambia: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['GM'],
   newsOutlets: CENSAD_NEWS_OUTLETS['GM'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['GM'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['GM'],
   stockExchange: 'Gambia Stock Exchange (small / developing — verify)',
 }

@@ -2,6 +2,7 @@ import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const chile: OecdCountry = {
   name: 'Chile',
@@ -22,5 +23,6 @@ export const chile: OecdCountry = {
   domesticCourierServices: OECD_DOMESTIC_COURIERS['CL'],
   newsOutlets: OECD_NEWS_OUTLETS['CL'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['CL'],
+  mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['CL'],
   stockExchange: 'Bolsa de Santiago (Bolsa Electrónica de Chile contextual listings — informational)',
 }

@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const nigeria: CommonwealthCountry = {
   name: 'Nigeria',
@@ -22,5 +23,6 @@ export const nigeria: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['NG'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['NG'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['NG'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['NG'],
   stockExchange: 'Nigerian Exchange Group',
 }

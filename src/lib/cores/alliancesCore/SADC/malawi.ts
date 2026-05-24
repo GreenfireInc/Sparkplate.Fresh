@@ -2,6 +2,7 @@ import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const malawi: SadcCountry = {
   name: 'Malawi',
@@ -21,5 +22,6 @@ export const malawi: SadcCountry = {
   domesticCourierServices: SADC_DOMESTIC_COURIERS['MW'],
   newsOutlets: SADC_NEWS_OUTLETS['MW'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['MW'],
+  mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['MW'],
   stockExchange: 'Malawi Stock Exchange',
 }

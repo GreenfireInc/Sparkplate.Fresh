@@ -2,6 +2,7 @@ import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const saoTomeAndPrincipe: EccasCountry = {
   name: 'São Tomé and Príncipe',
@@ -21,5 +22,6 @@ export const saoTomeAndPrincipe: EccasCountry = {
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['ST'],
   newsOutlets: ECCAS_NEWS_OUTLETS['ST'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['ST'],
+  mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['ST'],
   stockExchange: 'Bolsa de Valores de São Tomé e Príncipe (limited)',
 }

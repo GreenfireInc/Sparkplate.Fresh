@@ -2,6 +2,7 @@ import type { ArabLeagueCountry } from './types'
 import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ARAB_LEAGUE_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const mauritania: ArabLeagueCountry = {
   name: 'Mauritania',
@@ -22,5 +23,6 @@ export const mauritania: ArabLeagueCountry = {
   domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['MR'],
   newsOutlets: ARAB_LEAGUE_NEWS_OUTLETS['MR'],
   notableUniversities: ARAB_LEAGUE_NOTABLE_UNIVERSITIES['MR'],
+  mainExportCommodities: ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES['MR'],
   stockExchange: 'Bourse Notation Agréée (limited)',
 }

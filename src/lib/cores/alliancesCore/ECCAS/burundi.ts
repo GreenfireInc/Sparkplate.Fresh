@@ -2,6 +2,7 @@ import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const burundi: EccasCountry = {
   name: 'Burundi',
@@ -21,5 +22,6 @@ export const burundi: EccasCountry = {
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['BI'],
   newsOutlets: ECCAS_NEWS_OUTLETS['BI'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['BI'],
+  mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['BI'],
   stockExchange: 'Burundi Stock Exchange — thin liquidity',
 }

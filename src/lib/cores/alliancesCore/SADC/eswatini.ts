@@ -2,6 +2,7 @@ import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const eswatini: SadcCountry = {
   name: 'Eswatini',
@@ -21,5 +22,6 @@ export const eswatini: SadcCountry = {
   domesticCourierServices: SADC_DOMESTIC_COURIERS['SZ'],
   newsOutlets: SADC_NEWS_OUTLETS['SZ'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['SZ'],
+  mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['SZ'],
   stockExchange: 'Eswatini Stock Exchange — verify liquidity',
 }

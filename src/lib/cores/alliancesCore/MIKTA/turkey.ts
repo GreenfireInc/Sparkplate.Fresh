@@ -2,6 +2,7 @@ import type { MiktaCountry } from './types'
 import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { MIKTA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { MIKTA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const turkey: MiktaCountry = {
   name: 'Turkey',
@@ -23,5 +24,6 @@ export const turkey: MiktaCountry = {
   domesticCourierServices: MIKTA_DOMESTIC_COURIERS['TR'],
   newsOutlets: MIKTA_NEWS_OUTLETS['TR'],
   notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['TR'],
+  mainExportCommodities: MIKTA_MAIN_EXPORT_COMMODITIES['TR'],
   stockExchange: 'Borsa Istanbul (BİST equities / debt)',
 }

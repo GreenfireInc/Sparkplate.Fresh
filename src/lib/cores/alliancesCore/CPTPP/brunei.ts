@@ -2,6 +2,7 @@ import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const brunei: CptppCountry = {
   name: 'Brunei',
@@ -21,5 +22,6 @@ export const brunei: CptppCountry = {
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['BN'],
   newsOutlets: CPTPP_NEWS_OUTLETS['BN'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['BN'],
+  mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['BN'],
   stockExchange: 'Brunei Darussalam Central Moneymarket (money market; thin equity market — verify)',
 }

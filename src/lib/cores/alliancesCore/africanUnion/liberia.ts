@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const liberia: AfricanUnionCountry = {
   name: 'Liberia',
   iso3166Alpha2: 'LR',
@@ -21,5 +22,6 @@ export const liberia: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['LR'],
   newsOutlets: AU_NEWS_OUTLETS['LR'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['LR'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['LR'],
   stockExchange: 'Liberia Stock Exchange (very limited)',
 }

@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const seychelles: BeltAndRoadInitiativeCountry = {
   name: 'Seychelles',
@@ -22,5 +23,6 @@ export const seychelles: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['SC'],
   newsOutlets: BRI_NEWS_OUTLETS['SC'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['SC'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['SC'],
   stockExchange: 'Merjep (Seychelles Securities Exchange) — niche',
 }

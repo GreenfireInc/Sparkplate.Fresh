@@ -2,6 +2,7 @@ import type { AllianceOfSahelStatesCountry } from './types'
 import { AES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const niger: AllianceOfSahelStatesCountry = {
   name: 'Niger',
@@ -22,5 +23,6 @@ export const niger: AllianceOfSahelStatesCountry = {
   domesticCourierServices: AES_DOMESTIC_COURIERS['NE'],
   newsOutlets: AES_NEWS_OUTLETS['NE'],
   notableUniversities: AES_NOTABLE_UNIVERSITIES['NE'],
+  mainExportCommodities: AES_MAIN_EXPORT_COMMODITIES['NE'],
   stockExchange: 'No liquid national bourse; BRVM regional',
 }

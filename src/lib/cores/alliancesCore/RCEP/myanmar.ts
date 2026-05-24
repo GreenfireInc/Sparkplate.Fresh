@@ -2,6 +2,7 @@ import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const myanmar: RcepCountry = {
   name: 'Myanmar',
@@ -23,5 +24,6 @@ export const myanmar: RcepCountry = {
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['MM'],
   newsOutlets: RCEP_NEWS_OUTLETS['MM'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['MM'],
+  mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['MM'],
   stockExchange: 'Yangon Stock Exchange (constrained liquidity — informational)',
 }

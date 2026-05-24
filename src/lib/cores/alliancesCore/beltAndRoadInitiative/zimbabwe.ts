@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const zimbabwe: BeltAndRoadInitiativeCountry = {
   name: 'Zimbabwe',
@@ -22,5 +23,6 @@ export const zimbabwe: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['ZW'],
   newsOutlets: BRI_NEWS_OUTLETS['ZW'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['ZW'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['ZW'],
   stockExchange: 'Zimbabwe Stock Exchange (ZSE)',
 }

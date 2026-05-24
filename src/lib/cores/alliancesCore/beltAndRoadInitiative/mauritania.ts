@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const mauritania: BeltAndRoadInitiativeCountry = {
   name: 'Mauritania',
@@ -22,5 +23,6 @@ export const mauritania: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['MR'],
   newsOutlets: BRI_NEWS_OUTLETS['MR'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['MR'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['MR'],
   stockExchange: 'Bourse Notation Agréée (limited)',
 }

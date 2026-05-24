@@ -2,6 +2,7 @@ import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const republicOfTheCongo: EccasCountry = {
   name: 'Republic of the Congo',
@@ -21,5 +22,6 @@ export const republicOfTheCongo: EccasCountry = {
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['CG'],
   newsOutlets: ECCAS_NEWS_OUTLETS['CG'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['CG'],
+  mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['CG'],
   stockExchange: 'Bourse des Valeurs du Congo (BVC)',
 }

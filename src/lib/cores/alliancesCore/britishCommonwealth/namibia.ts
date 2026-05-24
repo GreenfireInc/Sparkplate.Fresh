@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const namibia: CommonwealthCountry = {
   name: 'Namibia',
@@ -22,5 +23,6 @@ export const namibia: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['NA'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['NA'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['NA'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['NA'],
   stockExchange: 'Namibian Stock Exchange',
 }

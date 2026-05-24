@@ -2,6 +2,7 @@ import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const bangladesh: IoraCountry = {
   name: 'Bangladesh',
@@ -23,5 +24,6 @@ export const bangladesh: IoraCountry = {
   domesticCourierServices: IORA_DOMESTIC_COURIERS['BD'],
   newsOutlets: IORA_NEWS_OUTLETS['BD'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['BD'],
+  mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['BD'],
   stockExchange: 'Dhaka Stock Exchange (DSE); Chittagong Stock Exchange context — informational',
 }

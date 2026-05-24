@@ -2,6 +2,7 @@ import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const democraticRepublicOfTheCongo: EacCountry = {
   name: 'Democratic Republic of the Congo',
@@ -21,5 +22,6 @@ export const democraticRepublicOfTheCongo: EacCountry = {
   domesticCourierServices: EAC_DOMESTIC_COURIERS['CD'],
   newsOutlets: EAC_NEWS_OUTLETS['CD'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['CD'],
+  mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['CD'],
   stockExchange: 'Domestic equities thin — informal OTC and regional linkage',
 }

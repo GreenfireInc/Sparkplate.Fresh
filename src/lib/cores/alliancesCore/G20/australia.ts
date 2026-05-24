@@ -2,6 +2,7 @@ import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const australia: G20Country = {
   name: 'Australia',
@@ -23,5 +24,6 @@ export const australia: G20Country = {
   domesticCourierServices: G20_DOMESTIC_COURIERS['AU'],
   newsOutlets: G20_NEWS_OUTLETS['AU'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['AU'],
+  mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['AU'],
   stockExchange: 'Australian Securities Exchange ASX (Sydney)',
 }

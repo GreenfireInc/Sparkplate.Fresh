@@ -2,6 +2,7 @@ import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const turksAndCaicosIslands: CaricomCountry = {
   name: 'Turks and Caicos Islands',
@@ -22,5 +23,6 @@ export const turksAndCaicosIslands: CaricomCountry = {
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['TC'],
   newsOutlets: CARICOM_NEWS_OUTLETS['TC'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['TC'],
+  mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['TC'],
   stockExchange: 'No major national exchange — informational',
 }

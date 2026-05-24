@@ -2,6 +2,7 @@ import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const venezuela: OpecCountry = {
   name: 'Venezuela',
@@ -24,5 +25,6 @@ export const venezuela: OpecCountry = {
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['VE'],
   newsOutlets: OPEC_NEWS_OUTLETS['VE'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['VE'],
+  mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['VE'],
   stockExchange: 'Bolsa de Valores de Caracas (thin vs macro distress — informational)',
 }

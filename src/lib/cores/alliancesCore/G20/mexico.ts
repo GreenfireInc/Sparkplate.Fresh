@@ -2,6 +2,7 @@ import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const mexico: G20Country = {
   name: 'Mexico',
@@ -23,5 +24,6 @@ export const mexico: G20Country = {
   domesticCourierServices: G20_DOMESTIC_COURIERS['MX'],
   newsOutlets: G20_NEWS_OUTLETS['MX'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['MX'],
+  mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['MX'],
   stockExchange: 'Mexican Stock Exchange BMV Bolsa Mexicana de Valores',
 }

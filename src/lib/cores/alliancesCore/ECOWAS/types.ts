@@ -48,6 +48,17 @@ export interface NewsOutletsRoster {
   minor: readonly [NewsOutlet, NewsOutlet, NewsOutlet, NewsOutlet]
 }
 
+/** Seven principal export commodities by trade value (informational; verify periodically). */
+export type MainExportCommodities = readonly [
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+]
+
 export interface EcowasCountry {
   name: string
   iso3166Alpha2: string
@@ -69,6 +80,8 @@ export interface EcowasCountry {
   notableUniversities: readonly [NotableUniversity, NotableUniversity, NotableUniversity]
   /** Three major + four minor national news outlets with public contact hints (verify locally). */
   newsOutlets: NewsOutletsRoster
+  /** Seven principal export commodities (informational; verify trade statistics periodically). */
+  mainExportCommodities: MainExportCommodities
   stockExchange: string
 }
 

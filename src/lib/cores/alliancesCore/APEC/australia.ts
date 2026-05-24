@@ -2,6 +2,7 @@ import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const australia: ApecCountry = {
   name: 'Australia',
@@ -23,5 +24,6 @@ export const australia: ApecCountry = {
   domesticCourierServices: APEC_DOMESTIC_COURIERS['AU'],
   newsOutlets: APEC_NEWS_OUTLETS['AU'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['AU'],
+  mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['AU'],
   stockExchange: 'Australian Securities Exchange (ASX)',
 }

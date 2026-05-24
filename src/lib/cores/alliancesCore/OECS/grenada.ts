@@ -2,6 +2,7 @@ import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const grenada: OecsCountry = {
   name: 'Grenada',
@@ -22,5 +23,6 @@ export const grenada: OecsCountry = {
   domesticCourierServices: OECS_DOMESTIC_COURIERS['GD'],
   newsOutlets: OECS_NEWS_OUTLETS['GD'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['GD'],
+  mainExportCommodities: OECS_MAIN_EXPORT_COMMODITIES['GD'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
 }

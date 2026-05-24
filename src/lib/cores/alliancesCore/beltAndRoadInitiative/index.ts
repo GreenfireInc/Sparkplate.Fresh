@@ -3,6 +3,7 @@ export type {
   BeltAndRoadInitiativeMembership,
   BeltAndRoadInitiativeOrganizationInfo,
   DomesticCourierService,
+  MainExportCommodities,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,

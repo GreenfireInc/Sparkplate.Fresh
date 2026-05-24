@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const somalia: CensadCountry = {
   name: 'Somalia',
@@ -21,5 +22,6 @@ export const somalia: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['SO'],
   newsOutlets: CENSAD_NEWS_OUTLETS['SO'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['SO'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['SO'],
   stockExchange: 'No functioning national equities market',
 }

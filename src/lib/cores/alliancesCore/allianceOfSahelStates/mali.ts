@@ -2,6 +2,7 @@ import type { AllianceOfSahelStatesCountry } from './types'
 import { AES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const mali: AllianceOfSahelStatesCountry = {
   name: 'Mali',
@@ -22,5 +23,6 @@ export const mali: AllianceOfSahelStatesCountry = {
   domesticCourierServices: AES_DOMESTIC_COURIERS['ML'],
   newsOutlets: AES_NEWS_OUTLETS['ML'],
   notableUniversities: AES_NOTABLE_UNIVERSITIES['ML'],
+  mainExportCommodities: AES_MAIN_EXPORT_COMMODITIES['ML'],
   stockExchange: 'Bourse des Valeurs du Mali (limited)',
 }

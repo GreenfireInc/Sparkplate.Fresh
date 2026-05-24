@@ -2,6 +2,7 @@ import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const canada: G20Country = {
   name: 'Canada',
@@ -22,5 +23,6 @@ export const canada: G20Country = {
   domesticCourierServices: G20_DOMESTIC_COURIERS['CA'],
   newsOutlets: G20_NEWS_OUTLETS['CA'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['CA'],
+  mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['CA'],
   stockExchange: 'Toronto Stock Exchange (TMX)',
 }

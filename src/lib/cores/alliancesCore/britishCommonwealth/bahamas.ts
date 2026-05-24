@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const bahamas: CommonwealthCountry = {
   name: 'Bahamas',
@@ -22,5 +23,6 @@ export const bahamas: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['BS'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['BS'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['BS'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['BS'],
   stockExchange: 'Bahamas International Securities Exchange (BISX)',
 }

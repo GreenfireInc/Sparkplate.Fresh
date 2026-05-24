@@ -2,6 +2,7 @@ import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const sierraLeone: EcowasCountry = {
   name: 'Sierra Leone',
@@ -21,5 +22,6 @@ export const sierraLeone: EcowasCountry = {
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['SL'],
   newsOutlets: ECOWAS_NEWS_OUTLETS['SL'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['SL'],
+  mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['SL'],
   stockExchange: 'Sierra Leone Stock Exchange',
 }

@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const burkinaFaso: CensadCountry = {
   name: 'Burkina Faso',
@@ -22,5 +23,6 @@ export const burkinaFaso: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['BF'],
   newsOutlets: CENSAD_NEWS_OUTLETS['BF'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['BF'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['BF'],
   stockExchange: 'BRVM (WAEMU listings)',
 }

@@ -2,6 +2,7 @@ import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const unitedArabEmirates: OpecCountry = {
   name: 'United Arab Emirates',
@@ -24,5 +25,6 @@ export const unitedArabEmirates: OpecCountry = {
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['AE'],
   newsOutlets: OPEC_NEWS_OUTLETS['AE'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['AE'],
+  mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['AE'],
   stockExchange: 'Abu Dhabi Securities Exchange (ADX); Dubai Financial Market (DFM)',
 }

@@ -2,6 +2,7 @@ import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const czechRepublic: EuCountry = {
   name: 'Czech Republic',
@@ -21,5 +22,6 @@ export const czechRepublic: EuCountry = {
   domesticCourierServices: EU_DOMESTIC_COURIERS['CZ'],
   newsOutlets: EU_NEWS_OUTLETS['CZ'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['CZ'],
+  mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['CZ'],
   stockExchange: 'Prague Stock Exchange (PX)',
 }

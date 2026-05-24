@@ -2,6 +2,7 @@ import type { G7Country } from './types'
 import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G7_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G7_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { G7_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const canada: G7Country = {
   name: 'Canada',
@@ -22,5 +23,6 @@ export const canada: G7Country = {
   domesticCourierServices: G7_DOMESTIC_COURIERS['CA'],
   newsOutlets: G7_NEWS_OUTLETS['CA'],
   notableUniversities: G7_NOTABLE_UNIVERSITIES['CA'],
+  mainExportCommodities: G7_MAIN_EXPORT_COMMODITIES['CA'],
   stockExchange: 'Toronto Stock Exchange (TMX)',
 }

@@ -2,6 +2,7 @@ import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 export const botswana: AfricanUnionCountry = {
   name: 'Botswana',
   iso3166Alpha2: 'BW',
@@ -21,5 +22,6 @@ export const botswana: AfricanUnionCountry = {
   domesticCourierServices: AU_DOMESTIC_COURIERS['BW'],
   newsOutlets: AU_NEWS_OUTLETS['BW'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['BW'],
+  mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['BW'],
   stockExchange: 'Botswana Stock Exchange (BSE)',
 }

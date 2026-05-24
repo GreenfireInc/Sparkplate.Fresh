@@ -2,6 +2,7 @@ import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const democraticRepublicOfTheCongo: ComesaCountry = {
   name: 'Democratic Republic of the Congo',
@@ -21,5 +22,6 @@ export const democraticRepublicOfTheCongo: ComesaCountry = {
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['CD'],
   newsOutlets: COMESA_NEWS_OUTLETS['CD'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['CD'],
+  mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['CD'],
   stockExchange: 'BRVM / thin domestic equity context — informal OTC predominant',
 }

@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const samoa: BeltAndRoadInitiativeCountry = {
   name: 'Samoa',
@@ -22,5 +23,6 @@ export const samoa: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['WS'],
   newsOutlets: BRI_NEWS_OUTLETS['WS'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['WS'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['WS'],
   stockExchange: 'National or regional exchange (verify)',
 }

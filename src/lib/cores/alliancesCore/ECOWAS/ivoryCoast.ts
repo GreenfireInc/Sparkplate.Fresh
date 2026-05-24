@@ -2,6 +2,7 @@ import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const ivoryCoast: EcowasCountry = {
   name: "Côte d'Ivoire",
@@ -21,5 +22,6 @@ export const ivoryCoast: EcowasCountry = {
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['CI'],
   newsOutlets: ECOWAS_NEWS_OUTLETS['CI'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['CI'],
+  mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['CI'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (BRVM — seat Abidjan)',
 }

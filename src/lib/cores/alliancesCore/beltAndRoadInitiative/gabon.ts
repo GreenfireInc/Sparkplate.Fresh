@@ -2,6 +2,7 @@ import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const gabon: BeltAndRoadInitiativeCountry = {
   name: 'Gabon',
@@ -22,5 +23,6 @@ export const gabon: BeltAndRoadInitiativeCountry = {
   domesticCourierServices: BRI_DOMESTIC_COURIERS['GA'],
   newsOutlets: BRI_NEWS_OUTLETS['GA'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['GA'],
+  mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['GA'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (BRVM) — regional',
 }

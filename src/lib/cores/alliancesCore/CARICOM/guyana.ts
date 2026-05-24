@@ -2,6 +2,7 @@ import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const guyana: CaricomCountry = {
   name: 'Guyana',
@@ -22,5 +23,6 @@ export const guyana: CaricomCountry = {
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['GY'],
   newsOutlets: CARICOM_NEWS_OUTLETS['GY'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['GY'],
+  mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['GY'],
   stockExchange: 'Guyana Stock Exchange',
 }

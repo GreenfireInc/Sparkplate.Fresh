@@ -2,6 +2,7 @@ import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const brunei: CommonwealthCountry = {
   name: 'Brunei',
@@ -22,5 +23,6 @@ export const brunei: CommonwealthCountry = {
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['BN'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['BN'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['BN'],
+  mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['BN'],
   stockExchange: 'Brunei Investment Agency context; no large public bourse like peers',
 }

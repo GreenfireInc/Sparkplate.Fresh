@@ -2,6 +2,7 @@ import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
+import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 
 export const sierraLeone: CensadCountry = {
   name: 'Sierra Leone',
@@ -21,5 +22,6 @@ export const sierraLeone: CensadCountry = {
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['SL'],
   newsOutlets: CENSAD_NEWS_OUTLETS['SL'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['SL'],
+  mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['SL'],
   stockExchange: 'Sierra Leone Stock Exchange — verify liquidity',
 }
