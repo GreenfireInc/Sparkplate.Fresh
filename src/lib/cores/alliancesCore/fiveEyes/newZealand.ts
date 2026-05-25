@@ -3,6 +3,9 @@ import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { FIVE_EYES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { FIVE_EYES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { FIVE_EYES_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { FIVE_EYES_RARE_EARTHS } from './rareEarthsByIso'
+import { FIVE_EYES_BOND_MARKETS } from './bondMarketsByIso'
 
 export const newZealand: FiveEyesCountry = {
   name: 'New Zealand',
@@ -24,5 +27,8 @@ export const newZealand: FiveEyesCountry = {
   newsOutlets: FIVE_EYES_NEWS_OUTLETS['NZ'],
   notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['NZ'],
   mainExportCommodities: FIVE_EYES_MAIN_EXPORT_COMMODITIES['NZ'],
+  mainExportedElements: FIVE_EYES_MAIN_EXPORTED_ELEMENTS['NZ'],
+  rareEarths: FIVE_EYES_RARE_EARTHS['NZ'],
   stockExchange: 'NZX Limited (NZ markets — informational)',
+  bondMarkets: FIVE_EYES_BOND_MARKETS['NZ'],
 }

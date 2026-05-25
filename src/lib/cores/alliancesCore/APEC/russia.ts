@@ -3,6 +3,9 @@ import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { APEC_RARE_EARTHS } from './rareEarthsByIso'
+import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const russia: ApecCountry = {
   name: 'Russia',
@@ -24,5 +27,8 @@ export const russia: ApecCountry = {
   newsOutlets: APEC_NEWS_OUTLETS['RU'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['RU'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['RU'],
+  mainExportedElements: APEC_MAIN_EXPORTED_ELEMENTS['RU'],
+  rareEarths: APEC_RARE_EARTHS['RU'],
   stockExchange: 'Moscow Exchange (sanctions segregation vs Western indices — informational)',
+  bondMarkets: APEC_BOND_MARKETS['RU'],
 }

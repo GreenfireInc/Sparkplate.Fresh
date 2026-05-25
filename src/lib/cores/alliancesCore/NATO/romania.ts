@@ -3,6 +3,9 @@ import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { NATO_RARE_EARTHS } from './rareEarthsByIso'
+import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 
 export const romania: NatoCountry = {
   name: 'Romania',
@@ -24,5 +27,8 @@ export const romania: NatoCountry = {
   newsOutlets: NATO_NEWS_OUTLETS['RO'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['RO'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['RO'],
+  mainExportedElements: NATO_MAIN_EXPORTED_ELEMENTS['RO'],
+  rareEarths: NATO_RARE_EARTHS['RO'],
   stockExchange: 'Bucharest Stock Exchange',
+  bondMarkets: NATO_BOND_MARKETS['RO'],
 }

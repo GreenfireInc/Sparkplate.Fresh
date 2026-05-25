@@ -3,6 +3,9 @@ import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { SADC_RARE_EARTHS } from './rareEarthsByIso'
+import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const lesotho: SadcCountry = {
   name: 'Lesotho',
@@ -23,5 +26,8 @@ export const lesotho: SadcCountry = {
   newsOutlets: SADC_NEWS_OUTLETS['LS'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['LS'],
   mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['LS'],
+  mainExportedElements: SADC_MAIN_EXPORTED_ELEMENTS['LS'],
+  rareEarths: SADC_RARE_EARTHS['LS'],
   stockExchange: 'Maseru Securities Market — verify',
+  bondMarkets: SADC_BOND_MARKETS['LS'],
 }

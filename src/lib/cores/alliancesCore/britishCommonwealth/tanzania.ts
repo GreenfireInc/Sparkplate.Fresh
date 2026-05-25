@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const tanzania: CommonwealthCountry = {
   name: 'Tanzania',
@@ -24,5 +26,7 @@ export const tanzania: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['TZ'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['TZ'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['TZ'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['TZ'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange',
 }

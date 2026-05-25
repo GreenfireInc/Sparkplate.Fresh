@@ -3,6 +3,9 @@ import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
+import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 
 export const bahamas: CaricomCountry = {
   name: 'Bahamas',
@@ -24,5 +27,8 @@ export const bahamas: CaricomCountry = {
   newsOutlets: CARICOM_NEWS_OUTLETS['BS'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['BS'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['BS'],
+  mainExportedElements: CARICOM_MAIN_EXPORTED_ELEMENTS['BS'],
+  rareEarths: CARICOM_RARE_EARTHS['BS'],
   stockExchange: 'Bahamas International Securities Exchange (BISX)',
+  bondMarkets: CARICOM_BOND_MARKETS['BS'],
 }

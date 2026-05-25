@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const italy: OecdCountry = {
   name: 'Italy',
@@ -24,5 +27,8 @@ export const italy: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['IT'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['IT'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['IT'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['IT'],
+  rareEarths: OECD_RARE_EARTHS['IT'],
   stockExchange: 'Euronext Milan (Borsa Italiana legacy)',
+  bondMarkets: OECD_BOND_MARKETS['IT'],
 }

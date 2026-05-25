@@ -3,6 +3,8 @@ import { BRICS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRICS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRICS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRICS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { BRICS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRICS_RARE_EARTHS } from './rareEarthsByIso'
 
 export const southAfrica: BricsCountry = {
   name: 'South Africa',
@@ -24,5 +26,7 @@ export const southAfrica: BricsCountry = {
   newsOutlets: BRICS_NEWS_OUTLETS['ZA'],
   notableUniversities: BRICS_NOTABLE_UNIVERSITIES['ZA'],
   mainExportCommodities: BRICS_MAIN_EXPORT_COMMODITIES['ZA'],
+  mainExportedElements: BRICS_MAIN_EXPORTED_ELEMENTS['ZA'],
+  rareEarths: BRICS_RARE_EARTHS['ZA'],
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
 }

@@ -3,6 +3,9 @@ import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { NATO_RARE_EARTHS } from './rareEarthsByIso'
+import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 
 export const northMacedonia: NatoCountry = {
   name: 'North Macedonia',
@@ -24,5 +27,8 @@ export const northMacedonia: NatoCountry = {
   newsOutlets: NATO_NEWS_OUTLETS['MK'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['MK'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['MK'],
+  mainExportedElements: NATO_MAIN_EXPORTED_ELEMENTS['MK'],
+  rareEarths: NATO_RARE_EARTHS['MK'],
   stockExchange: 'Macedonian Stock Exchange (Skopje — informational)',
+  bondMarkets: NATO_BOND_MARKETS['MK'],
 }

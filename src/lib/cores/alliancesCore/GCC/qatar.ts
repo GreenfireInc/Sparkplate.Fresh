@@ -3,6 +3,9 @@ import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { GCC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { GCC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { GCC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { GCC_RARE_EARTHS } from './rareEarthsByIso'
+import { GCC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const qatar: GccCountry = {
   name: 'Qatar',
@@ -25,5 +28,8 @@ export const qatar: GccCountry = {
   newsOutlets: GCC_NEWS_OUTLETS['QA'],
   notableUniversities: GCC_NOTABLE_UNIVERSITIES['QA'],
   mainExportCommodities: GCC_MAIN_EXPORT_COMMODITIES['QA'],
+  mainExportedElements: GCC_MAIN_EXPORTED_ELEMENTS['QA'],
+  rareEarths: GCC_RARE_EARTHS['QA'],
   stockExchange: 'Qatar Stock Exchange',
+  bondMarkets: GCC_BOND_MARKETS['QA'],
 }

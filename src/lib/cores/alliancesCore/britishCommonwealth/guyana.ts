@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const guyana: CommonwealthCountry = {
   name: 'Guyana',
@@ -24,5 +26,7 @@ export const guyana: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['GY'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['GY'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['GY'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['GY'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['GY'],
   stockExchange: 'Guyana Stock Exchange',
 }

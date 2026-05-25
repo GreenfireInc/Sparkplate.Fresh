@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const canada: CommonwealthCountry = {
   name: 'Canada',
@@ -24,5 +26,7 @@ export const canada: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['CA'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['CA'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['CA'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['CA'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['CA'],
   stockExchange: 'Toronto Stock Exchange (TSX)',
 }

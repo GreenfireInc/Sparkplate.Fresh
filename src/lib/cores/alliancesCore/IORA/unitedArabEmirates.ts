@@ -3,6 +3,9 @@ import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IORA_RARE_EARTHS } from './rareEarthsByIso'
+import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const unitedArabEmirates: IoraCountry = {
   name: 'United Arab Emirates',
@@ -25,5 +28,8 @@ export const unitedArabEmirates: IoraCountry = {
   newsOutlets: IORA_NEWS_OUTLETS['AE'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['AE'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['AE'],
+  mainExportedElements: IORA_MAIN_EXPORTED_ELEMENTS['AE'],
+  rareEarths: IORA_RARE_EARTHS['AE'],
   stockExchange: 'ADX Abu Dhabi; DFM Dubai',
+  bondMarkets: IORA_BOND_MARKETS['AE'],
 }

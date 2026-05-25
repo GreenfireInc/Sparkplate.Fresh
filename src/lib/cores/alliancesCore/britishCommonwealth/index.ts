@@ -4,9 +4,11 @@ export type {
   CommonwealthMembership,
   DomesticCourierService,
   MainExportCommodities,
+  MainExportedElements,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
+  RareEarths,
 } from './types'
 
 import type { CommonwealthCountry, BritishCommonwealthOrganizationInfo } from './types'

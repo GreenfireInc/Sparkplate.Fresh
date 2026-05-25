@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const norway: OecdCountry = {
   name: 'Norway',
@@ -24,5 +27,8 @@ export const norway: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['NO'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['NO'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['NO'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['NO'],
+  rareEarths: OECD_RARE_EARTHS['NO'],
   stockExchange: 'Oslo Stock Exchange (Euronext Oslo Børs)',
+  bondMarkets: OECD_BOND_MARKETS['NO'],
 }

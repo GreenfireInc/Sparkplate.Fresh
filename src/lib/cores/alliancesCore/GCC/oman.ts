@@ -3,6 +3,9 @@ import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { GCC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { GCC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { GCC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { GCC_RARE_EARTHS } from './rareEarthsByIso'
+import { GCC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const oman: GccCountry = {
   name: 'Oman',
@@ -24,5 +27,8 @@ export const oman: GccCountry = {
   newsOutlets: GCC_NEWS_OUTLETS['OM'],
   notableUniversities: GCC_NOTABLE_UNIVERSITIES['OM'],
   mainExportCommodities: GCC_MAIN_EXPORT_COMMODITIES['OM'],
+  mainExportedElements: GCC_MAIN_EXPORTED_ELEMENTS['OM'],
+  rareEarths: GCC_RARE_EARTHS['OM'],
   stockExchange: 'Muscat Stock Exchange',
+  bondMarkets: GCC_BOND_MARKETS['OM'],
 }

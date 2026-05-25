@@ -3,6 +3,9 @@ import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IORA_RARE_EARTHS } from './rareEarthsByIso'
+import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const australia: IoraCountry = {
   name: 'Australia',
@@ -24,5 +27,8 @@ export const australia: IoraCountry = {
   newsOutlets: IORA_NEWS_OUTLETS['AU'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['AU'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['AU'],
+  mainExportedElements: IORA_MAIN_EXPORTED_ELEMENTS['AU'],
+  rareEarths: IORA_RARE_EARTHS['AU'],
   stockExchange: 'Australian Securities Exchange (ASX)',
+  bondMarkets: IORA_BOND_MARKETS['AU'],
 }

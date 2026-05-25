@@ -3,6 +3,9 @@ import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { EU_RARE_EARTHS } from './rareEarthsByIso'
+import { EU_BOND_MARKETS } from './bondMarketsByIso'
 
 export const spain: EuCountry = {
   name: 'Spain',
@@ -23,5 +26,8 @@ export const spain: EuCountry = {
   newsOutlets: EU_NEWS_OUTLETS['ES'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['ES'],
   mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['ES'],
+  mainExportedElements: EU_MAIN_EXPORTED_ELEMENTS['ES'],
+  rareEarths: EU_RARE_EARTHS['ES'],
   stockExchange: 'BME Growth / Euronext Spain context',
+  bondMarkets: EU_BOND_MARKETS['ES'],
 }

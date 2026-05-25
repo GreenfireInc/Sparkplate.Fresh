@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const slovenia: OecdCountry = {
   name: 'Slovenia',
@@ -24,5 +27,8 @@ export const slovenia: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['SI'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['SI'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['SI'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['SI'],
+  rareEarths: OECD_RARE_EARTHS['SI'],
   stockExchange: 'Ljubljana Stock Exchange',
+  bondMarkets: OECD_BOND_MARKETS['SI'],
 }

@@ -3,6 +3,9 @@ import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { NATO_RARE_EARTHS } from './rareEarthsByIso'
+import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 
 export const unitedKingdom: NatoCountry = {
   name: 'United Kingdom',
@@ -26,5 +29,8 @@ export const unitedKingdom: NatoCountry = {
   newsOutlets: NATO_NEWS_OUTLETS['GB'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['GB'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['GB'],
+  mainExportedElements: NATO_MAIN_EXPORTED_ELEMENTS['GB'],
+  rareEarths: NATO_RARE_EARTHS['GB'],
   stockExchange: 'London Stock Exchange Group',
+  bondMarkets: NATO_BOND_MARKETS['GB'],
 }

@@ -3,6 +3,9 @@ import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
+import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 
 export const jamaica: CaricomCountry = {
   name: 'Jamaica',
@@ -24,5 +27,8 @@ export const jamaica: CaricomCountry = {
   newsOutlets: CARICOM_NEWS_OUTLETS['JM'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['JM'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['JM'],
+  mainExportedElements: CARICOM_MAIN_EXPORTED_ELEMENTS['JM'],
+  rareEarths: CARICOM_RARE_EARTHS['JM'],
   stockExchange: 'Jamaica Stock Exchange',
+  bondMarkets: CARICOM_BOND_MARKETS['JM'],
 }

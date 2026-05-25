@@ -3,6 +3,9 @@ import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
+import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const algeria: OpecCountry = {
   name: 'Algeria',
@@ -24,5 +27,8 @@ export const algeria: OpecCountry = {
   newsOutlets: OPEC_NEWS_OUTLETS['DZ'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['DZ'],
   mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['DZ'],
+  mainExportedElements: OPEC_MAIN_EXPORTED_ELEMENTS['DZ'],
+  rareEarths: OPEC_RARE_EARTHS['DZ'],
   stockExchange: 'Algerian equities segment (regulated bourse liquidity limited — informational)',
+  bondMarkets: OPEC_BOND_MARKETS['DZ'],
 }

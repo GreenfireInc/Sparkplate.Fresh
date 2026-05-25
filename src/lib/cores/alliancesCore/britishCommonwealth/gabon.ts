@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const gabon: CommonwealthCountry = {
   name: 'Gabon',
@@ -24,5 +26,7 @@ export const gabon: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['GA'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['GA'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['GA'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['GA'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['GA'],
   stockExchange: 'Bourse des Valeurs Mobilières de l\'Afrique Centrale (regional)',
 }

@@ -3,6 +3,9 @@ import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ASEAN_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ASEAN_RARE_EARTHS } from './rareEarthsByIso'
+import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
 
 export const thailand: AseanCountry = {
   name: 'Thailand',
@@ -24,5 +27,8 @@ export const thailand: AseanCountry = {
   newsOutlets: ASEAN_NEWS_OUTLETS['TH'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['TH'],
   mainExportCommodities: ASEAN_MAIN_EXPORT_COMMODITIES['TH'],
+  mainExportedElements: ASEAN_MAIN_EXPORTED_ELEMENTS['TH'],
+  rareEarths: ASEAN_RARE_EARTHS['TH'],
   stockExchange: 'Stock Exchange of Thailand SET Bangkok',
+  bondMarkets: ASEAN_BOND_MARKETS['TH'],
 }

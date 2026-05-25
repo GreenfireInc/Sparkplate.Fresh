@@ -1,11 +1,14 @@
 export type {
-  OecdCountry,
-  OecdOrganizationInfo,
+  BondMarketVenue,
   DomesticCourierService,
   MainExportCommodities,
+  MainExportedElements,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
+  OecdCountry,
+  OecdOrganizationInfo,
+  RareEarths,
 } from './types'
 
 import type { OecdCountry, OecdOrganizationInfo } from './types'

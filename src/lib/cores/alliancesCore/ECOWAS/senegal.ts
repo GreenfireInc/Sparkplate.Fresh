@@ -3,6 +3,9 @@ import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
+import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const senegal: EcowasCountry = {
   name: 'Senegal',
@@ -23,5 +26,8 @@ export const senegal: EcowasCountry = {
   newsOutlets: ECOWAS_NEWS_OUTLETS['SN'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['SN'],
   mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['SN'],
+  mainExportedElements: ECOWAS_MAIN_EXPORTED_ELEMENTS['SN'],
+  rareEarths: ECOWAS_RARE_EARTHS['SN'],
   stockExchange: 'BRVM (Dakar listings)',
+  bondMarkets: ECOWAS_BOND_MARKETS['SN'],
 }

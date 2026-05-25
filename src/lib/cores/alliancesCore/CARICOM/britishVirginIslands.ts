@@ -3,6 +3,9 @@ import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
+import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 
 export const britishVirginIslands: CaricomCountry = {
   name: 'British Virgin Islands',
@@ -24,5 +27,8 @@ export const britishVirginIslands: CaricomCountry = {
   newsOutlets: CARICOM_NEWS_OUTLETS['VG'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['VG'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['VG'],
+  mainExportedElements: CARICOM_MAIN_EXPORTED_ELEMENTS['VG'],
+  rareEarths: CARICOM_RARE_EARTHS['VG'],
   stockExchange: 'BVI finance centre; no large local bourse like major markets',
+  bondMarkets: CARICOM_BOND_MARKETS['VG'],
 }

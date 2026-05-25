@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const ireland: OecdCountry = {
   name: 'Ireland',
@@ -24,5 +27,8 @@ export const ireland: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['IE'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['IE'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['IE'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['IE'],
+  rareEarths: OECD_RARE_EARTHS['IE'],
   stockExchange: 'Euronext Dublin',
+  bondMarkets: OECD_BOND_MARKETS['IE'],
 }

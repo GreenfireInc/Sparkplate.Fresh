@@ -3,6 +3,9 @@ import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { GCC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { GCC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { GCC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { GCC_RARE_EARTHS } from './rareEarthsByIso'
+import { GCC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const bahrain: GccCountry = {
   name: 'Bahrain',
@@ -25,5 +28,8 @@ export const bahrain: GccCountry = {
   newsOutlets: GCC_NEWS_OUTLETS['BH'],
   notableUniversities: GCC_NOTABLE_UNIVERSITIES['BH'],
   mainExportCommodities: GCC_MAIN_EXPORT_COMMODITIES['BH'],
+  mainExportedElements: GCC_MAIN_EXPORTED_ELEMENTS['BH'],
+  rareEarths: GCC_RARE_EARTHS['BH'],
   stockExchange: 'Bahrain Bourse',
+  bondMarkets: GCC_BOND_MARKETS['BH'],
 }

@@ -1,11 +1,14 @@
 export type {
+  BondMarketVenue,
+  DomesticCourierService,
   IoraCountry,
   IoraOrganizationInfo,
-  DomesticCourierService,
   MainExportCommodities,
+  MainExportedElements,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
+  RareEarths,
 } from './types'
 
 import type { IoraCountry, IoraOrganizationInfo } from './types'

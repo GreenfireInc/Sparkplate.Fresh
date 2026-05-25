@@ -3,6 +3,9 @@ import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
+import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 
 export const antiguaAndBarbuda: CaricomCountry = {
   name: 'Antigua and Barbuda',
@@ -24,5 +27,8 @@ export const antiguaAndBarbuda: CaricomCountry = {
   newsOutlets: CARICOM_NEWS_OUTLETS['AG'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['AG'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['AG'],
+  mainExportedElements: CARICOM_MAIN_EXPORTED_ELEMENTS['AG'],
+  rareEarths: CARICOM_RARE_EARTHS['AG'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
+  bondMarkets: CARICOM_BOND_MARKETS['AG'],
 }

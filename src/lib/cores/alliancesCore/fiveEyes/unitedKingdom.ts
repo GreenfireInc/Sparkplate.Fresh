@@ -3,6 +3,9 @@ import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { FIVE_EYES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { FIVE_EYES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { FIVE_EYES_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { FIVE_EYES_RARE_EARTHS } from './rareEarthsByIso'
+import { FIVE_EYES_BOND_MARKETS } from './bondMarketsByIso'
 
 export const unitedKingdom: FiveEyesCountry = {
   name: 'United Kingdom',
@@ -25,5 +28,8 @@ export const unitedKingdom: FiveEyesCountry = {
   newsOutlets: FIVE_EYES_NEWS_OUTLETS['GB'],
   notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['GB'],
   mainExportCommodities: FIVE_EYES_MAIN_EXPORT_COMMODITIES['GB'],
+  mainExportedElements: FIVE_EYES_MAIN_EXPORTED_ELEMENTS['GB'],
+  rareEarths: FIVE_EYES_RARE_EARTHS['GB'],
   stockExchange: 'London Stock Exchange Group (post-Brexit consolidated venues — informational)',
+  bondMarkets: FIVE_EYES_BOND_MARKETS['GB'],
 }

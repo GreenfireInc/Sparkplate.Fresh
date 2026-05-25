@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const australia: OecdCountry = {
   name: 'Australia',
@@ -24,5 +27,8 @@ export const australia: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['AU'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['AU'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['AU'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['AU'],
+  rareEarths: OECD_RARE_EARTHS['AU'],
   stockExchange: 'Australian Securities Exchange (ASX, Sydney)',
+  bondMarkets: OECD_BOND_MARKETS['AU'],
 }

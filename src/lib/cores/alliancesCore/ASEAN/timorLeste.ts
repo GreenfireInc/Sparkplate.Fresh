@@ -3,6 +3,9 @@ import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ASEAN_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ASEAN_RARE_EARTHS } from './rareEarthsByIso'
+import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
 
 export const timorLeste: AseanCountry = {
   name: 'Timor-Leste',
@@ -24,5 +27,8 @@ export const timorLeste: AseanCountry = {
   newsOutlets: ASEAN_NEWS_OUTLETS['TL'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['TL'],
   mainExportCommodities: ASEAN_MAIN_EXPORT_COMMODITIES['TL'],
+  mainExportedElements: ASEAN_MAIN_EXPORTED_ELEMENTS['TL'],
+  rareEarths: ASEAN_RARE_EARTHS['TL'],
   stockExchange: 'No substantive national equities exchange consolidated — informational',
+  bondMarkets: ASEAN_BOND_MARKETS['TL'],
 }

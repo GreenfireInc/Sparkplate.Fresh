@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const guineaBissau: AfricanUnionCountry = {
   name: 'Guinea-Bissau',
   iso3166Alpha2: 'GW',
@@ -23,5 +26,8 @@ export const guineaBissau: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['GW'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['GW'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['GW'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['GW'],
+  rareEarths: AU_RARE_EARTHS['GW'],
   stockExchange: 'No significant national exchange; BRVM regional access',
+  bondMarkets: AU_BOND_MARKETS['GW'],
 }

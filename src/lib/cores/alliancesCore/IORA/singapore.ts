@@ -3,6 +3,9 @@ import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IORA_RARE_EARTHS } from './rareEarthsByIso'
+import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const singapore: IoraCountry = {
   name: 'Singapore',
@@ -24,5 +27,8 @@ export const singapore: IoraCountry = {
   newsOutlets: IORA_NEWS_OUTLETS['SG'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['SG'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['SG'],
+  mainExportedElements: IORA_MAIN_EXPORTED_ELEMENTS['SG'],
+  rareEarths: IORA_RARE_EARTHS['SG'],
   stockExchange: 'Singapore Exchange (SGX)',
+  bondMarkets: IORA_BOND_MARKETS['SG'],
 }

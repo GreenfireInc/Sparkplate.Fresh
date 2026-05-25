@@ -3,6 +3,9 @@ import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IORA_RARE_EARTHS } from './rareEarthsByIso'
+import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const maldives: IoraCountry = {
   name: 'Maldives',
@@ -24,5 +27,8 @@ export const maldives: IoraCountry = {
   newsOutlets: IORA_NEWS_OUTLETS['MV'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['MV'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['MV'],
+  mainExportedElements: IORA_MAIN_EXPORTED_ELEMENTS['MV'],
+  rareEarths: IORA_RARE_EARTHS['MV'],
   stockExchange: 'Maldives Stock Exchange (Malé — thin — informational)',
+  bondMarkets: IORA_BOND_MARKETS['MV'],
 }

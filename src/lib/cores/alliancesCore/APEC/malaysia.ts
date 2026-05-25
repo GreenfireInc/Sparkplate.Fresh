@@ -3,6 +3,9 @@ import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { APEC_RARE_EARTHS } from './rareEarthsByIso'
+import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const malaysia: ApecCountry = {
   name: 'Malaysia',
@@ -25,5 +28,8 @@ export const malaysia: ApecCountry = {
   newsOutlets: APEC_NEWS_OUTLETS['MY'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['MY'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['MY'],
+  mainExportedElements: APEC_MAIN_EXPORTED_ELEMENTS['MY'],
+  rareEarths: APEC_RARE_EARTHS['MY'],
   stockExchange: 'Bursa Malaysia',
+  bondMarkets: APEC_BOND_MARKETS['MY'],
 }

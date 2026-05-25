@@ -3,6 +3,9 @@ import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECS_RARE_EARTHS } from './rareEarthsByIso'
+import { OECS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const saintVincentAndTheGrenadines: OecsCountry = {
   name: 'Saint Vincent and the Grenadines',
@@ -24,5 +27,8 @@ export const saintVincentAndTheGrenadines: OecsCountry = {
   newsOutlets: OECS_NEWS_OUTLETS['VC'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['VC'],
   mainExportCommodities: OECS_MAIN_EXPORT_COMMODITIES['VC'],
+  mainExportedElements: OECS_MAIN_EXPORTED_ELEMENTS['VC'],
+  rareEarths: OECS_RARE_EARTHS['VC'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
+  bondMarkets: OECS_BOND_MARKETS['VC'],
 }

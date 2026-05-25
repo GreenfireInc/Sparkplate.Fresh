@@ -3,6 +3,9 @@ import { MINT_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { MINT_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MINT_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { MINT_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { MINT_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { MINT_RARE_EARTHS } from './rareEarthsByIso'
+import { MINT_BOND_MARKETS } from './bondMarketsByIso'
 
 export const mexico: MintCountry = {
   name: 'Mexico',
@@ -25,5 +28,8 @@ export const mexico: MintCountry = {
   newsOutlets: MINT_NEWS_OUTLETS['MX'],
   notableUniversities: MINT_NOTABLE_UNIVERSITIES['MX'],
   mainExportCommodities: MINT_MAIN_EXPORT_COMMODITIES['MX'],
+  mainExportedElements: MINT_MAIN_EXPORTED_ELEMENTS['MX'],
+  rareEarths: MINT_RARE_EARTHS['MX'],
   stockExchange: 'Mexican Stock Exchange BMV Bolsa Mexicana de Valores',
+  bondMarkets: MINT_BOND_MARKETS['MX'],
 }

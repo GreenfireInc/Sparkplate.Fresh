@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const antiguaAndBarbuda: CommonwealthCountry = {
   name: 'Antigua and Barbuda',
@@ -24,5 +26,7 @@ export const antiguaAndBarbuda: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['AG'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['AG'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['AG'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['AG'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['AG'],
   stockExchange: 'Eastern Caribbean Securities Exchange (regional)',
 }

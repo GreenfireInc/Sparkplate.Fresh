@@ -3,6 +3,9 @@ import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IGAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IGAD_RARE_EARTHS } from './rareEarthsByIso'
+import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const uganda: IgadCountry = {
   name: 'Uganda',
@@ -24,5 +27,8 @@ export const uganda: IgadCountry = {
   newsOutlets: IGAD_NEWS_OUTLETS['UG'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['UG'],
   mainExportCommodities: IGAD_MAIN_EXPORT_COMMODITIES['UG'],
+  mainExportedElements: IGAD_MAIN_EXPORTED_ELEMENTS['UG'],
+  rareEarths: IGAD_RARE_EARTHS['UG'],
   stockExchange: 'Uganda Securities Exchange (USE, thin listings — informational)',
+  bondMarkets: IGAD_BOND_MARKETS['UG'],
 }

@@ -3,6 +3,9 @@ import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
+import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const uganda: ComesaCountry = {
   name: 'Uganda',
@@ -23,5 +26,8 @@ export const uganda: ComesaCountry = {
   newsOutlets: COMESA_NEWS_OUTLETS['UG'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['UG'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['UG'],
+  mainExportedElements: COMESA_MAIN_EXPORTED_ELEMENTS['UG'],
+  rareEarths: COMESA_RARE_EARTHS['UG'],
   stockExchange: 'Uganda Securities Exchange',
+  bondMarkets: COMESA_BOND_MARKETS['UG'],
 }

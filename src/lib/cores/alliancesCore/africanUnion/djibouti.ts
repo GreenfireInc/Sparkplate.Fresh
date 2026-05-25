@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const djibouti: AfricanUnionCountry = {
   name: 'Djibouti',
   iso3166Alpha2: 'DJ',
@@ -23,5 +26,8 @@ export const djibouti: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['DJ'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['DJ'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['DJ'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['DJ'],
+  rareEarths: AU_RARE_EARTHS['DJ'],
   stockExchange: 'Djibouti Stock Exchange (thin activity)',
+  bondMarkets: AU_BOND_MARKETS['DJ'],
 }

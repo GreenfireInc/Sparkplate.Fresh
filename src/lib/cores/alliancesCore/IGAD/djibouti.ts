@@ -3,6 +3,9 @@ import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IGAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IGAD_RARE_EARTHS } from './rareEarthsByIso'
+import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const djibouti: IgadCountry = {
   name: 'Djibouti',
@@ -24,5 +27,8 @@ export const djibouti: IgadCountry = {
   newsOutlets: IGAD_NEWS_OUTLETS['DJ'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['DJ'],
   mainExportCommodities: IGAD_MAIN_EXPORT_COMMODITIES['DJ'],
+  mainExportedElements: IGAD_MAIN_EXPORTED_ELEMENTS['DJ'],
+  rareEarths: IGAD_RARE_EARTHS['DJ'],
   stockExchange: 'Djibouti Stock Exchange (thin liquidity; sovereign development narrative — informational)',
+  bondMarkets: IGAD_BOND_MARKETS['DJ'],
 }

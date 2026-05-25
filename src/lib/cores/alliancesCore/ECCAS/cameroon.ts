@@ -3,6 +3,9 @@ import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ECCAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ECCAS_RARE_EARTHS } from './rareEarthsByIso'
+import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const cameroon: EccasCountry = {
   name: 'Cameroon',
@@ -24,5 +27,8 @@ export const cameroon: EccasCountry = {
   newsOutlets: ECCAS_NEWS_OUTLETS['CM'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['CM'],
   mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['CM'],
+  mainExportedElements: ECCAS_MAIN_EXPORTED_ELEMENTS['CM'],
+  rareEarths: ECCAS_RARE_EARTHS['CM'],
   stockExchange: 'Douala Stock Exchange (DSX)',
+  bondMarkets: ECCAS_BOND_MARKETS['CM'],
 }

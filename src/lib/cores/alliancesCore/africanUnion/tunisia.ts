@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const tunisia: AfricanUnionCountry = {
   name: 'Tunisia',
   iso3166Alpha2: 'TN',
@@ -23,5 +26,8 @@ export const tunisia: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['TN'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['TN'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['TN'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['TN'],
+  rareEarths: AU_RARE_EARTHS['TN'],
   stockExchange: 'Bourse de Tunis',
+  bondMarkets: AU_BOND_MARKETS['TN'],
 }

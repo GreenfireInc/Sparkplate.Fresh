@@ -3,6 +3,9 @@ import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { APEC_RARE_EARTHS } from './rareEarthsByIso'
+import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const canada: ApecCountry = {
   name: 'Canada',
@@ -24,5 +27,8 @@ export const canada: ApecCountry = {
   newsOutlets: APEC_NEWS_OUTLETS['CA'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['CA'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['CA'],
+  mainExportedElements: APEC_MAIN_EXPORTED_ELEMENTS['CA'],
+  rareEarths: APEC_RARE_EARTHS['CA'],
   stockExchange: 'Toronto Stock Exchange (TMX)',
+  bondMarkets: APEC_BOND_MARKETS['CA'],
 }

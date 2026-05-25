@@ -3,6 +3,9 @@ import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { APEC_RARE_EARTHS } from './rareEarthsByIso'
+import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const japan: ApecCountry = {
   name: 'Japan',
@@ -25,5 +28,8 @@ export const japan: ApecCountry = {
   newsOutlets: APEC_NEWS_OUTLETS['JP'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['JP'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['JP'],
+  mainExportedElements: APEC_MAIN_EXPORTED_ELEMENTS['JP'],
+  rareEarths: APEC_RARE_EARTHS['JP'],
   stockExchange: 'Tokyo Stock Exchange (Japan Exchange Group)',
+  bondMarkets: APEC_BOND_MARKETS['JP'],
 }

@@ -3,6 +3,9 @@ import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { GCC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { GCC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { GCC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { GCC_RARE_EARTHS } from './rareEarthsByIso'
+import { GCC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const unitedArabEmirates: GccCountry = {
   name: 'United Arab Emirates',
@@ -26,5 +29,8 @@ export const unitedArabEmirates: GccCountry = {
   newsOutlets: GCC_NEWS_OUTLETS['AE'],
   notableUniversities: GCC_NOTABLE_UNIVERSITIES['AE'],
   mainExportCommodities: GCC_MAIN_EXPORT_COMMODITIES['AE'],
+  mainExportedElements: GCC_MAIN_EXPORTED_ELEMENTS['AE'],
+  rareEarths: GCC_RARE_EARTHS['AE'],
   stockExchange: 'Abu Dhabi Securities Exchange (ADX); Dubai Financial Market (DFM)',
+  bondMarkets: GCC_BOND_MARKETS['AE'],
 }

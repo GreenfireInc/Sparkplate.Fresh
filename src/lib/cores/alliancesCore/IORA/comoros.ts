@@ -3,6 +3,9 @@ import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IORA_RARE_EARTHS } from './rareEarthsByIso'
+import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const comoros: IoraCountry = {
   name: 'Comoros',
@@ -24,5 +27,8 @@ export const comoros: IoraCountry = {
   newsOutlets: IORA_NEWS_OUTLETS['KM'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['KM'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['KM'],
+  mainExportedElements: IORA_MAIN_EXPORTED_ELEMENTS['KM'],
+  rareEarths: IORA_RARE_EARTHS['KM'],
   stockExchange: 'No substantive national equities market — informational',
+  bondMarkets: IORA_BOND_MARKETS['KM'],
 }

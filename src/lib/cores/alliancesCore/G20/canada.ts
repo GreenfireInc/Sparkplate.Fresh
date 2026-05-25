@@ -3,6 +3,9 @@ import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { G20_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { G20_RARE_EARTHS } from './rareEarthsByIso'
+import { G20_BOND_MARKETS } from './bondMarketsByIso'
 
 export const canada: G20Country = {
   name: 'Canada',
@@ -24,5 +27,8 @@ export const canada: G20Country = {
   newsOutlets: G20_NEWS_OUTLETS['CA'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['CA'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['CA'],
+  mainExportedElements: G20_MAIN_EXPORTED_ELEMENTS['CA'],
+  rareEarths: G20_RARE_EARTHS['CA'],
   stockExchange: 'Toronto Stock Exchange (TMX)',
+  bondMarkets: G20_BOND_MARKETS['CA'],
 }

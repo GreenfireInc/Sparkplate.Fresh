@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const unitedStates: OecdCountry = {
   name: 'United States',
@@ -25,5 +28,8 @@ export const unitedStates: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['US'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['US'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['US'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['US'],
+  rareEarths: OECD_RARE_EARTHS['US'],
   stockExchange: 'NYSE / Nasdaq consolidated US equity liquidity',
+  bondMarkets: OECD_BOND_MARKETS['US'],
 }

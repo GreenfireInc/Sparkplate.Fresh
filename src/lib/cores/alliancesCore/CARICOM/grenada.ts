@@ -3,6 +3,9 @@ import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
+import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 
 export const grenada: CaricomCountry = {
   name: 'Grenada',
@@ -24,5 +27,8 @@ export const grenada: CaricomCountry = {
   newsOutlets: CARICOM_NEWS_OUTLETS['GD'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['GD'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['GD'],
+  mainExportedElements: CARICOM_MAIN_EXPORTED_ELEMENTS['GD'],
+  rareEarths: CARICOM_RARE_EARTHS['GD'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
+  bondMarkets: CARICOM_BOND_MARKETS['GD'],
 }

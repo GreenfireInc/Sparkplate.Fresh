@@ -3,6 +3,9 @@ import { MINT_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { MINT_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MINT_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { MINT_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { MINT_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { MINT_RARE_EARTHS } from './rareEarthsByIso'
+import { MINT_BOND_MARKETS } from './bondMarketsByIso'
 
 export const indonesia: MintCountry = {
   name: 'Indonesia',
@@ -25,5 +28,8 @@ export const indonesia: MintCountry = {
   newsOutlets: MINT_NEWS_OUTLETS['ID'],
   notableUniversities: MINT_NOTABLE_UNIVERSITIES['ID'],
   mainExportCommodities: MINT_MAIN_EXPORT_COMMODITIES['ID'],
+  mainExportedElements: MINT_MAIN_EXPORTED_ELEMENTS['ID'],
+  rareEarths: MINT_RARE_EARTHS['ID'],
   stockExchange: 'Indonesia Stock Exchange IDX Jakarta',
+  bondMarkets: MINT_BOND_MARKETS['ID'],
 }

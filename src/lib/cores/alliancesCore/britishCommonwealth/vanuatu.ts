@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const vanuatu: CommonwealthCountry = {
   name: 'Vanuatu',
@@ -24,5 +26,7 @@ export const vanuatu: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['VU'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['VU'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['VU'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['VU'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['VU'],
   stockExchange: 'Vanuatu Securities Exchange',
 }

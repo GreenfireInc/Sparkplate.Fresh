@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const dominica: CommonwealthCountry = {
   name: 'Dominica',
@@ -24,5 +26,7 @@ export const dominica: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['DM'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['DM'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['DM'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['DM'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['DM'],
   stockExchange: 'Eastern Caribbean Securities Exchange (regional)',
 }

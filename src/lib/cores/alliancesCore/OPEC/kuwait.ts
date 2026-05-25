@@ -3,6 +3,9 @@ import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
+import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const kuwait: OpecCountry = {
   name: 'Kuwait',
@@ -25,5 +28,8 @@ export const kuwait: OpecCountry = {
   newsOutlets: OPEC_NEWS_OUTLETS['KW'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['KW'],
   mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['KW'],
+  mainExportedElements: OPEC_MAIN_EXPORTED_ELEMENTS['KW'],
+  rareEarths: OPEC_RARE_EARTHS['KW'],
   stockExchange: 'Boursa Kuwait',
+  bondMarkets: OPEC_BOND_MARKETS['KW'],
 }

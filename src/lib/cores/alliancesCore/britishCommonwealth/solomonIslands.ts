@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const solomonIslands: CommonwealthCountry = {
   name: 'Solomon Islands',
@@ -24,5 +26,7 @@ export const solomonIslands: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['SB'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['SB'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['SB'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['SB'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['SB'],
   stockExchange: 'No major national exchange — informational',
 }

@@ -3,7 +3,9 @@ import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
-
+import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRI_RARE_EARTHS } from './rareEarthsByIso'
+import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 export const croatia: BeltAndRoadInitiativeCountry = {
   name: 'Croatia',
   iso3166Alpha2: 'HR',
@@ -24,5 +26,8 @@ export const croatia: BeltAndRoadInitiativeCountry = {
   newsOutlets: BRI_NEWS_OUTLETS['HR'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['HR'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['HR'],
+  mainExportedElements: BRI_MAIN_EXPORTED_ELEMENTS['HR'],
+  rareEarths: BRI_RARE_EARTHS['HR'],
   stockExchange: 'National or regional exchange (verify)',
+  bondMarkets: BRI_BOND_MARKETS['HR'],
 }

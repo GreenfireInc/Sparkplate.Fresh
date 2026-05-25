@@ -3,6 +3,9 @@ import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
+import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const libya: OpecCountry = {
   name: 'Libya',
@@ -25,5 +28,8 @@ export const libya: OpecCountry = {
   newsOutlets: OPEC_NEWS_OUTLETS['LY'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['LY'],
   mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['LY'],
+  mainExportedElements: OPEC_MAIN_EXPORTED_ELEMENTS['LY'],
+  rareEarths: OPEC_RARE_EARTHS['LY'],
   stockExchange: 'Libyan Stock Market operational disruption narratives — informational',
+  bondMarkets: OPEC_BOND_MARKETS['LY'],
 }

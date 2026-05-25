@@ -3,6 +3,9 @@ import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { EU_RARE_EARTHS } from './rareEarthsByIso'
+import { EU_BOND_MARKETS } from './bondMarketsByIso'
 
 export const romania: EuCountry = {
   name: 'Romania',
@@ -23,5 +26,8 @@ export const romania: EuCountry = {
   newsOutlets: EU_NEWS_OUTLETS['RO'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['RO'],
   mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['RO'],
+  mainExportedElements: EU_MAIN_EXPORTED_ELEMENTS['RO'],
+  rareEarths: EU_RARE_EARTHS['RO'],
   stockExchange: 'Bucharest Stock Exchange',
+  bondMarkets: EU_BOND_MARKETS['RO'],
 }

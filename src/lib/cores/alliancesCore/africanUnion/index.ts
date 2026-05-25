@@ -2,11 +2,14 @@ export type {
   AfricanUnionCountry,
   AfricanUnionMembership,
   AfricanUnionOrganizationInfo,
+  BondMarketVenue,
   DomesticCourierService,
   MainExportCommodities,
-  NotableUniversity,
+  MainExportedElements,
   NewsOutlet,
   NewsOutletsRoster,
+  NotableUniversity,
+  RareEarths,
 } from './types'
 export { AU_MEMBER_ISO_CODES } from './auMemberIsoCodes'
 export type { AuMemberIsoCode } from './auMemberIsoCodes'

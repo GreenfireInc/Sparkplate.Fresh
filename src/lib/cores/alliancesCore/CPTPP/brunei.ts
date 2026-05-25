@@ -3,6 +3,9 @@ import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CPTPP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CPTPP_RARE_EARTHS } from './rareEarthsByIso'
+import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 
 export const brunei: CptppCountry = {
   name: 'Brunei',
@@ -23,5 +26,8 @@ export const brunei: CptppCountry = {
   newsOutlets: CPTPP_NEWS_OUTLETS['BN'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['BN'],
   mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['BN'],
+  mainExportedElements: CPTPP_MAIN_EXPORTED_ELEMENTS['BN'],
+  rareEarths: CPTPP_RARE_EARTHS['BN'],
   stockExchange: 'Brunei Darussalam Central Moneymarket (money market; thin equity market — verify)',
+  bondMarkets: CPTPP_BOND_MARKETS['BN'],
 }

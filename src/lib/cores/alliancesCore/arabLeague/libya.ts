@@ -3,6 +3,9 @@ import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ARAB_LEAGUE_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ARAB_LEAGUE_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ARAB_LEAGUE_RARE_EARTHS } from './rareEarthsByIso'
+import { ARAB_LEAGUE_BOND_MARKETS } from './bondMarketsByIso'
 
 export const libya: ArabLeagueCountry = {
   name: 'Libya',
@@ -24,5 +27,8 @@ export const libya: ArabLeagueCountry = {
   newsOutlets: ARAB_LEAGUE_NEWS_OUTLETS['LY'],
   notableUniversities: ARAB_LEAGUE_NOTABLE_UNIVERSITIES['LY'],
   mainExportCommodities: ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES['LY'],
+  mainExportedElements: ARAB_LEAGUE_MAIN_EXPORTED_ELEMENTS['LY'],
+  rareEarths: ARAB_LEAGUE_RARE_EARTHS['LY'],
   stockExchange: 'Libyan Stock Market (limited operations)',
+  bondMarkets: ARAB_LEAGUE_BOND_MARKETS['LY'],
 }

@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const seychelles: AfricanUnionCountry = {
   name: 'Seychelles',
   iso3166Alpha2: 'SC',
@@ -23,5 +26,8 @@ export const seychelles: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['SC'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['SC'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['SC'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['SC'],
+  rareEarths: AU_RARE_EARTHS['SC'],
   stockExchange: 'Merjep (Seychelles Securities Exchange) — niche',
+  bondMarkets: AU_BOND_MARKETS['SC'],
 }

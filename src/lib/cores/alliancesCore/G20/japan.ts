@@ -3,6 +3,9 @@ import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { G20_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { G20_RARE_EARTHS } from './rareEarthsByIso'
+import { G20_BOND_MARKETS } from './bondMarketsByIso'
 
 export const japan: G20Country = {
   name: 'Japan',
@@ -24,5 +27,8 @@ export const japan: G20Country = {
   newsOutlets: G20_NEWS_OUTLETS['JP'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['JP'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['JP'],
+  mainExportedElements: G20_MAIN_EXPORTED_ELEMENTS['JP'],
+  rareEarths: G20_RARE_EARTHS['JP'],
   stockExchange: 'Tokyo Stock Exchange (Japan Exchange Group)',
+  bondMarkets: G20_BOND_MARKETS['JP'],
 }

@@ -3,6 +3,9 @@ import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { SADC_RARE_EARTHS } from './rareEarthsByIso'
+import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const zimbabwe: SadcCountry = {
   name: 'Zimbabwe',
@@ -24,5 +27,8 @@ export const zimbabwe: SadcCountry = {
   newsOutlets: SADC_NEWS_OUTLETS['ZW'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['ZW'],
   mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['ZW'],
+  mainExportedElements: SADC_MAIN_EXPORTED_ELEMENTS['ZW'],
+  rareEarths: SADC_RARE_EARTHS['ZW'],
   stockExchange: 'Zimbabwe Stock Exchange (ZSE)',
+  bondMarkets: SADC_BOND_MARKETS['ZW'],
 }

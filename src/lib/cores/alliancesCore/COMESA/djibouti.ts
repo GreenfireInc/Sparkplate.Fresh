@@ -3,6 +3,9 @@ import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
+import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const djibouti: ComesaCountry = {
   name: 'Djibouti',
@@ -23,5 +26,8 @@ export const djibouti: ComesaCountry = {
   newsOutlets: COMESA_NEWS_OUTLETS['DJ'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['DJ'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['DJ'],
+  mainExportedElements: COMESA_MAIN_EXPORTED_ELEMENTS['DJ'],
+  rareEarths: COMESA_RARE_EARTHS['DJ'],
   stockExchange: 'Djibouti Stock Exchange (thin activity)',
+  bondMarkets: COMESA_BOND_MARKETS['DJ'],
 }

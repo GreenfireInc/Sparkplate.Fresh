@@ -3,6 +3,9 @@ import { AMU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AMU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AMU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AMU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AMU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AMU_RARE_EARTHS } from './rareEarthsByIso'
+import { AMU_BOND_MARKETS } from './bondMarketsByIso'
 
 export const morocco: AmuCountry = {
   name: 'Morocco',
@@ -24,5 +27,8 @@ export const morocco: AmuCountry = {
   newsOutlets: AMU_NEWS_OUTLETS['MA'],
   notableUniversities: AMU_NOTABLE_UNIVERSITIES['MA'],
   mainExportCommodities: AMU_MAIN_EXPORT_COMMODITIES['MA'],
+  mainExportedElements: AMU_MAIN_EXPORTED_ELEMENTS['MA'],
+  rareEarths: AMU_RARE_EARTHS['MA'],
   stockExchange: 'Casablanca Stock Exchange',
+  bondMarkets: AMU_BOND_MARKETS['MA'],
 }

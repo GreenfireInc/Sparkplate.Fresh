@@ -3,6 +3,9 @@ import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
+import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const seychelles: ComesaCountry = {
   name: 'Seychelles',
@@ -23,5 +26,8 @@ export const seychelles: ComesaCountry = {
   newsOutlets: COMESA_NEWS_OUTLETS['SC'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['SC'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['SC'],
+  mainExportedElements: COMESA_MAIN_EXPORTED_ELEMENTS['SC'],
+  rareEarths: COMESA_RARE_EARTHS['SC'],
   stockExchange: 'MERJ Exchange (securities niche — verify branding)',
+  bondMarkets: COMESA_BOND_MARKETS['SC'],
 }

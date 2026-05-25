@@ -3,6 +3,9 @@ import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CPTPP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CPTPP_RARE_EARTHS } from './rareEarthsByIso'
+import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 
 export const vietnam: CptppCountry = {
   name: 'Vietnam',
@@ -23,5 +26,8 @@ export const vietnam: CptppCountry = {
   newsOutlets: CPTPP_NEWS_OUTLETS['VN'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['VN'],
   mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['VN'],
+  mainExportedElements: CPTPP_MAIN_EXPORTED_ELEMENTS['VN'],
+  rareEarths: CPTPP_RARE_EARTHS['VN'],
   stockExchange: 'Ho Chi Minh Stock Exchange (HOSE) / Hanoi Stock Exchange (HNX)',
+  bondMarkets: CPTPP_BOND_MARKETS['VN'],
 }

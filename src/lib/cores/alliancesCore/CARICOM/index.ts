@@ -1,12 +1,15 @@
 export type {
+  BondMarketVenue,
   CaricomCountry,
   CaricomMembership,
   CaricomOrganizationInfo,
   DomesticCourierService,
   MainExportCommodities,
+  MainExportedElements,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
+  RareEarths,
 } from './types'
 
 import type { CaricomCountry, CaricomOrganizationInfo } from './types'

@@ -3,6 +3,9 @@ import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
+import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const mauritania: CensadCountry = {
   name: 'Mauritania',
@@ -23,5 +26,8 @@ export const mauritania: CensadCountry = {
   newsOutlets: CENSAD_NEWS_OUTLETS['MR'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['MR'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['MR'],
+  mainExportedElements: CENSAD_MAIN_EXPORTED_ELEMENTS['MR'],
+  rareEarths: CENSAD_RARE_EARTHS['MR'],
   stockExchange: 'Bourse de Mauritanie (Nouakchott — verify depth)',
+  bondMarkets: CENSAD_BOND_MARKETS['MR'],
 }

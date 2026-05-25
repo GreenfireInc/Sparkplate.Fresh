@@ -3,6 +3,9 @@ import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G7_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G7_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G7_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { G7_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { G7_RARE_EARTHS } from './rareEarthsByIso'
+import { G7_BOND_MARKETS } from './bondMarketsByIso'
 
 export const italy: G7Country = {
   name: 'Italy',
@@ -25,5 +28,8 @@ export const italy: G7Country = {
   newsOutlets: G7_NEWS_OUTLETS['IT'],
   notableUniversities: G7_NOTABLE_UNIVERSITIES['IT'],
   mainExportCommodities: G7_MAIN_EXPORT_COMMODITIES['IT'],
+  mainExportedElements: G7_MAIN_EXPORTED_ELEMENTS['IT'],
+  rareEarths: G7_RARE_EARTHS['IT'],
   stockExchange: 'Euronext Milan (Borsa Italiana legacy)',
+  bondMarkets: G7_BOND_MARKETS['IT'],
 }

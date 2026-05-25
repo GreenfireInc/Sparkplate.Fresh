@@ -3,6 +3,9 @@ import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
+import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 
 export const myanmar: RcepCountry = {
   name: 'Myanmar',
@@ -25,5 +28,8 @@ export const myanmar: RcepCountry = {
   newsOutlets: RCEP_NEWS_OUTLETS['MM'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['MM'],
   mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['MM'],
+  mainExportedElements: RCEP_MAIN_EXPORTED_ELEMENTS['MM'],
+  rareEarths: RCEP_RARE_EARTHS['MM'],
   stockExchange: 'Yangon Stock Exchange (constrained liquidity — informational)',
+  bondMarkets: RCEP_BOND_MARKETS['MM'],
 }

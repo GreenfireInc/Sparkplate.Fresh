@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const turkey: OecdCountry = {
   name: 'Turkey',
@@ -25,5 +28,8 @@ export const turkey: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['TR'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['TR'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['TR'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['TR'],
+  rareEarths: OECD_RARE_EARTHS['TR'],
   stockExchange: 'Borsa Istanbul (BİST)',
+  bondMarkets: OECD_BOND_MARKETS['TR'],
 }

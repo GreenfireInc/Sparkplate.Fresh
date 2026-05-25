@@ -3,6 +3,9 @@ import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { MIKTA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { MIKTA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { MIKTA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { MIKTA_RARE_EARTHS } from './rareEarthsByIso'
+import { MIKTA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const turkey: MiktaCountry = {
   name: 'Turkey',
@@ -25,5 +28,8 @@ export const turkey: MiktaCountry = {
   newsOutlets: MIKTA_NEWS_OUTLETS['TR'],
   notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['TR'],
   mainExportCommodities: MIKTA_MAIN_EXPORT_COMMODITIES['TR'],
+  mainExportedElements: MIKTA_MAIN_EXPORTED_ELEMENTS['TR'],
+  rareEarths: MIKTA_RARE_EARTHS['TR'],
   stockExchange: 'Borsa Istanbul (BİST equities / debt)',
+  bondMarkets: MIKTA_BOND_MARKETS['TR'],
 }

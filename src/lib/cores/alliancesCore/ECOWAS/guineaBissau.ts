@@ -3,6 +3,9 @@ import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
+import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const guineaBissau: EcowasCountry = {
   name: 'Guinea-Bissau',
@@ -23,5 +26,8 @@ export const guineaBissau: EcowasCountry = {
   newsOutlets: ECOWAS_NEWS_OUTLETS['GW'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['GW'],
   mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['GW'],
+  mainExportedElements: ECOWAS_MAIN_EXPORTED_ELEMENTS['GW'],
+  rareEarths: ECOWAS_RARE_EARTHS['GW'],
   stockExchange: 'BRVM regional access; no deep domestic bourse',
+  bondMarkets: ECOWAS_BOND_MARKETS['GW'],
 }

@@ -3,6 +3,9 @@ import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ARAB_LEAGUE_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ARAB_LEAGUE_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ARAB_LEAGUE_RARE_EARTHS } from './rareEarthsByIso'
+import { ARAB_LEAGUE_BOND_MARKETS } from './bondMarketsByIso'
 
 export const jordan: ArabLeagueCountry = {
   name: 'Jordan',
@@ -24,5 +27,8 @@ export const jordan: ArabLeagueCountry = {
   newsOutlets: ARAB_LEAGUE_NEWS_OUTLETS['JO'],
   notableUniversities: ARAB_LEAGUE_NOTABLE_UNIVERSITIES['JO'],
   mainExportCommodities: ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES['JO'],
+  mainExportedElements: ARAB_LEAGUE_MAIN_EXPORTED_ELEMENTS['JO'],
+  rareEarths: ARAB_LEAGUE_RARE_EARTHS['JO'],
   stockExchange: 'Amman Stock Exchange',
+  bondMarkets: ARAB_LEAGUE_BOND_MARKETS['JO'],
 }

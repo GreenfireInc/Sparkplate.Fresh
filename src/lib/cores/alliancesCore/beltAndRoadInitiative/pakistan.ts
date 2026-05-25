@@ -3,7 +3,9 @@ import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
-
+import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRI_RARE_EARTHS } from './rareEarthsByIso'
+import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 export const pakistan: BeltAndRoadInitiativeCountry = {
   name: 'Pakistan',
   iso3166Alpha2: 'PK',
@@ -24,5 +26,8 @@ export const pakistan: BeltAndRoadInitiativeCountry = {
   newsOutlets: BRI_NEWS_OUTLETS['PK'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['PK'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['PK'],
+  mainExportedElements: BRI_MAIN_EXPORTED_ELEMENTS['PK'],
+  rareEarths: BRI_RARE_EARTHS['PK'],
   stockExchange: 'National or regional exchange (verify)',
+  bondMarkets: BRI_BOND_MARKETS['PK'],
 }

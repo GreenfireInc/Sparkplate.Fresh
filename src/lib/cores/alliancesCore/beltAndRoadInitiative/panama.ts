@@ -3,7 +3,9 @@ import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
-
+import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRI_RARE_EARTHS } from './rareEarthsByIso'
+import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 export const panama: BeltAndRoadInitiativeCountry = {
   name: 'Panama',
   iso3166Alpha2: 'PA',
@@ -24,5 +26,8 @@ export const panama: BeltAndRoadInitiativeCountry = {
   newsOutlets: BRI_NEWS_OUTLETS['PA'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['PA'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['PA'],
+  mainExportedElements: BRI_MAIN_EXPORTED_ELEMENTS['PA'],
+  rareEarths: BRI_RARE_EARTHS['PA'],
   stockExchange: 'National or regional exchange (verify)',
+  bondMarkets: BRI_BOND_MARKETS['PA'],
 }

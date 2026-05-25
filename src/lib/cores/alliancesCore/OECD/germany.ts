@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const germany: OecdCountry = {
   name: 'Germany',
@@ -24,5 +27,8 @@ export const germany: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['DE'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['DE'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['DE'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['DE'],
+  rareEarths: OECD_RARE_EARTHS['DE'],
   stockExchange: 'Deutsche Börse (Frankfurt)',
+  bondMarkets: OECD_BOND_MARKETS['DE'],
 }

@@ -3,6 +3,9 @@ import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ECCAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ECCAS_RARE_EARTHS } from './rareEarthsByIso'
+import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const chad: EccasCountry = {
   name: 'Chad',
@@ -23,5 +26,8 @@ export const chad: EccasCountry = {
   newsOutlets: ECCAS_NEWS_OUTLETS['TD'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['TD'],
   mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['TD'],
+  mainExportedElements: ECCAS_MAIN_EXPORTED_ELEMENTS['TD'],
+  rareEarths: ECCAS_RARE_EARTHS['TD'],
   stockExchange: 'CEMAC regional capital markets (thin Chad footprint)',
+  bondMarkets: ECCAS_BOND_MARKETS['TD'],
 }

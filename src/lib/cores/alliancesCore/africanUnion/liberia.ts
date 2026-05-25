@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const liberia: AfricanUnionCountry = {
   name: 'Liberia',
   iso3166Alpha2: 'LR',
@@ -23,5 +26,8 @@ export const liberia: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['LR'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['LR'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['LR'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['LR'],
+  rareEarths: AU_RARE_EARTHS['LR'],
   stockExchange: 'Liberia Stock Exchange (very limited)',
+  bondMarkets: AU_BOND_MARKETS['LR'],
 }

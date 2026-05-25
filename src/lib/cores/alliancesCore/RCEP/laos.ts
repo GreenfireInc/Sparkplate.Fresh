@@ -3,6 +3,9 @@ import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
+import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 
 export const laos: RcepCountry = {
   name: 'Laos',
@@ -24,5 +27,8 @@ export const laos: RcepCountry = {
   newsOutlets: RCEP_NEWS_OUTLETS['LA'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['LA'],
   mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['LA'],
+  mainExportedElements: RCEP_MAIN_EXPORTED_ELEMENTS['LA'],
+  rareEarths: RCEP_RARE_EARTHS['LA'],
   stockExchange: 'Lao Securities Exchange (thin listings — informational)',
+  bondMarkets: RCEP_BOND_MARKETS['LA'],
 }

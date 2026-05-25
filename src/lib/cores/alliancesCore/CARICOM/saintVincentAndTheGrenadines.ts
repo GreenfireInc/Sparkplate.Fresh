@@ -3,6 +3,9 @@ import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
+import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 
 export const saintVincentAndTheGrenadines: CaricomCountry = {
   name: 'Saint Vincent and the Grenadines',
@@ -24,5 +27,8 @@ export const saintVincentAndTheGrenadines: CaricomCountry = {
   newsOutlets: CARICOM_NEWS_OUTLETS['VC'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['VC'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['VC'],
+  mainExportedElements: CARICOM_MAIN_EXPORTED_ELEMENTS['VC'],
+  rareEarths: CARICOM_RARE_EARTHS['VC'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
+  bondMarkets: CARICOM_BOND_MARKETS['VC'],
 }

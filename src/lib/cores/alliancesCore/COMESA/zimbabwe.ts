@@ -3,6 +3,9 @@ import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
+import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const zimbabwe: ComesaCountry = {
   name: 'Zimbabwe',
@@ -23,5 +26,8 @@ export const zimbabwe: ComesaCountry = {
   newsOutlets: COMESA_NEWS_OUTLETS['ZW'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['ZW'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['ZW'],
+  mainExportedElements: COMESA_MAIN_EXPORTED_ELEMENTS['ZW'],
+  rareEarths: COMESA_RARE_EARTHS['ZW'],
   stockExchange: 'Zimbabwe Stock Exchange (ZSE)',
+  bondMarkets: COMESA_BOND_MARKETS['ZW'],
 }

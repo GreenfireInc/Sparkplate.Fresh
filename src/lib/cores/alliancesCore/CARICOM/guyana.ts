@@ -3,6 +3,9 @@ import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
+import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 
 export const guyana: CaricomCountry = {
   name: 'Guyana',
@@ -24,5 +27,8 @@ export const guyana: CaricomCountry = {
   newsOutlets: CARICOM_NEWS_OUTLETS['GY'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['GY'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['GY'],
+  mainExportedElements: CARICOM_MAIN_EXPORTED_ELEMENTS['GY'],
+  rareEarths: CARICOM_RARE_EARTHS['GY'],
   stockExchange: 'Guyana Stock Exchange',
+  bondMarkets: CARICOM_BOND_MARKETS['GY'],
 }

@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const rwanda: CommonwealthCountry = {
   name: 'Rwanda',
@@ -24,5 +26,7 @@ export const rwanda: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['RW'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['RW'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['RW'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['RW'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['RW'],
   stockExchange: 'Rwanda Stock Exchange',
 }

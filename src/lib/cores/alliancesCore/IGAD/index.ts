@@ -1,11 +1,14 @@
 export type {
+  BondMarketVenue,
+  DomesticCourierService,
   IgadCountry,
   IgadOrganizationInfo,
-  DomesticCourierService,
   MainExportCommodities,
+  MainExportedElements,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
+  RareEarths,
 } from './types'
 
 import type { IgadCountry, IgadOrganizationInfo } from './types'

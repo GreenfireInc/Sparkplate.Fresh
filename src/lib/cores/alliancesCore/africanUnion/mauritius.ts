@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const mauritius: AfricanUnionCountry = {
   name: 'Mauritius',
   iso3166Alpha2: 'MU',
@@ -23,5 +26,8 @@ export const mauritius: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['MU'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['MU'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['MU'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['MU'],
+  rareEarths: AU_RARE_EARTHS['MU'],
   stockExchange: 'Stock Exchange of Mauritius (SEM)',
+  bondMarkets: AU_BOND_MARKETS['MU'],
 }

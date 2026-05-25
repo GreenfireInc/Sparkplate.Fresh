@@ -3,6 +3,9 @@ import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
+import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 
 export const indonesia: RcepCountry = {
   name: 'Indonesia',
@@ -24,5 +27,8 @@ export const indonesia: RcepCountry = {
   newsOutlets: RCEP_NEWS_OUTLETS['ID'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['ID'],
   mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['ID'],
+  mainExportedElements: RCEP_MAIN_EXPORTED_ELEMENTS['ID'],
+  rareEarths: RCEP_RARE_EARTHS['ID'],
   stockExchange: 'Indonesia Stock Exchange (IDX)',
+  bondMarkets: RCEP_BOND_MARKETS['ID'],
 }

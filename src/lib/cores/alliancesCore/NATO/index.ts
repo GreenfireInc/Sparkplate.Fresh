@@ -1,11 +1,14 @@
 export type {
-  NatoCountry,
-  NatoOrganizationInfo,
+  BondMarketVenue,
   DomesticCourierService,
   MainExportCommodities,
+  MainExportedElements,
+  NatoCountry,
+  NatoOrganizationInfo,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
+  RareEarths,
 } from './types'
 
 import type { NatoCountry, NatoOrganizationInfo } from './types'

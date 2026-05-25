@@ -3,6 +3,9 @@ import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { MIKTA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { MIKTA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { MIKTA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { MIKTA_RARE_EARTHS } from './rareEarthsByIso'
+import { MIKTA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const mexico: MiktaCountry = {
   name: 'Mexico',
@@ -25,5 +28,8 @@ export const mexico: MiktaCountry = {
   newsOutlets: MIKTA_NEWS_OUTLETS['MX'],
   notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['MX'],
   mainExportCommodities: MIKTA_MAIN_EXPORT_COMMODITIES['MX'],
+  mainExportedElements: MIKTA_MAIN_EXPORTED_ELEMENTS['MX'],
+  rareEarths: MIKTA_RARE_EARTHS['MX'],
   stockExchange: 'Mexican Stock Exchange BMV Bolsa Mexicana de Valores',
+  bondMarkets: MIKTA_BOND_MARKETS['MX'],
 }

@@ -3,6 +3,9 @@ import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ARAB_LEAGUE_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ARAB_LEAGUE_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ARAB_LEAGUE_RARE_EARTHS } from './rareEarthsByIso'
+import { ARAB_LEAGUE_BOND_MARKETS } from './bondMarketsByIso'
 
 export const sudan: ArabLeagueCountry = {
   name: 'Sudan',
@@ -24,5 +27,8 @@ export const sudan: ArabLeagueCountry = {
   newsOutlets: ARAB_LEAGUE_NEWS_OUTLETS['SD'],
   notableUniversities: ARAB_LEAGUE_NOTABLE_UNIVERSITIES['SD'],
   mainExportCommodities: ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES['SD'],
+  mainExportedElements: ARAB_LEAGUE_MAIN_EXPORTED_ELEMENTS['SD'],
+  rareEarths: ARAB_LEAGUE_RARE_EARTHS['SD'],
   stockExchange: 'Khartoum Stock Exchange (operations disrupted)',
+  bondMarkets: ARAB_LEAGUE_BOND_MARKETS['SD'],
 }

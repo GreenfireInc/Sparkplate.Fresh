@@ -3,6 +3,9 @@ import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { SADC_RARE_EARTHS } from './rareEarthsByIso'
+import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const comoros: SadcCountry = {
   name: 'Comoros',
@@ -23,5 +26,8 @@ export const comoros: SadcCountry = {
   newsOutlets: SADC_NEWS_OUTLETS['KM'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['KM'],
   mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['KM'],
+  mainExportedElements: SADC_MAIN_EXPORTED_ELEMENTS['KM'],
+  rareEarths: SADC_RARE_EARTHS['KM'],
   stockExchange: 'No national stock exchange',
+  bondMarkets: SADC_BOND_MARKETS['KM'],
 }

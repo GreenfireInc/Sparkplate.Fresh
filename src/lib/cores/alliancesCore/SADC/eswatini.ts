@@ -3,6 +3,9 @@ import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { SADC_RARE_EARTHS } from './rareEarthsByIso'
+import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const eswatini: SadcCountry = {
   name: 'Eswatini',
@@ -23,5 +26,8 @@ export const eswatini: SadcCountry = {
   newsOutlets: SADC_NEWS_OUTLETS['SZ'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['SZ'],
   mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['SZ'],
+  mainExportedElements: SADC_MAIN_EXPORTED_ELEMENTS['SZ'],
+  rareEarths: SADC_RARE_EARTHS['SZ'],
   stockExchange: 'Eswatini Stock Exchange — verify liquidity',
+  bondMarkets: SADC_BOND_MARKETS['SZ'],
 }

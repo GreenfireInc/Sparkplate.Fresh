@@ -3,6 +3,9 @@ import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
+import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const comoros: ComesaCountry = {
   name: 'Comoros',
@@ -23,5 +26,8 @@ export const comoros: ComesaCountry = {
   newsOutlets: COMESA_NEWS_OUTLETS['KM'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['KM'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['KM'],
+  mainExportedElements: COMESA_MAIN_EXPORTED_ELEMENTS['KM'],
+  rareEarths: COMESA_RARE_EARTHS['KM'],
   stockExchange: 'No major national stock exchange',
+  bondMarkets: COMESA_BOND_MARKETS['KM'],
 }

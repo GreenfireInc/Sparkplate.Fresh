@@ -1,11 +1,14 @@
 export type {
+  BondMarketVenue,
   CensadCountry,
   CensadOrganizationInfo,
   DomesticCourierService,
   MainExportCommodities,
+  MainExportedElements,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
+  RareEarths,
 } from './types'
 
 import type { CensadCountry, CensadOrganizationInfo } from './types'

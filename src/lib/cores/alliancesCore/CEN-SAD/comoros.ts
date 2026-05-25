@@ -3,6 +3,9 @@ import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
+import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const comoros: CensadCountry = {
   name: 'Comoros',
@@ -23,5 +26,8 @@ export const comoros: CensadCountry = {
   newsOutlets: CENSAD_NEWS_OUTLETS['KM'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['KM'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['KM'],
+  mainExportedElements: CENSAD_MAIN_EXPORTED_ELEMENTS['KM'],
+  rareEarths: CENSAD_RARE_EARTHS['KM'],
   stockExchange: 'No national stock exchange',
+  bondMarkets: CENSAD_BOND_MARKETS['KM'],
 }

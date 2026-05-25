@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const ghana: CommonwealthCountry = {
   name: 'Ghana',
@@ -24,5 +26,7 @@ export const ghana: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['GH'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['GH'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['GH'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['GH'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['GH'],
   stockExchange: 'Ghana Stock Exchange',
 }

@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const saintLucia: CommonwealthCountry = {
   name: 'Saint Lucia',
@@ -24,5 +26,7 @@ export const saintLucia: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['LC'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['LC'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['LC'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['LC'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['LC'],
   stockExchange: 'Eastern Caribbean Securities Exchange (regional)',
 }

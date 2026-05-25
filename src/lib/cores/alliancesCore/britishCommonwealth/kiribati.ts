@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const kiribati: CommonwealthCountry = {
   name: 'Kiribati',
@@ -24,5 +26,7 @@ export const kiribati: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['KI'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['KI'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['KI'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['KI'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['KI'],
   stockExchange: 'No major national exchange — informational',
 }

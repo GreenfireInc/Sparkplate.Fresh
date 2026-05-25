@@ -3,6 +3,9 @@ import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
+import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const zambia: ComesaCountry = {
   name: 'Zambia',
@@ -23,5 +26,8 @@ export const zambia: ComesaCountry = {
   newsOutlets: COMESA_NEWS_OUTLETS['ZM'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['ZM'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['ZM'],
+  mainExportedElements: COMESA_MAIN_EXPORTED_ELEMENTS['ZM'],
+  rareEarths: COMESA_RARE_EARTHS['ZM'],
   stockExchange: 'Lusaka Securities Exchange (LuSE); COMESA Secretariat host city — informational',
+  bondMarkets: COMESA_BOND_MARKETS['ZM'],
 }

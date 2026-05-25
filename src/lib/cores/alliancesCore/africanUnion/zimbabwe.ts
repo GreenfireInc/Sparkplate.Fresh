@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const zimbabwe: AfricanUnionCountry = {
   name: 'Zimbabwe',
   iso3166Alpha2: 'ZW',
@@ -23,5 +26,8 @@ export const zimbabwe: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['ZW'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['ZW'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['ZW'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['ZW'],
+  rareEarths: AU_RARE_EARTHS['ZW'],
   stockExchange: 'Zimbabwe Stock Exchange (ZSE)',
+  bondMarkets: AU_BOND_MARKETS['ZW'],
 }

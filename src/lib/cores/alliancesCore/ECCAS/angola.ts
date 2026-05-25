@@ -3,6 +3,9 @@ import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ECCAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ECCAS_RARE_EARTHS } from './rareEarthsByIso'
+import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const angola: EccasCountry = {
   name: 'Angola',
@@ -23,5 +26,8 @@ export const angola: EccasCountry = {
   newsOutlets: ECCAS_NEWS_OUTLETS['AO'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['AO'],
   mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['AO'],
+  mainExportedElements: ECCAS_MAIN_EXPORTED_ELEMENTS['AO'],
+  rareEarths: ECCAS_RARE_EARTHS['AO'],
   stockExchange: 'Bodiva (Angola Securities Exchange)',
+  bondMarkets: ECCAS_BOND_MARKETS['AO'],
 }

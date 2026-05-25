@@ -3,6 +3,9 @@ import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { APEC_RARE_EARTHS } from './rareEarthsByIso'
+import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const china: ApecCountry = {
   name: 'China',
@@ -26,6 +29,9 @@ export const china: ApecCountry = {
   newsOutlets: APEC_NEWS_OUTLETS['CN'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['CN'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['CN'],
+  mainExportedElements: APEC_MAIN_EXPORTED_ELEMENTS['CN'],
+  rareEarths: APEC_RARE_EARTHS['CN'],
   stockExchange:
     'Shanghai Shenzhen Beijing stock exchanges aggregated context — informational',
+  bondMarkets: APEC_BOND_MARKETS['CN'],
 }

@@ -3,6 +3,9 @@ import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { MIKTA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { MIKTA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { MIKTA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { MIKTA_RARE_EARTHS } from './rareEarthsByIso'
+import { MIKTA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const indonesia: MiktaCountry = {
   name: 'Indonesia',
@@ -25,5 +28,8 @@ export const indonesia: MiktaCountry = {
   newsOutlets: MIKTA_NEWS_OUTLETS['ID'],
   notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['ID'],
   mainExportCommodities: MIKTA_MAIN_EXPORT_COMMODITIES['ID'],
+  mainExportedElements: MIKTA_MAIN_EXPORTED_ELEMENTS['ID'],
+  rareEarths: MIKTA_RARE_EARTHS['ID'],
   stockExchange: 'Indonesia Stock Exchange IDX Jakarta',
+  bondMarkets: MIKTA_BOND_MARKETS['ID'],
 }

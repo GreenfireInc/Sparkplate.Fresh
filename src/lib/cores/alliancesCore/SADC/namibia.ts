@@ -3,6 +3,9 @@ import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { SADC_RARE_EARTHS } from './rareEarthsByIso'
+import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const namibia: SadcCountry = {
   name: 'Namibia',
@@ -23,5 +26,8 @@ export const namibia: SadcCountry = {
   newsOutlets: SADC_NEWS_OUTLETS['NA'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['NA'],
   mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['NA'],
+  mainExportedElements: SADC_MAIN_EXPORTED_ELEMENTS['NA'],
+  rareEarths: SADC_RARE_EARTHS['NA'],
   stockExchange: 'Namibian Stock Exchange (NSX)',
+  bondMarkets: SADC_BOND_MARKETS['NA'],
 }

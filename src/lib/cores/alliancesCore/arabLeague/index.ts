@@ -2,11 +2,14 @@ export type {
   ArabLeagueCountry,
   ArabLeagueMembership,
   ArabLeagueOrganizationInfo,
+  BondMarketVenue,
   DomesticCourierService,
   MainExportCommodities,
-  NotableUniversity,
+  MainExportedElements,
   NewsOutlet,
   NewsOutletsRoster,
+  NotableUniversity,
+  RareEarths,
 } from './types'
 export { ARAB_LEAGUE_MEMBER_ISO_CODES } from './arabLeagueMemberIsoCodes'
 export type { ArabLeagueMemberIsoCode } from './arabLeagueMemberIsoCodes'

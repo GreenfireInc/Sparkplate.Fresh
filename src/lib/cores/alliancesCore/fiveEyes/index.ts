@@ -1,10 +1,14 @@
 export type {
+  BondMarketVenue,
   DomesticCourierService,
   FiveEyesCountry,
   FiveEyesOrganizationInfo,
+  MainExportCommodities,
+  MainExportedElements,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
+  RareEarths,
 } from './types'
 
 import type { FiveEyesCountry, FiveEyesOrganizationInfo } from './types'

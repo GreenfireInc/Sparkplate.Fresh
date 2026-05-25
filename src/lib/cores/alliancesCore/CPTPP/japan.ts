@@ -3,6 +3,9 @@ import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CPTPP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CPTPP_RARE_EARTHS } from './rareEarthsByIso'
+import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 
 export const japan: CptppCountry = {
   name: 'Japan',
@@ -23,5 +26,8 @@ export const japan: CptppCountry = {
   newsOutlets: CPTPP_NEWS_OUTLETS['JP'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['JP'],
   mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['JP'],
+  mainExportedElements: CPTPP_MAIN_EXPORTED_ELEMENTS['JP'],
+  rareEarths: CPTPP_RARE_EARTHS['JP'],
   stockExchange: 'Tokyo Stock Exchange (TSE)',
+  bondMarkets: CPTPP_BOND_MARKETS['JP'],
 }

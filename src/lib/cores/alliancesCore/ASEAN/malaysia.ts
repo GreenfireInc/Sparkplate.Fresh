@@ -3,6 +3,9 @@ import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ASEAN_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ASEAN_RARE_EARTHS } from './rareEarthsByIso'
+import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
 
 export const malaysia: AseanCountry = {
   name: 'Malaysia',
@@ -25,5 +28,8 @@ export const malaysia: AseanCountry = {
   newsOutlets: ASEAN_NEWS_OUTLETS['MY'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['MY'],
   mainExportCommodities: ASEAN_MAIN_EXPORT_COMMODITIES['MY'],
+  mainExportedElements: ASEAN_MAIN_EXPORTED_ELEMENTS['MY'],
+  rareEarths: ASEAN_RARE_EARTHS['MY'],
   stockExchange: 'Bursa Malaysia (Kuala Lumpur)',
+  bondMarkets: ASEAN_BOND_MARKETS['MY'],
 }

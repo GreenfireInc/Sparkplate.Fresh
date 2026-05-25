@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const unitedKingdom: CommonwealthCountry = {
   name: 'United Kingdom',
@@ -24,5 +26,7 @@ export const unitedKingdom: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['GB'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['GB'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['GB'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['GB'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['GB'],
   stockExchange: 'London Stock Exchange (LSE)',
 }

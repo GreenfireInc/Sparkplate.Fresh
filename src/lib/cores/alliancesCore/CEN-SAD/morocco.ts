@@ -3,6 +3,9 @@ import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
+import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const morocco: CensadCountry = {
   name: 'Morocco',
@@ -23,5 +26,8 @@ export const morocco: CensadCountry = {
   newsOutlets: CENSAD_NEWS_OUTLETS['MA'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['MA'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['MA'],
+  mainExportedElements: CENSAD_MAIN_EXPORTED_ELEMENTS['MA'],
+  rareEarths: CENSAD_RARE_EARTHS['MA'],
   stockExchange: 'Casablanca Stock Exchange',
+  bondMarkets: CENSAD_BOND_MARKETS['MA'],
 }

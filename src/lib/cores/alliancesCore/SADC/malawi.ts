@@ -3,6 +3,9 @@ import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { SADC_RARE_EARTHS } from './rareEarthsByIso'
+import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const malawi: SadcCountry = {
   name: 'Malawi',
@@ -23,5 +26,8 @@ export const malawi: SadcCountry = {
   newsOutlets: SADC_NEWS_OUTLETS['MW'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['MW'],
   mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['MW'],
+  mainExportedElements: SADC_MAIN_EXPORTED_ELEMENTS['MW'],
+  rareEarths: SADC_RARE_EARTHS['MW'],
   stockExchange: 'Malawi Stock Exchange',
+  bondMarkets: SADC_BOND_MARKETS['MW'],
 }

@@ -3,6 +3,9 @@ import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
+import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const sierraLeone: EcowasCountry = {
   name: 'Sierra Leone',
@@ -23,5 +26,8 @@ export const sierraLeone: EcowasCountry = {
   newsOutlets: ECOWAS_NEWS_OUTLETS['SL'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['SL'],
   mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['SL'],
+  mainExportedElements: ECOWAS_MAIN_EXPORTED_ELEMENTS['SL'],
+  rareEarths: ECOWAS_RARE_EARTHS['SL'],
   stockExchange: 'Sierra Leone Stock Exchange',
+  bondMarkets: ECOWAS_BOND_MARKETS['SL'],
 }

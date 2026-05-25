@@ -3,6 +3,9 @@ import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
+import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const mali: CensadCountry = {
   name: 'Mali',
@@ -23,5 +26,8 @@ export const mali: CensadCountry = {
   newsOutlets: CENSAD_NEWS_OUTLETS['ML'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['ML'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['ML'],
+  mainExportedElements: CENSAD_MAIN_EXPORTED_ELEMENTS['ML'],
+  rareEarths: CENSAD_RARE_EARTHS['ML'],
   stockExchange: 'BRVM listing context (WAEMU)',
+  bondMarkets: CENSAD_BOND_MARKETS['ML'],
 }

@@ -3,6 +3,9 @@ import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { G20_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { G20_RARE_EARTHS } from './rareEarthsByIso'
+import { G20_BOND_MARKETS } from './bondMarketsByIso'
 
 export const indonesia: G20Country = {
   name: 'Indonesia',
@@ -25,5 +28,8 @@ export const indonesia: G20Country = {
   newsOutlets: G20_NEWS_OUTLETS['ID'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['ID'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['ID'],
+  mainExportedElements: G20_MAIN_EXPORTED_ELEMENTS['ID'],
+  rareEarths: G20_RARE_EARTHS['ID'],
   stockExchange: 'Indonesia Stock Exchange IDX Jakarta',
+  bondMarkets: G20_BOND_MARKETS['ID'],
 }

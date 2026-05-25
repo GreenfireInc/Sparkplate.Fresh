@@ -3,6 +3,9 @@ import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
+import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 
 export const haiti: CaricomCountry = {
   name: 'Haiti',
@@ -24,5 +27,8 @@ export const haiti: CaricomCountry = {
   newsOutlets: CARICOM_NEWS_OUTLETS['HT'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['HT'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['HT'],
+  mainExportedElements: CARICOM_MAIN_EXPORTED_ELEMENTS['HT'],
+  rareEarths: CARICOM_RARE_EARTHS['HT'],
   stockExchange: 'No major national exchange — informational',
+  bondMarkets: CARICOM_BOND_MARKETS['HT'],
 }

@@ -3,6 +3,9 @@ import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { NATO_RARE_EARTHS } from './rareEarthsByIso'
+import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 
 export const norway: NatoCountry = {
   name: 'Norway',
@@ -24,5 +27,8 @@ export const norway: NatoCountry = {
   newsOutlets: NATO_NEWS_OUTLETS['NO'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['NO'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['NO'],
+  mainExportedElements: NATO_MAIN_EXPORTED_ELEMENTS['NO'],
+  rareEarths: NATO_RARE_EARTHS['NO'],
   stockExchange: 'Oslo Børs (Euronext)',
+  bondMarkets: NATO_BOND_MARKETS['NO'],
 }

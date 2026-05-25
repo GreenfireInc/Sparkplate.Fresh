@@ -3,6 +3,9 @@ import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
+import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 
 export const cambodia: RcepCountry = {
   name: 'Cambodia',
@@ -24,5 +27,8 @@ export const cambodia: RcepCountry = {
   newsOutlets: RCEP_NEWS_OUTLETS['KH'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['KH'],
   mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['KH'],
+  mainExportedElements: RCEP_MAIN_EXPORTED_ELEMENTS['KH'],
+  rareEarths: RCEP_RARE_EARTHS['KH'],
   stockExchange: 'Cambodia Securities Exchange (CSX)',
+  bondMarkets: RCEP_BOND_MARKETS['KH'],
 }

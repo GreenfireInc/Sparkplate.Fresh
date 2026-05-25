@@ -3,6 +3,9 @@ import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { SADC_RARE_EARTHS } from './rareEarthsByIso'
+import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const mozambique: SadcCountry = {
   name: 'Mozambique',
@@ -23,5 +26,8 @@ export const mozambique: SadcCountry = {
   newsOutlets: SADC_NEWS_OUTLETS['MZ'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['MZ'],
   mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['MZ'],
+  mainExportedElements: SADC_MAIN_EXPORTED_ELEMENTS['MZ'],
+  rareEarths: SADC_RARE_EARTHS['MZ'],
   stockExchange: 'Bolsa de Valores de Moçambique — verify activity',
+  bondMarkets: SADC_BOND_MARKETS['MZ'],
 }

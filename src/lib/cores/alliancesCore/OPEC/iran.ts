@@ -3,6 +3,9 @@ import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
+import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const iran: OpecCountry = {
   name: 'Iran',
@@ -26,5 +29,8 @@ export const iran: OpecCountry = {
   newsOutlets: OPEC_NEWS_OUTLETS['IR'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['IR'],
   mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['IR'],
+  mainExportedElements: OPEC_MAIN_EXPORTED_ELEMENTS['IR'],
+  rareEarths: OPEC_RARE_EARTHS['IR'],
   stockExchange: 'Tehran Stock Exchange (irrational volatility episodes — informational)',
+  bondMarkets: OPEC_BOND_MARKETS['IR'],
 }

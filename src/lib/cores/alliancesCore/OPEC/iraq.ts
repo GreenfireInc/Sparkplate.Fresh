@@ -3,6 +3,9 @@ import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
+import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const iraq: OpecCountry = {
   name: 'Iraq',
@@ -25,5 +28,8 @@ export const iraq: OpecCountry = {
   newsOutlets: OPEC_NEWS_OUTLETS['IQ'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['IQ'],
   mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['IQ'],
+  mainExportedElements: OPEC_MAIN_EXPORTED_ELEMENTS['IQ'],
+  rareEarths: OPEC_RARE_EARTHS['IQ'],
   stockExchange: 'Iraq Stock Exchange Baghdad (liquidity episodic — informational)',
+  bondMarkets: OPEC_BOND_MARKETS['IQ'],
 }

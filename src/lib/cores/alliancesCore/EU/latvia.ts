@@ -3,6 +3,9 @@ import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { EU_RARE_EARTHS } from './rareEarthsByIso'
+import { EU_BOND_MARKETS } from './bondMarketsByIso'
 
 export const latvia: EuCountry = {
   name: 'Latvia',
@@ -23,5 +26,8 @@ export const latvia: EuCountry = {
   newsOutlets: EU_NEWS_OUTLETS['LV'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['LV'],
   mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['LV'],
+  mainExportedElements: EU_MAIN_EXPORTED_ELEMENTS['LV'],
+  rareEarths: EU_RARE_EARTHS['LV'],
   stockExchange: 'Nasdaq Riga',
+  bondMarkets: EU_BOND_MARKETS['LV'],
 }

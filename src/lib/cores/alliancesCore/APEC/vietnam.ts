@@ -3,6 +3,9 @@ import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { APEC_RARE_EARTHS } from './rareEarthsByIso'
+import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const vietnam: ApecCountry = {
   name: 'Vietnam',
@@ -25,5 +28,8 @@ export const vietnam: ApecCountry = {
   newsOutlets: APEC_NEWS_OUTLETS['VN'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['VN'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['VN'],
+  mainExportedElements: APEC_MAIN_EXPORTED_ELEMENTS['VN'],
+  rareEarths: APEC_RARE_EARTHS['VN'],
   stockExchange: 'HOSE Ho Chi Minh; HNX consolidation roadmap — informational',
+  bondMarkets: APEC_BOND_MARKETS['VN'],
 }

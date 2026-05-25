@@ -3,7 +3,9 @@ import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
-
+import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRI_RARE_EARTHS } from './rareEarthsByIso'
+import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 export const costaRica: BeltAndRoadInitiativeCountry = {
   name: 'Costa Rica',
   iso3166Alpha2: 'CR',
@@ -24,5 +26,8 @@ export const costaRica: BeltAndRoadInitiativeCountry = {
   newsOutlets: BRI_NEWS_OUTLETS['CR'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['CR'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['CR'],
+  mainExportedElements: BRI_MAIN_EXPORTED_ELEMENTS['CR'],
+  rareEarths: BRI_RARE_EARTHS['CR'],
   stockExchange: 'National or regional exchange (verify)',
+  bondMarkets: BRI_BOND_MARKETS['CR'],
 }

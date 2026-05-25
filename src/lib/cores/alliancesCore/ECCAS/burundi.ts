@@ -3,6 +3,9 @@ import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ECCAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ECCAS_RARE_EARTHS } from './rareEarthsByIso'
+import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const burundi: EccasCountry = {
   name: 'Burundi',
@@ -23,5 +26,8 @@ export const burundi: EccasCountry = {
   newsOutlets: ECCAS_NEWS_OUTLETS['BI'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['BI'],
   mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['BI'],
+  mainExportedElements: ECCAS_MAIN_EXPORTED_ELEMENTS['BI'],
+  rareEarths: ECCAS_RARE_EARTHS['BI'],
   stockExchange: 'Burundi Stock Exchange — thin liquidity',
+  bondMarkets: ECCAS_BOND_MARKETS['BI'],
 }

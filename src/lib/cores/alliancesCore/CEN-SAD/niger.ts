@@ -3,6 +3,9 @@ import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
+import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const niger: CensadCountry = {
   name: 'Niger',
@@ -24,5 +27,8 @@ export const niger: CensadCountry = {
   newsOutlets: CENSAD_NEWS_OUTLETS['NE'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['NE'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['NE'],
+  mainExportedElements: CENSAD_MAIN_EXPORTED_ELEMENTS['NE'],
+  rareEarths: CENSAD_RARE_EARTHS['NE'],
   stockExchange: 'BRVM linkage context',
+  bondMarkets: CENSAD_BOND_MARKETS['NE'],
 }

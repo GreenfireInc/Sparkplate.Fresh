@@ -3,6 +3,9 @@ import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { GCC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { GCC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { GCC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { GCC_RARE_EARTHS } from './rareEarthsByIso'
+import { GCC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const saudiArabia: GccCountry = {
   name: 'Saudi Arabia',
@@ -25,5 +28,8 @@ export const saudiArabia: GccCountry = {
   newsOutlets: GCC_NEWS_OUTLETS['SA'],
   notableUniversities: GCC_NOTABLE_UNIVERSITIES['SA'],
   mainExportCommodities: GCC_MAIN_EXPORT_COMMODITIES['SA'],
+  mainExportedElements: GCC_MAIN_EXPORTED_ELEMENTS['SA'],
+  rareEarths: GCC_RARE_EARTHS['SA'],
   stockExchange: 'Tadawul Saudi Exchange (national), parallel regional listings — informational',
+  bondMarkets: GCC_BOND_MARKETS['SA'],
 }

@@ -3,6 +3,9 @@ import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { APEC_RARE_EARTHS } from './rareEarthsByIso'
+import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const thailand: ApecCountry = {
   name: 'Thailand',
@@ -25,5 +28,8 @@ export const thailand: ApecCountry = {
   newsOutlets: APEC_NEWS_OUTLETS['TH'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['TH'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['TH'],
+  mainExportedElements: APEC_MAIN_EXPORTED_ELEMENTS['TH'],
+  rareEarths: APEC_RARE_EARTHS['TH'],
   stockExchange: 'Stock Exchange of Thailand SET',
+  bondMarkets: APEC_BOND_MARKETS['TH'],
 }

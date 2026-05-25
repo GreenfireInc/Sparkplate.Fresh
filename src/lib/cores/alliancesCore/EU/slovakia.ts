@@ -3,6 +3,9 @@ import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { EU_RARE_EARTHS } from './rareEarthsByIso'
+import { EU_BOND_MARKETS } from './bondMarketsByIso'
 
 export const slovakia: EuCountry = {
   name: 'Slovakia',
@@ -23,5 +26,8 @@ export const slovakia: EuCountry = {
   newsOutlets: EU_NEWS_OUTLETS['SK'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['SK'],
   mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['SK'],
+  mainExportedElements: EU_MAIN_EXPORTED_ELEMENTS['SK'],
+  rareEarths: EU_RARE_EARTHS['SK'],
   stockExchange: 'Bratislava Stock Exchange',
+  bondMarkets: EU_BOND_MARKETS['SK'],
 }

@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const chad: AfricanUnionCountry = {
   name: 'Chad',
   iso3166Alpha2: 'TD',
@@ -23,5 +26,8 @@ export const chad: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['TD'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['TD'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['TD'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['TD'],
+  rareEarths: AU_RARE_EARTHS['TD'],
   stockExchange: 'Financial Market of Central Africa (CEMAC hub; thin Chad listings)',
+  bondMarkets: AU_BOND_MARKETS['TD'],
 }

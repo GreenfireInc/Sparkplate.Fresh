@@ -1,11 +1,14 @@
 export type {
   AseanCountry,
   AseanOrganizationInfo,
+  BondMarketVenue,
   DomesticCourierService,
   MainExportCommodities,
-  NotableUniversity,
+  MainExportedElements,
   NewsOutlet,
   NewsOutletsRoster,
+  NotableUniversity,
+  RareEarths,
 } from './types'
 export { ASEAN_MEMBER_ISO_CODES } from './aseanMemberIsoCodes'
 export type { AseanMemberIsoCode } from './aseanMemberIsoCodes'

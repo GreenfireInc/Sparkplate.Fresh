@@ -2,11 +2,14 @@ export type {
   AllianceOfSahelStatesCountry,
   AllianceOfSahelStatesMembership,
   AllianceOfSahelStatesOrganizationInfo,
+  BondMarketVenue,
   DomesticCourierService,
   MainExportCommodities,
-  NotableUniversity,
+  MainExportedElements,
   NewsOutlet,
   NewsOutletsRoster,
+  NotableUniversity,
+  RareEarths,
 } from './types'
 export { AES_MEMBER_ISO_CODES } from './aesMemberIsoCodes'
 export type { AesMemberIsoCode } from './aesMemberIsoCodes'

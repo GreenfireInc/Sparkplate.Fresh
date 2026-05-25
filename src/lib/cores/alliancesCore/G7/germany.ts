@@ -3,6 +3,9 @@ import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G7_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G7_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G7_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { G7_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { G7_RARE_EARTHS } from './rareEarthsByIso'
+import { G7_BOND_MARKETS } from './bondMarketsByIso'
 
 export const germany: G7Country = {
   name: 'Germany',
@@ -24,5 +27,8 @@ export const germany: G7Country = {
   newsOutlets: G7_NEWS_OUTLETS['DE'],
   notableUniversities: G7_NOTABLE_UNIVERSITIES['DE'],
   mainExportCommodities: G7_MAIN_EXPORT_COMMODITIES['DE'],
+  mainExportedElements: G7_MAIN_EXPORTED_ELEMENTS['DE'],
+  rareEarths: G7_RARE_EARTHS['DE'],
   stockExchange: 'Deutsche Börse (Frankfurt)',
+  bondMarkets: G7_BOND_MARKETS['DE'],
 }

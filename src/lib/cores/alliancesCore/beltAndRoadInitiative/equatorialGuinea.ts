@@ -3,7 +3,9 @@ import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
-
+import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRI_RARE_EARTHS } from './rareEarthsByIso'
+import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 export const equatorialGuinea: BeltAndRoadInitiativeCountry = {
   name: 'Equatorial Guinea',
   iso3166Alpha2: 'GQ',
@@ -24,5 +26,8 @@ export const equatorialGuinea: BeltAndRoadInitiativeCountry = {
   newsOutlets: BRI_NEWS_OUTLETS['GQ'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['GQ'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['GQ'],
+  mainExportedElements: BRI_MAIN_EXPORTED_ELEMENTS['GQ'],
+  rareEarths: BRI_RARE_EARTHS['GQ'],
   stockExchange: 'CEMAC regional market (limited local listings)',
+  bondMarkets: BRI_BOND_MARKETS['GQ'],
 }

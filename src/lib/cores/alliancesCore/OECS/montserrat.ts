@@ -3,6 +3,9 @@ import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECS_RARE_EARTHS } from './rareEarthsByIso'
+import { OECS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const montserrat: OecsCountry = {
   name: 'Montserrat',
@@ -24,5 +27,8 @@ export const montserrat: OecsCountry = {
   newsOutlets: OECS_NEWS_OUTLETS['MS'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['MS'],
   mainExportCommodities: OECS_MAIN_EXPORT_COMMODITIES['MS'],
+  mainExportedElements: OECS_MAIN_EXPORTED_ELEMENTS['MS'],
+  rareEarths: OECS_RARE_EARTHS['MS'],
   stockExchange: 'Eastern Caribbean Securities Exchange regional access — informational',
+  bondMarkets: OECS_BOND_MARKETS['MS'],
 }

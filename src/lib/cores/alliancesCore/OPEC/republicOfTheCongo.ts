@@ -3,6 +3,9 @@ import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
+import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const republicOfTheCongo: OpecCountry = {
   name: 'Republic of the Congo',
@@ -24,5 +27,8 @@ export const republicOfTheCongo: OpecCountry = {
   newsOutlets: OPEC_NEWS_OUTLETS['CG'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['CG'],
   mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['CG'],
+  mainExportedElements: OPEC_MAIN_EXPORTED_ELEMENTS['CG'],
+  rareEarths: OPEC_RARE_EARTHS['CG'],
   stockExchange: 'Brazaafrica listings thin; Congo regional bourse narratives — informational',
+  bondMarkets: OPEC_BOND_MARKETS['CG'],
 }

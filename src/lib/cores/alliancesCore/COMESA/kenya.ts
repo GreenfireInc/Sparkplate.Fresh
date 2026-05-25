@@ -3,6 +3,9 @@ import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
+import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const kenya: ComesaCountry = {
   name: 'Kenya',
@@ -23,5 +26,8 @@ export const kenya: ComesaCountry = {
   newsOutlets: COMESA_NEWS_OUTLETS['KE'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['KE'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['KE'],
+  mainExportedElements: COMESA_MAIN_EXPORTED_ELEMENTS['KE'],
+  rareEarths: COMESA_RARE_EARTHS['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
+  bondMarkets: COMESA_BOND_MARKETS['KE'],
 }

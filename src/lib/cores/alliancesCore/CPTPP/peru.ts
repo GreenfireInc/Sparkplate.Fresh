@@ -3,6 +3,9 @@ import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CPTPP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CPTPP_RARE_EARTHS } from './rareEarthsByIso'
+import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 
 export const peru: CptppCountry = {
   name: 'Peru',
@@ -24,5 +27,8 @@ export const peru: CptppCountry = {
   newsOutlets: CPTPP_NEWS_OUTLETS['PE'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['PE'],
   mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['PE'],
+  mainExportedElements: CPTPP_MAIN_EXPORTED_ELEMENTS['PE'],
+  rareEarths: CPTPP_RARE_EARTHS['PE'],
   stockExchange: 'Lima Stock Exchange (Bolsa de Valores de Lima)',
+  bondMarkets: CPTPP_BOND_MARKETS['PE'],
 }

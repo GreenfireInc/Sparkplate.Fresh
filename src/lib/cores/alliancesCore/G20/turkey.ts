@@ -3,6 +3,9 @@ import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { G20_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { G20_RARE_EARTHS } from './rareEarthsByIso'
+import { G20_BOND_MARKETS } from './bondMarketsByIso'
 
 export const turkey: G20Country = {
   name: 'Turkey',
@@ -25,5 +28,8 @@ export const turkey: G20Country = {
   newsOutlets: G20_NEWS_OUTLETS['TR'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['TR'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['TR'],
+  mainExportedElements: G20_MAIN_EXPORTED_ELEMENTS['TR'],
+  rareEarths: G20_RARE_EARTHS['TR'],
   stockExchange: 'Borsa Istanbul (BİST equities / debt)',
+  bondMarkets: G20_BOND_MARKETS['TR'],
 }

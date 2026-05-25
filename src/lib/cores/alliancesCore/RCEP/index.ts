@@ -1,11 +1,14 @@
 export type {
-  RcepCountry,
-  RcepOrganizationInfo,
+  BondMarketVenue,
   DomesticCourierService,
   MainExportCommodities,
+  MainExportedElements,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
+  RareEarths,
+  RcepCountry,
+  RcepOrganizationInfo,
 } from './types'
 
 import type { RcepCountry, RcepOrganizationInfo } from './types'

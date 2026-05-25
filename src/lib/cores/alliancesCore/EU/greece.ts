@@ -3,6 +3,9 @@ import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { EU_RARE_EARTHS } from './rareEarthsByIso'
+import { EU_BOND_MARKETS } from './bondMarketsByIso'
 
 export const greece: EuCountry = {
   name: 'Greece',
@@ -23,5 +26,8 @@ export const greece: EuCountry = {
   newsOutlets: EU_NEWS_OUTLETS['GR'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['GR'],
   mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['GR'],
+  mainExportedElements: EU_MAIN_EXPORTED_ELEMENTS['GR'],
+  rareEarths: EU_RARE_EARTHS['GR'],
   stockExchange: 'Athens Stock Exchange',
+  bondMarkets: EU_BOND_MARKETS['GR'],
 }

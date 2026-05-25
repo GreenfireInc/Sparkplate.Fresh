@@ -3,6 +3,9 @@ import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { MIKTA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { MIKTA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { MIKTA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { MIKTA_RARE_EARTHS } from './rareEarthsByIso'
+import { MIKTA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const southKorea: MiktaCountry = {
   name: 'South Korea',
@@ -25,5 +28,8 @@ export const southKorea: MiktaCountry = {
   newsOutlets: MIKTA_NEWS_OUTLETS['KR'],
   notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['KR'],
   mainExportCommodities: MIKTA_MAIN_EXPORT_COMMODITIES['KR'],
+  mainExportedElements: MIKTA_MAIN_EXPORTED_ELEMENTS['KR'],
+  rareEarths: MIKTA_RARE_EARTHS['KR'],
   stockExchange: 'Korea Exchange KRX (KOSPI / KOSDAQ)',
+  bondMarkets: MIKTA_BOND_MARKETS['KR'],
 }

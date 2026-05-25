@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const lesotho: CommonwealthCountry = {
   name: 'Lesotho',
@@ -24,5 +26,7 @@ export const lesotho: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['LS'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['LS'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['LS'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['LS'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['LS'],
   stockExchange: 'Maseru Securities Market',
 }

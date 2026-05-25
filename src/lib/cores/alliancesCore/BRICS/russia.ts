@@ -3,6 +3,8 @@ import { BRICS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRICS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRICS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRICS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { BRICS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRICS_RARE_EARTHS } from './rareEarthsByIso'
 
 export const russia: BricsCountry = {
   name: 'Russia',
@@ -24,5 +26,7 @@ export const russia: BricsCountry = {
   newsOutlets: BRICS_NEWS_OUTLETS['RU'],
   notableUniversities: BRICS_NOTABLE_UNIVERSITIES['RU'],
   mainExportCommodities: BRICS_MAIN_EXPORT_COMMODITIES['RU'],
+  mainExportedElements: BRICS_MAIN_EXPORTED_ELEMENTS['RU'],
+  rareEarths: BRICS_RARE_EARTHS['RU'],
   stockExchange: 'Moscow Exchange (MOEX)',
 }

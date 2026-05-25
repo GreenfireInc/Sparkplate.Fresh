@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const somalia: AfricanUnionCountry = {
   name: 'Somalia',
   iso3166Alpha2: 'SO',
@@ -23,5 +26,8 @@ export const somalia: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['SO'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['SO'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['SO'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['SO'],
+  rareEarths: AU_RARE_EARTHS['SO'],
   stockExchange: 'No functioning national exchange',
+  bondMarkets: AU_BOND_MARKETS['SO'],
 }

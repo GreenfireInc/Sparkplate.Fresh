@@ -1,0 +1,371 @@
+import type { G20SovereignMemberIsoCode } from './g20MemberIsoCodes'
+import type { BondMarketVenue } from './types'
+
+function b(
+  name: string,
+  website: string,
+  email: string,
+  twitter: string,
+  linkedin: string,
+  apiEndpoint: string,
+): BondMarketVenue {
+  return { name, website, email, twitter, linkedin, apiEndpoint }
+}
+
+/**
+ * Bond market venues by ISO 3166-1 alpha-2 for G20 sovereign members in this module
+ * (informational; verify URLs, handles, and API bases before production use). Covers the
+ * 19 sovereign economies; institutional members (EU, African Union) are excluded.
+ */
+export const G20_BOND_MARKETS: Record<G20SovereignMemberIsoCode, readonly BondMarketVenue[]> = {
+  AR: [
+    b(
+      'BYMA (Bolsas y Mercados Argentinos)',
+      'https://www.byma.com.ar',
+      'info@byma.com.ar',
+      'https://x.com/bymaoficial',
+      'https://www.linkedin.com/company/byma/',
+      '',
+    ),
+    b(
+      'Ministerio de Economía — Secretaría de Finanzas (sovereign primary)',
+      'https://www.argentina.gob.ar/economia',
+      'consultas@mecon.gov.ar',
+      '',
+      '',
+      '',
+    ),
+  ],
+  AU: [
+    b(
+      'Australian Securities Exchange (ASX) — Fixed Interest Market',
+      'https://www.asx.com.au',
+      'info@asx.com.au',
+      'https://x.com/ASX',
+      'https://www.linkedin.com/company/asx-limited/',
+      '',
+    ),
+    b(
+      'Australian Office of Financial Management (AOFM — sovereign primary)',
+      'https://www.aofm.gov.au',
+      'info@aofm.gov.au',
+      'https://x.com/AOFM',
+      'https://www.linkedin.com/company/australian-office-of-financial-management/',
+      '',
+    ),
+  ],
+  BR: [
+    b(
+      'B3 — Brasil Bolsa Balcão (listed corporate bonds)',
+      'https://www.b3.com.br',
+      'atendimento@b3.com.br',
+      'https://x.com/b3_official',
+      'https://www.linkedin.com/company/b3-s-a/',
+      '',
+    ),
+    b(
+      'Secretaria do Tesouro Nacional (STN — sovereign primary)',
+      'https://www.gov.br/tesouro',
+      'ouvidoria@tesouro.gov.br',
+      '',
+      '',
+      '',
+    ),
+  ],
+  CA: [
+    b(
+      'TMX Group — Toronto Stock Exchange / TSX Venture (listed bonds)',
+      'https://www.tmx.com',
+      'info@tmx.com',
+      'https://x.com/TMXGroup',
+      'https://www.linkedin.com/company/tmx-group/',
+      '',
+    ),
+    b(
+      'Bank of Canada (Government of Canada bond auctions)',
+      'https://www.bankofcanada.ca',
+      'info@bankofcanada.ca',
+      'https://x.com/BankofCanada',
+      'https://www.linkedin.com/company/bank-of-canada/',
+      '',
+    ),
+  ],
+  CN: [
+    b(
+      'China Foreign Exchange Trade System (CFETS) — China Interbank Bond Market (CIBM)',
+      'https://www.chinamoney.com.cn',
+      'service@cfets.com.cn',
+      '',
+      '',
+      '',
+    ),
+    b(
+      'Shanghai Stock Exchange (SSE) — Exchange Bond Market',
+      'https://www.sse.com.cn',
+      'service@sse.com.cn',
+      '',
+      'https://www.linkedin.com/company/shanghai-stock-exchange/',
+      '',
+    ),
+    b(
+      'Shenzhen Stock Exchange (SZSE) — Exchange Bond Market',
+      'https://www.szse.cn',
+      'service@szse.cn',
+      '',
+      '',
+      '',
+    ),
+  ],
+  FR: [
+    b(
+      'Euronext Paris — Fixed Income',
+      'https://www.euronext.com',
+      'info@euronext.com',
+      'https://x.com/Euronext',
+      'https://www.linkedin.com/company/euronext/',
+      '',
+    ),
+    b(
+      'Agence France Trésor (AFT — sovereign primary)',
+      'https://www.aft.gouv.fr',
+      'info@aft.gouv.fr',
+      'https://x.com/AgenceFranceTresor',
+      'https://www.linkedin.com/company/agence-france-tresor/',
+      '',
+    ),
+  ],
+  DE: [
+    b(
+      'Frankfurt Stock Exchange (Deutsche Börse) — Xetra Bonds',
+      'https://www.deutsche-boerse.com',
+      'info@deutsche-boerse.com',
+      'https://x.com/deutscheboerse',
+      'https://www.linkedin.com/company/deutsche-boerse/',
+      '',
+    ),
+    b(
+      'Bundesrepublik Deutschland — Finanzagentur (sovereign primary)',
+      'https://www.deutsche-finanzagentur.de',
+      'info@finanzagentur.de',
+      'https://x.com/Finanzagentur',
+      'https://www.linkedin.com/company/deutsche-finanzagentur/',
+      '',
+    ),
+  ],
+  IN: [
+    b(
+      'National Stock Exchange of India (NSE) — Corporate Bond Market',
+      'https://www.nseindia.com',
+      'helpdesk@nseindia.com',
+      'https://x.com/NSEIndia',
+      'https://www.linkedin.com/company/national-stock-exchange-of-india-limited/',
+      '',
+    ),
+    b(
+      'Reserve Bank of India — Government Securities (G-Sec primary)',
+      'https://www.rbi.org.in',
+      'helpdesk@rbi.org.in',
+      'https://x.com/RBI',
+      'https://www.linkedin.com/company/reserve-bank-of-india/',
+      '',
+    ),
+  ],
+  ID: [
+    b(
+      'Indonesia Stock Exchange (IDX) — Corporate Bond Market',
+      'https://www.idx.co.id',
+      'info@idx.co.id',
+      'https://x.com/IDXOfficial',
+      'https://www.linkedin.com/company/indonesia-stock-exchange/',
+      '',
+    ),
+    b(
+      'Directorate General of Financing and Risk Management — Ministry of Finance (SBN primary)',
+      'https://www.djppr.kemenkeu.go.id',
+      'djppr@kemenkeu.go.id',
+      '',
+      '',
+      '',
+    ),
+  ],
+  IT: [
+    b(
+      'Euronext Milan (Borsa Italiana) — MOT / EuroTLX bond segment',
+      'https://www.borsaitaliana.it',
+      'info@borsaitaliana.it',
+      'https://x.com/borsaitaliana',
+      'https://www.linkedin.com/company/borsa-italiana/',
+      '',
+    ),
+    b(
+      'Ministero dell\'Economia e delle Finanze — Dipartimento del Tesoro (sovereign primary)',
+      'https://www.mef.gov.it',
+      'info@dt.mef.gov.it',
+      '',
+      '',
+      '',
+    ),
+  ],
+  JP: [
+    b(
+      'Japan Exchange Group (JPX) — Tokyo Stock Exchange (listed corporate bonds)',
+      'https://www.jpx.co.jp',
+      'info@jpx.co.jp',
+      'https://x.com/JPX_official',
+      'https://www.linkedin.com/company/japan-exchange-group/',
+      '',
+    ),
+    b(
+      'Ministry of Finance Japan — Government Bond Management (JGB auctions)',
+      'https://www.mof.go.jp',
+      'zeimu-siryou@mof.go.jp',
+      '',
+      '',
+      '',
+    ),
+  ],
+  MX: [
+    b(
+      'Bolsa Mexicana de Valores (BMV) — Mercado de Deuda',
+      'https://www.bmv.com.mx',
+      'atencionainversionistas@bmv.com.mx',
+      'https://x.com/BMV_Group',
+      'https://www.linkedin.com/company/bolsa-mexicana-de-valores/',
+      '',
+    ),
+    b(
+      'Secretaría de Hacienda y Crédito Público (SHCP — sovereign primary)',
+      'https://www.gob.mx/shcp',
+      'atencion@hacienda.gob.mx',
+      '',
+      '',
+      '',
+    ),
+  ],
+  RU: [
+    b(
+      'Moscow Exchange (MOEX) — Bond Market',
+      'https://www.moex.com',
+      'info@moex.com',
+      'https://x.com/Moscow_Exchange',
+      'https://www.linkedin.com/company/moscow-exchange/',
+      '',
+    ),
+    b(
+      'Ministry of Finance of the Russian Federation (OFZ primary auctions)',
+      'https://minfin.gov.ru',
+      'info@minfin.gov.ru',
+      '',
+      '',
+      '',
+    ),
+  ],
+  SA: [
+    b(
+      'Saudi Exchange (Tadawul) — Sukuk & Bonds Market',
+      'https://www.saudiexchange.sa',
+      'info@saudiexchange.sa',
+      'https://x.com/SaudiExchange',
+      'https://www.linkedin.com/company/saudi-exchange/',
+      '',
+    ),
+    b(
+      'Ministry of Finance — Debt Management Office (sovereign primary)',
+      'https://www.mof.gov.sa',
+      'info@mof.gov.sa',
+      '',
+      '',
+      '',
+    ),
+  ],
+  ZA: [
+    b(
+      'Johannesburg Stock Exchange (JSE) — Interest Rate Market',
+      'https://www.jse.co.za',
+      'info@jse.co.za',
+      'https://x.com/JSE_Group',
+      'https://www.linkedin.com/company/jse-ltd/',
+      '',
+    ),
+    b(
+      'National Treasury — Asset and Liability Management (sovereign primary)',
+      'https://www.treasury.gov.za',
+      'enquiries@treasury.gov.za',
+      '',
+      '',
+      '',
+    ),
+  ],
+  KR: [
+    b(
+      'Korea Exchange (KRX) — Bond Market',
+      'https://global.krx.co.kr',
+      'info@krx.co.kr',
+      'https://x.com/KRX_official',
+      'https://www.linkedin.com/company/korea-exchange/',
+      '',
+    ),
+    b(
+      'Ministry of Economy and Finance — Korea Treasury Bonds (KTB primary)',
+      'https://www.moef.go.kr',
+      'webmaster@moef.go.kr',
+      '',
+      '',
+      '',
+    ),
+  ],
+  TR: [
+    b(
+      'Borsa Istanbul — Debt Securities Market',
+      'https://www.borsaistanbul.com',
+      'info@borsaistanbul.com',
+      'https://x.com/BorsaIstanbul',
+      'https://www.linkedin.com/company/borsa-istanbul/',
+      '',
+    ),
+    b(
+      'Undersecretariat of Treasury — Republic of Türkiye (sovereign primary)',
+      'https://www.hmb.gov.tr',
+      'bilgi@hmb.gov.tr',
+      '',
+      '',
+      '',
+    ),
+  ],
+  GB: [
+    b(
+      'London Stock Exchange (LSE) — Main Market / ORB (Order book for Retail Bonds)',
+      'https://www.londonstockexchange.com',
+      'info@londonstockexchange.com',
+      'https://x.com/LSEplc',
+      'https://www.linkedin.com/company/london-stock-exchange/',
+      '',
+    ),
+    b(
+      'UK Debt Management Office (DMO — sovereign primary)',
+      'https://www.dmo.gov.uk',
+      'enquiries@dmo.gov.uk',
+      'https://x.com/UKDMO',
+      'https://www.linkedin.com/company/debt-management-office/',
+      '',
+    ),
+  ],
+  US: [
+    b(
+      'TreasuryDirect — U.S. Department of the Treasury (sovereign primary / retail)',
+      'https://www.treasurydirect.gov',
+      'treasurydirect@fiscal.treasury.gov',
+      'https://x.com/USTreasury',
+      'https://www.linkedin.com/company/us-treasury/',
+      'https://api.fiscaldata.treasury.gov/services/api/fiscal_service/',
+    ),
+    b(
+      'FINRA — TRACE (corporate bond transaction reporting)',
+      'https://www.finra.org/finra-data/fixed-income/trace',
+      'info@finra.org',
+      'https://x.com/FINRA',
+      'https://www.linkedin.com/company/finra/',
+      '',
+    ),
+  ],
+}

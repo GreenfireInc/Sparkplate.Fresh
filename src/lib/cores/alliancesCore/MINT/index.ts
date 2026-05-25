@@ -1,11 +1,14 @@
 export type {
-  MintCountry,
-  MintOrganizationInfo,
+  BondMarketVenue,
   DomesticCourierService,
   MainExportCommodities,
+  MainExportedElements,
+  MintCountry,
+  MintOrganizationInfo,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
+  RareEarths,
 } from './types'
 
 import type { MintCountry, MintOrganizationInfo } from './types'

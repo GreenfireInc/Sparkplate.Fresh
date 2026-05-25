@@ -3,6 +3,9 @@ import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ECCAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ECCAS_RARE_EARTHS } from './rareEarthsByIso'
+import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const equatorialGuinea: EccasCountry = {
   name: 'Equatorial Guinea',
@@ -23,5 +26,8 @@ export const equatorialGuinea: EccasCountry = {
   newsOutlets: ECCAS_NEWS_OUTLETS['GQ'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['GQ'],
   mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['GQ'],
+  mainExportedElements: ECCAS_MAIN_EXPORTED_ELEMENTS['GQ'],
+  rareEarths: ECCAS_RARE_EARTHS['GQ'],
   stockExchange: 'CEMAC regional liquidity; limited local listings',
+  bondMarkets: ECCAS_BOND_MARKETS['GQ'],
 }

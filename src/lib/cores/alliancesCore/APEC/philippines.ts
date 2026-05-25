@@ -3,6 +3,9 @@ import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { APEC_RARE_EARTHS } from './rareEarthsByIso'
+import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const philippines: ApecCountry = {
   name: 'Philippines',
@@ -24,5 +27,8 @@ export const philippines: ApecCountry = {
   newsOutlets: APEC_NEWS_OUTLETS['PH'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['PH'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['PH'],
+  mainExportedElements: APEC_MAIN_EXPORTED_ELEMENTS['PH'],
+  rareEarths: APEC_RARE_EARTHS['PH'],
   stockExchange: 'Philippine Stock Exchange (PSE)',
+  bondMarkets: APEC_BOND_MARKETS['PH'],
 }

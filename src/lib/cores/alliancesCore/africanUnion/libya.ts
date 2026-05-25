@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const libya: AfricanUnionCountry = {
   name: 'Libya',
   iso3166Alpha2: 'LY',
@@ -23,5 +26,8 @@ export const libya: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['LY'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['LY'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['LY'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['LY'],
+  rareEarths: AU_RARE_EARTHS['LY'],
   stockExchange: 'Libyan Stock Market (limited operations)',
+  bondMarkets: AU_BOND_MARKETS['LY'],
 }

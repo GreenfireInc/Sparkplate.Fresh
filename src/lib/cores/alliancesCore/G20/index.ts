@@ -1,12 +1,15 @@
 export type {
+  BondMarketVenue,
   DomesticCourierService,
   G20Country,
   G20InstitutionalMember,
-  MainExportCommodities,
   G20OrganizationInfo,
+  MainExportCommodities,
+  MainExportedElements,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
+  RareEarths,
 } from './types'
 export { G20_SOVEREIGN_MEMBER_ISO_CODES } from './g20MemberIsoCodes'
 export type { G20SovereignMemberIsoCode } from './g20MemberIsoCodes'

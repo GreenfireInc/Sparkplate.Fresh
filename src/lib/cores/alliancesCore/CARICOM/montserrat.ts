@@ -3,6 +3,9 @@ import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
+import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 
 export const montserrat: CaricomCountry = {
   name: 'Montserrat',
@@ -24,5 +27,8 @@ export const montserrat: CaricomCountry = {
   newsOutlets: CARICOM_NEWS_OUTLETS['MS'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['MS'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['MS'],
+  mainExportedElements: CARICOM_MAIN_EXPORTED_ELEMENTS['MS'],
+  rareEarths: CARICOM_RARE_EARTHS['MS'],
   stockExchange: 'Eastern Caribbean Securities Exchange (access context) — informational',
+  bondMarkets: CARICOM_BOND_MARKETS['MS'],
 }

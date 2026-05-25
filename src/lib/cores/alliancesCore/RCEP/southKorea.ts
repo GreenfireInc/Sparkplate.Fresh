@@ -3,6 +3,9 @@ import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
+import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 
 export const southKorea: RcepCountry = {
   name: 'South Korea',
@@ -25,5 +28,8 @@ export const southKorea: RcepCountry = {
   newsOutlets: RCEP_NEWS_OUTLETS['KR'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['KR'],
   mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['KR'],
+  mainExportedElements: RCEP_MAIN_EXPORTED_ELEMENTS['KR'],
+  rareEarths: RCEP_RARE_EARTHS['KR'],
   stockExchange: 'Korea Exchange KOSPI/KOSDAQ',
+  bondMarkets: RCEP_BOND_MARKETS['KR'],
 }

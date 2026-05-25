@@ -3,6 +3,9 @@ import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
+import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const ivoryCoast: CensadCountry = {
   name: "Côte d'Ivoire",
@@ -23,5 +26,8 @@ export const ivoryCoast: CensadCountry = {
   newsOutlets: CENSAD_NEWS_OUTLETS['CI'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['CI'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['CI'],
+  mainExportedElements: CENSAD_MAIN_EXPORTED_ELEMENTS['CI'],
+  rareEarths: CENSAD_RARE_EARTHS['CI'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (BRVM) — seat Abidjan',
+  bondMarkets: CENSAD_BOND_MARKETS['CI'],
 }

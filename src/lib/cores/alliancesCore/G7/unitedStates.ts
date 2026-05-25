@@ -3,6 +3,9 @@ import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G7_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G7_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G7_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { G7_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { G7_RARE_EARTHS } from './rareEarthsByIso'
+import { G7_BOND_MARKETS } from './bondMarketsByIso'
 
 export const unitedStates: G7Country = {
   name: 'United States',
@@ -25,5 +28,8 @@ export const unitedStates: G7Country = {
   newsOutlets: G7_NEWS_OUTLETS['US'],
   notableUniversities: G7_NOTABLE_UNIVERSITIES['US'],
   mainExportCommodities: G7_MAIN_EXPORT_COMMODITIES['US'],
+  mainExportedElements: G7_MAIN_EXPORTED_ELEMENTS['US'],
+  rareEarths: G7_RARE_EARTHS['US'],
   stockExchange: 'NYSE/Nasdaq consolidated US equity liquidity (dual listing customary — informational)',
+  bondMarkets: G7_BOND_MARKETS['US'],
 }

@@ -1,11 +1,14 @@
 export type {
-  SadcCountry,
-  SadcOrganizationInfo,
+  BondMarketVenue,
   DomesticCourierService,
   MainExportCommodities,
+  MainExportedElements,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
+  RareEarths,
+  SadcCountry,
+  SadcOrganizationInfo,
 } from './types'
 
 import type { SadcCountry, SadcOrganizationInfo } from './types'

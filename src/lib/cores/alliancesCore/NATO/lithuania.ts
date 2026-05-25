@@ -3,6 +3,9 @@ import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { NATO_RARE_EARTHS } from './rareEarthsByIso'
+import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 
 export const lithuania: NatoCountry = {
   name: 'Lithuania',
@@ -24,5 +27,8 @@ export const lithuania: NatoCountry = {
   newsOutlets: NATO_NEWS_OUTLETS['LT'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['LT'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['LT'],
+  mainExportedElements: NATO_MAIN_EXPORTED_ELEMENTS['LT'],
+  rareEarths: NATO_RARE_EARTHS['LT'],
   stockExchange: 'Nasdaq Vilnius',
+  bondMarkets: NATO_BOND_MARKETS['LT'],
 }

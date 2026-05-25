@@ -4,9 +4,11 @@ export type {
   BricsOrganizationInfo,
   DomesticCourierService,
   MainExportCommodities,
+  MainExportedElements,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
+  RareEarths,
 } from './types'
 export { BRICS_MEMBER_ISO_CODES } from './bricsMemberIsoCodes'
 export type { BricsMemberIsoCode } from './bricsMemberIsoCodes'
