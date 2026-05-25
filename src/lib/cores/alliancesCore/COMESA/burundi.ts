@@ -3,6 +3,9 @@ import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
+import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const burundi: ComesaCountry = {
   name: 'Burundi',
@@ -23,5 +26,8 @@ export const burundi: ComesaCountry = {
   newsOutlets: COMESA_NEWS_OUTLETS['BI'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['BI'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['BI'],
+  mainExportedElements: COMESA_MAIN_EXPORTED_ELEMENTS['BI'],
+  rareEarths: COMESA_RARE_EARTHS['BI'],
   stockExchange: 'Burundi Stock Exchange — thin liquidity',
+  bondMarkets: COMESA_BOND_MARKETS['BI'],
 }

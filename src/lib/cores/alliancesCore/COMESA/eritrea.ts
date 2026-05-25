@@ -3,6 +3,9 @@ import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
+import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const eritrea: ComesaCountry = {
   name: 'Eritrea',
@@ -23,5 +26,8 @@ export const eritrea: ComesaCountry = {
   newsOutlets: COMESA_NEWS_OUTLETS['ER'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['ER'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['ER'],
+  mainExportedElements: COMESA_MAIN_EXPORTED_ELEMENTS['ER'],
+  rareEarths: COMESA_RARE_EARTHS['ER'],
   stockExchange: 'No public stock exchange',
+  bondMarkets: COMESA_BOND_MARKETS['ER'],
 }

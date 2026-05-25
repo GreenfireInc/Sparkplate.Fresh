@@ -3,6 +3,9 @@ import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IGAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IGAD_RARE_EARTHS } from './rareEarthsByIso'
+import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const kenya: IgadCountry = {
   name: 'Kenya',
@@ -24,5 +27,8 @@ export const kenya: IgadCountry = {
   newsOutlets: IGAD_NEWS_OUTLETS['KE'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['KE'],
   mainExportCommodities: IGAD_MAIN_EXPORT_COMMODITIES['KE'],
+  mainExportedElements: IGAD_MAIN_EXPORTED_ELEMENTS['KE'],
+  rareEarths: IGAD_RARE_EARTHS['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
+  bondMarkets: IGAD_BOND_MARKETS['KE'],
 }

@@ -3,6 +3,9 @@ import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ECCAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ECCAS_RARE_EARTHS } from './rareEarthsByIso'
+import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const saoTomeAndPrincipe: EccasCountry = {
   name: 'São Tomé and Príncipe',
@@ -23,5 +26,8 @@ export const saoTomeAndPrincipe: EccasCountry = {
   newsOutlets: ECCAS_NEWS_OUTLETS['ST'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['ST'],
   mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['ST'],
+  mainExportedElements: ECCAS_MAIN_EXPORTED_ELEMENTS['ST'],
+  rareEarths: ECCAS_RARE_EARTHS['ST'],
   stockExchange: 'Bolsa de Valores de São Tomé e Príncipe (limited)',
+  bondMarkets: ECCAS_BOND_MARKETS['ST'],
 }

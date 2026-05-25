@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const cyprus: CommonwealthCountry = {
   name: 'Cyprus',
@@ -24,5 +26,7 @@ export const cyprus: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['CY'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['CY'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['CY'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['CY'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['CY'],
   stockExchange: 'Cyprus Stock Exchange (CSE)',
 }

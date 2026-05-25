@@ -3,6 +3,9 @@ import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ASEAN_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ASEAN_RARE_EARTHS } from './rareEarthsByIso'
+import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
 
 export const cambodia: AseanCountry = {
   name: 'Cambodia',
@@ -24,5 +27,8 @@ export const cambodia: AseanCountry = {
   newsOutlets: ASEAN_NEWS_OUTLETS['KH'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['KH'],
   mainExportCommodities: ASEAN_MAIN_EXPORT_COMMODITIES['KH'],
+  mainExportedElements: ASEAN_MAIN_EXPORTED_ELEMENTS['KH'],
+  rareEarths: ASEAN_RARE_EARTHS['KH'],
   stockExchange: 'Cambodia Securities Exchange (CSX Phnom Penh)',
+  bondMarkets: ASEAN_BOND_MARKETS['KH'],
 }

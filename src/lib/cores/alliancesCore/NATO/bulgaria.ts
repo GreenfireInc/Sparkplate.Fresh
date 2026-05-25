@@ -3,6 +3,9 @@ import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { NATO_RARE_EARTHS } from './rareEarthsByIso'
+import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 
 export const bulgaria: NatoCountry = {
   name: 'Bulgaria',
@@ -24,5 +27,8 @@ export const bulgaria: NatoCountry = {
   newsOutlets: NATO_NEWS_OUTLETS['BG'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['BG'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['BG'],
+  mainExportedElements: NATO_MAIN_EXPORTED_ELEMENTS['BG'],
+  rareEarths: NATO_RARE_EARTHS['BG'],
   stockExchange: 'Bulgarian Stock Exchange',
+  bondMarkets: NATO_BOND_MARKETS['BG'],
 }

@@ -3,6 +3,9 @@ import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IORA_RARE_EARTHS } from './rareEarthsByIso'
+import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const mozambique: IoraCountry = {
   name: 'Mozambique',
@@ -24,5 +27,8 @@ export const mozambique: IoraCountry = {
   newsOutlets: IORA_NEWS_OUTLETS['MZ'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['MZ'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['MZ'],
+  mainExportedElements: IORA_MAIN_EXPORTED_ELEMENTS['MZ'],
+  rareEarths: IORA_RARE_EARTHS['MZ'],
   stockExchange: 'Bolsa de Valores de Moçambique (Maputo — informational)',
+  bondMarkets: IORA_BOND_MARKETS['MZ'],
 }

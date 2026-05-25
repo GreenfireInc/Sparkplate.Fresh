@@ -3,6 +3,9 @@ import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { EAC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { EAC_RARE_EARTHS } from './rareEarthsByIso'
+import { EAC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const tanzania: EacCountry = {
   name: 'Tanzania',
@@ -23,6 +26,9 @@ export const tanzania: EacCountry = {
   newsOutlets: EAC_NEWS_OUTLETS['TZ'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['TZ'],
   mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['TZ'],
+  mainExportedElements: EAC_MAIN_EXPORTED_ELEMENTS['TZ'],
+  rareEarths: EAC_RARE_EARTHS['TZ'],
   stockExchange:
     'Dar es Salaam Stock Exchange (DSE); EAC Secretariat located in Arusha — informational',
+  bondMarkets: EAC_BOND_MARKETS['TZ'],
 }

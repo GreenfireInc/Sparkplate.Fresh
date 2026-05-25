@@ -3,6 +3,9 @@ import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { EAC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { EAC_RARE_EARTHS } from './rareEarthsByIso'
+import { EAC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const southSudan: EacCountry = {
   name: 'South Sudan',
@@ -23,5 +26,8 @@ export const southSudan: EacCountry = {
   newsOutlets: EAC_NEWS_OUTLETS['SS'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['SS'],
   mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['SS'],
+  mainExportedElements: EAC_MAIN_EXPORTED_ELEMENTS['SS'],
+  rareEarths: EAC_RARE_EARTHS['SS'],
   stockExchange: 'Juba Stock Exchange (nascent / limited)',
+  bondMarkets: EAC_BOND_MARKETS['SS'],
 }

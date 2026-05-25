@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const capeVerde: AfricanUnionCountry = {
   name: 'Cape Verde',
   iso3166Alpha2: 'CV',
@@ -23,5 +26,8 @@ export const capeVerde: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['CV'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['CV'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['CV'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['CV'],
+  rareEarths: AU_RARE_EARTHS['CV'],
   stockExchange: 'Bolsa de Valores de Cabo Verde (limited listings)',
+  bondMarkets: AU_BOND_MARKETS['CV'],
 }

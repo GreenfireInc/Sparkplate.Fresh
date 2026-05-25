@@ -3,7 +3,9 @@ import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
-
+import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRI_RARE_EARTHS } from './rareEarthsByIso'
+import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 export const papuaNewGuinea: BeltAndRoadInitiativeCountry = {
   name: 'Papua New Guinea',
   iso3166Alpha2: 'PG',
@@ -24,5 +26,8 @@ export const papuaNewGuinea: BeltAndRoadInitiativeCountry = {
   newsOutlets: BRI_NEWS_OUTLETS['PG'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['PG'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['PG'],
+  mainExportedElements: BRI_MAIN_EXPORTED_ELEMENTS['PG'],
+  rareEarths: BRI_RARE_EARTHS['PG'],
   stockExchange: 'National or regional exchange (verify)',
+  bondMarkets: BRI_BOND_MARKETS['PG'],
 }

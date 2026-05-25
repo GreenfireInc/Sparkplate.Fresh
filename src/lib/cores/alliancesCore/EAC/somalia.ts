@@ -3,6 +3,9 @@ import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { EAC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { EAC_RARE_EARTHS } from './rareEarthsByIso'
+import { EAC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const somalia: EacCountry = {
   name: 'Somalia',
@@ -25,5 +28,8 @@ export const somalia: EacCountry = {
   newsOutlets: EAC_NEWS_OUTLETS['SO'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['SO'],
   mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['SO'],
+  mainExportedElements: EAC_MAIN_EXPORTED_ELEMENTS['SO'],
+  rareEarths: EAC_RARE_EARTHS['SO'],
   stockExchange: 'No functioning national exchange',
+  bondMarkets: EAC_BOND_MARKETS['SO'],
 }

@@ -3,6 +3,9 @@ import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECS_RARE_EARTHS } from './rareEarthsByIso'
+import { OECS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const saintKittsAndNevis: OecsCountry = {
   name: 'Saint Kitts and Nevis',
@@ -24,5 +27,8 @@ export const saintKittsAndNevis: OecsCountry = {
   newsOutlets: OECS_NEWS_OUTLETS['KN'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['KN'],
   mainExportCommodities: OECS_MAIN_EXPORT_COMMODITIES['KN'],
+  mainExportedElements: OECS_MAIN_EXPORTED_ELEMENTS['KN'],
+  rareEarths: OECS_RARE_EARTHS['KN'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
+  bondMarkets: OECS_BOND_MARKETS['KN'],
 }

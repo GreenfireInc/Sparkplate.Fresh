@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const greece: OecdCountry = {
   name: 'Greece',
@@ -24,5 +27,8 @@ export const greece: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['GR'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['GR'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['GR'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['GR'],
+  rareEarths: OECD_RARE_EARTHS['GR'],
   stockExchange: 'Athens Stock Exchange',
+  bondMarkets: OECD_BOND_MARKETS['GR'],
 }

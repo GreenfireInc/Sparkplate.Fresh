@@ -3,6 +3,8 @@ import { BRICS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRICS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRICS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRICS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { BRICS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRICS_RARE_EARTHS } from './rareEarthsByIso'
 
 export const china: BricsCountry = {
   name: 'China',
@@ -24,5 +26,7 @@ export const china: BricsCountry = {
   newsOutlets: BRICS_NEWS_OUTLETS['CN'],
   notableUniversities: BRICS_NOTABLE_UNIVERSITIES['CN'],
   mainExportCommodities: BRICS_MAIN_EXPORT_COMMODITIES['CN'],
+  mainExportedElements: BRICS_MAIN_EXPORTED_ELEMENTS['CN'],
+  rareEarths: BRICS_RARE_EARTHS['CN'],
   stockExchange: 'Shanghai Stock Exchange; Shenzhen Stock Exchange',
 }

@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const lithuania: OecdCountry = {
   name: 'Lithuania',
@@ -24,5 +27,8 @@ export const lithuania: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['LT'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['LT'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['LT'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['LT'],
+  rareEarths: OECD_RARE_EARTHS['LT'],
   stockExchange: 'Nasdaq Vilnius',
+  bondMarkets: OECD_BOND_MARKETS['LT'],
 }

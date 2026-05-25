@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const eritrea: AfricanUnionCountry = {
   name: 'Eritrea',
   iso3166Alpha2: 'ER',
@@ -23,5 +26,8 @@ export const eritrea: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['ER'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['ER'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['ER'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['ER'],
+  rareEarths: AU_RARE_EARTHS['ER'],
   stockExchange: 'No public stock exchange',
+  bondMarkets: AU_BOND_MARKETS['ER'],
 }

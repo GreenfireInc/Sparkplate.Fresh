@@ -3,6 +3,9 @@ import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { SADC_RARE_EARTHS } from './rareEarthsByIso'
+import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const madagascar: SadcCountry = {
   name: 'Madagascar',
@@ -23,5 +26,8 @@ export const madagascar: SadcCountry = {
   newsOutlets: SADC_NEWS_OUTLETS['MG'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['MG'],
   mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['MG'],
+  mainExportedElements: SADC_MAIN_EXPORTED_ELEMENTS['MG'],
+  rareEarths: SADC_RARE_EARTHS['MG'],
   stockExchange: 'Madagascar Stock Exchange (SEM) — thin market',
+  bondMarkets: SADC_BOND_MARKETS['MG'],
 }

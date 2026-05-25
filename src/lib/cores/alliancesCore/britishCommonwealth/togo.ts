@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const togo: CommonwealthCountry = {
   name: 'Togo',
@@ -24,5 +26,7 @@ export const togo: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['TG'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['TG'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['TG'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['TG'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['TG'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (regional)',
 }

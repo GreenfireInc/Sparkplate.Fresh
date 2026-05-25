@@ -3,6 +3,9 @@ import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ECCAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ECCAS_RARE_EARTHS } from './rareEarthsByIso'
+import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const gabon: EccasCountry = {
   name: 'Gabon',
@@ -24,5 +27,8 @@ export const gabon: EccasCountry = {
   newsOutlets: ECCAS_NEWS_OUTLETS['GA'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['GA'],
   mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['GA'],
+  mainExportedElements: ECCAS_MAIN_EXPORTED_ELEMENTS['GA'],
+  rareEarths: ECCAS_RARE_EARTHS['GA'],
   stockExchange: 'Regional CEMAC markets; Libreville financial hub — verify listings',
+  bondMarkets: ECCAS_BOND_MARKETS['GA'],
 }

@@ -3,6 +3,9 @@ import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
+import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 
 export const bermuda: CaricomCountry = {
   name: 'Bermuda',
@@ -24,5 +27,8 @@ export const bermuda: CaricomCountry = {
   newsOutlets: CARICOM_NEWS_OUTLETS['BM'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['BM'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['BM'],
+  mainExportedElements: CARICOM_MAIN_EXPORTED_ELEMENTS['BM'],
+  rareEarths: CARICOM_RARE_EARTHS['BM'],
   stockExchange: 'Bermuda Stock Exchange',
+  bondMarkets: CARICOM_BOND_MARKETS['BM'],
 }

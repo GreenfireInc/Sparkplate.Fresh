@@ -3,7 +3,9 @@ import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
-
+import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRI_RARE_EARTHS } from './rareEarthsByIso'
+import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 export const slovakia: BeltAndRoadInitiativeCountry = {
   name: 'Slovakia',
   iso3166Alpha2: 'SK',
@@ -24,5 +26,8 @@ export const slovakia: BeltAndRoadInitiativeCountry = {
   newsOutlets: BRI_NEWS_OUTLETS['SK'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['SK'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['SK'],
+  mainExportedElements: BRI_MAIN_EXPORTED_ELEMENTS['SK'],
+  rareEarths: BRI_RARE_EARTHS['SK'],
   stockExchange: 'National or regional exchange (verify)',
+  bondMarkets: BRI_BOND_MARKETS['SK'],
 }

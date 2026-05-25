@@ -3,6 +3,9 @@ import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IORA_RARE_EARTHS } from './rareEarthsByIso'
+import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const thailand: IoraCountry = {
   name: 'Thailand',
@@ -24,5 +27,8 @@ export const thailand: IoraCountry = {
   newsOutlets: IORA_NEWS_OUTLETS['TH'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['TH'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['TH'],
+  mainExportedElements: IORA_MAIN_EXPORTED_ELEMENTS['TH'],
+  rareEarths: IORA_RARE_EARTHS['TH'],
   stockExchange: 'Stock Exchange of Thailand (SET)',
+  bondMarkets: IORA_BOND_MARKETS['TH'],
 }

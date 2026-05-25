@@ -62,6 +62,45 @@ export type MainExportCommodities = readonly [
   string,
 ]
 
+/**
+ * Seven principal exported chemical elements by mined / refined trade significance
+ * (informational; verify against USGS Mineral Commodity Summaries and UN Comtrade periodically).
+ * Entries follow the `Element name (Symbol)` convention, e.g. `Gold (Au)`.
+ */
+export type MainExportedElements = readonly [
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+]
+
+/**
+ * Documented rare-earth element exports (lanthanides plus Sc / Y) with commercial or near-commercial
+ * production. Empty when no documented commercial-scale REE exports. Format mirrors
+ * {@link MainExportedElements}: `Element name (Symbol)`, e.g. `Neodymium (Nd)`.
+ */
+export type RareEarths = readonly string[]
+
+/**
+ * Bond market venue row (informational; verify URLs, handles, and API bases before production).
+ * Captures national listed-bond exchanges (e.g. BSE Botswana), regional listed-bond exchanges
+ * (BRVM for UEMOA, BVMAC for CEMAC), and central-bank Treasury bill / bond desks where no
+ * listed venue exists. `apiEndpoint` is a public developer / REST / data base URL when
+ * documented; otherwise empty string (most African venues distribute data only via paid
+ * Bloomberg / Refinitiv / IRESS channels).
+ */
+export interface BondMarketVenue {
+  name: string
+  website: string
+  email: string
+  twitter: string
+  linkedin: string
+  apiEndpoint: string
+}
+
 export interface AfricanUnionCountry {
   /** Display name */
   name: string
@@ -95,7 +134,17 @@ export interface AfricanUnionCountry {
   newsOutlets: NewsOutletsRoster
   /** Seven principal export commodities (informational; verify trade statistics periodically). */
   mainExportCommodities: MainExportCommodities
+  /** Seven principal exported chemical elements (informational; verify periodically). */
+  mainExportedElements: MainExportedElements
+  /** Documented rare-earth element exports; empty when no commercial-scale REE exports. */
+  rareEarths: RareEarths
   stockExchange: string
+  /**
+   * Documented bond market venues — national listed-bond exchanges, regional listed-bond
+   * exchanges (BRVM / BVMAC), and central-bank Treasury bill / bond desks where no listed
+   * venue exists. Empty array when no bond venue is documented (e.g. Sahrawi Republic).
+   */
+  bondMarkets: readonly BondMarketVenue[]
 }
 
 /**

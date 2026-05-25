@@ -3,6 +3,9 @@ import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IORA_RARE_EARTHS } from './rareEarthsByIso'
+import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const indonesia: IoraCountry = {
   name: 'Indonesia',
@@ -24,5 +27,8 @@ export const indonesia: IoraCountry = {
   newsOutlets: IORA_NEWS_OUTLETS['ID'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['ID'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['ID'],
+  mainExportedElements: IORA_MAIN_EXPORTED_ELEMENTS['ID'],
+  rareEarths: IORA_RARE_EARTHS['ID'],
   stockExchange: 'Indonesia Stock Exchange (IDX)',
+  bondMarkets: IORA_BOND_MARKETS['ID'],
 }

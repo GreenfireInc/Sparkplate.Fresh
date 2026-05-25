@@ -1,10 +1,14 @@
 export type {
+  BondMarketVenue,
   DomesticCourierService,
   GccCountry,
   GccOrganizationInfo,
+  MainExportCommodities,
+  MainExportedElements,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
+  RareEarths,
 } from './types'
 
 import type { GccCountry, GccOrganizationInfo } from './types'

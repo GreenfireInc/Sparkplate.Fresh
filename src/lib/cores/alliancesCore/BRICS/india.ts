@@ -3,6 +3,8 @@ import { BRICS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRICS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRICS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRICS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { BRICS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRICS_RARE_EARTHS } from './rareEarthsByIso'
 
 export const india: BricsCountry = {
   name: 'India',
@@ -24,5 +26,7 @@ export const india: BricsCountry = {
   newsOutlets: BRICS_NEWS_OUTLETS['IN'],
   notableUniversities: BRICS_NOTABLE_UNIVERSITIES['IN'],
   mainExportCommodities: BRICS_MAIN_EXPORT_COMMODITIES['IN'],
+  mainExportedElements: BRICS_MAIN_EXPORTED_ELEMENTS['IN'],
+  rareEarths: BRICS_RARE_EARTHS['IN'],
   stockExchange: 'National Stock Exchange of India (NSE); BSE',
 }

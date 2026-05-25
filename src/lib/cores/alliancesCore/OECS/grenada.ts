@@ -3,6 +3,9 @@ import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECS_RARE_EARTHS } from './rareEarthsByIso'
+import { OECS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const grenada: OecsCountry = {
   name: 'Grenada',
@@ -24,5 +27,8 @@ export const grenada: OecsCountry = {
   newsOutlets: OECS_NEWS_OUTLETS['GD'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['GD'],
   mainExportCommodities: OECS_MAIN_EXPORT_COMMODITIES['GD'],
+  mainExportedElements: OECS_MAIN_EXPORTED_ELEMENTS['GD'],
+  rareEarths: OECS_RARE_EARTHS['GD'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
+  bondMarkets: OECS_BOND_MARKETS['GD'],
 }

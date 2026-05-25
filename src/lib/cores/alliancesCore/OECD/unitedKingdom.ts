@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const unitedKingdom: OecdCountry = {
   name: 'United Kingdom',
@@ -26,5 +29,8 @@ export const unitedKingdom: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['GB'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['GB'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['GB'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['GB'],
+  rareEarths: OECD_RARE_EARTHS['GB'],
   stockExchange: 'London Stock Exchange Group',
+  bondMarkets: OECD_BOND_MARKETS['GB'],
 }

@@ -3,6 +3,9 @@ import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IORA_RARE_EARTHS } from './rareEarthsByIso'
+import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const iran: IoraCountry = {
   name: 'Iran',
@@ -24,5 +27,8 @@ export const iran: IoraCountry = {
   newsOutlets: IORA_NEWS_OUTLETS['IR'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['IR'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['IR'],
+  mainExportedElements: IORA_MAIN_EXPORTED_ELEMENTS['IR'],
+  rareEarths: IORA_RARE_EARTHS['IR'],
   stockExchange: 'Tehran Stock Exchange',
+  bondMarkets: IORA_BOND_MARKETS['IR'],
 }

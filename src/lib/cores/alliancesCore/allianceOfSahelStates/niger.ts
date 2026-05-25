@@ -3,6 +3,9 @@ import { AES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AES_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AES_RARE_EARTHS } from './rareEarthsByIso'
+import { AES_BOND_MARKETS } from './bondMarketsByIso'
 
 export const niger: AllianceOfSahelStatesCountry = {
   name: 'Niger',
@@ -24,5 +27,8 @@ export const niger: AllianceOfSahelStatesCountry = {
   newsOutlets: AES_NEWS_OUTLETS['NE'],
   notableUniversities: AES_NOTABLE_UNIVERSITIES['NE'],
   mainExportCommodities: AES_MAIN_EXPORT_COMMODITIES['NE'],
+  mainExportedElements: AES_MAIN_EXPORTED_ELEMENTS['NE'],
+  rareEarths: AES_RARE_EARTHS['NE'],
   stockExchange: 'No liquid national bourse; BRVM regional',
+  bondMarkets: AES_BOND_MARKETS['NE'],
 }

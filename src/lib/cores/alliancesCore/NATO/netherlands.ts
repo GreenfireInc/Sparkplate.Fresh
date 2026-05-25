@@ -3,6 +3,9 @@ import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { NATO_RARE_EARTHS } from './rareEarthsByIso'
+import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 
 export const netherlands: NatoCountry = {
   name: 'Netherlands',
@@ -24,5 +27,8 @@ export const netherlands: NatoCountry = {
   newsOutlets: NATO_NEWS_OUTLETS['NL'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['NL'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['NL'],
+  mainExportedElements: NATO_MAIN_EXPORTED_ELEMENTS['NL'],
+  rareEarths: NATO_RARE_EARTHS['NL'],
   stockExchange: 'Euronext Amsterdam',
+  bondMarkets: NATO_BOND_MARKETS['NL'],
 }

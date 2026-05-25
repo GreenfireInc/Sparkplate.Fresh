@@ -3,6 +3,9 @@ import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IORA_RARE_EARTHS } from './rareEarthsByIso'
+import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const somalia: IoraCountry = {
   name: 'Somalia',
@@ -24,5 +27,8 @@ export const somalia: IoraCountry = {
   newsOutlets: IORA_NEWS_OUTLETS['SO'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['SO'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['SO'],
+  mainExportedElements: IORA_MAIN_EXPORTED_ELEMENTS['SO'],
+  rareEarths: IORA_RARE_EARTHS['SO'],
   stockExchange: 'No consolidated national exchange (fragmented governance — informational)',
+  bondMarkets: IORA_BOND_MARKETS['SO'],
 }

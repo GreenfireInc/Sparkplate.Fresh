@@ -3,6 +3,9 @@ import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
+import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const tunisia: CensadCountry = {
   name: 'Tunisia',
@@ -24,5 +27,8 @@ export const tunisia: CensadCountry = {
   newsOutlets: CENSAD_NEWS_OUTLETS['TN'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['TN'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['TN'],
+  mainExportedElements: CENSAD_MAIN_EXPORTED_ELEMENTS['TN'],
+  rareEarths: CENSAD_RARE_EARTHS['TN'],
   stockExchange: 'Bourse de Tunis',
+  bondMarkets: CENSAD_BOND_MARKETS['TN'],
 }

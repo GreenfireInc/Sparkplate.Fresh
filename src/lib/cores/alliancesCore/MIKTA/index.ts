@@ -1,11 +1,14 @@
 export type {
-  MiktaCountry,
-  MiktaOrganizationInfo,
+  BondMarketVenue,
   DomesticCourierService,
   MainExportCommodities,
+  MainExportedElements,
+  MiktaCountry,
+  MiktaOrganizationInfo,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
+  RareEarths,
 } from './types'
 
 import type { MiktaCountry, MiktaOrganizationInfo } from './types'

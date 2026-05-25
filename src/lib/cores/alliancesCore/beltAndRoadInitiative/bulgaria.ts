@@ -3,7 +3,9 @@ import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
-
+import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRI_RARE_EARTHS } from './rareEarthsByIso'
+import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 export const bulgaria: BeltAndRoadInitiativeCountry = {
   name: 'Bulgaria',
   iso3166Alpha2: 'BG',
@@ -24,5 +26,8 @@ export const bulgaria: BeltAndRoadInitiativeCountry = {
   newsOutlets: BRI_NEWS_OUTLETS['BG'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['BG'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['BG'],
+  mainExportedElements: BRI_MAIN_EXPORTED_ELEMENTS['BG'],
+  rareEarths: BRI_RARE_EARTHS['BG'],
   stockExchange: 'National or regional exchange (verify)',
+  bondMarkets: BRI_BOND_MARKETS['BG'],
 }

@@ -3,6 +3,9 @@ import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { EAC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { EAC_RARE_EARTHS } from './rareEarthsByIso'
+import { EAC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const burundi: EacCountry = {
   name: 'Burundi',
@@ -23,5 +26,8 @@ export const burundi: EacCountry = {
   newsOutlets: EAC_NEWS_OUTLETS['BI'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['BI'],
   mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['BI'],
+  mainExportedElements: EAC_MAIN_EXPORTED_ELEMENTS['BI'],
+  rareEarths: EAC_RARE_EARTHS['BI'],
   stockExchange: 'Burundi Stock Exchange — thin liquidity',
+  bondMarkets: EAC_BOND_MARKETS['BI'],
 }

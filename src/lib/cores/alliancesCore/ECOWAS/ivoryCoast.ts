@@ -3,6 +3,9 @@ import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
+import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const ivoryCoast: EcowasCountry = {
   name: "Côte d'Ivoire",
@@ -23,5 +26,8 @@ export const ivoryCoast: EcowasCountry = {
   newsOutlets: ECOWAS_NEWS_OUTLETS['CI'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['CI'],
   mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['CI'],
+  mainExportedElements: ECOWAS_MAIN_EXPORTED_ELEMENTS['CI'],
+  rareEarths: ECOWAS_RARE_EARTHS['CI'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (BRVM — seat Abidjan)',
+  bondMarkets: ECOWAS_BOND_MARKETS['CI'],
 }

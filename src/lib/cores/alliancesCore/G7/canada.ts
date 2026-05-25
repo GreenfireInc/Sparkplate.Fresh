@@ -3,6 +3,9 @@ import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G7_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G7_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G7_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { G7_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { G7_RARE_EARTHS } from './rareEarthsByIso'
+import { G7_BOND_MARKETS } from './bondMarketsByIso'
 
 export const canada: G7Country = {
   name: 'Canada',
@@ -24,5 +27,8 @@ export const canada: G7Country = {
   newsOutlets: G7_NEWS_OUTLETS['CA'],
   notableUniversities: G7_NOTABLE_UNIVERSITIES['CA'],
   mainExportCommodities: G7_MAIN_EXPORT_COMMODITIES['CA'],
+  mainExportedElements: G7_MAIN_EXPORTED_ELEMENTS['CA'],
+  rareEarths: G7_RARE_EARTHS['CA'],
   stockExchange: 'Toronto Stock Exchange (TMX)',
+  bondMarkets: G7_BOND_MARKETS['CA'],
 }

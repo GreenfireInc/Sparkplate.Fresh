@@ -3,7 +3,9 @@ import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
-
+import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRI_RARE_EARTHS } from './rareEarthsByIso'
+import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 export const lebanon: BeltAndRoadInitiativeCountry = {
   name: 'Lebanon',
   iso3166Alpha2: 'LB',
@@ -24,5 +26,8 @@ export const lebanon: BeltAndRoadInitiativeCountry = {
   newsOutlets: BRI_NEWS_OUTLETS['LB'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['LB'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['LB'],
+  mainExportedElements: BRI_MAIN_EXPORTED_ELEMENTS['LB'],
+  rareEarths: BRI_RARE_EARTHS['LB'],
   stockExchange: 'Beirut Stock Exchange',
+  bondMarkets: BRI_BOND_MARKETS['LB'],
 }

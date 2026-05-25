@@ -3,6 +3,9 @@ import { AMU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AMU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AMU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AMU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AMU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AMU_RARE_EARTHS } from './rareEarthsByIso'
+import { AMU_BOND_MARKETS } from './bondMarketsByIso'
 
 export const libya: AmuCountry = {
   name: 'Libya',
@@ -24,5 +27,8 @@ export const libya: AmuCountry = {
   newsOutlets: AMU_NEWS_OUTLETS['LY'],
   notableUniversities: AMU_NOTABLE_UNIVERSITIES['LY'],
   mainExportCommodities: AMU_MAIN_EXPORT_COMMODITIES['LY'],
+  mainExportedElements: AMU_MAIN_EXPORTED_ELEMENTS['LY'],
+  rareEarths: AMU_RARE_EARTHS['LY'],
   stockExchange: 'Libyan Stock Market (limited operations)',
+  bondMarkets: AMU_BOND_MARKETS['LY'],
 }

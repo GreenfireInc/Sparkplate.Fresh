@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const kenya: AfricanUnionCountry = {
   name: 'Kenya',
   iso3166Alpha2: 'KE',
@@ -23,5 +26,8 @@ export const kenya: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['KE'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['KE'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['KE'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['KE'],
+  rareEarths: AU_RARE_EARTHS['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
+  bondMarkets: AU_BOND_MARKETS['KE'],
 }

@@ -3,6 +3,9 @@ import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ASEAN_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ASEAN_RARE_EARTHS } from './rareEarthsByIso'
+import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
 
 export const indonesia: AseanCountry = {
   name: 'Indonesia',
@@ -24,5 +27,8 @@ export const indonesia: AseanCountry = {
   newsOutlets: ASEAN_NEWS_OUTLETS['ID'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['ID'],
   mainExportCommodities: ASEAN_MAIN_EXPORT_COMMODITIES['ID'],
+  mainExportedElements: ASEAN_MAIN_EXPORTED_ELEMENTS['ID'],
+  rareEarths: ASEAN_RARE_EARTHS['ID'],
   stockExchange: 'Indonesia Stock Exchange (IDX Jakarta)',
+  bondMarkets: ASEAN_BOND_MARKETS['ID'],
 }

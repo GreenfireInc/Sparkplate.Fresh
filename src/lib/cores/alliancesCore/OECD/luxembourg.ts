@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const luxembourg: OecdCountry = {
   name: 'Luxembourg',
@@ -24,5 +27,8 @@ export const luxembourg: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['LU'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['LU'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['LU'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['LU'],
+  rareEarths: OECD_RARE_EARTHS['LU'],
   stockExchange: 'Luxembourg Stock Exchange',
+  bondMarkets: OECD_BOND_MARKETS['LU'],
 }

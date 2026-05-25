@@ -3,6 +3,9 @@ import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { APEC_RARE_EARTHS } from './rareEarthsByIso'
+import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const peru: ApecCountry = {
   name: 'Peru',
@@ -24,5 +27,8 @@ export const peru: ApecCountry = {
   newsOutlets: APEC_NEWS_OUTLETS['PE'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['PE'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['PE'],
+  mainExportedElements: APEC_MAIN_EXPORTED_ELEMENTS['PE'],
+  rareEarths: APEC_RARE_EARTHS['PE'],
   stockExchange: 'Bolsa de Valores de Lima (Lima Stock Exchange)',
+  bondMarkets: APEC_BOND_MARKETS['PE'],
 }

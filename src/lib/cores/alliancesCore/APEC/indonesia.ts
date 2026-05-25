@@ -3,6 +3,9 @@ import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { APEC_RARE_EARTHS } from './rareEarthsByIso'
+import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const indonesia: ApecCountry = {
   name: 'Indonesia',
@@ -24,5 +27,8 @@ export const indonesia: ApecCountry = {
   newsOutlets: APEC_NEWS_OUTLETS['ID'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['ID'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['ID'],
+  mainExportedElements: APEC_MAIN_EXPORTED_ELEMENTS['ID'],
+  rareEarths: APEC_RARE_EARTHS['ID'],
   stockExchange: 'Indonesia Stock Exchange (IDX)',
+  bondMarkets: APEC_BOND_MARKETS['ID'],
 }

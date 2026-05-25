@@ -3,6 +3,9 @@ import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
+import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const equatorialGuinea: OpecCountry = {
   name: 'Equatorial Guinea',
@@ -24,5 +27,8 @@ export const equatorialGuinea: OpecCountry = {
   newsOutlets: OPEC_NEWS_OUTLETS['GQ'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['GQ'],
   mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['GQ'],
+  mainExportedElements: OPEC_MAIN_EXPORTED_ELEMENTS['GQ'],
+  rareEarths: OPEC_RARE_EARTHS['GQ'],
   stockExchange: 'Malabo regional listings nascent / thin — informational',
+  bondMarkets: OPEC_BOND_MARKETS['GQ'],
 }

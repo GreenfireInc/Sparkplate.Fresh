@@ -3,6 +3,9 @@ import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
+import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const djibouti: CensadCountry = {
   name: 'Djibouti',
@@ -23,5 +26,8 @@ export const djibouti: CensadCountry = {
   newsOutlets: CENSAD_NEWS_OUTLETS['DJ'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['DJ'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['DJ'],
+  mainExportedElements: CENSAD_MAIN_EXPORTED_ELEMENTS['DJ'],
+  rareEarths: CENSAD_RARE_EARTHS['DJ'],
   stockExchange: 'No major national stock exchange',
+  bondMarkets: CENSAD_BOND_MARKETS['DJ'],
 }

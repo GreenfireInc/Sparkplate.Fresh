@@ -3,6 +3,9 @@ import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IGAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IGAD_RARE_EARTHS } from './rareEarthsByIso'
+import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const somalia: IgadCountry = {
   name: 'Somalia',
@@ -25,5 +28,8 @@ export const somalia: IgadCountry = {
   newsOutlets: IGAD_NEWS_OUTLETS['SO'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['SO'],
   mainExportCommodities: IGAD_MAIN_EXPORT_COMMODITIES['SO'],
+  mainExportedElements: IGAD_MAIN_EXPORTED_ELEMENTS['SO'],
+  rareEarths: IGAD_RARE_EARTHS['SO'],
   stockExchange: 'No substantive national equities exchange consolidated (subsidiary regional plans — informational)',
+  bondMarkets: IGAD_BOND_MARKETS['SO'],
 }

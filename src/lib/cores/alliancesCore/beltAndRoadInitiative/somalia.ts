@@ -3,7 +3,9 @@ import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
-
+import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRI_RARE_EARTHS } from './rareEarthsByIso'
+import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 export const somalia: BeltAndRoadInitiativeCountry = {
   name: 'Somalia',
   iso3166Alpha2: 'SO',
@@ -24,5 +26,8 @@ export const somalia: BeltAndRoadInitiativeCountry = {
   newsOutlets: BRI_NEWS_OUTLETS['SO'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['SO'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['SO'],
+  mainExportedElements: BRI_MAIN_EXPORTED_ELEMENTS['SO'],
+  rareEarths: BRI_RARE_EARTHS['SO'],
   stockExchange: 'No functioning national exchange',
+  bondMarkets: BRI_BOND_MARKETS['SO'],
 }

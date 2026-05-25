@@ -3,6 +3,9 @@ import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { APEC_RARE_EARTHS } from './rareEarthsByIso'
+import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const newZealand: ApecCountry = {
   name: 'New Zealand',
@@ -24,5 +27,8 @@ export const newZealand: ApecCountry = {
   newsOutlets: APEC_NEWS_OUTLETS['NZ'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['NZ'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['NZ'],
+  mainExportedElements: APEC_MAIN_EXPORTED_ELEMENTS['NZ'],
+  rareEarths: APEC_RARE_EARTHS['NZ'],
   stockExchange: 'NZX Limited',
+  bondMarkets: APEC_BOND_MARKETS['NZ'],
 }

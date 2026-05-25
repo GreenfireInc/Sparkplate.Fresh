@@ -3,6 +3,9 @@ import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ARAB_LEAGUE_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ARAB_LEAGUE_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ARAB_LEAGUE_RARE_EARTHS } from './rareEarthsByIso'
+import { ARAB_LEAGUE_BOND_MARKETS } from './bondMarketsByIso'
 
 export const comoros: ArabLeagueCountry = {
   name: 'Comoros',
@@ -24,5 +27,8 @@ export const comoros: ArabLeagueCountry = {
   newsOutlets: ARAB_LEAGUE_NEWS_OUTLETS['KM'],
   notableUniversities: ARAB_LEAGUE_NOTABLE_UNIVERSITIES['KM'],
   mainExportCommodities: ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES['KM'],
+  mainExportedElements: ARAB_LEAGUE_MAIN_EXPORTED_ELEMENTS['KM'],
+  rareEarths: ARAB_LEAGUE_RARE_EARTHS['KM'],
   stockExchange: 'No major national stock exchange',
+  bondMarkets: ARAB_LEAGUE_BOND_MARKETS['KM'],
 }

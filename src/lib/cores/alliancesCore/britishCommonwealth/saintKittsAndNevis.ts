@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const saintKittsAndNevis: CommonwealthCountry = {
   name: 'Saint Kitts and Nevis',
@@ -24,5 +26,7 @@ export const saintKittsAndNevis: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['KN'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['KN'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['KN'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['KN'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['KN'],
   stockExchange: 'Eastern Caribbean Securities Exchange (regional)',
 }

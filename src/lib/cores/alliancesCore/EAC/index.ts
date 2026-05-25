@@ -1,10 +1,14 @@
 export type {
+  BondMarketVenue,
   DomesticCourierService,
   EacCountry,
   EacOrganizationInfo,
+  MainExportCommodities,
+  MainExportedElements,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
+  RareEarths,
 } from './types'
 
 import type { EacCountry, EacOrganizationInfo } from './types'

@@ -3,6 +3,9 @@ import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CPTPP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CPTPP_RARE_EARTHS } from './rareEarthsByIso'
+import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 
 export const mexico: CptppCountry = {
   name: 'Mexico',
@@ -23,5 +26,8 @@ export const mexico: CptppCountry = {
   newsOutlets: CPTPP_NEWS_OUTLETS['MX'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['MX'],
   mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['MX'],
+  mainExportedElements: CPTPP_MAIN_EXPORTED_ELEMENTS['MX'],
+  rareEarths: CPTPP_RARE_EARTHS['MX'],
   stockExchange: 'Mexican Stock Exchange (Bolsa Mexicana de Valores)',
+  bondMarkets: CPTPP_BOND_MARKETS['MX'],
 }

@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const newZealand: CommonwealthCountry = {
   name: 'New Zealand',
@@ -24,5 +26,7 @@ export const newZealand: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['NZ'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['NZ'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['NZ'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['NZ'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['NZ'],
   stockExchange: 'NZX (New Zealand Exchange)',
 }

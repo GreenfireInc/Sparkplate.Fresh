@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const burundi: AfricanUnionCountry = {
   name: 'Burundi',
   iso3166Alpha2: 'BI',
@@ -23,5 +26,8 @@ export const burundi: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['BI'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['BI'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['BI'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['BI'],
+  rareEarths: AU_RARE_EARTHS['BI'],
   stockExchange: 'Burundi Stock Exchange (BSE) — thin liquidity',
+  bondMarkets: AU_BOND_MARKETS['BI'],
 }

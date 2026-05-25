@@ -2,11 +2,14 @@ export type {
   AmuCountry,
   AmuMembership,
   AmuOrganizationInfo,
+  BondMarketVenue,
   DomesticCourierService,
   MainExportCommodities,
-  NotableUniversity,
+  MainExportedElements,
   NewsOutlet,
   NewsOutletsRoster,
+  NotableUniversity,
+  RareEarths,
 } from './types'
 export { AMU_MEMBER_ISO_CODES } from './amuMemberIsoCodes'
 export type { AmuMemberIsoCode } from './amuMemberIsoCodes'

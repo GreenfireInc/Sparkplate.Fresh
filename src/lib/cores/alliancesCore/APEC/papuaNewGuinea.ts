@@ -3,6 +3,9 @@ import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { APEC_RARE_EARTHS } from './rareEarthsByIso'
+import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const papuaNewGuinea: ApecCountry = {
   name: 'Papua New Guinea',
@@ -25,5 +28,8 @@ export const papuaNewGuinea: ApecCountry = {
   newsOutlets: APEC_NEWS_OUTLETS['PG'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['PG'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['PG'],
+  mainExportedElements: APEC_MAIN_EXPORTED_ELEMENTS['PG'],
+  rareEarths: APEC_RARE_EARTHS['PG'],
   stockExchange: 'PNG National Stock Exchange (Port Moresby — thin — informational)',
+  bondMarkets: APEC_BOND_MARKETS['PG'],
 }

@@ -1,11 +1,14 @@
 export type {
+  BondMarketVenue,
   CptppCountry,
   CptppOrganizationInfo,
   DomesticCourierService,
   MainExportCommodities,
+  MainExportedElements,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
+  RareEarths,
 } from './types'
 
 import type { CptppCountry, CptppOrganizationInfo } from './types'

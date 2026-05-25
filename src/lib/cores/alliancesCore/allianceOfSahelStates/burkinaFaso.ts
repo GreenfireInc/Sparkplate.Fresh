@@ -3,6 +3,9 @@ import { AES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AES_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AES_RARE_EARTHS } from './rareEarthsByIso'
+import { AES_BOND_MARKETS } from './bondMarketsByIso'
 
 export const burkinaFaso: AllianceOfSahelStatesCountry = {
   name: 'Burkina Faso',
@@ -24,5 +27,8 @@ export const burkinaFaso: AllianceOfSahelStatesCountry = {
   newsOutlets: AES_NEWS_OUTLETS['BF'],
   notableUniversities: AES_NOTABLE_UNIVERSITIES['BF'],
   mainExportCommodities: AES_MAIN_EXPORT_COMMODITIES['BF'],
+  mainExportedElements: AES_MAIN_EXPORTED_ELEMENTS['BF'],
+  rareEarths: AES_RARE_EARTHS['BF'],
   stockExchange: 'Burkina Faso — BRVM listings (limited local activity)',
+  bondMarkets: AES_BOND_MARKETS['BF'],
 }

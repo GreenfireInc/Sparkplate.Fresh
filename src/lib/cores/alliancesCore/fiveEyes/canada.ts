@@ -3,6 +3,9 @@ import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { FIVE_EYES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { FIVE_EYES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { FIVE_EYES_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { FIVE_EYES_RARE_EARTHS } from './rareEarthsByIso'
+import { FIVE_EYES_BOND_MARKETS } from './bondMarketsByIso'
 
 export const canada: FiveEyesCountry = {
   name: 'Canada',
@@ -24,5 +27,8 @@ export const canada: FiveEyesCountry = {
   newsOutlets: FIVE_EYES_NEWS_OUTLETS['CA'],
   notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['CA'],
   mainExportCommodities: FIVE_EYES_MAIN_EXPORT_COMMODITIES['CA'],
+  mainExportedElements: FIVE_EYES_MAIN_EXPORTED_ELEMENTS['CA'],
+  rareEarths: FIVE_EYES_RARE_EARTHS['CA'],
   stockExchange: 'Toronto Stock Exchange (TMX)',
+  bondMarkets: FIVE_EYES_BOND_MARKETS['CA'],
 }

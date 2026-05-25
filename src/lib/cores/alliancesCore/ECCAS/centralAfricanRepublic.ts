@@ -3,6 +3,9 @@ import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ECCAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ECCAS_RARE_EARTHS } from './rareEarthsByIso'
+import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const centralAfricanRepublic: EccasCountry = {
   name: 'Central African Republic',
@@ -24,5 +27,8 @@ export const centralAfricanRepublic: EccasCountry = {
   newsOutlets: ECCAS_NEWS_OUTLETS['CF'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['CF'],
   mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['CF'],
+  mainExportedElements: ECCAS_MAIN_EXPORTED_ELEMENTS['CF'],
+  rareEarths: ECCAS_RARE_EARTHS['CF'],
   stockExchange: 'Bangui Stock Exchange (very limited)',
+  bondMarkets: ECCAS_BOND_MARKETS['CF'],
 }

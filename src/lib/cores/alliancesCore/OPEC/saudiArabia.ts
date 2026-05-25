@@ -3,6 +3,9 @@ import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
+import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const saudiArabia: OpecCountry = {
   name: 'Saudi Arabia',
@@ -25,5 +28,8 @@ export const saudiArabia: OpecCountry = {
   newsOutlets: OPEC_NEWS_OUTLETS['SA'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['SA'],
   mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['SA'],
+  mainExportedElements: OPEC_MAIN_EXPORTED_ELEMENTS['SA'],
+  rareEarths: OPEC_RARE_EARTHS['SA'],
   stockExchange: 'Tadawul Saudi Exchange (national benchmark — informational)',
+  bondMarkets: OPEC_BOND_MARKETS['SA'],
 }

@@ -3,6 +3,9 @@ import { AMU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AMU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AMU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AMU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AMU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AMU_RARE_EARTHS } from './rareEarthsByIso'
+import { AMU_BOND_MARKETS } from './bondMarketsByIso'
 
 export const mauritania: AmuCountry = {
   name: 'Mauritania',
@@ -24,5 +27,8 @@ export const mauritania: AmuCountry = {
   newsOutlets: AMU_NEWS_OUTLETS['MR'],
   notableUniversities: AMU_NOTABLE_UNIVERSITIES['MR'],
   mainExportCommodities: AMU_MAIN_EXPORT_COMMODITIES['MR'],
+  mainExportedElements: AMU_MAIN_EXPORTED_ELEMENTS['MR'],
+  rareEarths: AMU_RARE_EARTHS['MR'],
   stockExchange: 'Bourse Notation Agréée (limited)',
+  bondMarkets: AMU_BOND_MARKETS['MR'],
 }

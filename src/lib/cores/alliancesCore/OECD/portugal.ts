@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const portugal: OecdCountry = {
   name: 'Portugal',
@@ -24,5 +27,8 @@ export const portugal: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['PT'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['PT'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['PT'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['PT'],
+  rareEarths: OECD_RARE_EARTHS['PT'],
   stockExchange: 'Euronext Lisbon',
+  bondMarkets: OECD_BOND_MARKETS['PT'],
 }

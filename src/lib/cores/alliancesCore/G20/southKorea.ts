@@ -3,6 +3,9 @@ import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { G20_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { G20_RARE_EARTHS } from './rareEarthsByIso'
+import { G20_BOND_MARKETS } from './bondMarketsByIso'
 
 export const southKorea: G20Country = {
   name: 'South Korea',
@@ -25,5 +28,8 @@ export const southKorea: G20Country = {
   newsOutlets: G20_NEWS_OUTLETS['KR'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['KR'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['KR'],
+  mainExportedElements: G20_MAIN_EXPORTED_ELEMENTS['KR'],
+  rareEarths: G20_RARE_EARTHS['KR'],
   stockExchange: 'Korea Exchange KRX (KOSPI / KOSDAQ)',
+  bondMarkets: G20_BOND_MARKETS['KR'],
 }

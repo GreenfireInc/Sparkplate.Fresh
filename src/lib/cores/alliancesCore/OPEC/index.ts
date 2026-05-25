@@ -1,11 +1,14 @@
 export type {
-  OpecCountry,
-  OpecOrganizationInfo,
+  BondMarketVenue,
   DomesticCourierService,
   MainExportCommodities,
+  MainExportedElements,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
+  OpecCountry,
+  OpecOrganizationInfo,
+  RareEarths,
 } from './types'
 
 import type { OpecCountry, OpecOrganizationInfo } from './types'

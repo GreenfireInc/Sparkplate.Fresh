@@ -3,7 +3,9 @@ import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
-
+import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRI_RARE_EARTHS } from './rareEarthsByIso'
+import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 export const niger: BeltAndRoadInitiativeCountry = {
   name: 'Niger',
   iso3166Alpha2: 'NE',
@@ -24,5 +26,8 @@ export const niger: BeltAndRoadInitiativeCountry = {
   newsOutlets: BRI_NEWS_OUTLETS['NE'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['NE'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['NE'],
+  mainExportedElements: BRI_MAIN_EXPORTED_ELEMENTS['NE'],
+  rareEarths: BRI_RARE_EARTHS['NE'],
   stockExchange: 'No liquid national bourse; BRVM regional',
+  bondMarkets: BRI_BOND_MARKETS['NE'],
 }

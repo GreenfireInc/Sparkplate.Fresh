@@ -1,11 +1,14 @@
 export type {
+  BondMarketVenue,
   ComesaCountry,
   ComesaOrganizationInfo,
   DomesticCourierService,
   MainExportCommodities,
+  MainExportedElements,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
+  RareEarths,
 } from './types'
 
 import type { ComesaCountry, ComesaOrganizationInfo } from './types'

@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const republicOfTheCongo: AfricanUnionCountry = {
   name: 'Republic of the Congo',
   iso3166Alpha2: 'CG',
@@ -23,5 +26,8 @@ export const republicOfTheCongo: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['CG'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['CG'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['CG'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['CG'],
+  rareEarths: AU_RARE_EARTHS['CG'],
   stockExchange: 'Bourse des Valeurs du Congo (BVC)',
+  bondMarkets: AU_BOND_MARKETS['CG'],
 }

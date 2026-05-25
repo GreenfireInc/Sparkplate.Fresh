@@ -3,6 +3,9 @@ import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
+import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 
 export const trinidadAndTobago: CaricomCountry = {
   name: 'Trinidad and Tobago',
@@ -24,5 +27,8 @@ export const trinidadAndTobago: CaricomCountry = {
   newsOutlets: CARICOM_NEWS_OUTLETS['TT'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['TT'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['TT'],
+  mainExportedElements: CARICOM_MAIN_EXPORTED_ELEMENTS['TT'],
+  rareEarths: CARICOM_RARE_EARTHS['TT'],
   stockExchange: 'Trinidad and Tobago Stock Exchange',
+  bondMarkets: CARICOM_BOND_MARKETS['TT'],
 }

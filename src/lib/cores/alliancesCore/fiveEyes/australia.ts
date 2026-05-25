@@ -3,6 +3,9 @@ import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { FIVE_EYES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { FIVE_EYES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { FIVE_EYES_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { FIVE_EYES_RARE_EARTHS } from './rareEarthsByIso'
+import { FIVE_EYES_BOND_MARKETS } from './bondMarketsByIso'
 
 export const australia: FiveEyesCountry = {
   name: 'Australia',
@@ -25,5 +28,8 @@ export const australia: FiveEyesCountry = {
   newsOutlets: FIVE_EYES_NEWS_OUTLETS['AU'],
   notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['AU'],
   mainExportCommodities: FIVE_EYES_MAIN_EXPORT_COMMODITIES['AU'],
+  mainExportedElements: FIVE_EYES_MAIN_EXPORTED_ELEMENTS['AU'],
+  rareEarths: FIVE_EYES_RARE_EARTHS['AU'],
   stockExchange: 'Australian Securities Exchange (ASX, Sydney)',
+  bondMarkets: FIVE_EYES_BOND_MARKETS['AU'],
 }

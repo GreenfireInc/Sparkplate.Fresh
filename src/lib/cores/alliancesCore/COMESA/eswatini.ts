@@ -3,6 +3,9 @@ import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
+import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const eswatini: ComesaCountry = {
   name: 'Eswatini',
@@ -23,5 +26,8 @@ export const eswatini: ComesaCountry = {
   newsOutlets: COMESA_NEWS_OUTLETS['SZ'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['SZ'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['SZ'],
+  mainExportedElements: COMESA_MAIN_EXPORTED_ELEMENTS['SZ'],
+  rareEarths: COMESA_RARE_EARTHS['SZ'],
   stockExchange: 'Eswatini Stock Exchange',
+  bondMarkets: COMESA_BOND_MARKETS['SZ'],
 }

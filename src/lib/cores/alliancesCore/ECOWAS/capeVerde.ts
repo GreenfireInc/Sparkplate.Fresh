@@ -3,6 +3,9 @@ import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
+import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const capeVerde: EcowasCountry = {
   name: 'Cape Verde',
@@ -23,5 +26,8 @@ export const capeVerde: EcowasCountry = {
   newsOutlets: ECOWAS_NEWS_OUTLETS['CV'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['CV'],
   mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['CV'],
+  mainExportedElements: ECOWAS_MAIN_EXPORTED_ELEMENTS['CV'],
+  rareEarths: ECOWAS_RARE_EARTHS['CV'],
   stockExchange: 'Bolsa de Valores de Cabo Verde (limited listings)',
+  bondMarkets: ECOWAS_BOND_MARKETS['CV'],
 }

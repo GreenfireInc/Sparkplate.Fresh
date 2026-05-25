@@ -3,6 +3,9 @@ import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ARAB_LEAGUE_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ARAB_LEAGUE_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ARAB_LEAGUE_RARE_EARTHS } from './rareEarthsByIso'
+import { ARAB_LEAGUE_BOND_MARKETS } from './bondMarketsByIso'
 
 export const djibouti: ArabLeagueCountry = {
   name: 'Djibouti',
@@ -24,5 +27,8 @@ export const djibouti: ArabLeagueCountry = {
   newsOutlets: ARAB_LEAGUE_NEWS_OUTLETS['DJ'],
   notableUniversities: ARAB_LEAGUE_NOTABLE_UNIVERSITIES['DJ'],
   mainExportCommodities: ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES['DJ'],
+  mainExportedElements: ARAB_LEAGUE_MAIN_EXPORTED_ELEMENTS['DJ'],
+  rareEarths: ARAB_LEAGUE_RARE_EARTHS['DJ'],
   stockExchange: 'Djibouti Stock Exchange (thin activity)',
+  bondMarkets: ARAB_LEAGUE_BOND_MARKETS['DJ'],
 }

@@ -3,6 +3,9 @@ import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { EU_RARE_EARTHS } from './rareEarthsByIso'
+import { EU_BOND_MARKETS } from './bondMarketsByIso'
 
 export const cyprus: EuCountry = {
   name: 'Cyprus',
@@ -23,5 +26,8 @@ export const cyprus: EuCountry = {
   newsOutlets: EU_NEWS_OUTLETS['CY'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['CY'],
   mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['CY'],
+  mainExportedElements: EU_MAIN_EXPORTED_ELEMENTS['CY'],
+  rareEarths: EU_RARE_EARTHS['CY'],
   stockExchange: 'Cyprus Stock Exchange',
+  bondMarkets: EU_BOND_MARKETS['CY'],
 }

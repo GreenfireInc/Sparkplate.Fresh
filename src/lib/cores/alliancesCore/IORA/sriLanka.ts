@@ -3,6 +3,9 @@ import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IORA_RARE_EARTHS } from './rareEarthsByIso'
+import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const sriLanka: IoraCountry = {
   name: 'Sri Lanka',
@@ -24,5 +27,8 @@ export const sriLanka: IoraCountry = {
   newsOutlets: IORA_NEWS_OUTLETS['LK'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['LK'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['LK'],
+  mainExportedElements: IORA_MAIN_EXPORTED_ELEMENTS['LK'],
+  rareEarths: IORA_RARE_EARTHS['LK'],
   stockExchange: 'Colombo Stock Exchange (CSE)',
+  bondMarkets: IORA_BOND_MARKETS['LK'],
 }

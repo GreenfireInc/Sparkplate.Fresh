@@ -3,6 +3,9 @@ import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { APEC_RARE_EARTHS } from './rareEarthsByIso'
+import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const hongKong: ApecCountry = {
   name: 'Hong Kong',
@@ -26,5 +29,8 @@ export const hongKong: ApecCountry = {
   newsOutlets: APEC_NEWS_OUTLETS['HK'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['HK'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['HK'],
+  mainExportedElements: APEC_MAIN_EXPORTED_ELEMENTS['HK'],
+  rareEarths: APEC_RARE_EARTHS['HK'],
   stockExchange: 'Hong Kong Stock Exchange (HKEX)',
+  bondMarkets: APEC_BOND_MARKETS['HK'],
 }

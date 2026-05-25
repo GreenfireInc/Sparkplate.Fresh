@@ -3,6 +3,9 @@ import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { G20_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { G20_RARE_EARTHS } from './rareEarthsByIso'
+import { G20_BOND_MARKETS } from './bondMarketsByIso'
 
 export const china: G20Country = {
   name: 'China',
@@ -26,5 +29,8 @@ export const china: G20Country = {
   newsOutlets: G20_NEWS_OUTLETS['CN'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['CN'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['CN'],
+  mainExportedElements: G20_MAIN_EXPORTED_ELEMENTS['CN'],
+  rareEarths: G20_RARE_EARTHS['CN'],
   stockExchange: 'Shanghai Stock Exchange (SSE) / Shenzhen Stock Exchange (SZSE)',
+  bondMarkets: G20_BOND_MARKETS['CN'],
 }

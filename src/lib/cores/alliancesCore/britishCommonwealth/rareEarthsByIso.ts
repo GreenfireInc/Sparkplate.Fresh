@@ -1,0 +1,105 @@
+import type { CommonwealthMemberIsoCode } from './commonwealthMemberIsoCodes'
+import type { RareEarths } from './types'
+
+/**
+ * Documented rare-earth element exports (lanthanide series plus Sc and Y) by ISO 3166-1 alpha-2
+ * for Commonwealth of Nations members. Notable entries:
+ *  - Australia (AU): Lynas Mt Weld concentrate, Iluka Eneabba project, near-mine cracking & leaching.
+ *  - India (IN): IREL monazite-derived light REE concentrates / oxides (Kerala, Odisha, Tamil Nadu).
+ *  - Malaysia (MY): Lynas Advanced Materials Plant (LAMP) refines Australian Mt Weld concentrate.
+ *  - South Africa (ZA): Steenkampskraal historical / restart light-REE concentrate.
+ *  - Canada (CA): Vital Metals / Cheetah Resources Nechalacho light-REE concentrate (NWT).
+ * Other entries are empty (informational; verify periodically).
+ */
+export const COMMONWEALTH_RARE_EARTHS: Record<CommonwealthMemberIsoCode, RareEarths> = {
+  AG: [],
+  AU: [
+    'Neodymium (Nd)',
+    'Praseodymium (Pr)',
+    'Cerium (Ce)',
+    'Lanthanum (La)',
+    'Samarium (Sm)',
+    'Europium (Eu)',
+    'Gadolinium (Gd)',
+    'Terbium (Tb)',
+    'Dysprosium (Dy)',
+  ],
+  BS: [],
+  BD: [],
+  BB: [],
+  BZ: [],
+  BW: [],
+  BN: [],
+  CM: [],
+  CA: [
+    'Neodymium (Nd)',
+    'Praseodymium (Pr)',
+    'Cerium (Ce)',
+    'Lanthanum (La)',
+  ],
+  CY: [],
+  DM: [],
+  SZ: [],
+  FJ: [],
+  GA: [],
+  GM: [],
+  GH: [],
+  GD: [],
+  GY: [],
+  IN: [
+    'Cerium (Ce)',
+    'Lanthanum (La)',
+    'Neodymium (Nd)',
+    'Praseodymium (Pr)',
+    'Samarium (Sm)',
+    'Yttrium (Y)',
+  ],
+  JM: [],
+  KE: [],
+  KI: [],
+  LS: [],
+  MW: [],
+  MY: [
+    'Cerium (Ce)',
+    'Lanthanum (La)',
+    'Neodymium (Nd)',
+    'Praseodymium (Pr)',
+    'Dysprosium (Dy)',
+    'Terbium (Tb)',
+  ],
+  MV: [],
+  MT: [],
+  MU: [],
+  MZ: [],
+  NA: [],
+  NR: [],
+  NZ: [],
+  NG: [],
+  PK: [],
+  PG: [],
+  RW: [],
+  KN: [],
+  LC: [],
+  VC: [],
+  WS: [],
+  SC: [],
+  SL: [],
+  SG: [],
+  SB: [],
+  ZA: [
+    'Cerium (Ce)',
+    'Lanthanum (La)',
+    'Neodymium (Nd)',
+    'Praseodymium (Pr)',
+  ],
+  LK: [],
+  TZ: [],
+  TG: [],
+  TO: [],
+  TT: [],
+  TV: [],
+  UG: [],
+  GB: [],
+  VU: [],
+  ZM: [],
+}

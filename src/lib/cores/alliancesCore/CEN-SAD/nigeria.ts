@@ -3,6 +3,9 @@ import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
+import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const nigeria: CensadCountry = {
   name: 'Nigeria',
@@ -23,5 +26,8 @@ export const nigeria: CensadCountry = {
   newsOutlets: CENSAD_NEWS_OUTLETS['NG'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['NG'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['NG'],
+  mainExportedElements: CENSAD_MAIN_EXPORTED_ELEMENTS['NG'],
+  rareEarths: CENSAD_RARE_EARTHS['NG'],
   stockExchange: 'Nigerian Exchange Group ( NGX )',
+  bondMarkets: CENSAD_BOND_MARKETS['NG'],
 }

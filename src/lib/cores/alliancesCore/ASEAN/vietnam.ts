@@ -3,6 +3,9 @@ import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ASEAN_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ASEAN_RARE_EARTHS } from './rareEarthsByIso'
+import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
 
 export const vietnam: AseanCountry = {
   name: 'Vietnam',
@@ -26,5 +29,8 @@ export const vietnam: AseanCountry = {
   newsOutlets: ASEAN_NEWS_OUTLETS['VN'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['VN'],
   mainExportCommodities: ASEAN_MAIN_EXPORT_COMMODITIES['VN'],
+  mainExportedElements: ASEAN_MAIN_EXPORTED_ELEMENTS['VN'],
+  rareEarths: ASEAN_RARE_EARTHS['VN'],
   stockExchange: 'Ho Chi Minh Stock Exchange; Hanoi Stock Exchange (consolidated plans — informational)',
+  bondMarkets: ASEAN_BOND_MARKETS['VN'],
 }

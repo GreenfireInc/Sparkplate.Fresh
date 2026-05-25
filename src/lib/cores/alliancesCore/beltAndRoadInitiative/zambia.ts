@@ -3,7 +3,9 @@ import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
-
+import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRI_RARE_EARTHS } from './rareEarthsByIso'
+import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 export const zambia: BeltAndRoadInitiativeCountry = {
   name: 'Zambia',
   iso3166Alpha2: 'ZM',
@@ -24,5 +26,8 @@ export const zambia: BeltAndRoadInitiativeCountry = {
   newsOutlets: BRI_NEWS_OUTLETS['ZM'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['ZM'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['ZM'],
+  mainExportedElements: BRI_MAIN_EXPORTED_ELEMENTS['ZM'],
+  rareEarths: BRI_RARE_EARTHS['ZM'],
   stockExchange: 'Lusaka Securities Exchange (LuSE)',
+  bondMarkets: BRI_BOND_MARKETS['ZM'],
 }

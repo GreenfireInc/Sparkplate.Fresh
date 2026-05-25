@@ -3,6 +3,9 @@ import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
+import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 
 export const newZealand: RcepCountry = {
   name: 'New Zealand',
@@ -24,5 +27,8 @@ export const newZealand: RcepCountry = {
   newsOutlets: RCEP_NEWS_OUTLETS['NZ'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['NZ'],
   mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['NZ'],
+  mainExportedElements: RCEP_MAIN_EXPORTED_ELEMENTS['NZ'],
+  rareEarths: RCEP_RARE_EARTHS['NZ'],
   stockExchange: 'NZX Limited',
+  bondMarkets: RCEP_BOND_MARKETS['NZ'],
 }

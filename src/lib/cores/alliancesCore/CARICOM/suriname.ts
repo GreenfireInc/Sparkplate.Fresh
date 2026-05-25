@@ -3,6 +3,9 @@ import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
+import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 
 export const suriname: CaricomCountry = {
   name: 'Suriname',
@@ -24,5 +27,8 @@ export const suriname: CaricomCountry = {
   newsOutlets: CARICOM_NEWS_OUTLETS['SR'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['SR'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['SR'],
+  mainExportedElements: CARICOM_MAIN_EXPORTED_ELEMENTS['SR'],
+  rareEarths: CARICOM_RARE_EARTHS['SR'],
   stockExchange: 'Suriname Stock Exchange',
+  bondMarkets: CARICOM_BOND_MARKETS['SR'],
 }

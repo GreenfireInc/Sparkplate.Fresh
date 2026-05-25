@@ -3,6 +3,9 @@ import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
+import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 
 export const brunei: RcepCountry = {
   name: 'Brunei',
@@ -25,5 +28,8 @@ export const brunei: RcepCountry = {
   newsOutlets: RCEP_NEWS_OUTLETS['BN'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['BN'],
   mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['BN'],
+  mainExportedElements: RCEP_MAIN_EXPORTED_ELEMENTS['BN'],
+  rareEarths: RCEP_RARE_EARTHS['BN'],
   stockExchange: 'No dedicated national exchange consolidated; regional ECM context — informational',
+  bondMarkets: RCEP_BOND_MARKETS['BN'],
 }

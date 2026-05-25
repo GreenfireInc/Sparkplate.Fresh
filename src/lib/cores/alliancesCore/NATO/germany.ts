@@ -3,6 +3,9 @@ import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { NATO_RARE_EARTHS } from './rareEarthsByIso'
+import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 
 export const germany: NatoCountry = {
   name: 'Germany',
@@ -24,5 +27,8 @@ export const germany: NatoCountry = {
   newsOutlets: NATO_NEWS_OUTLETS['DE'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['DE'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['DE'],
+  mainExportedElements: NATO_MAIN_EXPORTED_ELEMENTS['DE'],
+  rareEarths: NATO_RARE_EARTHS['DE'],
   stockExchange: 'Deutsche Börse (Frankfurt)',
+  bondMarkets: NATO_BOND_MARKETS['DE'],
 }

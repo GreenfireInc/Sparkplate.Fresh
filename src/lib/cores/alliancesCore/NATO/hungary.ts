@@ -3,6 +3,9 @@ import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { NATO_RARE_EARTHS } from './rareEarthsByIso'
+import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 
 export const hungary: NatoCountry = {
   name: 'Hungary',
@@ -24,5 +27,8 @@ export const hungary: NatoCountry = {
   newsOutlets: NATO_NEWS_OUTLETS['HU'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['HU'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['HU'],
+  mainExportedElements: NATO_MAIN_EXPORTED_ELEMENTS['HU'],
+  rareEarths: NATO_RARE_EARTHS['HU'],
   stockExchange: 'Budapest Stock Exchange',
+  bondMarkets: NATO_BOND_MARKETS['HU'],
 }

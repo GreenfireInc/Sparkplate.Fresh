@@ -3,6 +3,9 @@ import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { MIKTA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { MIKTA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { MIKTA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { MIKTA_RARE_EARTHS } from './rareEarthsByIso'
+import { MIKTA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const australia: MiktaCountry = {
   name: 'Australia',
@@ -25,5 +28,8 @@ export const australia: MiktaCountry = {
   newsOutlets: MIKTA_NEWS_OUTLETS['AU'],
   notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['AU'],
   mainExportCommodities: MIKTA_MAIN_EXPORT_COMMODITIES['AU'],
+  mainExportedElements: MIKTA_MAIN_EXPORTED_ELEMENTS['AU'],
+  rareEarths: MIKTA_RARE_EARTHS['AU'],
   stockExchange: 'Australian Securities Exchange ASX (Sydney)',
+  bondMarkets: MIKTA_BOND_MARKETS['AU'],
 }

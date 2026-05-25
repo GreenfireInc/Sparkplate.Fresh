@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const gabon: AfricanUnionCountry = {
   name: 'Gabon',
   iso3166Alpha2: 'GA',
@@ -23,5 +26,8 @@ export const gabon: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['GA'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['GA'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['GA'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['GA'],
+  rareEarths: AU_RARE_EARTHS['GA'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (BRVM) — regional',
+  bondMarkets: AU_BOND_MARKETS['GA'],
 }

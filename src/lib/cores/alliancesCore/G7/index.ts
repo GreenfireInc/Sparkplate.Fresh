@@ -1,10 +1,14 @@
 export type {
+  BondMarketVenue,
   DomesticCourierService,
   G7Country,
   G7OrganizationInfo,
+  MainExportCommodities,
+  MainExportedElements,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
+  RareEarths,
 } from './types'
 
 import type { G7Country, G7OrganizationInfo } from './types'

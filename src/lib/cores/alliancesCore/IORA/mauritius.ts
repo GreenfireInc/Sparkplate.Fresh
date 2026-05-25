@@ -3,6 +3,9 @@ import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IORA_RARE_EARTHS } from './rareEarthsByIso'
+import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const mauritius: IoraCountry = {
   name: 'Mauritius',
@@ -24,5 +27,8 @@ export const mauritius: IoraCountry = {
   newsOutlets: IORA_NEWS_OUTLETS['MU'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['MU'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['MU'],
+  mainExportedElements: IORA_MAIN_EXPORTED_ELEMENTS['MU'],
+  rareEarths: IORA_RARE_EARTHS['MU'],
   stockExchange: 'Stock Exchange of Mauritius (SEM)',
+  bondMarkets: IORA_BOND_MARKETS['MU'],
 }

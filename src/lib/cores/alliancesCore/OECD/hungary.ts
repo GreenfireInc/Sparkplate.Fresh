@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const hungary: OecdCountry = {
   name: 'Hungary',
@@ -24,5 +27,8 @@ export const hungary: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['HU'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['HU'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['HU'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['HU'],
+  rareEarths: OECD_RARE_EARTHS['HU'],
   stockExchange: 'Budapest Stock Exchange',
+  bondMarkets: OECD_BOND_MARKETS['HU'],
 }

@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const malaysia: CommonwealthCountry = {
   name: 'Malaysia',
@@ -24,5 +26,7 @@ export const malaysia: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['MY'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['MY'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['MY'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['MY'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['MY'],
   stockExchange: 'Bursa Malaysia',
 }

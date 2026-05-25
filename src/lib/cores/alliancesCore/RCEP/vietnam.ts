@@ -3,6 +3,9 @@ import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
+import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 
 export const vietnam: RcepCountry = {
   name: 'Vietnam',
@@ -25,5 +28,8 @@ export const vietnam: RcepCountry = {
   newsOutlets: RCEP_NEWS_OUTLETS['VN'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['VN'],
   mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['VN'],
+  mainExportedElements: RCEP_MAIN_EXPORTED_ELEMENTS['VN'],
+  rareEarths: RCEP_RARE_EARTHS['VN'],
   stockExchange: 'Ho Chi Minh City Stock Exchange (HOSE); HNX consolidated roadmap — informational',
+  bondMarkets: RCEP_BOND_MARKETS['VN'],
 }

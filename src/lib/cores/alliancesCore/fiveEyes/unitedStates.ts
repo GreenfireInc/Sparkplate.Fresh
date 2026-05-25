@@ -3,6 +3,9 @@ import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { FIVE_EYES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { FIVE_EYES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { FIVE_EYES_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { FIVE_EYES_RARE_EARTHS } from './rareEarthsByIso'
+import { FIVE_EYES_BOND_MARKETS } from './bondMarketsByIso'
 
 export const unitedStates: FiveEyesCountry = {
   name: 'United States',
@@ -25,5 +28,8 @@ export const unitedStates: FiveEyesCountry = {
   newsOutlets: FIVE_EYES_NEWS_OUTLETS['US'],
   notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['US'],
   mainExportCommodities: FIVE_EYES_MAIN_EXPORT_COMMODITIES['US'],
+  mainExportedElements: FIVE_EYES_MAIN_EXPORTED_ELEMENTS['US'],
+  rareEarths: FIVE_EYES_RARE_EARTHS['US'],
   stockExchange: 'NYSE/Nasdaq consolidated US equity liquidity (dual listing customary — informational)',
+  bondMarkets: FIVE_EYES_BOND_MARKETS['US'],
 }

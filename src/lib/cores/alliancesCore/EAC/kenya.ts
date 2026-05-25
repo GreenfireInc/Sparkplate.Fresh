@@ -3,6 +3,9 @@ import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { EAC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { EAC_RARE_EARTHS } from './rareEarthsByIso'
+import { EAC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const kenya: EacCountry = {
   name: 'Kenya',
@@ -23,5 +26,8 @@ export const kenya: EacCountry = {
   newsOutlets: EAC_NEWS_OUTLETS['KE'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['KE'],
   mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['KE'],
+  mainExportedElements: EAC_MAIN_EXPORTED_ELEMENTS['KE'],
+  rareEarths: EAC_RARE_EARTHS['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
+  bondMarkets: EAC_BOND_MARKETS['KE'],
 }

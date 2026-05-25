@@ -3,6 +3,9 @@ import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { G20_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { G20_RARE_EARTHS } from './rareEarthsByIso'
+import { G20_BOND_MARKETS } from './bondMarketsByIso'
 
 export const argentina: G20Country = {
   name: 'Argentina',
@@ -25,5 +28,8 @@ export const argentina: G20Country = {
   newsOutlets: G20_NEWS_OUTLETS['AR'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['AR'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['AR'],
+  mainExportedElements: G20_MAIN_EXPORTED_ELEMENTS['AR'],
+  rareEarths: G20_RARE_EARTHS['AR'],
   stockExchange: 'Bolsas y Mercados Argentinos BYMA (Buenos Aires)',
+  bondMarkets: G20_BOND_MARKETS['AR'],
 }

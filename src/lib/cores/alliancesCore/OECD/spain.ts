@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const spain: OecdCountry = {
   name: 'Spain',
@@ -24,5 +27,8 @@ export const spain: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['ES'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['ES'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['ES'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['ES'],
+  rareEarths: OECD_RARE_EARTHS['ES'],
   stockExchange: 'BME / Euronext Spain consolidation — informational',
+  bondMarkets: OECD_BOND_MARKETS['ES'],
 }

@@ -3,6 +3,9 @@ import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
+import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 
 export const caymanIslands: CaricomCountry = {
   name: 'Cayman Islands',
@@ -24,5 +27,8 @@ export const caymanIslands: CaricomCountry = {
   newsOutlets: CARICOM_NEWS_OUTLETS['KY'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['KY'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['KY'],
+  mainExportedElements: CARICOM_MAIN_EXPORTED_ELEMENTS['KY'],
+  rareEarths: CARICOM_RARE_EARTHS['KY'],
   stockExchange: 'Cayman Islands Stock Exchange (CSX)',
+  bondMarkets: CARICOM_BOND_MARKETS['KY'],
 }

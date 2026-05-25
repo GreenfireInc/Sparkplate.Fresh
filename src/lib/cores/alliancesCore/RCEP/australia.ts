@@ -3,6 +3,9 @@ import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
+import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 
 export const australia: RcepCountry = {
   name: 'Australia',
@@ -24,5 +27,8 @@ export const australia: RcepCountry = {
   newsOutlets: RCEP_NEWS_OUTLETS['AU'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['AU'],
   mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['AU'],
+  mainExportedElements: RCEP_MAIN_EXPORTED_ELEMENTS['AU'],
+  rareEarths: RCEP_RARE_EARTHS['AU'],
   stockExchange: 'Australian Securities Exchange (ASX)',
+  bondMarkets: RCEP_BOND_MARKETS['AU'],
 }

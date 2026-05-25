@@ -3,7 +3,9 @@ import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
-
+import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRI_RARE_EARTHS } from './rareEarthsByIso'
+import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 export const cookIslands: BeltAndRoadInitiativeCountry = {
   name: 'Cook Islands',
   iso3166Alpha2: 'CK',
@@ -24,5 +26,8 @@ export const cookIslands: BeltAndRoadInitiativeCountry = {
   newsOutlets: BRI_NEWS_OUTLETS['CK'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['CK'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['CK'],
+  mainExportedElements: BRI_MAIN_EXPORTED_ELEMENTS['CK'],
+  rareEarths: BRI_RARE_EARTHS['CK'],
   stockExchange: 'National or regional exchange (verify)',
+  bondMarkets: BRI_BOND_MARKETS['CK'],
 }

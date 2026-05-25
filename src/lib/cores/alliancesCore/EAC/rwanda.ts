@@ -3,6 +3,9 @@ import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { EAC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { EAC_RARE_EARTHS } from './rareEarthsByIso'
+import { EAC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const rwanda: EacCountry = {
   name: 'Rwanda',
@@ -23,5 +26,8 @@ export const rwanda: EacCountry = {
   newsOutlets: EAC_NEWS_OUTLETS['RW'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['RW'],
   mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['RW'],
+  mainExportedElements: EAC_MAIN_EXPORTED_ELEMENTS['RW'],
+  rareEarths: EAC_RARE_EARTHS['RW'],
   stockExchange: 'Rwanda Stock Exchange',
+  bondMarkets: EAC_BOND_MARKETS['RW'],
 }

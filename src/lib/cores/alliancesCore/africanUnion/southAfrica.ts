@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const southAfrica: AfricanUnionCountry = {
   name: 'South Africa',
   iso3166Alpha2: 'ZA',
@@ -23,5 +26,8 @@ export const southAfrica: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['ZA'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['ZA'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['ZA'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['ZA'],
+  rareEarths: AU_RARE_EARTHS['ZA'],
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
+  bondMarkets: AU_BOND_MARKETS['ZA'],
 }

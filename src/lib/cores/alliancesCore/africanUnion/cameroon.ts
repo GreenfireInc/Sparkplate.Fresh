@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const cameroon: AfricanUnionCountry = {
   name: 'Cameroon',
   iso3166Alpha2: 'CM',
@@ -23,5 +26,8 @@ export const cameroon: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['CM'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['CM'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['CM'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['CM'],
+  rareEarths: AU_RARE_EARTHS['CM'],
   stockExchange: 'Douala Stock Exchange (DSX)',
+  bondMarkets: AU_BOND_MARKETS['CM'],
 }

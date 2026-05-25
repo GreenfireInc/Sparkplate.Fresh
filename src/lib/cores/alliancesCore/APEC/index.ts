@@ -1,11 +1,14 @@
 export type {
   ApecCountry,
   ApecOrganizationInfo,
+  BondMarketVenue,
   DomesticCourierService,
   MainExportCommodities,
-  NotableUniversity,
+  MainExportedElements,
   NewsOutlet,
   NewsOutletsRoster,
+  NotableUniversity,
+  RareEarths,
 } from './types'
 export { APEC_MEMBER_ISO_CODES } from './apecMemberIsoCodes'
 export type { ApecMemberIsoCode } from './apecMemberIsoCodes'

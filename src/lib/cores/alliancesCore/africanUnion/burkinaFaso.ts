@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const burkinaFaso: AfricanUnionCountry = {
   name: 'Burkina Faso',
   iso3166Alpha2: 'BF',
@@ -23,5 +26,8 @@ export const burkinaFaso: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['BF'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['BF'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['BF'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['BF'],
+  rareEarths: AU_RARE_EARTHS['BF'],
   stockExchange: 'Burkina Faso — BRVM listings (limited local activity)',
+  bondMarkets: AU_BOND_MARKETS['BF'],
 }

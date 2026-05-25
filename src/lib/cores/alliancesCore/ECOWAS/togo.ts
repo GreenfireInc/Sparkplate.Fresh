@@ -3,6 +3,9 @@ import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
+import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const togo: EcowasCountry = {
   name: 'Togo',
@@ -23,5 +26,8 @@ export const togo: EcowasCountry = {
   newsOutlets: ECOWAS_NEWS_OUTLETS['TG'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['TG'],
   mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['TG'],
+  mainExportedElements: ECOWAS_MAIN_EXPORTED_ELEMENTS['TG'],
+  rareEarths: ECOWAS_RARE_EARTHS['TG'],
   stockExchange: 'BRVM listings; Lomé banking hub — verify depth',
+  bondMarkets: ECOWAS_BOND_MARKETS['TG'],
 }

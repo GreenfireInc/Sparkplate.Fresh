@@ -3,6 +3,9 @@ import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IGAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IGAD_RARE_EARTHS } from './rareEarthsByIso'
+import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const sudan: IgadCountry = {
   name: 'Sudan',
@@ -25,5 +28,8 @@ export const sudan: IgadCountry = {
   newsOutlets: IGAD_NEWS_OUTLETS['SD'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['SD'],
   mainExportCommodities: IGAD_MAIN_EXPORT_COMMODITIES['SD'],
+  mainExportedElements: IGAD_MAIN_EXPORTED_ELEMENTS['SD'],
+  rareEarths: IGAD_RARE_EARTHS['SD'],
   stockExchange: 'Khartoum Stock Exchange (operational disruption episodes — informational)',
+  bondMarkets: IGAD_BOND_MARKETS['SD'],
 }

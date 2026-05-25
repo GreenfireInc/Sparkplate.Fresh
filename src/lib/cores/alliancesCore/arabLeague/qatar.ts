@@ -3,6 +3,9 @@ import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ARAB_LEAGUE_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ARAB_LEAGUE_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ARAB_LEAGUE_RARE_EARTHS } from './rareEarthsByIso'
+import { ARAB_LEAGUE_BOND_MARKETS } from './bondMarketsByIso'
 
 export const qatar: ArabLeagueCountry = {
   name: 'Qatar',
@@ -24,5 +27,8 @@ export const qatar: ArabLeagueCountry = {
   newsOutlets: ARAB_LEAGUE_NEWS_OUTLETS['QA'],
   notableUniversities: ARAB_LEAGUE_NOTABLE_UNIVERSITIES['QA'],
   mainExportCommodities: ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES['QA'],
+  mainExportedElements: ARAB_LEAGUE_MAIN_EXPORTED_ELEMENTS['QA'],
+  rareEarths: ARAB_LEAGUE_RARE_EARTHS['QA'],
   stockExchange: 'Qatar Stock Exchange',
+  bondMarkets: ARAB_LEAGUE_BOND_MARKETS['QA'],
 }

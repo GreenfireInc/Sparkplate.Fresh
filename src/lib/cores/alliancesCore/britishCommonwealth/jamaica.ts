@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const jamaica: CommonwealthCountry = {
   name: 'Jamaica',
@@ -24,5 +26,7 @@ export const jamaica: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['JM'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['JM'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['JM'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['JM'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['JM'],
   stockExchange: 'Jamaica Stock Exchange',
 }

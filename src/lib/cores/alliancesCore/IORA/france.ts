@@ -3,6 +3,9 @@ import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IORA_RARE_EARTHS } from './rareEarthsByIso'
+import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const france: IoraCountry = {
   name: 'France',
@@ -24,5 +27,8 @@ export const france: IoraCountry = {
   newsOutlets: IORA_NEWS_OUTLETS['FR'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['FR'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['FR'],
+  mainExportedElements: IORA_MAIN_EXPORTED_ELEMENTS['FR'],
+  rareEarths: IORA_RARE_EARTHS['FR'],
   stockExchange: 'Euronext Paris',
+  bondMarkets: IORA_BOND_MARKETS['FR'],
 }

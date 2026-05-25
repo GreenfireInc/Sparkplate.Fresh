@@ -3,6 +3,9 @@ import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CPTPP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CPTPP_RARE_EARTHS } from './rareEarthsByIso'
+import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 
 export const chile: CptppCountry = {
   name: 'Chile',
@@ -23,5 +26,8 @@ export const chile: CptppCountry = {
   newsOutlets: CPTPP_NEWS_OUTLETS['CL'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['CL'],
   mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['CL'],
+  mainExportedElements: CPTPP_MAIN_EXPORTED_ELEMENTS['CL'],
+  rareEarths: CPTPP_RARE_EARTHS['CL'],
   stockExchange: 'Santiago Exchange (Bolsa de Comercio de Santiago)',
+  bondMarkets: CPTPP_BOND_MARKETS['CL'],
 }

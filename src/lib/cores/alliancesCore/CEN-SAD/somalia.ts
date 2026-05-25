@@ -3,6 +3,9 @@ import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
+import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const somalia: CensadCountry = {
   name: 'Somalia',
@@ -23,5 +26,8 @@ export const somalia: CensadCountry = {
   newsOutlets: CENSAD_NEWS_OUTLETS['SO'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['SO'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['SO'],
+  mainExportedElements: CENSAD_MAIN_EXPORTED_ELEMENTS['SO'],
+  rareEarths: CENSAD_RARE_EARTHS['SO'],
   stockExchange: 'No functioning national equities market',
+  bondMarkets: CENSAD_BOND_MARKETS['SO'],
 }

@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const chile: OecdCountry = {
   name: 'Chile',
@@ -24,5 +27,8 @@ export const chile: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['CL'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['CL'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['CL'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['CL'],
+  rareEarths: OECD_RARE_EARTHS['CL'],
   stockExchange: 'Bolsa de Santiago (Bolsa Electrónica de Chile contextual listings — informational)',
+  bondMarkets: OECD_BOND_MARKETS['CL'],
 }

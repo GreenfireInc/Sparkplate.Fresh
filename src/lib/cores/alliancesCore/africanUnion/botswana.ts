@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const botswana: AfricanUnionCountry = {
   name: 'Botswana',
   iso3166Alpha2: 'BW',
@@ -23,5 +26,8 @@ export const botswana: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['BW'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['BW'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['BW'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['BW'],
+  rareEarths: AU_RARE_EARTHS['BW'],
   stockExchange: 'Botswana Stock Exchange (BSE)',
+  bondMarkets: AU_BOND_MARKETS['BW'],
 }

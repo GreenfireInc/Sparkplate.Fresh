@@ -3,7 +3,9 @@ import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
-
+import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRI_RARE_EARTHS } from './rareEarthsByIso'
+import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 export const luxembourg: BeltAndRoadInitiativeCountry = {
   name: 'Luxembourg',
   iso3166Alpha2: 'LU',
@@ -24,5 +26,8 @@ export const luxembourg: BeltAndRoadInitiativeCountry = {
   newsOutlets: BRI_NEWS_OUTLETS['LU'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['LU'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['LU'],
+  mainExportedElements: BRI_MAIN_EXPORTED_ELEMENTS['LU'],
+  rareEarths: BRI_RARE_EARTHS['LU'],
   stockExchange: 'National or regional exchange (verify)',
+  bondMarkets: BRI_BOND_MARKETS['LU'],
 }

@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const costaRica: OecdCountry = {
   name: 'Costa Rica',
@@ -24,5 +27,8 @@ export const costaRica: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['CR'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['CR'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['CR'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['CR'],
+  rareEarths: OECD_RARE_EARTHS['CR'],
   stockExchange: 'Bolsa Nacional de Valores (BNV Costa Rica)',
+  bondMarkets: OECD_BOND_MARKETS['CR'],
 }

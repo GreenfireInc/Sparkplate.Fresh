@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const iceland: OecdCountry = {
   name: 'Iceland',
@@ -25,5 +28,8 @@ export const iceland: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['IS'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['IS'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['IS'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['IS'],
+  rareEarths: OECD_RARE_EARTHS['IS'],
   stockExchange: 'Nasdaq Iceland (equities thin vs fishing/tourism economies — informational)',
+  bondMarkets: OECD_BOND_MARKETS['IS'],
 }

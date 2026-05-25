@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const nigeria: CommonwealthCountry = {
   name: 'Nigeria',
@@ -24,5 +26,7 @@ export const nigeria: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['NG'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['NG'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['NG'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['NG'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['NG'],
   stockExchange: 'Nigerian Exchange Group',
 }

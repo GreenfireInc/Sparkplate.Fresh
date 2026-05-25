@@ -3,6 +3,9 @@ import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
+import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const libya: ComesaCountry = {
   name: 'Libya',
@@ -24,5 +27,8 @@ export const libya: ComesaCountry = {
   newsOutlets: COMESA_NEWS_OUTLETS['LY'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['LY'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['LY'],
+  mainExportedElements: COMESA_MAIN_EXPORTED_ELEMENTS['LY'],
+  rareEarths: COMESA_RARE_EARTHS['LY'],
   stockExchange: 'Libyan Stock Market (limited operations)',
+  bondMarkets: COMESA_BOND_MARKETS['LY'],
 }

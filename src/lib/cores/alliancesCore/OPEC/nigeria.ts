@@ -3,6 +3,9 @@ import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
+import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const nigeria: OpecCountry = {
   name: 'Nigeria',
@@ -24,5 +27,8 @@ export const nigeria: OpecCountry = {
   newsOutlets: OPEC_NEWS_OUTLETS['NG'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['NG'],
   mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['NG'],
+  mainExportedElements: OPEC_MAIN_EXPORTED_ELEMENTS['NG'],
+  rareEarths: OPEC_RARE_EARTHS['NG'],
   stockExchange: 'Nigerian Exchange Group NGX (Lagos equities)',
+  bondMarkets: OPEC_BOND_MARKETS['NG'],
 }

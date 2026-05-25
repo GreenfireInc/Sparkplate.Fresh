@@ -3,6 +3,9 @@ import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECS_RARE_EARTHS } from './rareEarthsByIso'
+import { OECS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const dominica: OecsCountry = {
   name: 'Commonwealth of Dominica',
@@ -24,5 +27,8 @@ export const dominica: OecsCountry = {
   newsOutlets: OECS_NEWS_OUTLETS['DM'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['DM'],
   mainExportCommodities: OECS_MAIN_EXPORT_COMMODITIES['DM'],
+  mainExportedElements: OECS_MAIN_EXPORTED_ELEMENTS['DM'],
+  rareEarths: OECS_RARE_EARTHS['DM'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
+  bondMarkets: OECS_BOND_MARKETS['DM'],
 }

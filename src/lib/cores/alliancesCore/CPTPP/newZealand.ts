@@ -3,6 +3,9 @@ import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CPTPP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CPTPP_RARE_EARTHS } from './rareEarthsByIso'
+import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 
 export const newZealand: CptppCountry = {
   name: 'New Zealand',
@@ -23,5 +26,8 @@ export const newZealand: CptppCountry = {
   newsOutlets: CPTPP_NEWS_OUTLETS['NZ'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['NZ'],
   mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['NZ'],
+  mainExportedElements: CPTPP_MAIN_EXPORTED_ELEMENTS['NZ'],
+  rareEarths: CPTPP_RARE_EARTHS['NZ'],
   stockExchange: 'NZX Limited',
+  bondMarkets: CPTPP_BOND_MARKETS['NZ'],
 }

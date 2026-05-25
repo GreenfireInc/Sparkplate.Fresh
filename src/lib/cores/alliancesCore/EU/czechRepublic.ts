@@ -3,6 +3,9 @@ import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { EU_RARE_EARTHS } from './rareEarthsByIso'
+import { EU_BOND_MARKETS } from './bondMarketsByIso'
 
 export const czechRepublic: EuCountry = {
   name: 'Czech Republic',
@@ -23,5 +26,8 @@ export const czechRepublic: EuCountry = {
   newsOutlets: EU_NEWS_OUTLETS['CZ'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['CZ'],
   mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['CZ'],
+  mainExportedElements: EU_MAIN_EXPORTED_ELEMENTS['CZ'],
+  rareEarths: EU_RARE_EARTHS['CZ'],
   stockExchange: 'Prague Stock Exchange (PX)',
+  bondMarkets: EU_BOND_MARKETS['CZ'],
 }

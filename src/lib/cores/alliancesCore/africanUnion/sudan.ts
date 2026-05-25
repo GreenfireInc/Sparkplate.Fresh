@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const sudan: AfricanUnionCountry = {
   name: 'Sudan',
   iso3166Alpha2: 'SD',
@@ -23,5 +26,8 @@ export const sudan: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['SD'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['SD'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['SD'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['SD'],
+  rareEarths: AU_RARE_EARTHS['SD'],
   stockExchange: 'Khartoum Stock Exchange (operations disrupted)',
+  bondMarkets: AU_BOND_MARKETS['SD'],
 }

@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const cameroon: CommonwealthCountry = {
   name: 'Cameroon',
@@ -24,5 +26,7 @@ export const cameroon: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['CM'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['CM'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['CM'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['CM'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['CM'],
   stockExchange: 'Douala Stock Exchange',
 }

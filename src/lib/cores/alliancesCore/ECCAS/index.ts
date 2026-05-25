@@ -1,10 +1,14 @@
 export type {
+  BondMarketVenue,
   DomesticCourierService,
   EccasCountry,
   EccasOrganizationInfo,
+  MainExportCommodities,
+  MainExportedElements,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
+  RareEarths,
 } from './types'
 
 import type { EccasCountry, EccasOrganizationInfo } from './types'

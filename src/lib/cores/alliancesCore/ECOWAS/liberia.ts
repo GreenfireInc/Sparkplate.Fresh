@@ -3,6 +3,9 @@ import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
+import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const liberia: EcowasCountry = {
   name: 'Liberia',
@@ -23,5 +26,8 @@ export const liberia: EcowasCountry = {
   newsOutlets: ECOWAS_NEWS_OUTLETS['LR'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['LR'],
   mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['LR'],
+  mainExportedElements: ECOWAS_MAIN_EXPORTED_ELEMENTS['LR'],
+  rareEarths: ECOWAS_RARE_EARTHS['LR'],
   stockExchange: 'Liberia Stock Exchange (very limited)',
+  bondMarkets: ECOWAS_BOND_MARKETS['LR'],
 }

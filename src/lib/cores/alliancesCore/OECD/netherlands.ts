@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const netherlands: OecdCountry = {
   name: 'Netherlands',
@@ -24,5 +27,8 @@ export const netherlands: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['NL'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['NL'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['NL'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['NL'],
+  rareEarths: OECD_RARE_EARTHS['NL'],
   stockExchange: 'Euronext Amsterdam',
+  bondMarkets: OECD_BOND_MARKETS['NL'],
 }

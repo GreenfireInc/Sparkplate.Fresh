@@ -2,11 +2,14 @@ export type {
   BeltAndRoadInitiativeCountry,
   BeltAndRoadInitiativeMembership,
   BeltAndRoadInitiativeOrganizationInfo,
+  BondMarketVenue,
   DomesticCourierService,
   MainExportCommodities,
+  MainExportedElements,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
+  RareEarths,
 } from './types'
 export { BELT_AND_ROAD_PARTICIPANT_ISO_CODES } from './participantStatesIsoCodes'
 export type { BriMemberIsoCode } from './participantStatesIsoCodes'

@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const centralAfricanRepublic: AfricanUnionCountry = {
   name: 'Central African Republic',
   iso3166Alpha2: 'CF',
@@ -23,5 +26,8 @@ export const centralAfricanRepublic: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['CF'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['CF'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['CF'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['CF'],
+  rareEarths: AU_RARE_EARTHS['CF'],
   stockExchange: 'Bangui Stock Exchange (very limited)',
+  bondMarkets: AU_BOND_MARKETS['CF'],
 }

@@ -3,6 +3,9 @@ import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { GCC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { GCC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { GCC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { GCC_RARE_EARTHS } from './rareEarthsByIso'
+import { GCC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const kuwait: GccCountry = {
   name: 'Kuwait',
@@ -24,5 +27,8 @@ export const kuwait: GccCountry = {
   newsOutlets: GCC_NEWS_OUTLETS['KW'],
   notableUniversities: GCC_NOTABLE_UNIVERSITIES['KW'],
   mainExportCommodities: GCC_MAIN_EXPORT_COMMODITIES['KW'],
+  mainExportedElements: GCC_MAIN_EXPORTED_ELEMENTS['KW'],
+  rareEarths: GCC_RARE_EARTHS['KW'],
   stockExchange: 'Boursa Kuwait',
+  bondMarkets: GCC_BOND_MARKETS['KW'],
 }

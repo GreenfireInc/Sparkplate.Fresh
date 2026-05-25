@@ -3,6 +3,9 @@ import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
+import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const unitedArabEmirates: OpecCountry = {
   name: 'United Arab Emirates',
@@ -26,5 +29,8 @@ export const unitedArabEmirates: OpecCountry = {
   newsOutlets: OPEC_NEWS_OUTLETS['AE'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['AE'],
   mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['AE'],
+  mainExportedElements: OPEC_MAIN_EXPORTED_ELEMENTS['AE'],
+  rareEarths: OPEC_RARE_EARTHS['AE'],
   stockExchange: 'Abu Dhabi Securities Exchange (ADX); Dubai Financial Market (DFM)',
+  bondMarkets: OPEC_BOND_MARKETS['AE'],
 }

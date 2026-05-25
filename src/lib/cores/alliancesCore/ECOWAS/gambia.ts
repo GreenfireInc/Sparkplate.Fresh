@@ -3,6 +3,9 @@ import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
+import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 
 export const gambia: EcowasCountry = {
   name: 'The Gambia',
@@ -23,5 +26,8 @@ export const gambia: EcowasCountry = {
   newsOutlets: ECOWAS_NEWS_OUTLETS['GM'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['GM'],
   mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['GM'],
+  mainExportedElements: ECOWAS_MAIN_EXPORTED_ELEMENTS['GM'],
+  rareEarths: ECOWAS_RARE_EARTHS['GM'],
   stockExchange: 'Gambia Stock Exchange (limited)',
+  bondMarkets: ECOWAS_BOND_MARKETS['GM'],
 }

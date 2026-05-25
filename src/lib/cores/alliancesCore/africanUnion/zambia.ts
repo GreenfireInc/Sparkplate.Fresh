@@ -3,6 +3,9 @@ import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AU_RARE_EARTHS } from './rareEarthsByIso'
+import { AU_BOND_MARKETS } from './bondMarketsByIso'
 export const zambia: AfricanUnionCountry = {
   name: 'Zambia',
   iso3166Alpha2: 'ZM',
@@ -23,5 +26,8 @@ export const zambia: AfricanUnionCountry = {
   newsOutlets: AU_NEWS_OUTLETS['ZM'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['ZM'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['ZM'],
+  mainExportedElements: AU_MAIN_EXPORTED_ELEMENTS['ZM'],
+  rareEarths: AU_RARE_EARTHS['ZM'],
   stockExchange: 'Lusaka Securities Exchange (LuSE)',
+  bondMarkets: AU_BOND_MARKETS['ZM'],
 }

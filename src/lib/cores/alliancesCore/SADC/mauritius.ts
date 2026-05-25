@@ -3,6 +3,9 @@ import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { SADC_RARE_EARTHS } from './rareEarthsByIso'
+import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const mauritius: SadcCountry = {
   name: 'Mauritius',
@@ -24,5 +27,8 @@ export const mauritius: SadcCountry = {
   newsOutlets: SADC_NEWS_OUTLETS['MU'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['MU'],
   mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['MU'],
+  mainExportedElements: SADC_MAIN_EXPORTED_ELEMENTS['MU'],
+  rareEarths: SADC_RARE_EARTHS['MU'],
   stockExchange: 'Stock Exchange of Mauritius (SEM)',
+  bondMarkets: SADC_BOND_MARKETS['MU'],
 }

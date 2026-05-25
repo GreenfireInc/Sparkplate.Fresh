@@ -3,6 +3,9 @@ import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
+import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const mauritius: ComesaCountry = {
   name: 'Mauritius',
@@ -24,5 +27,8 @@ export const mauritius: ComesaCountry = {
   newsOutlets: COMESA_NEWS_OUTLETS['MU'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['MU'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['MU'],
+  mainExportedElements: COMESA_MAIN_EXPORTED_ELEMENTS['MU'],
+  rareEarths: COMESA_RARE_EARTHS['MU'],
   stockExchange: 'Stock Exchange of Mauritius (SEM)',
+  bondMarkets: COMESA_BOND_MARKETS['MU'],
 }

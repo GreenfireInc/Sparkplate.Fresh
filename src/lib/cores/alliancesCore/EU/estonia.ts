@@ -3,6 +3,9 @@ import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { EU_RARE_EARTHS } from './rareEarthsByIso'
+import { EU_BOND_MARKETS } from './bondMarketsByIso'
 
 export const estonia: EuCountry = {
   name: 'Estonia',
@@ -23,5 +26,8 @@ export const estonia: EuCountry = {
   newsOutlets: EU_NEWS_OUTLETS['EE'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['EE'],
   mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['EE'],
+  mainExportedElements: EU_MAIN_EXPORTED_ELEMENTS['EE'],
+  rareEarths: EU_RARE_EARTHS['EE'],
   stockExchange: 'Nasdaq Tallinn',
+  bondMarkets: EU_BOND_MARKETS['EE'],
 }

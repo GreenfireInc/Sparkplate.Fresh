@@ -3,6 +3,9 @@ import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { NATO_RARE_EARTHS } from './rareEarthsByIso'
+import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 
 export const croatia: NatoCountry = {
   name: 'Croatia',
@@ -24,5 +27,8 @@ export const croatia: NatoCountry = {
   newsOutlets: NATO_NEWS_OUTLETS['HR'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['HR'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['HR'],
+  mainExportedElements: NATO_MAIN_EXPORTED_ELEMENTS['HR'],
+  rareEarths: NATO_RARE_EARTHS['HR'],
   stockExchange: 'Zagreb Stock Exchange',
+  bondMarkets: NATO_BOND_MARKETS['HR'],
 }

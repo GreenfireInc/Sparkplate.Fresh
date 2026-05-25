@@ -3,6 +3,9 @@ import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { APEC_RARE_EARTHS } from './rareEarthsByIso'
+import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 
 export const australia: ApecCountry = {
   name: 'Australia',
@@ -25,5 +28,8 @@ export const australia: ApecCountry = {
   newsOutlets: APEC_NEWS_OUTLETS['AU'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['AU'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['AU'],
+  mainExportedElements: APEC_MAIN_EXPORTED_ELEMENTS['AU'],
+  rareEarths: APEC_RARE_EARTHS['AU'],
   stockExchange: 'Australian Securities Exchange (ASX)',
+  bondMarkets: APEC_BOND_MARKETS['AU'],
 }

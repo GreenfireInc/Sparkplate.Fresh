@@ -3,6 +3,8 @@ import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 
 export const seychelles: CommonwealthCountry = {
   name: 'Seychelles',
@@ -24,5 +26,7 @@ export const seychelles: CommonwealthCountry = {
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['SC'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['SC'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['SC'],
+  mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['SC'],
+  rareEarths: COMMONWEALTH_RARE_EARTHS['SC'],
   stockExchange: 'Merj Exchange Limited (Seychelles; international listings)',
 }

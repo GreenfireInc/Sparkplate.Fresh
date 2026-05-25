@@ -3,6 +3,9 @@ import { AES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { AES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { AES_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { AES_RARE_EARTHS } from './rareEarthsByIso'
+import { AES_BOND_MARKETS } from './bondMarketsByIso'
 
 export const mali: AllianceOfSahelStatesCountry = {
   name: 'Mali',
@@ -24,5 +27,8 @@ export const mali: AllianceOfSahelStatesCountry = {
   newsOutlets: AES_NEWS_OUTLETS['ML'],
   notableUniversities: AES_NOTABLE_UNIVERSITIES['ML'],
   mainExportCommodities: AES_MAIN_EXPORT_COMMODITIES['ML'],
+  mainExportedElements: AES_MAIN_EXPORTED_ELEMENTS['ML'],
+  rareEarths: AES_RARE_EARTHS['ML'],
   stockExchange: 'Bourse des Valeurs du Mali (limited)',
+  bondMarkets: AES_BOND_MARKETS['ML'],
 }

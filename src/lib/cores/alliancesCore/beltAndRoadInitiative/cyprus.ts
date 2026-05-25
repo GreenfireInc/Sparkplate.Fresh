@@ -3,7 +3,9 @@ import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
-
+import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { BRI_RARE_EARTHS } from './rareEarthsByIso'
+import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 export const cyprus: BeltAndRoadInitiativeCountry = {
   name: 'Cyprus',
   iso3166Alpha2: 'CY',
@@ -24,5 +26,8 @@ export const cyprus: BeltAndRoadInitiativeCountry = {
   newsOutlets: BRI_NEWS_OUTLETS['CY'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['CY'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['CY'],
+  mainExportedElements: BRI_MAIN_EXPORTED_ELEMENTS['CY'],
+  rareEarths: BRI_RARE_EARTHS['CY'],
   stockExchange: 'National or regional exchange (verify)',
+  bondMarkets: BRI_BOND_MARKETS['CY'],
 }

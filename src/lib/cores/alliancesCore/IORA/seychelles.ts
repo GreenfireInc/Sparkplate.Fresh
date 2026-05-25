@@ -3,6 +3,9 @@ import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { IORA_RARE_EARTHS } from './rareEarthsByIso'
+import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 
 export const seychelles: IoraCountry = {
   name: 'Seychelles',
@@ -24,5 +27,8 @@ export const seychelles: IoraCountry = {
   newsOutlets: IORA_NEWS_OUTLETS['SC'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['SC'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['SC'],
+  mainExportedElements: IORA_MAIN_EXPORTED_ELEMENTS['SC'],
+  rareEarths: IORA_RARE_EARTHS['SC'],
   stockExchange: 'Merjex SME market / thin equities — informational',
+  bondMarkets: IORA_BOND_MARKETS['SC'],
 }

@@ -3,6 +3,9 @@ import { MINT_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { MINT_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MINT_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { MINT_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { MINT_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { MINT_RARE_EARTHS } from './rareEarthsByIso'
+import { MINT_BOND_MARKETS } from './bondMarketsByIso'
 
 export const nigeria: MintCountry = {
   name: 'Nigeria',
@@ -25,5 +28,8 @@ export const nigeria: MintCountry = {
   newsOutlets: MINT_NEWS_OUTLETS['NG'],
   notableUniversities: MINT_NOTABLE_UNIVERSITIES['NG'],
   mainExportCommodities: MINT_MAIN_EXPORT_COMMODITIES['NG'],
+  mainExportedElements: MINT_MAIN_EXPORTED_ELEMENTS['NG'],
+  rareEarths: MINT_RARE_EARTHS['NG'],
   stockExchange: 'Nigerian Exchange Group NGX (Lagos equities)',
+  bondMarkets: MINT_BOND_MARKETS['NG'],
 }

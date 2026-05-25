@@ -3,6 +3,9 @@ import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { ASEAN_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { ASEAN_RARE_EARTHS } from './rareEarthsByIso'
+import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
 
 export const myanmar: AseanCountry = {
   name: 'Myanmar',
@@ -25,5 +28,8 @@ export const myanmar: AseanCountry = {
   newsOutlets: ASEAN_NEWS_OUTLETS['MM'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['MM'],
   mainExportCommodities: ASEAN_MAIN_EXPORT_COMMODITIES['MM'],
+  mainExportedElements: ASEAN_MAIN_EXPORTED_ELEMENTS['MM'],
+  rareEarths: ASEAN_RARE_EARTHS['MM'],
   stockExchange: 'Yangon Stock Exchange (operational constraints — informational)',
+  bondMarkets: ASEAN_BOND_MARKETS['MM'],
 }

@@ -3,6 +3,9 @@ import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { OECD_RARE_EARTHS } from './rareEarthsByIso'
+import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const finland: OecdCountry = {
   name: 'Finland',
@@ -24,5 +27,8 @@ export const finland: OecdCountry = {
   newsOutlets: OECD_NEWS_OUTLETS['FI'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['FI'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['FI'],
+  mainExportedElements: OECD_MAIN_EXPORTED_ELEMENTS['FI'],
+  rareEarths: OECD_RARE_EARTHS['FI'],
   stockExchange: 'Nasdaq Helsinki',
+  bondMarkets: OECD_BOND_MARKETS['FI'],
 }

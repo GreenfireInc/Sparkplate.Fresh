@@ -3,6 +3,9 @@ import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
+import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
+import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
+import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 
 export const senegal: CensadCountry = {
   name: 'Senegal',
@@ -23,5 +26,8 @@ export const senegal: CensadCountry = {
   newsOutlets: CENSAD_NEWS_OUTLETS['SN'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['SN'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['SN'],
+  mainExportedElements: CENSAD_MAIN_EXPORTED_ELEMENTS['SN'],
+  rareEarths: CENSAD_RARE_EARTHS['SN'],
   stockExchange: 'BRVM (multiple Senegalese listings)',
+  bondMarkets: CENSAD_BOND_MARKETS['SN'],
 }
