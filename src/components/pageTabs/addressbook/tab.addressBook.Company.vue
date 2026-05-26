@@ -141,7 +141,7 @@ import { ref, onMounted, computed } from 'vue'
 import { TabsContent } from 'radix-vue'
 import { getCompanies, deleteCompany, type Company } from '@/services/addressBook/service.addressBook.Company'
 import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
-import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
+import ActionsDropdown from '@/components/dropdowns/dropdown.actions.vue'
 import CompanyDetailsModal from '@/components/modals/addressbook/modal.details.Company.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 import {

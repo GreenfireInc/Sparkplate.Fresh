@@ -143,7 +143,7 @@ import { ref, computed } from 'vue'
 
 defineOptions({ name: 'TabAddressBookExchange' })
 import ExchangeModal from '@/components/modals/addressbook/modal.details.Exchange.vue'
-import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
+import ActionsDropdown from '@/components/dropdowns/dropdown.actions.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 import { deleteExchange, updateExchange, type ExchangeRecord } from '@/services/addressBook/service.addressBook.Exchange'
 import type { Contact } from '@/services/addressBook/service.addressBook.Contact'

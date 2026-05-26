@@ -305,7 +305,7 @@ import { notesRevision, getNotesForOwnerId } from '@/services/addressBook/servic
 import type { Wallet as WalletRecord } from '@/services/addressBook/service.addressBook.Wallet'
 import type { StandaloneWalletRecord } from '@/services/addressBook/service.addressBook.StandaloneWallet'
 import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
-import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
+import ActionsDropdown from '@/components/dropdowns/dropdown.actions.vue'
 import SubModalAddCurrency from '@/components/modals/addressbook/subModals/subModal.add.Currency.vue'
 import type { ImportedWallet } from '@/lib/cores/importStandard/importWallet.json'
 import {

@@ -39,7 +39,7 @@
 <script>
 import { computed } from 'vue'
 import { useMenuState } from '@/composables/useMenuState'
-import AuthenticationDropdown from '@/components/dropdown/dropdown.authentication.vue'
+import AuthenticationDropdown from '@/components/dropdowns/dropdown.authentication.vue'
 
 const { menuType, toggleMenuType } = useMenuState()
 

@@ -124,7 +124,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
-import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
+import ActionsDropdown from '@/components/dropdowns/dropdown.actions.vue'
 import WalletModal from '@/components/modals/addressbook/modal.details.Wallet.vue'
 import SubModalAddCurrency from '@/components/modals/addressbook/subModals/subModal.add.Currency.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'

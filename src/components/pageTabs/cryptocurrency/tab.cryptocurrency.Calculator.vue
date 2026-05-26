@@ -12,73 +12,16 @@
     <div class="calc-row">
 
       <!-- ── From card ─────────────────────────────────────────── -->
-      <div class="calc-card">
-        <div class="calc-card-header calc-card-header--blue">
-          <span class="calc-card-title">From</span>
-        </div>
-
-        <form class="calc-form" @submit.prevent="convertCurrency">
-          <!-- Type toggle -->
-          <div class="calc-toggle-row">
-            <span class="calc-toggle-label">{{ fromIsFiat ? 'Fiat Currency' : 'Cryptocurrency' }}</span>
-            <label class="calc-toggle">
-              <input type="checkbox" v-model="fromIsFiat" class="calc-toggle-input" />
-              <span class="calc-toggle-track" />
-              <span class="calc-toggle-hint">Fiat</span>
-            </label>
-          </div>
-
-          <!-- Amount -->
-          <div class="calc-field">
-            <Label for="calc-amount" class="calc-label">Amount</Label>
-            <div class="calc-input-wrap">
-              <input
-                id="calc-amount"
-                type="number"
-                step="0.0000001"
-                min="0"
-                v-model="args.amount"
-                class="calc-input"
-                placeholder="Enter amount"
-                required
-              />
-            </div>
-          </div>
-
-          <!-- Currency -->
-          <div class="calc-field">
-            <div class="calc-label-row">
-              <Label class="calc-label">Currency</Label>
-              <img
-                v-if="!fromIsFiat && args.from.symbol"
-                :src="`./assets/icons/crypto/${args.from.symbol.toLowerCase()}.svg`"
-                :alt="args.from.symbol"
-                class="calc-coin-icon"
-              />
-              <span v-else-if="fromIsFiat" class="calc-fiat-symbol">{{ getCurrencySymbol(args.from.symbol) }}</span>
-            </div>
-            <CurrencyDropdown
-              v-if="!fromIsFiat"
-              v-model="fromCryptoTicker"
-              class="calc-currency-dropdown"
-            />
-            <select v-else v-model="args.from" class="calc-select">
-              <option v-for="fiat in fiatCurrencies" :key="fiat.symbol" :value="fiat">
-                {{ fiat.name }}
-              </option>
-            </select>
-          </div>
-
-          <!-- Convert button -->
-          <button type="submit" class="calc-btn" :disabled="isLoading">
-            <svg v-if="isLoading" class="calc-spinner" viewBox="0 0 24 24" fill="none">
-              <circle class="calc-spinner-track" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" />
-              <path class="calc-spinner-arc" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-            </svg>
-            {{ isLoading ? 'Converting…' : 'Convert' }}
-          </button>
-        </form>
-      </div>
+      <AspectCalculatorLeftInput
+        v-model:from-is-fiat="fromIsFiat"
+        v-model:from-crypto-ticker="fromCryptoTicker"
+        v-model:from="args.from"
+        v-model:amount="args.amount"
+        :is-loading="isLoading"
+        :fiat-currencies="fiatCurrencies"
+        :get-currency-symbol="getCurrencySymbol"
+        @submit="convertCurrency"
+      />
 
       <!-- ── Swap icon ─────────────────────────────────────────── -->
       <div class="calc-swap">
@@ -106,19 +49,7 @@
             </label>
           </div>
 
-          <!-- Result amount -->
-          <div class="calc-field">
-            <Label class="calc-label">Amount</Label>
-            <div class="calc-input-wrap">
-              <input
-                type="text"
-                :value="solution.amount || '—'"
-                class="calc-input calc-input--result"
-                readonly
-              />
-              <span v-if="solution.amount" class="calc-result-dot" />
-            </div>
-          </div>
+          
 
           <!-- Currency -->
           <div class="calc-field">
@@ -144,7 +75,21 @@
             </select>
           </div>
 
-          <!-- Exchange rate -->
+          <!-- Result amount -->
+          <div class="calc-field">
+            <Label class="calc-label">Amount</Label>
+            <div class="calc-input-wrap">
+              <input
+                type="text"
+                :value="solution.amount || '—'"
+                class="calc-input calc-input--result"
+                readonly
+              />
+              <span v-if="solution.amount" class="calc-result-dot" />
+            </div>
+          </div>
+
+          <!-- ── Exchange rate ───────────────────────────────────────────  -->
           <div v-if="solution.rate" class="calc-rate">
             <i class="bi bi-check-circle-fill calc-rate-icon" />
             <div>
@@ -164,7 +109,8 @@
 import { ref, reactive, watch } from 'vue'
 import { Separator, Label } from 'radix-vue'
 import MarqueeTicker from '../../partials/marqueeTicker/MarqueeTicker.vue'
-import CurrencyDropdown from '@/components/dropdown/dropdown.currency.from.publicIcons.fullNames.vue'
+import CurrencyDropdown from '@/components/dropdowns/dropdown.currency.from.publicIcons.fullNames.vue'
+import AspectCalculatorLeftInput from './aspect.Calculator/aspect.calculator.left.input.vue'
 import { COINBASE50 } from '@/lib/cores/currencyCore/indexComposites/coinbase50'
 
 // Define component name
@@ -186,7 +132,7 @@ interface FiatCurrency {
 
 type Currency = CryptoCurrency | FiatCurrency
 
-// Major fiat currencies
+// Major fiat currencies; Will move this to alliancesCore 
 const FIAT_CURRENCIES: FiatCurrency[] = [
   { symbol: 'USD', name: 'US Dollar (USD)' },
   { symbol: 'EUR', name: 'Euro (EUR)' },
@@ -210,7 +156,7 @@ const FIAT_CURRENCIES: FiatCurrency[] = [
   { symbol: 'KRW', name: 'South Korean Won (KRW)' }
 ]
 
-// Currency symbol mapping
+// Currency symbol mapping; Will move this to alliancesCore
 const CURRENCY_SYMBOLS = {
   USD: '$', EUR: '€', GBP: '£', JPY: '¥', AUD: 'A$', CAD: 'C$',
   CHF: 'CHF', CNY: '¥', SEK: 'kr', NZD: 'NZ$', MXN: '$', SGD: 'S$',

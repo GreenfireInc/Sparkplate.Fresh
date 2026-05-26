@@ -216,7 +216,7 @@ import CardWalletAddress from '@/components/structure/card.WalletAddress.vue'
 import TabDetailsContactNotes from '@/components/modals/addressbook/tabsFor.details/tab.details.Contact.Notes.vue'
 import AspectSocialMedia from '@/components/modals/addressbook/aspects/aspect.socialMedia.vue'
 import SubModalSocialMedia from '@/components/modals/addressbook/subModals/subModal.socialMedia.vue'
-import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
+import ActionsDropdown from '@/components/dropdowns/dropdown.actions.vue'
 import { notesRevision, getNotesForOwnerId } from '@/services/addressBook/service.addressBook.Note'
 
 defineOptions({ name: 'ModalCompanyDetails' })

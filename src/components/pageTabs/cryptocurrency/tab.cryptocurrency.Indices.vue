@@ -338,8 +338,8 @@ import { ref, computed, watch, onMounted } from 'vue'
 import { Separator } from 'radix-vue'
 import { ChartPie, List, Search, X } from 'lucide-vue-next'
 import * as IndexComposites from '@/lib/cores/currencyCore/indexComposites'
-import CurrencyDetailModal from './indices/CurrencyDetailModal.vue'
-import IndexSelector, { type IndexOption, type CurrencyItem } from './dropdowns/IndexSelector.vue'
+import CurrencyDetailModal from '@/components/modals/cryptocurrency/modal.indicies.currencyDetail.vue'
+import IndexSelector, { type IndexOption, type CurrencyItem } from '@/components/dropdowns/dropdown.currency.indexSelector.vue'
 import { fetchCurrencyPrices, formatPrice } from '@/lib/cores/currencyCore/indexComposites'
 
 // Define component name

@@ -331,14 +331,14 @@ import {
   Globe,
 } from 'lucide-vue-next'
 import TabDetailsContactNotes from '@/components/modals/addressbook/tabsFor.details/tab.details.Contact.Notes.vue'
-import DropdownCurrency from '@/components/dropdown/dropdown.currency.from.publicIcons.vue'
+import DropdownCurrency from '@/components/dropdowns/dropdown.currency.from.publicIcons.vue'
 import CardWalletAddress from '@/components/structure/card.WalletAddress.vue'
 import StructureImportWalletAddress from '@/components/structure/structure.import.walletAddress.vue'
 import SubModalAddCurrency from '@/components/modals/addressbook/subModals/subModal.add.Currency.vue'
 import { parseWalletJsonFile, type ImportedWallet } from '@/lib/cores/importStandard/importWallet.json'
 import type { Wallet } from '@/services/addressBook/service.addressBook.Wallet'
 import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
-import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
+import ActionsDropdown from '@/components/dropdowns/dropdown.actions.vue'
 import {
   getExchangePickerOptions,
   getExchangeIconSrc,
