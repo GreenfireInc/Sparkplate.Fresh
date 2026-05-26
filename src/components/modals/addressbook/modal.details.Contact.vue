@@ -224,7 +224,7 @@ import {
 } from 'radix-vue'
 import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
 import { updateContact } from '@/services/addressBook/service.addressBook.Contact'
-import ActionsDropdown from '@/components/dropdown/dropdown.actions.vue'
+import ActionsDropdown from '@/components/dropdowns/dropdown.actions.vue'
 import AddCurrencyModal from '@/components/modals/addressbook/subModals/subModal.add.Currency.vue'
 import ContactQRCodeModal from '@/components/modals/addressbook/subModals/submodal.qrCode.Contact.vue'
 import TabDetailsContactWallets from '@/components/modals/addressbook/tabsFor.details/tab.details.Contact.Wallets.vue'

@@ -216,7 +216,7 @@ const secLogo = '/assets/icons/other/sec.unitedStates.svg'
 
 // Define component name
 defineOptions({
-  name: 'IndexSelector'
+  name: 'DropdownCurrencyIndexSelector'
 })
 
 export type CurrencyItem = 

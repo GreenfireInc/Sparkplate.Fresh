@@ -160,7 +160,7 @@ export function makeEmptyExternalWalletForm(): ExternalWalletForm {
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Label, TabsRoot, TabsContent } from 'radix-vue'
-import DropdownWallets from '@/components/dropdown/dropdown.wallets.vue'
+import DropdownWallets from '@/components/dropdowns/dropdown.wallets.vue'
 import FormAddEntryFooter from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.structure.footer.vue'
 import FormAddEntryStructureTabsAll from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.structure.tabs.all.vue'
 import FormAddEntryStructureTabWallet from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.structure.tab.wallet.vue'

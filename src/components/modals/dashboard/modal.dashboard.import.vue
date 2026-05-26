@@ -120,7 +120,7 @@
 import { computed, ref, watch } from 'vue'
 import { Upload } from 'lucide-vue-next'
 import { NETWORKS } from '@/lib/cores/currencyCore/currencies'
-import CurrencyDropdown from '@/components/dropdown/dropdown.currency.from.currencyCore.vue'
+import CurrencyDropdown from '@/components/dropdowns/dropdown.currency.from.currencyCore.vue'
 import {
   SUPPORTED_TICKERS,
   useCryptocurrencyEngine,

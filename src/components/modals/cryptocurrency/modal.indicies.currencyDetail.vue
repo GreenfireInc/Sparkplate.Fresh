@@ -120,6 +120,8 @@
 import { computed, onUnmounted, watch } from 'vue'
 import { X, ExternalLink } from 'lucide-vue-next'
 
+defineOptions({ name: 'ModalIndiciesCurrencyDetail' })
+
 interface Props {
   isOpen: boolean
   currency: any

@@ -96,7 +96,7 @@ import { Label, TabsRoot, TabsContent } from 'radix-vue'
 import FormAddEntryFooter from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.structure.footer.vue'
 import FormAddEntryStructureTabsAll from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.structure.tabs.all.vue'
 import FormAddEntryStructureTabWallet from '@/components/modals/addressbook/transformsFor.add.Entry/form.addEntry.structure.tab.wallet.vue'
-import DropdownExchanges from '@/components/dropdown/dropdown.exchanges.vue'
+import DropdownExchanges from '@/components/dropdowns/dropdown.exchanges.vue'
 
 /** One currency row on an exchange record */
 export interface ExchangeCurrency {
