@@ -33,73 +33,16 @@
       </div>
 
       <!-- ── To card ───────────────────────────────────────────── -->
-      <div class="calc-card">
-        <div class="calc-card-header calc-card-header--purple">
-          <span class="calc-card-title">To</span>
-        </div>
-
-        <div class="calc-form">
-          <!-- Type toggle -->
-          <div class="calc-toggle-row">
-            <span class="calc-toggle-label">{{ toIsCrypto ? 'Cryptocurrency' : 'Fiat Currency' }}</span>
-            <label class="calc-toggle">
-              <input type="checkbox" v-model="toIsCrypto" class="calc-toggle-input" />
-              <span class="calc-toggle-track calc-toggle-track--purple" />
-              <span class="calc-toggle-hint">Crypto</span>
-            </label>
-          </div>
-
-          
-
-          <!-- Currency -->
-          <div class="calc-field">
-            <div class="calc-label-row">
-              <Label class="calc-label">Currency</Label>
-              <img
-                v-if="toIsCrypto && args.to.symbol"
-                :src="`./assets/icons/crypto/${args.to.symbol.toLowerCase()}.svg`"
-                :alt="args.to.symbol"
-                class="calc-coin-icon"
-              />
-              <span v-else-if="!toIsCrypto" class="calc-fiat-symbol">{{ getCurrencySymbol(args.to.symbol) }}</span>
-            </div>
-            <CurrencyDropdown
-              v-if="toIsCrypto"
-              v-model="toCryptoTicker"
-              class="calc-currency-dropdown"
-            />
-            <select v-else v-model="args.to" class="calc-select">
-              <option v-for="fiat in fiatCurrencies" :key="fiat.symbol" :value="fiat">
-                {{ fiat.name }}
-              </option>
-            </select>
-          </div>
-
-          <!-- Result amount -->
-          <div class="calc-field">
-            <Label class="calc-label">Amount</Label>
-            <div class="calc-input-wrap">
-              <input
-                type="text"
-                :value="solution.amount || '—'"
-                class="calc-input calc-input--result"
-                readonly
-              />
-              <span v-if="solution.amount" class="calc-result-dot" />
-            </div>
-          </div>
-
-          <!-- ── Exchange rate ───────────────────────────────────────────  -->
-          <div v-if="solution.rate" class="calc-rate">
-            <i class="bi bi-check-circle-fill calc-rate-icon" />
-            <div>
-              <p class="calc-rate-heading">Exchange Rate</p>
-              <p class="calc-rate-value">1 {{ args.from.symbol }} = {{ solution.rate }} {{ args.to.symbol }}</p>
-            </div>
-          </div>
-          <div v-else class="calc-rate-placeholder" />
-        </div>
-      </div>
+      <AspectCalculatorRightResult
+        v-model:to-is-crypto="toIsCrypto"
+        v-model:to-crypto-ticker="toCryptoTicker"
+        v-model:to="args.to"
+        :from="args.from"
+        :amount="args.amount"
+        :solution="solution"
+        :fiat-currencies="fiatCurrencies"
+        :get-currency-symbol="getCurrencySymbol"
+      />
 
     </div>
   </div>
@@ -107,10 +50,10 @@
 
 <script setup lang="ts">
 import { ref, reactive, watch } from 'vue'
-import { Separator, Label } from 'radix-vue'
+import { Separator } from 'radix-vue'
 import MarqueeTicker from '../../partials/marqueeTicker/MarqueeTicker.vue'
-import CurrencyDropdown from '@/components/dropdowns/dropdown.currency.from.publicIcons.fullNames.vue'
 import AspectCalculatorLeftInput from './aspect.Calculator/aspect.calculator.left.input.vue'
+import AspectCalculatorRightResult from './aspect.Calculator/aspect.calculator.right.result.vue'
 import { COINBASE50 } from '@/lib/cores/currencyCore/indexComposites/coinbase50'
 
 // Define component name
