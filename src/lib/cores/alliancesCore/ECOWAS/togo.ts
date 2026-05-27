@@ -6,6 +6,7 @@ import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
+import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const togo: EcowasCountry = {
   name: 'Togo',
@@ -30,4 +31,5 @@ export const togo: EcowasCountry = {
   rareEarths: ECOWAS_RARE_EARTHS['TG'],
   stockExchange: 'BRVM listings; Lomé banking hub — verify depth',
   bondMarkets: ECOWAS_BOND_MARKETS['TG'],
+  mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['TG'],
 }

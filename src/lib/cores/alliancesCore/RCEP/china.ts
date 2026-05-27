@@ -6,6 +6,7 @@ import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
 import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
+import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const china: RcepCountry = {
   name: 'China',
@@ -34,4 +35,5 @@ export const china: RcepCountry = {
   stockExchange:
     'Shanghai Stock Exchange; Shenzhen Stock Exchange; Beijing Stock Exchange context — informational',
   bondMarkets: RCEP_BOND_MARKETS['CN'],
+  mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['CN'],
 }

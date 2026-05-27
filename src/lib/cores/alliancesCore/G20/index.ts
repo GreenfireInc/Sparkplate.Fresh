@@ -6,6 +6,7 @@ export type {
   G20OrganizationInfo,
   MainExportCommodities,
   MainExportedElements,
+  MainInternationalAirport,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,

@@ -6,6 +6,7 @@ import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
+import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const botswana: BeltAndRoadInitiativeCountry = {
   name: 'Botswana',
   iso3166Alpha2: 'BW',
@@ -30,4 +31,5 @@ export const botswana: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['BW'],
   stockExchange: 'Botswana Stock Exchange (BSE)',
   bondMarkets: BRI_BOND_MARKETS['BW'],
+  mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['BW'],
 }

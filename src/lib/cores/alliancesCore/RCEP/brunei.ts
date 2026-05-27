@@ -6,6 +6,7 @@ import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
 import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
+import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const brunei: RcepCountry = {
   name: 'Brunei',
@@ -32,4 +33,5 @@ export const brunei: RcepCountry = {
   rareEarths: RCEP_RARE_EARTHS['BN'],
   stockExchange: 'No dedicated national exchange consolidated; regional ECM context — informational',
   bondMarkets: RCEP_BOND_MARKETS['BN'],
+  mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['BN'],
 }

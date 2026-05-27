@@ -6,6 +6,7 @@ import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
+import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const democraticRepublicOfTheCongo: BeltAndRoadInitiativeCountry = {
   name: 'Democratic Republic of the Congo',
   iso3166Alpha2: 'CD',
@@ -30,4 +31,5 @@ export const democraticRepublicOfTheCongo: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['CD'],
   stockExchange: 'No liquid national exchange; informal OTC and regional listings',
   bondMarkets: BRI_BOND_MARKETS['CD'],
+  mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['CD'],
 }

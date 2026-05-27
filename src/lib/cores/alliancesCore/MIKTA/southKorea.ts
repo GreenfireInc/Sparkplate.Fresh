@@ -6,6 +6,7 @@ import { MIKTA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { MIKTA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { MIKTA_RARE_EARTHS } from './rareEarthsByIso'
 import { MIKTA_BOND_MARKETS } from './bondMarketsByIso'
+import { MIKTA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const southKorea: MiktaCountry = {
   name: 'South Korea',
@@ -32,4 +33,5 @@ export const southKorea: MiktaCountry = {
   rareEarths: MIKTA_RARE_EARTHS['KR'],
   stockExchange: 'Korea Exchange KRX (KOSPI / KOSDAQ)',
   bondMarkets: MIKTA_BOND_MARKETS['KR'],
+  mainInternationalAirport: MIKTA_MAIN_INTERNATIONAL_AIRPORTS['KR'],
 }

@@ -6,6 +6,7 @@ import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
+import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const senegal: EcowasCountry = {
   name: 'Senegal',
@@ -30,4 +31,5 @@ export const senegal: EcowasCountry = {
   rareEarths: ECOWAS_RARE_EARTHS['SN'],
   stockExchange: 'BRVM (Dakar listings)',
   bondMarkets: ECOWAS_BOND_MARKETS['SN'],
+  mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['SN'],
 }

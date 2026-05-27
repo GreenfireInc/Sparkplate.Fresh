@@ -6,6 +6,7 @@ import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
+import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const somalia: BeltAndRoadInitiativeCountry = {
   name: 'Somalia',
   iso3166Alpha2: 'SO',
@@ -30,4 +31,5 @@ export const somalia: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['SO'],
   stockExchange: 'No functioning national exchange',
   bondMarkets: BRI_BOND_MARKETS['SO'],
+  mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['SO'],
 }

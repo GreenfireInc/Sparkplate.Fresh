@@ -6,6 +6,7 @@ import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { SADC_RARE_EARTHS } from './rareEarthsByIso'
 import { SADC_BOND_MARKETS } from './bondMarketsByIso'
+import { SADC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const southAfrica: SadcCountry = {
   name: 'South Africa',
@@ -32,4 +33,5 @@ export const southAfrica: SadcCountry = {
   rareEarths: SADC_RARE_EARTHS['ZA'],
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
   bondMarkets: SADC_BOND_MARKETS['ZA'],
+  mainInternationalAirport: SADC_MAIN_INTERNATIONAL_AIRPORTS['ZA'],
 }

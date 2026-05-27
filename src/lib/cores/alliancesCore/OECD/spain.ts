@@ -6,6 +6,7 @@ import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OECD_RARE_EARTHS } from './rareEarthsByIso'
 import { OECD_BOND_MARKETS } from './bondMarketsByIso'
+import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const spain: OecdCountry = {
   name: 'Spain',
@@ -31,4 +32,5 @@ export const spain: OecdCountry = {
   rareEarths: OECD_RARE_EARTHS['ES'],
   stockExchange: 'BME / Euronext Spain consolidation — informational',
   bondMarkets: OECD_BOND_MARKETS['ES'],
+  mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['ES'],
 }

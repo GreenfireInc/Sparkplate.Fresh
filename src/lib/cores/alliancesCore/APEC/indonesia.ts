@@ -6,6 +6,7 @@ import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { APEC_RARE_EARTHS } from './rareEarthsByIso'
 import { APEC_BOND_MARKETS } from './bondMarketsByIso'
+import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const indonesia: ApecCountry = {
   name: 'Indonesia',
@@ -31,4 +32,5 @@ export const indonesia: ApecCountry = {
   rareEarths: APEC_RARE_EARTHS['ID'],
   stockExchange: 'Indonesia Stock Exchange (IDX)',
   bondMarkets: APEC_BOND_MARKETS['ID'],
+  mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['ID'],
 }

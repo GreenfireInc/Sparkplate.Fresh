@@ -6,6 +6,7 @@ import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
+import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const togo: BeltAndRoadInitiativeCountry = {
   name: 'Togo',
   iso3166Alpha2: 'TG',
@@ -30,4 +31,5 @@ export const togo: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['TG'],
   stockExchange: 'BRVM regional listings; Lomé financial center activity',
   bondMarkets: BRI_BOND_MARKETS['TG'],
+  mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['TG'],
 }

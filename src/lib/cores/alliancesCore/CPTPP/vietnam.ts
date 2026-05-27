@@ -6,6 +6,7 @@ import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { CPTPP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CPTPP_RARE_EARTHS } from './rareEarthsByIso'
 import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
+import { CPTPP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const vietnam: CptppCountry = {
   name: 'Vietnam',
@@ -30,4 +31,5 @@ export const vietnam: CptppCountry = {
   rareEarths: CPTPP_RARE_EARTHS['VN'],
   stockExchange: 'Ho Chi Minh Stock Exchange (HOSE) / Hanoi Stock Exchange (HNX)',
   bondMarkets: CPTPP_BOND_MARKETS['VN'],
+  mainInternationalAirport: CPTPP_MAIN_INTERNATIONAL_AIRPORTS['VN'],
 }

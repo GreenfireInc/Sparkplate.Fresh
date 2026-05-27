@@ -6,6 +6,7 @@ import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
 import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
+import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const cambodia: RcepCountry = {
   name: 'Cambodia',
@@ -31,4 +32,5 @@ export const cambodia: RcepCountry = {
   rareEarths: RCEP_RARE_EARTHS['KH'],
   stockExchange: 'Cambodia Securities Exchange (CSX)',
   bondMarkets: RCEP_BOND_MARKETS['KH'],
+  mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['KH'],
 }

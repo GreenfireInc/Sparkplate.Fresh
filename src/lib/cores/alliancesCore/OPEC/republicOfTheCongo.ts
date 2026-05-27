@@ -6,6 +6,7 @@ import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
 import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
+import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const republicOfTheCongo: OpecCountry = {
   name: 'Republic of the Congo',
@@ -31,4 +32,5 @@ export const republicOfTheCongo: OpecCountry = {
   rareEarths: OPEC_RARE_EARTHS['CG'],
   stockExchange: 'Brazaafrica listings thin; Congo regional bourse narratives — informational',
   bondMarkets: OPEC_BOND_MARKETS['CG'],
+  mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['CG'],
 }

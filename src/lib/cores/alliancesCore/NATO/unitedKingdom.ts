@@ -6,6 +6,7 @@ import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { NATO_RARE_EARTHS } from './rareEarthsByIso'
 import { NATO_BOND_MARKETS } from './bondMarketsByIso'
+import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const unitedKingdom: NatoCountry = {
   name: 'United Kingdom',
@@ -33,4 +34,5 @@ export const unitedKingdom: NatoCountry = {
   rareEarths: NATO_RARE_EARTHS['GB'],
   stockExchange: 'London Stock Exchange Group',
   bondMarkets: NATO_BOND_MARKETS['GB'],
+  mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['GB'],
 }

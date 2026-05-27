@@ -6,6 +6,7 @@ import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
 import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
+import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const rwanda: ComesaCountry = {
   name: 'Rwanda',
@@ -30,4 +31,5 @@ export const rwanda: ComesaCountry = {
   rareEarths: COMESA_RARE_EARTHS['RW'],
   stockExchange: 'Rwanda Stock Exchange',
   bondMarkets: COMESA_BOND_MARKETS['RW'],
+  mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['RW'],
 }

@@ -6,6 +6,7 @@ import { ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIs
 import { ARAB_LEAGUE_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ARAB_LEAGUE_RARE_EARTHS } from './rareEarthsByIso'
 import { ARAB_LEAGUE_BOND_MARKETS } from './bondMarketsByIso'
+import { ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 /** State of Palestine — UN observer; Arab League member; territorial status disputed (informational). */
 export const palestine: ArabLeagueCountry = {
@@ -32,4 +33,5 @@ export const palestine: ArabLeagueCountry = {
   rareEarths: ARAB_LEAGUE_RARE_EARTHS['PS'],
   stockExchange: 'Palestine Securities Exchange (limited)',
   bondMarkets: ARAB_LEAGUE_BOND_MARKETS['PS'],
+  mainInternationalAirport: ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS['PS'],
 }

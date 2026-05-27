@@ -6,6 +6,7 @@ import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { APEC_RARE_EARTHS } from './rareEarthsByIso'
 import { APEC_BOND_MARKETS } from './bondMarketsByIso'
+import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const japan: ApecCountry = {
   name: 'Japan',
@@ -32,4 +33,5 @@ export const japan: ApecCountry = {
   rareEarths: APEC_RARE_EARTHS['JP'],
   stockExchange: 'Tokyo Stock Exchange (Japan Exchange Group)',
   bondMarkets: APEC_BOND_MARKETS['JP'],
+  mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['JP'],
 }

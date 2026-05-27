@@ -6,6 +6,7 @@ import { MINT_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { MINT_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { MINT_RARE_EARTHS } from './rareEarthsByIso'
 import { MINT_BOND_MARKETS } from './bondMarketsByIso'
+import { MINT_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const nigeria: MintCountry = {
   name: 'Nigeria',
@@ -32,4 +33,5 @@ export const nigeria: MintCountry = {
   rareEarths: MINT_RARE_EARTHS['NG'],
   stockExchange: 'Nigerian Exchange Group NGX (Lagos equities)',
   bondMarkets: MINT_BOND_MARKETS['NG'],
+  mainInternationalAirport: MINT_MAIN_INTERNATIONAL_AIRPORTS['NG'],
 }

@@ -6,6 +6,7 @@ import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { IGAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IGAD_RARE_EARTHS } from './rareEarthsByIso'
 import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
+import { IGAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const southSudan: IgadCountry = {
   name: 'South Sudan',
@@ -31,4 +32,5 @@ export const southSudan: IgadCountry = {
   rareEarths: IGAD_RARE_EARTHS['SS'],
   stockExchange: 'No national exchange consolidated (Juba financial-market nascent — informational)',
   bondMarkets: IGAD_BOND_MARKETS['SS'],
+  mainInternationalAirport: IGAD_MAIN_INTERNATIONAL_AIRPORTS['SS'],
 }

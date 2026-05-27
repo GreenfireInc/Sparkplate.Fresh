@@ -5,6 +5,7 @@ export type {
   IgadOrganizationInfo,
   MainExportCommodities,
   MainExportedElements,
+  MainInternationalAirport,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,

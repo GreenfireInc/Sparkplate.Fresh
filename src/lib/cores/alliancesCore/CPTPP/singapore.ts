@@ -6,6 +6,7 @@ import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { CPTPP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CPTPP_RARE_EARTHS } from './rareEarthsByIso'
 import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
+import { CPTPP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const singapore: CptppCountry = {
   name: 'Singapore',
@@ -30,4 +31,5 @@ export const singapore: CptppCountry = {
   rareEarths: CPTPP_RARE_EARTHS['SG'],
   stockExchange: 'Singapore Exchange (SGX)',
   bondMarkets: CPTPP_BOND_MARKETS['SG'],
+  mainInternationalAirport: CPTPP_MAIN_INTERNATIONAL_AIRPORTS['SG'],
 }

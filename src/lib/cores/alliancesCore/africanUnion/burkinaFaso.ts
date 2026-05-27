@@ -6,6 +6,7 @@ import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
+import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const burkinaFaso: AfricanUnionCountry = {
   name: 'Burkina Faso',
   iso3166Alpha2: 'BF',
@@ -30,4 +31,5 @@ export const burkinaFaso: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['BF'],
   stockExchange: 'Burkina Faso — BRVM listings (limited local activity)',
   bondMarkets: AU_BOND_MARKETS['BF'],
+  mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['BF'],
 }

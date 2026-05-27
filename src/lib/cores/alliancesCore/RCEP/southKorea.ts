@@ -6,6 +6,7 @@ import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
 import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
+import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const southKorea: RcepCountry = {
   name: 'South Korea',
@@ -32,4 +33,5 @@ export const southKorea: RcepCountry = {
   rareEarths: RCEP_RARE_EARTHS['KR'],
   stockExchange: 'Korea Exchange KOSPI/KOSDAQ',
   bondMarkets: RCEP_BOND_MARKETS['KR'],
+  mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['KR'],
 }

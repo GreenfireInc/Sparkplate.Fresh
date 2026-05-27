@@ -6,6 +6,7 @@ import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
+import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const comoros: AfricanUnionCountry = {
   name: 'Comoros',
   iso3166Alpha2: 'KM',
@@ -30,4 +31,5 @@ export const comoros: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['KM'],
   stockExchange: 'No major national stock exchange',
   bondMarkets: AU_BOND_MARKETS['KM'],
+  mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['KM'],
 }

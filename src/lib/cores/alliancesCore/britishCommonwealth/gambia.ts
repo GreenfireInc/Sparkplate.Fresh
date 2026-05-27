@@ -5,6 +5,7 @@ import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
+import { COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const gambia: CommonwealthCountry = {
   name: 'Gambia',
@@ -29,4 +30,5 @@ export const gambia: CommonwealthCountry = {
   mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['GM'],
   rareEarths: COMMONWEALTH_RARE_EARTHS['GM'],
   stockExchange: 'Gambia Stock Exchange',
+  mainInternationalAirport: COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS['GM'],
 }

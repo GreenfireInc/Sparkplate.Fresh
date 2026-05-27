@@ -6,6 +6,7 @@ import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { EAC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EAC_RARE_EARTHS } from './rareEarthsByIso'
 import { EAC_BOND_MARKETS } from './bondMarketsByIso'
+import { EAC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const burundi: EacCountry = {
   name: 'Burundi',
@@ -30,4 +31,5 @@ export const burundi: EacCountry = {
   rareEarths: EAC_RARE_EARTHS['BI'],
   stockExchange: 'Burundi Stock Exchange — thin liquidity',
   bondMarkets: EAC_BOND_MARKETS['BI'],
+  mainInternationalAirport: EAC_MAIN_INTERNATIONAL_AIRPORTS['BI'],
 }

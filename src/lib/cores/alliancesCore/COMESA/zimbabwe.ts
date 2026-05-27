@@ -6,6 +6,7 @@ import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
 import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
+import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const zimbabwe: ComesaCountry = {
   name: 'Zimbabwe',
@@ -30,4 +31,5 @@ export const zimbabwe: ComesaCountry = {
   rareEarths: COMESA_RARE_EARTHS['ZW'],
   stockExchange: 'Zimbabwe Stock Exchange (ZSE)',
   bondMarkets: COMESA_BOND_MARKETS['ZW'],
+  mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['ZW'],
 }

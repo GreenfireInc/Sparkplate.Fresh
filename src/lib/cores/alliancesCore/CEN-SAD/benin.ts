@@ -6,6 +6,7 @@ import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
 import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
+import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const benin: CensadCountry = {
   name: 'Benin',
@@ -30,4 +31,5 @@ export const benin: CensadCountry = {
   rareEarths: CENSAD_RARE_EARTHS['BJ'],
   stockExchange: 'Regional Bourse Régionale des Valeurs Mobilières (BRVM Abidjan, WAEMU listing)',
   bondMarkets: CENSAD_BOND_MARKETS['BJ'],
+  mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['BJ'],
 }

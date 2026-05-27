@@ -82,6 +82,23 @@ export type MainExportedElements = readonly [
  */
 export type RareEarths = readonly string[]
 
+/**
+ * Main international airport serving the capital or primary commercial gateway (informational;
+ * verify URLs, handles, and API bases before production). IATA code appears in the name where
+ * helpful. `apiEndpoint` is a public flight-data / developer REST base when documented;
+ * otherwise empty string (most airport operators do not publish open APIs).
+ */
+export interface MainInternationalAirport {
+  name: string
+  website: string
+  email: string
+  twitter: string
+  instagram: string
+  linkedin: string
+  apiEndpoint: string
+}
+
+
 export interface CommonwealthCountry {
   name: string
   iso3166Alpha2: string
@@ -111,6 +128,8 @@ export interface CommonwealthCountry {
   /** Documented rare-earth element exports; empty when no commercial-scale REE exports. */
   rareEarths: RareEarths
   stockExchange: string
+  /** Main international airport — capital or primary commercial gateway (informational; verify). */
+  mainInternationalAirport: MainInternationalAirport
 }
 
 /**

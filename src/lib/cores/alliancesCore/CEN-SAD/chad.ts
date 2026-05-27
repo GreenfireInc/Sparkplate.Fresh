@@ -6,6 +6,7 @@ import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
 import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
+import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const chad: CensadCountry = {
   name: 'Chad',
@@ -31,4 +32,5 @@ export const chad: CensadCountry = {
   rareEarths: CENSAD_RARE_EARTHS['TD'],
   stockExchange: 'No dedicated national equity market',
   bondMarkets: CENSAD_BOND_MARKETS['TD'],
+  mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['TD'],
 }

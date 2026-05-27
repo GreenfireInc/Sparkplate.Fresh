@@ -6,6 +6,7 @@ import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IORA_RARE_EARTHS } from './rareEarthsByIso'
 import { IORA_BOND_MARKETS } from './bondMarketsByIso'
+import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const seychelles: IoraCountry = {
   name: 'Seychelles',
@@ -31,4 +32,5 @@ export const seychelles: IoraCountry = {
   rareEarths: IORA_RARE_EARTHS['SC'],
   stockExchange: 'Merjex SME market / thin equities — informational',
   bondMarkets: IORA_BOND_MARKETS['SC'],
+  mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['SC'],
 }

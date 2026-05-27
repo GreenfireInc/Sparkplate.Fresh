@@ -6,6 +6,7 @@ import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
+import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const qatar: BeltAndRoadInitiativeCountry = {
   name: 'Qatar',
   iso3166Alpha2: 'QA',
@@ -30,4 +31,5 @@ export const qatar: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['QA'],
   stockExchange: 'Qatar Stock Exchange',
   bondMarkets: BRI_BOND_MARKETS['QA'],
+  mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['QA'],
 }

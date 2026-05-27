@@ -6,6 +6,7 @@ import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
+import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const malawi: BeltAndRoadInitiativeCountry = {
   name: 'Malawi',
   iso3166Alpha2: 'MW',
@@ -30,4 +31,5 @@ export const malawi: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['MW'],
   stockExchange: 'Malawi Stock Exchange',
   bondMarkets: BRI_BOND_MARKETS['MW'],
+  mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['MW'],
 }

@@ -5,6 +5,7 @@ import { BRICS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRICS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRICS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRICS_RARE_EARTHS } from './rareEarthsByIso'
+import { BRICS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const china: BricsCountry = {
   name: 'China',
@@ -29,4 +30,5 @@ export const china: BricsCountry = {
   mainExportedElements: BRICS_MAIN_EXPORTED_ELEMENTS['CN'],
   rareEarths: BRICS_RARE_EARTHS['CN'],
   stockExchange: 'Shanghai Stock Exchange; Shenzhen Stock Exchange',
+  mainInternationalAirport: BRICS_MAIN_INTERNATIONAL_AIRPORTS['CN'],
 }

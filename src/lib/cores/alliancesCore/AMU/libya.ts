@@ -6,6 +6,7 @@ import { AMU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AMU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AMU_RARE_EARTHS } from './rareEarthsByIso'
 import { AMU_BOND_MARKETS } from './bondMarketsByIso'
+import { AMU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const libya: AmuCountry = {
   name: 'Libya',
@@ -31,4 +32,5 @@ export const libya: AmuCountry = {
   rareEarths: AMU_RARE_EARTHS['LY'],
   stockExchange: 'Libyan Stock Market (limited operations)',
   bondMarkets: AMU_BOND_MARKETS['LY'],
+  mainInternationalAirport: AMU_MAIN_INTERNATIONAL_AIRPORTS['LY'],
 }

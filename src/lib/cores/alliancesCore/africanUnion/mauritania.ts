@@ -6,6 +6,7 @@ import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
+import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const mauritania: AfricanUnionCountry = {
   name: 'Mauritania',
   iso3166Alpha2: 'MR',
@@ -30,4 +31,5 @@ export const mauritania: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['MR'],
   stockExchange: 'Bourse Notation Agréée (limited)',
   bondMarkets: AU_BOND_MARKETS['MR'],
+  mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['MR'],
 }

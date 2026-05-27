@@ -6,6 +6,7 @@ import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { SADC_RARE_EARTHS } from './rareEarthsByIso'
 import { SADC_BOND_MARKETS } from './bondMarketsByIso'
+import { SADC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const democraticRepublicOfTheCongo: SadcCountry = {
   name: 'Democratic Republic of the Congo',
@@ -30,4 +31,5 @@ export const democraticRepublicOfTheCongo: SadcCountry = {
   rareEarths: SADC_RARE_EARTHS['CD'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (informal linkage); domestic equity market thin — verify',
   bondMarkets: SADC_BOND_MARKETS['CD'],
+  mainInternationalAirport: SADC_MAIN_INTERNATIONAL_AIRPORTS['CD'],
 }

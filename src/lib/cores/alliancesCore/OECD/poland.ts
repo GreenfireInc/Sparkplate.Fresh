@@ -6,6 +6,7 @@ import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OECD_RARE_EARTHS } from './rareEarthsByIso'
 import { OECD_BOND_MARKETS } from './bondMarketsByIso'
+import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const poland: OecdCountry = {
   name: 'Poland',
@@ -31,4 +32,5 @@ export const poland: OecdCountry = {
   rareEarths: OECD_RARE_EARTHS['PL'],
   stockExchange: 'Warsaw Stock Exchange (GPW)',
   bondMarkets: OECD_BOND_MARKETS['PL'],
+  mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['PL'],
 }

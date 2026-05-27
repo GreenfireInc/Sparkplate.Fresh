@@ -5,6 +5,7 @@ import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
+import { COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const trinidadAndTobago: CommonwealthCountry = {
   name: 'Trinidad and Tobago',
@@ -29,4 +30,5 @@ export const trinidadAndTobago: CommonwealthCountry = {
   mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['TT'],
   rareEarths: COMMONWEALTH_RARE_EARTHS['TT'],
   stockExchange: 'Trinidad and Tobago Stock Exchange',
+  mainInternationalAirport: COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS['TT'],
 }

@@ -6,6 +6,7 @@ import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { APEC_RARE_EARTHS } from './rareEarthsByIso'
 import { APEC_BOND_MARKETS } from './bondMarketsByIso'
+import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 /**
  * Listed as **Chinese Taipei** in official APEC fora — informational.
@@ -35,4 +36,5 @@ export const chineseTaipei: ApecCountry = {
   rareEarths: APEC_RARE_EARTHS['TW'],
   stockExchange: 'Taiwan Stock Exchange TWSE Taipei',
   bondMarkets: APEC_BOND_MARKETS['TW'],
+  mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['TW'],
 }

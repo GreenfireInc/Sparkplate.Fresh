@@ -5,6 +5,7 @@ export type {
   FiveEyesOrganizationInfo,
   MainExportCommodities,
   MainExportedElements,
+  MainInternationalAirport,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,

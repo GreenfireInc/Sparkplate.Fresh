@@ -6,6 +6,7 @@ import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { NATO_RARE_EARTHS } from './rareEarthsByIso'
 import { NATO_BOND_MARKETS } from './bondMarketsByIso'
+import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const slovenia: NatoCountry = {
   name: 'Slovenia',
@@ -31,4 +32,5 @@ export const slovenia: NatoCountry = {
   rareEarths: NATO_RARE_EARTHS['SI'],
   stockExchange: 'Ljubljana Stock Exchange',
   bondMarkets: NATO_BOND_MARKETS['SI'],
+  mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['SI'],
 }

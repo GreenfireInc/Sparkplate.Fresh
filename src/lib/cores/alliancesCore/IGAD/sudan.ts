@@ -6,6 +6,7 @@ import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { IGAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IGAD_RARE_EARTHS } from './rareEarthsByIso'
 import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
+import { IGAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const sudan: IgadCountry = {
   name: 'Sudan',
@@ -32,4 +33,5 @@ export const sudan: IgadCountry = {
   rareEarths: IGAD_RARE_EARTHS['SD'],
   stockExchange: 'Khartoum Stock Exchange (operational disruption episodes — informational)',
   bondMarkets: IGAD_BOND_MARKETS['SD'],
+  mainInternationalAirport: IGAD_MAIN_INTERNATIONAL_AIRPORTS['SD'],
 }

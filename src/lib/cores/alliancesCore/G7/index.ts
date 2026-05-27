@@ -5,6 +5,7 @@ export type {
   G7OrganizationInfo,
   MainExportCommodities,
   MainExportedElements,
+  MainInternationalAirport,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,

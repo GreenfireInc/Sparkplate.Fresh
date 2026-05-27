@@ -6,6 +6,7 @@ import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { G20_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { G20_RARE_EARTHS } from './rareEarthsByIso'
 import { G20_BOND_MARKETS } from './bondMarketsByIso'
+import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const russia: G20Country = {
   name: 'Russia',
@@ -32,4 +33,5 @@ export const russia: G20Country = {
   rareEarths: G20_RARE_EARTHS['RU'],
   stockExchange: 'Moscow Exchange (MOEX)',
   bondMarkets: G20_BOND_MARKETS['RU'],
+  mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['RU'],
 }

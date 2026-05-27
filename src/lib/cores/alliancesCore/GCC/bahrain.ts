@@ -6,6 +6,7 @@ import { GCC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { GCC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { GCC_RARE_EARTHS } from './rareEarthsByIso'
 import { GCC_BOND_MARKETS } from './bondMarketsByIso'
+import { GCC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const bahrain: GccCountry = {
   name: 'Bahrain',
@@ -32,4 +33,5 @@ export const bahrain: GccCountry = {
   rareEarths: GCC_RARE_EARTHS['BH'],
   stockExchange: 'Bahrain Bourse',
   bondMarkets: GCC_BOND_MARKETS['BH'],
+  mainInternationalAirport: GCC_MAIN_INTERNATIONAL_AIRPORTS['BH'],
 }

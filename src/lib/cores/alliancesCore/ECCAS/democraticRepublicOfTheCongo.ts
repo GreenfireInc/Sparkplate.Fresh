@@ -6,6 +6,7 @@ import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { ECCAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECCAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
+import { ECCAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const democraticRepublicOfTheCongo: EccasCountry = {
   name: 'Democratic Republic of the Congo',
@@ -30,4 +31,5 @@ export const democraticRepublicOfTheCongo: EccasCountry = {
   rareEarths: ECCAS_RARE_EARTHS['CD'],
   stockExchange: 'Domestic equities thin — informal OTC predominant',
   bondMarkets: ECCAS_BOND_MARKETS['CD'],
+  mainInternationalAirport: ECCAS_MAIN_INTERNATIONAL_AIRPORTS['CD'],
 }

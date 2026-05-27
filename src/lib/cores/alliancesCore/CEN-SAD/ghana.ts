@@ -6,6 +6,7 @@ import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
 import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
+import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const ghana: CensadCountry = {
   name: 'Ghana',
@@ -30,4 +31,5 @@ export const ghana: CensadCountry = {
   rareEarths: CENSAD_RARE_EARTHS['GH'],
   stockExchange: 'Ghana Stock Exchange',
   bondMarkets: CENSAD_BOND_MARKETS['GH'],
+  mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['GH'],
 }

@@ -6,6 +6,7 @@ import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
+import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const trinidadAndTobago: BeltAndRoadInitiativeCountry = {
   name: 'Trinidad and Tobago',
   iso3166Alpha2: 'TT',
@@ -30,4 +31,5 @@ export const trinidadAndTobago: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['TT'],
   stockExchange: 'National or regional exchange (verify)',
   bondMarkets: BRI_BOND_MARKETS['TT'],
+  mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['TT'],
 }

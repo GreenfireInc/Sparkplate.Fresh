@@ -6,6 +6,7 @@ import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { APEC_RARE_EARTHS } from './rareEarthsByIso'
 import { APEC_BOND_MARKETS } from './bondMarketsByIso'
+import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const singapore: ApecCountry = {
   name: 'Singapore',
@@ -31,4 +32,5 @@ export const singapore: ApecCountry = {
   rareEarths: APEC_RARE_EARTHS['SG'],
   stockExchange: 'Singapore Exchange (SGX)',
   bondMarkets: APEC_BOND_MARKETS['SG'],
+  mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['SG'],
 }

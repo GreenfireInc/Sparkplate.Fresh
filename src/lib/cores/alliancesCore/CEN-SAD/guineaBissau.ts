@@ -6,6 +6,7 @@ import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
 import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
+import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const guineaBissau: CensadCountry = {
   name: 'Guinea-Bissau',
@@ -30,4 +31,5 @@ export const guineaBissau: CensadCountry = {
   rareEarths: CENSAD_RARE_EARTHS['GW'],
   stockExchange: 'BRVM (cross-listing context for WAEMU)',
   bondMarkets: CENSAD_BOND_MARKETS['GW'],
+  mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['GW'],
 }

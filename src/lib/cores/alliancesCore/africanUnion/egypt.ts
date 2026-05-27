@@ -6,6 +6,7 @@ import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
+import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const egypt: AfricanUnionCountry = {
   name: 'Egypt',
   iso3166Alpha2: 'EG',
@@ -30,4 +31,5 @@ export const egypt: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['EG'],
   stockExchange: 'Egyptian Exchange (EGX)',
   bondMarkets: AU_BOND_MARKETS['EG'],
+  mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['EG'],
 }

@@ -6,6 +6,7 @@ import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
+import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const namibia: BeltAndRoadInitiativeCountry = {
   name: 'Namibia',
   iso3166Alpha2: 'NA',
@@ -30,4 +31,5 @@ export const namibia: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['NA'],
   stockExchange: 'Namibia Stock Exchange (NSX)',
   bondMarkets: BRI_BOND_MARKETS['NA'],
+  mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['NA'],
 }

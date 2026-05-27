@@ -6,6 +6,7 @@ import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { EAC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EAC_RARE_EARTHS } from './rareEarthsByIso'
 import { EAC_BOND_MARKETS } from './bondMarketsByIso'
+import { EAC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const rwanda: EacCountry = {
   name: 'Rwanda',
@@ -30,4 +31,5 @@ export const rwanda: EacCountry = {
   rareEarths: EAC_RARE_EARTHS['RW'],
   stockExchange: 'Rwanda Stock Exchange',
   bondMarkets: EAC_BOND_MARKETS['RW'],
+  mainInternationalAirport: EAC_MAIN_INTERNATIONAL_AIRPORTS['RW'],
 }

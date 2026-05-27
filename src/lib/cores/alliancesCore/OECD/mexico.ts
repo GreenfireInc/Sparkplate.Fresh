@@ -6,6 +6,7 @@ import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OECD_RARE_EARTHS } from './rareEarthsByIso'
 import { OECD_BOND_MARKETS } from './bondMarketsByIso'
+import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const mexico: OecdCountry = {
   name: 'Mexico',
@@ -32,4 +33,5 @@ export const mexico: OecdCountry = {
   rareEarths: OECD_RARE_EARTHS['MX'],
   stockExchange: 'Bolsa Mexicana de Valores (BMV)',
   bondMarkets: OECD_BOND_MARKETS['MX'],
+  mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['MX'],
 }

@@ -6,6 +6,7 @@ import { AES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AES_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AES_RARE_EARTHS } from './rareEarthsByIso'
 import { AES_BOND_MARKETS } from './bondMarketsByIso'
+import { AES_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const mali: AllianceOfSahelStatesCountry = {
   name: 'Mali',
@@ -31,4 +32,5 @@ export const mali: AllianceOfSahelStatesCountry = {
   rareEarths: AES_RARE_EARTHS['ML'],
   stockExchange: 'Bourse des Valeurs du Mali (limited)',
   bondMarkets: AES_BOND_MARKETS['ML'],
+  mainInternationalAirport: AES_MAIN_INTERNATIONAL_AIRPORTS['ML'],
 }

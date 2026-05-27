@@ -6,6 +6,7 @@ import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OECD_RARE_EARTHS } from './rareEarthsByIso'
 import { OECD_BOND_MARKETS } from './bondMarketsByIso'
+import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const colombia: OecdCountry = {
   name: 'Colombia',
@@ -32,4 +33,5 @@ export const colombia: OecdCountry = {
   rareEarths: OECD_RARE_EARTHS['CO'],
   stockExchange: 'Bolsa de Valores de Colombia (bvc Colombia)',
   bondMarkets: OECD_BOND_MARKETS['CO'],
+  mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['CO'],
 }

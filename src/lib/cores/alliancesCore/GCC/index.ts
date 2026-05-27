@@ -5,6 +5,7 @@ export type {
   GccOrganizationInfo,
   MainExportCommodities,
   MainExportedElements,
+  MainInternationalAirport,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,

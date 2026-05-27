@@ -1,0 +1,108 @@
+import type { AseanMemberIsoCode } from './aseanMemberIsoCodes'
+import type { MainInternationalAirport } from './types'
+
+/**
+ * Main international airport per member (capital or primary commercial gateway).
+ * Informational; verify URLs, handles, and API bases before production.
+ */
+export const ASEAN_MAIN_INTERNATIONAL_AIRPORTS: Record<AseanMemberIsoCode, MainInternationalAirport> = {
+  BN: {
+    name: 'Brunei International Airport (BWN)',
+    website: 'https://www.bruneiair.com/',
+    email: 'info@bruneiair.com',
+    twitter: 'https://x.com/BruneiAirport',
+    instagram: 'https://www.instagram.com/bruneiairport/',
+    linkedin: 'https://www.linkedin.com/company/brunei-international-airport/',
+    apiEndpoint: '',
+  },
+  KH: {
+    name: 'Phnom Penh International Airport (PNH)',
+    website: 'https://www.cambodia-airports.aero/',
+    email: 'info@cambodia-airports.aero',
+    twitter: 'https://x.com/CambodiaAirports',
+    instagram: 'https://www.instagram.com/cambodiaairports/',
+    linkedin: 'https://www.linkedin.com/company/cambodia-airports/',
+    apiEndpoint: '',
+  },
+  ID: {
+    name: 'Soekarno-Hatta International Airport (CGK)',
+    website: 'https://soekarnohatta-airport.co.id/',
+    email: 'info@soekarnohatta-airport.co.id',
+    twitter: 'https://x.com/SoettaAirport',
+    instagram: 'https://www.instagram.com/soettaairport/',
+    linkedin: 'https://www.linkedin.com/company/soekarno-hatta-international-airport/',
+    apiEndpoint: '',
+  },
+  LA: {
+    name: 'Wattay International Airport (VTE)',
+    website: 'https://www.vientianeairport.com/',
+    email: 'info@vientianeairport.com',
+    twitter: 'https://x.com/VTEAirport',
+    instagram: 'https://www.instagram.com/vteairport/',
+    linkedin: 'https://www.linkedin.com/company/wattay-international-airport/',
+    apiEndpoint: '',
+  },
+  MY: {
+    name: 'Kuala Lumpur International Airport (KUL)',
+    website: 'https://www.klia.com.my/',
+    email: 'info@klia.com.my',
+    twitter: 'https://x.com/KLIA_Malaysia',
+    instagram: 'https://www.instagram.com/klia_malaysia/',
+    linkedin: 'https://www.linkedin.com/company/malaysia-airports/',
+    apiEndpoint: '',
+  },
+  MM: {
+    name: 'Yangon International Airport (RGN)',
+    website: 'https://www.yangonairport.aero/',
+    email: 'info@yangonairport.aero',
+    twitter: 'https://x.com/YangonAirport',
+    instagram: 'https://www.instagram.com/yangonairport/',
+    linkedin: 'https://www.linkedin.com/company/yangon-international-airport/',
+    apiEndpoint: '',
+  },
+  PH: {
+    name: 'Ninoy Aquino International Airport (MNL)',
+    website: 'https://www.miaa.gov.ph/',
+    email: 'info@miaa.gov.ph',
+    twitter: 'https://x.com/MIAA_Official',
+    instagram: 'https://www.instagram.com/miaa_official/',
+    linkedin: 'https://www.linkedin.com/company/manila-international-airport-authority/',
+    apiEndpoint: '',
+  },
+  SG: {
+    name: 'Singapore Changi Airport (SIN)',
+    website: 'https://www.changiairport.com/',
+    email: 'feedback@changiairport.com',
+    twitter: 'https://x.com/ChangiAirport',
+    instagram: 'https://www.instagram.com/changiairport/',
+    linkedin: 'https://www.linkedin.com/company/changi-airport-group/',
+    apiEndpoint: '',
+  },
+  TH: {
+    name: 'Suvarnabhumi Airport (BKK)',
+    website: 'https://suvarnabhumi.airportthai.co.th/',
+    email: 'info@airportthai.co.th',
+    twitter: 'https://x.com/AOT_BKK',
+    instagram: 'https://www.instagram.com/suvarnabhumi_airport/',
+    linkedin: 'https://www.linkedin.com/company/airports-of-thailand/',
+    apiEndpoint: '',
+  },
+  TL: {
+    name: 'Presidente Nicolau Lobato International Airport (DIL)',
+    website: 'https://www.aeroportodili.tl/',
+    email: 'info@aeroportodili.tl',
+    twitter: 'https://x.com/DiliAirport',
+    instagram: 'https://www.instagram.com/diliairport/',
+    linkedin: 'https://www.linkedin.com/company/dili-international-airport/',
+    apiEndpoint: '',
+  },
+  VN: {
+    name: 'Noi Bai International Airport (HAN)',
+    website: 'https://www.noibaiairport.vn/',
+    email: 'info@noibaiairport.vn',
+    twitter: 'https://x.com/NoiBaiAirport',
+    instagram: 'https://www.instagram.com/noibaiairport/',
+    linkedin: 'https://www.linkedin.com/company/noi-bai-international-airport/',
+    apiEndpoint: '',
+  },
+}

@@ -6,6 +6,7 @@ import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { G20_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { G20_RARE_EARTHS } from './rareEarthsByIso'
 import { G20_BOND_MARKETS } from './bondMarketsByIso'
+import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const france: G20Country = {
   name: 'France',
@@ -31,4 +32,5 @@ export const france: G20Country = {
   rareEarths: G20_RARE_EARTHS['FR'],
   stockExchange: 'Euronext Paris',
   bondMarkets: G20_BOND_MARKETS['FR'],
+  mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['FR'],
 }

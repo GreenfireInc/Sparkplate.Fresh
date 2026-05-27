@@ -6,6 +6,7 @@ import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { EAC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EAC_RARE_EARTHS } from './rareEarthsByIso'
 import { EAC_BOND_MARKETS } from './bondMarketsByIso'
+import { EAC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const democraticRepublicOfTheCongo: EacCountry = {
   name: 'Democratic Republic of the Congo',
@@ -30,4 +31,5 @@ export const democraticRepublicOfTheCongo: EacCountry = {
   rareEarths: EAC_RARE_EARTHS['CD'],
   stockExchange: 'Domestic equities thin — informal OTC and regional linkage',
   bondMarkets: EAC_BOND_MARKETS['CD'],
+  mainInternationalAirport: EAC_MAIN_INTERNATIONAL_AIRPORTS['CD'],
 }

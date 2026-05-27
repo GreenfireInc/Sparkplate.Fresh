@@ -5,6 +5,7 @@ import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
+import { COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const seychelles: CommonwealthCountry = {
   name: 'Seychelles',
@@ -29,4 +30,5 @@ export const seychelles: CommonwealthCountry = {
   mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['SC'],
   rareEarths: COMMONWEALTH_RARE_EARTHS['SC'],
   stockExchange: 'Merj Exchange Limited (Seychelles; international listings)',
+  mainInternationalAirport: COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS['SC'],
 }

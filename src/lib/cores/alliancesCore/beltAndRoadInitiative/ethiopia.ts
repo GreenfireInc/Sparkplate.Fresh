@@ -6,6 +6,7 @@ import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
+import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const ethiopia: BeltAndRoadInitiativeCountry = {
   name: 'Ethiopia',
   iso3166Alpha2: 'ET',
@@ -30,4 +31,5 @@ export const ethiopia: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['ET'],
   stockExchange: 'Ethiopian Securities Exchange (launch context varies)',
   bondMarkets: BRI_BOND_MARKETS['ET'],
+  mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['ET'],
 }

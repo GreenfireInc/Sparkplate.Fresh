@@ -6,6 +6,7 @@ import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { SADC_RARE_EARTHS } from './rareEarthsByIso'
 import { SADC_BOND_MARKETS } from './bondMarketsByIso'
+import { SADC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const seychelles: SadcCountry = {
   name: 'Seychelles',
@@ -31,4 +32,5 @@ export const seychelles: SadcCountry = {
   rareEarths: SADC_RARE_EARTHS['SC'],
   stockExchange: 'Merjex / small domestic market — verify',
   bondMarkets: SADC_BOND_MARKETS['SC'],
+  mainInternationalAirport: SADC_MAIN_INTERNATIONAL_AIRPORTS['SC'],
 }

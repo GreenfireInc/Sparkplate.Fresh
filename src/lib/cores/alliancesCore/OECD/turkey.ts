@@ -6,6 +6,7 @@ import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OECD_RARE_EARTHS } from './rareEarthsByIso'
 import { OECD_BOND_MARKETS } from './bondMarketsByIso'
+import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const turkey: OecdCountry = {
   name: 'Turkey',
@@ -32,4 +33,5 @@ export const turkey: OecdCountry = {
   rareEarths: OECD_RARE_EARTHS['TR'],
   stockExchange: 'Borsa Istanbul (BİST)',
   bondMarkets: OECD_BOND_MARKETS['TR'],
+  mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['TR'],
 }

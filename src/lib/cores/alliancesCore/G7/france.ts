@@ -6,6 +6,7 @@ import { G7_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { G7_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { G7_RARE_EARTHS } from './rareEarthsByIso'
 import { G7_BOND_MARKETS } from './bondMarketsByIso'
+import { G7_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const france: G7Country = {
   name: 'France',
@@ -31,4 +32,5 @@ export const france: G7Country = {
   rareEarths: G7_RARE_EARTHS['FR'],
   stockExchange: 'Euronext Paris',
   bondMarkets: G7_BOND_MARKETS['FR'],
+  mainInternationalAirport: G7_MAIN_INTERNATIONAL_AIRPORTS['FR'],
 }

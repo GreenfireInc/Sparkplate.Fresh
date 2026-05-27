@@ -5,6 +5,7 @@ export type {
   EacOrganizationInfo,
   MainExportCommodities,
   MainExportedElements,
+  MainInternationalAirport,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,

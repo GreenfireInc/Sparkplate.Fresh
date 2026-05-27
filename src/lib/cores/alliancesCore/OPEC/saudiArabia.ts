@@ -6,6 +6,7 @@ import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
 import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
+import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const saudiArabia: OpecCountry = {
   name: 'Saudi Arabia',
@@ -32,4 +33,5 @@ export const saudiArabia: OpecCountry = {
   rareEarths: OPEC_RARE_EARTHS['SA'],
   stockExchange: 'Tadawul Saudi Exchange (national benchmark — informational)',
   bondMarkets: OPEC_BOND_MARKETS['SA'],
+  mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['SA'],
 }

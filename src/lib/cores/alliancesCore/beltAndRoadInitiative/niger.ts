@@ -6,6 +6,7 @@ import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
+import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const niger: BeltAndRoadInitiativeCountry = {
   name: 'Niger',
   iso3166Alpha2: 'NE',
@@ -30,4 +31,5 @@ export const niger: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['NE'],
   stockExchange: 'No liquid national bourse; BRVM regional',
   bondMarkets: BRI_BOND_MARKETS['NE'],
+  mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['NE'],
 }

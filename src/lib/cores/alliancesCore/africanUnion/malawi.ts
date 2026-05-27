@@ -6,6 +6,7 @@ import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
+import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const malawi: AfricanUnionCountry = {
   name: 'Malawi',
   iso3166Alpha2: 'MW',
@@ -30,4 +31,5 @@ export const malawi: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['MW'],
   stockExchange: 'Malawi Stock Exchange',
   bondMarkets: AU_BOND_MARKETS['MW'],
+  mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['MW'],
 }

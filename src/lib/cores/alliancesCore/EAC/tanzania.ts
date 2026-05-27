@@ -6,6 +6,7 @@ import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { EAC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EAC_RARE_EARTHS } from './rareEarthsByIso'
 import { EAC_BOND_MARKETS } from './bondMarketsByIso'
+import { EAC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const tanzania: EacCountry = {
   name: 'Tanzania',
@@ -31,4 +32,5 @@ export const tanzania: EacCountry = {
   stockExchange:
     'Dar es Salaam Stock Exchange (DSE); EAC Secretariat located in Arusha — informational',
   bondMarkets: EAC_BOND_MARKETS['TZ'],
+  mainInternationalAirport: EAC_MAIN_INTERNATIONAL_AIRPORTS['TZ'],
 }

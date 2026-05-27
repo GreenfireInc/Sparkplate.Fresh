@@ -6,6 +6,7 @@ import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
+import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const tanzania: AfricanUnionCountry = {
   name: 'Tanzania',
   iso3166Alpha2: 'TZ',
@@ -30,4 +31,5 @@ export const tanzania: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange (DSE)',
   bondMarkets: AU_BOND_MARKETS['TZ'],
+  mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['TZ'],
 }

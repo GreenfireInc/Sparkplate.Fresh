@@ -6,6 +6,7 @@ import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OECS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OECS_RARE_EARTHS } from './rareEarthsByIso'
 import { OECS_BOND_MARKETS } from './bondMarketsByIso'
+import { OECS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const anguilla: OecsCountry = {
   name: 'Anguilla',
@@ -31,4 +32,5 @@ export const anguilla: OecsCountry = {
   rareEarths: OECS_RARE_EARTHS['AI'],
   stockExchange: 'No dedicated national exchange; regional ECSE context — informational',
   bondMarkets: OECS_BOND_MARKETS['AI'],
+  mainInternationalAirport: OECS_MAIN_INTERNATIONAL_AIRPORTS['AI'],
 }

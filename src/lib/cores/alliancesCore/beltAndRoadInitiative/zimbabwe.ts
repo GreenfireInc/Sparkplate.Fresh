@@ -6,6 +6,7 @@ import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
+import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const zimbabwe: BeltAndRoadInitiativeCountry = {
   name: 'Zimbabwe',
   iso3166Alpha2: 'ZW',
@@ -30,4 +31,5 @@ export const zimbabwe: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['ZW'],
   stockExchange: 'Zimbabwe Stock Exchange (ZSE)',
   bondMarkets: BRI_BOND_MARKETS['ZW'],
+  mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['ZW'],
 }

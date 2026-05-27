@@ -6,6 +6,7 @@ import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EU_RARE_EARTHS } from './rareEarthsByIso'
 import { EU_BOND_MARKETS } from './bondMarketsByIso'
+import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const greece: EuCountry = {
   name: 'Greece',
@@ -30,4 +31,5 @@ export const greece: EuCountry = {
   rareEarths: EU_RARE_EARTHS['GR'],
   stockExchange: 'Athens Stock Exchange',
   bondMarkets: EU_BOND_MARKETS['GR'],
+  mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['GR'],
 }

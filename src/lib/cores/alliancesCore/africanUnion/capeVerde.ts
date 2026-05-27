@@ -6,6 +6,7 @@ import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
+import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const capeVerde: AfricanUnionCountry = {
   name: 'Cape Verde',
   iso3166Alpha2: 'CV',
@@ -30,4 +31,5 @@ export const capeVerde: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['CV'],
   stockExchange: 'Bolsa de Valores de Cabo Verde (limited listings)',
   bondMarkets: AU_BOND_MARKETS['CV'],
+  mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['CV'],
 }

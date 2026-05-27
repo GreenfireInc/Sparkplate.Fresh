@@ -5,6 +5,7 @@ import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
+import { COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const newZealand: CommonwealthCountry = {
   name: 'New Zealand',
@@ -29,4 +30,5 @@ export const newZealand: CommonwealthCountry = {
   mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['NZ'],
   rareEarths: COMMONWEALTH_RARE_EARTHS['NZ'],
   stockExchange: 'NZX (New Zealand Exchange)',
+  mainInternationalAirport: COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS['NZ'],
 }

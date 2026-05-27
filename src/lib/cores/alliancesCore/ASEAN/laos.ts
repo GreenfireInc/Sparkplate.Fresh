@@ -6,6 +6,7 @@ import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { ASEAN_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ASEAN_RARE_EARTHS } from './rareEarthsByIso'
 import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
+import { ASEAN_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const laos: AseanCountry = {
   name: 'Laos',
@@ -31,4 +32,5 @@ export const laos: AseanCountry = {
   rareEarths: ASEAN_RARE_EARTHS['LA'],
   stockExchange: 'Lao Securities Exchange (Vientiane — thin listings — informational)',
   bondMarkets: ASEAN_BOND_MARKETS['LA'],
+  mainInternationalAirport: ASEAN_MAIN_INTERNATIONAL_AIRPORTS['LA'],
 }

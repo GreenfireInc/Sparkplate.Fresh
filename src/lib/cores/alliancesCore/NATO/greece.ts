@@ -6,6 +6,7 @@ import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { NATO_RARE_EARTHS } from './rareEarthsByIso'
 import { NATO_BOND_MARKETS } from './bondMarketsByIso'
+import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const greece: NatoCountry = {
   name: 'Greece',
@@ -31,4 +32,5 @@ export const greece: NatoCountry = {
   rareEarths: NATO_RARE_EARTHS['GR'],
   stockExchange: 'Athens Stock Exchange',
   bondMarkets: NATO_BOND_MARKETS['GR'],
+  mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['GR'],
 }

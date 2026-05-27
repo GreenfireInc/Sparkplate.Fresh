@@ -6,6 +6,7 @@ import { GCC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { GCC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { GCC_RARE_EARTHS } from './rareEarthsByIso'
 import { GCC_BOND_MARKETS } from './bondMarketsByIso'
+import { GCC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const unitedArabEmirates: GccCountry = {
   name: 'United Arab Emirates',
@@ -33,4 +34,5 @@ export const unitedArabEmirates: GccCountry = {
   rareEarths: GCC_RARE_EARTHS['AE'],
   stockExchange: 'Abu Dhabi Securities Exchange (ADX); Dubai Financial Market (DFM)',
   bondMarkets: GCC_BOND_MARKETS['AE'],
+  mainInternationalAirport: GCC_MAIN_INTERNATIONAL_AIRPORTS['AE'],
 }

@@ -6,6 +6,7 @@ import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
 import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
+import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const australia: RcepCountry = {
   name: 'Australia',
@@ -31,4 +32,5 @@ export const australia: RcepCountry = {
   rareEarths: RCEP_RARE_EARTHS['AU'],
   stockExchange: 'Australian Securities Exchange (ASX)',
   bondMarkets: RCEP_BOND_MARKETS['AU'],
+  mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['AU'],
 }

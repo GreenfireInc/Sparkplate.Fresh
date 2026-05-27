@@ -6,6 +6,7 @@ import { G7_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { G7_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { G7_RARE_EARTHS } from './rareEarthsByIso'
 import { G7_BOND_MARKETS } from './bondMarketsByIso'
+import { G7_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const italy: G7Country = {
   name: 'Italy',
@@ -32,4 +33,5 @@ export const italy: G7Country = {
   rareEarths: G7_RARE_EARTHS['IT'],
   stockExchange: 'Euronext Milan (Borsa Italiana legacy)',
   bondMarkets: G7_BOND_MARKETS['IT'],
+  mainInternationalAirport: G7_MAIN_INTERNATIONAL_AIRPORTS['IT'],
 }

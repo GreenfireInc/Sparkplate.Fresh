@@ -6,6 +6,7 @@ import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { NATO_RARE_EARTHS } from './rareEarthsByIso'
 import { NATO_BOND_MARKETS } from './bondMarketsByIso'
+import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const lithuania: NatoCountry = {
   name: 'Lithuania',
@@ -31,4 +32,5 @@ export const lithuania: NatoCountry = {
   rareEarths: NATO_RARE_EARTHS['LT'],
   stockExchange: 'Nasdaq Vilnius',
   bondMarkets: NATO_BOND_MARKETS['LT'],
+  mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['LT'],
 }

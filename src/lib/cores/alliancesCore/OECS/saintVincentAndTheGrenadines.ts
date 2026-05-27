@@ -6,6 +6,7 @@ import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OECS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OECS_RARE_EARTHS } from './rareEarthsByIso'
 import { OECS_BOND_MARKETS } from './bondMarketsByIso'
+import { OECS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const saintVincentAndTheGrenadines: OecsCountry = {
   name: 'Saint Vincent and the Grenadines',
@@ -31,4 +32,5 @@ export const saintVincentAndTheGrenadines: OecsCountry = {
   rareEarths: OECS_RARE_EARTHS['VC'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
   bondMarkets: OECS_BOND_MARKETS['VC'],
+  mainInternationalAirport: OECS_MAIN_INTERNATIONAL_AIRPORTS['VC'],
 }

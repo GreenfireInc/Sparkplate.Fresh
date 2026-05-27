@@ -6,6 +6,7 @@ import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
+import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const kenya: AfricanUnionCountry = {
   name: 'Kenya',
   iso3166Alpha2: 'KE',
@@ -30,4 +31,5 @@ export const kenya: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
   bondMarkets: AU_BOND_MARKETS['KE'],
+  mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['KE'],
 }
