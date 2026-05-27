@@ -6,6 +6,7 @@ import { MINT_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { MINT_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { MINT_RARE_EARTHS } from './rareEarthsByIso'
 import { MINT_BOND_MARKETS } from './bondMarketsByIso'
+import { MINT_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const indonesia: MintCountry = {
   name: 'Indonesia',
@@ -32,4 +33,5 @@ export const indonesia: MintCountry = {
   rareEarths: MINT_RARE_EARTHS['ID'],
   stockExchange: 'Indonesia Stock Exchange IDX Jakarta',
   bondMarkets: MINT_BOND_MARKETS['ID'],
+  mainInternationalAirport: MINT_MAIN_INTERNATIONAL_AIRPORTS['ID'],
 }

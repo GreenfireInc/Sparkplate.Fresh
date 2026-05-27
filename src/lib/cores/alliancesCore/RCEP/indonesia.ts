@@ -6,6 +6,7 @@ import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
 import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
+import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const indonesia: RcepCountry = {
   name: 'Indonesia',
@@ -31,4 +32,5 @@ export const indonesia: RcepCountry = {
   rareEarths: RCEP_RARE_EARTHS['ID'],
   stockExchange: 'Indonesia Stock Exchange (IDX)',
   bondMarkets: RCEP_BOND_MARKETS['ID'],
+  mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['ID'],
 }

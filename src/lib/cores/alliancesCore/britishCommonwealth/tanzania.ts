@@ -5,6 +5,7 @@ import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
+import { COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const tanzania: CommonwealthCountry = {
   name: 'Tanzania',
@@ -29,4 +30,5 @@ export const tanzania: CommonwealthCountry = {
   mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['TZ'],
   rareEarths: COMMONWEALTH_RARE_EARTHS['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange',
+  mainInternationalAirport: COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS['TZ'],
 }

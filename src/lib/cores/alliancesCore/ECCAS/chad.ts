@@ -6,6 +6,7 @@ import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { ECCAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECCAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
+import { ECCAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const chad: EccasCountry = {
   name: 'Chad',
@@ -30,4 +31,5 @@ export const chad: EccasCountry = {
   rareEarths: ECCAS_RARE_EARTHS['TD'],
   stockExchange: 'CEMAC regional capital markets (thin Chad footprint)',
   bondMarkets: ECCAS_BOND_MARKETS['TD'],
+  mainInternationalAirport: ECCAS_MAIN_INTERNATIONAL_AIRPORTS['TD'],
 }

@@ -6,6 +6,7 @@ import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { NATO_RARE_EARTHS } from './rareEarthsByIso'
 import { NATO_BOND_MARKETS } from './bondMarketsByIso'
+import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const poland: NatoCountry = {
   name: 'Poland',
@@ -31,4 +32,5 @@ export const poland: NatoCountry = {
   rareEarths: NATO_RARE_EARTHS['PL'],
   stockExchange: 'Warsaw Stock Exchange (GPW)',
   bondMarkets: NATO_BOND_MARKETS['PL'],
+  mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['PL'],
 }

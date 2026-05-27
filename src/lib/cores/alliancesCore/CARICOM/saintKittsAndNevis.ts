@@ -6,6 +6,7 @@ import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
 import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
+import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const saintKittsAndNevis: CaricomCountry = {
   name: 'Saint Kitts and Nevis',
@@ -31,4 +32,5 @@ export const saintKittsAndNevis: CaricomCountry = {
   rareEarths: CARICOM_RARE_EARTHS['KN'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
   bondMarkets: CARICOM_BOND_MARKETS['KN'],
+  mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['KN'],
 }

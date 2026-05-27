@@ -6,6 +6,7 @@ import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
+import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const benin: EcowasCountry = {
   name: 'Benin',
@@ -30,4 +31,5 @@ export const benin: EcowasCountry = {
   rareEarths: ECOWAS_RARE_EARTHS['BJ'],
   stockExchange: 'Regional BRVM — Abidjan listings (WAEMU securities)',
   bondMarkets: ECOWAS_BOND_MARKETS['BJ'],
+  mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['BJ'],
 }

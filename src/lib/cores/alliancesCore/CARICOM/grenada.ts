@@ -6,6 +6,7 @@ import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
 import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
+import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const grenada: CaricomCountry = {
   name: 'Grenada',
@@ -31,4 +32,5 @@ export const grenada: CaricomCountry = {
   rareEarths: CARICOM_RARE_EARTHS['GD'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
   bondMarkets: CARICOM_BOND_MARKETS['GD'],
+  mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['GD'],
 }

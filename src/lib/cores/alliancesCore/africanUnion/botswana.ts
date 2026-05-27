@@ -6,6 +6,7 @@ import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
+import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const botswana: AfricanUnionCountry = {
   name: 'Botswana',
   iso3166Alpha2: 'BW',
@@ -30,4 +31,5 @@ export const botswana: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['BW'],
   stockExchange: 'Botswana Stock Exchange (BSE)',
   bondMarkets: AU_BOND_MARKETS['BW'],
+  mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['BW'],
 }

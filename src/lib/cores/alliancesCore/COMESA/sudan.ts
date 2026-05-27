@@ -6,6 +6,7 @@ import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
 import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
+import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const sudan: ComesaCountry = {
   name: 'Sudan',
@@ -30,4 +31,5 @@ export const sudan: ComesaCountry = {
   rareEarths: COMESA_RARE_EARTHS['SD'],
   stockExchange: 'Khartoum Stock Exchange (operations disrupted)',
   bondMarkets: COMESA_BOND_MARKETS['SD'],
+  mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['SD'],
 }

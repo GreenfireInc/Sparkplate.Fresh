@@ -6,6 +6,7 @@ import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
+import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const centralAfricanRepublic: AfricanUnionCountry = {
   name: 'Central African Republic',
   iso3166Alpha2: 'CF',
@@ -30,4 +31,5 @@ export const centralAfricanRepublic: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['CF'],
   stockExchange: 'Bangui Stock Exchange (very limited)',
   bondMarkets: AU_BOND_MARKETS['CF'],
+  mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['CF'],
 }

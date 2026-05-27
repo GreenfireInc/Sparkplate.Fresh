@@ -6,6 +6,7 @@ import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
+import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const capeVerde: EcowasCountry = {
   name: 'Cape Verde',
@@ -30,4 +31,5 @@ export const capeVerde: EcowasCountry = {
   rareEarths: ECOWAS_RARE_EARTHS['CV'],
   stockExchange: 'Bolsa de Valores de Cabo Verde (limited listings)',
   bondMarkets: ECOWAS_BOND_MARKETS['CV'],
+  mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['CV'],
 }

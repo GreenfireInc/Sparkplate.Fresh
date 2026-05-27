@@ -6,6 +6,7 @@ import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { NATO_RARE_EARTHS } from './rareEarthsByIso'
 import { NATO_BOND_MARKETS } from './bondMarketsByIso'
+import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const belgium: NatoCountry = {
   name: 'Belgium',
@@ -31,4 +32,5 @@ export const belgium: NatoCountry = {
   rareEarths: NATO_RARE_EARTHS['BE'],
   stockExchange: 'Euronext Brussels',
   bondMarkets: NATO_BOND_MARKETS['BE'],
+  mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['BE'],
 }

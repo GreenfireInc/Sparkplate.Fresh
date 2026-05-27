@@ -6,6 +6,7 @@ import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EU_RARE_EARTHS } from './rareEarthsByIso'
 import { EU_BOND_MARKETS } from './bondMarketsByIso'
+import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const italy: EuCountry = {
   name: 'Italy',
@@ -30,4 +31,5 @@ export const italy: EuCountry = {
   rareEarths: EU_RARE_EARTHS['IT'],
   stockExchange: 'Euronext Milan (Borsa Italiana legacy)',
   bondMarkets: EU_BOND_MARKETS['IT'],
+  mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['IT'],
 }

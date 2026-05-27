@@ -6,6 +6,7 @@ import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { EAC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EAC_RARE_EARTHS } from './rareEarthsByIso'
 import { EAC_BOND_MARKETS } from './bondMarketsByIso'
+import { EAC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const southSudan: EacCountry = {
   name: 'South Sudan',
@@ -30,4 +31,5 @@ export const southSudan: EacCountry = {
   rareEarths: EAC_RARE_EARTHS['SS'],
   stockExchange: 'Juba Stock Exchange (nascent / limited)',
   bondMarkets: EAC_BOND_MARKETS['SS'],
+  mainInternationalAirport: EAC_MAIN_INTERNATIONAL_AIRPORTS['SS'],
 }

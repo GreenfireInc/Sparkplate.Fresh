@@ -6,6 +6,7 @@ import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
 import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
+import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const comoros: CensadCountry = {
   name: 'Comoros',
@@ -30,4 +31,5 @@ export const comoros: CensadCountry = {
   rareEarths: CENSAD_RARE_EARTHS['KM'],
   stockExchange: 'No national stock exchange',
   bondMarkets: CENSAD_BOND_MARKETS['KM'],
+  mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['KM'],
 }

@@ -6,6 +6,7 @@ import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
+import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const benin: AfricanUnionCountry = {
   name: 'Benin',
   iso3166Alpha2: 'BJ',
@@ -30,4 +31,5 @@ export const benin: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['BJ'],
   stockExchange: 'Regional Securities Exchange (BRVM) — Abidjan (Benin listed)',
   bondMarkets: AU_BOND_MARKETS['BJ'],
+  mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['BJ'],
 }

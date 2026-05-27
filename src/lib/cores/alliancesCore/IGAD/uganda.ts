@@ -6,6 +6,7 @@ import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { IGAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IGAD_RARE_EARTHS } from './rareEarthsByIso'
 import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
+import { IGAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const uganda: IgadCountry = {
   name: 'Uganda',
@@ -31,4 +32,5 @@ export const uganda: IgadCountry = {
   rareEarths: IGAD_RARE_EARTHS['UG'],
   stockExchange: 'Uganda Securities Exchange (USE, thin listings — informational)',
   bondMarkets: IGAD_BOND_MARKETS['UG'],
+  mainInternationalAirport: IGAD_MAIN_INTERNATIONAL_AIRPORTS['UG'],
 }

@@ -6,6 +6,7 @@ import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { ASEAN_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ASEAN_RARE_EARTHS } from './rareEarthsByIso'
 import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
+import { ASEAN_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const vietnam: AseanCountry = {
   name: 'Vietnam',
@@ -33,4 +34,5 @@ export const vietnam: AseanCountry = {
   rareEarths: ASEAN_RARE_EARTHS['VN'],
   stockExchange: 'Ho Chi Minh Stock Exchange; Hanoi Stock Exchange (consolidated plans — informational)',
   bondMarkets: ASEAN_BOND_MARKETS['VN'],
+  mainInternationalAirport: ASEAN_MAIN_INTERNATIONAL_AIRPORTS['VN'],
 }

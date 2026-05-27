@@ -6,6 +6,7 @@ import { ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIs
 import { ARAB_LEAGUE_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ARAB_LEAGUE_RARE_EARTHS } from './rareEarthsByIso'
 import { ARAB_LEAGUE_BOND_MARKETS } from './bondMarketsByIso'
+import { ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const kuwait: ArabLeagueCountry = {
   name: 'Kuwait',
@@ -31,4 +32,5 @@ export const kuwait: ArabLeagueCountry = {
   rareEarths: ARAB_LEAGUE_RARE_EARTHS['KW'],
   stockExchange: 'Boursa Kuwait',
   bondMarkets: ARAB_LEAGUE_BOND_MARKETS['KW'],
+  mainInternationalAirport: ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS['KW'],
 }

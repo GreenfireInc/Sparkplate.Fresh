@@ -6,6 +6,7 @@ import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
+import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const jamaica: BeltAndRoadInitiativeCountry = {
   name: 'Jamaica',
   iso3166Alpha2: 'JM',
@@ -30,4 +31,5 @@ export const jamaica: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['JM'],
   stockExchange: 'National or regional exchange (verify)',
   bondMarkets: BRI_BOND_MARKETS['JM'],
+  mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['JM'],
 }

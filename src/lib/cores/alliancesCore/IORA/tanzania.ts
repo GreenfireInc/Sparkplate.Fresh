@@ -6,6 +6,7 @@ import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IORA_RARE_EARTHS } from './rareEarthsByIso'
 import { IORA_BOND_MARKETS } from './bondMarketsByIso'
+import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const tanzania: IoraCountry = {
   name: 'Tanzania',
@@ -32,4 +33,5 @@ export const tanzania: IoraCountry = {
   rareEarths: IORA_RARE_EARTHS['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange (DSE)',
   bondMarkets: IORA_BOND_MARKETS['TZ'],
+  mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['TZ'],
 }

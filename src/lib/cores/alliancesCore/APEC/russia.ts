@@ -6,6 +6,7 @@ import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { APEC_RARE_EARTHS } from './rareEarthsByIso'
 import { APEC_BOND_MARKETS } from './bondMarketsByIso'
+import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const russia: ApecCountry = {
   name: 'Russia',
@@ -31,4 +32,5 @@ export const russia: ApecCountry = {
   rareEarths: APEC_RARE_EARTHS['RU'],
   stockExchange: 'Moscow Exchange (sanctions segregation vs Western indices — informational)',
   bondMarkets: APEC_BOND_MARKETS['RU'],
+  mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['RU'],
 }

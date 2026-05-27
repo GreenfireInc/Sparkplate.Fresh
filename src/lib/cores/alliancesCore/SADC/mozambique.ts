@@ -6,6 +6,7 @@ import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { SADC_RARE_EARTHS } from './rareEarthsByIso'
 import { SADC_BOND_MARKETS } from './bondMarketsByIso'
+import { SADC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const mozambique: SadcCountry = {
   name: 'Mozambique',
@@ -30,4 +31,5 @@ export const mozambique: SadcCountry = {
   rareEarths: SADC_RARE_EARTHS['MZ'],
   stockExchange: 'Bolsa de Valores de Moçambique — verify activity',
   bondMarkets: SADC_BOND_MARKETS['MZ'],
+  mainInternationalAirport: SADC_MAIN_INTERNATIONAL_AIRPORTS['MZ'],
 }

@@ -6,6 +6,7 @@ import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { NATO_RARE_EARTHS } from './rareEarthsByIso'
 import { NATO_BOND_MARKETS } from './bondMarketsByIso'
+import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const albania: NatoCountry = {
   name: 'Albania',
@@ -31,4 +32,5 @@ export const albania: NatoCountry = {
   rareEarths: NATO_RARE_EARTHS['AL'],
   stockExchange: 'Tirana Stock Exchange (thin listings — informational)',
   bondMarkets: NATO_BOND_MARKETS['AL'],
+  mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['AL'],
 }

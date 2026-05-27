@@ -6,6 +6,7 @@ import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
 import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
+import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const mauritania: CensadCountry = {
   name: 'Mauritania',
@@ -30,4 +31,5 @@ export const mauritania: CensadCountry = {
   rareEarths: CENSAD_RARE_EARTHS['MR'],
   stockExchange: 'Bourse de Mauritanie (Nouakchott — verify depth)',
   bondMarkets: CENSAD_BOND_MARKETS['MR'],
+  mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['MR'],
 }

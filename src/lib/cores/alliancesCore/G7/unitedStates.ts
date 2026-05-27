@@ -6,6 +6,7 @@ import { G7_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { G7_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { G7_RARE_EARTHS } from './rareEarthsByIso'
 import { G7_BOND_MARKETS } from './bondMarketsByIso'
+import { G7_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const unitedStates: G7Country = {
   name: 'United States',
@@ -32,4 +33,5 @@ export const unitedStates: G7Country = {
   rareEarths: G7_RARE_EARTHS['US'],
   stockExchange: 'NYSE/Nasdaq consolidated US equity liquidity (dual listing customary — informational)',
   bondMarkets: G7_BOND_MARKETS['US'],
+  mainInternationalAirport: G7_MAIN_INTERNATIONAL_AIRPORTS['US'],
 }

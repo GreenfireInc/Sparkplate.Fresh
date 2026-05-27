@@ -6,6 +6,7 @@ import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
+import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const cookIslands: BeltAndRoadInitiativeCountry = {
   name: 'Cook Islands',
   iso3166Alpha2: 'CK',
@@ -30,4 +31,5 @@ export const cookIslands: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['CK'],
   stockExchange: 'National or regional exchange (verify)',
   bondMarkets: BRI_BOND_MARKETS['CK'],
+  mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['CK'],
 }

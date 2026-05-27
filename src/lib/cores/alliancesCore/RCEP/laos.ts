@@ -6,6 +6,7 @@ import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
 import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
+import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const laos: RcepCountry = {
   name: 'Laos',
@@ -31,4 +32,5 @@ export const laos: RcepCountry = {
   rareEarths: RCEP_RARE_EARTHS['LA'],
   stockExchange: 'Lao Securities Exchange (thin listings — informational)',
   bondMarkets: RCEP_BOND_MARKETS['LA'],
+  mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['LA'],
 }

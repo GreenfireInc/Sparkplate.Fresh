@@ -6,6 +6,7 @@ import { AMU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AMU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AMU_RARE_EARTHS } from './rareEarthsByIso'
 import { AMU_BOND_MARKETS } from './bondMarketsByIso'
+import { AMU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const algeria: AmuCountry = {
   name: 'Algeria',
@@ -31,4 +32,5 @@ export const algeria: AmuCountry = {
   rareEarths: AMU_RARE_EARTHS['DZ'],
   stockExchange: 'Algiers Stock Exchange',
   bondMarkets: AMU_BOND_MARKETS['DZ'],
+  mainInternationalAirport: AMU_MAIN_INTERNATIONAL_AIRPORTS['DZ'],
 }

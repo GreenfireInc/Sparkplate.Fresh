@@ -6,6 +6,7 @@ import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OECS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OECS_RARE_EARTHS } from './rareEarthsByIso'
 import { OECS_BOND_MARKETS } from './bondMarketsByIso'
+import { OECS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const saintLucia: OecsCountry = {
   name: 'Saint Lucia',
@@ -31,4 +32,5 @@ export const saintLucia: OecsCountry = {
   rareEarths: OECS_RARE_EARTHS['LC'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
   bondMarkets: OECS_BOND_MARKETS['LC'],
+  mainInternationalAirport: OECS_MAIN_INTERNATIONAL_AIRPORTS['LC'],
 }

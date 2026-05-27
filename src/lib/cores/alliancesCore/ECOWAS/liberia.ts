@@ -6,6 +6,7 @@ import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
+import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const liberia: EcowasCountry = {
   name: 'Liberia',
@@ -30,4 +31,5 @@ export const liberia: EcowasCountry = {
   rareEarths: ECOWAS_RARE_EARTHS['LR'],
   stockExchange: 'Liberia Stock Exchange (very limited)',
   bondMarkets: ECOWAS_BOND_MARKETS['LR'],
+  mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['LR'],
 }

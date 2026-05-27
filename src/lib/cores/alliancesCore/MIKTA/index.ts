@@ -3,6 +3,7 @@ export type {
   DomesticCourierService,
   MainExportCommodities,
   MainExportedElements,
+  MainInternationalAirport,
   MiktaCountry,
   MiktaOrganizationInfo,
   NewsOutlet,

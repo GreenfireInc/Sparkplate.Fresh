@@ -6,6 +6,7 @@ import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
+import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const libya: AfricanUnionCountry = {
   name: 'Libya',
   iso3166Alpha2: 'LY',
@@ -30,4 +31,5 @@ export const libya: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['LY'],
   stockExchange: 'Libyan Stock Market (limited operations)',
   bondMarkets: AU_BOND_MARKETS['LY'],
+  mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['LY'],
 }

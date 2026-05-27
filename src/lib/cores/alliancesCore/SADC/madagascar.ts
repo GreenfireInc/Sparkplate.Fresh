@@ -6,6 +6,7 @@ import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { SADC_RARE_EARTHS } from './rareEarthsByIso'
 import { SADC_BOND_MARKETS } from './bondMarketsByIso'
+import { SADC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const madagascar: SadcCountry = {
   name: 'Madagascar',
@@ -30,4 +31,5 @@ export const madagascar: SadcCountry = {
   rareEarths: SADC_RARE_EARTHS['MG'],
   stockExchange: 'Madagascar Stock Exchange (SEM) — thin market',
   bondMarkets: SADC_BOND_MARKETS['MG'],
+  mainInternationalAirport: SADC_MAIN_INTERNATIONAL_AIRPORTS['MG'],
 }

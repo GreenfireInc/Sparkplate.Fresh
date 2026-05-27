@@ -6,6 +6,7 @@ import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
+import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const guineaBissau: EcowasCountry = {
   name: 'Guinea-Bissau',
@@ -30,4 +31,5 @@ export const guineaBissau: EcowasCountry = {
   rareEarths: ECOWAS_RARE_EARTHS['GW'],
   stockExchange: 'BRVM regional access; no deep domestic bourse',
   bondMarkets: ECOWAS_BOND_MARKETS['GW'],
+  mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['GW'],
 }

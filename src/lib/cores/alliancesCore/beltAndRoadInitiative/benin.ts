@@ -6,6 +6,7 @@ import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
+import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const benin: BeltAndRoadInitiativeCountry = {
   name: 'Benin',
   iso3166Alpha2: 'BJ',
@@ -30,4 +31,5 @@ export const benin: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['BJ'],
   stockExchange: 'Regional Securities Exchange (BRVM) — Abidjan (Benin listed)',
   bondMarkets: BRI_BOND_MARKETS['BJ'],
+  mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['BJ'],
 }

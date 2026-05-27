@@ -6,6 +6,7 @@ import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { ECCAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECCAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
+import { ECCAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const burundi: EccasCountry = {
   name: 'Burundi',
@@ -30,4 +31,5 @@ export const burundi: EccasCountry = {
   rareEarths: ECCAS_RARE_EARTHS['BI'],
   stockExchange: 'Burundi Stock Exchange — thin liquidity',
   bondMarkets: ECCAS_BOND_MARKETS['BI'],
+  mainInternationalAirport: ECCAS_MAIN_INTERNATIONAL_AIRPORTS['BI'],
 }

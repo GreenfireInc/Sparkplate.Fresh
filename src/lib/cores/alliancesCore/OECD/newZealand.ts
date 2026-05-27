@@ -6,6 +6,7 @@ import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OECD_RARE_EARTHS } from './rareEarthsByIso'
 import { OECD_BOND_MARKETS } from './bondMarketsByIso'
+import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const newZealand: OecdCountry = {
   name: 'New Zealand',
@@ -31,4 +32,5 @@ export const newZealand: OecdCountry = {
   rareEarths: OECD_RARE_EARTHS['NZ'],
   stockExchange: 'NZX Limited',
   bondMarkets: OECD_BOND_MARKETS['NZ'],
+  mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['NZ'],
 }

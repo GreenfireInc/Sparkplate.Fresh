@@ -6,6 +6,7 @@ import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { ASEAN_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ASEAN_RARE_EARTHS } from './rareEarthsByIso'
 import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
+import { ASEAN_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const cambodia: AseanCountry = {
   name: 'Cambodia',
@@ -31,4 +32,5 @@ export const cambodia: AseanCountry = {
   rareEarths: ASEAN_RARE_EARTHS['KH'],
   stockExchange: 'Cambodia Securities Exchange (CSX Phnom Penh)',
   bondMarkets: ASEAN_BOND_MARKETS['KH'],
+  mainInternationalAirport: ASEAN_MAIN_INTERNATIONAL_AIRPORTS['KH'],
 }

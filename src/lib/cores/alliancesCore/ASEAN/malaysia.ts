@@ -6,6 +6,7 @@ import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { ASEAN_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ASEAN_RARE_EARTHS } from './rareEarthsByIso'
 import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
+import { ASEAN_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const malaysia: AseanCountry = {
   name: 'Malaysia',
@@ -32,4 +33,5 @@ export const malaysia: AseanCountry = {
   rareEarths: ASEAN_RARE_EARTHS['MY'],
   stockExchange: 'Bursa Malaysia (Kuala Lumpur)',
   bondMarkets: ASEAN_BOND_MARKETS['MY'],
+  mainInternationalAirport: ASEAN_MAIN_INTERNATIONAL_AIRPORTS['MY'],
 }

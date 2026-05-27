@@ -6,6 +6,7 @@ import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
 import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
+import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const guyana: CaricomCountry = {
   name: 'Guyana',
@@ -31,4 +32,5 @@ export const guyana: CaricomCountry = {
   rareEarths: CARICOM_RARE_EARTHS['GY'],
   stockExchange: 'Guyana Stock Exchange',
   bondMarkets: CARICOM_BOND_MARKETS['GY'],
+  mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['GY'],
 }

@@ -6,6 +6,7 @@ import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
+import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const guinea: BeltAndRoadInitiativeCountry = {
   name: 'Guinea',
   iso3166Alpha2: 'GN',
@@ -30,4 +31,5 @@ export const guinea: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['GN'],
   stockExchange: 'No major national exchange; informal OTC and regional brokers',
   bondMarkets: BRI_BOND_MARKETS['GN'],
+  mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['GN'],
 }

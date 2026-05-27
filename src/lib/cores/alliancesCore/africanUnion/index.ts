@@ -6,6 +6,7 @@ export type {
   DomesticCourierService,
   MainExportCommodities,
   MainExportedElements,
+  MainInternationalAirport,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,

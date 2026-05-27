@@ -6,6 +6,7 @@ import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
 import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
+import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const unitedArabEmirates: OpecCountry = {
   name: 'United Arab Emirates',
@@ -33,4 +34,5 @@ export const unitedArabEmirates: OpecCountry = {
   rareEarths: OPEC_RARE_EARTHS['AE'],
   stockExchange: 'Abu Dhabi Securities Exchange (ADX); Dubai Financial Market (DFM)',
   bondMarkets: OPEC_BOND_MARKETS['AE'],
+  mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['AE'],
 }

@@ -6,6 +6,7 @@ import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OECD_RARE_EARTHS } from './rareEarthsByIso'
 import { OECD_BOND_MARKETS } from './bondMarketsByIso'
+import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const slovenia: OecdCountry = {
   name: 'Slovenia',
@@ -31,4 +32,5 @@ export const slovenia: OecdCountry = {
   rareEarths: OECD_RARE_EARTHS['SI'],
   stockExchange: 'Ljubljana Stock Exchange',
   bondMarkets: OECD_BOND_MARKETS['SI'],
+  mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['SI'],
 }

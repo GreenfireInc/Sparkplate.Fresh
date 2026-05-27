@@ -6,6 +6,7 @@ import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
+import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const ethiopia: AfricanUnionCountry = {
   name: 'Ethiopia',
   iso3166Alpha2: 'ET',
@@ -30,4 +31,5 @@ export const ethiopia: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['ET'],
   stockExchange: 'Ethiopian Securities Exchange (launch context varies)',
   bondMarkets: AU_BOND_MARKETS['ET'],
+  mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['ET'],
 }

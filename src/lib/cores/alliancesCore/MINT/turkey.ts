@@ -6,6 +6,7 @@ import { MINT_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { MINT_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { MINT_RARE_EARTHS } from './rareEarthsByIso'
 import { MINT_BOND_MARKETS } from './bondMarketsByIso'
+import { MINT_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const turkey: MintCountry = {
   name: 'Turkey',
@@ -32,4 +33,5 @@ export const turkey: MintCountry = {
   rareEarths: MINT_RARE_EARTHS['TR'],
   stockExchange: 'Borsa Istanbul (BİST equities / debt)',
   bondMarkets: MINT_BOND_MARKETS['TR'],
+  mainInternationalAirport: MINT_MAIN_INTERNATIONAL_AIRPORTS['TR'],
 }

@@ -5,6 +5,7 @@ export type {
   EccasOrganizationInfo,
   MainExportCommodities,
   MainExportedElements,
+  MainInternationalAirport,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,

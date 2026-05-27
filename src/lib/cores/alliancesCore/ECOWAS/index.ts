@@ -5,6 +5,7 @@ export type {
   EcowasOrganizationInfo,
   MainExportCommodities,
   MainExportedElements,
+  MainInternationalAirport,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,

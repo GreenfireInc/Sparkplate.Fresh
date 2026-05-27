@@ -6,6 +6,7 @@ import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
 import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
+import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const venezuela: OpecCountry = {
   name: 'Venezuela',
@@ -33,4 +34,5 @@ export const venezuela: OpecCountry = {
   rareEarths: OPEC_RARE_EARTHS['VE'],
   stockExchange: 'Bolsa de Valores de Caracas (thin vs macro distress — informational)',
   bondMarkets: OPEC_BOND_MARKETS['VE'],
+  mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['VE'],
 }

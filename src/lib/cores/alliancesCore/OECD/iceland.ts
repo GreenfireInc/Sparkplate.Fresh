@@ -6,6 +6,7 @@ import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OECD_RARE_EARTHS } from './rareEarthsByIso'
 import { OECD_BOND_MARKETS } from './bondMarketsByIso'
+import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const iceland: OecdCountry = {
   name: 'Iceland',
@@ -32,4 +33,5 @@ export const iceland: OecdCountry = {
   rareEarths: OECD_RARE_EARTHS['IS'],
   stockExchange: 'Nasdaq Iceland (equities thin vs fishing/tourism economies — informational)',
   bondMarkets: OECD_BOND_MARKETS['IS'],
+  mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['IS'],
 }

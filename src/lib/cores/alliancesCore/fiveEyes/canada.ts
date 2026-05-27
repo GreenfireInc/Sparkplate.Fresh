@@ -6,6 +6,7 @@ import { FIVE_EYES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { FIVE_EYES_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { FIVE_EYES_RARE_EARTHS } from './rareEarthsByIso'
 import { FIVE_EYES_BOND_MARKETS } from './bondMarketsByIso'
+import { FIVE_EYES_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const canada: FiveEyesCountry = {
   name: 'Canada',
@@ -31,4 +32,5 @@ export const canada: FiveEyesCountry = {
   rareEarths: FIVE_EYES_RARE_EARTHS['CA'],
   stockExchange: 'Toronto Stock Exchange (TMX)',
   bondMarkets: FIVE_EYES_BOND_MARKETS['CA'],
+  mainInternationalAirport: FIVE_EYES_MAIN_INTERNATIONAL_AIRPORTS['CA'],
 }

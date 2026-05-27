@@ -6,6 +6,7 @@ import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IORA_RARE_EARTHS } from './rareEarthsByIso'
 import { IORA_BOND_MARKETS } from './bondMarketsByIso'
+import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const india: IoraCountry = {
   name: 'India',
@@ -32,4 +33,5 @@ export const india: IoraCountry = {
   rareEarths: IORA_RARE_EARTHS['IN'],
   stockExchange: 'National Stock Exchange (NSE); BSE Bombay context — informational',
   bondMarkets: IORA_BOND_MARKETS['IN'],
+  mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['IN'],
 }

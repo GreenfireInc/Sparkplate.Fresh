@@ -6,6 +6,7 @@ import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IORA_RARE_EARTHS } from './rareEarthsByIso'
 import { IORA_BOND_MARKETS } from './bondMarketsByIso'
+import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const australia: IoraCountry = {
   name: 'Australia',
@@ -31,4 +32,5 @@ export const australia: IoraCountry = {
   rareEarths: IORA_RARE_EARTHS['AU'],
   stockExchange: 'Australian Securities Exchange (ASX)',
   bondMarkets: IORA_BOND_MARKETS['AU'],
+  mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['AU'],
 }

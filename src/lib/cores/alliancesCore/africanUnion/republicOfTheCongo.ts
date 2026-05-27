@@ -6,6 +6,7 @@ import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
+import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const republicOfTheCongo: AfricanUnionCountry = {
   name: 'Republic of the Congo',
   iso3166Alpha2: 'CG',
@@ -30,4 +31,5 @@ export const republicOfTheCongo: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['CG'],
   stockExchange: 'Bourse des Valeurs du Congo (BVC)',
   bondMarkets: AU_BOND_MARKETS['CG'],
+  mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['CG'],
 }

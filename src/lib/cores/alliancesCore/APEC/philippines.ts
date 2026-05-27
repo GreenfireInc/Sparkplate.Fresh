@@ -6,6 +6,7 @@ import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { APEC_RARE_EARTHS } from './rareEarthsByIso'
 import { APEC_BOND_MARKETS } from './bondMarketsByIso'
+import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const philippines: ApecCountry = {
   name: 'Philippines',
@@ -31,4 +32,5 @@ export const philippines: ApecCountry = {
   rareEarths: APEC_RARE_EARTHS['PH'],
   stockExchange: 'Philippine Stock Exchange (PSE)',
   bondMarkets: APEC_BOND_MARKETS['PH'],
+  mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['PH'],
 }

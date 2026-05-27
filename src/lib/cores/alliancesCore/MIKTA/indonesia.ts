@@ -6,6 +6,7 @@ import { MIKTA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { MIKTA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { MIKTA_RARE_EARTHS } from './rareEarthsByIso'
 import { MIKTA_BOND_MARKETS } from './bondMarketsByIso'
+import { MIKTA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const indonesia: MiktaCountry = {
   name: 'Indonesia',
@@ -32,4 +33,5 @@ export const indonesia: MiktaCountry = {
   rareEarths: MIKTA_RARE_EARTHS['ID'],
   stockExchange: 'Indonesia Stock Exchange IDX Jakarta',
   bondMarkets: MIKTA_BOND_MARKETS['ID'],
+  mainInternationalAirport: MIKTA_MAIN_INTERNATIONAL_AIRPORTS['ID'],
 }

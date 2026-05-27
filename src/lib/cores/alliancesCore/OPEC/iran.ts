@@ -6,6 +6,7 @@ import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
 import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
+import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const iran: OpecCountry = {
   name: 'Iran',
@@ -33,4 +34,5 @@ export const iran: OpecCountry = {
   rareEarths: OPEC_RARE_EARTHS['IR'],
   stockExchange: 'Tehran Stock Exchange (irrational volatility episodes — informational)',
   bondMarkets: OPEC_BOND_MARKETS['IR'],
+  mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['IR'],
 }

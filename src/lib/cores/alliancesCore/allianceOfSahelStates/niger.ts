@@ -6,6 +6,7 @@ import { AES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AES_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AES_RARE_EARTHS } from './rareEarthsByIso'
 import { AES_BOND_MARKETS } from './bondMarketsByIso'
+import { AES_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const niger: AllianceOfSahelStatesCountry = {
   name: 'Niger',
@@ -31,4 +32,5 @@ export const niger: AllianceOfSahelStatesCountry = {
   rareEarths: AES_RARE_EARTHS['NE'],
   stockExchange: 'No liquid national bourse; BRVM regional',
   bondMarkets: AES_BOND_MARKETS['NE'],
+  mainInternationalAirport: AES_MAIN_INTERNATIONAL_AIRPORTS['NE'],
 }

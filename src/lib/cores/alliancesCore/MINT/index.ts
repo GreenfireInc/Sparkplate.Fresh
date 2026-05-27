@@ -3,6 +3,7 @@ export type {
   DomesticCourierService,
   MainExportCommodities,
   MainExportedElements,
+  MainInternationalAirport,
   MintCountry,
   MintOrganizationInfo,
   NewsOutlet,

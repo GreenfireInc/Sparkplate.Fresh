@@ -6,6 +6,7 @@ import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { G20_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { G20_RARE_EARTHS } from './rareEarthsByIso'
 import { G20_BOND_MARKETS } from './bondMarketsByIso'
+import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const unitedKingdom: G20Country = {
   name: 'United Kingdom',
@@ -33,4 +34,5 @@ export const unitedKingdom: G20Country = {
   rareEarths: G20_RARE_EARTHS['GB'],
   stockExchange: 'London Stock Exchange Group (consolidated UK venues — informational)',
   bondMarkets: G20_BOND_MARKETS['GB'],
+  mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['GB'],
 }

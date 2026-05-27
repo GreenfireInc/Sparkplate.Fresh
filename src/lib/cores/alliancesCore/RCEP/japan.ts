@@ -6,6 +6,7 @@ import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
 import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
+import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const japan: RcepCountry = {
   name: 'Japan',
@@ -32,4 +33,5 @@ export const japan: RcepCountry = {
   rareEarths: RCEP_RARE_EARTHS['JP'],
   stockExchange: 'Tokyo Stock Exchange (Japan Exchange Group)',
   bondMarkets: RCEP_BOND_MARKETS['JP'],
+  mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['JP'],
 }

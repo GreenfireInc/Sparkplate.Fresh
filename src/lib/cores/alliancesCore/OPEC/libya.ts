@@ -6,6 +6,7 @@ import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
 import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
+import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const libya: OpecCountry = {
   name: 'Libya',
@@ -32,4 +33,5 @@ export const libya: OpecCountry = {
   rareEarths: OPEC_RARE_EARTHS['LY'],
   stockExchange: 'Libyan Stock Market operational disruption narratives — informational',
   bondMarkets: OPEC_BOND_MARKETS['LY'],
+  mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['LY'],
 }

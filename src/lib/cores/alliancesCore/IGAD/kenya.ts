@@ -6,6 +6,7 @@ import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { IGAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IGAD_RARE_EARTHS } from './rareEarthsByIso'
 import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
+import { IGAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const kenya: IgadCountry = {
   name: 'Kenya',
@@ -31,4 +32,5 @@ export const kenya: IgadCountry = {
   rareEarths: IGAD_RARE_EARTHS['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
   bondMarkets: IGAD_BOND_MARKETS['KE'],
+  mainInternationalAirport: IGAD_MAIN_INTERNATIONAL_AIRPORTS['KE'],
 }

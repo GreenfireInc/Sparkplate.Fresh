@@ -6,6 +6,7 @@ import { ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIs
 import { ARAB_LEAGUE_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ARAB_LEAGUE_RARE_EARTHS } from './rareEarthsByIso'
 import { ARAB_LEAGUE_BOND_MARKETS } from './bondMarketsByIso'
+import { ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const yemen: ArabLeagueCountry = {
   name: 'Yemen',
@@ -31,4 +32,5 @@ export const yemen: ArabLeagueCountry = {
   rareEarths: ARAB_LEAGUE_RARE_EARTHS['YE'],
   stockExchange: 'No functioning unified national exchange',
   bondMarkets: ARAB_LEAGUE_BOND_MARKETS['YE'],
+  mainInternationalAirport: ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS['YE'],
 }

@@ -6,6 +6,7 @@ import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
+import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const southAfrica: AfricanUnionCountry = {
   name: 'South Africa',
   iso3166Alpha2: 'ZA',
@@ -30,4 +31,5 @@ export const southAfrica: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['ZA'],
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
   bondMarkets: AU_BOND_MARKETS['ZA'],
+  mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['ZA'],
 }

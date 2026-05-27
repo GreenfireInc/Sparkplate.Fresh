@@ -6,6 +6,7 @@ import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
+import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const southAfrica: BeltAndRoadInitiativeCountry = {
   name: 'South Africa',
   iso3166Alpha2: 'ZA',
@@ -30,4 +31,5 @@ export const southAfrica: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['ZA'],
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
   bondMarkets: BRI_BOND_MARKETS['ZA'],
+  mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['ZA'],
 }

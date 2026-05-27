@@ -6,6 +6,7 @@ import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OECS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OECS_RARE_EARTHS } from './rareEarthsByIso'
 import { OECS_BOND_MARKETS } from './bondMarketsByIso'
+import { OECS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const montserrat: OecsCountry = {
   name: 'Montserrat',
@@ -31,4 +32,5 @@ export const montserrat: OecsCountry = {
   rareEarths: OECS_RARE_EARTHS['MS'],
   stockExchange: 'Eastern Caribbean Securities Exchange regional access — informational',
   bondMarkets: OECS_BOND_MARKETS['MS'],
+  mainInternationalAirport: OECS_MAIN_INTERNATIONAL_AIRPORTS['MS'],
 }

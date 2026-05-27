@@ -6,6 +6,7 @@ import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { CPTPP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CPTPP_RARE_EARTHS } from './rareEarthsByIso'
 import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
+import { CPTPP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const japan: CptppCountry = {
   name: 'Japan',
@@ -30,4 +31,5 @@ export const japan: CptppCountry = {
   rareEarths: CPTPP_RARE_EARTHS['JP'],
   stockExchange: 'Tokyo Stock Exchange (TSE)',
   bondMarkets: CPTPP_BOND_MARKETS['JP'],
+  mainInternationalAirport: CPTPP_MAIN_INTERNATIONAL_AIRPORTS['JP'],
 }

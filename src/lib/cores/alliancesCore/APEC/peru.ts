@@ -6,6 +6,7 @@ import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { APEC_RARE_EARTHS } from './rareEarthsByIso'
 import { APEC_BOND_MARKETS } from './bondMarketsByIso'
+import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const peru: ApecCountry = {
   name: 'Peru',
@@ -31,4 +32,5 @@ export const peru: ApecCountry = {
   rareEarths: APEC_RARE_EARTHS['PE'],
   stockExchange: 'Bolsa de Valores de Lima (Lima Stock Exchange)',
   bondMarkets: APEC_BOND_MARKETS['PE'],
+  mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['PE'],
 }

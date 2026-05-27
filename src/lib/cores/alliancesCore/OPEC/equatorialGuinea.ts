@@ -6,6 +6,7 @@ import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
 import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
+import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const equatorialGuinea: OpecCountry = {
   name: 'Equatorial Guinea',
@@ -31,4 +32,5 @@ export const equatorialGuinea: OpecCountry = {
   rareEarths: OPEC_RARE_EARTHS['GQ'],
   stockExchange: 'Malabo regional listings nascent / thin — informational',
   bondMarkets: OPEC_BOND_MARKETS['GQ'],
+  mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['GQ'],
 }

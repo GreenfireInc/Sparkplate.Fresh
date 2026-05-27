@@ -6,6 +6,7 @@ import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { SADC_RARE_EARTHS } from './rareEarthsByIso'
 import { SADC_BOND_MARKETS } from './bondMarketsByIso'
+import { SADC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const lesotho: SadcCountry = {
   name: 'Lesotho',
@@ -30,4 +31,5 @@ export const lesotho: SadcCountry = {
   rareEarths: SADC_RARE_EARTHS['LS'],
   stockExchange: 'Maseru Securities Market — verify',
   bondMarkets: SADC_BOND_MARKETS['LS'],
+  mainInternationalAirport: SADC_MAIN_INTERNATIONAL_AIRPORTS['LS'],
 }

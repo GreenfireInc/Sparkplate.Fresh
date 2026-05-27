@@ -6,6 +6,7 @@ import { GCC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { GCC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { GCC_RARE_EARTHS } from './rareEarthsByIso'
 import { GCC_BOND_MARKETS } from './bondMarketsByIso'
+import { GCC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const saudiArabia: GccCountry = {
   name: 'Saudi Arabia',
@@ -32,4 +33,5 @@ export const saudiArabia: GccCountry = {
   rareEarths: GCC_RARE_EARTHS['SA'],
   stockExchange: 'Tadawul Saudi Exchange (national), parallel regional listings — informational',
   bondMarkets: GCC_BOND_MARKETS['SA'],
+  mainInternationalAirport: GCC_MAIN_INTERNATIONAL_AIRPORTS['SA'],
 }

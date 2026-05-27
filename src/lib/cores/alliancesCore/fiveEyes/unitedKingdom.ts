@@ -6,6 +6,7 @@ import { FIVE_EYES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { FIVE_EYES_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { FIVE_EYES_RARE_EARTHS } from './rareEarthsByIso'
 import { FIVE_EYES_BOND_MARKETS } from './bondMarketsByIso'
+import { FIVE_EYES_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const unitedKingdom: FiveEyesCountry = {
   name: 'United Kingdom',
@@ -32,4 +33,5 @@ export const unitedKingdom: FiveEyesCountry = {
   rareEarths: FIVE_EYES_RARE_EARTHS['GB'],
   stockExchange: 'London Stock Exchange Group (post-Brexit consolidated venues — informational)',
   bondMarkets: FIVE_EYES_BOND_MARKETS['GB'],
+  mainInternationalAirport: FIVE_EYES_MAIN_INTERNATIONAL_AIRPORTS['GB'],
 }

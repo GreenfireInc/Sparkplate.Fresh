@@ -6,6 +6,7 @@ import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EU_RARE_EARTHS } from './rareEarthsByIso'
 import { EU_BOND_MARKETS } from './bondMarketsByIso'
+import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const france: EuCountry = {
   name: 'France',
@@ -30,4 +31,5 @@ export const france: EuCountry = {
   rareEarths: EU_RARE_EARTHS['FR'],
   stockExchange: 'Euronext Paris',
   bondMarkets: EU_BOND_MARKETS['FR'],
+  mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['FR'],
 }

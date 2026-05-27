@@ -6,6 +6,7 @@ import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
 import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
+import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const guinea: CensadCountry = {
   name: 'Guinea',
@@ -30,4 +31,5 @@ export const guinea: CensadCountry = {
   rareEarths: CENSAD_RARE_EARTHS['GN'],
   stockExchange: 'Regional BRVM not primary; no major national bourse',
   bondMarkets: CENSAD_BOND_MARKETS['GN'],
+  mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['GN'],
 }

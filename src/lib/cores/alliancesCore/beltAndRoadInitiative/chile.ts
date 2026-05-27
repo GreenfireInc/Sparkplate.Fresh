@@ -6,6 +6,7 @@ import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
+import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const chile: BeltAndRoadInitiativeCountry = {
   name: 'Chile',
   iso3166Alpha2: 'CL',
@@ -30,4 +31,5 @@ export const chile: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['CL'],
   stockExchange: 'National or regional exchange (verify)',
   bondMarkets: BRI_BOND_MARKETS['CL'],
+  mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['CL'],
 }

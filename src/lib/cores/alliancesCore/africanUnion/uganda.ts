@@ -6,6 +6,7 @@ import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
+import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 export const uganda: AfricanUnionCountry = {
   name: 'Uganda',
   iso3166Alpha2: 'UG',
@@ -30,4 +31,5 @@ export const uganda: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['UG'],
   stockExchange: 'Uganda Securities Exchange',
   bondMarkets: AU_BOND_MARKETS['UG'],
+  mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['UG'],
 }

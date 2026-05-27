@@ -6,6 +6,7 @@ import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { IGAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IGAD_RARE_EARTHS } from './rareEarthsByIso'
 import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
+import { IGAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const somalia: IgadCountry = {
   name: 'Somalia',
@@ -32,4 +33,5 @@ export const somalia: IgadCountry = {
   rareEarths: IGAD_RARE_EARTHS['SO'],
   stockExchange: 'No substantive national equities exchange consolidated (subsidiary regional plans — informational)',
   bondMarkets: IGAD_BOND_MARKETS['SO'],
+  mainInternationalAirport: IGAD_MAIN_INTERNATIONAL_AIRPORTS['SO'],
 }

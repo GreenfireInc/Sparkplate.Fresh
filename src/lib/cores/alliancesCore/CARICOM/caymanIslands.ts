@@ -6,6 +6,7 @@ import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
 import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
+import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 
 export const caymanIslands: CaricomCountry = {
   name: 'Cayman Islands',
@@ -31,4 +32,5 @@ export const caymanIslands: CaricomCountry = {
   rareEarths: CARICOM_RARE_EARTHS['KY'],
   stockExchange: 'Cayman Islands Stock Exchange (CSX)',
   bondMarkets: CARICOM_BOND_MARKETS['KY'],
+  mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['KY'],
 }
