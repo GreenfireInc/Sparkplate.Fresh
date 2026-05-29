@@ -36,11 +36,11 @@
       <AspectCalculatorRightResult
         v-model:to-is-crypto="toIsCrypto"
         v-model:to-crypto-ticker="toCryptoTicker"
+        v-model:to-fiat-iso="toFiatIso"
         v-model:to="args.to"
         :from="args.from"
         :amount="args.amount"
         :solution="solution"
-        :fiat-currencies="fiatCurrencies"
         :get-currency-symbol="getCurrencySymbol"
       />
 
@@ -54,7 +54,14 @@ import { Separator } from 'radix-vue'
 import MarqueeTicker from '../../partials/marqueeTicker/MarqueeTicker.vue'
 import AspectCalculatorLeftInput from './aspect.Calculator/aspect.calculator.left.input.vue'
 import AspectCalculatorRightResult from './aspect.Calculator/aspect.calculator.right.result.vue'
-import { COINBASE50 } from '@/lib/cores/currencyCore/indexComposites/coinbase50'
+import { cryptoCurrencyFromPublicIconTicker } from '@/lib/cores/bridge/bridge.shared.publicIcons.for.currencies'
+import {
+  CALCULATOR_FIAT_OPTIONS,
+  fiatByIso,
+  getFiatCurrencySymbol,
+  toCalculatorFiatOption,
+  unitedStates,
+} from '@/lib/cores/fiatStandard'
 
 // Define component name
 defineOptions({
@@ -75,49 +82,18 @@ interface FiatCurrency {
 
 type Currency = CryptoCurrency | FiatCurrency
 
-// Major fiat currencies; Will move this to alliancesCore 
-const FIAT_CURRENCIES: FiatCurrency[] = [
-  { symbol: 'USD', name: 'US Dollar (USD)' },
-  { symbol: 'EUR', name: 'Euro (EUR)' },
-  { symbol: 'GBP', name: 'British Pound (GBP)' },
-  { symbol: 'JPY', name: 'Japanese Yen (JPY)' },
-  { symbol: 'AUD', name: 'Australian Dollar (AUD)' },
-  { symbol: 'CAD', name: 'Canadian Dollar (CAD)' },
-  { symbol: 'CHF', name: 'Swiss Franc (CHF)' },
-  { symbol: 'CNY', name: 'Chinese Yuan (CNY)' },
-  { symbol: 'SEK', name: 'Swedish Krona (SEK)' },
-  { symbol: 'NZD', name: 'New Zealand Dollar (NZD)' },
-  { symbol: 'MXN', name: 'Mexican Peso (MXN)' },
-  { symbol: 'SGD', name: 'Singapore Dollar (SGD)' },
-  { symbol: 'HKD', name: 'Hong Kong Dollar (HKD)' },
-  { symbol: 'NOK', name: 'Norwegian Krone (NOK)' },
-  { symbol: 'TRY', name: 'Turkish Lira (TRY)' },
-  { symbol: 'RUB', name: 'Russian Ruble (RUB)' },
-  { symbol: 'INR', name: 'Indian Rupee (INR)' },
-  { symbol: 'BRL', name: 'Brazilian Real (BRL)' },
-  { symbol: 'ZAR', name: 'South African Rand (ZAR)' },
-  { symbol: 'KRW', name: 'South Korean Won (KRW)' }
-]
-
-// Currency symbol mapping; Will move this to alliancesCore
-const CURRENCY_SYMBOLS = {
-  USD: '$', EUR: '€', GBP: '£', JPY: '¥', AUD: 'A$', CAD: 'C$',
-  CHF: 'CHF', CNY: '¥', SEK: 'kr', NZD: 'NZ$', MXN: '$', SGD: 'S$',
-  HKD: 'HK$', NOK: 'kr', TRY: '₺', RUB: '₽', INR: '₹', BRL: 'R$',
-  ZAR: 'R', KRW: '₩'
-}
-
 // Reactive state
 const fromIsFiat = ref(false)
 const toIsCrypto = ref(false)
 const isLoading = ref(false)
-const fiatCurrencies = ref(FIAT_CURRENCIES)
+const fiatCurrencies = ref([...CALCULATOR_FIAT_OPTIONS])
 const fromCryptoTicker = ref('BTC')
 const toCryptoTicker = ref('BTC')
+const toFiatIso = ref('USD')
 
 const args = reactive({
   from: { id: 'bitcoin', symbol: 'BTC', name: 'Bitcoin' } as Currency,
-  to: { symbol: 'USD', name: 'US Dollar (USD)' } as Currency,
+  to: toCalculatorFiatOption(unitedStates) as Currency,
   amount: 1
 })
 
@@ -137,16 +113,11 @@ function isFiatCurrency(currency: Currency): currency is FiatCurrency {
 
 // Methods
 function getCurrencySymbol(code: string) {
-  return CURRENCY_SYMBOLS[code as keyof typeof CURRENCY_SYMBOLS] || code
+  return getFiatCurrencySymbol(code)
 }
 
 function cryptoCurrencyFromTicker(ticker: string): CryptoCurrency {
-  const upper = ticker.toUpperCase()
-  const entry = COINBASE50.find((c) => c.symbol.toUpperCase() === upper)
-  if (entry) {
-    return { id: entry.id, symbol: entry.symbol, name: entry.name }
-  }
-  return { id: upper.toLowerCase(), symbol: upper, name: upper }
+  return cryptoCurrencyFromPublicIconTicker(ticker)
 }
 
 async function convertCurrency() {
@@ -159,10 +130,18 @@ async function convertCurrency() {
   
   try {
     let fromPrice: number, toPrice: number
+
+    let fiatRates: Record<string, number> | null = null
+    const getFiatRate = async (iso: string): Promise<number> => {
+      if (!fiatRates) {
+        fiatRates = await fetchFiatRates()
+      }
+      return fiatRates[iso.toUpperCase()] ?? 1
+    }
     
     // Get price for 'from' currency
     if (fromIsFiat.value) {
-      fromPrice = 1 // Fiat base price is 1
+      fromPrice = 1 // Fiat base price is 1 (used only in fiat-to-crypto path)
     } else {
       const fromCrypto = args.from as CryptoCurrency
       const fromData = await fetchCryptoPrice(fromCrypto.id)
@@ -175,14 +154,13 @@ async function convertCurrency() {
       const toData = await fetchCryptoPrice(toCrypto.id)
       toPrice = toData.current_price
     } else {
-      toPrice = 1 // Fiat base price is 1
+      toPrice = 1 // Fiat base price is 1 (used only in fiat-to-crypto path)
     }
 
     // Handle fiat-to-fiat conversion
     if (fromIsFiat.value && !toIsCrypto.value) {
-      const rates = await fetchFiatRates()
-      const fromRate = rates[args.from.symbol] || 1
-      const toRate = rates[args.to.symbol] || 1
+      const fromRate = await getFiatRate(args.from.symbol)
+      const toRate = await getFiatRate(args.to.symbol)
       const exchangeRate = toRate / fromRate
       
       solution.rate = formatNumber(exchangeRate, 6)
@@ -192,14 +170,16 @@ async function convertCurrency() {
       let exchangeRate: number
       
       if (fromIsFiat.value) {
-        // Fiat to crypto: 1 USD = X crypto
-        exchangeRate = 1 / toPrice
+        // Fiat to crypto: convert source fiat → USD → crypto
+        const fromRate = await getFiatRate(args.from.symbol)
+        exchangeRate = (1 / fromRate) / toPrice
       } else if (toIsCrypto.value) {
-        // Crypto to crypto: fromPrice / toPrice
+        // Crypto to crypto: fromPrice / toPrice (both USD-denominated)
         exchangeRate = fromPrice / toPrice
       } else {
-        // Crypto to fiat: crypto price in USD
-        exchangeRate = fromPrice
+        // Crypto to fiat: convert USD-denominated crypto price → target fiat
+        const toRate = await getFiatRate(args.to.symbol)
+        exchangeRate = fromPrice * toRate
       }
 
       solution.rate = formatNumber(exchangeRate, 8)
@@ -214,19 +194,22 @@ async function convertCurrency() {
   }
 }
 
-async function fetchCryptoPrice(coinId: string) {
-  const response = await fetch(
-    `https://api.coingecko.com/api/v3/coins/${coinId}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`
-  )
-  
+async function fetchCryptoPrice(coinId: string): Promise<{ current_price: number }> {
+  const url = `https://api.coingecko.com/api/v3/simple/price?ids=${encodeURIComponent(coinId)}&vs_currencies=usd`
+  const response = await fetch(url)
+
   if (!response.ok) {
-    throw new Error(`Failed to fetch price for ${coinId}`)
+    throw new Error(`CoinGecko API returned ${response.status} for "${coinId}"`)
   }
-  
+
   const data = await response.json()
-  return {
-    current_price: data.market_data.current_price.usd
+  const price: number | undefined = (data[coinId] as { usd?: number } | undefined)?.usd
+
+  if (price == null) {
+    throw new Error(`No USD price data returned for coin "${coinId}"`)
   }
+
+  return { current_price: price }
 }
 
 async function fetchFiatRates() {
@@ -251,7 +234,7 @@ function formatNumber(num: number, decimals = 6) {
 function resetToDefaults(toggleType: string) {
   if (toggleType === 'from') {
     if (fromIsFiat.value) {
-      args.from = { symbol: 'USD', name: 'US Dollar (USD)' } as FiatCurrency
+      args.from = toCalculatorFiatOption(unitedStates)
     } else {
       fromCryptoTicker.value = 'BTC'
       args.from = cryptoCurrencyFromTicker('BTC')
@@ -261,7 +244,8 @@ function resetToDefaults(toggleType: string) {
       toCryptoTicker.value = 'BTC'
       args.to = cryptoCurrencyFromTicker('BTC')
     } else {
-      args.to = { symbol: 'USD', name: 'US Dollar (USD)' } as FiatCurrency
+      toFiatIso.value = 'USD'
+      args.to = toCalculatorFiatOption(unitedStates)
     }
   }
   
@@ -288,6 +272,15 @@ watch(fromCryptoTicker, (ticker) => {
 watch(toCryptoTicker, (ticker) => {
   if (toIsCrypto.value && ticker) {
     args.to = cryptoCurrencyFromTicker(ticker)
+  }
+})
+
+watch(toFiatIso, (iso) => {
+  if (!toIsCrypto.value && iso) {
+    const fiat = fiatByIso[iso.toUpperCase()]
+    if (fiat) {
+      args.to = toCalculatorFiatOption(fiat)
+    }
   }
 })
 

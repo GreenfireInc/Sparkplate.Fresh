@@ -27,7 +27,7 @@
           />
           <span v-else-if="fromIsFiat" class="calc-fiat-symbol">{{ getCurrencySymbol(from.symbol) }}</span>
         </div>
-        <CurrencyDropdown
+        <CurrencyDropdownWithSearch
           v-if="!fromIsFiat"
           v-model="fromCryptoTicker"
           class="calc-currency-dropdown"
@@ -70,7 +70,7 @@
 
 <script setup lang="ts">
 import { Label } from 'radix-vue'
-import CurrencyDropdown from '@/components/dropdowns/dropdown.currency.from.publicIcons.fullNames.vue'
+import CurrencyDropdownWithSearch from '@/components/dropdowns/dropdown.currency.from.publicIcons.fullNames.WithSearch.vue'
 
 defineOptions({ name: 'AspectCalculatorLeftInput' })
 

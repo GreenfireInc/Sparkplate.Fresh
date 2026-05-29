@@ -174,7 +174,7 @@ export const CURRENCY_CORE: CurrencyCoreItem[] = [
     npm: null
   },
   { 
-    id: 'terra-luna', 
+    id: 'terra-luna-2', 
     symbol: 'LUNA', 
     name: 'Terra',
     description: 'The native token of Terra 2.0 blockchain, rebuilt after the Terra Classic collapse.',
@@ -187,7 +187,7 @@ export const CURRENCY_CORE: CurrencyCoreItem[] = [
     npm: 'https://www.npmjs.com/package/@terra-money/terra.js'
   },
   { 
-    id: 'terra-luna-2', 
+    id: 'terra-luna', 
     symbol: 'LUNC', 
     name: 'Terra Classic',
     description: 'The original Terra blockchain token, now known as Terra Classic after the network split.',
