@@ -67,21 +67,29 @@
       <button
         type="button"
         class="calc-btn calc-btn--export"
-        :disabled="!solution.rate || isExporting"
-        @click="handleExport"
+        :disabled="!solution.rate"
+        @click="openPreviewExport"
       >
-        {{ isExporting ? 'Exporting…' : 'Export' }}
+        Export
       </button>
     </div>
+
+    <ModalCalculatorPreviewExport
+      :is-open="isPreviewOpen"
+      :snapshot="exportSnapshot"
+      @close="isPreviewOpen = false"
+      @exported="isPreviewOpen = false"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import { Label } from 'radix-vue'
 import CurrencyDropdown from '@/components/dropdowns/dropdown.currency.from.publicIcons.fullNames.vue'
 import FiatDropdownWithSearch from '@/components/dropdowns/dropdown.fiat.from.fiatStandard.WithFullNames.WithSearch.vue'
-import { exportCalculatorSnapshotAsPNG } from '@/lib/cores/exportStandard/filenameStructureAndContent.Calculator.snapshot'
+import ModalCalculatorPreviewExport from '@/components/modals/cryptocurrency/modal.Calculator.previewExport.vue'
+import type { CalculatorSnapshotData } from '@/lib/cores/exportStandard/filenameStructureAndContent.Calculator.snapshot'
 import { fiatByIso, toCalculatorFiatOption } from '@/lib/cores/fiatStandard'
 
 defineOptions({ name: 'AspectCalculatorRightResult' })
@@ -103,6 +111,7 @@ const props = defineProps<{
   from: Currency
   amount: number
   solution: { amount: string; rate: string }
+  fromChange24h: number | null
   getCurrencySymbol: (code: string) => string
 }>()
 
@@ -120,29 +129,22 @@ watch(toFiatIso, (iso) => {
   }
 })
 
-const isExporting = ref(false)
+const isPreviewOpen = ref(false)
 
-async function handleExport() {
+const exportSnapshot = computed<CalculatorSnapshotData>(() => ({
+  from: props.from,
+  to: props.to,
+  amount: props.amount,
+  solution: props.solution,
+  fromChange24h: props.fromChange24h,
+}))
+
+function openPreviewExport() {
   if (!props.solution.rate) {
     alert('Please convert before exporting')
     return
   }
-
-  isExporting.value = true
-
-  try {
-    await exportCalculatorSnapshotAsPNG({
-      from: props.from,
-      to: props.to,
-      amount: props.amount,
-      solution: props.solution,
-    })
-  } catch (error) {
-    console.error('Calculator export error:', error)
-    alert('Error exporting calculator snapshot. Please try again.')
-  } finally {
-    isExporting.value = false
-  }
+  isPreviewOpen.value = true
 }
 </script>
 
