@@ -32,11 +32,11 @@
           v-model="toCryptoTicker"
           class="calc-currency-dropdown"
         />
-        <select v-else v-model="to" class="calc-select">
-          <option v-for="fiat in fiatCurrencies" :key="fiat.symbol" :value="fiat">
-            {{ fiat.name }}
-          </option>
-        </select>
+        <FiatDropdownWithSearch
+          v-else
+          v-model="toFiatIso"
+          class="calc-currency-dropdown"
+        />
       </div>
 
       <!-- Result amount -->
@@ -77,10 +77,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { Label } from 'radix-vue'
 import CurrencyDropdown from '@/components/dropdowns/dropdown.currency.from.publicIcons.fullNames.vue'
+import FiatDropdownWithSearch from '@/components/dropdowns/dropdown.fiat.from.fiatStandard.WithFullNames.WithSearch.vue'
 import { exportCalculatorSnapshotAsPNG } from '@/lib/cores/exportStandard/filenameStructureAndContent.Calculator.snapshot'
+import { fiatByIso, toCalculatorFiatOption } from '@/lib/cores/fiatStandard'
 
 defineOptions({ name: 'AspectCalculatorRightResult' })
 
@@ -101,13 +103,22 @@ const props = defineProps<{
   from: Currency
   amount: number
   solution: { amount: string; rate: string }
-  fiatCurrencies: FiatCurrency[]
   getCurrencySymbol: (code: string) => string
 }>()
 
 const toIsCrypto = defineModel<boolean>('toIsCrypto', { required: true })
 const toCryptoTicker = defineModel<string>('toCryptoTicker', { required: true })
+const toFiatIso = defineModel<string>('toFiatIso', { required: true })
 const to = defineModel<Currency>('to', { required: true })
+
+watch(toFiatIso, (iso) => {
+  if (!toIsCrypto.value && iso) {
+    const fiat = fiatByIso[iso.toUpperCase()]
+    if (fiat) {
+      to.value = toCalculatorFiatOption(fiat)
+    }
+  }
+})
 
 const isExporting = ref(false)
 

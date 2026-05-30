@@ -135,46 +135,12 @@
         </div>
         <div class="user-profile-field">
           <Label for="profile-currency" class="user-profile-label">{{ t('defaultCurrency') }}</Label>
-          <SelectRoot v-model="profile.currency">
-            <SelectTrigger
-              id="profile-currency"
-              class="user-profile-select-trigger"
-              aria-label="Default currency"
-            >
-              <SelectValue :placeholder="t('defaultCurrency')" />
-              <i class="bi bi-chevron-down user-profile-select-chevron" aria-hidden />
-            </SelectTrigger>
-            <SelectPortal>
-              <SelectContent class="user-profile-select-content" position="popper" :side-offset="4">
-                <SelectViewport class="user-profile-select-viewport">
-                  <SelectItem value="USD" class="user-profile-select-item">
-                    <SelectItemText>🇺🇸 USD ($)</SelectItemText>
-                  </SelectItem>
-                  <SelectItem value="EUR" class="user-profile-select-item">
-                    <SelectItemText>🇪🇺 EUR (€)</SelectItemText>
-                  </SelectItem>
-                  <SelectItem value="GBP" class="user-profile-select-item">
-                    <SelectItemText>🇬🇧 GBP (£)</SelectItemText>
-                  </SelectItem>
-                  <SelectItem value="JPY" class="user-profile-select-item">
-                    <SelectItemText>🇯🇵 JPY (¥)</SelectItemText>
-                  </SelectItem>
-                  <SelectItem value="CNY" class="user-profile-select-item">
-                    <SelectItemText>🇨🇳 CNY (¥)</SelectItemText>
-                  </SelectItem>
-                  <SelectItem value="BRL" class="user-profile-select-item">
-                    <SelectItemText>🇧🇷 BRL (R$)</SelectItemText>
-                  </SelectItem>
-                  <SelectItem value="CAD" class="user-profile-select-item">
-                    <SelectItemText>🇨🇦 CAD ($)</SelectItemText>
-                  </SelectItem>
-                  <SelectItem value="RUB" class="user-profile-select-item">
-                    <SelectItemText>🇷🇺 RUB (₽)</SelectItemText>
-                  </SelectItem>
-                </SelectViewport>
-              </SelectContent>
-            </SelectPortal>
-          </SelectRoot>
+          <FiatDropdownWithSearch
+            id="profile-currency"
+            v-model="profile.currency"
+            class="user-profile-fiat-dropdown"
+            :placeholder="t('defaultCurrency')"
+          />
         </div>
       </div>
     </div>
@@ -206,6 +172,7 @@ import {
   SelectViewport,
 } from 'radix-vue'
 import DomainsAndSocialMedia from '@/components/modals/settings/userprofile/DomainsAndSocialMedia.vue'
+import FiatDropdownWithSearch from '@/components/dropdowns/dropdown.fiat.from.fiatStandard.WithFullNames.WithSearch.vue'
 import { useI18n } from '@/composables/useI18n'
 import { useAuth } from '@/composables/useAuth'
 
@@ -420,6 +387,30 @@ function handleDomainsModalSave(data: { domains?: Record<string, string>; social
 .user-profile-select-chevron {
   font-size: 0.75rem;
   opacity: 0.7;
+}
+
+.user-profile-fiat-dropdown {
+  width: 100%;
+
+  :deep(.custom-select-wrapper),
+  :deep(.custom-select) {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  :deep(.custom-select) {
+    padding: 0.375rem 0.5rem;
+    font-size: 0.875rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  :deep(.custom-select.open),
+  :deep(.custom-select:focus-within) {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  }
 }
 </style>
 

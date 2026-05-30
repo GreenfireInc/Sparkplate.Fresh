@@ -163,7 +163,7 @@ export const terraClassicData: CurrencyData = {
     identifierBraveNewCoin: "LUNC",
     identifierCoinAPI: "LUNC",
     identifierCoinCap: "terra-luna",
-    identifierCoinGecko: "terra-luna-classic",
+    identifierCoinGecko: "terra-luna",
     identifierCoinPaprika: "lunc-terra-classic",
   },
 

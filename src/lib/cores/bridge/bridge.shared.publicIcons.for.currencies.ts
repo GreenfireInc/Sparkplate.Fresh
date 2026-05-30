@@ -84,3 +84,36 @@ export function formatCryptoOptionLabel(ticker: string): string {
   const name = getCryptoDisplayName(upper)
   return `${name} (${upper})`
 }
+
+/**
+ * CoinGecko `/coins/{id}` slug for a public-icon ticker.
+ * Prefers `currencyByTicker` identifiers, then index composites, then lowercase ticker.
+ */
+export function getCoinGeckoIdForTicker(ticker: string): string {
+  const upper = ticker.toUpperCase()
+
+  const fromCurrency = currencyByTicker[upper]?.identifiers?.identifierCoinGecko
+  if (fromCurrency) return fromCurrency
+
+  const fromCoinbase = COINBASE50.find((item) => item.symbol.toUpperCase() === upper)
+  if (fromCoinbase?.id) return fromCoinbase.id
+
+  const fromCore = CURRENCY_CORE.find((item) => item.symbol.toUpperCase() === upper)
+  if (fromCore?.id) return fromCore.id
+
+  return upper.toLowerCase()
+}
+
+/** Calculator / dropdown crypto row with CoinGecko-compatible `id`. */
+export function cryptoCurrencyFromPublicIconTicker(ticker: string): {
+  id: string
+  symbol: string
+  name: string
+} {
+  const upper = ticker.toUpperCase()
+  return {
+    id: getCoinGeckoIdForTicker(upper),
+    symbol: upper,
+    name: getCryptoDisplayName(upper),
+  }
+}
