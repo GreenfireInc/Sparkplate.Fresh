@@ -41,6 +41,7 @@
         :from="args.from"
         :amount="args.amount"
         :solution="solution"
+        :from-change24h="solution.fromChange24h"
         :get-currency-symbol="getCurrencySymbol"
       />
 
@@ -99,8 +100,15 @@ const args = reactive({
 
 const solution = reactive({
   amount: '',
-  rate: ''
+  rate: '',
+  fromChange24h: null as number | null,
 })
+
+function clearSolution() {
+  solution.amount = ''
+  solution.rate = ''
+  solution.fromChange24h = null
+}
 
 // Type guard functions
 function isCryptoCurrency(currency: Currency): currency is CryptoCurrency {
@@ -142,10 +150,12 @@ async function convertCurrency() {
     // Get price for 'from' currency
     if (fromIsFiat.value) {
       fromPrice = 1 // Fiat base price is 1 (used only in fiat-to-crypto path)
+      solution.fromChange24h = null
     } else {
       const fromCrypto = args.from as CryptoCurrency
-      const fromData = await fetchCryptoPrice(fromCrypto.id)
+      const fromData = await fetchCryptoPrice(fromCrypto.id, true)
       fromPrice = fromData.current_price
+      solution.fromChange24h = fromData.price_change_percentage_24h ?? null
     }
 
     // Get price for 'to' currency
@@ -194,8 +204,19 @@ async function convertCurrency() {
   }
 }
 
-async function fetchCryptoPrice(coinId: string): Promise<{ current_price: number }> {
-  const url = `https://api.coingecko.com/api/v3/simple/price?ids=${encodeURIComponent(coinId)}&vs_currencies=usd`
+async function fetchCryptoPrice(
+  coinId: string,
+  include24hChange = false
+): Promise<{ current_price: number; price_change_percentage_24h?: number }> {
+  const params = new URLSearchParams({
+    ids: coinId,
+    vs_currencies: 'usd',
+  })
+  if (include24hChange) {
+    params.set('include_24hr_change', 'true')
+  }
+
+  const url = `https://api.coingecko.com/api/v3/simple/price?${params.toString()}`
   const response = await fetch(url)
 
   if (!response.ok) {
@@ -203,13 +224,17 @@ async function fetchCryptoPrice(coinId: string): Promise<{ current_price: number
   }
 
   const data = await response.json()
-  const price: number | undefined = (data[coinId] as { usd?: number } | undefined)?.usd
+  const coin = data[coinId] as { usd?: number; usd_24h_change?: number } | undefined
+  const price = coin?.usd
 
   if (price == null) {
     throw new Error(`No USD price data returned for coin "${coinId}"`)
   }
 
-  return { current_price: price }
+  return {
+    current_price: price,
+    price_change_percentage_24h: coin?.usd_24h_change,
+  }
 }
 
 async function fetchFiatRates() {
@@ -250,8 +275,7 @@ function resetToDefaults(toggleType: string) {
   }
   
   // Clear previous results
-  solution.amount = ''
-  solution.rate = ''
+  clearSolution()
 }
 
 // Watchers
@@ -285,18 +309,15 @@ watch(toFiatIso, (iso) => {
 })
 
 watch(() => args.from, () => {
-  solution.amount = ''
-  solution.rate = ''
+  clearSolution()
 })
 
 watch(() => args.to, () => {
-  solution.amount = ''
-  solution.rate = ''
+  clearSolution()
 })
 
 watch(() => args.amount, () => {
-  solution.amount = ''
-  solution.rate = ''
+  clearSolution()
 })
 </script>
 

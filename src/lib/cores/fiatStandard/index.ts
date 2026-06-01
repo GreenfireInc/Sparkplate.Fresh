@@ -47,10 +47,12 @@ import { turkey } from './TRY.Turkey'
 import { unitedStates } from './USD.UnitedStates'
 import { southAfrica } from './ZAR.SouthAfrica'
 
-/** Calculator / select dropdown row shape ({ symbol, name }). */
+/** Calculator / select dropdown row shape ({ symbol, name, currencySymbol, flag }). */
 export interface CalculatorFiatOption {
   symbol: string
   name: string
+  currencySymbol: string
+  flag: string
 }
 
 /**
@@ -114,6 +116,8 @@ export function toCalculatorFiatOption(fiat: FiatCurrency): CalculatorFiatOption
   return {
     symbol: fiat.isoSymbol,
     name: formatFiatOptionLabel(fiat),
+    currencySymbol: fiat.currencySymbol,
+    flag: fiat.flag,
   }
 }
 
