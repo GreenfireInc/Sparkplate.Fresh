@@ -7,6 +7,8 @@ import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
 import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { OPEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const saudiArabia: OpecCountry = {
   name: 'Saudi Arabia',
@@ -34,4 +36,6 @@ export const saudiArabia: OpecCountry = {
   stockExchange: 'Tadawul Saudi Exchange (national benchmark — informational)',
   bondMarkets: OPEC_BOND_MARKETS['SA'],
   mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['SA'],
+  intellectualPropertyDepartments: OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['SA'],
+  securitiesExchangeCommission: OPEC_SECURITIES_EXCHANGE_COMMISSIONS['SA'],
 }

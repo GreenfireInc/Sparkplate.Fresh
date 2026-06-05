@@ -7,6 +7,8 @@ import { ECCAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECCAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECCAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { ECCAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { ECCAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const centralAfricanRepublic: EccasCountry = {
   name: 'Central African Republic',
@@ -32,5 +34,8 @@ export const centralAfricanRepublic: EccasCountry = {
   rareEarths: ECCAS_RARE_EARTHS['CF'],
   stockExchange: 'Bangui Stock Exchange (very limited)',
   bondMarkets: ECCAS_BOND_MARKETS['CF'],
+  intellectualPropertyDepartments: ECCAS_INTELLECTUAL_PROPERTY_DEPARTMENTS['CF'],
+
+  securitiesExchangeCommission: ECCAS_SECURITIES_EXCHANGE_COMMISSIONS['CF'],
   mainInternationalAirport: ECCAS_MAIN_INTERNATIONAL_AIRPORTS['CF'],
 }

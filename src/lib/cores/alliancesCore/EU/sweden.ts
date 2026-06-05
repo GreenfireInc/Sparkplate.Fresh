@@ -7,6 +7,8 @@ import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EU_RARE_EARTHS } from './rareEarthsByIso'
 import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const sweden: EuCountry = {
   name: 'Sweden',
@@ -31,5 +33,8 @@ export const sweden: EuCountry = {
   rareEarths: EU_RARE_EARTHS['SE'],
   stockExchange: 'Nasdaq Stockholm',
   bondMarkets: EU_BOND_MARKETS['SE'],
+  intellectualPropertyDepartments: EU_INTELLECTUAL_PROPERTY_DEPARTMENTS['SE'],
+
+  securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['SE'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['SE'],
 }

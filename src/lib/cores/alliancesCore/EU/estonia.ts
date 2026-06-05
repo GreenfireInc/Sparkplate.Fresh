@@ -7,6 +7,8 @@ import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EU_RARE_EARTHS } from './rareEarthsByIso'
 import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const estonia: EuCountry = {
   name: 'Estonia',
@@ -31,5 +33,8 @@ export const estonia: EuCountry = {
   rareEarths: EU_RARE_EARTHS['EE'],
   stockExchange: 'Nasdaq Tallinn',
   bondMarkets: EU_BOND_MARKETS['EE'],
+  intellectualPropertyDepartments: EU_INTELLECTUAL_PROPERTY_DEPARTMENTS['EE'],
+
+  securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['EE'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['EE'],
 }

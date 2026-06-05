@@ -6,6 +6,8 @@ import { BRICS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRICS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRICS_RARE_EARTHS } from './rareEarthsByIso'
 import { BRICS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { BRICS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { BRICS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const india: BricsCountry = {
   name: 'India',
@@ -30,5 +32,7 @@ export const india: BricsCountry = {
   mainExportedElements: BRICS_MAIN_EXPORTED_ELEMENTS['IN'],
   rareEarths: BRICS_RARE_EARTHS['IN'],
   stockExchange: 'National Stock Exchange of India (NSE); BSE',
+  intellectualPropertyDepartments: BRICS_INTELLECTUAL_PROPERTY_DEPARTMENTS['IN'],
+  securitiesExchangeCommission: BRICS_SECURITIES_EXCHANGE_COMMISSIONS['IN'],
   mainInternationalAirport: BRICS_MAIN_INTERNATIONAL_AIRPORTS['IN'],
 }

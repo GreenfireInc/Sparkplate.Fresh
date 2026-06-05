@@ -7,6 +7,8 @@ import { ECCAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECCAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECCAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { ECCAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { ECCAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const gabon: EccasCountry = {
   name: 'Gabon',
@@ -32,5 +34,8 @@ export const gabon: EccasCountry = {
   rareEarths: ECCAS_RARE_EARTHS['GA'],
   stockExchange: 'Regional CEMAC markets; Libreville financial hub — verify listings',
   bondMarkets: ECCAS_BOND_MARKETS['GA'],
+  intellectualPropertyDepartments: ECCAS_INTELLECTUAL_PROPERTY_DEPARTMENTS['GA'],
+
+  securitiesExchangeCommission: ECCAS_SECURITIES_EXCHANGE_COMMISSIONS['GA'],
   mainInternationalAirport: ECCAS_MAIN_INTERNATIONAL_AIRPORTS['GA'],
 }

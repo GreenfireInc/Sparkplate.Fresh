@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const morocco: AfricanUnionCountry = {
   name: 'Morocco',
   iso3166Alpha2: 'MA',
@@ -31,5 +33,7 @@ export const morocco: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['MA'],
   stockExchange: 'Casablanca Stock Exchange',
   bondMarkets: AU_BOND_MARKETS['MA'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['MA'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['MA'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['MA'],
 }

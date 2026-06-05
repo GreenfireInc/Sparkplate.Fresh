@@ -7,6 +7,8 @@ import { IGAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IGAD_RARE_EARTHS } from './rareEarthsByIso'
 import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
 import { IGAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { IGAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const ethiopia: IgadCountry = {
   name: 'Ethiopia',
@@ -33,4 +35,6 @@ export const ethiopia: IgadCountry = {
   stockExchange: 'Ethiopian Securities Exchange Addis debut-era listings — informational',
   bondMarkets: IGAD_BOND_MARKETS['ET'],
   mainInternationalAirport: IGAD_MAIN_INTERNATIONAL_AIRPORTS['ET'],
+  intellectualPropertyDepartments: IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['ET'],
+  securitiesExchangeCommission: IGAD_SECURITIES_EXCHANGE_COMMISSIONS['ET'],
 }

@@ -7,6 +7,8 @@ import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
 import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const madagascar: ComesaCountry = {
   name: 'Madagascar',
@@ -32,5 +34,7 @@ export const madagascar: ComesaCountry = {
   rareEarths: COMESA_RARE_EARTHS['MG'],
   stockExchange: 'Madagascar Stock Exchange (SEM)',
   bondMarkets: COMESA_BOND_MARKETS['MG'],
+  intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['MG'],
+  securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['MG'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['MG'],
 }

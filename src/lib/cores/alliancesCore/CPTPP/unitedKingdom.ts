@@ -7,6 +7,8 @@ import { CPTPP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CPTPP_RARE_EARTHS } from './rareEarthsByIso'
 import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 import { CPTPP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CPTPP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const unitedKingdom: CptppCountry = {
   name: 'United Kingdom',
@@ -32,5 +34,7 @@ export const unitedKingdom: CptppCountry = {
   rareEarths: CPTPP_RARE_EARTHS['GB'],
   stockExchange: 'London Stock Exchange Group (LSEG)',
   bondMarkets: CPTPP_BOND_MARKETS['GB'],
+  intellectualPropertyDepartments: CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS['GB'],
+  securitiesExchangeCommission: CPTPP_SECURITIES_EXCHANGE_COMMISSIONS['GB'],
   mainInternationalAirport: CPTPP_MAIN_INTERNATIONAL_AIRPORTS['GB'],
 }

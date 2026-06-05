@@ -7,6 +7,8 @@ import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { SADC_RARE_EARTHS } from './rareEarthsByIso'
 import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 import { SADC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { SADC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const seychelles: SadcCountry = {
   name: 'Seychelles',
@@ -33,4 +35,6 @@ export const seychelles: SadcCountry = {
   stockExchange: 'Merjex / small domestic market — verify',
   bondMarkets: SADC_BOND_MARKETS['SC'],
   mainInternationalAirport: SADC_MAIN_INTERNATIONAL_AIRPORTS['SC'],
+  intellectualPropertyDepartments: SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS['SC'],
+  securitiesExchangeCommission: SADC_SECURITIES_EXCHANGE_COMMISSIONS['SC'],
 }

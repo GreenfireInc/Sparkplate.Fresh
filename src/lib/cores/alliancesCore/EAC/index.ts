@@ -3,6 +3,9 @@ export type {
   DomesticCourierService,
   EacCountry,
   EacOrganizationInfo,
+  IntellectualPropertyDepartment,
+  IntellectualPropertyDepartmentKind,
+  IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
@@ -10,7 +13,10 @@ export type {
   NewsOutlet,
   NewsOutletsRoster,
   RareEarths,
+  SecuritiesExchangeCommission,
 } from './types'
+export { EAC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+export { EAC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 import type { EacCountry, EacOrganizationInfo } from './types'
 import { EAC_MEMBER_ISO_CODES } from './eacMemberIsoCodes'

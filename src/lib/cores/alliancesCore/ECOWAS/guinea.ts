@@ -7,6 +7,8 @@ import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const guinea: EcowasCountry = {
   name: 'Guinea',
@@ -31,5 +33,8 @@ export const guinea: EcowasCountry = {
   rareEarths: ECOWAS_RARE_EARTHS['GN'],
   stockExchange: 'No major national exchange; informal OTC',
   bondMarkets: ECOWAS_BOND_MARKETS['GN'],
+  intellectualPropertyDepartments: ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS['GN'],
+
+  securitiesExchangeCommission: ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS['GN'],
   mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['GN'],
 }

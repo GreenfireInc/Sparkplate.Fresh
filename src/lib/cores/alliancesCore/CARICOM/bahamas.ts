@@ -7,6 +7,8 @@ import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
 import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const bahamas: CaricomCountry = {
   name: 'Bahamas',
@@ -32,5 +34,7 @@ export const bahamas: CaricomCountry = {
   rareEarths: CARICOM_RARE_EARTHS['BS'],
   stockExchange: 'Bahamas International Securities Exchange (BISX)',
   bondMarkets: CARICOM_BOND_MARKETS['BS'],
+  intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['BS'],
+  securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['BS'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['BS'],
 }

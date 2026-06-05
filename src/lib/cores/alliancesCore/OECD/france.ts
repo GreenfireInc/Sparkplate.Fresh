@@ -7,6 +7,8 @@ import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OECD_RARE_EARTHS } from './rareEarthsByIso'
 import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { OECD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const france: OecdCountry = {
   name: 'France',
@@ -33,4 +35,6 @@ export const france: OecdCountry = {
   stockExchange: 'Euronext Paris',
   bondMarkets: OECD_BOND_MARKETS['FR'],
   mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['FR'],
+  intellectualPropertyDepartments: OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS['FR'],
+  securitiesExchangeCommission: OECD_SECURITIES_EXCHANGE_COMMISSIONS['FR'],
 }

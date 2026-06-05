@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const guinea: AfricanUnionCountry = {
   name: 'Guinea',
   iso3166Alpha2: 'GN',
@@ -31,5 +33,7 @@ export const guinea: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['GN'],
   stockExchange: 'No major national exchange; informal OTC and regional brokers',
   bondMarkets: AU_BOND_MARKETS['GN'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['GN'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['GN'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['GN'],
 }

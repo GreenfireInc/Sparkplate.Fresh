@@ -7,6 +7,8 @@ import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const uganda: BeltAndRoadInitiativeCountry = {
   name: 'Uganda',
   iso3166Alpha2: 'UG',
@@ -31,5 +33,7 @@ export const uganda: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['UG'],
   stockExchange: 'Uganda Securities Exchange',
   bondMarkets: BRI_BOND_MARKETS['UG'],
+  intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['UG'],
+  securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['UG'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['UG'],
 }

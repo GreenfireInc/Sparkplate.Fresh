@@ -7,6 +7,8 @@ import { G7_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { G7_RARE_EARTHS } from './rareEarthsByIso'
 import { G7_BOND_MARKETS } from './bondMarketsByIso'
 import { G7_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { G7_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { G7_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const france: G7Country = {
   name: 'France',
@@ -33,4 +35,6 @@ export const france: G7Country = {
   stockExchange: 'Euronext Paris',
   bondMarkets: G7_BOND_MARKETS['FR'],
   mainInternationalAirport: G7_MAIN_INTERNATIONAL_AIRPORTS['FR'],
+  intellectualPropertyDepartments: G7_INTELLECTUAL_PROPERTY_DEPARTMENTS['FR'],
+  securitiesExchangeCommission: G7_SECURITIES_EXCHANGE_COMMISSIONS['FR'],
 }

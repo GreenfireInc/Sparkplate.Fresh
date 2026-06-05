@@ -7,6 +7,8 @@ import { AMU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AMU_RARE_EARTHS } from './rareEarthsByIso'
 import { AMU_BOND_MARKETS } from './bondMarketsByIso'
 import { AMU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AMU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const algeria: AmuCountry = {
   name: 'Algeria',
@@ -32,5 +34,7 @@ export const algeria: AmuCountry = {
   rareEarths: AMU_RARE_EARTHS['DZ'],
   stockExchange: 'Algiers Stock Exchange',
   bondMarkets: AMU_BOND_MARKETS['DZ'],
+  intellectualPropertyDepartments: AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS['DZ'],
+  securitiesExchangeCommission: AMU_SECURITIES_EXCHANGE_COMMISSIONS['DZ'],
   mainInternationalAirport: AMU_MAIN_INTERNATIONAL_AIRPORTS['DZ'],
 }

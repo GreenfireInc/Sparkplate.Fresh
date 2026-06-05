@@ -7,6 +7,8 @@ import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { NATO_RARE_EARTHS } from './rareEarthsByIso'
 import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const unitedStates: NatoCountry = {
   name: 'United States',
@@ -34,4 +36,6 @@ export const unitedStates: NatoCountry = {
   stockExchange: 'NYSE / Nasdaq consolidated US equities',
   bondMarkets: NATO_BOND_MARKETS['US'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['US'],
+  intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['US'],
+  securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['US'],
 }

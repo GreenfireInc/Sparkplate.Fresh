@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const centralAfricanRepublic: AfricanUnionCountry = {
   name: 'Central African Republic',
   iso3166Alpha2: 'CF',
@@ -31,5 +33,7 @@ export const centralAfricanRepublic: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['CF'],
   stockExchange: 'Bangui Stock Exchange (very limited)',
   bondMarkets: AU_BOND_MARKETS['CF'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['CF'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['CF'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['CF'],
 }

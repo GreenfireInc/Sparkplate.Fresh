@@ -7,6 +7,8 @@ import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { APEC_RARE_EARTHS } from './rareEarthsByIso'
 import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const brunei: ApecCountry = {
   name: 'Brunei',
@@ -33,5 +35,7 @@ export const brunei: ApecCountry = {
   rareEarths: APEC_RARE_EARTHS['BN'],
   stockExchange: 'No consolidated national equities exchange narrative — informational',
   bondMarkets: APEC_BOND_MARKETS['BN'],
+  intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['BN'],
+  securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['BN'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['BN'],
 }

@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const liberia: AfricanUnionCountry = {
   name: 'Liberia',
   iso3166Alpha2: 'LR',
@@ -31,5 +33,7 @@ export const liberia: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['LR'],
   stockExchange: 'Liberia Stock Exchange (very limited)',
   bondMarkets: AU_BOND_MARKETS['LR'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['LR'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['LR'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['LR'],
 }

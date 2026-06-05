@@ -7,6 +7,8 @@ import { G20_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { G20_RARE_EARTHS } from './rareEarthsByIso'
 import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const mexico: G20Country = {
   name: 'Mexico',
@@ -34,4 +36,6 @@ export const mexico: G20Country = {
   stockExchange: 'Mexican Stock Exchange BMV Bolsa Mexicana de Valores',
   bondMarkets: G20_BOND_MARKETS['MX'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['MX'],
+  intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['MX'],
+  securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['MX'],
 }

@@ -95,12 +95,41 @@ export interface BondMarketVenue {
   apiEndpoint: string
 }
 
+export type IntellectualPropertyDepartmentKind = 'copyright' | 'trademarks' | 'patents'
+
+export interface IntellectualPropertyDepartment {
+  kind: IntellectualPropertyDepartmentKind
+  name: string
+  website: string
+  email: string
+  twitter: string
+  linkedin: string
+  formsUrl: string
+  apiEndpoint: string
+}
+
+export interface IntellectualPropertyDepartmentsRoster {
+  copyright: IntellectualPropertyDepartment
+  trademarks: IntellectualPropertyDepartment
+  patents: IntellectualPropertyDepartment
+}
+
 /**
  * Main international airport serving the capital or primary commercial gateway (informational;
  * verify URLs, handles, and API bases before production). IATA code appears in the name where
  * helpful. `apiEndpoint` is a public flight-data / developer REST base when documented;
  * otherwise empty string (most airport operators do not publish open APIs).
  */
+export interface SecuritiesExchangeCommission {
+  name: string
+  website: string
+  email: string
+  twitter: string
+  linkedin: string
+  formsUrl: string
+  apiEndpoint: string
+}
+
 export interface MainInternationalAirport {
   name: string
   website: string
@@ -146,6 +175,9 @@ export interface EcowasCountry {
    * no bond venue is documented.
    */
   bondMarkets: readonly BondMarketVenue[]
+  intellectualPropertyDepartments: IntellectualPropertyDepartmentsRoster
+  /** National or regional securities / capital-markets regulator (informational; verify). */
+  securitiesExchangeCommission: SecuritiesExchangeCommission
   /** Main international airport — capital or primary commercial gateway (informational; verify). */
   mainInternationalAirport: MainInternationalAirport
 }

@@ -7,6 +7,8 @@ import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
 import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const saintVincentAndTheGrenadines: CaricomCountry = {
   name: 'Saint Vincent and the Grenadines',
@@ -32,5 +34,7 @@ export const saintVincentAndTheGrenadines: CaricomCountry = {
   rareEarths: CARICOM_RARE_EARTHS['VC'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
   bondMarkets: CARICOM_BOND_MARKETS['VC'],
+  intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['VC'],
+  securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['VC'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['VC'],
 }

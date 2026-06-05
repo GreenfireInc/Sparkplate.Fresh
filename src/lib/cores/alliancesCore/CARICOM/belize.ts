@@ -7,6 +7,8 @@ import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
 import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const belize: CaricomCountry = {
   name: 'Belize',
@@ -32,5 +34,7 @@ export const belize: CaricomCountry = {
   rareEarths: CARICOM_RARE_EARTHS['BZ'],
   stockExchange: 'Belize Stock Exchange',
   bondMarkets: CARICOM_BOND_MARKETS['BZ'],
+  intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['BZ'],
+  securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['BZ'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['BZ'],
 }

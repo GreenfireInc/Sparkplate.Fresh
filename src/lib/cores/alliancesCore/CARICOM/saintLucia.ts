@@ -7,6 +7,8 @@ import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
 import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const saintLucia: CaricomCountry = {
   name: 'Saint Lucia',
@@ -32,5 +34,7 @@ export const saintLucia: CaricomCountry = {
   rareEarths: CARICOM_RARE_EARTHS['LC'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
   bondMarkets: CARICOM_BOND_MARKETS['LC'],
+  intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['LC'],
+  securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['LC'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['LC'],
 }

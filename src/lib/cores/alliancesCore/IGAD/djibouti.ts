@@ -7,6 +7,8 @@ import { IGAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IGAD_RARE_EARTHS } from './rareEarthsByIso'
 import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
 import { IGAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { IGAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const djibouti: IgadCountry = {
   name: 'Djibouti',
@@ -33,4 +35,6 @@ export const djibouti: IgadCountry = {
   stockExchange: 'Djibouti Stock Exchange (thin liquidity; sovereign development narrative — informational)',
   bondMarkets: IGAD_BOND_MARKETS['DJ'],
   mainInternationalAirport: IGAD_MAIN_INTERNATIONAL_AIRPORTS['DJ'],
+  intellectualPropertyDepartments: IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['DJ'],
+  securitiesExchangeCommission: IGAD_SECURITIES_EXCHANGE_COMMISSIONS['DJ'],
 }

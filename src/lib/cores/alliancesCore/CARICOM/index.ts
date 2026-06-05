@@ -4,14 +4,19 @@ export type {
   CaricomMembership,
   CaricomOrganizationInfo,
   DomesticCourierService,
+  IntellectualPropertyDepartment,
+  IntellectualPropertyDepartmentKind,
+  IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
   NotableUniversity,
   NewsOutlet,
-  NewsOutletsRoster,
-  RareEarths,
+  NewsOutletsRoster,  RareEarths,
+  SecuritiesExchangeCommission,
 } from './types'
+export { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+export { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 import type { CaricomCountry, CaricomOrganizationInfo } from './types'
 import {

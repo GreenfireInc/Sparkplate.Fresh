@@ -7,6 +7,8 @@ import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
 import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const uganda: ComesaCountry = {
   name: 'Uganda',
@@ -31,5 +33,7 @@ export const uganda: ComesaCountry = {
   rareEarths: COMESA_RARE_EARTHS['UG'],
   stockExchange: 'Uganda Securities Exchange',
   bondMarkets: COMESA_BOND_MARKETS['UG'],
+  intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['UG'],
+  securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['UG'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['UG'],
 }

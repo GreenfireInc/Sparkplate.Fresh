@@ -7,6 +7,8 @@ import { MINT_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { MINT_RARE_EARTHS } from './rareEarthsByIso'
 import { MINT_BOND_MARKETS } from './bondMarketsByIso'
 import { MINT_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { MINT_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { MINT_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const turkey: MintCountry = {
   name: 'Turkey',
@@ -34,4 +36,6 @@ export const turkey: MintCountry = {
   stockExchange: 'Borsa Istanbul (BİST equities / debt)',
   bondMarkets: MINT_BOND_MARKETS['TR'],
   mainInternationalAirport: MINT_MAIN_INTERNATIONAL_AIRPORTS['TR'],
+  intellectualPropertyDepartments: MINT_INTELLECTUAL_PROPERTY_DEPARTMENTS['TR'],
+  securitiesExchangeCommission: MINT_SECURITIES_EXCHANGE_COMMISSIONS['TR'],
 }

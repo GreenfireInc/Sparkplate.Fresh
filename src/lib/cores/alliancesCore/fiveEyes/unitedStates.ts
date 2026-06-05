@@ -7,6 +7,8 @@ import { FIVE_EYES_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { FIVE_EYES_RARE_EARTHS } from './rareEarthsByIso'
 import { FIVE_EYES_BOND_MARKETS } from './bondMarketsByIso'
 import { FIVE_EYES_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { FIVE_EYES_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { FIVE_EYES_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const unitedStates: FiveEyesCountry = {
   name: 'United States',
@@ -33,5 +35,8 @@ export const unitedStates: FiveEyesCountry = {
   rareEarths: FIVE_EYES_RARE_EARTHS['US'],
   stockExchange: 'NYSE/Nasdaq consolidated US equity liquidity (dual listing customary — informational)',
   bondMarkets: FIVE_EYES_BOND_MARKETS['US'],
+  intellectualPropertyDepartments: FIVE_EYES_INTELLECTUAL_PROPERTY_DEPARTMENTS['US'],
+
+  securitiesExchangeCommission: FIVE_EYES_SECURITIES_EXCHANGE_COMMISSIONS['US'],
   mainInternationalAirport: FIVE_EYES_MAIN_INTERNATIONAL_AIRPORTS['US'],
 }

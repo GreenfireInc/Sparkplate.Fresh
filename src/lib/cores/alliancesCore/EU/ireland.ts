@@ -7,6 +7,8 @@ import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EU_RARE_EARTHS } from './rareEarthsByIso'
 import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const ireland: EuCountry = {
   name: 'Ireland',
@@ -31,5 +33,8 @@ export const ireland: EuCountry = {
   rareEarths: EU_RARE_EARTHS['IE'],
   stockExchange: 'Euronext Dublin',
   bondMarkets: EU_BOND_MARKETS['IE'],
+  intellectualPropertyDepartments: EU_INTELLECTUAL_PROPERTY_DEPARTMENTS['IE'],
+
+  securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['IE'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['IE'],
 }

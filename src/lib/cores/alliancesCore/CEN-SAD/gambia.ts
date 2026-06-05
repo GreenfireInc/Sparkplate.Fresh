@@ -7,6 +7,8 @@ import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
 import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const gambia: CensadCountry = {
   name: 'Gambia',
@@ -31,5 +33,7 @@ export const gambia: CensadCountry = {
   rareEarths: CENSAD_RARE_EARTHS['GM'],
   stockExchange: 'Gambia Stock Exchange (small / developing — verify)',
   bondMarkets: CENSAD_BOND_MARKETS['GM'],
+  intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['GM'],
+  securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['GM'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['GM'],
 }

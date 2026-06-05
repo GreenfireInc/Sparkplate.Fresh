@@ -7,6 +7,8 @@ import { G7_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { G7_RARE_EARTHS } from './rareEarthsByIso'
 import { G7_BOND_MARKETS } from './bondMarketsByIso'
 import { G7_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { G7_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { G7_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const unitedKingdom: G7Country = {
   name: 'United Kingdom',
@@ -35,4 +37,6 @@ export const unitedKingdom: G7Country = {
   stockExchange: 'London Stock Exchange Group (consolidated UK venues — informational)',
   bondMarkets: G7_BOND_MARKETS['GB'],
   mainInternationalAirport: G7_MAIN_INTERNATIONAL_AIRPORTS['GB'],
+  intellectualPropertyDepartments: G7_INTELLECTUAL_PROPERTY_DEPARTMENTS['GB'],
+  securitiesExchangeCommission: G7_SECURITIES_EXCHANGE_COMMISSIONS['GB'],
 }

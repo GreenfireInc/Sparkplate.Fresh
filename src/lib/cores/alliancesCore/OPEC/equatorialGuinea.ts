@@ -7,6 +7,8 @@ import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
 import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { OPEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const equatorialGuinea: OpecCountry = {
   name: 'Equatorial Guinea',
@@ -33,4 +35,6 @@ export const equatorialGuinea: OpecCountry = {
   stockExchange: 'Malabo regional listings nascent / thin — informational',
   bondMarkets: OPEC_BOND_MARKETS['GQ'],
   mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['GQ'],
+  intellectualPropertyDepartments: OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['GQ'],
+  securitiesExchangeCommission: OPEC_SECURITIES_EXCHANGE_COMMISSIONS['GQ'],
 }

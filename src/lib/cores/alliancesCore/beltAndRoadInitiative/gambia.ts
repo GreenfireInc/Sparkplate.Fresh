@@ -7,6 +7,8 @@ import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const gambia: BeltAndRoadInitiativeCountry = {
   name: 'The Gambia',
   iso3166Alpha2: 'GM',
@@ -31,5 +33,7 @@ export const gambia: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['GM'],
   stockExchange: 'Gambia Stock Exchange (limited)',
   bondMarkets: BRI_BOND_MARKETS['GM'],
+  intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['GM'],
+  securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['GM'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['GM'],
 }

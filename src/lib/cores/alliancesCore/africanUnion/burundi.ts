@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const burundi: AfricanUnionCountry = {
   name: 'Burundi',
   iso3166Alpha2: 'BI',
@@ -31,5 +33,7 @@ export const burundi: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['BI'],
   stockExchange: 'Burundi Stock Exchange (BSE) — thin liquidity',
   bondMarkets: AU_BOND_MARKETS['BI'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['BI'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['BI'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['BI'],
 }

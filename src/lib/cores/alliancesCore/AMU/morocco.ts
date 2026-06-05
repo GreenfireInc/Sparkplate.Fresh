@@ -7,6 +7,8 @@ import { AMU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AMU_RARE_EARTHS } from './rareEarthsByIso'
 import { AMU_BOND_MARKETS } from './bondMarketsByIso'
 import { AMU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AMU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const morocco: AmuCountry = {
   name: 'Morocco',
@@ -32,5 +34,7 @@ export const morocco: AmuCountry = {
   rareEarths: AMU_RARE_EARTHS['MA'],
   stockExchange: 'Casablanca Stock Exchange',
   bondMarkets: AMU_BOND_MARKETS['MA'],
+  intellectualPropertyDepartments: AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS['MA'],
+  securitiesExchangeCommission: AMU_SECURITIES_EXCHANGE_COMMISSIONS['MA'],
   mainInternationalAirport: AMU_MAIN_INTERNATIONAL_AIRPORTS['MA'],
 }

@@ -7,6 +7,8 @@ import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EU_RARE_EARTHS } from './rareEarthsByIso'
 import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const austria: EuCountry = {
   name: 'Austria',
@@ -31,5 +33,8 @@ export const austria: EuCountry = {
   rareEarths: EU_RARE_EARTHS['AT'],
   stockExchange: 'Wiener Börse (Vienna Stock Exchange)',
   bondMarkets: EU_BOND_MARKETS['AT'],
+  intellectualPropertyDepartments: EU_INTELLECTUAL_PROPERTY_DEPARTMENTS['AT'],
+
+  securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['AT'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['AT'],
 }

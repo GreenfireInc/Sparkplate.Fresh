@@ -7,6 +7,8 @@ import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const cameroon: BeltAndRoadInitiativeCountry = {
   name: 'Cameroon',
   iso3166Alpha2: 'CM',
@@ -31,5 +33,7 @@ export const cameroon: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['CM'],
   stockExchange: 'Douala Stock Exchange (DSX)',
   bondMarkets: BRI_BOND_MARKETS['CM'],
+  intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['CM'],
+  securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['CM'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['CM'],
 }

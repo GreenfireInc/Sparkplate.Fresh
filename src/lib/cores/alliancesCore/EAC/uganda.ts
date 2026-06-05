@@ -7,6 +7,8 @@ import { EAC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EAC_RARE_EARTHS } from './rareEarthsByIso'
 import { EAC_BOND_MARKETS } from './bondMarketsByIso'
 import { EAC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { EAC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { EAC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const uganda: EacCountry = {
   name: 'Uganda',
@@ -31,5 +33,8 @@ export const uganda: EacCountry = {
   rareEarths: EAC_RARE_EARTHS['UG'],
   stockExchange: 'Uganda Securities Exchange',
   bondMarkets: EAC_BOND_MARKETS['UG'],
+  intellectualPropertyDepartments: EAC_INTELLECTUAL_PROPERTY_DEPARTMENTS['UG'],
+
+  securitiesExchangeCommission: EAC_SECURITIES_EXCHANGE_COMMISSIONS['UG'],
   mainInternationalAirport: EAC_MAIN_INTERNATIONAL_AIRPORTS['UG'],
 }

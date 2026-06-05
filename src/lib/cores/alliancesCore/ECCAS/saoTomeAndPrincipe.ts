@@ -7,6 +7,8 @@ import { ECCAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECCAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECCAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { ECCAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { ECCAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const saoTomeAndPrincipe: EccasCountry = {
   name: 'São Tomé and Príncipe',
@@ -31,5 +33,8 @@ export const saoTomeAndPrincipe: EccasCountry = {
   rareEarths: ECCAS_RARE_EARTHS['ST'],
   stockExchange: 'Bolsa de Valores de São Tomé e Príncipe (limited)',
   bondMarkets: ECCAS_BOND_MARKETS['ST'],
+  intellectualPropertyDepartments: ECCAS_INTELLECTUAL_PROPERTY_DEPARTMENTS['ST'],
+
+  securitiesExchangeCommission: ECCAS_SECURITIES_EXCHANGE_COMMISSIONS['ST'],
   mainInternationalAirport: ECCAS_MAIN_INTERNATIONAL_AIRPORTS['ST'],
 }

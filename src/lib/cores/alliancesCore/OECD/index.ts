@@ -1,6 +1,9 @@
 export type {
   BondMarketVenue,
   DomesticCourierService,
+  IntellectualPropertyDepartment,
+  IntellectualPropertyDepartmentKind,
+  IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
@@ -10,7 +13,10 @@ export type {
   OecdCountry,
   OecdOrganizationInfo,
   RareEarths,
+  SecuritiesExchangeCommission,
 } from './types'
+export { OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+export { OECD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 import type { OecdCountry, OecdOrganizationInfo } from './types'
 import { OECD_MEMBER_ISO_CODES } from './oecdMemberIsoCodes'

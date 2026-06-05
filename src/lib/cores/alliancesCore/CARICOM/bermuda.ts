@@ -7,6 +7,8 @@ import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
 import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const bermuda: CaricomCountry = {
   name: 'Bermuda',
@@ -32,5 +34,7 @@ export const bermuda: CaricomCountry = {
   rareEarths: CARICOM_RARE_EARTHS['BM'],
   stockExchange: 'Bermuda Stock Exchange',
   bondMarkets: CARICOM_BOND_MARKETS['BM'],
+  intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['BM'],
+  securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['BM'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['BM'],
 }

@@ -7,6 +7,8 @@ import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
 import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { OPEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const iraq: OpecCountry = {
   name: 'Iraq',
@@ -34,4 +36,6 @@ export const iraq: OpecCountry = {
   stockExchange: 'Iraq Stock Exchange Baghdad (liquidity episodic — informational)',
   bondMarkets: OPEC_BOND_MARKETS['IQ'],
   mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['IQ'],
+  intellectualPropertyDepartments: OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['IQ'],
+  securitiesExchangeCommission: OPEC_SECURITIES_EXCHANGE_COMMISSIONS['IQ'],
 }

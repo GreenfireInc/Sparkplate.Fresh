@@ -7,6 +7,8 @@ import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IORA_RARE_EARTHS } from './rareEarthsByIso'
 import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const mauritius: IoraCountry = {
   name: 'Mauritius',
@@ -33,4 +35,6 @@ export const mauritius: IoraCountry = {
   stockExchange: 'Stock Exchange of Mauritius (SEM)',
   bondMarkets: IORA_BOND_MARKETS['MU'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['MU'],
+  intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['MU'],
+  securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['MU'],
 }

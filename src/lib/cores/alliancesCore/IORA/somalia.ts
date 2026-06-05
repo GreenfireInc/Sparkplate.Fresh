@@ -7,6 +7,8 @@ import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IORA_RARE_EARTHS } from './rareEarthsByIso'
 import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const somalia: IoraCountry = {
   name: 'Somalia',
@@ -33,4 +35,6 @@ export const somalia: IoraCountry = {
   stockExchange: 'No consolidated national exchange (fragmented governance — informational)',
   bondMarkets: IORA_BOND_MARKETS['SO'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['SO'],
+  intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['SO'],
+  securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['SO'],
 }

@@ -7,6 +7,8 @@ import { ASEAN_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ASEAN_RARE_EARTHS } from './rareEarthsByIso'
 import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
 import { ASEAN_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { ASEAN_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const indonesia: AseanCountry = {
   name: 'Indonesia',
@@ -32,5 +34,7 @@ export const indonesia: AseanCountry = {
   rareEarths: ASEAN_RARE_EARTHS['ID'],
   stockExchange: 'Indonesia Stock Exchange (IDX Jakarta)',
   bondMarkets: ASEAN_BOND_MARKETS['ID'],
+  intellectualPropertyDepartments: ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS['ID'],
+  securitiesExchangeCommission: ASEAN_SECURITIES_EXCHANGE_COMMISSIONS['ID'],
   mainInternationalAirport: ASEAN_MAIN_INTERNATIONAL_AIRPORTS['ID'],
 }

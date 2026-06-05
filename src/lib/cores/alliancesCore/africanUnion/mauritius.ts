@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const mauritius: AfricanUnionCountry = {
   name: 'Mauritius',
   iso3166Alpha2: 'MU',
@@ -31,5 +33,7 @@ export const mauritius: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['MU'],
   stockExchange: 'Stock Exchange of Mauritius (SEM)',
   bondMarkets: AU_BOND_MARKETS['MU'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['MU'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['MU'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['MU'],
 }

@@ -7,6 +7,8 @@ import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IORA_RARE_EARTHS } from './rareEarthsByIso'
 import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const kenya: IoraCountry = {
   name: 'Kenya',
@@ -33,4 +35,6 @@ export const kenya: IoraCountry = {
   stockExchange: 'Nairobi Securities Exchange (NSE)',
   bondMarkets: IORA_BOND_MARKETS['KE'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['KE'],
+  intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['KE'],
+  securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['KE'],
 }

@@ -6,6 +6,8 @@ import { BRICS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRICS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRICS_RARE_EARTHS } from './rareEarthsByIso'
 import { BRICS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { BRICS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { BRICS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const russia: BricsCountry = {
   name: 'Russia',
@@ -30,5 +32,7 @@ export const russia: BricsCountry = {
   mainExportedElements: BRICS_MAIN_EXPORTED_ELEMENTS['RU'],
   rareEarths: BRICS_RARE_EARTHS['RU'],
   stockExchange: 'Moscow Exchange (MOEX)',
+  intellectualPropertyDepartments: BRICS_INTELLECTUAL_PROPERTY_DEPARTMENTS['RU'],
+  securitiesExchangeCommission: BRICS_SECURITIES_EXCHANGE_COMMISSIONS['RU'],
   mainInternationalAirport: BRICS_MAIN_INTERNATIONAL_AIRPORTS['RU'],
 }

@@ -7,6 +7,8 @@ import { MIKTA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { MIKTA_RARE_EARTHS } from './rareEarthsByIso'
 import { MIKTA_BOND_MARKETS } from './bondMarketsByIso'
 import { MIKTA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { MIKTA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { MIKTA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const australia: MiktaCountry = {
   name: 'Australia',
@@ -34,4 +36,6 @@ export const australia: MiktaCountry = {
   stockExchange: 'Australian Securities Exchange ASX (Sydney)',
   bondMarkets: MIKTA_BOND_MARKETS['AU'],
   mainInternationalAirport: MIKTA_MAIN_INTERNATIONAL_AIRPORTS['AU'],
+  intellectualPropertyDepartments: MIKTA_INTELLECTUAL_PROPERTY_DEPARTMENTS['AU'],
+  securitiesExchangeCommission: MIKTA_SECURITIES_EXCHANGE_COMMISSIONS['AU'],
 }

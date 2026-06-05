@@ -7,6 +7,8 @@ import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { SADC_RARE_EARTHS } from './rareEarthsByIso'
 import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 import { SADC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { SADC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const southAfrica: SadcCountry = {
   name: 'South Africa',
@@ -34,4 +36,6 @@ export const southAfrica: SadcCountry = {
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
   bondMarkets: SADC_BOND_MARKETS['ZA'],
   mainInternationalAirport: SADC_MAIN_INTERNATIONAL_AIRPORTS['ZA'],
+  intellectualPropertyDepartments: SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS['ZA'],
+  securitiesExchangeCommission: SADC_SECURITIES_EXCHANGE_COMMISSIONS['ZA'],
 }

@@ -7,6 +7,8 @@ import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
 import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { OPEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const kuwait: OpecCountry = {
   name: 'Kuwait',
@@ -34,4 +36,6 @@ export const kuwait: OpecCountry = {
   stockExchange: 'Boursa Kuwait',
   bondMarkets: OPEC_BOND_MARKETS['KW'],
   mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['KW'],
+  intellectualPropertyDepartments: OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['KW'],
+  securitiesExchangeCommission: OPEC_SECURITIES_EXCHANGE_COMMISSIONS['KW'],
 }

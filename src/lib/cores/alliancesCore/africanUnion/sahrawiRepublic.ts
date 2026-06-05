@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 /** Sahrawi Arab Democratic Republic — AU member; territorial status disputed (informational). */
 export const sahrawiRepublic: AfricanUnionCountry = {
   name: 'Sahrawi Arab Democratic Republic (Sahrawi Republic)',
@@ -32,5 +34,7 @@ export const sahrawiRepublic: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['EH'],
   stockExchange: 'No national securities exchange',
   bondMarkets: AU_BOND_MARKETS['EH'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['EH'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['EH'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['EH'],
 }

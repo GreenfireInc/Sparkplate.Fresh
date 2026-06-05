@@ -7,6 +7,8 @@ import { MINT_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { MINT_RARE_EARTHS } from './rareEarthsByIso'
 import { MINT_BOND_MARKETS } from './bondMarketsByIso'
 import { MINT_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { MINT_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { MINT_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const mexico: MintCountry = {
   name: 'Mexico',
@@ -34,4 +36,6 @@ export const mexico: MintCountry = {
   stockExchange: 'Mexican Stock Exchange BMV Bolsa Mexicana de Valores',
   bondMarkets: MINT_BOND_MARKETS['MX'],
   mainInternationalAirport: MINT_MAIN_INTERNATIONAL_AIRPORTS['MX'],
+  intellectualPropertyDepartments: MINT_INTELLECTUAL_PROPERTY_DEPARTMENTS['MX'],
+  securitiesExchangeCommission: MINT_SECURITIES_EXCHANGE_COMMISSIONS['MX'],
 }

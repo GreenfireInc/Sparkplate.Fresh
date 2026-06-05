@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const mali: AfricanUnionCountry = {
   name: 'Mali',
   iso3166Alpha2: 'ML',
@@ -31,5 +33,7 @@ export const mali: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['ML'],
   stockExchange: 'Bourse des Valeurs du Mali (limited)',
   bondMarkets: AU_BOND_MARKETS['ML'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['ML'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['ML'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['ML'],
 }

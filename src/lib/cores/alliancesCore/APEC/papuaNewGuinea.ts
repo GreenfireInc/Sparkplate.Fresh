@@ -7,6 +7,8 @@ import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { APEC_RARE_EARTHS } from './rareEarthsByIso'
 import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const papuaNewGuinea: ApecCountry = {
   name: 'Papua New Guinea',
@@ -33,5 +35,7 @@ export const papuaNewGuinea: ApecCountry = {
   rareEarths: APEC_RARE_EARTHS['PG'],
   stockExchange: 'PNG National Stock Exchange (Port Moresby — thin — informational)',
   bondMarkets: APEC_BOND_MARKETS['PG'],
+  intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['PG'],
+  securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['PG'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['PG'],
 }

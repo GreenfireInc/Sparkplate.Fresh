@@ -7,6 +7,8 @@ import { G20_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { G20_RARE_EARTHS } from './rareEarthsByIso'
 import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const australia: G20Country = {
   name: 'Australia',
@@ -34,4 +36,6 @@ export const australia: G20Country = {
   stockExchange: 'Australian Securities Exchange ASX (Sydney)',
   bondMarkets: G20_BOND_MARKETS['AU'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['AU'],
+  intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['AU'],
+  securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['AU'],
 }

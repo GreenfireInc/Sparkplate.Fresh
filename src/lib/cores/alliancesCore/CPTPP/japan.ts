@@ -7,6 +7,8 @@ import { CPTPP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CPTPP_RARE_EARTHS } from './rareEarthsByIso'
 import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 import { CPTPP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CPTPP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const japan: CptppCountry = {
   name: 'Japan',
@@ -31,5 +33,7 @@ export const japan: CptppCountry = {
   rareEarths: CPTPP_RARE_EARTHS['JP'],
   stockExchange: 'Tokyo Stock Exchange (TSE)',
   bondMarkets: CPTPP_BOND_MARKETS['JP'],
+  intellectualPropertyDepartments: CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS['JP'],
+  securitiesExchangeCommission: CPTPP_SECURITIES_EXCHANGE_COMMISSIONS['JP'],
   mainInternationalAirport: CPTPP_MAIN_INTERNATIONAL_AIRPORTS['JP'],
 }

@@ -7,6 +7,8 @@ import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const kenya: BeltAndRoadInitiativeCountry = {
   name: 'Kenya',
   iso3166Alpha2: 'KE',
@@ -31,5 +33,7 @@ export const kenya: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
   bondMarkets: BRI_BOND_MARKETS['KE'],
+  intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['KE'],
+  securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['KE'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['KE'],
 }

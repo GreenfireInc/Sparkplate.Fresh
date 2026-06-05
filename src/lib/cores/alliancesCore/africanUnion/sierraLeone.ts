@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const sierraLeone: AfricanUnionCountry = {
   name: 'Sierra Leone',
   iso3166Alpha2: 'SL',
@@ -31,5 +33,7 @@ export const sierraLeone: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['SL'],
   stockExchange: 'Sierra Leone Stock Exchange',
   bondMarkets: AU_BOND_MARKETS['SL'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['SL'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['SL'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['SL'],
 }

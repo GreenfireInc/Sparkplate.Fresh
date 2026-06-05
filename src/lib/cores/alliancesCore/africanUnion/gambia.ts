@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const gambia: AfricanUnionCountry = {
   name: 'The Gambia',
   iso3166Alpha2: 'GM',
@@ -31,5 +33,7 @@ export const gambia: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['GM'],
   stockExchange: 'Gambia Stock Exchange (limited)',
   bondMarkets: AU_BOND_MARKETS['GM'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['GM'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['GM'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['GM'],
 }

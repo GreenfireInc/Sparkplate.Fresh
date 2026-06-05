@@ -7,6 +7,8 @@ import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
 import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const jamaica: CaricomCountry = {
   name: 'Jamaica',
@@ -32,5 +34,7 @@ export const jamaica: CaricomCountry = {
   rareEarths: CARICOM_RARE_EARTHS['JM'],
   stockExchange: 'Jamaica Stock Exchange',
   bondMarkets: CARICOM_BOND_MARKETS['JM'],
+  intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['JM'],
+  securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['JM'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['JM'],
 }

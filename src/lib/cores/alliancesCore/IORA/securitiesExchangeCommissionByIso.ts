@@ -1,0 +1,211 @@
+import type { IoraMemberIsoCode } from './ioraMemberIsoCodes'
+import type { SecuritiesExchangeCommission } from './types'
+
+function sec(
+  name: string,
+  website: string,
+  email: string,
+  twitter: string,
+  linkedin: string,
+  formsUrl: string,
+  apiEndpoint = '',
+): SecuritiesExchangeCommission {
+  return { name, website, email, twitter, linkedin, formsUrl, apiEndpoint }
+}
+
+/**
+ * Securities and exchange / capital-markets commission by ISO 3166-1 alpha-2 for Indian Ocean
+ * Rim Association member states in this module (informational; verify URLs, handles, forms portals,
+ * and API bases before production use). Self-contained — no imports from other alliance modules.
+ * `apiEndpoint` is almost always empty. Verify periodically:
+ * https://www.iosco.org/about/membership/
+ */
+export const IORA_SECURITIES_EXCHANGE_COMMISSIONS: Record<
+  IoraMemberIsoCode,
+  SecuritiesExchangeCommission
+> = {
+  AU: sec(
+    'Australian Securities and Investments Commission (ASIC)',
+    'https://asic.gov.au',
+    'enquiries@asic.gov.au',
+    'https://x.com/ASICConnect',
+    'https://www.linkedin.com/company/asic/',
+    'https://asic.gov.au/online-services/',
+  ),
+  BD: sec(
+    'Bangladesh Securities and Exchange Commission (BSEC)',
+    'https://www.sec.gov.bd',
+    'info@sec.gov.bd',
+    '',
+    'https://www.linkedin.com/company/bangladesh-securities-and-exchange-commission/',
+    'https://www.sec.gov.bd',
+  ),
+  KM: sec(
+    'Comoros — capital-markets oversight via Banque Centrale des Comores (no dedicated SEC)',
+    'https://www.banque-comores.km',
+    '',
+    '',
+    '',
+    'https://www.banque-comores.km',
+  ),
+  FR: sec(
+    'Autorité des marchés financiers (AMF France)',
+    'https://www.amf-france.org',
+    'relationsemet@amf-france.org',
+    'https://x.com/AMF_actu',
+    'https://www.linkedin.com/company/autorité-des-marchés-financiers-amf/',
+    'https://www.amf-france.org',
+  ),
+  IN: sec(
+    'Securities and Exchange Board of India (SEBI)',
+    'https://www.sebi.gov.in',
+    'sebi@sebi.gov.in',
+    'https://x.com/SEBI_India',
+    'https://www.linkedin.com/company/sebi/',
+    'https://www.sebi.gov.in',
+  ),
+  ID: sec(
+    'Otoritas Jasa Keuangan (OJK Indonesia)',
+    'https://www.ojk.go.id',
+    'konsumen@ojk.go.id',
+    'https://x.com/ojkindonesia',
+    'https://www.linkedin.com/company/otoritas-jasa-keuangan/',
+    'https://www.ojk.go.id',
+  ),
+  IR: sec(
+    'Securities and Exchange Organization (SEO Iran)',
+    'https://www.seo.ir',
+    'info@seo.ir',
+    '',
+    'https://www.linkedin.com/company/securities-and-exchange-organization-of-iran/',
+    'https://www.seo.ir',
+  ),
+  KE: sec(
+    'Capital Markets Authority Kenya (CMA Kenya)',
+    'https://www.cma.or.ke',
+    'cma@cma.or.ke',
+    'https://x.com/CMA_Kenya',
+    'https://www.linkedin.com/company/capital-markets-authority-kenya/',
+    'https://www.cma.or.ke',
+  ),
+  MG: sec(
+    'Commission de Surveillance du Marché des Valeurs Mobilières et des Capitaux (CSMEC Madagascar)',
+    'https://www.csmec.mg',
+    '',
+    '',
+    '',
+    'https://www.csmec.mg',
+  ),
+  MY: sec(
+    'Securities Commission Malaysia (SC)',
+    'https://www.sc.com.my',
+    'cic@seccom.com.my',
+    'https://x.com/SecComMY',
+    'https://www.linkedin.com/company/securities-commission-malaysia/',
+    'https://www.sc.com.my',
+  ),
+  MV: sec(
+    'Capital Market Development Authority Maldives (CMDA)',
+    'https://www.cmda.gov.mv',
+    'info@cmda.gov.mv',
+    '',
+    '',
+    'https://www.cmda.gov.mv',
+  ),
+  MU: sec(
+    'Financial Services Commission Mauritius (FSC)',
+    'https://www.fscmauritius.org',
+    'fscmauritius@fscmauritius.org',
+    'https://x.com/FSCMauritius',
+    'https://www.linkedin.com/company/financial-services-commission-mauritius/',
+    'https://www.fscmauritius.org',
+  ),
+  MZ: sec(
+    'Mozambique — capital-markets oversight via Banco de Moçambique (nascent CVM; verify status)',
+    'https://www.bancomoc.mz',
+    '',
+    '',
+    '',
+    'https://www.bancomoc.mz',
+  ),
+  OM: sec(
+    'Capital Market Authority Oman (CMA Oman)',
+    'https://www.cma.gov.om',
+    'info@cma.gov.om',
+    'https://x.com/CMA_Oman',
+    'https://www.linkedin.com/company/capital-market-authority-oman/',
+    'https://www.cma.gov.om',
+  ),
+  SC: sec(
+    'Financial Services Authority Seychelles (FSA)',
+    'https://www.fsaseychelles.sc',
+    'fsa@fsaseychelles.sc',
+    '',
+    'https://www.linkedin.com/company/financial-services-authority-seychelles/',
+    'https://www.fsaseychelles.sc',
+  ),
+  SG: sec(
+    'Monetary Authority of Singapore (MAS)',
+    'https://www.mas.gov.sg',
+    'webmaster@mas.gov.sg',
+    'https://x.com/MAS_sg',
+    'https://www.linkedin.com/company/monetary-authority-of-singapore/',
+    'https://www.mas.gov.sg',
+  ),
+  SO: sec(
+    'Somalia — capital-markets oversight via Central Bank of Somalia (no dedicated SEC)',
+    'https://www.centralbank.gov.so',
+    '',
+    '',
+    '',
+    'https://www.centralbank.gov.so',
+  ),
+  ZA: sec(
+    'Financial Sector Conduct Authority South Africa (FSCA)',
+    'https://www.fsca.co.za',
+    'info@fsca.co.za',
+    'https://x.com/FSCA_ZA',
+    'https://www.linkedin.com/company/financial-sector-conduct-authority/',
+    'https://www.fsca.co.za',
+  ),
+  LK: sec(
+    'Securities and Exchange Commission of Sri Lanka (SEC Sri Lanka)',
+    'https://www.sec.gov.lk',
+    'sec@sec.gov.lk',
+    'https://x.com/secsl',
+    'https://www.linkedin.com/company/securities-and-exchange-commission-of-sri-lanka/',
+    'https://www.sec.gov.lk',
+  ),
+  TZ: sec(
+    'Capital Markets and Securities Authority Tanzania (CMSA)',
+    'https://www.cmsa.go.tz',
+    'cmsa@cmsa.go.tz',
+    'https://x.com/CMSATanzania',
+    'https://www.linkedin.com/company/capital-markets-and-securities-authority-tanzania/',
+    'https://www.cmsa.go.tz',
+  ),
+  TH: sec(
+    'Securities and Exchange Commission Thailand (SEC Thailand)',
+    'https://www.sec.or.th',
+    'info@sec.or.th',
+    'https://x.com/sec_th',
+    'https://www.linkedin.com/company/sec-thailand/',
+    'https://www.sec.or.th',
+  ),
+  AE: sec(
+    'Securities and Commodities Authority (SCA UAE)',
+    'https://www.sca.gov.ae',
+    'sca@sca.gov.ae',
+    'https://x.com/SCA_UAE',
+    'https://www.linkedin.com/company/securities-and-commodities-authority/',
+    'https://www.sca.gov.ae',
+  ),
+  YE: sec(
+    'Yemen — capital-markets oversight via Central Bank of Yemen (no dedicated SEC)',
+    'https://www.centralbank.gov.ye',
+    '',
+    '',
+    '',
+    'https://www.centralbank.gov.ye',
+  ),
+}

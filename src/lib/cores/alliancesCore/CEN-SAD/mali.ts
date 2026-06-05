@@ -7,6 +7,8 @@ import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
 import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const mali: CensadCountry = {
   name: 'Mali',
@@ -31,5 +33,7 @@ export const mali: CensadCountry = {
   rareEarths: CENSAD_RARE_EARTHS['ML'],
   stockExchange: 'BRVM listing context (WAEMU)',
   bondMarkets: CENSAD_BOND_MARKETS['ML'],
+  intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['ML'],
+  securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['ML'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['ML'],
 }

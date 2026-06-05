@@ -7,6 +7,8 @@ import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
 import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const trinidadAndTobago: CaricomCountry = {
   name: 'Trinidad and Tobago',
@@ -32,5 +34,7 @@ export const trinidadAndTobago: CaricomCountry = {
   rareEarths: CARICOM_RARE_EARTHS['TT'],
   stockExchange: 'Trinidad and Tobago Stock Exchange',
   bondMarkets: CARICOM_BOND_MARKETS['TT'],
+  intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['TT'],
+  securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['TT'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['TT'],
 }

@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const ivoryCoast: AfricanUnionCountry = {
   name: "Côte d'Ivoire (Ivory Coast)",
   iso3166Alpha2: 'CI',
@@ -31,5 +33,7 @@ export const ivoryCoast: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['CI'],
   stockExchange: 'BRVM (Abidjan — regional hub)',
   bondMarkets: AU_BOND_MARKETS['CI'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['CI'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['CI'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['CI'],
 }

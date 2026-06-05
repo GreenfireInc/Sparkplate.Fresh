@@ -7,6 +7,8 @@ import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
 import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const sierraLeone: CensadCountry = {
   name: 'Sierra Leone',
@@ -31,5 +33,7 @@ export const sierraLeone: CensadCountry = {
   rareEarths: CENSAD_RARE_EARTHS['SL'],
   stockExchange: 'Sierra Leone Stock Exchange — verify liquidity',
   bondMarkets: CENSAD_BOND_MARKETS['SL'],
+  intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['SL'],
+  securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['SL'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['SL'],
 }

@@ -7,6 +7,8 @@ import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { SADC_RARE_EARTHS } from './rareEarthsByIso'
 import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 import { SADC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { SADC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const botswana: SadcCountry = {
   name: 'Botswana',
@@ -32,4 +34,6 @@ export const botswana: SadcCountry = {
   stockExchange: 'Botswana Stock Exchange (BSE)',
   bondMarkets: SADC_BOND_MARKETS['BW'],
   mainInternationalAirport: SADC_MAIN_INTERNATIONAL_AIRPORTS['BW'],
+  intellectualPropertyDepartments: SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS['BW'],
+  securitiesExchangeCommission: SADC_SECURITIES_EXCHANGE_COMMISSIONS['BW'],
 }

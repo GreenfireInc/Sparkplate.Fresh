@@ -7,6 +7,8 @@ import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
 import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const turksAndCaicosIslands: CaricomCountry = {
   name: 'Turks and Caicos Islands',
@@ -32,5 +34,7 @@ export const turksAndCaicosIslands: CaricomCountry = {
   rareEarths: CARICOM_RARE_EARTHS['TC'],
   stockExchange: 'No major national exchange — informational',
   bondMarkets: CARICOM_BOND_MARKETS['TC'],
+  intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['TC'],
+  securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['TC'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['TC'],
 }

@@ -7,6 +7,8 @@ import { AMU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AMU_RARE_EARTHS } from './rareEarthsByIso'
 import { AMU_BOND_MARKETS } from './bondMarketsByIso'
 import { AMU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AMU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const tunisia: AmuCountry = {
   name: 'Tunisia',
@@ -32,5 +34,7 @@ export const tunisia: AmuCountry = {
   rareEarths: AMU_RARE_EARTHS['TN'],
   stockExchange: 'Bourse de Tunis',
   bondMarkets: AMU_BOND_MARKETS['TN'],
+  intellectualPropertyDepartments: AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS['TN'],
+  securitiesExchangeCommission: AMU_SECURITIES_EXCHANGE_COMMISSIONS['TN'],
   mainInternationalAirport: AMU_MAIN_INTERNATIONAL_AIRPORTS['TN'],
 }

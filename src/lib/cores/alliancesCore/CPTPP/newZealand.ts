@@ -7,6 +7,8 @@ import { CPTPP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CPTPP_RARE_EARTHS } from './rareEarthsByIso'
 import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 import { CPTPP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CPTPP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const newZealand: CptppCountry = {
   name: 'New Zealand',
@@ -31,5 +33,7 @@ export const newZealand: CptppCountry = {
   rareEarths: CPTPP_RARE_EARTHS['NZ'],
   stockExchange: 'NZX Limited',
   bondMarkets: CPTPP_BOND_MARKETS['NZ'],
+  intellectualPropertyDepartments: CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS['NZ'],
+  securitiesExchangeCommission: CPTPP_SECURITIES_EXCHANGE_COMMISSIONS['NZ'],
   mainInternationalAirport: CPTPP_MAIN_INTERNATIONAL_AIRPORTS['NZ'],
 }

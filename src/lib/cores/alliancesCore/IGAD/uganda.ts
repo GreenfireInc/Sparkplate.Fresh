@@ -7,6 +7,8 @@ import { IGAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IGAD_RARE_EARTHS } from './rareEarthsByIso'
 import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
 import { IGAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { IGAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const uganda: IgadCountry = {
   name: 'Uganda',
@@ -33,4 +35,6 @@ export const uganda: IgadCountry = {
   stockExchange: 'Uganda Securities Exchange (USE, thin listings — informational)',
   bondMarkets: IGAD_BOND_MARKETS['UG'],
   mainInternationalAirport: IGAD_MAIN_INTERNATIONAL_AIRPORTS['UG'],
+  intellectualPropertyDepartments: IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['UG'],
+  securitiesExchangeCommission: IGAD_SECURITIES_EXCHANGE_COMMISSIONS['UG'],
 }

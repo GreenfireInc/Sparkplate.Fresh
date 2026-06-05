@@ -7,6 +7,8 @@ import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EU_RARE_EARTHS } from './rareEarthsByIso'
 import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const spain: EuCountry = {
   name: 'Spain',
@@ -31,5 +33,8 @@ export const spain: EuCountry = {
   rareEarths: EU_RARE_EARTHS['ES'],
   stockExchange: 'BME Growth / Euronext Spain context',
   bondMarkets: EU_BOND_MARKETS['ES'],
+  intellectualPropertyDepartments: EU_INTELLECTUAL_PROPERTY_DEPARTMENTS['ES'],
+
+  securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['ES'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['ES'],
 }

@@ -7,6 +7,8 @@ import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { SADC_RARE_EARTHS } from './rareEarthsByIso'
 import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 import { SADC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { SADC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const angola: SadcCountry = {
   name: 'Angola',
@@ -32,4 +34,6 @@ export const angola: SadcCountry = {
   stockExchange: 'Bodiva (Bolsa de Dívida e Valores de Angola — equity depth limited)',
   bondMarkets: SADC_BOND_MARKETS['AO'],
   mainInternationalAirport: SADC_MAIN_INTERNATIONAL_AIRPORTS['AO'],
+  intellectualPropertyDepartments: SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS['AO'],
+  securitiesExchangeCommission: SADC_SECURITIES_EXCHANGE_COMMISSIONS['AO'],
 }

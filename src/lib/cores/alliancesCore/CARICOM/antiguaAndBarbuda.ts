@@ -7,6 +7,8 @@ import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
 import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const antiguaAndBarbuda: CaricomCountry = {
   name: 'Antigua and Barbuda',
@@ -32,5 +34,7 @@ export const antiguaAndBarbuda: CaricomCountry = {
   rareEarths: CARICOM_RARE_EARTHS['AG'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
   bondMarkets: CARICOM_BOND_MARKETS['AG'],
+  intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['AG'],
+  securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['AG'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['AG'],
 }

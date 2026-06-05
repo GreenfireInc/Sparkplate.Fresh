@@ -6,6 +6,8 @@ import { BRICS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRICS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRICS_RARE_EARTHS } from './rareEarthsByIso'
 import { BRICS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { BRICS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { BRICS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const brazil: BricsCountry = {
   name: 'Brazil',
@@ -30,5 +32,7 @@ export const brazil: BricsCountry = {
   mainExportedElements: BRICS_MAIN_EXPORTED_ELEMENTS['BR'],
   rareEarths: BRICS_RARE_EARTHS['BR'],
   stockExchange: 'B3 — Brasil Bolsa Balcão',
+  intellectualPropertyDepartments: BRICS_INTELLECTUAL_PROPERTY_DEPARTMENTS['BR'],
+  securitiesExchangeCommission: BRICS_SECURITIES_EXCHANGE_COMMISSIONS['BR'],
   mainInternationalAirport: BRICS_MAIN_INTERNATIONAL_AIRPORTS['BR'],
 }

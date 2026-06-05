@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const tunisia: AfricanUnionCountry = {
   name: 'Tunisia',
   iso3166Alpha2: 'TN',
@@ -31,5 +33,7 @@ export const tunisia: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['TN'],
   stockExchange: 'Bourse de Tunis',
   bondMarkets: AU_BOND_MARKETS['TN'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['TN'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['TN'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['TN'],
 }
