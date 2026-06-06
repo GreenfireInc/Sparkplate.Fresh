@@ -4,13 +4,13 @@
  * Filename structure (Greenery-compatible):
  *   YYYYMMDD.FROM.TO.HHMMSS.png
  *
- * Canvas rendering lives in displayStandard/display.canvas.calculator.ts
+ * Canvas rendering lives in displayStandard/display.canvas.calculator.static.ts
  */
 
 import {
   captureCalculatorCanvas,
   type CalculatorSnapshotData,
-} from '@/lib/cores/displayStandard/display.canvas.calculator'
+} from '@/lib/cores/displayStandard/display.canvas.calculator.static'
 
 export type { CalculatorSnapshotData }
 

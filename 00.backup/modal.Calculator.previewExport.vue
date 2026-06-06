@@ -248,10 +248,8 @@ watch(
   (open) => {
     if (typeof window === 'undefined') return
     if (open) {
-      document.body.style.overflow = 'hidden'
       window.addEventListener('keydown', handleKeyDown)
     } else {
-      document.body.style.overflow = ''
       window.removeEventListener('keydown', handleKeyDown)
     }
   },
@@ -260,7 +258,6 @@ watch(
 
 onUnmounted(() => {
   if (typeof window !== 'undefined') {
-    document.body.style.overflow = ''
     window.removeEventListener('keydown', handleKeyDown)
   }
 })
@@ -377,9 +374,6 @@ onUnmounted(() => {
   margin: 0;
   font-size: 0.75rem;
   color: #6b7280;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 
   code {
     font-family: 'JetBrains Mono', 'Fira Code', monospace;
@@ -396,10 +390,10 @@ onUnmounted(() => {
 }
 
 .calc-export-btn {
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  border-radius: 0.5rem;
+  border-radius: 0.375rem;
   cursor: pointer;
   transition: opacity 0.15s, background 0.15s, border-color 0.15s;
 
