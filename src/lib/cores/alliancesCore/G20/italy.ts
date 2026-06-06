@@ -7,6 +7,8 @@ import { G20_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { G20_RARE_EARTHS } from './rareEarthsByIso'
 import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const italy: G20Country = {
   name: 'Italy',
@@ -34,4 +36,6 @@ export const italy: G20Country = {
   stockExchange: 'Euronext Milan (Borsa Italiana legacy)',
   bondMarkets: G20_BOND_MARKETS['IT'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['IT'],
+  intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['IT'],
+  securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['IT'],
 }

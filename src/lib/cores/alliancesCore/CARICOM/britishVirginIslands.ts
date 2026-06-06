@@ -7,6 +7,8 @@ import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
 import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const britishVirginIslands: CaricomCountry = {
   name: 'British Virgin Islands',
@@ -32,5 +34,7 @@ export const britishVirginIslands: CaricomCountry = {
   rareEarths: CARICOM_RARE_EARTHS['VG'],
   stockExchange: 'BVI finance centre; no large local bourse like major markets',
   bondMarkets: CARICOM_BOND_MARKETS['VG'],
+  intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['VG'],
+  securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['VG'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['VG'],
 }

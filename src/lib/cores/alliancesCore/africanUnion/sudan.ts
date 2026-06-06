@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const sudan: AfricanUnionCountry = {
   name: 'Sudan',
   iso3166Alpha2: 'SD',
@@ -31,5 +33,7 @@ export const sudan: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['SD'],
   stockExchange: 'Khartoum Stock Exchange (operations disrupted)',
   bondMarkets: AU_BOND_MARKETS['SD'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['SD'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['SD'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['SD'],
 }

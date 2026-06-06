@@ -6,6 +6,8 @@ import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByI
 import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 import { COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const namibia: CommonwealthCountry = {
   name: 'Namibia',
@@ -30,5 +32,7 @@ export const namibia: CommonwealthCountry = {
   mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['NA'],
   rareEarths: COMMONWEALTH_RARE_EARTHS['NA'],
   stockExchange: 'Namibian Stock Exchange',
+  intellectualPropertyDepartments: COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS['NA'],
+  securitiesExchangeCommission: COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS['NA'],
   mainInternationalAirport: COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS['NA'],
 }

@@ -1,6 +1,9 @@
 export type {
   BondMarketVenue,
   DomesticCourierService,
+  IntellectualPropertyDepartment,
+  IntellectualPropertyDepartmentKind,
+  IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
@@ -11,6 +14,8 @@ export type {
   SadcCountry,
   SadcOrganizationInfo,
 } from './types'
+export { SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+export { SADC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 import type { SadcCountry, SadcOrganizationInfo } from './types'
 import { SADC_MEMBER_ISO_CODES } from './sadcMemberIsoCodes'

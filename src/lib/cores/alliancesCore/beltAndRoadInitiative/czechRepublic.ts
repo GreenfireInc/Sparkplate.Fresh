@@ -7,6 +7,8 @@ import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const czechRepublic: BeltAndRoadInitiativeCountry = {
   name: 'Czech Republic',
   iso3166Alpha2: 'CZ',
@@ -31,5 +33,7 @@ export const czechRepublic: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['CZ'],
   stockExchange: 'National or regional exchange (verify)',
   bondMarkets: BRI_BOND_MARKETS['CZ'],
+  intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['CZ'],
+  securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['CZ'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['CZ'],
 }

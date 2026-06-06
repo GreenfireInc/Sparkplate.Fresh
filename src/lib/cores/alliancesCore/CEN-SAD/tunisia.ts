@@ -7,6 +7,8 @@ import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
 import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const tunisia: CensadCountry = {
   name: 'Tunisia',
@@ -32,5 +34,7 @@ export const tunisia: CensadCountry = {
   rareEarths: CENSAD_RARE_EARTHS['TN'],
   stockExchange: 'Bourse de Tunis',
   bondMarkets: CENSAD_BOND_MARKETS['TN'],
+  intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['TN'],
+  securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['TN'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['TN'],
 }

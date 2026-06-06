@@ -7,6 +7,8 @@ import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EU_RARE_EARTHS } from './rareEarthsByIso'
 import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const hungary: EuCountry = {
   name: 'Hungary',
@@ -31,5 +33,8 @@ export const hungary: EuCountry = {
   rareEarths: EU_RARE_EARTHS['HU'],
   stockExchange: 'Budapest Stock Exchange',
   bondMarkets: EU_BOND_MARKETS['HU'],
+  intellectualPropertyDepartments: EU_INTELLECTUAL_PROPERTY_DEPARTMENTS['HU'],
+
+  securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['HU'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['HU'],
 }

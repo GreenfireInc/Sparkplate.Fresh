@@ -7,6 +7,8 @@ import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
 import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const montserrat: CaricomCountry = {
   name: 'Montserrat',
@@ -32,5 +34,7 @@ export const montserrat: CaricomCountry = {
   rareEarths: CARICOM_RARE_EARTHS['MS'],
   stockExchange: 'Eastern Caribbean Securities Exchange (access context) — informational',
   bondMarkets: CARICOM_BOND_MARKETS['MS'],
+  intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['MS'],
+  securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['MS'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['MS'],
 }

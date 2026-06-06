@@ -4,6 +4,9 @@ export type {
   G20Country,
   G20InstitutionalMember,
   G20OrganizationInfo,
+  IntellectualPropertyDepartment,
+  IntellectualPropertyDepartmentKind,
+  IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
@@ -11,7 +14,10 @@ export type {
   NewsOutletsRoster,
   NotableUniversity,
   RareEarths,
+  SecuritiesExchangeCommission,
 } from './types'
+export { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+export { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export { G20_SOVEREIGN_MEMBER_ISO_CODES } from './g20MemberIsoCodes'
 export type { G20SovereignMemberIsoCode } from './g20MemberIsoCodes'
 

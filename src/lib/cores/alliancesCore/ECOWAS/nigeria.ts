@@ -7,6 +7,8 @@ import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const nigeria: EcowasCountry = {
   name: 'Nigeria',
@@ -31,5 +33,8 @@ export const nigeria: EcowasCountry = {
   rareEarths: ECOWAS_RARE_EARTHS['NG'],
   stockExchange: 'Nigerian Exchange Group (NGX); ECOWAS Commission host country — informational',
   bondMarkets: ECOWAS_BOND_MARKETS['NG'],
+  intellectualPropertyDepartments: ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS['NG'],
+
+  securitiesExchangeCommission: ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS['NG'],
   mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['NG'],
 }

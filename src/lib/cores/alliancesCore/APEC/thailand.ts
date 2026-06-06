@@ -7,6 +7,8 @@ import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { APEC_RARE_EARTHS } from './rareEarthsByIso'
 import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const thailand: ApecCountry = {
   name: 'Thailand',
@@ -33,5 +35,7 @@ export const thailand: ApecCountry = {
   rareEarths: APEC_RARE_EARTHS['TH'],
   stockExchange: 'Stock Exchange of Thailand SET',
   bondMarkets: APEC_BOND_MARKETS['TH'],
+  intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['TH'],
+  securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['TH'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['TH'],
 }

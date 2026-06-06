@@ -7,6 +7,8 @@ import { G20_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { G20_RARE_EARTHS } from './rareEarthsByIso'
 import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const unitedStates: G20Country = {
   name: 'United States',
@@ -34,4 +36,6 @@ export const unitedStates: G20Country = {
   stockExchange: 'NYSE/Nasdaq consolidated US equity liquidity (dual listing customary — informational)',
   bondMarkets: G20_BOND_MARKETS['US'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['US'],
+  intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['US'],
+  securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['US'],
 }

@@ -7,6 +7,8 @@ import { ARAB_LEAGUE_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ARAB_LEAGUE_RARE_EARTHS } from './rareEarthsByIso'
 import { ARAB_LEAGUE_BOND_MARKETS } from './bondMarketsByIso'
 import { ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { ARAB_LEAGUE_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { ARAB_LEAGUE_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const comoros: ArabLeagueCountry = {
   name: 'Comoros',
@@ -32,5 +34,7 @@ export const comoros: ArabLeagueCountry = {
   rareEarths: ARAB_LEAGUE_RARE_EARTHS['KM'],
   stockExchange: 'No major national stock exchange',
   bondMarkets: ARAB_LEAGUE_BOND_MARKETS['KM'],
+  intellectualPropertyDepartments: ARAB_LEAGUE_INTELLECTUAL_PROPERTY_DEPARTMENTS['KM'],
+  securitiesExchangeCommission: ARAB_LEAGUE_SECURITIES_EXCHANGE_COMMISSIONS['KM'],
   mainInternationalAirport: ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS['KM'],
 }

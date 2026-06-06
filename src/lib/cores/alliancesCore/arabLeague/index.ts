@@ -4,6 +4,9 @@ export type {
   ArabLeagueOrganizationInfo,
   BondMarketVenue,
   DomesticCourierService,
+  IntellectualPropertyDepartment,
+  IntellectualPropertyDepartmentKind,
+  IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
@@ -11,7 +14,10 @@ export type {
   NewsOutletsRoster,
   NotableUniversity,
   RareEarths,
+  SecuritiesExchangeCommission,
 } from './types'
+export { ARAB_LEAGUE_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+export { ARAB_LEAGUE_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export { ARAB_LEAGUE_MEMBER_ISO_CODES } from './arabLeagueMemberIsoCodes'
 export type { ArabLeagueMemberIsoCode } from './arabLeagueMemberIsoCodes'
 

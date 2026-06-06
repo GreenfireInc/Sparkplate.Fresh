@@ -6,6 +6,8 @@ import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByI
 import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 import { COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const maldives: CommonwealthCountry = {
   name: 'Maldives',
@@ -30,5 +32,7 @@ export const maldives: CommonwealthCountry = {
   mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['MV'],
   rareEarths: COMMONWEALTH_RARE_EARTHS['MV'],
   stockExchange: 'Maldives Stock Exchange',
+  intellectualPropertyDepartments: COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS['MV'],
+  securitiesExchangeCommission: COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS['MV'],
   mainInternationalAirport: COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS['MV'],
 }

@@ -7,6 +7,8 @@ import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EU_RARE_EARTHS } from './rareEarthsByIso'
 import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const poland: EuCountry = {
   name: 'Poland',
@@ -31,5 +33,8 @@ export const poland: EuCountry = {
   rareEarths: EU_RARE_EARTHS['PL'],
   stockExchange: 'Warsaw Stock Exchange (GPW)',
   bondMarkets: EU_BOND_MARKETS['PL'],
+  intellectualPropertyDepartments: EU_INTELLECTUAL_PROPERTY_DEPARTMENTS['PL'],
+
+  securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['PL'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['PL'],
 }

@@ -7,6 +7,8 @@ import { EAC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EAC_RARE_EARTHS } from './rareEarthsByIso'
 import { EAC_BOND_MARKETS } from './bondMarketsByIso'
 import { EAC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { EAC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { EAC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const kenya: EacCountry = {
   name: 'Kenya',
@@ -31,5 +33,8 @@ export const kenya: EacCountry = {
   rareEarths: EAC_RARE_EARTHS['KE'],
   stockExchange: 'Nairobi Securities Exchange (NSE)',
   bondMarkets: EAC_BOND_MARKETS['KE'],
+  intellectualPropertyDepartments: EAC_INTELLECTUAL_PROPERTY_DEPARTMENTS['KE'],
+
+  securitiesExchangeCommission: EAC_SECURITIES_EXCHANGE_COMMISSIONS['KE'],
   mainInternationalAirport: EAC_MAIN_INTERNATIONAL_AIRPORTS['KE'],
 }

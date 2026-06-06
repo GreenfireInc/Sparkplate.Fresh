@@ -7,6 +7,8 @@ import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { NATO_RARE_EARTHS } from './rareEarthsByIso'
 import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const czechRepublic: NatoCountry = {
   name: 'Czech Republic',
@@ -33,4 +35,6 @@ export const czechRepublic: NatoCountry = {
   stockExchange: 'Prague Stock Exchange (PX)',
   bondMarkets: NATO_BOND_MARKETS['CZ'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['CZ'],
+  intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['CZ'],
+  securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['CZ'],
 }

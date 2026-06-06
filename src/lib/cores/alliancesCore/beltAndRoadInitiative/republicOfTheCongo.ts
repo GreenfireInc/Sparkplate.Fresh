@@ -7,6 +7,8 @@ import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const republicOfTheCongo: BeltAndRoadInitiativeCountry = {
   name: 'Republic of the Congo',
   iso3166Alpha2: 'CG',
@@ -31,5 +33,7 @@ export const republicOfTheCongo: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['CG'],
   stockExchange: 'Bourse des Valeurs du Congo (BVC)',
   bondMarkets: BRI_BOND_MARKETS['CG'],
+  intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['CG'],
+  securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['CG'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['CG'],
 }

@@ -7,6 +7,8 @@ import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
 import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const djibouti: ComesaCountry = {
   name: 'Djibouti',
@@ -31,5 +33,7 @@ export const djibouti: ComesaCountry = {
   rareEarths: COMESA_RARE_EARTHS['DJ'],
   stockExchange: 'Djibouti Stock Exchange (thin activity)',
   bondMarkets: COMESA_BOND_MARKETS['DJ'],
+  intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['DJ'],
+  securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['DJ'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['DJ'],
 }

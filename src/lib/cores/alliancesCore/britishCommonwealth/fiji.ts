@@ -6,6 +6,8 @@ import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByI
 import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 import { COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const fiji: CommonwealthCountry = {
   name: 'Fiji',
@@ -30,5 +32,7 @@ export const fiji: CommonwealthCountry = {
   mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['FJ'],
   rareEarths: COMMONWEALTH_RARE_EARTHS['FJ'],
   stockExchange: 'South Pacific Stock Exchange',
+  intellectualPropertyDepartments: COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS['FJ'],
+  securitiesExchangeCommission: COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS['FJ'],
   mainInternationalAirport: COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS['FJ'],
 }

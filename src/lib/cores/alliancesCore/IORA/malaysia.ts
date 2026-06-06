@@ -7,6 +7,8 @@ import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IORA_RARE_EARTHS } from './rareEarthsByIso'
 import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const malaysia: IoraCountry = {
   name: 'Malaysia',
@@ -34,4 +36,6 @@ export const malaysia: IoraCountry = {
   stockExchange: 'Bursa Malaysia',
   bondMarkets: IORA_BOND_MARKETS['MY'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['MY'],
+  intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['MY'],
+  securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['MY'],
 }

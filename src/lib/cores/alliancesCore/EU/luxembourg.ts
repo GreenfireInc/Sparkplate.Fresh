@@ -7,6 +7,8 @@ import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EU_RARE_EARTHS } from './rareEarthsByIso'
 import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const luxembourg: EuCountry = {
   name: 'Luxembourg',
@@ -31,5 +33,8 @@ export const luxembourg: EuCountry = {
   rareEarths: EU_RARE_EARTHS['LU'],
   stockExchange: 'Luxembourg Stock Exchange',
   bondMarkets: EU_BOND_MARKETS['LU'],
+  intellectualPropertyDepartments: EU_INTELLECTUAL_PROPERTY_DEPARTMENTS['LU'],
+
+  securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['LU'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['LU'],
 }

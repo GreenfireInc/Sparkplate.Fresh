@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const namibia: AfricanUnionCountry = {
   name: 'Namibia',
   iso3166Alpha2: 'NA',
@@ -31,5 +33,7 @@ export const namibia: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['NA'],
   stockExchange: 'Namibia Stock Exchange (NSX)',
   bondMarkets: AU_BOND_MARKETS['NA'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['NA'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['NA'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['NA'],
 }

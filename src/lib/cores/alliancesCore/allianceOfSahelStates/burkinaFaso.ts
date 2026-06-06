@@ -7,6 +7,8 @@ import { AES_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AES_RARE_EARTHS } from './rareEarthsByIso'
 import { AES_BOND_MARKETS } from './bondMarketsByIso'
 import { AES_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AES_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AES_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const burkinaFaso: AllianceOfSahelStatesCountry = {
   name: 'Burkina Faso',
@@ -32,5 +34,7 @@ export const burkinaFaso: AllianceOfSahelStatesCountry = {
   rareEarths: AES_RARE_EARTHS['BF'],
   stockExchange: 'Burkina Faso — BRVM listings (limited local activity)',
   bondMarkets: AES_BOND_MARKETS['BF'],
+  intellectualPropertyDepartments: AES_INTELLECTUAL_PROPERTY_DEPARTMENTS['BF'],
+  securitiesExchangeCommission: AES_SECURITIES_EXCHANGE_COMMISSIONS['BF'],
   mainInternationalAirport: AES_MAIN_INTERNATIONAL_AIRPORTS['BF'],
 }

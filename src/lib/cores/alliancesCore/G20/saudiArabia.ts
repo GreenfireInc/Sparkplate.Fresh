@@ -7,6 +7,8 @@ import { G20_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { G20_RARE_EARTHS } from './rareEarthsByIso'
 import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const saudiArabia: G20Country = {
   name: 'Saudi Arabia',
@@ -34,4 +36,6 @@ export const saudiArabia: G20Country = {
   stockExchange: 'Saudi Exchange (Tadawul)',
   bondMarkets: G20_BOND_MARKETS['SA'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['SA'],
+  intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['SA'],
+  securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['SA'],
 }

@@ -4,6 +4,9 @@ export type {
   BeltAndRoadInitiativeOrganizationInfo,
   BondMarketVenue,
   DomesticCourierService,
+  IntellectualPropertyDepartment,
+  IntellectualPropertyDepartmentKind,
+  IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
@@ -11,7 +14,10 @@ export type {
   NewsOutlet,
   NewsOutletsRoster,
   RareEarths,
+  SecuritiesExchangeCommission,
 } from './types'
+export { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+export { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export { BELT_AND_ROAD_PARTICIPANT_ISO_CODES } from './participantStatesIsoCodes'
 export type { BriMemberIsoCode } from './participantStatesIsoCodes'
 

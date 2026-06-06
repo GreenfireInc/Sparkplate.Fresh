@@ -7,6 +7,8 @@ import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const dominicanRepublic: BeltAndRoadInitiativeCountry = {
   name: 'Dominican Republic',
   iso3166Alpha2: 'DO',
@@ -31,5 +33,7 @@ export const dominicanRepublic: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['DO'],
   stockExchange: 'National or regional exchange (verify)',
   bondMarkets: BRI_BOND_MARKETS['DO'],
+  intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['DO'],
+  securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['DO'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['DO'],
 }

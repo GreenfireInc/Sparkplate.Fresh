@@ -4,6 +4,9 @@ export type {
   AmuOrganizationInfo,
   BondMarketVenue,
   DomesticCourierService,
+  IntellectualPropertyDepartment,
+  IntellectualPropertyDepartmentKind,
+  IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
@@ -11,7 +14,10 @@ export type {
   NewsOutletsRoster,
   NotableUniversity,
   RareEarths,
+  SecuritiesExchangeCommission,
 } from './types'
+export { AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+export { AMU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export { AMU_MEMBER_ISO_CODES } from './amuMemberIsoCodes'
 export type { AmuMemberIsoCode } from './amuMemberIsoCodes'
 

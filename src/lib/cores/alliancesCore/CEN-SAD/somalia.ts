@@ -7,6 +7,8 @@ import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
 import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const somalia: CensadCountry = {
   name: 'Somalia',
@@ -31,5 +33,7 @@ export const somalia: CensadCountry = {
   rareEarths: CENSAD_RARE_EARTHS['SO'],
   stockExchange: 'No functioning national equities market',
   bondMarkets: CENSAD_BOND_MARKETS['SO'],
+  intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['SO'],
+  securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['SO'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['SO'],
 }

@@ -7,6 +7,8 @@ import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { SADC_RARE_EARTHS } from './rareEarthsByIso'
 import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 import { SADC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { SADC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const mauritius: SadcCountry = {
   name: 'Mauritius',
@@ -33,4 +35,6 @@ export const mauritius: SadcCountry = {
   stockExchange: 'Stock Exchange of Mauritius (SEM)',
   bondMarkets: SADC_BOND_MARKETS['MU'],
   mainInternationalAirport: SADC_MAIN_INTERNATIONAL_AIRPORTS['MU'],
+  intellectualPropertyDepartments: SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS['MU'],
+  securitiesExchangeCommission: SADC_SECURITIES_EXCHANGE_COMMISSIONS['MU'],
 }

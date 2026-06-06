@@ -7,6 +7,8 @@ import { MIKTA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { MIKTA_RARE_EARTHS } from './rareEarthsByIso'
 import { MIKTA_BOND_MARKETS } from './bondMarketsByIso'
 import { MIKTA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { MIKTA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { MIKTA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const turkey: MiktaCountry = {
   name: 'Turkey',
@@ -34,4 +36,6 @@ export const turkey: MiktaCountry = {
   stockExchange: 'Borsa Istanbul (BİST equities / debt)',
   bondMarkets: MIKTA_BOND_MARKETS['TR'],
   mainInternationalAirport: MIKTA_MAIN_INTERNATIONAL_AIRPORTS['TR'],
+  intellectualPropertyDepartments: MIKTA_INTELLECTUAL_PROPERTY_DEPARTMENTS['TR'],
+  securitiesExchangeCommission: MIKTA_SECURITIES_EXCHANGE_COMMISSIONS['TR'],
 }

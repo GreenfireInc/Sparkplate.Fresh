@@ -7,6 +7,8 @@ import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
 import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const democraticRepublicOfTheCongo: ComesaCountry = {
   name: 'Democratic Republic of the Congo',
@@ -31,5 +33,7 @@ export const democraticRepublicOfTheCongo: ComesaCountry = {
   rareEarths: COMESA_RARE_EARTHS['CD'],
   stockExchange: 'BRVM / thin domestic equity context — informal OTC predominant',
   bondMarkets: COMESA_BOND_MARKETS['CD'],
+  intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['CD'],
+  securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['CD'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['CD'],
 }

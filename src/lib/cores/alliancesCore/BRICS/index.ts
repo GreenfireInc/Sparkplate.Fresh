@@ -3,6 +3,9 @@ export type {
   BricsMembership,
   BricsOrganizationInfo,
   DomesticCourierService,
+  IntellectualPropertyDepartment,
+  IntellectualPropertyDepartmentKind,
+  IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
@@ -10,7 +13,10 @@ export type {
   NewsOutlet,
   NewsOutletsRoster,
   RareEarths,
+  SecuritiesExchangeCommission,
 } from './types'
+export { BRICS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+export { BRICS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export { BRICS_MEMBER_ISO_CODES } from './bricsMemberIsoCodes'
 export type { BricsMemberIsoCode } from './bricsMemberIsoCodes'
 

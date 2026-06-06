@@ -7,6 +7,8 @@ import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
 import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const eswatini: ComesaCountry = {
   name: 'Eswatini',
@@ -31,5 +33,7 @@ export const eswatini: ComesaCountry = {
   rareEarths: COMESA_RARE_EARTHS['SZ'],
   stockExchange: 'Eswatini Stock Exchange',
   bondMarkets: COMESA_BOND_MARKETS['SZ'],
+  intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['SZ'],
+  securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['SZ'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['SZ'],
 }

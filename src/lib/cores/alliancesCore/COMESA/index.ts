@@ -3,14 +3,19 @@ export type {
   ComesaCountry,
   ComesaOrganizationInfo,
   DomesticCourierService,
+  IntellectualPropertyDepartment,
+  IntellectualPropertyDepartmentKind,
+  IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
   NotableUniversity,
   NewsOutlet,
-  NewsOutletsRoster,
-  RareEarths,
+  NewsOutletsRoster,  RareEarths,
+  SecuritiesExchangeCommission,
 } from './types'
+export { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+export { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 import type { ComesaCountry, ComesaOrganizationInfo } from './types'
 import { COMESA_MEMBER_ISO_CODES } from './comesaMemberIsoCodes'

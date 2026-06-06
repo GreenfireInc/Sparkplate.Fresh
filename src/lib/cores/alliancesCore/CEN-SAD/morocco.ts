@@ -7,6 +7,8 @@ import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
 import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const morocco: CensadCountry = {
   name: 'Morocco',
@@ -31,5 +33,7 @@ export const morocco: CensadCountry = {
   rareEarths: CENSAD_RARE_EARTHS['MA'],
   stockExchange: 'Casablanca Stock Exchange',
   bondMarkets: CENSAD_BOND_MARKETS['MA'],
+  intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['MA'],
+  securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['MA'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['MA'],
 }

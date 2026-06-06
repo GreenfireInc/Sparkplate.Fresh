@@ -7,6 +7,8 @@ import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const malaysia: BeltAndRoadInitiativeCountry = {
   name: 'Malaysia',
   iso3166Alpha2: 'MY',
@@ -31,5 +33,7 @@ export const malaysia: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['MY'],
   stockExchange: 'National or regional exchange (verify)',
   bondMarkets: BRI_BOND_MARKETS['MY'],
+  intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['MY'],
+  securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['MY'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['MY'],
 }

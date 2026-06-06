@@ -7,6 +7,8 @@ import { GCC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { GCC_RARE_EARTHS } from './rareEarthsByIso'
 import { GCC_BOND_MARKETS } from './bondMarketsByIso'
 import { GCC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { GCC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { GCC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const kuwait: GccCountry = {
   name: 'Kuwait',
@@ -33,4 +35,6 @@ export const kuwait: GccCountry = {
   stockExchange: 'Boursa Kuwait',
   bondMarkets: GCC_BOND_MARKETS['KW'],
   mainInternationalAirport: GCC_MAIN_INTERNATIONAL_AIRPORTS['KW'],
+  intellectualPropertyDepartments: GCC_INTELLECTUAL_PROPERTY_DEPARTMENTS['KW'],
+  securitiesExchangeCommission: GCC_SECURITIES_EXCHANGE_COMMISSIONS['KW'],
 }

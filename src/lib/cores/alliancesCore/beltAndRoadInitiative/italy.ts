@@ -7,6 +7,8 @@ import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const italy: BeltAndRoadInitiativeCountry = {
   name: 'Italy',
   iso3166Alpha2: 'IT',
@@ -31,5 +33,7 @@ export const italy: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['IT'],
   stockExchange: 'National or regional exchange (verify)',
   bondMarkets: BRI_BOND_MARKETS['IT'],
+  intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['IT'],
+  securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['IT'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['IT'],
 }

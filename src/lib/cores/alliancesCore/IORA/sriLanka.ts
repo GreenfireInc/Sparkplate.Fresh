@@ -7,6 +7,8 @@ import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IORA_RARE_EARTHS } from './rareEarthsByIso'
 import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const sriLanka: IoraCountry = {
   name: 'Sri Lanka',
@@ -33,4 +35,6 @@ export const sriLanka: IoraCountry = {
   stockExchange: 'Colombo Stock Exchange (CSE)',
   bondMarkets: IORA_BOND_MARKETS['LK'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['LK'],
+  intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['LK'],
+  securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['LK'],
 }

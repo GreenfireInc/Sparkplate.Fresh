@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const chad: AfricanUnionCountry = {
   name: 'Chad',
   iso3166Alpha2: 'TD',
@@ -31,5 +33,7 @@ export const chad: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['TD'],
   stockExchange: 'Financial Market of Central Africa (CEMAC hub; thin Chad listings)',
   bondMarkets: AU_BOND_MARKETS['TD'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['TD'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['TD'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['TD'],
 }

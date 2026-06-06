@@ -6,6 +6,8 @@ import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByI
 import { COMMONWEALTH_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 import { COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const togo: CommonwealthCountry = {
   name: 'Togo',
@@ -30,5 +32,7 @@ export const togo: CommonwealthCountry = {
   mainExportedElements: COMMONWEALTH_MAIN_EXPORTED_ELEMENTS['TG'],
   rareEarths: COMMONWEALTH_RARE_EARTHS['TG'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (regional)',
+  intellectualPropertyDepartments: COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS['TG'],
+  securitiesExchangeCommission: COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS['TG'],
   mainInternationalAirport: COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS['TG'],
 }

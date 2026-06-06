@@ -7,6 +7,8 @@ import { ARAB_LEAGUE_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ARAB_LEAGUE_RARE_EARTHS } from './rareEarthsByIso'
 import { ARAB_LEAGUE_BOND_MARKETS } from './bondMarketsByIso'
 import { ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { ARAB_LEAGUE_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { ARAB_LEAGUE_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const bahrain: ArabLeagueCountry = {
   name: 'Bahrain',
@@ -32,5 +34,7 @@ export const bahrain: ArabLeagueCountry = {
   rareEarths: ARAB_LEAGUE_RARE_EARTHS['BH'],
   stockExchange: 'Bahrain Bourse',
   bondMarkets: ARAB_LEAGUE_BOND_MARKETS['BH'],
+  intellectualPropertyDepartments: ARAB_LEAGUE_INTELLECTUAL_PROPERTY_DEPARTMENTS['BH'],
+  securitiesExchangeCommission: ARAB_LEAGUE_SECURITIES_EXCHANGE_COMMISSIONS['BH'],
   mainInternationalAirport: ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS['BH'],
 }

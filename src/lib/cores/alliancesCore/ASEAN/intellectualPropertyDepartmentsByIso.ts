@@ -1,0 +1,361 @@
+import type { AseanMemberIsoCode } from './aseanMemberIsoCodes'
+import type {
+  IntellectualPropertyDepartment,
+  IntellectualPropertyDepartmentKind,
+  IntellectualPropertyDepartmentsRoster,
+} from './types'
+
+function ip(
+  kind: IntellectualPropertyDepartmentKind,
+  name: string,
+  website: string,
+  email: string,
+  twitter: string,
+  linkedin: string,
+  formsUrl: string,
+  apiEndpoint = '',
+): IntellectualPropertyDepartment {
+  return { kind, name, website, email, twitter, linkedin, formsUrl, apiEndpoint }
+}
+
+function roster(
+  copyright: IntellectualPropertyDepartment,
+  trademarks: IntellectualPropertyDepartment,
+  patents: IntellectualPropertyDepartment,
+): IntellectualPropertyDepartmentsRoster {
+  return { copyright, trademarks, patents }
+}
+
+/**
+ * Intellectual property competent offices by ISO 3166-1 alpha-2 for ASEAN member states
+ * (informational; verify URLs, handles, forms portals, and API bases before production use).
+ * Seven economies (BN, ID, MY, PH, SG, TH, VN) align with APEC entries in
+ * `APEC/intellectualPropertyDepartmentsByIso.ts`. Cambodia, Laos, Myanmar, and Timor-Leste
+ * (near-accession) use national ministry / IP office contacts per WIPO directory naming.
+ * `apiEndpoint` is almost always empty. Verify periodically:
+ * https://www.wipo.int/en/web/country-profiles/directory-ip-offices
+ */
+export const ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS: Record<
+  AseanMemberIsoCode,
+  IntellectualPropertyDepartmentsRoster
+> = {
+  BN: roster(
+    ip(
+      'copyright',
+      'Brunei Darussalam Intellectual Property Office (BruIPO) — copyright',
+      'https://www.bruipo.gov.bn',
+      'bruipo@bruipo.gov.bn',
+      '',
+      '',
+      'https://www.bruipo.gov.bn',
+    ),
+    ip(
+      'trademarks',
+      'Brunei Darussalam Intellectual Property Office (BruIPO)',
+      'https://www.bruipo.gov.bn',
+      'bruipo@bruipo.gov.bn',
+      '',
+      '',
+      'https://www.bruipo.gov.bn',
+    ),
+    ip(
+      'patents',
+      'Brunei Darussalam Intellectual Property Office (BruIPO)',
+      'https://www.bruipo.gov.bn',
+      'bruipo@bruipo.gov.bn',
+      '',
+      '',
+      'https://www.bruipo.gov.bn',
+    ),
+  ),
+  KH: roster(
+    ip(
+      'copyright',
+      'Ministry of Culture and Fine Arts — copyright (Cambodia)',
+      'https://www.cambodiaip.gov.kh',
+      '',
+      '',
+      '',
+      'https://www.cambodiaip.gov.kh',
+    ),
+    ip(
+      'trademarks',
+      'Department of Intellectual Property Rights (Ministry of Commerce, Cambodia)',
+      'https://www.cambodiaip.gov.kh',
+      'info@cambodiaip.gov.kh',
+      '',
+      '',
+      'https://www.cambodiaip.gov.kh',
+    ),
+    ip(
+      'patents',
+      'Department of Intellectual Property Rights (Ministry of Commerce, Cambodia)',
+      'https://www.cambodiaip.gov.kh',
+      'info@cambodiaip.gov.kh',
+      '',
+      '',
+      'https://www.cambodiaip.gov.kh',
+    ),
+  ),
+  ID: roster(
+    ip(
+      'copyright',
+      'Directorate General of Intellectual Property (DGIP) — copyright',
+      'https://dgip.go.id',
+      'dgip@kemenkumham.go.id',
+      '',
+      'https://www.linkedin.com/company/directorate-general-of-intellectual-property-indonesia/',
+      'https://pdki-indonesia.dgip.go.id',
+    ),
+    ip(
+      'trademarks',
+      'Directorate General of Intellectual Property (DGIP)',
+      'https://dgip.go.id',
+      'dgip@kemenkumham.go.id',
+      '',
+      'https://www.linkedin.com/company/directorate-general-of-intellectual-property-indonesia/',
+      'https://pdki-indonesia.dgip.go.id',
+    ),
+    ip(
+      'patents',
+      'Directorate General of Intellectual Property (DGIP)',
+      'https://dgip.go.id',
+      'dgip@kemenkumham.go.id',
+      '',
+      'https://www.linkedin.com/company/directorate-general-of-intellectual-property-indonesia/',
+      'https://pdki-indonesia.dgip.go.id',
+    ),
+  ),
+  LA: roster(
+    ip(
+      'copyright',
+      'Department of Intellectual Property (Ministry of Science and Technology, Laos)',
+      'https://www.laip.gov.la',
+      '',
+      '',
+      '',
+      'https://www.laip.gov.la',
+    ),
+    ip(
+      'trademarks',
+      'Department of Intellectual Property (Ministry of Science and Technology, Laos)',
+      'https://www.laip.gov.la',
+      '',
+      '',
+      '',
+      'https://www.laip.gov.la',
+    ),
+    ip(
+      'patents',
+      'Department of Intellectual Property (Ministry of Science and Technology, Laos)',
+      'https://www.laip.gov.la',
+      '',
+      '',
+      '',
+      'https://www.laip.gov.la',
+    ),
+  ),
+  MY: roster(
+    ip(
+      'copyright',
+      'Intellectual Property Corporation of Malaysia (MyIPO) — copyright',
+      'https://www.myipo.gov.my',
+      'myipo@myipo.gov.my',
+      '',
+      'https://www.linkedin.com/company/myipo/',
+      'https://www.myipo.gov.my/en/apply-for-ip',
+    ),
+    ip(
+      'trademarks',
+      'Intellectual Property Corporation of Malaysia (MyIPO)',
+      'https://www.myipo.gov.my',
+      'myipo@myipo.gov.my',
+      '',
+      'https://www.linkedin.com/company/myipo/',
+      'https://www.myipo.gov.my/en/apply-for-ip',
+    ),
+    ip(
+      'patents',
+      'Intellectual Property Corporation of Malaysia (MyIPO)',
+      'https://www.myipo.gov.my',
+      'myipo@myipo.gov.my',
+      '',
+      'https://www.linkedin.com/company/myipo/',
+      'https://www.myipo.gov.my/en/apply-for-ip',
+    ),
+  ),
+  MM: roster(
+    ip(
+      'copyright',
+      'Myanmar Copyright Office (Ministry of Religious Affairs and Culture)',
+      'https://www.myanmarip.gov.mm',
+      '',
+      '',
+      '',
+      'https://www.myanmarip.gov.mm',
+    ),
+    ip(
+      'trademarks',
+      'Intellectual Property Department (Ministry of Commerce, Myanmar)',
+      'https://www.myanmarip.gov.mm',
+      'info@mipo.gov.mm',
+      '',
+      '',
+      'https://www.myanmarip.gov.mm',
+    ),
+    ip(
+      'patents',
+      'Intellectual Property Department (Ministry of Commerce, Myanmar)',
+      'https://www.myanmarip.gov.mm',
+      'info@mipo.gov.mm',
+      '',
+      '',
+      'https://www.myanmarip.gov.mm',
+    ),
+  ),
+  PH: roster(
+    ip(
+      'copyright',
+      'Intellectual Property Office of the Philippines (IPOPHL) — copyright',
+      'https://www.ipophil.gov.ph',
+      'info@ipophil.gov.ph',
+      'https://x.com/IPOPHL',
+      'https://www.linkedin.com/company/intellectual-property-office-of-the-philippines/',
+      'https://epayment.ipophil.gov.ph/',
+    ),
+    ip(
+      'trademarks',
+      'Intellectual Property Office of the Philippines (IPOPHL)',
+      'https://www.ipophil.gov.ph',
+      'info@ipophil.gov.ph',
+      'https://x.com/IPOPHL',
+      'https://www.linkedin.com/company/intellectual-property-office-of-the-philippines/',
+      'https://epayment.ipophil.gov.ph/',
+    ),
+    ip(
+      'patents',
+      'Intellectual Property Office of the Philippines (IPOPHL)',
+      'https://www.ipophil.gov.ph',
+      'info@ipophil.gov.ph',
+      'https://x.com/IPOPHL',
+      'https://www.linkedin.com/company/intellectual-property-office-of-the-philippines/',
+      'https://epayment.ipophil.gov.ph/',
+    ),
+  ),
+  SG: roster(
+    ip(
+      'copyright',
+      'Intellectual Property Office of Singapore (IPOS) — copyright',
+      'https://www.ipos.gov.sg',
+      'ipos@ipos.gov.sg',
+      'https://x.com/IPOSG',
+      'https://www.linkedin.com/company/intellectual-property-office-of-singapore/',
+      'https://www.ipos.gov.sg/eservices',
+    ),
+    ip(
+      'trademarks',
+      'Intellectual Property Office of Singapore (IPOS)',
+      'https://www.ipos.gov.sg',
+      'ipos@ipos.gov.sg',
+      'https://x.com/IPOSG',
+      'https://www.linkedin.com/company/intellectual-property-office-of-singapore/',
+      'https://www.ipos.gov.sg/eservices',
+    ),
+    ip(
+      'patents',
+      'Intellectual Property Office of Singapore (IPOS)',
+      'https://www.ipos.gov.sg',
+      'ipos@ipos.gov.sg',
+      'https://x.com/IPOSG',
+      'https://www.linkedin.com/company/intellectual-property-office-of-singapore/',
+      'https://www.ipos.gov.sg/eservices',
+    ),
+  ),
+  TH: roster(
+    ip(
+      'copyright',
+      'Department of Intellectual Property (DIP) — copyright',
+      'https://www.ipthailand.go.th',
+      'dip@ipthailand.go.th',
+      '',
+      '',
+      'https://www.ipthailand.go.th/en/e-service.html',
+    ),
+    ip(
+      'trademarks',
+      'Department of Intellectual Property (DIP)',
+      'https://www.ipthailand.go.th',
+      'dip@ipthailand.go.th',
+      '',
+      '',
+      'https://www.ipthailand.go.th/en/e-service.html',
+    ),
+    ip(
+      'patents',
+      'Department of Intellectual Property (DIP)',
+      'https://www.ipthailand.go.th',
+      'dip@ipthailand.go.th',
+      '',
+      '',
+      'https://www.ipthailand.go.th/en/e-service.html',
+    ),
+  ),
+  TL: roster(
+    ip(
+      'copyright',
+      'National Directorate of Intellectual Property (Timor-Leste)',
+      'https://www.mj.gov.tl',
+      '',
+      '',
+      '',
+      'https://www.mj.gov.tl',
+    ),
+    ip(
+      'trademarks',
+      'National Directorate of Intellectual Property (Timor-Leste)',
+      'https://www.mj.gov.tl',
+      '',
+      '',
+      '',
+      'https://www.mj.gov.tl',
+    ),
+    ip(
+      'patents',
+      'National Directorate of Intellectual Property (Timor-Leste)',
+      'https://www.mj.gov.tl',
+      '',
+      '',
+      '',
+      'https://www.mj.gov.tl',
+    ),
+  ),
+  VN: roster(
+    ip(
+      'copyright',
+      'Copyright Office of Vietnam (COV)',
+      'https://cov.gov.vn',
+      '',
+      '',
+      '',
+      'https://cov.gov.vn',
+    ),
+    ip(
+      'trademarks',
+      'Intellectual Property Office of Vietnam (NOIP)',
+      'https://www.noip.gov.vn',
+      'noip@noip.gov.vn',
+      '',
+      '',
+      'https://www.noip.gov.vn/en-US/OnlineFiling',
+    ),
+    ip(
+      'patents',
+      'Intellectual Property Office of Vietnam (NOIP)',
+      'https://www.noip.gov.vn',
+      'noip@noip.gov.vn',
+      '',
+      '',
+      'https://www.noip.gov.vn/en-US/OnlineFiling',
+    ),
+  ),
+}

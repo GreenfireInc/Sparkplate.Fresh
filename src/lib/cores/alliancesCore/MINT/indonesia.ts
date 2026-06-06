@@ -7,6 +7,8 @@ import { MINT_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { MINT_RARE_EARTHS } from './rareEarthsByIso'
 import { MINT_BOND_MARKETS } from './bondMarketsByIso'
 import { MINT_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { MINT_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { MINT_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const indonesia: MintCountry = {
   name: 'Indonesia',
@@ -34,4 +36,6 @@ export const indonesia: MintCountry = {
   stockExchange: 'Indonesia Stock Exchange IDX Jakarta',
   bondMarkets: MINT_BOND_MARKETS['ID'],
   mainInternationalAirport: MINT_MAIN_INTERNATIONAL_AIRPORTS['ID'],
+  intellectualPropertyDepartments: MINT_INTELLECTUAL_PROPERTY_DEPARTMENTS['ID'],
+  securitiesExchangeCommission: MINT_SECURITIES_EXCHANGE_COMMISSIONS['ID'],
 }

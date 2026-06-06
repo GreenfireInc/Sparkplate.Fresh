@@ -7,6 +7,8 @@ import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IORA_RARE_EARTHS } from './rareEarthsByIso'
 import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const india: IoraCountry = {
   name: 'India',
@@ -34,4 +36,6 @@ export const india: IoraCountry = {
   stockExchange: 'National Stock Exchange (NSE); BSE Bombay context — informational',
   bondMarkets: IORA_BOND_MARKETS['IN'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['IN'],
+  intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['IN'],
+  securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['IN'],
 }

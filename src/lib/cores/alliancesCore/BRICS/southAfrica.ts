@@ -6,6 +6,8 @@ import { BRICS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
 import { BRICS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRICS_RARE_EARTHS } from './rareEarthsByIso'
 import { BRICS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { BRICS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { BRICS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const southAfrica: BricsCountry = {
   name: 'South Africa',
@@ -30,5 +32,7 @@ export const southAfrica: BricsCountry = {
   mainExportedElements: BRICS_MAIN_EXPORTED_ELEMENTS['ZA'],
   rareEarths: BRICS_RARE_EARTHS['ZA'],
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
+  intellectualPropertyDepartments: BRICS_INTELLECTUAL_PROPERTY_DEPARTMENTS['ZA'],
+  securitiesExchangeCommission: BRICS_SECURITIES_EXCHANGE_COMMISSIONS['ZA'],
   mainInternationalAirport: BRICS_MAIN_INTERNATIONAL_AIRPORTS['ZA'],
 }

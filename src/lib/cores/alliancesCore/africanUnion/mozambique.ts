@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const mozambique: AfricanUnionCountry = {
   name: 'Mozambique',
   iso3166Alpha2: 'MZ',
@@ -31,5 +33,7 @@ export const mozambique: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['MZ'],
   stockExchange: 'Bolsa de Valores de Moçambique (BVM)',
   bondMarkets: AU_BOND_MARKETS['MZ'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['MZ'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['MZ'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['MZ'],
 }

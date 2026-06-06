@@ -7,6 +7,8 @@ import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { APEC_RARE_EARTHS } from './rareEarthsByIso'
 import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const vietnam: ApecCountry = {
   name: 'Vietnam',
@@ -33,5 +35,7 @@ export const vietnam: ApecCountry = {
   rareEarths: APEC_RARE_EARTHS['VN'],
   stockExchange: 'HOSE Ho Chi Minh; HNX consolidation roadmap — informational',
   bondMarkets: APEC_BOND_MARKETS['VN'],
+  intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['VN'],
+  securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['VN'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['VN'],
 }

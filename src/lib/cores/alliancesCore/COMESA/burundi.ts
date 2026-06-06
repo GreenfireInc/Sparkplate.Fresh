@@ -7,6 +7,8 @@ import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
 import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const burundi: ComesaCountry = {
   name: 'Burundi',
@@ -31,5 +33,7 @@ export const burundi: ComesaCountry = {
   rareEarths: COMESA_RARE_EARTHS['BI'],
   stockExchange: 'Burundi Stock Exchange — thin liquidity',
   bondMarkets: COMESA_BOND_MARKETS['BI'],
+  intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['BI'],
+  securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['BI'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['BI'],
 }

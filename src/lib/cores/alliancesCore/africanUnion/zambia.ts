@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const zambia: AfricanUnionCountry = {
   name: 'Zambia',
   iso3166Alpha2: 'ZM',
@@ -31,5 +33,7 @@ export const zambia: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['ZM'],
   stockExchange: 'Lusaka Securities Exchange (LuSE)',
   bondMarkets: AU_BOND_MARKETS['ZM'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['ZM'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['ZM'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['ZM'],
 }

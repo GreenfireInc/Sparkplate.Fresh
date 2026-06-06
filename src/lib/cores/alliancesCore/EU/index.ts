@@ -3,6 +3,9 @@ export type {
   DomesticCourierService,
   EuCountry,
   EuOrganizationInfo,
+  IntellectualPropertyDepartment,
+  IntellectualPropertyDepartmentKind,
+  IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
@@ -10,7 +13,10 @@ export type {
   NewsOutlet,
   NewsOutletsRoster,
   RareEarths,
+  SecuritiesExchangeCommission,
 } from './types'
+export { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+export { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 import type { EuCountry, EuOrganizationInfo } from './types'
 import { EU_MEMBER_ISO_CODES } from './euMemberIsoCodes'

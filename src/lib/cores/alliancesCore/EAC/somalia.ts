@@ -7,6 +7,8 @@ import { EAC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EAC_RARE_EARTHS } from './rareEarthsByIso'
 import { EAC_BOND_MARKETS } from './bondMarketsByIso'
 import { EAC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { EAC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { EAC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const somalia: EacCountry = {
   name: 'Somalia',
@@ -33,5 +35,8 @@ export const somalia: EacCountry = {
   rareEarths: EAC_RARE_EARTHS['SO'],
   stockExchange: 'No functioning national exchange',
   bondMarkets: EAC_BOND_MARKETS['SO'],
+  intellectualPropertyDepartments: EAC_INTELLECTUAL_PROPERTY_DEPARTMENTS['SO'],
+
+  securitiesExchangeCommission: EAC_SECURITIES_EXCHANGE_COMMISSIONS['SO'],
   mainInternationalAirport: EAC_MAIN_INTERNATIONAL_AIRPORTS['SO'],
 }

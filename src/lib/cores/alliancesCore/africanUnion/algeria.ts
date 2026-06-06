@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const algeria: AfricanUnionCountry = {
   name: 'Algeria',
   iso3166Alpha2: 'DZ',
@@ -31,5 +33,7 @@ export const algeria: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['DZ'],
   stockExchange: 'Algiers Stock Exchange',
   bondMarkets: AU_BOND_MARKETS['DZ'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['DZ'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['DZ'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['DZ'],
 }

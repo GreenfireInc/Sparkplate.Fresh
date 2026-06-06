@@ -7,6 +7,8 @@ import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { APEC_RARE_EARTHS } from './rareEarthsByIso'
 import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const chile: ApecCountry = {
   name: 'Chile',
@@ -32,5 +34,7 @@ export const chile: ApecCountry = {
   rareEarths: APEC_RARE_EARTHS['CL'],
   stockExchange: 'Bolsa de Santiago',
   bondMarkets: APEC_BOND_MARKETS['CL'],
+  intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['CL'],
+  securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['CL'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['CL'],
 }

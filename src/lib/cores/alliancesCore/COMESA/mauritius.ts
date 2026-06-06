@@ -7,6 +7,8 @@ import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
 import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const mauritius: ComesaCountry = {
   name: 'Mauritius',
@@ -32,5 +34,7 @@ export const mauritius: ComesaCountry = {
   rareEarths: COMESA_RARE_EARTHS['MU'],
   stockExchange: 'Stock Exchange of Mauritius (SEM)',
   bondMarkets: COMESA_BOND_MARKETS['MU'],
+  intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['MU'],
+  securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['MU'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['MU'],
 }

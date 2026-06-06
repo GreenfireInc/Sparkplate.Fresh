@@ -7,6 +7,8 @@ import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
 import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const dominica: CaricomCountry = {
   name: 'Dominica',
@@ -32,5 +34,7 @@ export const dominica: CaricomCountry = {
   rareEarths: CARICOM_RARE_EARTHS['DM'],
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
   bondMarkets: CARICOM_BOND_MARKETS['DM'],
+  intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['DM'],
+  securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['DM'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['DM'],
 }

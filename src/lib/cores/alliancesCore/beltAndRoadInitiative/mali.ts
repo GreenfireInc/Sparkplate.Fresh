@@ -7,6 +7,8 @@ import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const mali: BeltAndRoadInitiativeCountry = {
   name: 'Mali',
   iso3166Alpha2: 'ML',
@@ -31,5 +33,7 @@ export const mali: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['ML'],
   stockExchange: 'Bourse des Valeurs du Mali (limited)',
   bondMarkets: BRI_BOND_MARKETS['ML'],
+  intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['ML'],
+  securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['ML'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['ML'],
 }

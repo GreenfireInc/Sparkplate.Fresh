@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const saoTomeAndPrincipe: AfricanUnionCountry = {
   name: 'São Tomé and Príncipe',
   iso3166Alpha2: 'ST',
@@ -31,5 +33,7 @@ export const saoTomeAndPrincipe: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['ST'],
   stockExchange: 'Bolsa de Valores de São Tomé e Príncipe (limited)',
   bondMarkets: AU_BOND_MARKETS['ST'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['ST'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['ST'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['ST'],
 }

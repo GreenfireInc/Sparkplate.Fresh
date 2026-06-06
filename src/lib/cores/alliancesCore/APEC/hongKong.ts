@@ -7,6 +7,8 @@ import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { APEC_RARE_EARTHS } from './rareEarthsByIso'
 import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const hongKong: ApecCountry = {
   name: 'Hong Kong',
@@ -34,5 +36,7 @@ export const hongKong: ApecCountry = {
   rareEarths: APEC_RARE_EARTHS['HK'],
   stockExchange: 'Hong Kong Stock Exchange (HKEX)',
   bondMarkets: APEC_BOND_MARKETS['HK'],
+  intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['HK'],
+  securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['HK'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['HK'],
 }

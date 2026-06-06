@@ -7,6 +7,8 @@ import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const gambia: EcowasCountry = {
   name: 'The Gambia',
@@ -31,5 +33,8 @@ export const gambia: EcowasCountry = {
   rareEarths: ECOWAS_RARE_EARTHS['GM'],
   stockExchange: 'Gambia Stock Exchange (limited)',
   bondMarkets: ECOWAS_BOND_MARKETS['GM'],
+  intellectualPropertyDepartments: ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS['GM'],
+
+  securitiesExchangeCommission: ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS['GM'],
   mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['GM'],
 }

@@ -3,14 +3,19 @@ export type {
   CensadCountry,
   CensadOrganizationInfo,
   DomesticCourierService,
+  IntellectualPropertyDepartment,
+  IntellectualPropertyDepartmentKind,
+  IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
   NotableUniversity,
   NewsOutlet,
-  NewsOutletsRoster,
-  RareEarths,
+  NewsOutletsRoster,  RareEarths,
+  SecuritiesExchangeCommission,
 } from './types'
+export { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+export { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 import type { CensadCountry, CensadOrganizationInfo } from './types'
 import { CENSAD_MEMBER_ISO_CODES } from './censadMemberIsoCodes'

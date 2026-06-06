@@ -3,6 +3,9 @@ export type {
   DomesticCourierService,
   EcowasCountry,
   EcowasOrganizationInfo,
+  IntellectualPropertyDepartment,
+  IntellectualPropertyDepartmentKind,
+  IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
@@ -10,7 +13,10 @@ export type {
   NewsOutlet,
   NewsOutletsRoster,
   RareEarths,
+  SecuritiesExchangeCommission,
 } from './types'
+export { ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+export { ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 import type { EcowasCountry, EcowasOrganizationInfo } from './types'
 import { ECOWAS_MEMBER_ISO_CODES } from './ecowasMemberIsoCodes'

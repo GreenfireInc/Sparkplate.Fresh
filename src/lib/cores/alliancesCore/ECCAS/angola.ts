@@ -7,6 +7,8 @@ import { ECCAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECCAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECCAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { ECCAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { ECCAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const angola: EccasCountry = {
   name: 'Angola',
@@ -31,5 +33,8 @@ export const angola: EccasCountry = {
   rareEarths: ECCAS_RARE_EARTHS['AO'],
   stockExchange: 'Bodiva (Angola Securities Exchange)',
   bondMarkets: ECCAS_BOND_MARKETS['AO'],
+  intellectualPropertyDepartments: ECCAS_INTELLECTUAL_PROPERTY_DEPARTMENTS['AO'],
+
+  securitiesExchangeCommission: ECCAS_SECURITIES_EXCHANGE_COMMISSIONS['AO'],
   mainInternationalAirport: ECCAS_MAIN_INTERNATIONAL_AIRPORTS['AO'],
 }

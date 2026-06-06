@@ -7,6 +7,8 @@ import { G7_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { G7_RARE_EARTHS } from './rareEarthsByIso'
 import { G7_BOND_MARKETS } from './bondMarketsByIso'
 import { G7_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { G7_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { G7_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const canada: G7Country = {
   name: 'Canada',
@@ -33,4 +35,6 @@ export const canada: G7Country = {
   stockExchange: 'Toronto Stock Exchange (TMX)',
   bondMarkets: G7_BOND_MARKETS['CA'],
   mainInternationalAirport: G7_MAIN_INTERNATIONAL_AIRPORTS['CA'],
+  intellectualPropertyDepartments: G7_INTELLECTUAL_PROPERTY_DEPARTMENTS['CA'],
+  securitiesExchangeCommission: G7_SECURITIES_EXCHANGE_COMMISSIONS['CA'],
 }

@@ -1,6 +1,9 @@
 export type {
   BondMarketVenue,
   DomesticCourierService,
+  IntellectualPropertyDepartment,
+  IntellectualPropertyDepartmentKind,
+  IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
@@ -10,7 +13,10 @@ export type {
   OpecCountry,
   OpecOrganizationInfo,
   RareEarths,
+  SecuritiesExchangeCommission,
 } from './types'
+export { OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+export { OPEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 import type { OpecCountry, OpecOrganizationInfo } from './types'
 import { OPEC_MEMBER_ISO_CODES } from './opecMemberIsoCodes'

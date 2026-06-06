@@ -7,6 +7,8 @@ import { OPEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OPEC_RARE_EARTHS } from './rareEarthsByIso'
 import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { OPEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const nigeria: OpecCountry = {
   name: 'Nigeria',
@@ -33,4 +35,6 @@ export const nigeria: OpecCountry = {
   stockExchange: 'Nigerian Exchange Group NGX (Lagos equities)',
   bondMarkets: OPEC_BOND_MARKETS['NG'],
   mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['NG'],
+  intellectualPropertyDepartments: OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['NG'],
+  securitiesExchangeCommission: OPEC_SECURITIES_EXCHANGE_COMMISSIONS['NG'],
 }

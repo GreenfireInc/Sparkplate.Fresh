@@ -7,6 +7,8 @@ import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
 import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const libya: ComesaCountry = {
   name: 'Libya',
@@ -32,5 +34,7 @@ export const libya: ComesaCountry = {
   rareEarths: COMESA_RARE_EARTHS['LY'],
   stockExchange: 'Libyan Stock Market (limited operations)',
   bondMarkets: COMESA_BOND_MARKETS['LY'],
+  intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['LY'],
+  securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['LY'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['LY'],
 }

@@ -3,6 +3,9 @@ export type {
   DomesticCourierService,
   G7Country,
   G7OrganizationInfo,
+  IntellectualPropertyDepartment,
+  IntellectualPropertyDepartmentKind,
+  IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
@@ -10,7 +13,10 @@ export type {
   NewsOutletsRoster,
   NotableUniversity,
   RareEarths,
+  SecuritiesExchangeCommission,
 } from './types'
+export { G7_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+export { G7_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 import type { G7Country, G7OrganizationInfo } from './types'
 import { G7_MEMBER_ISO_CODES } from './g7MemberIsoCodes'

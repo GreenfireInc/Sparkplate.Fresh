@@ -7,6 +7,8 @@ import { APEC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { APEC_RARE_EARTHS } from './rareEarthsByIso'
 import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const southKorea: ApecCountry = {
   name: 'South Korea',
@@ -33,5 +35,7 @@ export const southKorea: ApecCountry = {
   rareEarths: APEC_RARE_EARTHS['KR'],
   stockExchange: 'Korea Exchange KOSPI / KOSDAQ',
   bondMarkets: APEC_BOND_MARKETS['KR'],
+  intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['KR'],
+  securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['KR'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['KR'],
 }

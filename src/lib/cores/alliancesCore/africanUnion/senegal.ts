@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const senegal: AfricanUnionCountry = {
   name: 'Senegal',
   iso3166Alpha2: 'SN',
@@ -31,5 +33,7 @@ export const senegal: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['SN'],
   stockExchange: 'BRVM (regional; Dakar listings)',
   bondMarkets: AU_BOND_MARKETS['SN'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['SN'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['SN'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['SN'],
 }

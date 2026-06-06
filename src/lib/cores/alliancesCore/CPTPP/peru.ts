@@ -7,6 +7,8 @@ import { CPTPP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CPTPP_RARE_EARTHS } from './rareEarthsByIso'
 import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 import { CPTPP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CPTPP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const peru: CptppCountry = {
   name: 'Peru',
@@ -32,5 +34,7 @@ export const peru: CptppCountry = {
   rareEarths: CPTPP_RARE_EARTHS['PE'],
   stockExchange: 'Lima Stock Exchange (Bolsa de Valores de Lima)',
   bondMarkets: CPTPP_BOND_MARKETS['PE'],
+  intellectualPropertyDepartments: CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS['PE'],
+  securitiesExchangeCommission: CPTPP_SECURITIES_EXCHANGE_COMMISSIONS['PE'],
   mainInternationalAirport: CPTPP_MAIN_INTERNATIONAL_AIRPORTS['PE'],
 }

@@ -7,6 +7,8 @@ import { ECCAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECCAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECCAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { ECCAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { ECCAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const equatorialGuinea: EccasCountry = {
   name: 'Equatorial Guinea',
@@ -31,5 +33,8 @@ export const equatorialGuinea: EccasCountry = {
   rareEarths: ECCAS_RARE_EARTHS['GQ'],
   stockExchange: 'CEMAC regional liquidity; limited local listings',
   bondMarkets: ECCAS_BOND_MARKETS['GQ'],
+  intellectualPropertyDepartments: ECCAS_INTELLECTUAL_PROPERTY_DEPARTMENTS['GQ'],
+
+  securitiesExchangeCommission: ECCAS_SECURITIES_EXCHANGE_COMMISSIONS['GQ'],
   mainInternationalAirport: ECCAS_MAIN_INTERNATIONAL_AIRPORTS['GQ'],
 }

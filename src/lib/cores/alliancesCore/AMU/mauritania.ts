@@ -7,6 +7,8 @@ import { AMU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AMU_RARE_EARTHS } from './rareEarthsByIso'
 import { AMU_BOND_MARKETS } from './bondMarketsByIso'
 import { AMU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AMU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const mauritania: AmuCountry = {
   name: 'Mauritania',
@@ -32,5 +34,7 @@ export const mauritania: AmuCountry = {
   rareEarths: AMU_RARE_EARTHS['MR'],
   stockExchange: 'Bourse Notation Agréée (limited)',
   bondMarkets: AMU_BOND_MARKETS['MR'],
+  intellectualPropertyDepartments: AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS['MR'],
+  securitiesExchangeCommission: AMU_SECURITIES_EXCHANGE_COMMISSIONS['MR'],
   mainInternationalAirport: AMU_MAIN_INTERNATIONAL_AIRPORTS['MR'],
 }

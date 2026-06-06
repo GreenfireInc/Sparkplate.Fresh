@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const equatorialGuinea: AfricanUnionCountry = {
   name: 'Equatorial Guinea',
   iso3166Alpha2: 'GQ',
@@ -31,5 +33,7 @@ export const equatorialGuinea: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['GQ'],
   stockExchange: 'CEMAC regional market (limited local listings)',
   bondMarkets: AU_BOND_MARKETS['GQ'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['GQ'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['GQ'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['GQ'],
 }

@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const togo: AfricanUnionCountry = {
   name: 'Togo',
   iso3166Alpha2: 'TG',
@@ -31,5 +33,7 @@ export const togo: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['TG'],
   stockExchange: 'BRVM regional listings; Lomé financial center activity',
   bondMarkets: AU_BOND_MARKETS['TG'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['TG'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['TG'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['TG'],
 }

@@ -7,6 +7,8 @@ import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IORA_RARE_EARTHS } from './rareEarthsByIso'
 import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const thailand: IoraCountry = {
   name: 'Thailand',
@@ -33,4 +35,6 @@ export const thailand: IoraCountry = {
   stockExchange: 'Stock Exchange of Thailand (SET)',
   bondMarkets: IORA_BOND_MARKETS['TH'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['TH'],
+  intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['TH'],
+  securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['TH'],
 }

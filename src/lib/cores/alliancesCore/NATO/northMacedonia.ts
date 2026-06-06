@@ -7,6 +7,8 @@ import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { NATO_RARE_EARTHS } from './rareEarthsByIso'
 import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const northMacedonia: NatoCountry = {
   name: 'North Macedonia',
@@ -33,4 +35,6 @@ export const northMacedonia: NatoCountry = {
   stockExchange: 'Macedonian Stock Exchange (Skopje — informational)',
   bondMarkets: NATO_BOND_MARKETS['MK'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['MK'],
+  intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['MK'],
+  securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['MK'],
 }

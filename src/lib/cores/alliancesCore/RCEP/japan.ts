@@ -7,6 +7,8 @@ import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
 import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { RCEP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const japan: RcepCountry = {
   name: 'Japan',
@@ -34,4 +36,6 @@ export const japan: RcepCountry = {
   stockExchange: 'Tokyo Stock Exchange (Japan Exchange Group)',
   bondMarkets: RCEP_BOND_MARKETS['JP'],
   mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['JP'],
+  intellectualPropertyDepartments: RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS['JP'],
+  securitiesExchangeCommission: RCEP_SECURITIES_EXCHANGE_COMMISSIONS['JP'],
 }

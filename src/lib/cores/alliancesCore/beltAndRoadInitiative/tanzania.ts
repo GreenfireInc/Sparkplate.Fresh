@@ -7,6 +7,8 @@ import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const tanzania: BeltAndRoadInitiativeCountry = {
   name: 'Tanzania',
   iso3166Alpha2: 'TZ',
@@ -31,5 +33,7 @@ export const tanzania: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['TZ'],
   stockExchange: 'Dar es Salaam Stock Exchange (DSE)',
   bondMarkets: BRI_BOND_MARKETS['TZ'],
+  intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['TZ'],
+  securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['TZ'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['TZ'],
 }

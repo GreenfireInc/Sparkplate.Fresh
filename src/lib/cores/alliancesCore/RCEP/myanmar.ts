@@ -7,6 +7,8 @@ import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
 import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { RCEP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const myanmar: RcepCountry = {
   name: 'Myanmar',
@@ -34,4 +36,6 @@ export const myanmar: RcepCountry = {
   stockExchange: 'Yangon Stock Exchange (constrained liquidity — informational)',
   bondMarkets: RCEP_BOND_MARKETS['MM'],
   mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['MM'],
+  intellectualPropertyDepartments: RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS['MM'],
+  securitiesExchangeCommission: RCEP_SECURITIES_EXCHANGE_COMMISSIONS['MM'],
 }

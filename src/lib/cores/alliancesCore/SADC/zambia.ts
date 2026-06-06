@@ -7,6 +7,8 @@ import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { SADC_RARE_EARTHS } from './rareEarthsByIso'
 import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 import { SADC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { SADC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const zambia: SadcCountry = {
   name: 'Zambia',
@@ -32,4 +34,6 @@ export const zambia: SadcCountry = {
   stockExchange: 'Lusaka Securities Exchange',
   bondMarkets: SADC_BOND_MARKETS['ZM'],
   mainInternationalAirport: SADC_MAIN_INTERNATIONAL_AIRPORTS['ZM'],
+  intellectualPropertyDepartments: SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS['ZM'],
+  securitiesExchangeCommission: SADC_SECURITIES_EXCHANGE_COMMISSIONS['ZM'],
 }

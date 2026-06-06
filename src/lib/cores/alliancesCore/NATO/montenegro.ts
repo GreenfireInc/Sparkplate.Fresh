@@ -7,6 +7,8 @@ import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { NATO_RARE_EARTHS } from './rareEarthsByIso'
 import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const montenegro: NatoCountry = {
   name: 'Montenegro',
@@ -33,4 +35,6 @@ export const montenegro: NatoCountry = {
   stockExchange: 'Montenegro Stock Exchange (thin — informational)',
   bondMarkets: NATO_BOND_MARKETS['ME'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['ME'],
+  intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['ME'],
+  securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['ME'],
 }

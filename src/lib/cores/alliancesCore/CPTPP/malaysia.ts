@@ -7,6 +7,8 @@ import { CPTPP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CPTPP_RARE_EARTHS } from './rareEarthsByIso'
 import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 import { CPTPP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CPTPP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const malaysia: CptppCountry = {
   name: 'Malaysia',
@@ -31,5 +33,7 @@ export const malaysia: CptppCountry = {
   rareEarths: CPTPP_RARE_EARTHS['MY'],
   stockExchange: 'Bursa Malaysia',
   bondMarkets: CPTPP_BOND_MARKETS['MY'],
+  intellectualPropertyDepartments: CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS['MY'],
+  securitiesExchangeCommission: CPTPP_SECURITIES_EXCHANGE_COMMISSIONS['MY'],
   mainInternationalAirport: CPTPP_MAIN_INTERNATIONAL_AIRPORTS['MY'],
 }

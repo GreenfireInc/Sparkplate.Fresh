@@ -7,6 +7,8 @@ import { IORA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { IORA_RARE_EARTHS } from './rareEarthsByIso'
 import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const iran: IoraCountry = {
   name: 'Iran',
@@ -33,4 +35,6 @@ export const iran: IoraCountry = {
   stockExchange: 'Tehran Stock Exchange',
   bondMarkets: IORA_BOND_MARKETS['IR'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['IR'],
+  intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['IR'],
+  securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['IR'],
 }

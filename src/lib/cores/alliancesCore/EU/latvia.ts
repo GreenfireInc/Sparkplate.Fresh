@@ -7,6 +7,8 @@ import { EU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EU_RARE_EARTHS } from './rareEarthsByIso'
 import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const latvia: EuCountry = {
   name: 'Latvia',
@@ -31,5 +33,8 @@ export const latvia: EuCountry = {
   rareEarths: EU_RARE_EARTHS['LV'],
   stockExchange: 'Nasdaq Riga',
   bondMarkets: EU_BOND_MARKETS['LV'],
+  intellectualPropertyDepartments: EU_INTELLECTUAL_PROPERTY_DEPARTMENTS['LV'],
+
+  securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['LV'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['LV'],
 }

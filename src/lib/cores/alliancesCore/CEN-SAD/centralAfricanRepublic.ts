@@ -7,6 +7,8 @@ import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
 import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const centralAfricanRepublic: CensadCountry = {
   name: 'Central African Republic',
@@ -31,5 +33,7 @@ export const centralAfricanRepublic: CensadCountry = {
   rareEarths: CENSAD_RARE_EARTHS['CF'],
   stockExchange: 'Douala Stock Exchange (CEMAC linkage informal)',
   bondMarkets: CENSAD_BOND_MARKETS['CF'],
+  intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['CF'],
+  securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['CF'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['CF'],
 }

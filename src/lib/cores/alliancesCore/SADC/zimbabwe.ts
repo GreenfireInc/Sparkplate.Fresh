@@ -7,6 +7,8 @@ import { SADC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { SADC_RARE_EARTHS } from './rareEarthsByIso'
 import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 import { SADC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { SADC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const zimbabwe: SadcCountry = {
   name: 'Zimbabwe',
@@ -33,4 +35,6 @@ export const zimbabwe: SadcCountry = {
   stockExchange: 'Zimbabwe Stock Exchange (ZSE)',
   bondMarkets: SADC_BOND_MARKETS['ZW'],
   mainInternationalAirport: SADC_MAIN_INTERNATIONAL_AIRPORTS['ZW'],
+  intellectualPropertyDepartments: SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS['ZW'],
+  securitiesExchangeCommission: SADC_SECURITIES_EXCHANGE_COMMISSIONS['ZW'],
 }

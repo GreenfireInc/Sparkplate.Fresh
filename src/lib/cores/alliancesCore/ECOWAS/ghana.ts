@@ -7,6 +7,8 @@ import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const ghana: EcowasCountry = {
   name: 'Ghana',
@@ -31,5 +33,8 @@ export const ghana: EcowasCountry = {
   rareEarths: ECOWAS_RARE_EARTHS['GH'],
   stockExchange: 'Ghana Stock Exchange (GSE)',
   bondMarkets: ECOWAS_BOND_MARKETS['GH'],
+  intellectualPropertyDepartments: ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS['GH'],
+
+  securitiesExchangeCommission: ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS['GH'],
   mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['GH'],
 }

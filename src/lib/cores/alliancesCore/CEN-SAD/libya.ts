@@ -7,6 +7,8 @@ import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
 import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const libya: CensadCountry = {
   name: 'Libya',
@@ -31,5 +33,7 @@ export const libya: CensadCountry = {
   rareEarths: CENSAD_RARE_EARTHS['LY'],
   stockExchange: 'Libyan Stock Exchange (limited operations — verify)',
   bondMarkets: CENSAD_BOND_MARKETS['LY'],
+  intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['LY'],
+  securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['LY'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['LY'],
 }

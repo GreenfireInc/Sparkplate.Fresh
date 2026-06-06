@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const eswatini: AfricanUnionCountry = {
   name: 'Eswatini',
   iso3166Alpha2: 'SZ',
@@ -31,5 +33,7 @@ export const eswatini: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['SZ'],
   stockExchange: 'Eswatini Stock Exchange',
   bondMarkets: AU_BOND_MARKETS['SZ'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['SZ'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['SZ'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['SZ'],
 }

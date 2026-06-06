@@ -7,6 +7,8 @@ import { AU_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { AU_RARE_EARTHS } from './rareEarthsByIso'
 import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const niger: AfricanUnionCountry = {
   name: 'Niger',
   iso3166Alpha2: 'NE',
@@ -31,5 +33,7 @@ export const niger: AfricanUnionCountry = {
   rareEarths: AU_RARE_EARTHS['NE'],
   stockExchange: 'No liquid national bourse; BRVM regional',
   bondMarkets: AU_BOND_MARKETS['NE'],
+  intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['NE'],
+  securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['NE'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['NE'],
 }

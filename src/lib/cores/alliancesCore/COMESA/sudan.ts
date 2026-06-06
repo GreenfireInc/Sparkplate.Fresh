@@ -7,6 +7,8 @@ import { COMESA_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { COMESA_RARE_EARTHS } from './rareEarthsByIso'
 import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const sudan: ComesaCountry = {
   name: 'Sudan',
@@ -31,5 +33,7 @@ export const sudan: ComesaCountry = {
   rareEarths: COMESA_RARE_EARTHS['SD'],
   stockExchange: 'Khartoum Stock Exchange (operations disrupted)',
   bondMarkets: COMESA_BOND_MARKETS['SD'],
+  intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['SD'],
+  securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['SD'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['SD'],
 }

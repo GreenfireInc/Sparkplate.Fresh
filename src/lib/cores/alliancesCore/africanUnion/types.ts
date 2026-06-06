@@ -101,6 +101,48 @@ export interface BondMarketVenue {
   apiEndpoint: string
 }
 
+export type IntellectualPropertyDepartmentKind = 'copyright' | 'trademarks' | 'patents'
+
+/**
+ * National or regional IP office row (informational; verify URLs, handles, forms portals,
+ * and API bases before production). `kind` distinguishes copyright from industrial property.
+ * `formsUrl` is the online filing / e-services portal when known, else a contact or main site.
+ * `apiEndpoint` is a documented public REST / developer API only; almost always empty.
+ */
+export interface IntellectualPropertyDepartment {
+  kind: IntellectualPropertyDepartmentKind
+  name: string
+  website: string
+  email: string
+  twitter: string
+  linkedin: string
+  formsUrl: string
+  apiEndpoint: string
+}
+
+/** Copyright, trademarks, and patents competent offices per economy (informational; verify). */
+export interface IntellectualPropertyDepartmentsRoster {
+  copyright: IntellectualPropertyDepartment
+  trademarks: IntellectualPropertyDepartment
+  patents: IntellectualPropertyDepartment
+}
+
+/**
+ * National or regional securities / capital-markets regulator (informational; verify URLs,
+ * handles, forms portals, and API bases before production use). Many African economies use
+ * shared regional bodies: CREPMF for UEMOA, COSUMAF for CEMAC. `formsUrl` is the online
+ * filing / e-services portal when known, else the main site. `apiEndpoint` is almost always empty.
+ */
+export interface SecuritiesExchangeCommission {
+  name: string
+  website: string
+  email: string
+  twitter: string
+  linkedin: string
+  formsUrl: string
+  apiEndpoint: string
+}
+
 /**
  * Main international airport serving the capital or primary commercial gateway (informational;
  * verify URLs, handles, and API bases before production). IATA code appears in the name where
@@ -161,6 +203,13 @@ export interface AfricanUnionCountry {
    * venue exists. Empty array when no bond venue is documented (e.g. Sahrawi Republic).
    */
   bondMarkets: readonly BondMarketVenue[]
+  /**
+   * Competent offices for copyright, trademarks, and patents — national registries, OAPI
+   * (Francophone Africa industrial property), or ARIPO-adjacent national desks (informational; verify).
+   */
+  intellectualPropertyDepartments: IntellectualPropertyDepartmentsRoster
+  /** National or regional securities / capital-markets regulator (informational; verify). */
+  securitiesExchangeCommission: SecuritiesExchangeCommission
   /** Main international airport — capital or primary commercial gateway (informational; verify). */
   mainInternationalAirport: MainInternationalAirport
 }

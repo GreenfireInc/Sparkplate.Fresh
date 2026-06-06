@@ -7,6 +7,8 @@ import { OECS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OECS_RARE_EARTHS } from './rareEarthsByIso'
 import { OECS_BOND_MARKETS } from './bondMarketsByIso'
 import { OECS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { OECS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { OECS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const grenada: OecsCountry = {
   name: 'Grenada',
@@ -33,4 +35,6 @@ export const grenada: OecsCountry = {
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
   bondMarkets: OECS_BOND_MARKETS['GD'],
   mainInternationalAirport: OECS_MAIN_INTERNATIONAL_AIRPORTS['GD'],
+  intellectualPropertyDepartments: OECS_INTELLECTUAL_PROPERTY_DEPARTMENTS['GD'],
+  securitiesExchangeCommission: OECS_SECURITIES_EXCHANGE_COMMISSIONS['GD'],
 }

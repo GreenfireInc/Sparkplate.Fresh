@@ -7,6 +7,8 @@ import { ASEAN_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ASEAN_RARE_EARTHS } from './rareEarthsByIso'
 import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
 import { ASEAN_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { ASEAN_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const thailand: AseanCountry = {
   name: 'Thailand',
@@ -32,5 +34,7 @@ export const thailand: AseanCountry = {
   rareEarths: ASEAN_RARE_EARTHS['TH'],
   stockExchange: 'Stock Exchange of Thailand SET Bangkok',
   bondMarkets: ASEAN_BOND_MARKETS['TH'],
+  intellectualPropertyDepartments: ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS['TH'],
+  securitiesExchangeCommission: ASEAN_SECURITIES_EXCHANGE_COMMISSIONS['TH'],
   mainInternationalAirport: ASEAN_MAIN_INTERNATIONAL_AIRPORTS['TH'],
 }

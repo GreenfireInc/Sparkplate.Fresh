@@ -7,6 +7,8 @@ import { ASEAN_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ASEAN_RARE_EARTHS } from './rareEarthsByIso'
 import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
 import { ASEAN_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { ASEAN_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const brunei: AseanCountry = {
   name: 'Brunei',
@@ -34,5 +36,7 @@ export const brunei: AseanCountry = {
   rareEarths: ASEAN_RARE_EARTHS['BN'],
   stockExchange: 'No national retail exchange consolidated; regional ASEAN bond context — informational',
   bondMarkets: ASEAN_BOND_MARKETS['BN'],
+  intellectualPropertyDepartments: ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS['BN'],
+  securitiesExchangeCommission: ASEAN_SECURITIES_EXCHANGE_COMMISSIONS['BN'],
   mainInternationalAirport: ASEAN_MAIN_INTERNATIONAL_AIRPORTS['BN'],
 }

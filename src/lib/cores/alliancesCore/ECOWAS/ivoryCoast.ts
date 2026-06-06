@@ -7,6 +7,8 @@ import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const ivoryCoast: EcowasCountry = {
   name: "Côte d'Ivoire",
@@ -31,5 +33,8 @@ export const ivoryCoast: EcowasCountry = {
   rareEarths: ECOWAS_RARE_EARTHS['CI'],
   stockExchange: 'Bourse Régionale des Valeurs Mobilières (BRVM — seat Abidjan)',
   bondMarkets: ECOWAS_BOND_MARKETS['CI'],
+  intellectualPropertyDepartments: ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS['CI'],
+
+  securitiesExchangeCommission: ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS['CI'],
   mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['CI'],
 }

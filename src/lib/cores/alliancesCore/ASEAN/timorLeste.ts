@@ -7,6 +7,8 @@ import { ASEAN_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ASEAN_RARE_EARTHS } from './rareEarthsByIso'
 import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
 import { ASEAN_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { ASEAN_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const timorLeste: AseanCountry = {
   name: 'Timor-Leste',
@@ -32,5 +34,7 @@ export const timorLeste: AseanCountry = {
   rareEarths: ASEAN_RARE_EARTHS['TL'],
   stockExchange: 'No substantive national equities exchange consolidated — informational',
   bondMarkets: ASEAN_BOND_MARKETS['TL'],
+  intellectualPropertyDepartments: ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS['TL'],
+  securitiesExchangeCommission: ASEAN_SECURITIES_EXCHANGE_COMMISSIONS['TL'],
   mainInternationalAirport: ASEAN_MAIN_INTERNATIONAL_AIRPORTS['TL'],
 }

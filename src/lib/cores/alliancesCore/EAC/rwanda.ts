@@ -7,6 +7,8 @@ import { EAC_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { EAC_RARE_EARTHS } from './rareEarthsByIso'
 import { EAC_BOND_MARKETS } from './bondMarketsByIso'
 import { EAC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { EAC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { EAC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const rwanda: EacCountry = {
   name: 'Rwanda',
@@ -31,5 +33,8 @@ export const rwanda: EacCountry = {
   rareEarths: EAC_RARE_EARTHS['RW'],
   stockExchange: 'Rwanda Stock Exchange',
   bondMarkets: EAC_BOND_MARKETS['RW'],
+  intellectualPropertyDepartments: EAC_INTELLECTUAL_PROPERTY_DEPARTMENTS['RW'],
+
+  securitiesExchangeCommission: EAC_SECURITIES_EXCHANGE_COMMISSIONS['RW'],
   mainInternationalAirport: EAC_MAIN_INTERNATIONAL_AIRPORTS['RW'],
 }

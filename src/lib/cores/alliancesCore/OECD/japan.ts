@@ -7,6 +7,8 @@ import { OECD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { OECD_RARE_EARTHS } from './rareEarthsByIso'
 import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { OECD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const japan: OecdCountry = {
   name: 'Japan',
@@ -35,4 +37,6 @@ export const japan: OecdCountry = {
   stockExchange: 'Tokyo Stock Exchange (Japan Exchange Group)',
   bondMarkets: OECD_BOND_MARKETS['JP'],
   mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['JP'],
+  intellectualPropertyDepartments: OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS['JP'],
+  securitiesExchangeCommission: OECD_SECURITIES_EXCHANGE_COMMISSIONS['JP'],
 }

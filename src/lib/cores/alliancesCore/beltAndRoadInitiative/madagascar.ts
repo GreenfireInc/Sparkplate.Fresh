@@ -7,6 +7,8 @@ import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const madagascar: BeltAndRoadInitiativeCountry = {
   name: 'Madagascar',
   iso3166Alpha2: 'MG',
@@ -31,5 +33,7 @@ export const madagascar: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['MG'],
   stockExchange: 'Madagascar Stock Exchange (SEM)',
   bondMarkets: BRI_BOND_MARKETS['MG'],
+  intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['MG'],
+  securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['MG'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['MG'],
 }

@@ -7,6 +7,8 @@ import { G7_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { G7_RARE_EARTHS } from './rareEarthsByIso'
 import { G7_BOND_MARKETS } from './bondMarketsByIso'
 import { G7_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { G7_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { G7_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const germany: G7Country = {
   name: 'Germany',
@@ -33,4 +35,6 @@ export const germany: G7Country = {
   stockExchange: 'Deutsche Börse (Frankfurt)',
   bondMarkets: G7_BOND_MARKETS['DE'],
   mainInternationalAirport: G7_MAIN_INTERNATIONAL_AIRPORTS['DE'],
+  intellectualPropertyDepartments: G7_INTELLECTUAL_PROPERTY_DEPARTMENTS['DE'],
+  securitiesExchangeCommission: G7_SECURITIES_EXCHANGE_COMMISSIONS['DE'],
 }

@@ -7,6 +7,8 @@ import { RCEP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { RCEP_RARE_EARTHS } from './rareEarthsByIso'
 import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { RCEP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const vietnam: RcepCountry = {
   name: 'Vietnam',
@@ -34,4 +36,6 @@ export const vietnam: RcepCountry = {
   stockExchange: 'Ho Chi Minh City Stock Exchange (HOSE); HNX consolidated roadmap — informational',
   bondMarkets: RCEP_BOND_MARKETS['VN'],
   mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['VN'],
+  intellectualPropertyDepartments: RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS['VN'],
+  securitiesExchangeCommission: RCEP_SECURITIES_EXCHANGE_COMMISSIONS['VN'],
 }

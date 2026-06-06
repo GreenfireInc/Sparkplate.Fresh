@@ -7,6 +7,8 @@ import { ECOWAS_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { ECOWAS_RARE_EARTHS } from './rareEarthsByIso'
 import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const sierraLeone: EcowasCountry = {
   name: 'Sierra Leone',
@@ -31,5 +33,8 @@ export const sierraLeone: EcowasCountry = {
   rareEarths: ECOWAS_RARE_EARTHS['SL'],
   stockExchange: 'Sierra Leone Stock Exchange',
   bondMarkets: ECOWAS_BOND_MARKETS['SL'],
+  intellectualPropertyDepartments: ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS['SL'],
+
+  securitiesExchangeCommission: ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS['SL'],
   mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['SL'],
 }

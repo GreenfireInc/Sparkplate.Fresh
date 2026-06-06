@@ -7,6 +7,8 @@ import { NATO_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { NATO_RARE_EARTHS } from './rareEarthsByIso'
 import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const latvia: NatoCountry = {
   name: 'Latvia',
@@ -33,4 +35,6 @@ export const latvia: NatoCountry = {
   stockExchange: 'Nasdaq Riga',
   bondMarkets: NATO_BOND_MARKETS['LV'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['LV'],
+  intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['LV'],
+  securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['LV'],
 }

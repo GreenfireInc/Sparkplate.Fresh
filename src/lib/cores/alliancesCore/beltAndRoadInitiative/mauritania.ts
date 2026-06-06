@@ -7,6 +7,8 @@ import { BRI_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { BRI_RARE_EARTHS } from './rareEarthsByIso'
 import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 export const mauritania: BeltAndRoadInitiativeCountry = {
   name: 'Mauritania',
   iso3166Alpha2: 'MR',
@@ -31,5 +33,7 @@ export const mauritania: BeltAndRoadInitiativeCountry = {
   rareEarths: BRI_RARE_EARTHS['MR'],
   stockExchange: 'Bourse Notation Agréée (limited)',
   bondMarkets: BRI_BOND_MARKETS['MR'],
+  intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['MR'],
+  securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['MR'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['MR'],
 }

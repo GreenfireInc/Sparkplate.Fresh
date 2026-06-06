@@ -7,6 +7,8 @@ import { CPTPP_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CPTPP_RARE_EARTHS } from './rareEarthsByIso'
 import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 import { CPTPP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CPTPP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const brunei: CptppCountry = {
   name: 'Brunei',
@@ -31,5 +33,7 @@ export const brunei: CptppCountry = {
   rareEarths: CPTPP_RARE_EARTHS['BN'],
   stockExchange: 'Brunei Darussalam Central Moneymarket (money market; thin equity market — verify)',
   bondMarkets: CPTPP_BOND_MARKETS['BN'],
+  intellectualPropertyDepartments: CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS['BN'],
+  securitiesExchangeCommission: CPTPP_SECURITIES_EXCHANGE_COMMISSIONS['BN'],
   mainInternationalAirport: CPTPP_MAIN_INTERNATIONAL_AIRPORTS['BN'],
 }

@@ -1,6 +1,9 @@
 export type {
   BondMarketVenue,
   DomesticCourierService,
+  IntellectualPropertyDepartment,
+  IntellectualPropertyDepartmentKind,
+  IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
@@ -10,7 +13,10 @@ export type {
   NewsOutletsRoster,
   NotableUniversity,
   RareEarths,
+  SecuritiesExchangeCommission,
 } from './types'
+export { MINT_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+export { MINT_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 import type { MintCountry, MintOrganizationInfo } from './types'
 import { MINT_MEMBER_ISO_CODES } from './mintMemberIsoCodes'

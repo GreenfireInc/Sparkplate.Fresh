@@ -7,6 +7,8 @@ import { CARICOM_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CARICOM_RARE_EARTHS } from './rareEarthsByIso'
 import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const suriname: CaricomCountry = {
   name: 'Suriname',
@@ -32,5 +34,7 @@ export const suriname: CaricomCountry = {
   rareEarths: CARICOM_RARE_EARTHS['SR'],
   stockExchange: 'Suriname Stock Exchange',
   bondMarkets: CARICOM_BOND_MARKETS['SR'],
+  intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['SR'],
+  securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['SR'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['SR'],
 }

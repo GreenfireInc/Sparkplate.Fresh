@@ -95,6 +95,30 @@ export interface BondMarketVenue {
   apiEndpoint: string
 }
 
+export type IntellectualPropertyDepartmentKind = 'copyright' | 'trademarks' | 'patents'
+
+/**
+ * National IP office row (informational; verify URLs, handles, forms portals, and API bases
+ * before production). `apiEndpoint` almost always empty.
+ */
+export interface IntellectualPropertyDepartment {
+  kind: IntellectualPropertyDepartmentKind
+  name: string
+  website: string
+  email: string
+  twitter: string
+  linkedin: string
+  formsUrl: string
+  apiEndpoint: string
+}
+
+/** Copyright, trademarks, and patents competent offices per participant (informational; verify). */
+export interface IntellectualPropertyDepartmentsRoster {
+  copyright: IntellectualPropertyDepartment
+  trademarks: IntellectualPropertyDepartment
+  patents: IntellectualPropertyDepartment
+}
+
 /**
  * Main international airport serving the capital or primary commercial gateway (informational;
  * verify URLs, handles, and API bases before production). IATA code appears in the name where
@@ -111,6 +135,20 @@ export interface MainInternationalAirport {
   apiEndpoint: string
 }
 
+/**
+ * National or regional securities / capital-markets regulator (informational; verify URLs,
+ * handles, forms portals, and API bases before production use). `formsUrl` is the online
+ * filing / e-services portal when known, else the main site. `apiEndpoint` is almost always empty.
+ */
+export interface SecuritiesExchangeCommission {
+  name: string
+  website: string
+  email: string
+  twitter: string
+  linkedin: string
+  formsUrl: string
+  apiEndpoint: string
+}
 
 export interface BeltAndRoadInitiativeCountry {
   name: string
@@ -147,6 +185,10 @@ export interface BeltAndRoadInitiativeCountry {
    * platforms. Empty array when no bond venue is documented.
    */
   bondMarkets: readonly BondMarketVenue[]
+  /** Competent offices for copyright, trademarks, and patents (informational; verify). */
+  intellectualPropertyDepartments: IntellectualPropertyDepartmentsRoster
+  /** National or regional securities / capital-markets regulator (informational; verify). */
+  securitiesExchangeCommission: SecuritiesExchangeCommission
   /** Main international airport — capital or primary commercial gateway (informational; verify). */
   mainInternationalAirport: MainInternationalAirport
 }

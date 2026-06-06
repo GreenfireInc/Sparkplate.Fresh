@@ -7,6 +7,8 @@ import { CENSAD_MAIN_EXPORTED_ELEMENTS } from './mainExportedElementsByIso'
 import { CENSAD_RARE_EARTHS } from './rareEarthsByIso'
 import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
+import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
+import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
 
 export const niger: CensadCountry = {
   name: 'Niger',
@@ -32,5 +34,7 @@ export const niger: CensadCountry = {
   rareEarths: CENSAD_RARE_EARTHS['NE'],
   stockExchange: 'BRVM linkage context',
   bondMarkets: CENSAD_BOND_MARKETS['NE'],
+  intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['NE'],
+  securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['NE'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['NE'],
 }
