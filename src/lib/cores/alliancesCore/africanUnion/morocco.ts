@@ -1,5 +1,8 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const morocco: AfricanUnionCountry = {
   name: 'Morocco',
   iso3166Alpha2: 'MA',
@@ -26,6 +30,9 @@ export const morocco: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Rain (regional)', 'Peer OTC'],
   stablecoin: 'USDT informal; Bank Al-Maghrib exploring CBDC',
   domesticCourierServices: AU_DOMESTIC_COURIERS['MA'],
+  domesticPostService: AU_DOMESTIC_POST_SERVICES['MA'],
+  nationalBankingInstitutions: AU_NATIONAL_BANKING_INSTITUTIONS['MA'],
+  corporationFormationOffice: AU_CORPORATION_FORMATION_OFFICES['MA'],
   newsOutlets: AU_NEWS_OUTLETS['MA'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['MA'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['MA'],
@@ -36,4 +43,5 @@ export const morocco: AfricanUnionCountry = {
   intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['MA'],
   securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['MA'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['MA'],
+  mainInternationalSeaport: AU_MAIN_INTERNATIONAL_SEAPORTS['MA'],
 }

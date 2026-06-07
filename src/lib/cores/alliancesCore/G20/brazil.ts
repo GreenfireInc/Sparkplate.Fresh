@@ -1,5 +1,8 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const brazil: G20Country = {
   name: 'Brazil',
@@ -28,6 +32,9 @@ export const brazil: G20Country = {
   cryptocurrencyExchanges: ['Mercado Bitcoin', 'Foxbit', 'Bitso BR / CVM-BCB joint VASP framework — informational'],
   stablecoin: 'BRL-pegged BRZ; Drex (Real Digital) BCB-led wholesale CBDC pilots — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['BR'],
+  domesticPostService: G20_DOMESTIC_POST_SERVICES['BR'],
+  nationalBankingInstitutions: G20_NATIONAL_BANKING_INSTITUTIONS['BR'],
+  corporationFormationOffice: G20_CORPORATION_FORMATION_OFFICES['BR'],
   newsOutlets: G20_NEWS_OUTLETS['BR'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['BR'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['BR'],
@@ -36,6 +43,7 @@ export const brazil: G20Country = {
   stockExchange: 'B3 — Brasil Bolsa Balcão (São Paulo)',
   bondMarkets: G20_BOND_MARKETS['BR'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['BR'],
+  mainInternationalSeaport: G20_MAIN_INTERNATIONAL_SEAPORTS['BR'],
   intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['BR'],
   securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['BR'],
 }

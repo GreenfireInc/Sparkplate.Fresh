@@ -1,5 +1,8 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const saoTomeAndPrincipe: AfricanUnionCountry = {
   name: 'São Tomé and Príncipe',
   iso3166Alpha2: 'ST',
@@ -26,6 +30,9 @@ export const saoTomeAndPrincipe: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'European brokers', 'OTC'],
   stablecoin: 'EUR/USD-linked assets informal; STN',
   domesticCourierServices: AU_DOMESTIC_COURIERS['ST'],
+  domesticPostService: AU_DOMESTIC_POST_SERVICES['ST'],
+  nationalBankingInstitutions: AU_NATIONAL_BANKING_INSTITUTIONS['ST'],
+  corporationFormationOffice: AU_CORPORATION_FORMATION_OFFICES['ST'],
   newsOutlets: AU_NEWS_OUTLETS['ST'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['ST'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['ST'],
@@ -36,4 +43,5 @@ export const saoTomeAndPrincipe: AfricanUnionCountry = {
   intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['ST'],
   securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['ST'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['ST'],
+  mainInternationalSeaport: AU_MAIN_INTERNATIONAL_SEAPORTS['ST'],
 }

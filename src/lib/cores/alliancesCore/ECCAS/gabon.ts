@@ -1,5 +1,8 @@
 import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECCAS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ECCAS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ECCAS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECCAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ECCAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ECCAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ECCAS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const gabon: EccasCountry = {
   name: 'Gabon',
@@ -27,6 +31,9 @@ export const gabon: EccasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'CFA-region OTC'],
   stablecoin: 'USDT P2P; XAF peg via BEAC',
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['GA'],
+  domesticPostService: ECCAS_DOMESTIC_POST_SERVICES['GA'],
+  nationalBankingInstitutions: ECCAS_NATIONAL_BANKING_INSTITUTIONS['GA'],
+  corporationFormationOffice: ECCAS_CORPORATION_FORMATION_OFFICES['GA'],
   newsOutlets: ECCAS_NEWS_OUTLETS['GA'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['GA'],
   mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['GA'],
@@ -38,4 +45,5 @@ export const gabon: EccasCountry = {
 
   securitiesExchangeCommission: ECCAS_SECURITIES_EXCHANGE_COMMISSIONS['GA'],
   mainInternationalAirport: ECCAS_MAIN_INTERNATIONAL_AIRPORTS['GA'],
+  mainInternationalSeaport: ECCAS_MAIN_INTERNATIONAL_SEAPORTS['GA'],
 }

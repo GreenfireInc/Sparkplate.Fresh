@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const oman: BeltAndRoadInitiativeCountry = {
   name: 'Oman',
   iso3166Alpha2: 'OM',
@@ -26,6 +30,9 @@ export const oman: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'International brokers'],
   stablecoin: 'USDT informal; pegged rial economy',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['OM'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['OM'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['OM'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['OM'],
   newsOutlets: BRI_NEWS_OUTLETS['OM'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['OM'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['OM'],
@@ -36,4 +43,5 @@ export const oman: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['OM'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['OM'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['OM'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['OM'],
 }

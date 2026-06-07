@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const tajikistan: BeltAndRoadInitiativeCountry = {
   name: 'Tajikistan',
   iso3166Alpha2: 'TJ',
@@ -26,6 +30,9 @@ export const tajikistan: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: [ 'Binance (P2P)', 'International OTC', 'Local regulation varies' ],
   stablecoin: 'USDT / USDC common globally; legality varies by jurisdiction',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['TJ'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['TJ'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['TJ'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['TJ'],
   newsOutlets: BRI_NEWS_OUTLETS['TJ'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['TJ'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['TJ'],
@@ -36,4 +43,5 @@ export const tajikistan: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['TJ'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['TJ'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['TJ'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['TJ'],
 }

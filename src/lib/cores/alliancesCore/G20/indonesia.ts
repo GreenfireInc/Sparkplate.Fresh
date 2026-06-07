@@ -1,5 +1,8 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const indonesia: G20Country = {
   name: 'Indonesia',
@@ -28,6 +32,9 @@ export const indonesia: G20Country = {
   cryptocurrencyExchanges: ['Indonesia CFX licensed trading (Bappebti-era evolution to OJK oversight — informational)'],
   stablecoin: 'IDR digital rupiah / CBDC narratives; offshore USDT OTC — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['ID'],
+  domesticPostService: G20_DOMESTIC_POST_SERVICES['ID'],
+  nationalBankingInstitutions: G20_NATIONAL_BANKING_INSTITUTIONS['ID'],
+  corporationFormationOffice: G20_CORPORATION_FORMATION_OFFICES['ID'],
   newsOutlets: G20_NEWS_OUTLETS['ID'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['ID'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['ID'],
@@ -36,6 +43,7 @@ export const indonesia: G20Country = {
   stockExchange: 'Indonesia Stock Exchange IDX Jakarta',
   bondMarkets: G20_BOND_MARKETS['ID'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['ID'],
+  mainInternationalSeaport: G20_MAIN_INTERNATIONAL_SEAPORTS['ID'],
   intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['ID'],
   securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['ID'],
 }

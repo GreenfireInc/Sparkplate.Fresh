@@ -1,5 +1,8 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { APEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { APEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { APEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const canada: ApecCountry = {
   name: 'Canada',
@@ -27,6 +31,9 @@ export const canada: ApecCountry = {
   cryptocurrencyExchanges: ['Bitbuy', 'Newton CSA climate — informational'],
   stablecoin: 'CAD fiat-backed pilots — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['CA'],
+  domesticPostService: APEC_DOMESTIC_POST_SERVICES['CA'],
+  nationalBankingInstitutions: APEC_NATIONAL_BANKING_INSTITUTIONS['CA'],
+  corporationFormationOffice: APEC_CORPORATION_FORMATION_OFFICES['CA'],
   newsOutlets: APEC_NEWS_OUTLETS['CA'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['CA'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['CA'],
@@ -37,4 +44,5 @@ export const canada: ApecCountry = {
   intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['CA'],
   securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['CA'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['CA'],
+  mainInternationalSeaport: APEC_MAIN_INTERNATIONAL_SEAPORTS['CA'],
 }

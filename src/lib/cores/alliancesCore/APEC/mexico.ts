@@ -1,5 +1,8 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { APEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { APEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { APEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const mexico: ApecCountry = {
   name: 'Mexico',
@@ -27,6 +31,9 @@ export const mexico: ApecCountry = {
   cryptocurrencyExchanges: ['Bitso CNBV fintech onboarding — informational'],
   stablecoin: 'MXN issuance pilots OTC USDT overlays — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['MX'],
+  domesticPostService: APEC_DOMESTIC_POST_SERVICES['MX'],
+  nationalBankingInstitutions: APEC_NATIONAL_BANKING_INSTITUTIONS['MX'],
+  corporationFormationOffice: APEC_CORPORATION_FORMATION_OFFICES['MX'],
   newsOutlets: APEC_NEWS_OUTLETS['MX'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['MX'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['MX'],
@@ -37,4 +44,5 @@ export const mexico: ApecCountry = {
   intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['MX'],
   securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['MX'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['MX'],
+  mainInternationalSeaport: APEC_MAIN_INTERNATIONAL_SEAPORTS['MX'],
 }

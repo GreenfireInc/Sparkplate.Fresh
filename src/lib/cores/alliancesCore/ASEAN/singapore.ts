@@ -1,5 +1,8 @@
 import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ASEAN_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ASEAN_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ASEAN_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
 import { ASEAN_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ASEAN_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ASEAN_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const singapore: AseanCountry = {
   name: 'Singapore',
@@ -28,6 +32,9 @@ export const singapore: AseanCountry = {
   cryptocurrencyExchanges: ['MAS DPT licensing regime; regulated institutional ramps — informational'],
   stablecoin: 'MAS stable-value digital guidelines; institutional SGD/USDC — informational',
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['SG'],
+  domesticPostService: ASEAN_DOMESTIC_POST_SERVICES['SG'],
+  nationalBankingInstitutions: ASEAN_NATIONAL_BANKING_INSTITUTIONS['SG'],
+  corporationFormationOffice: ASEAN_CORPORATION_FORMATION_OFFICES['SG'],
   newsOutlets: ASEAN_NEWS_OUTLETS['SG'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['SG'],
   mainExportCommodities: ASEAN_MAIN_EXPORT_COMMODITIES['SG'],
@@ -38,4 +45,5 @@ export const singapore: AseanCountry = {
   intellectualPropertyDepartments: ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS['SG'],
   securitiesExchangeCommission: ASEAN_SECURITIES_EXCHANGE_COMMISSIONS['SG'],
   mainInternationalAirport: ASEAN_MAIN_INTERNATIONAL_AIRPORTS['SG'],
+  mainInternationalSeaport: ASEAN_MAIN_INTERNATIONAL_SEAPORTS['SG'],
 }

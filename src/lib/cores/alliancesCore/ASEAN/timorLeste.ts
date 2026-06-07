@@ -1,5 +1,8 @@
 import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ASEAN_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ASEAN_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ASEAN_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
 import { ASEAN_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ASEAN_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ASEAN_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const timorLeste: AseanCountry = {
   name: 'Timor-Leste',
@@ -27,6 +31,9 @@ export const timorLeste: AseanCountry = {
   cryptocurrencyExchanges: ['Thin formal licensing; humanitarian remittance OTC — informational'],
   stablecoin: 'USD cash economy predominant; informal digital overlays — informational',
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['TL'],
+  domesticPostService: ASEAN_DOMESTIC_POST_SERVICES['TL'],
+  nationalBankingInstitutions: ASEAN_NATIONAL_BANKING_INSTITUTIONS['TL'],
+  corporationFormationOffice: ASEAN_CORPORATION_FORMATION_OFFICES['TL'],
   newsOutlets: ASEAN_NEWS_OUTLETS['TL'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['TL'],
   mainExportCommodities: ASEAN_MAIN_EXPORT_COMMODITIES['TL'],
@@ -37,4 +44,5 @@ export const timorLeste: AseanCountry = {
   intellectualPropertyDepartments: ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS['TL'],
   securitiesExchangeCommission: ASEAN_SECURITIES_EXCHANGE_COMMISSIONS['TL'],
   mainInternationalAirport: ASEAN_MAIN_INTERNATIONAL_AIRPORTS['TL'],
+  mainInternationalSeaport: ASEAN_MAIN_INTERNATIONAL_SEAPORTS['TL'],
 }

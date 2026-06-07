@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const nigeria: BeltAndRoadInitiativeCountry = {
   name: 'Nigeria',
   iso3166Alpha2: 'NG',
@@ -26,6 +30,9 @@ export const nigeria: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Luno', 'Quidax', 'Busha', 'Yellow Card'],
   stablecoin: 'USDT / USDC P2P dominant; cNGN stablecoin pilots',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['NG'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['NG'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['NG'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['NG'],
   newsOutlets: BRI_NEWS_OUTLETS['NG'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['NG'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['NG'],
@@ -36,4 +43,5 @@ export const nigeria: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['NG'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['NG'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['NG'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['NG'],
 }

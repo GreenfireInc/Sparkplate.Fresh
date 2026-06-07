@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const northMacedonia: NatoCountry = {
   name: 'North Macedonia',
@@ -27,6 +31,9 @@ export const northMacedonia: NatoCountry = {
   cryptocurrencyExchanges: ['EU MiCA passport retail limited; OTC — informational'],
   stablecoin: 'MKD/EUR informal rails — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['MK'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['MK'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['MK'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['MK'],
   newsOutlets: NATO_NEWS_OUTLETS['MK'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['MK'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['MK'],
@@ -35,6 +42,7 @@ export const northMacedonia: NatoCountry = {
   stockExchange: 'Macedonian Stock Exchange (Skopje — informational)',
   bondMarkets: NATO_BOND_MARKETS['MK'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['MK'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['MK'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['MK'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['MK'],
 }

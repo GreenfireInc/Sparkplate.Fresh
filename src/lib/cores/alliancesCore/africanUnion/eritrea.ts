@@ -1,5 +1,8 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const eritrea: AfricanUnionCountry = {
   name: 'Eritrea',
   iso3166Alpha2: 'ER',
@@ -26,6 +30,9 @@ export const eritrea: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Limited formal venues; diaspora P2P', 'Binance (P2P, informal)'],
   stablecoin: 'USDT minimal formal access; cash economy strong',
   domesticCourierServices: AU_DOMESTIC_COURIERS['ER'],
+  domesticPostService: AU_DOMESTIC_POST_SERVICES['ER'],
+  nationalBankingInstitutions: AU_NATIONAL_BANKING_INSTITUTIONS['ER'],
+  corporationFormationOffice: AU_CORPORATION_FORMATION_OFFICES['ER'],
   newsOutlets: AU_NEWS_OUTLETS['ER'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['ER'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['ER'],
@@ -36,4 +43,5 @@ export const eritrea: AfricanUnionCountry = {
   intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['ER'],
   securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['ER'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['ER'],
+  mainInternationalSeaport: AU_MAIN_INTERNATIONAL_SEAPORTS['ER'],
 }

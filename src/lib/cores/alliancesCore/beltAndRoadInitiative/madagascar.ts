@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const madagascar: BeltAndRoadInitiativeCountry = {
   name: 'Madagascar',
   iso3166Alpha2: 'MG',
@@ -26,6 +30,9 @@ export const madagascar: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Local P2P', 'International brokers'],
   stablecoin: 'USDT informal; no MGA stablecoin',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['MG'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['MG'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['MG'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['MG'],
   newsOutlets: BRI_NEWS_OUTLETS['MG'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['MG'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['MG'],
@@ -36,4 +43,5 @@ export const madagascar: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['MG'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['MG'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['MG'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['MG'],
 }

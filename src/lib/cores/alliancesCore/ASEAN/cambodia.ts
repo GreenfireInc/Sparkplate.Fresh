@@ -1,5 +1,8 @@
 import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ASEAN_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ASEAN_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ASEAN_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
 import { ASEAN_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ASEAN_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ASEAN_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const cambodia: AseanCountry = {
   name: 'Cambodia',
@@ -27,6 +31,9 @@ export const cambodia: AseanCountry = {
   cryptocurrencyExchanges: ['NBC licensing evolution; regional P2P informal — informational'],
   stablecoin: 'USD cash economy dominant; KHR digital thin — informational',
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['KH'],
+  domesticPostService: ASEAN_DOMESTIC_POST_SERVICES['KH'],
+  nationalBankingInstitutions: ASEAN_NATIONAL_BANKING_INSTITUTIONS['KH'],
+  corporationFormationOffice: ASEAN_CORPORATION_FORMATION_OFFICES['KH'],
   newsOutlets: ASEAN_NEWS_OUTLETS['KH'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['KH'],
   mainExportCommodities: ASEAN_MAIN_EXPORT_COMMODITIES['KH'],
@@ -37,4 +44,5 @@ export const cambodia: AseanCountry = {
   intellectualPropertyDepartments: ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS['KH'],
   securitiesExchangeCommission: ASEAN_SECURITIES_EXCHANGE_COMMISSIONS['KH'],
   mainInternationalAirport: ASEAN_MAIN_INTERNATIONAL_AIRPORTS['KH'],
+  mainInternationalSeaport: ASEAN_MAIN_INTERNATIONAL_SEAPORTS['KH'],
 }

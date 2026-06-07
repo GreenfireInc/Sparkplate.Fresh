@@ -1,5 +1,8 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const senegal: AfricanUnionCountry = {
   name: 'Senegal',
   iso3166Alpha2: 'SN',
@@ -26,6 +30,9 @@ export const senegal: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Wave-linked fintech'],
   stablecoin: 'USDT / USDC; XOF peg via CFA',
   domesticCourierServices: AU_DOMESTIC_COURIERS['SN'],
+  domesticPostService: AU_DOMESTIC_POST_SERVICES['SN'],
+  nationalBankingInstitutions: AU_NATIONAL_BANKING_INSTITUTIONS['SN'],
+  corporationFormationOffice: AU_CORPORATION_FORMATION_OFFICES['SN'],
   newsOutlets: AU_NEWS_OUTLETS['SN'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['SN'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['SN'],
@@ -36,4 +43,5 @@ export const senegal: AfricanUnionCountry = {
   intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['SN'],
   securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['SN'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['SN'],
+  mainInternationalSeaport: AU_MAIN_INTERNATIONAL_SEAPORTS['SN'],
 }

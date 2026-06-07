@@ -1,5 +1,8 @@
 import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ASEAN_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ASEAN_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ASEAN_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
 import { ASEAN_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ASEAN_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ASEAN_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const philippines: AseanCountry = {
   name: 'Philippines',
@@ -27,6 +31,9 @@ export const philippines: AseanCountry = {
   cryptocurrencyExchanges: ['BSP VASP registration regime; Coinbase PH reference — informational'],
   stablecoin: 'PHP stable experiments; USDT remittance rails — informational',
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['PH'],
+  domesticPostService: ASEAN_DOMESTIC_POST_SERVICES['PH'],
+  nationalBankingInstitutions: ASEAN_NATIONAL_BANKING_INSTITUTIONS['PH'],
+  corporationFormationOffice: ASEAN_CORPORATION_FORMATION_OFFICES['PH'],
   newsOutlets: ASEAN_NEWS_OUTLETS['PH'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['PH'],
   mainExportCommodities: ASEAN_MAIN_EXPORT_COMMODITIES['PH'],
@@ -37,4 +44,5 @@ export const philippines: AseanCountry = {
   intellectualPropertyDepartments: ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS['PH'],
   securitiesExchangeCommission: ASEAN_SECURITIES_EXCHANGE_COMMISSIONS['PH'],
   mainInternationalAirport: ASEAN_MAIN_INTERNATIONAL_AIRPORTS['PH'],
+  mainInternationalSeaport: ASEAN_MAIN_INTERNATIONAL_SEAPORTS['PH'],
 }

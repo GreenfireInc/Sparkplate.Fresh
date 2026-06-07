@@ -1,5 +1,8 @@
 import type { FiveEyesCountry } from './types'
 import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { FIVE_EYES_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { FIVE_EYES_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { FIVE_EYES_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { FIVE_EYES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { FIVE_EYES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { FIVE_EYES_BOND_MARKETS } from './bondMarketsByIso'
 import { FIVE_EYES_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { FIVE_EYES_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { FIVE_EYES_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { FIVE_EYES_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const australia: FiveEyesCountry = {
   name: 'Australia',
@@ -28,6 +32,9 @@ export const australia: FiveEyesCountry = {
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'CoinSpot (ASIC-regulated AU context — informational)'],
   stablecoin: 'AUD stablecoins (private); regulatory evolution under AU Treasury/ASIC — informational',
   domesticCourierServices: FIVE_EYES_DOMESTIC_COURIERS['AU'],
+  domesticPostService: FIVE_EYES_DOMESTIC_POST_SERVICES['AU'],
+  nationalBankingInstitutions: FIVE_EYES_NATIONAL_BANKING_INSTITUTIONS['AU'],
+  corporationFormationOffice: FIVE_EYES_CORPORATION_FORMATION_OFFICES['AU'],
   newsOutlets: FIVE_EYES_NEWS_OUTLETS['AU'],
   notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['AU'],
   mainExportCommodities: FIVE_EYES_MAIN_EXPORT_COMMODITIES['AU'],
@@ -39,4 +46,5 @@ export const australia: FiveEyesCountry = {
 
   securitiesExchangeCommission: FIVE_EYES_SECURITIES_EXCHANGE_COMMISSIONS['AU'],
   mainInternationalAirport: FIVE_EYES_MAIN_INTERNATIONAL_AIRPORTS['AU'],
+  mainInternationalSeaport: FIVE_EYES_MAIN_INTERNATIONAL_SEAPORTS['AU'],
 }

@@ -1,5 +1,8 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { APEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { APEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { APEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const russia: ApecCountry = {
   name: 'Russia',
@@ -27,6 +31,9 @@ export const russia: ApecCountry = {
   cryptocurrencyExchanges: ['Domestic licences thin vs sanctions; OTC mining episodes — informational'],
   stablecoin: 'RUB digital sandbox narratives predominant cashless push — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['RU'],
+  domesticPostService: APEC_DOMESTIC_POST_SERVICES['RU'],
+  nationalBankingInstitutions: APEC_NATIONAL_BANKING_INSTITUTIONS['RU'],
+  corporationFormationOffice: APEC_CORPORATION_FORMATION_OFFICES['RU'],
   newsOutlets: APEC_NEWS_OUTLETS['RU'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['RU'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['RU'],
@@ -37,4 +44,5 @@ export const russia: ApecCountry = {
   intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['RU'],
   securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['RU'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['RU'],
+  mainInternationalSeaport: APEC_MAIN_INTERNATIONAL_SEAPORTS['RU'],
 }

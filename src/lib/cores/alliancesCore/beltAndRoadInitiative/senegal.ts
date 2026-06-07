@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const senegal: BeltAndRoadInitiativeCountry = {
   name: 'Senegal',
   iso3166Alpha2: 'SN',
@@ -26,6 +30,9 @@ export const senegal: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Wave-linked fintech'],
   stablecoin: 'USDT / USDC; XOF peg via CFA',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['SN'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['SN'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['SN'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['SN'],
   newsOutlets: BRI_NEWS_OUTLETS['SN'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['SN'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['SN'],
@@ -36,4 +43,5 @@ export const senegal: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['SN'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['SN'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['SN'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['SN'],
 }

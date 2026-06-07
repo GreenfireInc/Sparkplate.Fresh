@@ -1,5 +1,8 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMESA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMESA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMESA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const ethiopia: ComesaCountry = {
   name: 'Ethiopia',
@@ -27,6 +31,9 @@ export const ethiopia: ComesaCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC P2P; National Bank cautious on crypto',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['ET'],
+  domesticPostService: COMESA_DOMESTIC_POST_SERVICES['ET'],
+  nationalBankingInstitutions: COMESA_NATIONAL_BANKING_INSTITUTIONS['ET'],
+  corporationFormationOffice: COMESA_CORPORATION_FORMATION_OFFICES['ET'],
   newsOutlets: COMESA_NEWS_OUTLETS['ET'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['ET'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['ET'],
@@ -37,4 +44,5 @@ export const ethiopia: ComesaCountry = {
   intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['ET'],
   securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['ET'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['ET'],
+  mainInternationalSeaport: COMESA_MAIN_INTERNATIONAL_SEAPORTS['ET'],
 }

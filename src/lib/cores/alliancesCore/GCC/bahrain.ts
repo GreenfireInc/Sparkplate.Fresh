@@ -1,5 +1,8 @@
 import type { GccCountry } from './types'
 import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { GCC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { GCC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { GCC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { GCC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { GCC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { GCC_BOND_MARKETS } from './bondMarketsByIso'
 import { GCC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { GCC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { GCC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { GCC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const bahrain: GccCountry = {
   name: 'Bahrain',
@@ -28,6 +32,9 @@ export const bahrain: GccCountry = {
   cryptocurrencyExchanges: ['Rain / regional licensed PSP context', 'Regional OTC hubs — informational'],
   stablecoin: 'USD-pegged regional stable narratives; BD pegged broadly to USD basket — informational',
   domesticCourierServices: GCC_DOMESTIC_COURIERS['BH'],
+  domesticPostService: GCC_DOMESTIC_POST_SERVICES['BH'],
+  nationalBankingInstitutions: GCC_NATIONAL_BANKING_INSTITUTIONS['BH'],
+  corporationFormationOffice: GCC_CORPORATION_FORMATION_OFFICES['BH'],
   newsOutlets: GCC_NEWS_OUTLETS['BH'],
   notableUniversities: GCC_NOTABLE_UNIVERSITIES['BH'],
   mainExportCommodities: GCC_MAIN_EXPORT_COMMODITIES['BH'],
@@ -36,6 +43,7 @@ export const bahrain: GccCountry = {
   stockExchange: 'Bahrain Bourse',
   bondMarkets: GCC_BOND_MARKETS['BH'],
   mainInternationalAirport: GCC_MAIN_INTERNATIONAL_AIRPORTS['BH'],
+  mainInternationalSeaport: GCC_MAIN_INTERNATIONAL_SEAPORTS['BH'],
   intellectualPropertyDepartments: GCC_INTELLECTUAL_PROPERTY_DEPARTMENTS['BH'],
   securitiesExchangeCommission: GCC_SECURITIES_EXCHANGE_COMMISSIONS['BH'],
 }

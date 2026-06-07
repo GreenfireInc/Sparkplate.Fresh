@@ -1,6 +1,8 @@
 export type {
   BondMarketVenue,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   GccCountry,
   GccOrganizationInfo,
   IntellectualPropertyDepartment,
@@ -9,6 +11,11 @@ export type {
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
@@ -17,6 +24,10 @@ export type {
 } from './types'
 export { GCC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { GCC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { GCC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { GCC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { GCC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { GCC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 
 import type { GccCountry, GccOrganizationInfo } from './types'
 import { GCC_MEMBER_ISO_CODES } from './gccMemberIsoCodes'

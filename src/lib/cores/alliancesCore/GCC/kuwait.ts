@@ -1,5 +1,8 @@
 import type { GccCountry } from './types'
 import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { GCC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { GCC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { GCC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { GCC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { GCC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { GCC_BOND_MARKETS } from './bondMarketsByIso'
 import { GCC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { GCC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { GCC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { GCC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const kuwait: GccCountry = {
   name: 'Kuwait',
@@ -27,6 +31,9 @@ export const kuwait: GccCountry = {
   cryptocurrencyExchanges: ['Central Bank prohibition stance historically easing toward regulated pilots — informational'],
   stablecoin: 'CBK digital-payment supervision evolution; fiat KWD anchored — informational',
   domesticCourierServices: GCC_DOMESTIC_COURIERS['KW'],
+  domesticPostService: GCC_DOMESTIC_POST_SERVICES['KW'],
+  nationalBankingInstitutions: GCC_NATIONAL_BANKING_INSTITUTIONS['KW'],
+  corporationFormationOffice: GCC_CORPORATION_FORMATION_OFFICES['KW'],
   newsOutlets: GCC_NEWS_OUTLETS['KW'],
   notableUniversities: GCC_NOTABLE_UNIVERSITIES['KW'],
   mainExportCommodities: GCC_MAIN_EXPORT_COMMODITIES['KW'],
@@ -35,6 +42,7 @@ export const kuwait: GccCountry = {
   stockExchange: 'Boursa Kuwait',
   bondMarkets: GCC_BOND_MARKETS['KW'],
   mainInternationalAirport: GCC_MAIN_INTERNATIONAL_AIRPORTS['KW'],
+  mainInternationalSeaport: GCC_MAIN_INTERNATIONAL_SEAPORTS['KW'],
   intellectualPropertyDepartments: GCC_INTELLECTUAL_PROPERTY_DEPARTMENTS['KW'],
   securitiesExchangeCommission: GCC_SECURITIES_EXCHANGE_COMMISSIONS['KW'],
 }

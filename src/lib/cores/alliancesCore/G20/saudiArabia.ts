@@ -1,5 +1,8 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const saudiArabia: G20Country = {
   name: 'Saudi Arabia',
@@ -28,6 +32,9 @@ export const saudiArabia: G20Country = {
   cryptocurrencyExchanges: ['Onshore exchange offering constrained; SAMA cautious VA stance; regional Rain / BitOasis adjacency — informational'],
   stablecoin: 'mBridge wholesale CBDC participation; SAR-pegged issuance thin — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['SA'],
+  domesticPostService: G20_DOMESTIC_POST_SERVICES['SA'],
+  nationalBankingInstitutions: G20_NATIONAL_BANKING_INSTITUTIONS['SA'],
+  corporationFormationOffice: G20_CORPORATION_FORMATION_OFFICES['SA'],
   newsOutlets: G20_NEWS_OUTLETS['SA'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['SA'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['SA'],
@@ -36,6 +43,7 @@ export const saudiArabia: G20Country = {
   stockExchange: 'Saudi Exchange (Tadawul)',
   bondMarkets: G20_BOND_MARKETS['SA'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['SA'],
+  mainInternationalSeaport: G20_MAIN_INTERNATIONAL_SEAPORTS['SA'],
   intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['SA'],
   securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['SA'],
 }

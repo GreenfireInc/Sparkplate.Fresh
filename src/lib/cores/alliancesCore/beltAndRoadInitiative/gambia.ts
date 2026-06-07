@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const gambia: BeltAndRoadInitiativeCountry = {
   name: 'The Gambia',
   iso3166Alpha2: 'GM',
@@ -26,6 +30,9 @@ export const gambia: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex (diaspora)'],
   stablecoin: 'USDT / USDC P2P',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['GM'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['GM'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['GM'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['GM'],
   newsOutlets: BRI_NEWS_OUTLETS['GM'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['GM'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['GM'],
@@ -36,4 +43,5 @@ export const gambia: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['GM'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['GM'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['GM'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['GM'],
 }

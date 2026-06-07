@@ -1,5 +1,8 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CPTPP_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CPTPP_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 import { CPTPP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CPTPP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CPTPP_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const malaysia: CptppCountry = {
   name: 'Malaysia',
@@ -26,6 +30,9 @@ export const malaysia: CptppCountry = {
   cryptocurrencyExchanges: ['Luno', 'Tokenize', 'Regulated DAX evolution — verify'],
   stablecoin: 'MYR token pilots; USDT dominant informal',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['MY'],
+  domesticPostService: CPTPP_DOMESTIC_POST_SERVICES['MY'],
+  nationalBankingInstitutions: CPTPP_NATIONAL_BANKING_INSTITUTIONS['MY'],
+  corporationFormationOffice: CPTPP_CORPORATION_FORMATION_OFFICES['MY'],
   newsOutlets: CPTPP_NEWS_OUTLETS['MY'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['MY'],
   mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['MY'],
@@ -36,4 +43,5 @@ export const malaysia: CptppCountry = {
   intellectualPropertyDepartments: CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS['MY'],
   securitiesExchangeCommission: CPTPP_SECURITIES_EXCHANGE_COMMISSIONS['MY'],
   mainInternationalAirport: CPTPP_MAIN_INTERNATIONAL_AIRPORTS['MY'],
+  mainInternationalSeaport: CPTPP_MAIN_INTERNATIONAL_SEAPORTS['MY'],
 }

@@ -1,5 +1,8 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { IORA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { IORA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { IORA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const france: IoraCountry = {
   name: 'France',
@@ -27,6 +31,9 @@ export const france: IoraCountry = {
   cryptocurrencyExchanges: ['Coinhouse', 'MiCA-compliant CASPs', 'Paymium'],
   stablecoin: 'EUR stablecoins; ECB digital euro pilots — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['FR'],
+  domesticPostService: IORA_DOMESTIC_POST_SERVICES['FR'],
+  nationalBankingInstitutions: IORA_NATIONAL_BANKING_INSTITUTIONS['FR'],
+  corporationFormationOffice: IORA_CORPORATION_FORMATION_OFFICES['FR'],
   newsOutlets: IORA_NEWS_OUTLETS['FR'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['FR'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['FR'],
@@ -35,6 +42,7 @@ export const france: IoraCountry = {
   stockExchange: 'Euronext Paris',
   bondMarkets: IORA_BOND_MARKETS['FR'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['FR'],
+  mainInternationalSeaport: IORA_MAIN_INTERNATIONAL_SEAPORTS['FR'],
   intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['FR'],
   securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['FR'],
 }

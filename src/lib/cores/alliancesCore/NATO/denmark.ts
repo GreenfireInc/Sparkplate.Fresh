@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const denmark: NatoCountry = {
   name: 'Denmark',
@@ -27,6 +31,9 @@ export const denmark: NatoCountry = {
   cryptocurrencyExchanges: ['MiCA-aligned EU passport; Nordic fintech — informational'],
   stablecoin: 'DKK pilots; EUR/USD crypto pairs — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['DK'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['DK'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['DK'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['DK'],
   newsOutlets: NATO_NEWS_OUTLETS['DK'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['DK'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['DK'],
@@ -35,6 +42,7 @@ export const denmark: NatoCountry = {
   stockExchange: 'Nasdaq Copenhagen',
   bondMarkets: NATO_BOND_MARKETS['DK'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['DK'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['DK'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['DK'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['DK'],
 }

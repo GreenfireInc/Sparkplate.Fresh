@@ -1,5 +1,8 @@
 import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CARICOM_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CARICOM_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CARICOM_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CARICOM_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const suriname: CaricomCountry = {
   name: 'Suriname',
@@ -27,6 +31,9 @@ export const suriname: CaricomCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT informal',
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['SR'],
+  domesticPostService: CARICOM_DOMESTIC_POST_SERVICES['SR'],
+  nationalBankingInstitutions: CARICOM_NATIONAL_BANKING_INSTITUTIONS['SR'],
+  corporationFormationOffice: CARICOM_CORPORATION_FORMATION_OFFICES['SR'],
   newsOutlets: CARICOM_NEWS_OUTLETS['SR'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['SR'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['SR'],
@@ -37,4 +44,5 @@ export const suriname: CaricomCountry = {
   intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['SR'],
   securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['SR'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['SR'],
+  mainInternationalSeaport: CARICOM_MAIN_INTERNATIONAL_SEAPORTS['SR'],
 }

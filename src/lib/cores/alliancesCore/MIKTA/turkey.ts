@@ -1,5 +1,8 @@
 import type { MiktaCountry } from './types'
 import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { MIKTA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { MIKTA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { MIKTA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { MIKTA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { MIKTA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { MIKTA_BOND_MARKETS } from './bondMarketsByIso'
 import { MIKTA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { MIKTA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { MIKTA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { MIKTA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const turkey: MiktaCountry = {
   name: 'Turkey',
@@ -28,6 +32,9 @@ export const turkey: MiktaCountry = {
   cryptocurrencyExchanges: ['BtcTurk', 'Paribu', 'MASAK anti-money laundering registration — informational'],
   stablecoin: 'TRY fiat-backed issuance thin; TRY volatility vs USD-stable informal — informational',
   domesticCourierServices: MIKTA_DOMESTIC_COURIERS['TR'],
+  domesticPostService: MIKTA_DOMESTIC_POST_SERVICES['TR'],
+  nationalBankingInstitutions: MIKTA_NATIONAL_BANKING_INSTITUTIONS['TR'],
+  corporationFormationOffice: MIKTA_CORPORATION_FORMATION_OFFICES['TR'],
   newsOutlets: MIKTA_NEWS_OUTLETS['TR'],
   notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['TR'],
   mainExportCommodities: MIKTA_MAIN_EXPORT_COMMODITIES['TR'],
@@ -36,6 +43,7 @@ export const turkey: MiktaCountry = {
   stockExchange: 'Borsa Istanbul (BİST equities / debt)',
   bondMarkets: MIKTA_BOND_MARKETS['TR'],
   mainInternationalAirport: MIKTA_MAIN_INTERNATIONAL_AIRPORTS['TR'],
+  mainInternationalSeaport: MIKTA_MAIN_INTERNATIONAL_SEAPORTS['TR'],
   intellectualPropertyDepartments: MIKTA_INTELLECTUAL_PROPERTY_DEPARTMENTS['TR'],
   securitiesExchangeCommission: MIKTA_SECURITIES_EXCHANGE_COMMISSIONS['TR'],
 }

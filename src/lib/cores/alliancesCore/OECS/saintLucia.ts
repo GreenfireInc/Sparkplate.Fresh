@@ -1,5 +1,8 @@
 import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECS_BOND_MARKETS } from './bondMarketsByIso'
 import { OECS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const saintLucia: OecsCountry = {
   name: 'Saint Lucia',
@@ -27,6 +31,9 @@ export const saintLucia: OecsCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'ECCB digital policy evolution — informational'],
   stablecoin: 'XCD peg; informal stable rails — informational',
   domesticCourierServices: OECS_DOMESTIC_COURIERS['LC'],
+  domesticPostService: OECS_DOMESTIC_POST_SERVICES['LC'],
+  nationalBankingInstitutions: OECS_NATIONAL_BANKING_INSTITUTIONS['LC'],
+  corporationFormationOffice: OECS_CORPORATION_FORMATION_OFFICES['LC'],
   newsOutlets: OECS_NEWS_OUTLETS['LC'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['LC'],
   mainExportCommodities: OECS_MAIN_EXPORT_COMMODITIES['LC'],
@@ -35,6 +42,7 @@ export const saintLucia: OecsCountry = {
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
   bondMarkets: OECS_BOND_MARKETS['LC'],
   mainInternationalAirport: OECS_MAIN_INTERNATIONAL_AIRPORTS['LC'],
+  mainInternationalSeaport: OECS_MAIN_INTERNATIONAL_SEAPORTS['LC'],
   intellectualPropertyDepartments: OECS_INTELLECTUAL_PROPERTY_DEPARTMENTS['LC'],
   securitiesExchangeCommission: OECS_SECURITIES_EXCHANGE_COMMISSIONS['LC'],
 }

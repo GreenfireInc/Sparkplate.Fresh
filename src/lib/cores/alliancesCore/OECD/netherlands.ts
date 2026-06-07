@@ -1,5 +1,8 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const netherlands: OecdCountry = {
   name: 'Netherlands',
@@ -27,6 +31,9 @@ export const netherlands: OecdCountry = {
   cryptocurrencyExchanges: ['Bitstamp', 'AFM-register MiCA-aligned — informational'],
   stablecoin: 'EUR stablecoins; e-money institutions — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['NL'],
+  domesticPostService: OECD_DOMESTIC_POST_SERVICES['NL'],
+  nationalBankingInstitutions: OECD_NATIONAL_BANKING_INSTITUTIONS['NL'],
+  corporationFormationOffice: OECD_CORPORATION_FORMATION_OFFICES['NL'],
   newsOutlets: OECD_NEWS_OUTLETS['NL'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['NL'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['NL'],
@@ -35,6 +42,7 @@ export const netherlands: OecdCountry = {
   stockExchange: 'Euronext Amsterdam',
   bondMarkets: OECD_BOND_MARKETS['NL'],
   mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['NL'],
+  mainInternationalSeaport: OECD_MAIN_INTERNATIONAL_SEAPORTS['NL'],
   intellectualPropertyDepartments: OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS['NL'],
   securitiesExchangeCommission: OECD_SECURITIES_EXCHANGE_COMMISSIONS['NL'],
 }

@@ -1,5 +1,8 @@
 import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CARICOM_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CARICOM_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CARICOM_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CARICOM_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const jamaica: CaricomCountry = {
   name: 'Jamaica',
@@ -27,6 +31,9 @@ export const jamaica: CaricomCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC'],
   stablecoin: 'USDT informal',
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['JM'],
+  domesticPostService: CARICOM_DOMESTIC_POST_SERVICES['JM'],
+  nationalBankingInstitutions: CARICOM_NATIONAL_BANKING_INSTITUTIONS['JM'],
+  corporationFormationOffice: CARICOM_CORPORATION_FORMATION_OFFICES['JM'],
   newsOutlets: CARICOM_NEWS_OUTLETS['JM'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['JM'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['JM'],
@@ -37,4 +44,5 @@ export const jamaica: CaricomCountry = {
   intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['JM'],
   securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['JM'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['JM'],
+  mainInternationalSeaport: CARICOM_MAIN_INTERNATIONAL_SEAPORTS['JM'],
 }

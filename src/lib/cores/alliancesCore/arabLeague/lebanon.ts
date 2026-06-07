@@ -1,5 +1,8 @@
 import type { ArabLeagueCountry } from './types'
 import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ARAB_LEAGUE_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ARAB_LEAGUE_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ARAB_LEAGUE_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ARAB_LEAGUE_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ARAB_LEAGUE_BOND_MARKETS } from './bondMarketsByIso'
 import { ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ARAB_LEAGUE_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ARAB_LEAGUE_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ARAB_LEAGUE_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const lebanon: ArabLeagueCountry = {
   name: 'Lebanon',
@@ -27,6 +31,9 @@ export const lebanon: ArabLeagueCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'OTC', 'Diaspora remittance rails'],
   stablecoin: 'USDT / USDC; USD parallel economy amid crisis',
   domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['LB'],
+  domesticPostService: ARAB_LEAGUE_DOMESTIC_POST_SERVICES['LB'],
+  nationalBankingInstitutions: ARAB_LEAGUE_NATIONAL_BANKING_INSTITUTIONS['LB'],
+  corporationFormationOffice: ARAB_LEAGUE_CORPORATION_FORMATION_OFFICES['LB'],
   newsOutlets: ARAB_LEAGUE_NEWS_OUTLETS['LB'],
   notableUniversities: ARAB_LEAGUE_NOTABLE_UNIVERSITIES['LB'],
   mainExportCommodities: ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES['LB'],
@@ -37,4 +44,5 @@ export const lebanon: ArabLeagueCountry = {
   intellectualPropertyDepartments: ARAB_LEAGUE_INTELLECTUAL_PROPERTY_DEPARTMENTS['LB'],
   securitiesExchangeCommission: ARAB_LEAGUE_SECURITIES_EXCHANGE_COMMISSIONS['LB'],
   mainInternationalAirport: ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS['LB'],
+  mainInternationalSeaport: ARAB_LEAGUE_MAIN_INTERNATIONAL_SEAPORTS['LB'],
 }

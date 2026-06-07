@@ -1,5 +1,8 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CENSAD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CENSAD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CENSAD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const niger: CensadCountry = {
   name: 'Niger',
@@ -27,6 +31,9 @@ export const niger: CensadCountry = {
   cryptocurrencyExchanges: ['Informal regional P2P'],
   stablecoin: 'Informal USDT',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['NE'],
+  domesticPostService: CENSAD_DOMESTIC_POST_SERVICES['NE'],
+  nationalBankingInstitutions: CENSAD_NATIONAL_BANKING_INSTITUTIONS['NE'],
+  corporationFormationOffice: CENSAD_CORPORATION_FORMATION_OFFICES['NE'],
   newsOutlets: CENSAD_NEWS_OUTLETS['NE'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['NE'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['NE'],
@@ -37,4 +44,5 @@ export const niger: CensadCountry = {
   intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['NE'],
   securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['NE'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['NE'],
+  mainInternationalSeaport: CENSAD_MAIN_INTERNATIONAL_SEAPORTS['NE'],
 }

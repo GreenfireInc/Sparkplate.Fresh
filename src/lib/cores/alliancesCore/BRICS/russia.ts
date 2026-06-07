@@ -1,5 +1,8 @@
 import type { BricsCountry } from './types'
 import { BRICS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRICS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRICS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRICS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRICS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRICS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRICS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -8,6 +11,7 @@ import { BRICS_RARE_EARTHS } from './rareEarthsByIso'
 import { BRICS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRICS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRICS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRICS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const russia: BricsCountry = {
   name: 'Russia',
@@ -26,6 +30,9 @@ export const russia: BricsCountry = {
   cryptocurrencyExchanges: ['Garantex', 'Regional OTC', 'P2P platforms (availability varies by jurisdiction)'],
   stablecoin: 'Digital ruble pilot; USDT/USDC used in informal crypto channels where permitted',
   domesticCourierServices: BRICS_DOMESTIC_COURIERS['RU'],
+  domesticPostService: BRICS_DOMESTIC_POST_SERVICES['RU'],
+  nationalBankingInstitutions: BRICS_NATIONAL_BANKING_INSTITUTIONS['RU'],
+  corporationFormationOffice: BRICS_CORPORATION_FORMATION_OFFICES['RU'],
   newsOutlets: BRICS_NEWS_OUTLETS['RU'],
   notableUniversities: BRICS_NOTABLE_UNIVERSITIES['RU'],
   mainExportCommodities: BRICS_MAIN_EXPORT_COMMODITIES['RU'],
@@ -35,4 +42,5 @@ export const russia: BricsCountry = {
   intellectualPropertyDepartments: BRICS_INTELLECTUAL_PROPERTY_DEPARTMENTS['RU'],
   securitiesExchangeCommission: BRICS_SECURITIES_EXCHANGE_COMMISSIONS['RU'],
   mainInternationalAirport: BRICS_MAIN_INTERNATIONAL_AIRPORTS['RU'],
+  mainInternationalSeaport: BRICS_MAIN_INTERNATIONAL_SEAPORTS['RU'],
 }

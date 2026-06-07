@@ -1,5 +1,8 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ECOWAS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ECOWAS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ECOWAS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const gambia: EcowasCountry = {
   name: 'The Gambia',
@@ -26,6 +30,9 @@ export const gambia: EcowasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex (diaspora)'],
   stablecoin: 'USDT / USDC P2P',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['GM'],
+  domesticPostService: ECOWAS_DOMESTIC_POST_SERVICES['GM'],
+  nationalBankingInstitutions: ECOWAS_NATIONAL_BANKING_INSTITUTIONS['GM'],
+  corporationFormationOffice: ECOWAS_CORPORATION_FORMATION_OFFICES['GM'],
   newsOutlets: ECOWAS_NEWS_OUTLETS['GM'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['GM'],
   mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['GM'],
@@ -37,4 +44,5 @@ export const gambia: EcowasCountry = {
 
   securitiesExchangeCommission: ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS['GM'],
   mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['GM'],
+  mainInternationalSeaport: ECOWAS_MAIN_INTERNATIONAL_SEAPORTS['GM'],
 }

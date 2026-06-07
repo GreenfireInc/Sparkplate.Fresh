@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const bulgaria: NatoCountry = {
   name: 'Bulgaria',
@@ -27,6 +31,9 @@ export const bulgaria: NatoCountry = {
   cryptocurrencyExchanges: ['EU CASP passporting; localized brokers'],
   stablecoin: 'BGN peg mechanism toward euro preparedness — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['BG'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['BG'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['BG'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['BG'],
   newsOutlets: NATO_NEWS_OUTLETS['BG'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['BG'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['BG'],
@@ -35,6 +42,7 @@ export const bulgaria: NatoCountry = {
   stockExchange: 'Bulgarian Stock Exchange',
   bondMarkets: NATO_BOND_MARKETS['BG'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['BG'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['BG'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['BG'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['BG'],
 }

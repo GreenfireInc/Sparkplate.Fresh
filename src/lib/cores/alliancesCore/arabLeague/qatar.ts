@@ -1,5 +1,8 @@
 import type { ArabLeagueCountry } from './types'
 import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ARAB_LEAGUE_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ARAB_LEAGUE_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ARAB_LEAGUE_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ARAB_LEAGUE_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ARAB_LEAGUE_BOND_MARKETS } from './bondMarketsByIso'
 import { ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ARAB_LEAGUE_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ARAB_LEAGUE_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ARAB_LEAGUE_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const qatar: ArabLeagueCountry = {
   name: 'Qatar',
@@ -27,6 +31,9 @@ export const qatar: ArabLeagueCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'International brokers; cautious local licensing'],
   stablecoin: 'USDT / USDC informal; wealth-fund economy',
   domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['QA'],
+  domesticPostService: ARAB_LEAGUE_DOMESTIC_POST_SERVICES['QA'],
+  nationalBankingInstitutions: ARAB_LEAGUE_NATIONAL_BANKING_INSTITUTIONS['QA'],
+  corporationFormationOffice: ARAB_LEAGUE_CORPORATION_FORMATION_OFFICES['QA'],
   newsOutlets: ARAB_LEAGUE_NEWS_OUTLETS['QA'],
   notableUniversities: ARAB_LEAGUE_NOTABLE_UNIVERSITIES['QA'],
   mainExportCommodities: ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES['QA'],
@@ -37,4 +44,5 @@ export const qatar: ArabLeagueCountry = {
   intellectualPropertyDepartments: ARAB_LEAGUE_INTELLECTUAL_PROPERTY_DEPARTMENTS['QA'],
   securitiesExchangeCommission: ARAB_LEAGUE_SECURITIES_EXCHANGE_COMMISSIONS['QA'],
   mainInternationalAirport: ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS['QA'],
+  mainInternationalSeaport: ARAB_LEAGUE_MAIN_INTERNATIONAL_SEAPORTS['QA'],
 }

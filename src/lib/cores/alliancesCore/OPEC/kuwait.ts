@@ -1,5 +1,8 @@
 import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OPEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OPEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OPEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OPEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OPEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const kuwait: OpecCountry = {
   name: 'Kuwait',
@@ -28,6 +32,9 @@ export const kuwait: OpecCountry = {
   cryptocurrencyExchanges: ['Central Bank prohibition historically easing pilots — informational'],
   stablecoin: 'KWD fiat anchoring; digital-payment supervision CBK — informational',
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['KW'],
+  domesticPostService: OPEC_DOMESTIC_POST_SERVICES['KW'],
+  nationalBankingInstitutions: OPEC_NATIONAL_BANKING_INSTITUTIONS['KW'],
+  corporationFormationOffice: OPEC_CORPORATION_FORMATION_OFFICES['KW'],
   newsOutlets: OPEC_NEWS_OUTLETS['KW'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['KW'],
   mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['KW'],
@@ -36,6 +43,7 @@ export const kuwait: OpecCountry = {
   stockExchange: 'Boursa Kuwait',
   bondMarkets: OPEC_BOND_MARKETS['KW'],
   mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['KW'],
+  mainInternationalSeaport: OPEC_MAIN_INTERNATIONAL_SEAPORTS['KW'],
   intellectualPropertyDepartments: OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['KW'],
   securitiesExchangeCommission: OPEC_SECURITIES_EXCHANGE_COMMISSIONS['KW'],
 }

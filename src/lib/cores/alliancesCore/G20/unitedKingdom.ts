@@ -1,5 +1,8 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const unitedKingdom: G20Country = {
   name: 'United Kingdom',
@@ -29,6 +33,9 @@ export const unitedKingdom: G20Country = {
   cryptocurrencyExchanges: ['Coinbase e-money UK', 'Kraken entities', 'FCA-register context — informational'],
   stablecoin: 'GBP stablecoins under evolving UK PSD3/cryptoasset regime — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['GB'],
+  domesticPostService: G20_DOMESTIC_POST_SERVICES['GB'],
+  nationalBankingInstitutions: G20_NATIONAL_BANKING_INSTITUTIONS['GB'],
+  corporationFormationOffice: G20_CORPORATION_FORMATION_OFFICES['GB'],
   newsOutlets: G20_NEWS_OUTLETS['GB'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['GB'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['GB'],
@@ -37,6 +44,7 @@ export const unitedKingdom: G20Country = {
   stockExchange: 'London Stock Exchange Group (consolidated UK venues — informational)',
   bondMarkets: G20_BOND_MARKETS['GB'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['GB'],
+  mainInternationalSeaport: G20_MAIN_INTERNATIONAL_SEAPORTS['GB'],
   intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['GB'],
   securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['GB'],
 }

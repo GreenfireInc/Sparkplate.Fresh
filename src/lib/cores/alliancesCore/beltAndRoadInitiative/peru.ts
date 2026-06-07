@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const peru: BeltAndRoadInitiativeCountry = {
   name: 'Peru',
   iso3166Alpha2: 'PE',
@@ -26,6 +30,9 @@ export const peru: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: [ 'Binance (P2P)', 'International OTC', 'Local regulation varies' ],
   stablecoin: 'USDT / USDC common globally; legality varies by jurisdiction',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['PE'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['PE'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['PE'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['PE'],
   newsOutlets: BRI_NEWS_OUTLETS['PE'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['PE'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['PE'],
@@ -36,4 +43,5 @@ export const peru: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['PE'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['PE'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['PE'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['PE'],
 }

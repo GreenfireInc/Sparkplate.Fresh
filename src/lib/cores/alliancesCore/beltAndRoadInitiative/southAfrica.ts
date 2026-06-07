@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const southAfrica: BeltAndRoadInitiativeCountry = {
   name: 'South Africa',
   iso3166Alpha2: 'ZA',
@@ -26,6 +30,9 @@ export const southAfrica: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Luno', 'VALR', 'Binance (P2P)', 'ICE3 (historical)'],
   stablecoin: 'USDT / USDC; ZARP (rand-referenced stable token, private)',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['ZA'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['ZA'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['ZA'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['ZA'],
   newsOutlets: BRI_NEWS_OUTLETS['ZA'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['ZA'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['ZA'],
@@ -36,4 +43,5 @@ export const southAfrica: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['ZA'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['ZA'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['ZA'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['ZA'],
 }

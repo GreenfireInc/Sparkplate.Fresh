@@ -1,5 +1,8 @@
 import type { FiveEyesCountry } from './types'
 import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { FIVE_EYES_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { FIVE_EYES_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { FIVE_EYES_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { FIVE_EYES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { FIVE_EYES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { FIVE_EYES_BOND_MARKETS } from './bondMarketsByIso'
 import { FIVE_EYES_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { FIVE_EYES_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { FIVE_EYES_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { FIVE_EYES_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const canada: FiveEyesCountry = {
   name: 'Canada',
@@ -27,6 +31,9 @@ export const canada: FiveEyesCountry = {
   cryptocurrencyExchanges: ['Bitbuy', 'Newton', 'CSA/PRU provincial licensing environment — informational'],
   stablecoin: 'CAD fiat-backed tokens (regulated money services / evolving OSFI/OSCB guidance — informational)',
   domesticCourierServices: FIVE_EYES_DOMESTIC_COURIERS['CA'],
+  domesticPostService: FIVE_EYES_DOMESTIC_POST_SERVICES['CA'],
+  nationalBankingInstitutions: FIVE_EYES_NATIONAL_BANKING_INSTITUTIONS['CA'],
+  corporationFormationOffice: FIVE_EYES_CORPORATION_FORMATION_OFFICES['CA'],
   newsOutlets: FIVE_EYES_NEWS_OUTLETS['CA'],
   notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['CA'],
   mainExportCommodities: FIVE_EYES_MAIN_EXPORT_COMMODITIES['CA'],
@@ -38,4 +45,5 @@ export const canada: FiveEyesCountry = {
 
   securitiesExchangeCommission: FIVE_EYES_SECURITIES_EXCHANGE_COMMISSIONS['CA'],
   mainInternationalAirport: FIVE_EYES_MAIN_INTERNATIONAL_AIRPORTS['CA'],
+  mainInternationalSeaport: FIVE_EYES_MAIN_INTERNATIONAL_SEAPORTS['CA'],
 }

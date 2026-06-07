@@ -1,5 +1,8 @@
 import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECS_BOND_MARKETS } from './bondMarketsByIso'
 import { OECS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const dominica: OecsCountry = {
   name: 'Commonwealth of Dominica',
@@ -27,6 +31,9 @@ export const dominica: OecsCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance-style P2P informal — informational'],
   stablecoin: 'XCD USD peg; informal stable settlement — informational',
   domesticCourierServices: OECS_DOMESTIC_COURIERS['DM'],
+  domesticPostService: OECS_DOMESTIC_POST_SERVICES['DM'],
+  nationalBankingInstitutions: OECS_NATIONAL_BANKING_INSTITUTIONS['DM'],
+  corporationFormationOffice: OECS_CORPORATION_FORMATION_OFFICES['DM'],
   newsOutlets: OECS_NEWS_OUTLETS['DM'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['DM'],
   mainExportCommodities: OECS_MAIN_EXPORT_COMMODITIES['DM'],
@@ -35,6 +42,7 @@ export const dominica: OecsCountry = {
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
   bondMarkets: OECS_BOND_MARKETS['DM'],
   mainInternationalAirport: OECS_MAIN_INTERNATIONAL_AIRPORTS['DM'],
+  mainInternationalSeaport: OECS_MAIN_INTERNATIONAL_SEAPORTS['DM'],
   intellectualPropertyDepartments: OECS_INTELLECTUAL_PROPERTY_DEPARTMENTS['DM'],
   securitiesExchangeCommission: OECS_SECURITIES_EXCHANGE_COMMISSIONS['DM'],
 }

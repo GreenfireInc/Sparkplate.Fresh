@@ -1,5 +1,8 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const turkey: G20Country = {
   name: 'Turkey',
@@ -28,6 +32,9 @@ export const turkey: G20Country = {
   cryptocurrencyExchanges: ['BtcTurk', 'Paribu', 'MASAK anti-money laundering registration — informational'],
   stablecoin: 'TRY fiat-backed issuance thin; TRY volatility vs USD-stable informal — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['TR'],
+  domesticPostService: G20_DOMESTIC_POST_SERVICES['TR'],
+  nationalBankingInstitutions: G20_NATIONAL_BANKING_INSTITUTIONS['TR'],
+  corporationFormationOffice: G20_CORPORATION_FORMATION_OFFICES['TR'],
   newsOutlets: G20_NEWS_OUTLETS['TR'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['TR'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['TR'],
@@ -36,6 +43,7 @@ export const turkey: G20Country = {
   stockExchange: 'Borsa Istanbul (BİST equities / debt)',
   bondMarkets: G20_BOND_MARKETS['TR'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['TR'],
+  mainInternationalSeaport: G20_MAIN_INTERNATIONAL_SEAPORTS['TR'],
   intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['TR'],
   securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['TR'],
 }

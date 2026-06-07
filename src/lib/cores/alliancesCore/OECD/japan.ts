@@ -1,5 +1,8 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const japan: OecdCountry = {
   name: 'Japan',
@@ -29,6 +33,9 @@ export const japan: OecdCountry = {
   cryptocurrencyExchanges: ['bitFlyer', 'Coincheck / PSAP-registered narratives — informational'],
   stablecoin: 'JPY-linked experiments; Bank of Japan CBDC pilots — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['JP'],
+  domesticPostService: OECD_DOMESTIC_POST_SERVICES['JP'],
+  nationalBankingInstitutions: OECD_NATIONAL_BANKING_INSTITUTIONS['JP'],
+  corporationFormationOffice: OECD_CORPORATION_FORMATION_OFFICES['JP'],
   newsOutlets: OECD_NEWS_OUTLETS['JP'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['JP'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['JP'],
@@ -37,6 +44,7 @@ export const japan: OecdCountry = {
   stockExchange: 'Tokyo Stock Exchange (Japan Exchange Group)',
   bondMarkets: OECD_BOND_MARKETS['JP'],
   mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['JP'],
+  mainInternationalSeaport: OECD_MAIN_INTERNATIONAL_SEAPORTS['JP'],
   intellectualPropertyDepartments: OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS['JP'],
   securitiesExchangeCommission: OECD_SECURITIES_EXCHANGE_COMMISSIONS['JP'],
 }

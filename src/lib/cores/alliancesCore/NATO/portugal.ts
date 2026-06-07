@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const portugal: NatoCountry = {
   name: 'Portugal',
@@ -27,6 +31,9 @@ export const portugal: NatoCountry = {
   cryptocurrencyExchanges: ['European brokers; CMVM supervision MiCA-era — informational'],
   stablecoin: 'EUR stablecoins — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['PT'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['PT'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['PT'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['PT'],
   newsOutlets: NATO_NEWS_OUTLETS['PT'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['PT'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['PT'],
@@ -35,6 +42,7 @@ export const portugal: NatoCountry = {
   stockExchange: 'Euronext Lisbon',
   bondMarkets: NATO_BOND_MARKETS['PT'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['PT'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['PT'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['PT'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['PT'],
 }

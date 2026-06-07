@@ -1,5 +1,8 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CENSAD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CENSAD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CENSAD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const ivoryCoast: CensadCountry = {
   name: "Côte d'Ivoire",
@@ -26,6 +30,9 @@ export const ivoryCoast: CensadCountry = {
   cryptocurrencyExchanges: ['Regional licensed platforms evolution', 'Binance P2P'],
   stablecoin: 'USDT informal alongside CFA',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['CI'],
+  domesticPostService: CENSAD_DOMESTIC_POST_SERVICES['CI'],
+  nationalBankingInstitutions: CENSAD_NATIONAL_BANKING_INSTITUTIONS['CI'],
+  corporationFormationOffice: CENSAD_CORPORATION_FORMATION_OFFICES['CI'],
   newsOutlets: CENSAD_NEWS_OUTLETS['CI'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['CI'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['CI'],
@@ -36,4 +43,5 @@ export const ivoryCoast: CensadCountry = {
   intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['CI'],
   securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['CI'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['CI'],
+  mainInternationalSeaport: CENSAD_MAIN_INTERNATIONAL_SEAPORTS['CI'],
 }

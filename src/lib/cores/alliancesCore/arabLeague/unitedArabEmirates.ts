@@ -1,5 +1,8 @@
 import type { ArabLeagueCountry } from './types'
 import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ARAB_LEAGUE_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ARAB_LEAGUE_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ARAB_LEAGUE_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ARAB_LEAGUE_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ARAB_LEAGUE_BOND_MARKETS } from './bondMarketsByIso'
 import { ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ARAB_LEAGUE_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ARAB_LEAGUE_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ARAB_LEAGUE_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const unitedArabEmirates: ArabLeagueCountry = {
   name: 'United Arab Emirates',
@@ -27,6 +31,9 @@ export const unitedArabEmirates: ArabLeagueCountry = {
   cryptocurrencyExchanges: ['BitOasis (historical)', 'International brokers', 'VARA-regulated Dubai activity'],
   stablecoin: 'USDT / USDC; AED-linked experiments',
   domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['AE'],
+  domesticPostService: ARAB_LEAGUE_DOMESTIC_POST_SERVICES['AE'],
+  nationalBankingInstitutions: ARAB_LEAGUE_NATIONAL_BANKING_INSTITUTIONS['AE'],
+  corporationFormationOffice: ARAB_LEAGUE_CORPORATION_FORMATION_OFFICES['AE'],
   newsOutlets: ARAB_LEAGUE_NEWS_OUTLETS['AE'],
   notableUniversities: ARAB_LEAGUE_NOTABLE_UNIVERSITIES['AE'],
   mainExportCommodities: ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES['AE'],
@@ -37,4 +44,5 @@ export const unitedArabEmirates: ArabLeagueCountry = {
   intellectualPropertyDepartments: ARAB_LEAGUE_INTELLECTUAL_PROPERTY_DEPARTMENTS['AE'],
   securitiesExchangeCommission: ARAB_LEAGUE_SECURITIES_EXCHANGE_COMMISSIONS['AE'],
   mainInternationalAirport: ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS['AE'],
+  mainInternationalSeaport: ARAB_LEAGUE_MAIN_INTERNATIONAL_SEAPORTS['AE'],
 }

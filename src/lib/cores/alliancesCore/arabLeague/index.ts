@@ -4,12 +4,19 @@ export type {
   ArabLeagueOrganizationInfo,
   BondMarketVenue,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   IntellectualPropertyDepartment,
   IntellectualPropertyDepartmentKind,
   IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
@@ -18,6 +25,10 @@ export type {
 } from './types'
 export { ARAB_LEAGUE_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { ARAB_LEAGUE_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { ARAB_LEAGUE_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { ARAB_LEAGUE_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { ARAB_LEAGUE_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { ARAB_LEAGUE_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 export { ARAB_LEAGUE_MEMBER_ISO_CODES } from './arabLeagueMemberIsoCodes'
 export type { ArabLeagueMemberIsoCode } from './arabLeagueMemberIsoCodes'
 

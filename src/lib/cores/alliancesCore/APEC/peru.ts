@@ -1,5 +1,8 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { APEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { APEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { APEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const peru: ApecCountry = {
   name: 'Peru',
@@ -27,6 +31,9 @@ export const peru: ApecCountry = {
   cryptocurrencyExchanges: ['Sunat regulatory overlays; OTC informal — informational'],
   stablecoin: 'USD informal predominant mining-export settlements — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['PE'],
+  domesticPostService: APEC_DOMESTIC_POST_SERVICES['PE'],
+  nationalBankingInstitutions: APEC_NATIONAL_BANKING_INSTITUTIONS['PE'],
+  corporationFormationOffice: APEC_CORPORATION_FORMATION_OFFICES['PE'],
   newsOutlets: APEC_NEWS_OUTLETS['PE'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['PE'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['PE'],
@@ -37,4 +44,5 @@ export const peru: ApecCountry = {
   intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['PE'],
   securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['PE'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['PE'],
+  mainInternationalSeaport: APEC_MAIN_INTERNATIONAL_SEAPORTS['PE'],
 }

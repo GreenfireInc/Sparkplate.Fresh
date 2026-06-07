@@ -1,5 +1,8 @@
 import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EAC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { EAC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { EAC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { EAC_BOND_MARKETS } from './bondMarketsByIso'
 import { EAC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { EAC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { EAC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { EAC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const democraticRepublicOfTheCongo: EacCountry = {
   name: 'Democratic Republic of the Congo',
@@ -26,6 +30,9 @@ export const democraticRepublicOfTheCongo: EacCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC widespread P2P',
   domesticCourierServices: EAC_DOMESTIC_COURIERS['CD'],
+  domesticPostService: EAC_DOMESTIC_POST_SERVICES['CD'],
+  nationalBankingInstitutions: EAC_NATIONAL_BANKING_INSTITUTIONS['CD'],
+  corporationFormationOffice: EAC_CORPORATION_FORMATION_OFFICES['CD'],
   newsOutlets: EAC_NEWS_OUTLETS['CD'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['CD'],
   mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['CD'],
@@ -37,4 +44,5 @@ export const democraticRepublicOfTheCongo: EacCountry = {
 
   securitiesExchangeCommission: EAC_SECURITIES_EXCHANGE_COMMISSIONS['CD'],
   mainInternationalAirport: EAC_MAIN_INTERNATIONAL_AIRPORTS['CD'],
+  mainInternationalSeaport: EAC_MAIN_INTERNATIONAL_SEAPORTS['CD'],
 }

@@ -1,5 +1,8 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { APEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { APEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { APEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const thailand: ApecCountry = {
   name: 'Thailand',
@@ -28,6 +32,9 @@ export const thailand: ApecCountry = {
   cryptocurrencyExchanges: ['SEC Thai DMA operator licences evolving — informational'],
   stablecoin: 'BOT sandbox CBDC — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['TH'],
+  domesticPostService: APEC_DOMESTIC_POST_SERVICES['TH'],
+  nationalBankingInstitutions: APEC_NATIONAL_BANKING_INSTITUTIONS['TH'],
+  corporationFormationOffice: APEC_CORPORATION_FORMATION_OFFICES['TH'],
   newsOutlets: APEC_NEWS_OUTLETS['TH'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['TH'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['TH'],
@@ -38,4 +45,5 @@ export const thailand: ApecCountry = {
   intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['TH'],
   securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['TH'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['TH'],
+  mainInternationalSeaport: APEC_MAIN_INTERNATIONAL_SEAPORTS['TH'],
 }

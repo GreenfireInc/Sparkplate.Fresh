@@ -1,5 +1,8 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { RCEP_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { RCEP_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { RCEP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { RCEP_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const vietnam: RcepCountry = {
   name: 'Vietnam',
@@ -28,6 +32,9 @@ export const vietnam: RcepCountry = {
   cryptocurrencyExchanges: ['Retail trading prohibited; OTC informal mining episodes — informational'],
   stablecoin: 'Digital currency pilot narratives; predominant VND — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['VN'],
+  domesticPostService: RCEP_DOMESTIC_POST_SERVICES['VN'],
+  nationalBankingInstitutions: RCEP_NATIONAL_BANKING_INSTITUTIONS['VN'],
+  corporationFormationOffice: RCEP_CORPORATION_FORMATION_OFFICES['VN'],
   newsOutlets: RCEP_NEWS_OUTLETS['VN'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['VN'],
   mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['VN'],
@@ -36,6 +43,7 @@ export const vietnam: RcepCountry = {
   stockExchange: 'Ho Chi Minh City Stock Exchange (HOSE); HNX consolidated roadmap — informational',
   bondMarkets: RCEP_BOND_MARKETS['VN'],
   mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['VN'],
+  mainInternationalSeaport: RCEP_MAIN_INTERNATIONAL_SEAPORTS['VN'],
   intellectualPropertyDepartments: RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS['VN'],
   securitiesExchangeCommission: RCEP_SECURITIES_EXCHANGE_COMMISSIONS['VN'],
 }

@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const slovenia: NatoCountry = {
   name: 'Slovenia',
@@ -27,6 +31,9 @@ export const slovenia: NatoCountry = {
   cryptocurrencyExchanges: ['EU-compliant brokers Ljubljana corridor — informational'],
   stablecoin: 'EUR stablecoins MiCA — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['SI'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['SI'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['SI'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['SI'],
   newsOutlets: NATO_NEWS_OUTLETS['SI'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['SI'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['SI'],
@@ -35,6 +42,7 @@ export const slovenia: NatoCountry = {
   stockExchange: 'Ljubljana Stock Exchange',
   bondMarkets: NATO_BOND_MARKETS['SI'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['SI'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['SI'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['SI'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['SI'],
 }

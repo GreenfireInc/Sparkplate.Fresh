@@ -1,5 +1,8 @@
 import type { ArabLeagueCountry } from './types'
 import { ARAB_LEAGUE_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ARAB_LEAGUE_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ARAB_LEAGUE_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ARAB_LEAGUE_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ARAB_LEAGUE_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ARAB_LEAGUE_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ARAB_LEAGUE_BOND_MARKETS } from './bondMarketsByIso'
 import { ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ARAB_LEAGUE_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ARAB_LEAGUE_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ARAB_LEAGUE_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const syria: ArabLeagueCountry = {
   name: 'Syria',
@@ -27,6 +31,9 @@ export const syria: ArabLeagueCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'OTC', 'Sanctions-affected rails'],
   stablecoin: 'USDT informal; heavily depreciated SYP',
   domesticCourierServices: ARAB_LEAGUE_DOMESTIC_COURIERS['SY'],
+  domesticPostService: ARAB_LEAGUE_DOMESTIC_POST_SERVICES['SY'],
+  nationalBankingInstitutions: ARAB_LEAGUE_NATIONAL_BANKING_INSTITUTIONS['SY'],
+  corporationFormationOffice: ARAB_LEAGUE_CORPORATION_FORMATION_OFFICES['SY'],
   newsOutlets: ARAB_LEAGUE_NEWS_OUTLETS['SY'],
   notableUniversities: ARAB_LEAGUE_NOTABLE_UNIVERSITIES['SY'],
   mainExportCommodities: ARAB_LEAGUE_MAIN_EXPORT_COMMODITIES['SY'],
@@ -37,4 +44,5 @@ export const syria: ArabLeagueCountry = {
   intellectualPropertyDepartments: ARAB_LEAGUE_INTELLECTUAL_PROPERTY_DEPARTMENTS['SY'],
   securitiesExchangeCommission: ARAB_LEAGUE_SECURITIES_EXCHANGE_COMMISSIONS['SY'],
   mainInternationalAirport: ARAB_LEAGUE_MAIN_INTERNATIONAL_AIRPORTS['SY'],
+  mainInternationalSeaport: ARAB_LEAGUE_MAIN_INTERNATIONAL_SEAPORTS['SY'],
 }

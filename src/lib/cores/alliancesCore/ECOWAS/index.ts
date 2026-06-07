@@ -1,6 +1,8 @@
 export type {
   BondMarketVenue,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   EcowasCountry,
   EcowasOrganizationInfo,
   IntellectualPropertyDepartment,
@@ -9,6 +11,11 @@ export type {
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
@@ -17,6 +24,10 @@ export type {
 } from './types'
 export { ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { ECOWAS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { ECOWAS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { ECOWAS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { ECOWAS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 
 import type { EcowasCountry, EcowasOrganizationInfo } from './types'
 import { ECOWAS_MEMBER_ISO_CODES } from './ecowasMemberIsoCodes'

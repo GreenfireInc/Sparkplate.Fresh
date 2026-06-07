@@ -1,5 +1,8 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMESA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMESA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMESA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const egypt: ComesaCountry = {
   name: 'Egypt',
@@ -26,6 +30,9 @@ export const egypt: ComesaCountry = {
   cryptocurrencyExchanges: ['Rain (regional)', 'No official local spot exchange; P2P & OTC'],
   stablecoin: 'USDT / USDC P2P common; central bank exploring CBDC',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['EG'],
+  domesticPostService: COMESA_DOMESTIC_POST_SERVICES['EG'],
+  nationalBankingInstitutions: COMESA_NATIONAL_BANKING_INSTITUTIONS['EG'],
+  corporationFormationOffice: COMESA_CORPORATION_FORMATION_OFFICES['EG'],
   newsOutlets: COMESA_NEWS_OUTLETS['EG'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['EG'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['EG'],
@@ -36,4 +43,5 @@ export const egypt: ComesaCountry = {
   intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['EG'],
   securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['EG'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['EG'],
+  mainInternationalSeaport: COMESA_MAIN_INTERNATIONAL_SEAPORTS['EG'],
 }

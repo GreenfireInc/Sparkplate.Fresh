@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const nicaragua: BeltAndRoadInitiativeCountry = {
   name: 'Nicaragua',
   iso3166Alpha2: 'NI',
@@ -26,6 +30,9 @@ export const nicaragua: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: [ 'Binance (P2P)', 'International OTC', 'Local regulation varies' ],
   stablecoin: 'USDT / USDC common globally; legality varies by jurisdiction',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['NI'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['NI'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['NI'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['NI'],
   newsOutlets: BRI_NEWS_OUTLETS['NI'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['NI'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['NI'],
@@ -36,4 +43,5 @@ export const nicaragua: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['NI'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['NI'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['NI'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['NI'],
 }

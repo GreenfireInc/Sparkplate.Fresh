@@ -1,5 +1,8 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { IORA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { IORA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { IORA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const mauritius: IoraCountry = {
   name: 'Mauritius',
@@ -27,6 +31,9 @@ export const mauritius: IoraCountry = {
   cryptocurrencyExchanges: ['IFC narrative; FSC regulatory evolution — informational'],
   stablecoin: 'MUR informal USD/EUR tourist rails — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['MU'],
+  domesticPostService: IORA_DOMESTIC_POST_SERVICES['MU'],
+  nationalBankingInstitutions: IORA_NATIONAL_BANKING_INSTITUTIONS['MU'],
+  corporationFormationOffice: IORA_CORPORATION_FORMATION_OFFICES['MU'],
   newsOutlets: IORA_NEWS_OUTLETS['MU'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['MU'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['MU'],
@@ -35,6 +42,7 @@ export const mauritius: IoraCountry = {
   stockExchange: 'Stock Exchange of Mauritius (SEM)',
   bondMarkets: IORA_BOND_MARKETS['MU'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['MU'],
+  mainInternationalSeaport: IORA_MAIN_INTERNATIONAL_SEAPORTS['MU'],
   intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['MU'],
   securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['MU'],
 }

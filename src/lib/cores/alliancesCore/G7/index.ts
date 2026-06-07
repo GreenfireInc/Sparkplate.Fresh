@@ -1,6 +1,8 @@
 export type {
   BondMarketVenue,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   G7Country,
   G7OrganizationInfo,
   IntellectualPropertyDepartment,
@@ -9,6 +11,11 @@ export type {
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
@@ -17,6 +24,10 @@ export type {
 } from './types'
 export { G7_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { G7_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { G7_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { G7_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { G7_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { G7_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 
 import type { G7Country, G7OrganizationInfo } from './types'
 import { G7_MEMBER_ISO_CODES } from './g7MemberIsoCodes'

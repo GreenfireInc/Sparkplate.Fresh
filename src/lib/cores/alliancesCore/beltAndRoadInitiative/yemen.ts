@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const yemen: BeltAndRoadInitiativeCountry = {
   name: 'Yemen',
   iso3166Alpha2: 'YE',
@@ -26,6 +30,9 @@ export const yemen: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'OTC', 'Hawala-dominated economy'],
   stablecoin: 'USDT informal; humanitarian USD economy',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['YE'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['YE'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['YE'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['YE'],
   newsOutlets: BRI_NEWS_OUTLETS['YE'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['YE'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['YE'],
@@ -36,4 +43,5 @@ export const yemen: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['YE'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['YE'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['YE'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['YE'],
 }

@@ -1,5 +1,8 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { APEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { APEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { APEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const indonesia: ApecCountry = {
   name: 'Indonesia',
@@ -27,6 +31,9 @@ export const indonesia: ApecCountry = {
   cryptocurrencyExchanges: ['OJK digital-asset routes licensing evolution — informational'],
   stablecoin: 'IDR payment rails; OTC USDT — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['ID'],
+  domesticPostService: APEC_DOMESTIC_POST_SERVICES['ID'],
+  nationalBankingInstitutions: APEC_NATIONAL_BANKING_INSTITUTIONS['ID'],
+  corporationFormationOffice: APEC_CORPORATION_FORMATION_OFFICES['ID'],
   newsOutlets: APEC_NEWS_OUTLETS['ID'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['ID'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['ID'],
@@ -37,4 +44,5 @@ export const indonesia: ApecCountry = {
   intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['ID'],
   securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['ID'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['ID'],
+  mainInternationalSeaport: APEC_MAIN_INTERNATIONAL_SEAPORTS['ID'],
 }

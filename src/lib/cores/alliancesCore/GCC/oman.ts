@@ -1,5 +1,8 @@
 import type { GccCountry } from './types'
 import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { GCC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { GCC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { GCC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { GCC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { GCC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { GCC_BOND_MARKETS } from './bondMarketsByIso'
 import { GCC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { GCC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { GCC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { GCC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const oman: GccCountry = {
   name: 'Oman',
@@ -27,6 +31,9 @@ export const oman: GccCountry = {
   cryptocurrencyExchanges: ['CBO cautious licensing evolution; OTC regional — informational'],
   stablecoin: 'OMR dollar peg narratives; sovereign digital-payment pilots — informational',
   domesticCourierServices: GCC_DOMESTIC_COURIERS['OM'],
+  domesticPostService: GCC_DOMESTIC_POST_SERVICES['OM'],
+  nationalBankingInstitutions: GCC_NATIONAL_BANKING_INSTITUTIONS['OM'],
+  corporationFormationOffice: GCC_CORPORATION_FORMATION_OFFICES['OM'],
   newsOutlets: GCC_NEWS_OUTLETS['OM'],
   notableUniversities: GCC_NOTABLE_UNIVERSITIES['OM'],
   mainExportCommodities: GCC_MAIN_EXPORT_COMMODITIES['OM'],
@@ -35,6 +42,7 @@ export const oman: GccCountry = {
   stockExchange: 'Muscat Stock Exchange',
   bondMarkets: GCC_BOND_MARKETS['OM'],
   mainInternationalAirport: GCC_MAIN_INTERNATIONAL_AIRPORTS['OM'],
+  mainInternationalSeaport: GCC_MAIN_INTERNATIONAL_SEAPORTS['OM'],
   intellectualPropertyDepartments: GCC_INTELLECTUAL_PROPERTY_DEPARTMENTS['OM'],
   securitiesExchangeCommission: GCC_SECURITIES_EXCHANGE_COMMISSIONS['OM'],
 }

@@ -1,5 +1,8 @@
 import type { MiktaCountry } from './types'
 import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { MIKTA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { MIKTA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { MIKTA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { MIKTA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { MIKTA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { MIKTA_BOND_MARKETS } from './bondMarketsByIso'
 import { MIKTA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { MIKTA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { MIKTA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { MIKTA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const indonesia: MiktaCountry = {
   name: 'Indonesia',
@@ -28,6 +32,9 @@ export const indonesia: MiktaCountry = {
   cryptocurrencyExchanges: ['Indonesia CFX licensed trading (Bappebti-era evolution to OJK oversight — informational)'],
   stablecoin: 'IDR digital rupiah / CBDC narratives; offshore USDT OTC — informational',
   domesticCourierServices: MIKTA_DOMESTIC_COURIERS['ID'],
+  domesticPostService: MIKTA_DOMESTIC_POST_SERVICES['ID'],
+  nationalBankingInstitutions: MIKTA_NATIONAL_BANKING_INSTITUTIONS['ID'],
+  corporationFormationOffice: MIKTA_CORPORATION_FORMATION_OFFICES['ID'],
   newsOutlets: MIKTA_NEWS_OUTLETS['ID'],
   notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['ID'],
   mainExportCommodities: MIKTA_MAIN_EXPORT_COMMODITIES['ID'],
@@ -36,6 +43,7 @@ export const indonesia: MiktaCountry = {
   stockExchange: 'Indonesia Stock Exchange IDX Jakarta',
   bondMarkets: MIKTA_BOND_MARKETS['ID'],
   mainInternationalAirport: MIKTA_MAIN_INTERNATIONAL_AIRPORTS['ID'],
+  mainInternationalSeaport: MIKTA_MAIN_INTERNATIONAL_SEAPORTS['ID'],
   intellectualPropertyDepartments: MIKTA_INTELLECTUAL_PROPERTY_DEPARTMENTS['ID'],
   securitiesExchangeCommission: MIKTA_SECURITIES_EXCHANGE_COMMISSIONS['ID'],
 }

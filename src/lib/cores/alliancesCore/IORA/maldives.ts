@@ -1,5 +1,8 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { IORA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { IORA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { IORA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const maldives: IoraCountry = {
   name: 'Maldives',
@@ -27,6 +31,9 @@ export const maldives: IoraCountry = {
   cryptocurrencyExchanges: ['Tourism-driven informal crypto; central bank caution — informational'],
   stablecoin: 'USD resort pricing dominant; USDT informal — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['MV'],
+  domesticPostService: IORA_DOMESTIC_POST_SERVICES['MV'],
+  nationalBankingInstitutions: IORA_NATIONAL_BANKING_INSTITUTIONS['MV'],
+  corporationFormationOffice: IORA_CORPORATION_FORMATION_OFFICES['MV'],
   newsOutlets: IORA_NEWS_OUTLETS['MV'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['MV'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['MV'],
@@ -35,6 +42,7 @@ export const maldives: IoraCountry = {
   stockExchange: 'Maldives Stock Exchange (Malé — thin — informational)',
   bondMarkets: IORA_BOND_MARKETS['MV'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['MV'],
+  mainInternationalSeaport: IORA_MAIN_INTERNATIONAL_SEAPORTS['MV'],
   intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['MV'],
   securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['MV'],
 }

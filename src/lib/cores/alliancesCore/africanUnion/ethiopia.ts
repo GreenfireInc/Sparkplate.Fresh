@@ -1,5 +1,8 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const ethiopia: AfricanUnionCountry = {
   name: 'Ethiopia',
   iso3166Alpha2: 'ET',
@@ -26,6 +30,9 @@ export const ethiopia: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC P2P; National Bank cautious on crypto',
   domesticCourierServices: AU_DOMESTIC_COURIERS['ET'],
+  domesticPostService: AU_DOMESTIC_POST_SERVICES['ET'],
+  nationalBankingInstitutions: AU_NATIONAL_BANKING_INSTITUTIONS['ET'],
+  corporationFormationOffice: AU_CORPORATION_FORMATION_OFFICES['ET'],
   newsOutlets: AU_NEWS_OUTLETS['ET'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['ET'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['ET'],
@@ -36,4 +43,5 @@ export const ethiopia: AfricanUnionCountry = {
   intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['ET'],
   securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['ET'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['ET'],
+  mainInternationalSeaport: AU_MAIN_INTERNATIONAL_SEAPORTS['ET'],
 }

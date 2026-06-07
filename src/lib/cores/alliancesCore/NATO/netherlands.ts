@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const netherlands: NatoCountry = {
   name: 'Netherlands',
@@ -27,6 +31,9 @@ export const netherlands: NatoCountry = {
   cryptocurrencyExchanges: ['Bitstamp', 'MiCA-aligned AFM registry — informational'],
   stablecoin: 'EUR stablecoins; e-money institutions — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['NL'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['NL'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['NL'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['NL'],
   newsOutlets: NATO_NEWS_OUTLETS['NL'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['NL'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['NL'],
@@ -35,6 +42,7 @@ export const netherlands: NatoCountry = {
   stockExchange: 'Euronext Amsterdam',
   bondMarkets: NATO_BOND_MARKETS['NL'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['NL'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['NL'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['NL'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['NL'],
 }

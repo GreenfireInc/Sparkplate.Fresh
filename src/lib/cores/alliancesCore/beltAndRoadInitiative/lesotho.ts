@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const lesotho: BeltAndRoadInitiativeCountry = {
   name: 'Lesotho',
   iso3166Alpha2: 'LS',
@@ -26,6 +30,9 @@ export const lesotho: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Luno', 'VALR', 'Binance (P2P)'],
   stablecoin: 'USDT via South African financial links',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['LS'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['LS'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['LS'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['LS'],
   newsOutlets: BRI_NEWS_OUTLETS['LS'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['LS'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['LS'],
@@ -36,4 +43,5 @@ export const lesotho: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['LS'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['LS'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['LS'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['LS'],
 }

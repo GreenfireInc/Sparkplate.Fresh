@@ -1,5 +1,8 @@
 import type { G7Country } from './types'
 import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G7_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G7_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G7_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G7_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G7_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G7_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G7_BOND_MARKETS } from './bondMarketsByIso'
 import { G7_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G7_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G7_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G7_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const canada: G7Country = {
   name: 'Canada',
@@ -27,6 +31,9 @@ export const canada: G7Country = {
   cryptocurrencyExchanges: ['Bitbuy', 'Newton', 'CSA/PRU provincial licensing environment — informational'],
   stablecoin: 'CAD fiat-backed tokens (regulated money services / evolving OSFI guidance — informational)',
   domesticCourierServices: G7_DOMESTIC_COURIERS['CA'],
+  domesticPostService: G7_DOMESTIC_POST_SERVICES['CA'],
+  nationalBankingInstitutions: G7_NATIONAL_BANKING_INSTITUTIONS['CA'],
+  corporationFormationOffice: G7_CORPORATION_FORMATION_OFFICES['CA'],
   newsOutlets: G7_NEWS_OUTLETS['CA'],
   notableUniversities: G7_NOTABLE_UNIVERSITIES['CA'],
   mainExportCommodities: G7_MAIN_EXPORT_COMMODITIES['CA'],
@@ -35,6 +42,7 @@ export const canada: G7Country = {
   stockExchange: 'Toronto Stock Exchange (TMX)',
   bondMarkets: G7_BOND_MARKETS['CA'],
   mainInternationalAirport: G7_MAIN_INTERNATIONAL_AIRPORTS['CA'],
+  mainInternationalSeaport: G7_MAIN_INTERNATIONAL_SEAPORTS['CA'],
   intellectualPropertyDepartments: G7_INTELLECTUAL_PROPERTY_DEPARTMENTS['CA'],
   securitiesExchangeCommission: G7_SECURITIES_EXCHANGE_COMMISSIONS['CA'],
 }

@@ -3,6 +3,88 @@
  * verify for production).
  */
 
+/**
+ * National postal code format descriptor (informational; verify against UPU / national post
+ * authority publications before production). `format` uses N = digit, A = letter. `pattern` is
+ * an ECMAScript regex when a structured national postcode exists; otherwise empty string.
+ */
+export interface PostalCodeSchema {
+  format: string
+  pattern: string
+  example: string
+  notes: string
+}
+
+/**
+ * National designated postal operator (informational; verify URLs, handles, and API bases
+ * before production). Distinct from private couriers in {@link DomesticCourierService}.
+ * `apiEndpoint` is a public tracking / developer REST base when documented; otherwise empty.
+ */
+export interface DomesticPostService {
+  name: string
+  website: string
+  email: string
+  twitter: string
+  instagram: string
+  linkedin: string
+  apiEndpoint: string
+  postalCodeSchema: PostalCodeSchema
+}
+
+/**
+ * National retail / commercial banking institution used by residents and foreign nationals
+ * (informational; verify branch contacts, licensing, routing codes, and API bases before production).
+ * `mobileAppIos` / `mobileAppAndroid` are public App Store / Play Store URLs when documented; otherwise empty.
+ * `generalRoutingNumber` is the national sort / bank / branch routing code where applicable (not US ABA); otherwise empty.
+ * `swiftCode` is the institution SWIFT/BIC when documented; otherwise empty.
+ * `apiEndpoint` is a public open-banking / developer REST base when documented; otherwise empty.
+ */
+export interface NationalBankingInstitution {
+  name: string
+  phone: string
+  address: string
+  mobileAppIos: string
+  mobileAppAndroid: string
+  website: string
+  email: string
+  twitter: string
+  instagram: string
+  linkedin: string
+  generalRoutingNumber: string
+  swiftCode: string
+  apiEndpoint: string
+}
+
+/** Three principal national banking institutions per economy (informational; verify). */
+export type NationalBankingInstitutions = readonly [
+  NationalBankingInstitution,
+  NationalBankingInstitution,
+  NationalBankingInstitution,
+]
+
+/**
+ * National corporation / company formation and business-registration office used by residents
+ * and foreign nationals to incorporate, register entities, and obtain official registration
+ * identifiers (informational; verify contacts, filing portals, and identifier taxonomy before production).
+ * `registrationNumberLabel` names the primary company identifier issued (analogous to a US EIN/entity
+ * number in purpose; may differ from the separate tax-ID label in each jurisdiction).
+ * `formsUrl` is the online incorporation / registration filing portal when documented; otherwise empty.
+ * `checklistsUrl` is a public step-by-step or documentary checklist when documented; otherwise empty.
+ */
+export interface CorporationFormationOffice {
+  name: string
+  phone: string
+  address: string
+  website: string
+  email: string
+  twitter: string
+  instagram: string
+  linkedin: string
+  formsUrl: string
+  checklistsUrl: string
+  registrationNumberLabel: string
+}
+
 /** Domestic / national courier row (informational; verify URLs, handles, and API bases before production). */
 export interface DomesticCourierService {
   name: string
@@ -148,6 +230,34 @@ export interface MainInternationalAirport {
   apiEndpoint: string
 }
 
+/**
+ * Customs office contact row for a seaport gateway (informational; verify addresses,
+ * emails, and websites before production use).
+ */
+export interface CustomsOffice {
+  email: string
+  website: string
+  address: string
+}
+
+/**
+ * Main international seaport serving the capital or primary commercial maritime gateway
+ * (informational; verify URLs, handles, and API bases before production). UN/LOCODE may
+ * appear in the name where helpful. Landlocked economies note the principal maritime
+ * gateway used for imports/exports. `apiEndpoint` is a public port-data / developer REST
+ * base when documented; otherwise empty string.
+ */
+export interface MainInternationalSeaport {
+  name: string
+  website: string
+  email: string
+  twitter: string
+  instagram: string
+  linkedin: string
+  apiEndpoint: string
+  customsOffice: CustomsOffice
+}
+
 export interface AseanCountry {
   name: string
   iso3166Alpha2: string
@@ -165,6 +275,12 @@ export interface AseanCountry {
   stablecoin: string
   /** Domestic / national courier or parcel carriers with public contact hints (verify locally). */
   domesticCourierServices: DomesticCourierService[]
+  /** National designated postal operator with postal code schema (informational; verify). */
+  domesticPostService: DomesticPostService
+  /** Three main national banking institutions for residents and foreign nationals (informational; verify). */
+  nationalBankingInstitutions: NationalBankingInstitutions
+  /** National corporation formation / business-registration office (informational; verify). */
+  corporationFormationOffice: CorporationFormationOffice
   /** Three notable universities covering economics / accounting / computer science / electrical engineering style programmes (informational). */
   notableUniversities: readonly [NotableUniversity, NotableUniversity, NotableUniversity]
   /** Three major + four minor national news outlets with public contact hints (verify locally). */
@@ -188,6 +304,8 @@ export interface AseanCountry {
   securitiesExchangeCommission: SecuritiesExchangeCommission
   /** Main international airport — capital or primary commercial gateway (informational; verify). */
   mainInternationalAirport: MainInternationalAirport
+  /** Main international seaport — coastal gateway or principal maritime access point (informational; verify). */
+  mainInternationalSeaport: MainInternationalSeaport
 }
 
 /**

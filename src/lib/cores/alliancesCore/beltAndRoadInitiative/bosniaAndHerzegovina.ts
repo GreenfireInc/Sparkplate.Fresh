@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const bosniaAndHerzegovina: BeltAndRoadInitiativeCountry = {
   name: 'Bosnia and Herzegovina',
   iso3166Alpha2: 'BA',
@@ -26,6 +30,9 @@ export const bosniaAndHerzegovina: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: [ 'Binance (P2P)', 'International OTC', 'Local regulation varies' ],
   stablecoin: 'USDT / USDC common globally; legality varies by jurisdiction',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['BA'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['BA'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['BA'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['BA'],
   newsOutlets: BRI_NEWS_OUTLETS['BA'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['BA'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['BA'],
@@ -36,4 +43,5 @@ export const bosniaAndHerzegovina: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['BA'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['BA'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['BA'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['BA'],
 }

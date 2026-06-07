@@ -1,5 +1,8 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const slovakia: OecdCountry = {
   name: 'Slovakia',
@@ -27,6 +31,9 @@ export const slovakia: OecdCountry = {
   cryptocurrencyExchanges: ['MiCA-aligned EU CASPs Slovak retail onboarding — informational'],
   stablecoin: 'EUR stablecoins — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['SK'],
+  domesticPostService: OECD_DOMESTIC_POST_SERVICES['SK'],
+  nationalBankingInstitutions: OECD_NATIONAL_BANKING_INSTITUTIONS['SK'],
+  corporationFormationOffice: OECD_CORPORATION_FORMATION_OFFICES['SK'],
   newsOutlets: OECD_NEWS_OUTLETS['SK'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['SK'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['SK'],
@@ -35,6 +42,7 @@ export const slovakia: OecdCountry = {
   stockExchange: 'Bratislava Stock Exchange',
   bondMarkets: OECD_BOND_MARKETS['SK'],
   mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['SK'],
+  mainInternationalSeaport: OECD_MAIN_INTERNATIONAL_SEAPORTS['SK'],
   intellectualPropertyDepartments: OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS['SK'],
   securitiesExchangeCommission: OECD_SECURITIES_EXCHANGE_COMMISSIONS['SK'],
 }

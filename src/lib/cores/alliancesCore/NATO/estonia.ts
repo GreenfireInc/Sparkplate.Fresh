@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const estonia: NatoCountry = {
   name: 'Estonia',
@@ -27,6 +31,9 @@ export const estonia: NatoCountry = {
   cryptocurrencyExchanges: ['EU CASPs onboarding; Startup Estonia narratives — informational'],
   stablecoin: 'EUR stablecoins; MiCA-aligned — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['EE'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['EE'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['EE'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['EE'],
   newsOutlets: NATO_NEWS_OUTLETS['EE'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['EE'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['EE'],
@@ -35,6 +42,7 @@ export const estonia: NatoCountry = {
   stockExchange: 'Nasdaq Tallinn',
   bondMarkets: NATO_BOND_MARKETS['EE'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['EE'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['EE'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['EE'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['EE'],
 }

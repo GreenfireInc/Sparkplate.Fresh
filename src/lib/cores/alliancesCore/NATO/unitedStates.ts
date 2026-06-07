@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const unitedStates: NatoCountry = {
   name: 'United States',
@@ -28,6 +32,9 @@ export const unitedStates: NatoCountry = {
   cryptocurrencyExchanges: ['Coinbase', 'Kraken', 'Gemini MSB patchwork — informational'],
   stablecoin: 'USDT/USDC USD issuance legislative evolution — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['US'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['US'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['US'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['US'],
   newsOutlets: NATO_NEWS_OUTLETS['US'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['US'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['US'],
@@ -36,6 +43,7 @@ export const unitedStates: NatoCountry = {
   stockExchange: 'NYSE / Nasdaq consolidated US equities',
   bondMarkets: NATO_BOND_MARKETS['US'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['US'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['US'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['US'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['US'],
 }

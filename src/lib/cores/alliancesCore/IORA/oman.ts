@@ -1,5 +1,8 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { IORA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { IORA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { IORA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const oman: IoraCountry = {
   name: 'Oman',
@@ -27,6 +31,9 @@ export const oman: IoraCountry = {
   cryptocurrencyExchanges: ['CBO licensing evolution narratives — informational'],
   stablecoin: 'OMR dollar peg overlays — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['OM'],
+  domesticPostService: IORA_DOMESTIC_POST_SERVICES['OM'],
+  nationalBankingInstitutions: IORA_NATIONAL_BANKING_INSTITUTIONS['OM'],
+  corporationFormationOffice: IORA_CORPORATION_FORMATION_OFFICES['OM'],
   newsOutlets: IORA_NEWS_OUTLETS['OM'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['OM'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['OM'],
@@ -35,6 +42,7 @@ export const oman: IoraCountry = {
   stockExchange: 'Muscat Stock Exchange',
   bondMarkets: IORA_BOND_MARKETS['OM'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['OM'],
+  mainInternationalSeaport: IORA_MAIN_INTERNATIONAL_SEAPORTS['OM'],
   intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['OM'],
   securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['OM'],
 }

@@ -1,5 +1,8 @@
 import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECS_BOND_MARKETS } from './bondMarketsByIso'
 import { OECS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const grenada: OecsCountry = {
   name: 'Grenada',
@@ -27,6 +31,9 @@ export const grenada: OecsCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'mobile-money predominant — informational'],
   stablecoin: 'XCD peg; USDT overlays — informational',
   domesticCourierServices: OECS_DOMESTIC_COURIERS['GD'],
+  domesticPostService: OECS_DOMESTIC_POST_SERVICES['GD'],
+  nationalBankingInstitutions: OECS_NATIONAL_BANKING_INSTITUTIONS['GD'],
+  corporationFormationOffice: OECS_CORPORATION_FORMATION_OFFICES['GD'],
   newsOutlets: OECS_NEWS_OUTLETS['GD'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['GD'],
   mainExportCommodities: OECS_MAIN_EXPORT_COMMODITIES['GD'],
@@ -35,6 +42,7 @@ export const grenada: OecsCountry = {
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
   bondMarkets: OECS_BOND_MARKETS['GD'],
   mainInternationalAirport: OECS_MAIN_INTERNATIONAL_AIRPORTS['GD'],
+  mainInternationalSeaport: OECS_MAIN_INTERNATIONAL_SEAPORTS['GD'],
   intellectualPropertyDepartments: OECS_INTELLECTUAL_PROPERTY_DEPARTMENTS['GD'],
   securitiesExchangeCommission: OECS_SECURITIES_EXCHANGE_COMMISSIONS['GD'],
 }

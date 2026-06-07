@@ -1,5 +1,8 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const sierraLeone: AfricanUnionCountry = {
   name: 'Sierra Leone',
   iso3166Alpha2: 'SL',
@@ -26,6 +30,9 @@ export const sierraLeone: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex'],
   stablecoin: 'USDT / USDC P2P',
   domesticCourierServices: AU_DOMESTIC_COURIERS['SL'],
+  domesticPostService: AU_DOMESTIC_POST_SERVICES['SL'],
+  nationalBankingInstitutions: AU_NATIONAL_BANKING_INSTITUTIONS['SL'],
+  corporationFormationOffice: AU_CORPORATION_FORMATION_OFFICES['SL'],
   newsOutlets: AU_NEWS_OUTLETS['SL'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['SL'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['SL'],
@@ -36,4 +43,5 @@ export const sierraLeone: AfricanUnionCountry = {
   intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['SL'],
   securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['SL'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['SL'],
+  mainInternationalSeaport: AU_MAIN_INTERNATIONAL_SEAPORTS['SL'],
 }

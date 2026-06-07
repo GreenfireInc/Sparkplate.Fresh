@@ -1,5 +1,8 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const france: G20Country = {
   name: 'France',
@@ -27,6 +31,9 @@ export const france: G20Country = {
   cryptocurrencyExchanges: ['Coinhouse', 'European MiCA-compliant CASPs', 'Paymium'],
   stablecoin: 'EUR stablecoins; ECB digital euro pilots — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['FR'],
+  domesticPostService: G20_DOMESTIC_POST_SERVICES['FR'],
+  nationalBankingInstitutions: G20_NATIONAL_BANKING_INSTITUTIONS['FR'],
+  corporationFormationOffice: G20_CORPORATION_FORMATION_OFFICES['FR'],
   newsOutlets: G20_NEWS_OUTLETS['FR'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['FR'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['FR'],
@@ -35,6 +42,7 @@ export const france: G20Country = {
   stockExchange: 'Euronext Paris',
   bondMarkets: G20_BOND_MARKETS['FR'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['FR'],
+  mainInternationalSeaport: G20_MAIN_INTERNATIONAL_SEAPORTS['FR'],
   intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['FR'],
   securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['FR'],
 }

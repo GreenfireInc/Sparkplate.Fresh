@@ -1,5 +1,8 @@
 import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECS_BOND_MARKETS } from './bondMarketsByIso'
 import { OECS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const antiguaAndBarbuda: OecsCountry = {
   name: 'Antigua and Barbuda',
@@ -27,6 +31,9 @@ export const antiguaAndBarbuda: OecsCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'ECCB-region Binance P2P overlays — informational'],
   stablecoin: 'XCD USD peg via ECCB; informal USDT/USDC — informational',
   domesticCourierServices: OECS_DOMESTIC_COURIERS['AG'],
+  domesticPostService: OECS_DOMESTIC_POST_SERVICES['AG'],
+  nationalBankingInstitutions: OECS_NATIONAL_BANKING_INSTITUTIONS['AG'],
+  corporationFormationOffice: OECS_CORPORATION_FORMATION_OFFICES['AG'],
   newsOutlets: OECS_NEWS_OUTLETS['AG'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['AG'],
   mainExportCommodities: OECS_MAIN_EXPORT_COMMODITIES['AG'],
@@ -35,6 +42,7 @@ export const antiguaAndBarbuda: OecsCountry = {
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
   bondMarkets: OECS_BOND_MARKETS['AG'],
   mainInternationalAirport: OECS_MAIN_INTERNATIONAL_AIRPORTS['AG'],
+  mainInternationalSeaport: OECS_MAIN_INTERNATIONAL_SEAPORTS['AG'],
   intellectualPropertyDepartments: OECS_INTELLECTUAL_PROPERTY_DEPARTMENTS['AG'],
   securitiesExchangeCommission: OECS_SECURITIES_EXCHANGE_COMMISSIONS['AG'],
 }

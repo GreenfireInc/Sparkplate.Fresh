@@ -1,5 +1,8 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CENSAD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CENSAD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CENSAD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const benin: CensadCountry = {
   name: 'Benin',
@@ -26,6 +30,9 @@ export const benin: CensadCountry = {
   cryptocurrencyExchanges: ['Binance (P2P informal)', 'Local OTC'],
   stablecoin: 'USDT/USDC informal; CFA pegged to EUR',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['BJ'],
+  domesticPostService: CENSAD_DOMESTIC_POST_SERVICES['BJ'],
+  nationalBankingInstitutions: CENSAD_NATIONAL_BANKING_INSTITUTIONS['BJ'],
+  corporationFormationOffice: CENSAD_CORPORATION_FORMATION_OFFICES['BJ'],
   newsOutlets: CENSAD_NEWS_OUTLETS['BJ'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['BJ'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['BJ'],
@@ -36,4 +43,5 @@ export const benin: CensadCountry = {
   intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['BJ'],
   securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['BJ'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['BJ'],
+  mainInternationalSeaport: CENSAD_MAIN_INTERNATIONAL_SEAPORTS['BJ'],
 }

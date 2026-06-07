@@ -1,5 +1,8 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { APEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { APEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { APEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const hongKong: ApecCountry = {
   name: 'Hong Kong',
@@ -29,6 +33,9 @@ export const hongKong: ApecCountry = {
   cryptocurrencyExchanges: ['HashKey OSL licensed VA trading evolution — informational'],
   stablecoin: 'HKMA stable-token regulatory sandbox narratives — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['HK'],
+  domesticPostService: APEC_DOMESTIC_POST_SERVICES['HK'],
+  nationalBankingInstitutions: APEC_NATIONAL_BANKING_INSTITUTIONS['HK'],
+  corporationFormationOffice: APEC_CORPORATION_FORMATION_OFFICES['HK'],
   newsOutlets: APEC_NEWS_OUTLETS['HK'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['HK'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['HK'],
@@ -39,4 +46,5 @@ export const hongKong: ApecCountry = {
   intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['HK'],
   securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['HK'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['HK'],
+  mainInternationalSeaport: APEC_MAIN_INTERNATIONAL_SEAPORTS['HK'],
 }

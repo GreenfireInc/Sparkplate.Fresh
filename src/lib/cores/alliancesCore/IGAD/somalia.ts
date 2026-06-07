@@ -1,5 +1,8 @@
 import type { IgadCountry } from './types'
 import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IGAD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { IGAD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { IGAD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
 import { IGAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { IGAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { IGAD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const somalia: IgadCountry = {
   name: 'Somalia',
@@ -28,6 +32,9 @@ export const somalia: IgadCountry = {
   cryptocurrencyExchanges: ['Hargeisa OTC informal; Mogadishu mobile-money predominance — informational'],
   stablecoin: 'USD/USDT hawala overlays; SOS thin banknote supply — informational',
   domesticCourierServices: IGAD_DOMESTIC_COURIERS['SO'],
+  domesticPostService: IGAD_DOMESTIC_POST_SERVICES['SO'],
+  nationalBankingInstitutions: IGAD_NATIONAL_BANKING_INSTITUTIONS['SO'],
+  corporationFormationOffice: IGAD_CORPORATION_FORMATION_OFFICES['SO'],
   newsOutlets: IGAD_NEWS_OUTLETS['SO'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['SO'],
   mainExportCommodities: IGAD_MAIN_EXPORT_COMMODITIES['SO'],
@@ -36,6 +43,7 @@ export const somalia: IgadCountry = {
   stockExchange: 'No substantive national equities exchange consolidated (subsidiary regional plans — informational)',
   bondMarkets: IGAD_BOND_MARKETS['SO'],
   mainInternationalAirport: IGAD_MAIN_INTERNATIONAL_AIRPORTS['SO'],
+  mainInternationalSeaport: IGAD_MAIN_INTERNATIONAL_SEAPORTS['SO'],
   intellectualPropertyDepartments: IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['SO'],
   securitiesExchangeCommission: IGAD_SECURITIES_EXCHANGE_COMMISSIONS['SO'],
 }

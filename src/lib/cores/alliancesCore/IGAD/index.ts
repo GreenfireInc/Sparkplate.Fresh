@@ -1,6 +1,8 @@
 export type {
   BondMarketVenue,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   IgadCountry,
   IgadOrganizationInfo,
   IntellectualPropertyDepartment,
@@ -9,6 +11,11 @@ export type {
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
@@ -17,6 +24,10 @@ export type {
 } from './types'
 export { IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { IGAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { IGAD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { IGAD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { IGAD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { IGAD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 
 import type { IgadCountry, IgadOrganizationInfo } from './types'
 import { IGAD_MEMBER_ISO_CODES } from './igadMemberIsoCodes'

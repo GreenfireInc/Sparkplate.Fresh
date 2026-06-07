@@ -1,5 +1,8 @@
 import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECCAS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ECCAS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ECCAS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECCAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ECCAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ECCAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ECCAS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const equatorialGuinea: EccasCountry = {
   name: 'Equatorial Guinea',
@@ -26,6 +30,9 @@ export const equatorialGuinea: EccasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'OTC', 'International brokers'],
   stablecoin: 'USDT informal; XAF peg',
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['GQ'],
+  domesticPostService: ECCAS_DOMESTIC_POST_SERVICES['GQ'],
+  nationalBankingInstitutions: ECCAS_NATIONAL_BANKING_INSTITUTIONS['GQ'],
+  corporationFormationOffice: ECCAS_CORPORATION_FORMATION_OFFICES['GQ'],
   newsOutlets: ECCAS_NEWS_OUTLETS['GQ'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['GQ'],
   mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['GQ'],
@@ -37,4 +44,5 @@ export const equatorialGuinea: EccasCountry = {
 
   securitiesExchangeCommission: ECCAS_SECURITIES_EXCHANGE_COMMISSIONS['GQ'],
   mainInternationalAirport: ECCAS_MAIN_INTERNATIONAL_AIRPORTS['GQ'],
+  mainInternationalSeaport: ECCAS_MAIN_INTERNATIONAL_SEAPORTS['GQ'],
 }

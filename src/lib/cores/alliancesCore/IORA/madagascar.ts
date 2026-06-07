@@ -1,5 +1,8 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { IORA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { IORA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { IORA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const madagascar: IoraCountry = {
   name: 'Madagascar',
@@ -27,6 +31,9 @@ export const madagascar: IoraCountry = {
   cryptocurrencyExchanges: ['Thin OTC; artisanal gemstone economy predominates — informational'],
   stablecoin: 'EUR/USDT diaspora overlays — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['MG'],
+  domesticPostService: IORA_DOMESTIC_POST_SERVICES['MG'],
+  nationalBankingInstitutions: IORA_NATIONAL_BANKING_INSTITUTIONS['MG'],
+  corporationFormationOffice: IORA_CORPORATION_FORMATION_OFFICES['MG'],
   newsOutlets: IORA_NEWS_OUTLETS['MG'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['MG'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['MG'],
@@ -35,6 +42,7 @@ export const madagascar: IoraCountry = {
   stockExchange: 'Madagascar Stock Exchange (thin listings — informational)',
   bondMarkets: IORA_BOND_MARKETS['MG'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['MG'],
+  mainInternationalSeaport: IORA_MAIN_INTERNATIONAL_SEAPORTS['MG'],
   intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['MG'],
   securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['MG'],
 }

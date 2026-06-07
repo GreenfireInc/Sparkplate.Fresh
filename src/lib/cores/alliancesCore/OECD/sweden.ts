@@ -1,5 +1,8 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const sweden: OecdCountry = {
   name: 'Sweden',
@@ -27,6 +31,9 @@ export const sweden: OecdCountry = {
   cryptocurrencyExchanges: ['European brokers; Nasdaq Nordic crypto ETP wrappers — informational'],
   stablecoin: 'EUR/USD-stable pairs; Riksbank e-krona pilot — verify status',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['SE'],
+  domesticPostService: OECD_DOMESTIC_POST_SERVICES['SE'],
+  nationalBankingInstitutions: OECD_NATIONAL_BANKING_INSTITUTIONS['SE'],
+  corporationFormationOffice: OECD_CORPORATION_FORMATION_OFFICES['SE'],
   newsOutlets: OECD_NEWS_OUTLETS['SE'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['SE'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['SE'],
@@ -35,6 +42,7 @@ export const sweden: OecdCountry = {
   stockExchange: 'Nasdaq Stockholm',
   bondMarkets: OECD_BOND_MARKETS['SE'],
   mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['SE'],
+  mainInternationalSeaport: OECD_MAIN_INTERNATIONAL_SEAPORTS['SE'],
   intellectualPropertyDepartments: OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS['SE'],
   securitiesExchangeCommission: OECD_SECURITIES_EXCHANGE_COMMISSIONS['SE'],
 }

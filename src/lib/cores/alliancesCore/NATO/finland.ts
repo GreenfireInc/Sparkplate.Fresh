@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const finland: NatoCountry = {
   name: 'Finland',
@@ -27,6 +31,9 @@ export const finland: NatoCountry = {
   cryptocurrencyExchanges: ['Nordic EU brokers Finnish FSA — informational'],
   stablecoin: 'EUR stablecoins; MiCA passport — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['FI'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['FI'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['FI'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['FI'],
   newsOutlets: NATO_NEWS_OUTLETS['FI'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['FI'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['FI'],
@@ -35,6 +42,7 @@ export const finland: NatoCountry = {
   stockExchange: 'Nasdaq Helsinki',
   bondMarkets: NATO_BOND_MARKETS['FI'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['FI'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['FI'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['FI'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['FI'],
 }

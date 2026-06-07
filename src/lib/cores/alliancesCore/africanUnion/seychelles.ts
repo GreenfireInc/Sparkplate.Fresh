@@ -1,5 +1,8 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const seychelles: AfricanUnionCountry = {
   name: 'Seychelles',
   iso3166Alpha2: 'SC',
@@ -26,6 +30,9 @@ export const seychelles: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (offshore registrations historically)', 'International brokers'],
   stablecoin: 'USDT / USDC; offshore financial services sector',
   domesticCourierServices: AU_DOMESTIC_COURIERS['SC'],
+  domesticPostService: AU_DOMESTIC_POST_SERVICES['SC'],
+  nationalBankingInstitutions: AU_NATIONAL_BANKING_INSTITUTIONS['SC'],
+  corporationFormationOffice: AU_CORPORATION_FORMATION_OFFICES['SC'],
   newsOutlets: AU_NEWS_OUTLETS['SC'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['SC'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['SC'],
@@ -36,4 +43,5 @@ export const seychelles: AfricanUnionCountry = {
   intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['SC'],
   securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['SC'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['SC'],
+  mainInternationalSeaport: AU_MAIN_INTERNATIONAL_SEAPORTS['SC'],
 }

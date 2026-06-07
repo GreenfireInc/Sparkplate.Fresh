@@ -1,5 +1,8 @@
 import type { MiktaCountry } from './types'
 import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { MIKTA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { MIKTA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { MIKTA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { MIKTA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { MIKTA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { MIKTA_BOND_MARKETS } from './bondMarketsByIso'
 import { MIKTA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { MIKTA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { MIKTA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { MIKTA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const southKorea: MiktaCountry = {
   name: 'South Korea',
@@ -28,6 +32,9 @@ export const southKorea: MiktaCountry = {
   cryptocurrencyExchanges: ['Upbit', 'Bithumb', 'Coinone / Korbit FSC VASP registration regime — informational'],
   stablecoin: 'KRW-pegged issuance constrained by FSC; offshore USDT/USDC liquidity — informational',
   domesticCourierServices: MIKTA_DOMESTIC_COURIERS['KR'],
+  domesticPostService: MIKTA_DOMESTIC_POST_SERVICES['KR'],
+  nationalBankingInstitutions: MIKTA_NATIONAL_BANKING_INSTITUTIONS['KR'],
+  corporationFormationOffice: MIKTA_CORPORATION_FORMATION_OFFICES['KR'],
   newsOutlets: MIKTA_NEWS_OUTLETS['KR'],
   notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['KR'],
   mainExportCommodities: MIKTA_MAIN_EXPORT_COMMODITIES['KR'],
@@ -36,6 +43,7 @@ export const southKorea: MiktaCountry = {
   stockExchange: 'Korea Exchange KRX (KOSPI / KOSDAQ)',
   bondMarkets: MIKTA_BOND_MARKETS['KR'],
   mainInternationalAirport: MIKTA_MAIN_INTERNATIONAL_AIRPORTS['KR'],
+  mainInternationalSeaport: MIKTA_MAIN_INTERNATIONAL_SEAPORTS['KR'],
   intellectualPropertyDepartments: MIKTA_INTELLECTUAL_PROPERTY_DEPARTMENTS['KR'],
   securitiesExchangeCommission: MIKTA_SECURITIES_EXCHANGE_COMMISSIONS['KR'],
 }

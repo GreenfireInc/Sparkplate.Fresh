@@ -1,5 +1,8 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const madagascar: AfricanUnionCountry = {
   name: 'Madagascar',
   iso3166Alpha2: 'MG',
@@ -26,6 +30,9 @@ export const madagascar: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Local P2P', 'International brokers'],
   stablecoin: 'USDT informal; no MGA stablecoin',
   domesticCourierServices: AU_DOMESTIC_COURIERS['MG'],
+  domesticPostService: AU_DOMESTIC_POST_SERVICES['MG'],
+  nationalBankingInstitutions: AU_NATIONAL_BANKING_INSTITUTIONS['MG'],
+  corporationFormationOffice: AU_CORPORATION_FORMATION_OFFICES['MG'],
   newsOutlets: AU_NEWS_OUTLETS['MG'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['MG'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['MG'],
@@ -36,4 +43,5 @@ export const madagascar: AfricanUnionCountry = {
   intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['MG'],
   securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['MG'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['MG'],
+  mainInternationalSeaport: AU_MAIN_INTERNATIONAL_SEAPORTS['MG'],
 }

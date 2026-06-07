@@ -1,6 +1,8 @@
 export type {
   BondMarketVenue,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   EccasCountry,
   EccasOrganizationInfo,
   IntellectualPropertyDepartment,
@@ -9,6 +11,11 @@ export type {
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
@@ -17,6 +24,10 @@ export type {
 } from './types'
 export { ECCAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { ECCAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { ECCAS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { ECCAS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { ECCAS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { ECCAS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 
 import type { EccasCountry, EccasOrganizationInfo } from './types'
 import { ECCAS_MEMBER_ISO_CODES } from './eccasMemberIsoCodes'

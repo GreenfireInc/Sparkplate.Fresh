@@ -1,5 +1,8 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { RCEP_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { RCEP_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { RCEP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { RCEP_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const malaysia: RcepCountry = {
   name: 'Malaysia',
@@ -28,6 +32,9 @@ export const malaysia: RcepCountry = {
   cryptocurrencyExchanges: ['SC-regulated digital exchange pilots — informational'],
   stablecoin: 'MYR digital bank narratives; ringgit controls — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['MY'],
+  domesticPostService: RCEP_DOMESTIC_POST_SERVICES['MY'],
+  nationalBankingInstitutions: RCEP_NATIONAL_BANKING_INSTITUTIONS['MY'],
+  corporationFormationOffice: RCEP_CORPORATION_FORMATION_OFFICES['MY'],
   newsOutlets: RCEP_NEWS_OUTLETS['MY'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['MY'],
   mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['MY'],
@@ -36,6 +43,7 @@ export const malaysia: RcepCountry = {
   stockExchange: 'Bursa Malaysia',
   bondMarkets: RCEP_BOND_MARKETS['MY'],
   mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['MY'],
+  mainInternationalSeaport: RCEP_MAIN_INTERNATIONAL_SEAPORTS['MY'],
   intellectualPropertyDepartments: RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS['MY'],
   securitiesExchangeCommission: RCEP_SECURITIES_EXCHANGE_COMMISSIONS['MY'],
 }

@@ -1,6 +1,8 @@
 export type {
   BondMarketVenue,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   FiveEyesCountry,
   FiveEyesOrganizationInfo,
   IntellectualPropertyDepartment,
@@ -9,6 +11,11 @@ export type {
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
@@ -17,6 +24,10 @@ export type {
 } from './types'
 export { FIVE_EYES_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { FIVE_EYES_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { FIVE_EYES_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { FIVE_EYES_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { FIVE_EYES_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { FIVE_EYES_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 
 import type { FiveEyesCountry, FiveEyesOrganizationInfo } from './types'
 import { FIVE_EYES_MEMBER_ISO_CODES } from './fiveEyesMemberIsoCodes'

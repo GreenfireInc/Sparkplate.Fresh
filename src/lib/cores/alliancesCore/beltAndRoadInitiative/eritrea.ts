@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const eritrea: BeltAndRoadInitiativeCountry = {
   name: 'Eritrea',
   iso3166Alpha2: 'ER',
@@ -26,6 +30,9 @@ export const eritrea: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Limited formal venues; diaspora P2P', 'Binance (P2P, informal)'],
   stablecoin: 'USDT minimal formal access; cash economy strong',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['ER'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['ER'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['ER'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['ER'],
   newsOutlets: BRI_NEWS_OUTLETS['ER'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['ER'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['ER'],
@@ -36,4 +43,5 @@ export const eritrea: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['ER'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['ER'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['ER'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['ER'],
 }

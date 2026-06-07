@@ -1,5 +1,8 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { RCEP_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { RCEP_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { RCEP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { RCEP_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const myanmar: RcepCountry = {
   name: 'Myanmar',
@@ -28,6 +32,9 @@ export const myanmar: RcepCountry = {
   cryptocurrencyExchanges: ['Sanctions overlays; informal USDT economy — informational'],
   stablecoin: 'USD informal; MMK volatility — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['MM'],
+  domesticPostService: RCEP_DOMESTIC_POST_SERVICES['MM'],
+  nationalBankingInstitutions: RCEP_NATIONAL_BANKING_INSTITUTIONS['MM'],
+  corporationFormationOffice: RCEP_CORPORATION_FORMATION_OFFICES['MM'],
   newsOutlets: RCEP_NEWS_OUTLETS['MM'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['MM'],
   mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['MM'],
@@ -36,6 +43,7 @@ export const myanmar: RcepCountry = {
   stockExchange: 'Yangon Stock Exchange (constrained liquidity — informational)',
   bondMarkets: RCEP_BOND_MARKETS['MM'],
   mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['MM'],
+  mainInternationalSeaport: RCEP_MAIN_INTERNATIONAL_SEAPORTS['MM'],
   intellectualPropertyDepartments: RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS['MM'],
   securitiesExchangeCommission: RCEP_SECURITIES_EXCHANGE_COMMISSIONS['MM'],
 }

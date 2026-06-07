@@ -1,5 +1,8 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CENSAD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CENSAD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CENSAD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const sierraLeone: CensadCountry = {
   name: 'Sierra Leone',
@@ -26,6 +30,9 @@ export const sierraLeone: CensadCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance P2P informal'],
   stablecoin: 'Informal USD/USDT',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['SL'],
+  domesticPostService: CENSAD_DOMESTIC_POST_SERVICES['SL'],
+  nationalBankingInstitutions: CENSAD_NATIONAL_BANKING_INSTITUTIONS['SL'],
+  corporationFormationOffice: CENSAD_CORPORATION_FORMATION_OFFICES['SL'],
   newsOutlets: CENSAD_NEWS_OUTLETS['SL'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['SL'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['SL'],
@@ -36,4 +43,5 @@ export const sierraLeone: CensadCountry = {
   intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['SL'],
   securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['SL'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['SL'],
+  mainInternationalSeaport: CENSAD_MAIN_INTERNATIONAL_SEAPORTS['SL'],
 }

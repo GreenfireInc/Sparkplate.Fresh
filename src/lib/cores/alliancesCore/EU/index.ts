@@ -1,6 +1,8 @@
 export type {
   BondMarketVenue,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   EuCountry,
   EuOrganizationInfo,
   IntellectualPropertyDepartment,
@@ -9,6 +11,11 @@ export type {
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
@@ -17,6 +24,10 @@ export type {
 } from './types'
 export { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { EU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { EU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { EU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { EU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 
 import type { EuCountry, EuOrganizationInfo } from './types'
 import { EU_MEMBER_ISO_CODES } from './euMemberIsoCodes'

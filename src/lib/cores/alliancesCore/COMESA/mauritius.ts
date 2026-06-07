@@ -1,5 +1,8 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMESA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMESA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMESA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const mauritius: ComesaCountry = {
   name: 'Mauritius',
@@ -27,6 +31,9 @@ export const mauritius: ComesaCountry = {
   cryptocurrencyExchanges: ['Luno', 'Binance (international)', 'VALR (regional)'],
   stablecoin: 'USDT / USDC; offshore financial center activity',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['MU'],
+  domesticPostService: COMESA_DOMESTIC_POST_SERVICES['MU'],
+  nationalBankingInstitutions: COMESA_NATIONAL_BANKING_INSTITUTIONS['MU'],
+  corporationFormationOffice: COMESA_CORPORATION_FORMATION_OFFICES['MU'],
   newsOutlets: COMESA_NEWS_OUTLETS['MU'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['MU'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['MU'],
@@ -37,4 +44,5 @@ export const mauritius: ComesaCountry = {
   intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['MU'],
   securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['MU'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['MU'],
+  mainInternationalSeaport: COMESA_MAIN_INTERNATIONAL_SEAPORTS['MU'],
 }

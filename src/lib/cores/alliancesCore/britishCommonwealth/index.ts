@@ -3,12 +3,19 @@ export type {
   CommonwealthCountry,
   CommonwealthMembership,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   IntellectualPropertyDepartment,
   IntellectualPropertyDepartmentKind,
   IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
@@ -17,6 +24,12 @@ export type {
 } from './types'
 export { COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { COMMONWEALTH_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { COMMONWEALTH_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { COMMONWEALTH_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { COMMONWEALTH_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
+export { COMMONWEALTH_MEMBER_ISO_CODES } from './commonwealthMemberIsoCodes'
+export type { CommonwealthMemberIsoCode } from './commonwealthMemberIsoCodes'
 
 import type { CommonwealthCountry, BritishCommonwealthOrganizationInfo } from './types'
 import { COMMONWEALTH_MEMBER_ISO_CODES } from './commonwealthMemberIsoCodes'

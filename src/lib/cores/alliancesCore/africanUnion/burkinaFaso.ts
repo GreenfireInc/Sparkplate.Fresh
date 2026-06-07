@@ -1,5 +1,8 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const burkinaFaso: AfricanUnionCountry = {
   name: 'Burkina Faso',
   iso3166Alpha2: 'BF',
@@ -26,6 +30,9 @@ export const burkinaFaso: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Informal P2P'],
   stablecoin: 'USDT via P2P; XOF CFA peg',
   domesticCourierServices: AU_DOMESTIC_COURIERS['BF'],
+  domesticPostService: AU_DOMESTIC_POST_SERVICES['BF'],
+  nationalBankingInstitutions: AU_NATIONAL_BANKING_INSTITUTIONS['BF'],
+  corporationFormationOffice: AU_CORPORATION_FORMATION_OFFICES['BF'],
   newsOutlets: AU_NEWS_OUTLETS['BF'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['BF'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['BF'],
@@ -36,4 +43,5 @@ export const burkinaFaso: AfricanUnionCountry = {
   intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['BF'],
   securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['BF'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['BF'],
+  mainInternationalSeaport: AU_MAIN_INTERNATIONAL_SEAPORTS['BF'],
 }

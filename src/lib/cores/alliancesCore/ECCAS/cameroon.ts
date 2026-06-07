@@ -1,5 +1,8 @@
 import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECCAS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ECCAS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ECCAS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECCAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ECCAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ECCAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ECCAS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const cameroon: EccasCountry = {
   name: 'Cameroon',
@@ -27,6 +31,9 @@ export const cameroon: EccasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC P2P; XAF euro peg via BEAC',
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['CM'],
+  domesticPostService: ECCAS_DOMESTIC_POST_SERVICES['CM'],
+  nationalBankingInstitutions: ECCAS_NATIONAL_BANKING_INSTITUTIONS['CM'],
+  corporationFormationOffice: ECCAS_CORPORATION_FORMATION_OFFICES['CM'],
   newsOutlets: ECCAS_NEWS_OUTLETS['CM'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['CM'],
   mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['CM'],
@@ -38,4 +45,5 @@ export const cameroon: EccasCountry = {
 
   securitiesExchangeCommission: ECCAS_SECURITIES_EXCHANGE_COMMISSIONS['CM'],
   mainInternationalAirport: ECCAS_MAIN_INTERNATIONAL_AIRPORTS['CM'],
+  mainInternationalSeaport: ECCAS_MAIN_INTERNATIONAL_SEAPORTS['CM'],
 }

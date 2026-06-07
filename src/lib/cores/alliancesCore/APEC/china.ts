@@ -1,5 +1,8 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { APEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { APEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { APEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const china: ApecCountry = {
   name: 'China',
@@ -29,6 +33,9 @@ export const china: ApecCountry = {
   cryptocurrencyExchanges: ['Onshore retail crypto prohibited; Hong Kong SAR-adjacent — informational'],
   stablecoin: 'e-CNY pilot — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['CN'],
+  domesticPostService: APEC_DOMESTIC_POST_SERVICES['CN'],
+  nationalBankingInstitutions: APEC_NATIONAL_BANKING_INSTITUTIONS['CN'],
+  corporationFormationOffice: APEC_CORPORATION_FORMATION_OFFICES['CN'],
   newsOutlets: APEC_NEWS_OUTLETS['CN'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['CN'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['CN'],
@@ -40,4 +47,5 @@ export const china: ApecCountry = {
   intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['CN'],
   securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['CN'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['CN'],
+  mainInternationalSeaport: APEC_MAIN_INTERNATIONAL_SEAPORTS['CN'],
 }

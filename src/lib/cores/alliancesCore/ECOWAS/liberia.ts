@@ -1,5 +1,8 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ECOWAS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ECOWAS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ECOWAS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const liberia: EcowasCountry = {
   name: 'Liberia',
@@ -26,6 +30,9 @@ export const liberia: EcowasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Afriex'],
   stablecoin: 'USDT / USDC; USD dominant cash economy',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['LR'],
+  domesticPostService: ECOWAS_DOMESTIC_POST_SERVICES['LR'],
+  nationalBankingInstitutions: ECOWAS_NATIONAL_BANKING_INSTITUTIONS['LR'],
+  corporationFormationOffice: ECOWAS_CORPORATION_FORMATION_OFFICES['LR'],
   newsOutlets: ECOWAS_NEWS_OUTLETS['LR'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['LR'],
   mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['LR'],
@@ -37,4 +44,5 @@ export const liberia: EcowasCountry = {
 
   securitiesExchangeCommission: ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS['LR'],
   mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['LR'],
+  mainInternationalSeaport: ECOWAS_MAIN_INTERNATIONAL_SEAPORTS['LR'],
 }

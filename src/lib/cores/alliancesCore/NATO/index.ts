@@ -1,12 +1,19 @@
 export type {
   BondMarketVenue,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   IntellectualPropertyDepartment,
   IntellectualPropertyDepartmentKind,
   IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NatoCountry,
   NatoOrganizationInfo,
   NewsOutlet,
@@ -17,6 +24,10 @@ export type {
 } from './types'
 export { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 
 import type { NatoCountry, NatoOrganizationInfo } from './types'
 import { NATO_MEMBER_ISO_CODES } from './natoMemberIsoCodes'

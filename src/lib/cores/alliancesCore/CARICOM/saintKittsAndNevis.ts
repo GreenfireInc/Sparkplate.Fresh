@@ -1,5 +1,8 @@
 import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CARICOM_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CARICOM_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CARICOM_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CARICOM_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const saintKittsAndNevis: CaricomCountry = {
   name: 'Saint Kitts and Nevis',
@@ -27,6 +31,9 @@ export const saintKittsAndNevis: CaricomCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'XCD peg; USDT/USDC',
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['KN'],
+  domesticPostService: CARICOM_DOMESTIC_POST_SERVICES['KN'],
+  nationalBankingInstitutions: CARICOM_NATIONAL_BANKING_INSTITUTIONS['KN'],
+  corporationFormationOffice: CARICOM_CORPORATION_FORMATION_OFFICES['KN'],
   newsOutlets: CARICOM_NEWS_OUTLETS['KN'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['KN'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['KN'],
@@ -37,4 +44,5 @@ export const saintKittsAndNevis: CaricomCountry = {
   intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['KN'],
   securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['KN'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['KN'],
+  mainInternationalSeaport: CARICOM_MAIN_INTERNATIONAL_SEAPORTS['KN'],
 }

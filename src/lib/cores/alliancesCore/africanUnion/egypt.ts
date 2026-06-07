@@ -1,5 +1,8 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const egypt: AfricanUnionCountry = {
   name: 'Egypt',
   iso3166Alpha2: 'EG',
@@ -26,6 +30,9 @@ export const egypt: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Rain (regional)', 'No official local spot exchange; P2P & OTC'],
   stablecoin: 'USDT / USDC P2P common; central bank exploring CBDC',
   domesticCourierServices: AU_DOMESTIC_COURIERS['EG'],
+  domesticPostService: AU_DOMESTIC_POST_SERVICES['EG'],
+  nationalBankingInstitutions: AU_NATIONAL_BANKING_INSTITUTIONS['EG'],
+  corporationFormationOffice: AU_CORPORATION_FORMATION_OFFICES['EG'],
   newsOutlets: AU_NEWS_OUTLETS['EG'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['EG'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['EG'],
@@ -36,4 +43,5 @@ export const egypt: AfricanUnionCountry = {
   intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['EG'],
   securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['EG'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['EG'],
+  mainInternationalSeaport: AU_MAIN_INTERNATIONAL_SEAPORTS['EG'],
 }

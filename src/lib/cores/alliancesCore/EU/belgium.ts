@@ -1,5 +1,8 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { EU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { EU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { EU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const belgium: EuCountry = {
   name: 'Belgium',
@@ -26,6 +30,9 @@ export const belgium: EuCountry = {
   cryptocurrencyExchanges: ['Bitstamp (legacy BE ties)', 'EU-licensed CASPs MiCA-era'],
   stablecoin: 'EUR stablecoins; ECB digital euro exploratory',
   domesticCourierServices: EU_DOMESTIC_COURIERS['BE'],
+  domesticPostService: EU_DOMESTIC_POST_SERVICES['BE'],
+  nationalBankingInstitutions: EU_NATIONAL_BANKING_INSTITUTIONS['BE'],
+  corporationFormationOffice: EU_CORPORATION_FORMATION_OFFICES['BE'],
   newsOutlets: EU_NEWS_OUTLETS['BE'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['BE'],
   mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['BE'],
@@ -37,4 +44,5 @@ export const belgium: EuCountry = {
 
   securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['BE'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['BE'],
+  mainInternationalSeaport: EU_MAIN_INTERNATIONAL_SEAPORTS['BE'],
 }

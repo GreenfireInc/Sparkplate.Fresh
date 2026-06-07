@@ -1,5 +1,8 @@
 import type { FiveEyesCountry } from './types'
 import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { FIVE_EYES_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { FIVE_EYES_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { FIVE_EYES_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { FIVE_EYES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { FIVE_EYES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { FIVE_EYES_BOND_MARKETS } from './bondMarketsByIso'
 import { FIVE_EYES_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { FIVE_EYES_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { FIVE_EYES_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { FIVE_EYES_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const unitedStates: FiveEyesCountry = {
   name: 'United States',
@@ -28,6 +32,9 @@ export const unitedStates: FiveEyesCountry = {
   cryptocurrencyExchanges: ['Coinbase', 'Kraken', 'Gemini state MSB/licensing patchwork — informational'],
   stablecoin: 'USDT/USDC and USD fiat-backed issuance (federal/stablecoin legislative evolution — informational)',
   domesticCourierServices: FIVE_EYES_DOMESTIC_COURIERS['US'],
+  domesticPostService: FIVE_EYES_DOMESTIC_POST_SERVICES['US'],
+  nationalBankingInstitutions: FIVE_EYES_NATIONAL_BANKING_INSTITUTIONS['US'],
+  corporationFormationOffice: FIVE_EYES_CORPORATION_FORMATION_OFFICES['US'],
   newsOutlets: FIVE_EYES_NEWS_OUTLETS['US'],
   notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['US'],
   mainExportCommodities: FIVE_EYES_MAIN_EXPORT_COMMODITIES['US'],
@@ -39,4 +46,5 @@ export const unitedStates: FiveEyesCountry = {
 
   securitiesExchangeCommission: FIVE_EYES_SECURITIES_EXCHANGE_COMMISSIONS['US'],
   mainInternationalAirport: FIVE_EYES_MAIN_INTERNATIONAL_AIRPORTS['US'],
+  mainInternationalSeaport: FIVE_EYES_MAIN_INTERNATIONAL_SEAPORTS['US'],
 }

@@ -1,5 +1,8 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CPTPP_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CPTPP_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 import { CPTPP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CPTPP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CPTPP_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const singapore: CptppCountry = {
   name: 'Singapore',
@@ -26,6 +30,9 @@ export const singapore: CptppCountry = {
   cryptocurrencyExchanges: ['Independent Reserve SG', 'Coinbase (institutional licensing)', 'MAS-regulated pilots'],
   stablecoin: 'StraitsX XSGD; USDC institutional rails',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['SG'],
+  domesticPostService: CPTPP_DOMESTIC_POST_SERVICES['SG'],
+  nationalBankingInstitutions: CPTPP_NATIONAL_BANKING_INSTITUTIONS['SG'],
+  corporationFormationOffice: CPTPP_CORPORATION_FORMATION_OFFICES['SG'],
   newsOutlets: CPTPP_NEWS_OUTLETS['SG'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['SG'],
   mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['SG'],
@@ -36,4 +43,5 @@ export const singapore: CptppCountry = {
   intellectualPropertyDepartments: CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS['SG'],
   securitiesExchangeCommission: CPTPP_SECURITIES_EXCHANGE_COMMISSIONS['SG'],
   mainInternationalAirport: CPTPP_MAIN_INTERNATIONAL_AIRPORTS['SG'],
+  mainInternationalSeaport: CPTPP_MAIN_INTERNATIONAL_SEAPORTS['SG'],
 }

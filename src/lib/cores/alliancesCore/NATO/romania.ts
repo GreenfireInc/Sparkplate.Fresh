@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const romania: NatoCountry = {
   name: 'Romania',
@@ -27,6 +31,9 @@ export const romania: NatoCountry = {
   cryptocurrencyExchanges: ['EU gateways; conservative banking tenor — informational'],
   stablecoin: 'RON FX; EUR-stable predominant — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['RO'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['RO'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['RO'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['RO'],
   newsOutlets: NATO_NEWS_OUTLETS['RO'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['RO'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['RO'],
@@ -35,6 +42,7 @@ export const romania: NatoCountry = {
   stockExchange: 'Bucharest Stock Exchange',
   bondMarkets: NATO_BOND_MARKETS['RO'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['RO'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['RO'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['RO'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['RO'],
 }

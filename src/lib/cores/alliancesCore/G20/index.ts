@@ -1,6 +1,8 @@
 export type {
   BondMarketVenue,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   G20Country,
   G20InstitutionalMember,
   G20OrganizationInfo,
@@ -10,6 +12,11 @@ export type {
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
@@ -18,6 +25,10 @@ export type {
 } from './types'
 export { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 export { G20_SOVEREIGN_MEMBER_ISO_CODES } from './g20MemberIsoCodes'
 export type { G20SovereignMemberIsoCode } from './g20MemberIsoCodes'
 

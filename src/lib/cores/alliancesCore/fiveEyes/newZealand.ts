@@ -1,5 +1,8 @@
 import type { FiveEyesCountry } from './types'
 import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { FIVE_EYES_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { FIVE_EYES_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { FIVE_EYES_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { FIVE_EYES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { FIVE_EYES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { FIVE_EYES_BOND_MARKETS } from './bondMarketsByIso'
 import { FIVE_EYES_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { FIVE_EYES_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { FIVE_EYES_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { FIVE_EYES_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const newZealand: FiveEyesCountry = {
   name: 'New Zealand',
@@ -27,6 +31,9 @@ export const newZealand: FiveEyesCountry = {
   cryptocurrencyExchanges: ['Easy Crypto', 'Digital asset providers under FMCA/DIA registration context — informational'],
   stablecoin: 'NZD-referenced crypto (private); RB NZ policy evolution — informational',
   domesticCourierServices: FIVE_EYES_DOMESTIC_COURIERS['NZ'],
+  domesticPostService: FIVE_EYES_DOMESTIC_POST_SERVICES['NZ'],
+  nationalBankingInstitutions: FIVE_EYES_NATIONAL_BANKING_INSTITUTIONS['NZ'],
+  corporationFormationOffice: FIVE_EYES_CORPORATION_FORMATION_OFFICES['NZ'],
   newsOutlets: FIVE_EYES_NEWS_OUTLETS['NZ'],
   notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['NZ'],
   mainExportCommodities: FIVE_EYES_MAIN_EXPORT_COMMODITIES['NZ'],
@@ -38,4 +45,5 @@ export const newZealand: FiveEyesCountry = {
 
   securitiesExchangeCommission: FIVE_EYES_SECURITIES_EXCHANGE_COMMISSIONS['NZ'],
   mainInternationalAirport: FIVE_EYES_MAIN_INTERNATIONAL_AIRPORTS['NZ'],
+  mainInternationalSeaport: FIVE_EYES_MAIN_INTERNATIONAL_SEAPORTS['NZ'],
 }

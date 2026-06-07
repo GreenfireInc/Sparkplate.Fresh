@@ -1,5 +1,8 @@
 import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EAC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { EAC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { EAC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { EAC_BOND_MARKETS } from './bondMarketsByIso'
 import { EAC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { EAC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { EAC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { EAC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const kenya: EacCountry = {
   name: 'Kenya',
@@ -26,6 +30,9 @@ export const kenya: EacCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local startups'],
   stablecoin: 'USDT / USDC; regulatory stance evolving — verify',
   domesticCourierServices: EAC_DOMESTIC_COURIERS['KE'],
+  domesticPostService: EAC_DOMESTIC_POST_SERVICES['KE'],
+  nationalBankingInstitutions: EAC_NATIONAL_BANKING_INSTITUTIONS['KE'],
+  corporationFormationOffice: EAC_CORPORATION_FORMATION_OFFICES['KE'],
   newsOutlets: EAC_NEWS_OUTLETS['KE'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['KE'],
   mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['KE'],
@@ -37,4 +44,5 @@ export const kenya: EacCountry = {
 
   securitiesExchangeCommission: EAC_SECURITIES_EXCHANGE_COMMISSIONS['KE'],
   mainInternationalAirport: EAC_MAIN_INTERNATIONAL_AIRPORTS['KE'],
+  mainInternationalSeaport: EAC_MAIN_INTERNATIONAL_SEAPORTS['KE'],
 }

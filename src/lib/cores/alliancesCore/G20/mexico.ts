@@ -1,5 +1,8 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const mexico: G20Country = {
   name: 'Mexico',
@@ -28,6 +32,9 @@ export const mexico: G20Country = {
   cryptocurrencyExchanges: ['Bitso', 'Mexico CNBV fintech-registration evolution — informational'],
   stablecoin: 'MXN fiat-backed issuance pilots vs informal USDT — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['MX'],
+  domesticPostService: G20_DOMESTIC_POST_SERVICES['MX'],
+  nationalBankingInstitutions: G20_NATIONAL_BANKING_INSTITUTIONS['MX'],
+  corporationFormationOffice: G20_CORPORATION_FORMATION_OFFICES['MX'],
   newsOutlets: G20_NEWS_OUTLETS['MX'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['MX'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['MX'],
@@ -36,6 +43,7 @@ export const mexico: G20Country = {
   stockExchange: 'Mexican Stock Exchange BMV Bolsa Mexicana de Valores',
   bondMarkets: G20_BOND_MARKETS['MX'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['MX'],
+  mainInternationalSeaport: G20_MAIN_INTERNATIONAL_SEAPORTS['MX'],
   intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['MX'],
   securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['MX'],
 }

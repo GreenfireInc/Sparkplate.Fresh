@@ -1,5 +1,8 @@
 import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECCAS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ECCAS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ECCAS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECCAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ECCAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ECCAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ECCAS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const democraticRepublicOfTheCongo: EccasCountry = {
   name: 'Democratic Republic of the Congo',
@@ -26,6 +30,9 @@ export const democraticRepublicOfTheCongo: EccasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC widespread P2P',
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['CD'],
+  domesticPostService: ECCAS_DOMESTIC_POST_SERVICES['CD'],
+  nationalBankingInstitutions: ECCAS_NATIONAL_BANKING_INSTITUTIONS['CD'],
+  corporationFormationOffice: ECCAS_CORPORATION_FORMATION_OFFICES['CD'],
   newsOutlets: ECCAS_NEWS_OUTLETS['CD'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['CD'],
   mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['CD'],
@@ -37,4 +44,5 @@ export const democraticRepublicOfTheCongo: EccasCountry = {
 
   securitiesExchangeCommission: ECCAS_SECURITIES_EXCHANGE_COMMISSIONS['CD'],
   mainInternationalAirport: ECCAS_MAIN_INTERNATIONAL_AIRPORTS['CD'],
+  mainInternationalSeaport: ECCAS_MAIN_INTERNATIONAL_SEAPORTS['CD'],
 }

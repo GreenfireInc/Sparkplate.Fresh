@@ -1,5 +1,8 @@
 import type { MintCountry } from './types'
 import { MINT_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { MINT_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { MINT_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { MINT_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { MINT_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MINT_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { MINT_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { MINT_BOND_MARKETS } from './bondMarketsByIso'
 import { MINT_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { MINT_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { MINT_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { MINT_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const indonesia: MintCountry = {
   name: 'Indonesia',
@@ -28,6 +32,9 @@ export const indonesia: MintCountry = {
   cryptocurrencyExchanges: ['Indonesia CFX licensed trading (Bappebti-era evolution to OJK oversight — informational)'],
   stablecoin: 'IDR digital rupiah / CBDC narratives; offshore USDT OTC — informational',
   domesticCourierServices: MINT_DOMESTIC_COURIERS['ID'],
+  domesticPostService: MINT_DOMESTIC_POST_SERVICES['ID'],
+  nationalBankingInstitutions: MINT_NATIONAL_BANKING_INSTITUTIONS['ID'],
+  corporationFormationOffice: MINT_CORPORATION_FORMATION_OFFICES['ID'],
   newsOutlets: MINT_NEWS_OUTLETS['ID'],
   notableUniversities: MINT_NOTABLE_UNIVERSITIES['ID'],
   mainExportCommodities: MINT_MAIN_EXPORT_COMMODITIES['ID'],
@@ -36,6 +43,7 @@ export const indonesia: MintCountry = {
   stockExchange: 'Indonesia Stock Exchange IDX Jakarta',
   bondMarkets: MINT_BOND_MARKETS['ID'],
   mainInternationalAirport: MINT_MAIN_INTERNATIONAL_AIRPORTS['ID'],
+  mainInternationalSeaport: MINT_MAIN_INTERNATIONAL_SEAPORTS['ID'],
   intellectualPropertyDepartments: MINT_INTELLECTUAL_PROPERTY_DEPARTMENTS['ID'],
   securitiesExchangeCommission: MINT_SECURITIES_EXCHANGE_COMMISSIONS['ID'],
 }

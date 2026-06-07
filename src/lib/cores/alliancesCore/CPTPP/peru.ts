@@ -1,5 +1,8 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CPTPP_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CPTPP_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 import { CPTPP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CPTPP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CPTPP_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const peru: CptppCountry = {
   name: 'Peru',
@@ -27,6 +31,9 @@ export const peru: CptppCountry = {
   cryptocurrencyExchanges: ['Buda.com (cross-border LATAM)', 'OTC predominant'],
   stablecoin: 'USDT/USDC informal',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['PE'],
+  domesticPostService: CPTPP_DOMESTIC_POST_SERVICES['PE'],
+  nationalBankingInstitutions: CPTPP_NATIONAL_BANKING_INSTITUTIONS['PE'],
+  corporationFormationOffice: CPTPP_CORPORATION_FORMATION_OFFICES['PE'],
   newsOutlets: CPTPP_NEWS_OUTLETS['PE'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['PE'],
   mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['PE'],
@@ -37,4 +44,5 @@ export const peru: CptppCountry = {
   intellectualPropertyDepartments: CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS['PE'],
   securitiesExchangeCommission: CPTPP_SECURITIES_EXCHANGE_COMMISSIONS['PE'],
   mainInternationalAirport: CPTPP_MAIN_INTERNATIONAL_AIRPORTS['PE'],
+  mainInternationalSeaport: CPTPP_MAIN_INTERNATIONAL_SEAPORTS['PE'],
 }

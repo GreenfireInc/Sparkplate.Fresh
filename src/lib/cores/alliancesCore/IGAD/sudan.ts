@@ -1,5 +1,8 @@
 import type { IgadCountry } from './types'
 import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IGAD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { IGAD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { IGAD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
 import { IGAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { IGAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { IGAD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const sudan: IgadCountry = {
   name: 'Sudan',
@@ -28,6 +32,9 @@ export const sudan: IgadCountry = {
   cryptocurrencyExchanges: ['Sanctions-screened informal USDT; banking disruption — informational'],
   stablecoin: 'USD informal pricing; SDG volatility — informational',
   domesticCourierServices: IGAD_DOMESTIC_COURIERS['SD'],
+  domesticPostService: IGAD_DOMESTIC_POST_SERVICES['SD'],
+  nationalBankingInstitutions: IGAD_NATIONAL_BANKING_INSTITUTIONS['SD'],
+  corporationFormationOffice: IGAD_CORPORATION_FORMATION_OFFICES['SD'],
   newsOutlets: IGAD_NEWS_OUTLETS['SD'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['SD'],
   mainExportCommodities: IGAD_MAIN_EXPORT_COMMODITIES['SD'],
@@ -36,6 +43,7 @@ export const sudan: IgadCountry = {
   stockExchange: 'Khartoum Stock Exchange (operational disruption episodes — informational)',
   bondMarkets: IGAD_BOND_MARKETS['SD'],
   mainInternationalAirport: IGAD_MAIN_INTERNATIONAL_AIRPORTS['SD'],
+  mainInternationalSeaport: IGAD_MAIN_INTERNATIONAL_SEAPORTS['SD'],
   intellectualPropertyDepartments: IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['SD'],
   securitiesExchangeCommission: IGAD_SECURITIES_EXCHANGE_COMMISSIONS['SD'],
 }

@@ -1,5 +1,8 @@
 import type { MiktaCountry } from './types'
 import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { MIKTA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { MIKTA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { MIKTA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { MIKTA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { MIKTA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { MIKTA_BOND_MARKETS } from './bondMarketsByIso'
 import { MIKTA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { MIKTA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { MIKTA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { MIKTA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const mexico: MiktaCountry = {
   name: 'Mexico',
@@ -28,6 +32,9 @@ export const mexico: MiktaCountry = {
   cryptocurrencyExchanges: ['Bitso', 'Mexico CNBV fintech-registration evolution — informational'],
   stablecoin: 'MXN fiat-backed issuance pilots vs informal USDT — informational',
   domesticCourierServices: MIKTA_DOMESTIC_COURIERS['MX'],
+  domesticPostService: MIKTA_DOMESTIC_POST_SERVICES['MX'],
+  nationalBankingInstitutions: MIKTA_NATIONAL_BANKING_INSTITUTIONS['MX'],
+  corporationFormationOffice: MIKTA_CORPORATION_FORMATION_OFFICES['MX'],
   newsOutlets: MIKTA_NEWS_OUTLETS['MX'],
   notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['MX'],
   mainExportCommodities: MIKTA_MAIN_EXPORT_COMMODITIES['MX'],
@@ -36,6 +43,7 @@ export const mexico: MiktaCountry = {
   stockExchange: 'Mexican Stock Exchange BMV Bolsa Mexicana de Valores',
   bondMarkets: MIKTA_BOND_MARKETS['MX'],
   mainInternationalAirport: MIKTA_MAIN_INTERNATIONAL_AIRPORTS['MX'],
+  mainInternationalSeaport: MIKTA_MAIN_INTERNATIONAL_SEAPORTS['MX'],
   intellectualPropertyDepartments: MIKTA_INTELLECTUAL_PROPERTY_DEPARTMENTS['MX'],
   securitiesExchangeCommission: MIKTA_SECURITIES_EXCHANGE_COMMISSIONS['MX'],
 }

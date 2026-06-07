@@ -1,5 +1,8 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const unitedKingdom: OecdCountry = {
   name: 'United Kingdom',
@@ -29,6 +33,9 @@ export const unitedKingdom: OecdCountry = {
   cryptocurrencyExchanges: ['Coinbase e-money UK', 'Kraken entities', 'FCA-register context — informational'],
   stablecoin: 'GBP stablecoins under evolving UK cryptoasset regime — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['GB'],
+  domesticPostService: OECD_DOMESTIC_POST_SERVICES['GB'],
+  nationalBankingInstitutions: OECD_NATIONAL_BANKING_INSTITUTIONS['GB'],
+  corporationFormationOffice: OECD_CORPORATION_FORMATION_OFFICES['GB'],
   newsOutlets: OECD_NEWS_OUTLETS['GB'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['GB'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['GB'],
@@ -37,6 +44,7 @@ export const unitedKingdom: OecdCountry = {
   stockExchange: 'London Stock Exchange Group',
   bondMarkets: OECD_BOND_MARKETS['GB'],
   mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['GB'],
+  mainInternationalSeaport: OECD_MAIN_INTERNATIONAL_SEAPORTS['GB'],
   intellectualPropertyDepartments: OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS['GB'],
   securitiesExchangeCommission: OECD_SECURITIES_EXCHANGE_COMMISSIONS['GB'],
 }

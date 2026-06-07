@@ -1,5 +1,8 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const china: G20Country = {
   name: 'China',
@@ -29,6 +33,9 @@ export const china: G20Country = {
   cryptocurrencyExchanges: ['Mainland exchange trading restricted post-2021; HKVASP regime onshore-adjacent — informational'],
   stablecoin: 'e-CNY (Digital Yuan) PBoC retail CBDC pilots; offshore CNH stablecoin narratives — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['CN'],
+  domesticPostService: G20_DOMESTIC_POST_SERVICES['CN'],
+  nationalBankingInstitutions: G20_NATIONAL_BANKING_INSTITUTIONS['CN'],
+  corporationFormationOffice: G20_CORPORATION_FORMATION_OFFICES['CN'],
   newsOutlets: G20_NEWS_OUTLETS['CN'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['CN'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['CN'],
@@ -37,6 +44,7 @@ export const china: G20Country = {
   stockExchange: 'Shanghai Stock Exchange (SSE) / Shenzhen Stock Exchange (SZSE)',
   bondMarkets: G20_BOND_MARKETS['CN'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['CN'],
+  mainInternationalSeaport: G20_MAIN_INTERNATIONAL_SEAPORTS['CN'],
   intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['CN'],
   securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['CN'],
 }

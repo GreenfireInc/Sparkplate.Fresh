@@ -1,5 +1,8 @@
 import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OPEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OPEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OPEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OPEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OPEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const venezuela: OpecCountry = {
   name: 'Venezuela',
@@ -29,6 +33,9 @@ export const venezuela: OpecCountry = {
   cryptocurrencyExchanges: ['Petro state token controversies; P2P mining informal — informational'],
   stablecoin: 'USD/USDT predominant retail settlement overlays — informational',
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['VE'],
+  domesticPostService: OPEC_DOMESTIC_POST_SERVICES['VE'],
+  nationalBankingInstitutions: OPEC_NATIONAL_BANKING_INSTITUTIONS['VE'],
+  corporationFormationOffice: OPEC_CORPORATION_FORMATION_OFFICES['VE'],
   newsOutlets: OPEC_NEWS_OUTLETS['VE'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['VE'],
   mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['VE'],
@@ -37,6 +44,7 @@ export const venezuela: OpecCountry = {
   stockExchange: 'Bolsa de Valores de Caracas (thin vs macro distress — informational)',
   bondMarkets: OPEC_BOND_MARKETS['VE'],
   mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['VE'],
+  mainInternationalSeaport: OPEC_MAIN_INTERNATIONAL_SEAPORTS['VE'],
   intellectualPropertyDepartments: OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['VE'],
   securitiesExchangeCommission: OPEC_SECURITIES_EXCHANGE_COMMISSIONS['VE'],
 }

@@ -1,5 +1,8 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const chad: AfricanUnionCountry = {
   name: 'Chad',
   iso3166Alpha2: 'TD',
@@ -26,6 +30,9 @@ export const chad: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card (regional)', 'OTC'],
   stablecoin: 'USDT informal; XAF peg',
   domesticCourierServices: AU_DOMESTIC_COURIERS['TD'],
+  domesticPostService: AU_DOMESTIC_POST_SERVICES['TD'],
+  nationalBankingInstitutions: AU_NATIONAL_BANKING_INSTITUTIONS['TD'],
+  corporationFormationOffice: AU_CORPORATION_FORMATION_OFFICES['TD'],
   newsOutlets: AU_NEWS_OUTLETS['TD'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['TD'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['TD'],
@@ -36,4 +43,5 @@ export const chad: AfricanUnionCountry = {
   intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['TD'],
   securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['TD'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['TD'],
+  mainInternationalSeaport: AU_MAIN_INTERNATIONAL_SEAPORTS['TD'],
 }

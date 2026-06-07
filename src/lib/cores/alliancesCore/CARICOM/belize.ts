@@ -1,5 +1,8 @@
 import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CARICOM_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CARICOM_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CARICOM_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CARICOM_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const belize: CaricomCountry = {
   name: 'Belize',
@@ -27,6 +31,9 @@ export const belize: CaricomCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'BZD peg to USD; USDT/USDC',
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['BZ'],
+  domesticPostService: CARICOM_DOMESTIC_POST_SERVICES['BZ'],
+  nationalBankingInstitutions: CARICOM_NATIONAL_BANKING_INSTITUTIONS['BZ'],
+  corporationFormationOffice: CARICOM_CORPORATION_FORMATION_OFFICES['BZ'],
   newsOutlets: CARICOM_NEWS_OUTLETS['BZ'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['BZ'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['BZ'],
@@ -37,4 +44,5 @@ export const belize: CaricomCountry = {
   intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['BZ'],
   securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['BZ'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['BZ'],
+  mainInternationalSeaport: CARICOM_MAIN_INTERNATIONAL_SEAPORTS['BZ'],
 }

@@ -1,5 +1,8 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const canada: OecdCountry = {
   name: 'Canada',
@@ -27,6 +31,9 @@ export const canada: OecdCountry = {
   cryptocurrencyExchanges: ['Bitbuy', 'Newton', 'CSA provincial licensing environment — informational'],
   stablecoin: 'CAD fiat-backed tokens; OSFI/OSCB guidance evolution — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['CA'],
+  domesticPostService: OECD_DOMESTIC_POST_SERVICES['CA'],
+  nationalBankingInstitutions: OECD_NATIONAL_BANKING_INSTITUTIONS['CA'],
+  corporationFormationOffice: OECD_CORPORATION_FORMATION_OFFICES['CA'],
   newsOutlets: OECD_NEWS_OUTLETS['CA'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['CA'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['CA'],
@@ -35,6 +42,7 @@ export const canada: OecdCountry = {
   stockExchange: 'Toronto Stock Exchange (TMX)',
   bondMarkets: OECD_BOND_MARKETS['CA'],
   mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['CA'],
+  mainInternationalSeaport: OECD_MAIN_INTERNATIONAL_SEAPORTS['CA'],
   intellectualPropertyDepartments: OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS['CA'],
   securitiesExchangeCommission: OECD_SECURITIES_EXCHANGE_COMMISSIONS['CA'],
 }

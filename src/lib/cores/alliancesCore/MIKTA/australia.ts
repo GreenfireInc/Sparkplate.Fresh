@@ -1,5 +1,8 @@
 import type { MiktaCountry } from './types'
 import { MIKTA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { MIKTA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { MIKTA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { MIKTA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { MIKTA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MIKTA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { MIKTA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { MIKTA_BOND_MARKETS } from './bondMarketsByIso'
 import { MIKTA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { MIKTA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { MIKTA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { MIKTA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const australia: MiktaCountry = {
   name: 'Australia',
@@ -28,6 +32,9 @@ export const australia: MiktaCountry = {
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'CoinJar / Swyftx AUSTRAC registration regime — informational'],
   stablecoin: 'AUDD (Novatti) and AUDC pilots; ANZ A$DC bank-issued settlement experiments — informational',
   domesticCourierServices: MIKTA_DOMESTIC_COURIERS['AU'],
+  domesticPostService: MIKTA_DOMESTIC_POST_SERVICES['AU'],
+  nationalBankingInstitutions: MIKTA_NATIONAL_BANKING_INSTITUTIONS['AU'],
+  corporationFormationOffice: MIKTA_CORPORATION_FORMATION_OFFICES['AU'],
   newsOutlets: MIKTA_NEWS_OUTLETS['AU'],
   notableUniversities: MIKTA_NOTABLE_UNIVERSITIES['AU'],
   mainExportCommodities: MIKTA_MAIN_EXPORT_COMMODITIES['AU'],
@@ -36,6 +43,7 @@ export const australia: MiktaCountry = {
   stockExchange: 'Australian Securities Exchange ASX (Sydney)',
   bondMarkets: MIKTA_BOND_MARKETS['AU'],
   mainInternationalAirport: MIKTA_MAIN_INTERNATIONAL_AIRPORTS['AU'],
+  mainInternationalSeaport: MIKTA_MAIN_INTERNATIONAL_SEAPORTS['AU'],
   intellectualPropertyDepartments: MIKTA_INTELLECTUAL_PROPERTY_DEPARTMENTS['AU'],
   securitiesExchangeCommission: MIKTA_SECURITIES_EXCHANGE_COMMISSIONS['AU'],
 }

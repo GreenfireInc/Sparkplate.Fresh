@@ -1,5 +1,8 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMESA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMESA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMESA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const seychelles: ComesaCountry = {
   name: 'Seychelles',
@@ -26,6 +30,9 @@ export const seychelles: ComesaCountry = {
   cryptocurrencyExchanges: ['International brokers; offshore finance sector registrations'],
   stablecoin: 'USDT / USDC; offshore financial services sector',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['SC'],
+  domesticPostService: COMESA_DOMESTIC_POST_SERVICES['SC'],
+  nationalBankingInstitutions: COMESA_NATIONAL_BANKING_INSTITUTIONS['SC'],
+  corporationFormationOffice: COMESA_CORPORATION_FORMATION_OFFICES['SC'],
   newsOutlets: COMESA_NEWS_OUTLETS['SC'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['SC'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['SC'],
@@ -36,4 +43,5 @@ export const seychelles: ComesaCountry = {
   intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['SC'],
   securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['SC'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['SC'],
+  mainInternationalSeaport: COMESA_MAIN_INTERNATIONAL_SEAPORTS['SC'],
 }

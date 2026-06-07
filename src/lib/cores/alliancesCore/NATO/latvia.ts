@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const latvia: NatoCountry = {
   name: 'Latvia',
@@ -27,6 +31,9 @@ export const latvia: NatoCountry = {
   cryptocurrencyExchanges: ['Nasdaq Baltic; MiCA — informational'],
   stablecoin: 'EUR stablecoins — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['LV'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['LV'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['LV'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['LV'],
   newsOutlets: NATO_NEWS_OUTLETS['LV'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['LV'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['LV'],
@@ -35,6 +42,7 @@ export const latvia: NatoCountry = {
   stockExchange: 'Nasdaq Riga',
   bondMarkets: NATO_BOND_MARKETS['LV'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['LV'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['LV'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['LV'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['LV'],
 }

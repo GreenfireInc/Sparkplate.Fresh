@@ -1,5 +1,8 @@
 import type { IgadCountry } from './types'
 import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IGAD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { IGAD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { IGAD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
 import { IGAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { IGAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { IGAD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const southSudan: IgadCountry = {
   name: 'South Sudan',
@@ -27,6 +31,9 @@ export const southSudan: IgadCountry = {
   cryptocurrencyExchanges: ['Mobile money informal; regional sanctions compliance overlays — informational'],
   stablecoin: 'USD cash economy dominant; SSP digital thin — informational',
   domesticCourierServices: IGAD_DOMESTIC_COURIERS['SS'],
+  domesticPostService: IGAD_DOMESTIC_POST_SERVICES['SS'],
+  nationalBankingInstitutions: IGAD_NATIONAL_BANKING_INSTITUTIONS['SS'],
+  corporationFormationOffice: IGAD_CORPORATION_FORMATION_OFFICES['SS'],
   newsOutlets: IGAD_NEWS_OUTLETS['SS'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['SS'],
   mainExportCommodities: IGAD_MAIN_EXPORT_COMMODITIES['SS'],
@@ -35,6 +42,7 @@ export const southSudan: IgadCountry = {
   stockExchange: 'No national exchange consolidated (Juba financial-market nascent — informational)',
   bondMarkets: IGAD_BOND_MARKETS['SS'],
   mainInternationalAirport: IGAD_MAIN_INTERNATIONAL_AIRPORTS['SS'],
+  mainInternationalSeaport: IGAD_MAIN_INTERNATIONAL_SEAPORTS['SS'],
   intellectualPropertyDepartments: IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['SS'],
   securitiesExchangeCommission: IGAD_SECURITIES_EXCHANGE_COMMISSIONS['SS'],
 }

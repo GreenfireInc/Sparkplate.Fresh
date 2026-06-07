@@ -1,5 +1,8 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { APEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { APEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { APEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const singapore: ApecCountry = {
   name: 'Singapore',
@@ -27,6 +31,9 @@ export const singapore: ApecCountry = {
   cryptocurrencyExchanges: ['MAS DPT licensing regime flagship — informational'],
   stablecoin: 'MAS stable-value digital guidance flagship — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['SG'],
+  domesticPostService: APEC_DOMESTIC_POST_SERVICES['SG'],
+  nationalBankingInstitutions: APEC_NATIONAL_BANKING_INSTITUTIONS['SG'],
+  corporationFormationOffice: APEC_CORPORATION_FORMATION_OFFICES['SG'],
   newsOutlets: APEC_NEWS_OUTLETS['SG'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['SG'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['SG'],
@@ -37,4 +44,5 @@ export const singapore: ApecCountry = {
   intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['SG'],
   securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['SG'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['SG'],
+  mainInternationalSeaport: APEC_MAIN_INTERNATIONAL_SEAPORTS['SG'],
 }

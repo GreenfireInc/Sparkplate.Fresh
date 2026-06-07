@@ -1,5 +1,8 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMMONWEALTH_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMMONWEALTH_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -8,6 +11,7 @@ import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 import { COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMMONWEALTH_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const saintVincentAndTheGrenadines: CommonwealthCountry = {
   name: 'Saint Vincent and the Grenadines',
@@ -26,6 +30,9 @@ export const saintVincentAndTheGrenadines: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'XCD peg; USDT/USDC',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['VC'],
+  domesticPostService: COMMONWEALTH_DOMESTIC_POST_SERVICES['VC'],
+  nationalBankingInstitutions: COMMONWEALTH_NATIONAL_BANKING_INSTITUTIONS['VC'],
+  corporationFormationOffice: COMMONWEALTH_CORPORATION_FORMATION_OFFICES['VC'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['VC'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['VC'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['VC'],
@@ -35,4 +42,5 @@ export const saintVincentAndTheGrenadines: CommonwealthCountry = {
   intellectualPropertyDepartments: COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS['VC'],
   securitiesExchangeCommission: COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS['VC'],
   mainInternationalAirport: COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS['VC'],
+  mainInternationalSeaport: COMMONWEALTH_MAIN_INTERNATIONAL_SEAPORTS['VC'],
 }

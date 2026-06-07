@@ -1,5 +1,8 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const australia: G20Country = {
   name: 'Australia',
@@ -28,6 +32,9 @@ export const australia: G20Country = {
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'CoinJar / Swyftx AUSTRAC registration regime — informational'],
   stablecoin: 'AUDD (Novatti) and AUDC pilots; ANZ A$DC bank-issued settlement experiments — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['AU'],
+  domesticPostService: G20_DOMESTIC_POST_SERVICES['AU'],
+  nationalBankingInstitutions: G20_NATIONAL_BANKING_INSTITUTIONS['AU'],
+  corporationFormationOffice: G20_CORPORATION_FORMATION_OFFICES['AU'],
   newsOutlets: G20_NEWS_OUTLETS['AU'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['AU'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['AU'],
@@ -36,6 +43,7 @@ export const australia: G20Country = {
   stockExchange: 'Australian Securities Exchange ASX (Sydney)',
   bondMarkets: G20_BOND_MARKETS['AU'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['AU'],
+  mainInternationalSeaport: G20_MAIN_INTERNATIONAL_SEAPORTS['AU'],
   intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['AU'],
   securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['AU'],
 }

@@ -1,5 +1,8 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMESA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMESA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMESA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const zimbabwe: ComesaCountry = {
   name: 'Zimbabwe',
@@ -26,6 +30,9 @@ export const zimbabwe: ComesaCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Local P2P'],
   stablecoin: 'USDT / USDC; USD parallel economy',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['ZW'],
+  domesticPostService: COMESA_DOMESTIC_POST_SERVICES['ZW'],
+  nationalBankingInstitutions: COMESA_NATIONAL_BANKING_INSTITUTIONS['ZW'],
+  corporationFormationOffice: COMESA_CORPORATION_FORMATION_OFFICES['ZW'],
   newsOutlets: COMESA_NEWS_OUTLETS['ZW'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['ZW'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['ZW'],
@@ -36,4 +43,5 @@ export const zimbabwe: ComesaCountry = {
   intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['ZW'],
   securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['ZW'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['ZW'],
+  mainInternationalSeaport: COMESA_MAIN_INTERNATIONAL_SEAPORTS['ZW'],
 }

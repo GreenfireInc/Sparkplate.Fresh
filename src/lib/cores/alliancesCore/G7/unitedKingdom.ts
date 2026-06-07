@@ -1,5 +1,8 @@
 import type { G7Country } from './types'
 import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G7_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G7_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G7_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G7_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G7_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G7_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G7_BOND_MARKETS } from './bondMarketsByIso'
 import { G7_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G7_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G7_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G7_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const unitedKingdom: G7Country = {
   name: 'United Kingdom',
@@ -29,6 +33,9 @@ export const unitedKingdom: G7Country = {
   cryptocurrencyExchanges: ['Coinbase e-money UK', 'Kraken entities', 'FCA-register context — informational'],
   stablecoin: 'GBP stablecoins under evolving UK PSD3/cryptoasset regime — informational',
   domesticCourierServices: G7_DOMESTIC_COURIERS['GB'],
+  domesticPostService: G7_DOMESTIC_POST_SERVICES['GB'],
+  nationalBankingInstitutions: G7_NATIONAL_BANKING_INSTITUTIONS['GB'],
+  corporationFormationOffice: G7_CORPORATION_FORMATION_OFFICES['GB'],
   newsOutlets: G7_NEWS_OUTLETS['GB'],
   notableUniversities: G7_NOTABLE_UNIVERSITIES['GB'],
   mainExportCommodities: G7_MAIN_EXPORT_COMMODITIES['GB'],
@@ -37,6 +44,7 @@ export const unitedKingdom: G7Country = {
   stockExchange: 'London Stock Exchange Group (consolidated UK venues — informational)',
   bondMarkets: G7_BOND_MARKETS['GB'],
   mainInternationalAirport: G7_MAIN_INTERNATIONAL_AIRPORTS['GB'],
+  mainInternationalSeaport: G7_MAIN_INTERNATIONAL_SEAPORTS['GB'],
   intellectualPropertyDepartments: G7_INTELLECTUAL_PROPERTY_DEPARTMENTS['GB'],
   securitiesExchangeCommission: G7_SECURITIES_EXCHANGE_COMMISSIONS['GB'],
 }

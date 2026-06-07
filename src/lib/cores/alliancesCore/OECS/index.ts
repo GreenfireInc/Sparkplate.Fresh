@@ -1,12 +1,19 @@
 export type {
   BondMarketVenue,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   IntellectualPropertyDepartment,
   IntellectualPropertyDepartmentKind,
   IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
@@ -17,6 +24,10 @@ export type {
 } from './types'
 export { OECS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { OECS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { OECS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { OECS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { OECS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { OECS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 
 import type { OecsCountry, OecsOrganizationInfo } from './types'
 import { OECS_MEMBER_ISO_CODES } from './oecsMemberIsoCodes'

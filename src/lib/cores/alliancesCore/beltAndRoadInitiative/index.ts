@@ -4,12 +4,19 @@ export type {
   BeltAndRoadInitiativeOrganizationInfo,
   BondMarketVenue,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   IntellectualPropertyDepartment,
   IntellectualPropertyDepartmentKind,
   IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
@@ -18,6 +25,10 @@ export type {
 } from './types'
 export { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 export { BELT_AND_ROAD_PARTICIPANT_ISO_CODES } from './participantStatesIsoCodes'
 export type { BriMemberIsoCode } from './participantStatesIsoCodes'
 

@@ -1,5 +1,8 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CENSAD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CENSAD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CENSAD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const djibouti: CensadCountry = {
   name: 'Djibouti',
@@ -26,6 +30,9 @@ export const djibouti: CensadCountry = {
   cryptocurrencyExchanges: ['Limited formal; regional OTC'],
   stablecoin: 'DJF peg; USDT/USDC informal',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['DJ'],
+  domesticPostService: CENSAD_DOMESTIC_POST_SERVICES['DJ'],
+  nationalBankingInstitutions: CENSAD_NATIONAL_BANKING_INSTITUTIONS['DJ'],
+  corporationFormationOffice: CENSAD_CORPORATION_FORMATION_OFFICES['DJ'],
   newsOutlets: CENSAD_NEWS_OUTLETS['DJ'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['DJ'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['DJ'],
@@ -36,4 +43,5 @@ export const djibouti: CensadCountry = {
   intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['DJ'],
   securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['DJ'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['DJ'],
+  mainInternationalSeaport: CENSAD_MAIN_INTERNATIONAL_SEAPORTS['DJ'],
 }

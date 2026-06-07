@@ -1,5 +1,8 @@
 import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EAC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { EAC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { EAC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { EAC_BOND_MARKETS } from './bondMarketsByIso'
 import { EAC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { EAC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { EAC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { EAC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const tanzania: EacCountry = {
   name: 'Tanzania',
@@ -26,6 +30,9 @@ export const tanzania: EacCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local fintech'],
   stablecoin: 'USDT / USDC P2P',
   domesticCourierServices: EAC_DOMESTIC_COURIERS['TZ'],
+  domesticPostService: EAC_DOMESTIC_POST_SERVICES['TZ'],
+  nationalBankingInstitutions: EAC_NATIONAL_BANKING_INSTITUTIONS['TZ'],
+  corporationFormationOffice: EAC_CORPORATION_FORMATION_OFFICES['TZ'],
   newsOutlets: EAC_NEWS_OUTLETS['TZ'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['TZ'],
   mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['TZ'],
@@ -38,4 +45,5 @@ export const tanzania: EacCountry = {
 
   securitiesExchangeCommission: EAC_SECURITIES_EXCHANGE_COMMISSIONS['TZ'],
   mainInternationalAirport: EAC_MAIN_INTERNATIONAL_AIRPORTS['TZ'],
+  mainInternationalSeaport: EAC_MAIN_INTERNATIONAL_SEAPORTS['TZ'],
 }

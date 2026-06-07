@@ -1,5 +1,8 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { IORA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { IORA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { IORA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const unitedArabEmirates: IoraCountry = {
   name: 'United Arab Emirates',
@@ -28,6 +32,9 @@ export const unitedArabEmirates: IoraCountry = {
   cryptocurrencyExchanges: ['VARA Dubai', 'ADGM FSRA digital-asset licences — informational'],
   stablecoin: 'AED-referenced issuance supervisory pilots — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['AE'],
+  domesticPostService: IORA_DOMESTIC_POST_SERVICES['AE'],
+  nationalBankingInstitutions: IORA_NATIONAL_BANKING_INSTITUTIONS['AE'],
+  corporationFormationOffice: IORA_CORPORATION_FORMATION_OFFICES['AE'],
   newsOutlets: IORA_NEWS_OUTLETS['AE'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['AE'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['AE'],
@@ -36,6 +43,7 @@ export const unitedArabEmirates: IoraCountry = {
   stockExchange: 'ADX Abu Dhabi; DFM Dubai',
   bondMarkets: IORA_BOND_MARKETS['AE'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['AE'],
+  mainInternationalSeaport: IORA_MAIN_INTERNATIONAL_SEAPORTS['AE'],
   intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['AE'],
   securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['AE'],
 }
