@@ -163,8 +163,8 @@ async function buildDynamicPreview() {
     if (!canvas) return
 
     await mountCalculatorDynamicCanvas(canvas, props.snapshot, {
-      width: 384,
-      height: 512,
+      width: 768,
+      height: 1024,
     })
     hasDynamicPreview.value = true
   } catch (error) {
@@ -203,7 +203,7 @@ watch(
 )
 
 watch(activeTab, async (tab) => {
-  if (tab === 'dynamic' && props.isOpen && props.snapshot && !hasDynamicPreview.value && !isLoadingDynamicPreview.value) {
+  if (tab === 'dynamic' && props.isOpen && props.snapshot && !isLoadingDynamicPreview.value) {
     await buildDynamicPreview()
   }
 })
