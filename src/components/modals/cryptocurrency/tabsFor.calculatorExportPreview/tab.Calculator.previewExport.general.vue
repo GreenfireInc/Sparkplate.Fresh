@@ -29,16 +29,21 @@ defineProps<{
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 52vh;
   padding: 0.75rem;
   background: #f9fafb;
   border: 1px solid #e5e7eb;
   border-radius: 0.75rem;
+  overflow: hidden;
 }
 
 .calc-general-image {
   display: block;
-  width: 100%;
+  width: auto;
   height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
   border-radius: 0.25rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }

@@ -45,12 +45,9 @@ defineExpose({ getCanvasElement, getPreviewContainer })
 <style scoped lang="scss">
 .calc-export-preview-wrap--dynamic {
   display: flex;
-  flex: 1;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  min-height: 0;
+  height: 52vh;
   padding: 0.75rem;
   border: 1px solid #e5e7eb;
   border-radius: 0.75rem;
@@ -64,7 +61,6 @@ defineExpose({ getCanvasElement, getPreviewContainer })
   justify-content: center;
   width: 100%;
   height: 100%;
-  min-height: 0;
 }
 
 .calc-export-preview-canvas {

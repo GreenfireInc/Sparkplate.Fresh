@@ -30,20 +30,6 @@ const BORDER_WIDTH  = 28   // stroke width of the outer frame
 /** Overlaps the top border stroke, nudged slightly above center. */
 const DATE_Y        = BORDER_INSET + BORDER_WIDTH / 2 - 12
 
-// ── Greenfire logo — bottom-left corner (matches calculationBackground.png) ───
-const GREENFIRE_LOGO_PATH   = '/assets/icons/greenfire/proper/greenfire.svg'
-const GREENFIRE_LOGO_ASPECT  = 139.69 / 191.94 // SVG viewBox width / height
-const GREENFIRE_LOGO_HEIGHT  = 80
-const GREENFIRE_CORNER_NUDGE = 9 // px outward past the border corner (scales with logo size)
-
-// ── Background watermark pattern (matches calculationBackground.png) ──────────
-const PATTERN_ICON_PATH   = '/assets/icons/greenfire/outlined/outlined.black.svg'
-const PATTERN_ICON_ASPECT = 142.69 / 200.93 // SVG viewBox width / height
-const PATTERN_TILE_HEIGHT = 58
-const PATTERN_COL_STEP    = 82  // horizontal spacing between tile centers
-const PATTERN_ROW_STEP    = 86  // vertical spacing between tile rows
-const PATTERN_OPACITY     = 0.16
-
 // ── Text Y positions — identical to static canvas ─────────────────────────────
 const FROM_LABEL_Y = 260
 const TO_LABEL_Y   = 360
@@ -187,67 +173,12 @@ async function drawCryptoIcon(
   })
 }
 
-async function loadImage(src: string): Promise<HTMLImageElement | null> {
-  return new Promise((resolve) => {
-    const img = new Image()
-    img.src = src
-    img.onload = () => resolve(img)
-    img.onerror = () => resolve(null)
-  })
-}
-
-/** Staggered brick-grid watermark, like calculationBackground.png. */
-async function drawPatternBackground(
-  ctx: CanvasRenderingContext2D,
-  W: number,
-  H: number,
-): Promise<void> {
-  const img = await loadImage(PATTERN_ICON_PATH)
-  if (!img) return
-
-  const tileH = PATTERN_TILE_HEIGHT
-  const tileW = tileH * PATTERN_ICON_ASPECT
-  const halfCol = PATTERN_COL_STEP / 2
-
-  ctx.save()
-  ctx.globalAlpha = PATTERN_OPACITY
-
-  let row = 0
-  for (let y = -tileH; y < H + tileH; y += PATTERN_ROW_STEP) {
-    const stagger = row % 2 === 1 ? halfCol : 0
-    for (let x = -tileW + stagger; x < W + tileW; x += PATTERN_COL_STEP) {
-      ctx.drawImage(img, x, y, tileW, tileH)
-    }
-    row++
-  }
-
-  ctx.restore()
-}
-
-async function drawGreenfireCornerLogo(
-  ctx: CanvasRenderingContext2D,
-  W: number,
-  H: number,
-): Promise<void> {
-  const logoH = GREENFIRE_LOGO_HEIGHT
-  const logoW = logoH * GREENFIRE_LOGO_ASPECT
-  const cornerX = BORDER_INSET + BORDER_WIDTH / 2
-  const cornerY = H - BORDER_INSET - BORDER_WIDTH / 2
-  const logoX = cornerX - logoW / 2 - GREENFIRE_CORNER_NUDGE
-  const logoY = cornerY - logoH / 2 + GREENFIRE_CORNER_NUDGE
-
-  const img = await loadImage(GREENFIRE_LOGO_PATH)
-  if (img) ctx.drawImage(img, logoX, logoY, logoW, logoH)
-}
-
 // ── Background: white card with thick black rounded border ────────────────────
 
-async function drawDynamicBackground(ctx: CanvasRenderingContext2D, W: number, H: number): Promise<void> {
+function drawDynamicBackground(ctx: CanvasRenderingContext2D, W: number, H: number): void {
   // White fill
   ctx.fillStyle = '#ffffff'
   ctx.fillRect(0, 0, W, H)
-
-  await drawPatternBackground(ctx, W, H)
 
   // Outer frame border
   ctx.save()
@@ -273,8 +204,7 @@ async function drawDynamicCalculatorCanvas(
   const labelRightX         = centerX + LABEL_RIGHT_OFFSET
   const localeOpts: Intl.NumberFormatOptions = { maximumFractionDigits: 6 }
 
-  await drawDynamicBackground(ctx, W, H)
-  await drawGreenfireCornerLogo(ctx, W, H)
+  drawDynamicBackground(ctx, W, H)
 
   // ── Date (overlaps top border) ───────────────────────────────────────────
   ctx.font         = 'normal 26px Arial'
