@@ -30,11 +30,9 @@ const BORDER_WIDTH  = 28   // stroke width of the outer frame
 /** Overlaps the top border stroke, nudged slightly above center. */
 const DATE_Y        = BORDER_INSET + BORDER_WIDTH / 2 - 12
 
-// ── Greenfire logo — bottom-left corner (matches calculationBackground.png) ───
+// ── Proper (full-colour) Greenfire logo — randomly swapped into the pattern ───
 const GREENFIRE_LOGO_PATH   = '/assets/icons/greenfire/proper/greenfire.svg'
-const GREENFIRE_LOGO_ASPECT  = 139.69 / 191.94 // SVG viewBox width / height
-const GREENFIRE_LOGO_HEIGHT  = 80
-const GREENFIRE_CORNER_NUDGE = 9 // px outward past the border corner (scales with logo size)
+const GREENFIRE_LOGO_ASPECT = 139.69 / 191.94 // SVG viewBox width / height
 
 // ── Background watermark pattern (matches calculationBackground.png) ──────────
 const PATTERN_ICON_PATH   = '/assets/icons/greenfire/outlined/outlined.black.svg'
@@ -196,48 +194,55 @@ async function loadImage(src: string): Promise<HTMLImageElement | null> {
   })
 }
 
-/** Staggered brick-grid watermark, like calculationBackground.png. */
+/**
+ * Staggered brick-grid watermark, like calculationBackground.png.
+ * One random tile is swapped for the full-colour proper Greenfire logo.
+ */
 async function drawPatternBackground(
   ctx: CanvasRenderingContext2D,
   W: number,
   H: number,
 ): Promise<void> {
-  const img = await loadImage(PATTERN_ICON_PATH)
-  if (!img) return
+  const [outlineImg, properImg] = await Promise.all([
+    loadImage(PATTERN_ICON_PATH),
+    loadImage(GREENFIRE_LOGO_PATH),
+  ])
+  if (!outlineImg) return
 
   const tileH = PATTERN_TILE_HEIGHT
   const tileW = tileH * PATTERN_ICON_ASPECT
   const halfCol = PATTERN_COL_STEP / 2
 
-  ctx.save()
-  ctx.globalAlpha = PATTERN_OPACITY
-
+  // Collect every tile slot first so one can be picked at random for the swap.
+  const tiles: { x: number; y: number }[] = []
   let row = 0
   for (let y = -tileH; y < H + tileH; y += PATTERN_ROW_STEP) {
     const stagger = row % 2 === 1 ? halfCol : 0
     for (let x = -tileW + stagger; x < W + tileW; x += PATTERN_COL_STEP) {
-      ctx.drawImage(img, x, y, tileW, tileH)
+      tiles.push({ x, y })
     }
     row++
   }
 
+  const swapIndex = properImg && tiles.length > 0
+    ? Math.floor(Math.random() * tiles.length)
+    : -1
+
+  // Faded outline watermark — skipping the tile reserved for the proper logo.
+  ctx.save()
+  ctx.globalAlpha = PATTERN_OPACITY
+  tiles.forEach((tile, index) => {
+    if (index === swapIndex) return
+    ctx.drawImage(outlineImg, tile.x, tile.y, tileW, tileH)
+  })
   ctx.restore()
-}
 
-async function drawGreenfireCornerLogo(
-  ctx: CanvasRenderingContext2D,
-  W: number,
-  H: number,
-): Promise<void> {
-  const logoH = GREENFIRE_LOGO_HEIGHT
-  const logoW = logoH * GREENFIRE_LOGO_ASPECT
-  const cornerX = BORDER_INSET + BORDER_WIDTH / 2
-  const cornerY = H - BORDER_INSET - BORDER_WIDTH / 2
-  const logoX = cornerX - logoW / 2 - GREENFIRE_CORNER_NUDGE
-  const logoY = cornerY - logoH / 2 + GREENFIRE_CORNER_NUDGE
-
-  const img = await loadImage(GREENFIRE_LOGO_PATH)
-  if (img) ctx.drawImage(img, logoX, logoY, logoW, logoH)
+  // Full-colour proper logo, centred within the outline slot it replaces.
+  if (swapIndex >= 0 && properImg) {
+    const tile = tiles[swapIndex]
+    const properW = tileH * GREENFIRE_LOGO_ASPECT
+    ctx.drawImage(properImg, tile.x + (tileW - properW) / 2, tile.y, properW, tileH)
+  }
 }
 
 // ── Background: white card with thick black rounded border ────────────────────
@@ -274,7 +279,6 @@ async function drawDynamicCalculatorCanvas(
   const localeOpts: Intl.NumberFormatOptions = { maximumFractionDigits: 6 }
 
   await drawDynamicBackground(ctx, W, H)
-  await drawGreenfireCornerLogo(ctx, W, H)
 
   // ── Date (overlaps top border) ───────────────────────────────────────────
   ctx.font         = 'normal 26px Arial'
