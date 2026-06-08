@@ -1,5 +1,8 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMMONWEALTH_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMMONWEALTH_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -8,6 +11,7 @@ import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 import { COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMMONWEALTH_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const antiguaAndBarbuda: CommonwealthCountry = {
   name: 'Antigua and Barbuda',
@@ -26,6 +30,9 @@ export const antiguaAndBarbuda: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'Binance (P2P)'],
   stablecoin: 'USDT/USDC via offshore; XCD pegged to USD regionally',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['AG'],
+  domesticPostService: COMMONWEALTH_DOMESTIC_POST_SERVICES['AG'],
+  nationalBankingInstitutions: COMMONWEALTH_NATIONAL_BANKING_INSTITUTIONS['AG'],
+  corporationFormationOffice: COMMONWEALTH_CORPORATION_FORMATION_OFFICES['AG'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['AG'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['AG'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['AG'],
@@ -35,4 +42,5 @@ export const antiguaAndBarbuda: CommonwealthCountry = {
   intellectualPropertyDepartments: COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS['AG'],
   securitiesExchangeCommission: COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS['AG'],
   mainInternationalAirport: COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS['AG'],
+  mainInternationalSeaport: COMMONWEALTH_MAIN_INTERNATIONAL_SEAPORTS['AG'],
 }

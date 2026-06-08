@@ -1,5 +1,8 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMMONWEALTH_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMMONWEALTH_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -8,6 +11,7 @@ import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 import { COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMMONWEALTH_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const brunei: CommonwealthCountry = {
   name: 'Brunei',
@@ -26,6 +30,9 @@ export const brunei: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Limited onshore retail crypto; offshore access restricted — verify'],
   stablecoin: 'BND/SGD peg context; USDT via offshore',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['BN'],
+  domesticPostService: COMMONWEALTH_DOMESTIC_POST_SERVICES['BN'],
+  nationalBankingInstitutions: COMMONWEALTH_NATIONAL_BANKING_INSTITUTIONS['BN'],
+  corporationFormationOffice: COMMONWEALTH_CORPORATION_FORMATION_OFFICES['BN'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['BN'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['BN'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['BN'],
@@ -35,4 +42,5 @@ export const brunei: CommonwealthCountry = {
   intellectualPropertyDepartments: COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS['BN'],
   securitiesExchangeCommission: COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS['BN'],
   mainInternationalAirport: COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS['BN'],
+  mainInternationalSeaport: COMMONWEALTH_MAIN_INTERNATIONAL_SEAPORTS['BN'],
 }

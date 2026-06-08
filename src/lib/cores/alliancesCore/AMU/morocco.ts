@@ -1,5 +1,8 @@
 import type { AmuCountry } from './types'
 import { AMU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AMU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AMU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AMU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AMU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AMU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AMU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AMU_BOND_MARKETS } from './bondMarketsByIso'
 import { AMU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AMU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AMU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const morocco: AmuCountry = {
   name: 'Morocco',
@@ -27,6 +31,9 @@ export const morocco: AmuCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Rain (regional)', 'Peer OTC'],
   stablecoin: 'USDT informal; Bank Al-Maghrib exploring CBDC',
   domesticCourierServices: AMU_DOMESTIC_COURIERS['MA'],
+  domesticPostService: AMU_DOMESTIC_POST_SERVICES['MA'],
+  nationalBankingInstitutions: AMU_NATIONAL_BANKING_INSTITUTIONS['MA'],
+  corporationFormationOffice: AMU_CORPORATION_FORMATION_OFFICES['MA'],
   newsOutlets: AMU_NEWS_OUTLETS['MA'],
   notableUniversities: AMU_NOTABLE_UNIVERSITIES['MA'],
   mainExportCommodities: AMU_MAIN_EXPORT_COMMODITIES['MA'],
@@ -37,4 +44,5 @@ export const morocco: AmuCountry = {
   intellectualPropertyDepartments: AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS['MA'],
   securitiesExchangeCommission: AMU_SECURITIES_EXCHANGE_COMMISSIONS['MA'],
   mainInternationalAirport: AMU_MAIN_INTERNATIONAL_AIRPORTS['MA'],
+  mainInternationalSeaport: AMU_MAIN_INTERNATIONAL_SEAPORTS['MA'],
 }

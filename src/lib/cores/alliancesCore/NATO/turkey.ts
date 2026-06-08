@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const turkey: NatoCountry = {
   name: 'Turkey',
@@ -28,6 +32,9 @@ export const turkey: NatoCountry = {
   cryptocurrencyExchanges: ['BtcTurk', 'Paribu', 'MASAK registration — informational'],
   stablecoin: 'TRY volatility; USD-stable informal — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['TR'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['TR'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['TR'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['TR'],
   newsOutlets: NATO_NEWS_OUTLETS['TR'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['TR'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['TR'],
@@ -36,6 +43,7 @@ export const turkey: NatoCountry = {
   stockExchange: 'Borsa Istanbul (BİST)',
   bondMarkets: NATO_BOND_MARKETS['TR'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['TR'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['TR'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['TR'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['TR'],
 }

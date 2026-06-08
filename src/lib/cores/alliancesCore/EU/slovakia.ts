@@ -1,5 +1,8 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { EU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { EU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { EU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const slovakia: EuCountry = {
   name: 'Slovakia',
@@ -26,6 +30,9 @@ export const slovakia: EuCountry = {
   cryptocurrencyExchanges: ['European MiCA CASPs onboarding SK retail'],
   stablecoin: 'EUR stablecoins; banking integration',
   domesticCourierServices: EU_DOMESTIC_COURIERS['SK'],
+  domesticPostService: EU_DOMESTIC_POST_SERVICES['SK'],
+  nationalBankingInstitutions: EU_NATIONAL_BANKING_INSTITUTIONS['SK'],
+  corporationFormationOffice: EU_CORPORATION_FORMATION_OFFICES['SK'],
   newsOutlets: EU_NEWS_OUTLETS['SK'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['SK'],
   mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['SK'],
@@ -37,4 +44,5 @@ export const slovakia: EuCountry = {
 
   securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['SK'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['SK'],
+  mainInternationalSeaport: EU_MAIN_INTERNATIONAL_SEAPORTS['SK'],
 }

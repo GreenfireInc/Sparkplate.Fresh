@@ -1,5 +1,8 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const denmark: OecdCountry = {
   name: 'Denmark',
@@ -27,6 +31,9 @@ export const denmark: OecdCountry = {
   cryptocurrencyExchanges: ['Nordic fintech onboarding; MiCA-aligned EU passport'],
   stablecoin: 'DKK pilots; predominant EUR/USD crypto pairs — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['DK'],
+  domesticPostService: OECD_DOMESTIC_POST_SERVICES['DK'],
+  nationalBankingInstitutions: OECD_NATIONAL_BANKING_INSTITUTIONS['DK'],
+  corporationFormationOffice: OECD_CORPORATION_FORMATION_OFFICES['DK'],
   newsOutlets: OECD_NEWS_OUTLETS['DK'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['DK'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['DK'],
@@ -35,6 +42,7 @@ export const denmark: OecdCountry = {
   stockExchange: 'Nasdaq Copenhagen',
   bondMarkets: OECD_BOND_MARKETS['DK'],
   mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['DK'],
+  mainInternationalSeaport: OECD_MAIN_INTERNATIONAL_SEAPORTS['DK'],
   intellectualPropertyDepartments: OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS['DK'],
   securitiesExchangeCommission: OECD_SECURITIES_EXCHANGE_COMMISSIONS['DK'],
 }

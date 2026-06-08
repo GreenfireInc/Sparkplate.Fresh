@@ -1,12 +1,19 @@
 export type {
   BondMarketVenue,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   IntellectualPropertyDepartment,
   IntellectualPropertyDepartmentKind,
   IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   MintCountry,
   MintOrganizationInfo,
   NewsOutlet,
@@ -17,6 +24,10 @@ export type {
 } from './types'
 export { MINT_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { MINT_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { MINT_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { MINT_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { MINT_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { MINT_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 
 import type { MintCountry, MintOrganizationInfo } from './types'
 import { MINT_MEMBER_ISO_CODES } from './mintMemberIsoCodes'

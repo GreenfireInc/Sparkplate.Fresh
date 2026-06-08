@@ -1,5 +1,8 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CENSAD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CENSAD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CENSAD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const morocco: CensadCountry = {
   name: 'Morocco',
@@ -26,6 +30,9 @@ export const morocco: CensadCountry = {
   cryptocurrencyExchanges: ['Regulatory evolution; peer markets reported'],
   stablecoin: 'Informal USDT',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['MA'],
+  domesticPostService: CENSAD_DOMESTIC_POST_SERVICES['MA'],
+  nationalBankingInstitutions: CENSAD_NATIONAL_BANKING_INSTITUTIONS['MA'],
+  corporationFormationOffice: CENSAD_CORPORATION_FORMATION_OFFICES['MA'],
   newsOutlets: CENSAD_NEWS_OUTLETS['MA'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['MA'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['MA'],
@@ -36,4 +43,5 @@ export const morocco: CensadCountry = {
   intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['MA'],
   securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['MA'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['MA'],
+  mainInternationalSeaport: CENSAD_MAIN_INTERNATIONAL_SEAPORTS['MA'],
 }

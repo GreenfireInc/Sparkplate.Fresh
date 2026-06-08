@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const uzbekistan: BeltAndRoadInitiativeCountry = {
   name: 'Uzbekistan',
   iso3166Alpha2: 'UZ',
@@ -26,6 +30,9 @@ export const uzbekistan: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: [ 'Binance (P2P)', 'International OTC', 'Local regulation varies' ],
   stablecoin: 'USDT / USDC common globally; legality varies by jurisdiction',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['UZ'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['UZ'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['UZ'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['UZ'],
   newsOutlets: BRI_NEWS_OUTLETS['UZ'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['UZ'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['UZ'],
@@ -36,4 +43,5 @@ export const uzbekistan: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['UZ'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['UZ'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['UZ'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['UZ'],
 }

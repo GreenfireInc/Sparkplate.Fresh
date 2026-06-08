@@ -1,5 +1,8 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMESA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMESA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMESA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const zambia: ComesaCountry = {
   name: 'Zambia',
@@ -26,6 +30,9 @@ export const zambia: ComesaCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Luno'],
   stablecoin: 'USDT / USDC informal',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['ZM'],
+  domesticPostService: COMESA_DOMESTIC_POST_SERVICES['ZM'],
+  nationalBankingInstitutions: COMESA_NATIONAL_BANKING_INSTITUTIONS['ZM'],
+  corporationFormationOffice: COMESA_CORPORATION_FORMATION_OFFICES['ZM'],
   newsOutlets: COMESA_NEWS_OUTLETS['ZM'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['ZM'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['ZM'],
@@ -36,4 +43,5 @@ export const zambia: ComesaCountry = {
   intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['ZM'],
   securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['ZM'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['ZM'],
+  mainInternationalSeaport: COMESA_MAIN_INTERNATIONAL_SEAPORTS['ZM'],
 }

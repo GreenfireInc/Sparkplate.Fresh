@@ -1,5 +1,8 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const japan: G20Country = {
   name: 'Japan',
@@ -27,6 +31,9 @@ export const japan: G20Country = {
   cryptocurrencyExchanges: ['bitFlyer', 'Zaif / registered PSAP-era providers — informational'],
   stablecoin: 'JPY-stable experiments; Bank of Japan CBDC pilots — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['JP'],
+  domesticPostService: G20_DOMESTIC_POST_SERVICES['JP'],
+  nationalBankingInstitutions: G20_NATIONAL_BANKING_INSTITUTIONS['JP'],
+  corporationFormationOffice: G20_CORPORATION_FORMATION_OFFICES['JP'],
   newsOutlets: G20_NEWS_OUTLETS['JP'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['JP'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['JP'],
@@ -35,6 +42,7 @@ export const japan: G20Country = {
   stockExchange: 'Tokyo Stock Exchange (Japan Exchange Group)',
   bondMarkets: G20_BOND_MARKETS['JP'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['JP'],
+  mainInternationalSeaport: G20_MAIN_INTERNATIONAL_SEAPORTS['JP'],
   intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['JP'],
   securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['JP'],
 }

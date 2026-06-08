@@ -1,5 +1,8 @@
 import type { IgadCountry } from './types'
 import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IGAD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { IGAD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { IGAD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
 import { IGAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { IGAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { IGAD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const uganda: IgadCountry = {
   name: 'Uganda',
@@ -27,6 +31,9 @@ export const uganda: IgadCountry = {
   cryptocurrencyExchanges: ['Binance informal P2P seasonal blocks; Blockchain Association advocacy — informational'],
   stablecoin: 'USDT/USDC informal settlements; Mobile Money predominant — informational',
   domesticCourierServices: IGAD_DOMESTIC_COURIERS['UG'],
+  domesticPostService: IGAD_DOMESTIC_POST_SERVICES['UG'],
+  nationalBankingInstitutions: IGAD_NATIONAL_BANKING_INSTITUTIONS['UG'],
+  corporationFormationOffice: IGAD_CORPORATION_FORMATION_OFFICES['UG'],
   newsOutlets: IGAD_NEWS_OUTLETS['UG'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['UG'],
   mainExportCommodities: IGAD_MAIN_EXPORT_COMMODITIES['UG'],
@@ -35,6 +42,7 @@ export const uganda: IgadCountry = {
   stockExchange: 'Uganda Securities Exchange (USE, thin listings — informational)',
   bondMarkets: IGAD_BOND_MARKETS['UG'],
   mainInternationalAirport: IGAD_MAIN_INTERNATIONAL_AIRPORTS['UG'],
+  mainInternationalSeaport: IGAD_MAIN_INTERNATIONAL_SEAPORTS['UG'],
   intellectualPropertyDepartments: IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['UG'],
   securitiesExchangeCommission: IGAD_SECURITIES_EXCHANGE_COMMISSIONS['UG'],
 }

@@ -1,5 +1,8 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { RCEP_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { RCEP_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { RCEP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { RCEP_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const brunei: RcepCountry = {
   name: 'Brunei',
@@ -28,6 +32,9 @@ export const brunei: RcepCountry = {
   cryptocurrencyExchanges: ['Autoriti Monetari Brunei cautious; regional OTC — informational'],
   stablecoin: 'BND monetary board; informal USD-stable — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['BN'],
+  domesticPostService: RCEP_DOMESTIC_POST_SERVICES['BN'],
+  nationalBankingInstitutions: RCEP_NATIONAL_BANKING_INSTITUTIONS['BN'],
+  corporationFormationOffice: RCEP_CORPORATION_FORMATION_OFFICES['BN'],
   newsOutlets: RCEP_NEWS_OUTLETS['BN'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['BN'],
   mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['BN'],
@@ -36,6 +43,7 @@ export const brunei: RcepCountry = {
   stockExchange: 'No dedicated national exchange consolidated; regional ECM context — informational',
   bondMarkets: RCEP_BOND_MARKETS['BN'],
   mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['BN'],
+  mainInternationalSeaport: RCEP_MAIN_INTERNATIONAL_SEAPORTS['BN'],
   intellectualPropertyDepartments: RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS['BN'],
   securitiesExchangeCommission: RCEP_SECURITIES_EXCHANGE_COMMISSIONS['BN'],
 }

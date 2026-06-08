@@ -1,5 +1,8 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMESA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMESA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMESA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const democraticRepublicOfTheCongo: ComesaCountry = {
   name: 'Democratic Republic of the Congo',
@@ -26,6 +30,9 @@ export const democraticRepublicOfTheCongo: ComesaCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC widespread P2P',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['CD'],
+  domesticPostService: COMESA_DOMESTIC_POST_SERVICES['CD'],
+  nationalBankingInstitutions: COMESA_NATIONAL_BANKING_INSTITUTIONS['CD'],
+  corporationFormationOffice: COMESA_CORPORATION_FORMATION_OFFICES['CD'],
   newsOutlets: COMESA_NEWS_OUTLETS['CD'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['CD'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['CD'],
@@ -36,4 +43,5 @@ export const democraticRepublicOfTheCongo: ComesaCountry = {
   intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['CD'],
   securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['CD'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['CD'],
+  mainInternationalSeaport: COMESA_MAIN_INTERNATIONAL_SEAPORTS['CD'],
 }

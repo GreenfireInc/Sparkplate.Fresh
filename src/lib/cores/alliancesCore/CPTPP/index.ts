@@ -3,12 +3,19 @@ export type {
   CptppCountry,
   CptppOrganizationInfo,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   IntellectualPropertyDepartment,
   IntellectualPropertyDepartmentKind,
   IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,  RareEarths,
@@ -16,6 +23,10 @@ export type {
 } from './types'
 export { CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { CPTPP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { CPTPP_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { CPTPP_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { CPTPP_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { CPTPP_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 
 import type { CptppCountry, CptppOrganizationInfo } from './types'
 import { CPTPP_MEMBER_ISO_CODES } from './cptppMemberIsoCodes'

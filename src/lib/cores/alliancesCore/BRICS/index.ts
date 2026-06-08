@@ -3,12 +3,19 @@ export type {
   BricsMembership,
   BricsOrganizationInfo,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   IntellectualPropertyDepartment,
   IntellectualPropertyDepartmentKind,
   IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,
@@ -17,6 +24,10 @@ export type {
 } from './types'
 export { BRICS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { BRICS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { BRICS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { BRICS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { BRICS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { BRICS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 export { BRICS_MEMBER_ISO_CODES } from './bricsMemberIsoCodes'
 export type { BricsMemberIsoCode } from './bricsMemberIsoCodes'
 

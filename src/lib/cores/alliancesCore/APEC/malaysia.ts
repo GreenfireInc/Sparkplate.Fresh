@@ -1,5 +1,8 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { APEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { APEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { APEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const malaysia: ApecCountry = {
   name: 'Malaysia',
@@ -28,6 +32,9 @@ export const malaysia: ApecCountry = {
   cryptocurrencyExchanges: ['SC regulated digital-exchange pilots — informational'],
   stablecoin: 'MYR digital bank experimentation — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['MY'],
+  domesticPostService: APEC_DOMESTIC_POST_SERVICES['MY'],
+  nationalBankingInstitutions: APEC_NATIONAL_BANKING_INSTITUTIONS['MY'],
+  corporationFormationOffice: APEC_CORPORATION_FORMATION_OFFICES['MY'],
   newsOutlets: APEC_NEWS_OUTLETS['MY'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['MY'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['MY'],
@@ -38,4 +45,5 @@ export const malaysia: ApecCountry = {
   intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['MY'],
   securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['MY'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['MY'],
+  mainInternationalSeaport: APEC_MAIN_INTERNATIONAL_SEAPORTS['MY'],
 }

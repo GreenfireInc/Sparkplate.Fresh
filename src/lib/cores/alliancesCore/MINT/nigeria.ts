@@ -1,5 +1,8 @@
 import type { MintCountry } from './types'
 import { MINT_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { MINT_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { MINT_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { MINT_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { MINT_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MINT_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { MINT_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { MINT_BOND_MARKETS } from './bondMarketsByIso'
 import { MINT_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { MINT_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { MINT_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { MINT_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const nigeria: MintCountry = {
   name: 'Nigeria',
@@ -28,6 +32,9 @@ export const nigeria: MintCountry = {
   cryptocurrencyExchanges: ['SEC cautious licensing; Patricia / regional P2P with CBN overlays — informational'],
   stablecoin: 'CBN e-Naira experimentation; informal USDT pricing — informational',
   domesticCourierServices: MINT_DOMESTIC_COURIERS['NG'],
+  domesticPostService: MINT_DOMESTIC_POST_SERVICES['NG'],
+  nationalBankingInstitutions: MINT_NATIONAL_BANKING_INSTITUTIONS['NG'],
+  corporationFormationOffice: MINT_CORPORATION_FORMATION_OFFICES['NG'],
   newsOutlets: MINT_NEWS_OUTLETS['NG'],
   notableUniversities: MINT_NOTABLE_UNIVERSITIES['NG'],
   mainExportCommodities: MINT_MAIN_EXPORT_COMMODITIES['NG'],
@@ -36,6 +43,7 @@ export const nigeria: MintCountry = {
   stockExchange: 'Nigerian Exchange Group NGX (Lagos equities)',
   bondMarkets: MINT_BOND_MARKETS['NG'],
   mainInternationalAirport: MINT_MAIN_INTERNATIONAL_AIRPORTS['NG'],
+  mainInternationalSeaport: MINT_MAIN_INTERNATIONAL_SEAPORTS['NG'],
   intellectualPropertyDepartments: MINT_INTELLECTUAL_PROPERTY_DEPARTMENTS['NG'],
   securitiesExchangeCommission: MINT_SECURITIES_EXCHANGE_COMMISSIONS['NG'],
 }

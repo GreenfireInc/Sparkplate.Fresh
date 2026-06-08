@@ -1,5 +1,8 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMESA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMESA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMESA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const sudan: ComesaCountry = {
   name: 'Sudan',
@@ -26,6 +30,9 @@ export const sudan: ComesaCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'OTC; informal amid conflict'],
   stablecoin: 'USDT informal; banking disruption during conflict',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['SD'],
+  domesticPostService: COMESA_DOMESTIC_POST_SERVICES['SD'],
+  nationalBankingInstitutions: COMESA_NATIONAL_BANKING_INSTITUTIONS['SD'],
+  corporationFormationOffice: COMESA_CORPORATION_FORMATION_OFFICES['SD'],
   newsOutlets: COMESA_NEWS_OUTLETS['SD'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['SD'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['SD'],
@@ -36,4 +43,5 @@ export const sudan: ComesaCountry = {
   intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['SD'],
   securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['SD'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['SD'],
+  mainInternationalSeaport: COMESA_MAIN_INTERNATIONAL_SEAPORTS['SD'],
 }

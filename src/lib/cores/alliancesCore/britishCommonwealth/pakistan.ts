@@ -1,5 +1,8 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMMONWEALTH_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMMONWEALTH_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -8,6 +11,7 @@ import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 import { COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMMONWEALTH_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const pakistan: CommonwealthCountry = {
   name: 'Pakistan',
@@ -26,6 +30,9 @@ export const pakistan: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC'],
   stablecoin: 'USDT informal; no major PKR stablecoin',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['PK'],
+  domesticPostService: COMMONWEALTH_DOMESTIC_POST_SERVICES['PK'],
+  nationalBankingInstitutions: COMMONWEALTH_NATIONAL_BANKING_INSTITUTIONS['PK'],
+  corporationFormationOffice: COMMONWEALTH_CORPORATION_FORMATION_OFFICES['PK'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['PK'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['PK'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['PK'],
@@ -35,4 +42,5 @@ export const pakistan: CommonwealthCountry = {
   intellectualPropertyDepartments: COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS['PK'],
   securitiesExchangeCommission: COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS['PK'],
   mainInternationalAirport: COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS['PK'],
+  mainInternationalSeaport: COMMONWEALTH_MAIN_INTERNATIONAL_SEAPORTS['PK'],
 }

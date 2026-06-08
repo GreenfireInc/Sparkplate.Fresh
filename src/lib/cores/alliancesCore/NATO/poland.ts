@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const poland: NatoCountry = {
   name: 'Poland',
@@ -27,6 +31,9 @@ export const poland: NatoCountry = {
   cryptocurrencyExchanges: ['Zonda (BitBay legacy)', 'MiCA passport — informational'],
   stablecoin: 'PLN pairs; EUR-stable common — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['PL'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['PL'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['PL'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['PL'],
   newsOutlets: NATO_NEWS_OUTLETS['PL'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['PL'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['PL'],
@@ -35,6 +42,7 @@ export const poland: NatoCountry = {
   stockExchange: 'Warsaw Stock Exchange (GPW)',
   bondMarkets: NATO_BOND_MARKETS['PL'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['PL'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['PL'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['PL'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['PL'],
 }

@@ -1,5 +1,8 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { EU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { EU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { EU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const spain: EuCountry = {
   name: 'Spain',
@@ -26,6 +30,9 @@ export const spain: EuCountry = {
   cryptocurrencyExchanges: ['Bit2Me', 'European MiCA registry ES CNMV'],
   stablecoin: 'EUR stablecoins; Iberian liquidity',
   domesticCourierServices: EU_DOMESTIC_COURIERS['ES'],
+  domesticPostService: EU_DOMESTIC_POST_SERVICES['ES'],
+  nationalBankingInstitutions: EU_NATIONAL_BANKING_INSTITUTIONS['ES'],
+  corporationFormationOffice: EU_CORPORATION_FORMATION_OFFICES['ES'],
   newsOutlets: EU_NEWS_OUTLETS['ES'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['ES'],
   mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['ES'],
@@ -37,4 +44,5 @@ export const spain: EuCountry = {
 
   securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['ES'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['ES'],
+  mainInternationalSeaport: EU_MAIN_INTERNATIONAL_SEAPORTS['ES'],
 }

@@ -3,12 +3,19 @@ export type {
   AseanOrganizationInfo,
   BondMarketVenue,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   IntellectualPropertyDepartment,
   IntellectualPropertyDepartmentKind,
   IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
@@ -17,6 +24,10 @@ export type {
 } from './types'
 export { ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { ASEAN_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { ASEAN_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { ASEAN_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { ASEAN_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { ASEAN_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 export { ASEAN_MEMBER_ISO_CODES } from './aseanMemberIsoCodes'
 export type { AseanMemberIsoCode } from './aseanMemberIsoCodes'
 

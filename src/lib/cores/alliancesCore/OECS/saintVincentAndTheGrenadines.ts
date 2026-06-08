@@ -1,5 +1,8 @@
 import type { OecsCountry } from './types'
 import { OECS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECS_BOND_MARKETS } from './bondMarketsByIso'
 import { OECS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const saintVincentAndTheGrenadines: OecsCountry = {
   name: 'Saint Vincent and the Grenadines',
@@ -27,6 +31,9 @@ export const saintVincentAndTheGrenadines: OecsCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'CBDC pilot narratives (ECCB regional) — informational'],
   stablecoin: 'XCD peg; informal USDT — informational',
   domesticCourierServices: OECS_DOMESTIC_COURIERS['VC'],
+  domesticPostService: OECS_DOMESTIC_POST_SERVICES['VC'],
+  nationalBankingInstitutions: OECS_NATIONAL_BANKING_INSTITUTIONS['VC'],
+  corporationFormationOffice: OECS_CORPORATION_FORMATION_OFFICES['VC'],
   newsOutlets: OECS_NEWS_OUTLETS['VC'],
   notableUniversities: OECS_NOTABLE_UNIVERSITIES['VC'],
   mainExportCommodities: OECS_MAIN_EXPORT_COMMODITIES['VC'],
@@ -35,6 +42,7 @@ export const saintVincentAndTheGrenadines: OecsCountry = {
   stockExchange: 'Eastern Caribbean Securities Exchange (ECSE)',
   bondMarkets: OECS_BOND_MARKETS['VC'],
   mainInternationalAirport: OECS_MAIN_INTERNATIONAL_AIRPORTS['VC'],
+  mainInternationalSeaport: OECS_MAIN_INTERNATIONAL_SEAPORTS['VC'],
   intellectualPropertyDepartments: OECS_INTELLECTUAL_PROPERTY_DEPARTMENTS['VC'],
   securitiesExchangeCommission: OECS_SECURITIES_EXCHANGE_COMMISSIONS['VC'],
 }

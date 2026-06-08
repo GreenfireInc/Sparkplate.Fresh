@@ -1,5 +1,8 @@
 import type { FiveEyesCountry } from './types'
 import { FIVE_EYES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { FIVE_EYES_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { FIVE_EYES_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { FIVE_EYES_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { FIVE_EYES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { FIVE_EYES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { FIVE_EYES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { FIVE_EYES_BOND_MARKETS } from './bondMarketsByIso'
 import { FIVE_EYES_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { FIVE_EYES_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { FIVE_EYES_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { FIVE_EYES_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const unitedKingdom: FiveEyesCountry = {
   name: 'United Kingdom',
@@ -28,6 +32,9 @@ export const unitedKingdom: FiveEyesCountry = {
   cryptocurrencyExchanges: ['Coinbase e-money UK', 'Kraken entities', 'FCA-register context — informational'],
   stablecoin: 'GBP stablecoins under evolving UK PSD3/cryptoasset regime — informational',
   domesticCourierServices: FIVE_EYES_DOMESTIC_COURIERS['GB'],
+  domesticPostService: FIVE_EYES_DOMESTIC_POST_SERVICES['GB'],
+  nationalBankingInstitutions: FIVE_EYES_NATIONAL_BANKING_INSTITUTIONS['GB'],
+  corporationFormationOffice: FIVE_EYES_CORPORATION_FORMATION_OFFICES['GB'],
   newsOutlets: FIVE_EYES_NEWS_OUTLETS['GB'],
   notableUniversities: FIVE_EYES_NOTABLE_UNIVERSITIES['GB'],
   mainExportCommodities: FIVE_EYES_MAIN_EXPORT_COMMODITIES['GB'],
@@ -39,4 +46,5 @@ export const unitedKingdom: FiveEyesCountry = {
 
   securitiesExchangeCommission: FIVE_EYES_SECURITIES_EXCHANGE_COMMISSIONS['GB'],
   mainInternationalAirport: FIVE_EYES_MAIN_INTERNATIONAL_AIRPORTS['GB'],
+  mainInternationalSeaport: FIVE_EYES_MAIN_INTERNATIONAL_SEAPORTS['GB'],
 }

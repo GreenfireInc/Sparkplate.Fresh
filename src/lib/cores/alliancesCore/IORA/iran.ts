@@ -1,5 +1,8 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { IORA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { IORA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { IORA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const iran: IoraCountry = {
   name: 'Iran',
@@ -27,6 +31,9 @@ export const iran: IoraCountry = {
   cryptocurrencyExchanges: ['Sanction-screened mining / informal trade — informational'],
   stablecoin: 'USD informal parallel rate settlement — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['IR'],
+  domesticPostService: IORA_DOMESTIC_POST_SERVICES['IR'],
+  nationalBankingInstitutions: IORA_NATIONAL_BANKING_INSTITUTIONS['IR'],
+  corporationFormationOffice: IORA_CORPORATION_FORMATION_OFFICES['IR'],
   newsOutlets: IORA_NEWS_OUTLETS['IR'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['IR'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['IR'],
@@ -35,6 +42,7 @@ export const iran: IoraCountry = {
   stockExchange: 'Tehran Stock Exchange',
   bondMarkets: IORA_BOND_MARKETS['IR'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['IR'],
+  mainInternationalSeaport: IORA_MAIN_INTERNATIONAL_SEAPORTS['IR'],
   intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['IR'],
   securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['IR'],
 }

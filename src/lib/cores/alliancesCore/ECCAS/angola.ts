@@ -1,5 +1,8 @@
 import type { EccasCountry } from './types'
 import { ECCAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECCAS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ECCAS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ECCAS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ECCAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECCAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECCAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ECCAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECCAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ECCAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ECCAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ECCAS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const angola: EccasCountry = {
   name: 'Angola',
@@ -26,6 +30,9 @@ export const angola: EccasCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Local OTC'],
   stablecoin: 'USDT / USDC via P2P; no dominant AOA stablecoin',
   domesticCourierServices: ECCAS_DOMESTIC_COURIERS['AO'],
+  domesticPostService: ECCAS_DOMESTIC_POST_SERVICES['AO'],
+  nationalBankingInstitutions: ECCAS_NATIONAL_BANKING_INSTITUTIONS['AO'],
+  corporationFormationOffice: ECCAS_CORPORATION_FORMATION_OFFICES['AO'],
   newsOutlets: ECCAS_NEWS_OUTLETS['AO'],
   notableUniversities: ECCAS_NOTABLE_UNIVERSITIES['AO'],
   mainExportCommodities: ECCAS_MAIN_EXPORT_COMMODITIES['AO'],
@@ -37,4 +44,5 @@ export const angola: EccasCountry = {
 
   securitiesExchangeCommission: ECCAS_SECURITIES_EXCHANGE_COMMISSIONS['AO'],
   mainInternationalAirport: ECCAS_MAIN_INTERNATIONAL_AIRPORTS['AO'],
+  mainInternationalSeaport: ECCAS_MAIN_INTERNATIONAL_SEAPORTS['AO'],
 }

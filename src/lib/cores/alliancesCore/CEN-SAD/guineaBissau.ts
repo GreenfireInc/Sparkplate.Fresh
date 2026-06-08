@@ -1,5 +1,8 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CENSAD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CENSAD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CENSAD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const guineaBissau: CensadCountry = {
   name: 'Guinea-Bissau',
@@ -26,6 +30,9 @@ export const guineaBissau: CensadCountry = {
   cryptocurrencyExchanges: ['Informal regional P2P'],
   stablecoin: 'USDT informal; CFA peg',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['GW'],
+  domesticPostService: CENSAD_DOMESTIC_POST_SERVICES['GW'],
+  nationalBankingInstitutions: CENSAD_NATIONAL_BANKING_INSTITUTIONS['GW'],
+  corporationFormationOffice: CENSAD_CORPORATION_FORMATION_OFFICES['GW'],
   newsOutlets: CENSAD_NEWS_OUTLETS['GW'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['GW'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['GW'],
@@ -36,4 +43,5 @@ export const guineaBissau: CensadCountry = {
   intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['GW'],
   securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['GW'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['GW'],
+  mainInternationalSeaport: CENSAD_MAIN_INTERNATIONAL_SEAPORTS['GW'],
 }

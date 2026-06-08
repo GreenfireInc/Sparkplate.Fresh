@@ -1,5 +1,8 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const benin: AfricanUnionCountry = {
   name: 'Benin',
   iso3166Alpha2: 'BJ',
@@ -26,6 +30,9 @@ export const benin: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local brokers'],
   stablecoin: 'USDT common in informal trade; XOF pegged to euro via CFA',
   domesticCourierServices: AU_DOMESTIC_COURIERS['BJ'],
+  domesticPostService: AU_DOMESTIC_POST_SERVICES['BJ'],
+  nationalBankingInstitutions: AU_NATIONAL_BANKING_INSTITUTIONS['BJ'],
+  corporationFormationOffice: AU_CORPORATION_FORMATION_OFFICES['BJ'],
   newsOutlets: AU_NEWS_OUTLETS['BJ'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['BJ'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['BJ'],
@@ -36,4 +43,5 @@ export const benin: AfricanUnionCountry = {
   intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['BJ'],
   securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['BJ'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['BJ'],
+  mainInternationalSeaport: AU_MAIN_INTERNATIONAL_SEAPORTS['BJ'],
 }

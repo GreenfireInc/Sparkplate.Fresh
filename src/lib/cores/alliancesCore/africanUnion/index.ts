@@ -4,20 +4,31 @@ export type {
   AfricanUnionOrganizationInfo,
   BondMarketVenue,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   IntellectualPropertyDepartment,
   IntellectualPropertyDepartmentKind,
   IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  CustomsOffice,
   NewsOutlet,
   NewsOutletsRoster,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
   NotableUniversity,
   RareEarths,
   SecuritiesExchangeCommission,
 } from './types'
 export { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { AU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { AU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { AU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { AU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 export { AU_MEMBER_ISO_CODES } from './auMemberIsoCodes'
 export type { AuMemberIsoCode } from './auMemberIsoCodes'
 

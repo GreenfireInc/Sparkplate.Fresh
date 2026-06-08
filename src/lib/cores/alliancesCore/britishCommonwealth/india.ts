@@ -1,5 +1,8 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMMONWEALTH_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMMONWEALTH_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -8,6 +11,7 @@ import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 import { COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMMONWEALTH_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const india: CommonwealthCountry = {
   name: 'India',
@@ -26,6 +30,9 @@ export const india: CommonwealthCountry = {
   cryptocurrencyExchanges: ['CoinDCX', 'WazirX', 'ZebPay'],
   stablecoin: 'No INR retail CBDC at scale; USDT on global platforms',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['IN'],
+  domesticPostService: COMMONWEALTH_DOMESTIC_POST_SERVICES['IN'],
+  nationalBankingInstitutions: COMMONWEALTH_NATIONAL_BANKING_INSTITUTIONS['IN'],
+  corporationFormationOffice: COMMONWEALTH_CORPORATION_FORMATION_OFFICES['IN'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['IN'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['IN'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['IN'],
@@ -35,4 +42,5 @@ export const india: CommonwealthCountry = {
   intellectualPropertyDepartments: COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS['IN'],
   securitiesExchangeCommission: COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS['IN'],
   mainInternationalAirport: COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS['IN'],
+  mainInternationalSeaport: COMMONWEALTH_MAIN_INTERNATIONAL_SEAPORTS['IN'],
 }

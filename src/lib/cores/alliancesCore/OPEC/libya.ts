@@ -1,5 +1,8 @@
 import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OPEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OPEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OPEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OPEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OPEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const libya: OpecCountry = {
   name: 'Libya',
@@ -28,6 +32,9 @@ export const libya: OpecCountry = {
   cryptocurrencyExchanges: ['Infrastructure disruption; OTC informal miners reported — informational'],
   stablecoin: 'USD informal oil settlement references — informational',
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['LY'],
+  domesticPostService: OPEC_DOMESTIC_POST_SERVICES['LY'],
+  nationalBankingInstitutions: OPEC_NATIONAL_BANKING_INSTITUTIONS['LY'],
+  corporationFormationOffice: OPEC_CORPORATION_FORMATION_OFFICES['LY'],
   newsOutlets: OPEC_NEWS_OUTLETS['LY'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['LY'],
   mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['LY'],
@@ -36,6 +43,7 @@ export const libya: OpecCountry = {
   stockExchange: 'Libyan Stock Market operational disruption narratives — informational',
   bondMarkets: OPEC_BOND_MARKETS['LY'],
   mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['LY'],
+  mainInternationalSeaport: OPEC_MAIN_INTERNATIONAL_SEAPORTS['LY'],
   intellectualPropertyDepartments: OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['LY'],
   securitiesExchangeCommission: OPEC_SECURITIES_EXCHANGE_COMMISSIONS['LY'],
 }

@@ -1,5 +1,8 @@
 import type { IgadCountry } from './types'
 import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IGAD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { IGAD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { IGAD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
 import { IGAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { IGAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { IGAD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const djibouti: IgadCountry = {
   name: 'Djibouti',
@@ -27,6 +31,9 @@ export const djibouti: IgadCountry = {
   cryptocurrencyExchanges: ['Regional remittance OTC; DFS regulation evolution — informational'],
   stablecoin: 'USD-stable informal settlement (port/finance-city economy — informational)',
   domesticCourierServices: IGAD_DOMESTIC_COURIERS['DJ'],
+  domesticPostService: IGAD_DOMESTIC_POST_SERVICES['DJ'],
+  nationalBankingInstitutions: IGAD_NATIONAL_BANKING_INSTITUTIONS['DJ'],
+  corporationFormationOffice: IGAD_CORPORATION_FORMATION_OFFICES['DJ'],
   newsOutlets: IGAD_NEWS_OUTLETS['DJ'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['DJ'],
   mainExportCommodities: IGAD_MAIN_EXPORT_COMMODITIES['DJ'],
@@ -35,6 +42,7 @@ export const djibouti: IgadCountry = {
   stockExchange: 'Djibouti Stock Exchange (thin liquidity; sovereign development narrative — informational)',
   bondMarkets: IGAD_BOND_MARKETS['DJ'],
   mainInternationalAirport: IGAD_MAIN_INTERNATIONAL_AIRPORTS['DJ'],
+  mainInternationalSeaport: IGAD_MAIN_INTERNATIONAL_SEAPORTS['DJ'],
   intellectualPropertyDepartments: IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['DJ'],
   securitiesExchangeCommission: IGAD_SECURITIES_EXCHANGE_COMMISSIONS['DJ'],
 }

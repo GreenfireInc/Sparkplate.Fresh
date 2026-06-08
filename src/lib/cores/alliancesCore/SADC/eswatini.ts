@@ -1,5 +1,8 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { SADC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { SADC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 import { SADC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { SADC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { SADC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const eswatini: SadcCountry = {
   name: 'Eswatini',
@@ -26,6 +30,9 @@ export const eswatini: SadcCountry = {
   cryptocurrencyExchanges: ['Informal P2P; formal regime limited'],
   stablecoin: 'Rand peg context; informal USDT',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['SZ'],
+  domesticPostService: SADC_DOMESTIC_POST_SERVICES['SZ'],
+  nationalBankingInstitutions: SADC_NATIONAL_BANKING_INSTITUTIONS['SZ'],
+  corporationFormationOffice: SADC_CORPORATION_FORMATION_OFFICES['SZ'],
   newsOutlets: SADC_NEWS_OUTLETS['SZ'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['SZ'],
   mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['SZ'],
@@ -34,6 +41,7 @@ export const eswatini: SadcCountry = {
   stockExchange: 'Eswatini Stock Exchange — verify liquidity',
   bondMarkets: SADC_BOND_MARKETS['SZ'],
   mainInternationalAirport: SADC_MAIN_INTERNATIONAL_AIRPORTS['SZ'],
+  mainInternationalSeaport: SADC_MAIN_INTERNATIONAL_SEAPORTS['SZ'],
   intellectualPropertyDepartments: SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS['SZ'],
   securitiesExchangeCommission: SADC_SECURITIES_EXCHANGE_COMMISSIONS['SZ'],
 }

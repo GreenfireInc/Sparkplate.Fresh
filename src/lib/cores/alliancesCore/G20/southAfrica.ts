@@ -1,5 +1,8 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const southAfrica: G20Country = {
   name: 'South Africa',
@@ -28,6 +32,9 @@ export const southAfrica: G20Country = {
   cryptocurrencyExchanges: ['Luno', 'VALR', 'AltCoinTrader / FSCA CASP licensing regime — informational'],
   stablecoin: 'ZARP (rand-pegged) issuance niche; SARB Project Khokha wholesale settlement experiments — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['ZA'],
+  domesticPostService: G20_DOMESTIC_POST_SERVICES['ZA'],
+  nationalBankingInstitutions: G20_NATIONAL_BANKING_INSTITUTIONS['ZA'],
+  corporationFormationOffice: G20_CORPORATION_FORMATION_OFFICES['ZA'],
   newsOutlets: G20_NEWS_OUTLETS['ZA'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['ZA'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['ZA'],
@@ -36,6 +43,7 @@ export const southAfrica: G20Country = {
   stockExchange: 'Johannesburg Stock Exchange (JSE)',
   bondMarkets: G20_BOND_MARKETS['ZA'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['ZA'],
+  mainInternationalSeaport: G20_MAIN_INTERNATIONAL_SEAPORTS['ZA'],
   intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['ZA'],
   securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['ZA'],
 }

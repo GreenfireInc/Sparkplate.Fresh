@@ -1,5 +1,8 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const estonia: OecdCountry = {
   name: 'Estonia',
@@ -27,6 +31,9 @@ export const estonia: OecdCountry = {
   cryptocurrencyExchanges: ['EU CASPs onboarding; Startup Estonia narratives — informational'],
   stablecoin: 'EUR stablecoins; digital euro preparedness — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['EE'],
+  domesticPostService: OECD_DOMESTIC_POST_SERVICES['EE'],
+  nationalBankingInstitutions: OECD_NATIONAL_BANKING_INSTITUTIONS['EE'],
+  corporationFormationOffice: OECD_CORPORATION_FORMATION_OFFICES['EE'],
   newsOutlets: OECD_NEWS_OUTLETS['EE'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['EE'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['EE'],
@@ -35,6 +42,7 @@ export const estonia: OecdCountry = {
   stockExchange: 'Nasdaq Tallinn',
   bondMarkets: OECD_BOND_MARKETS['EE'],
   mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['EE'],
+  mainInternationalSeaport: OECD_MAIN_INTERNATIONAL_SEAPORTS['EE'],
   intellectualPropertyDepartments: OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS['EE'],
   securitiesExchangeCommission: OECD_SECURITIES_EXCHANGE_COMMISSIONS['EE'],
 }

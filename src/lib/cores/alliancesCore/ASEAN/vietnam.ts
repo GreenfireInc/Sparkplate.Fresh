@@ -1,5 +1,8 @@
 import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ASEAN_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ASEAN_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ASEAN_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
 import { ASEAN_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ASEAN_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ASEAN_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const vietnam: AseanCountry = {
   name: 'Vietnam',
@@ -29,6 +33,9 @@ export const vietnam: AseanCountry = {
   cryptocurrencyExchanges: ['State prohibition retail crypto trading; OTC informal — informational'],
   stablecoin: 'State bank pilot digital currency narratives; predominately VND fiat — informational',
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['VN'],
+  domesticPostService: ASEAN_DOMESTIC_POST_SERVICES['VN'],
+  nationalBankingInstitutions: ASEAN_NATIONAL_BANKING_INSTITUTIONS['VN'],
+  corporationFormationOffice: ASEAN_CORPORATION_FORMATION_OFFICES['VN'],
   newsOutlets: ASEAN_NEWS_OUTLETS['VN'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['VN'],
   mainExportCommodities: ASEAN_MAIN_EXPORT_COMMODITIES['VN'],
@@ -39,4 +46,5 @@ export const vietnam: AseanCountry = {
   intellectualPropertyDepartments: ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS['VN'],
   securitiesExchangeCommission: ASEAN_SECURITIES_EXCHANGE_COMMISSIONS['VN'],
   mainInternationalAirport: ASEAN_MAIN_INTERNATIONAL_AIRPORTS['VN'],
+  mainInternationalSeaport: ASEAN_MAIN_INTERNATIONAL_SEAPORTS['VN'],
 }

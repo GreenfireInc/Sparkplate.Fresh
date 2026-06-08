@@ -1,5 +1,8 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { RCEP_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { RCEP_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { RCEP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { RCEP_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const australia: RcepCountry = {
   name: 'Australia',
@@ -27,6 +31,9 @@ export const australia: RcepCountry = {
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'CoinSpot ASIC context — informational'],
   stablecoin: 'AUD stablecoins; Treasury/ASIC evolution — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['AU'],
+  domesticPostService: RCEP_DOMESTIC_POST_SERVICES['AU'],
+  nationalBankingInstitutions: RCEP_NATIONAL_BANKING_INSTITUTIONS['AU'],
+  corporationFormationOffice: RCEP_CORPORATION_FORMATION_OFFICES['AU'],
   newsOutlets: RCEP_NEWS_OUTLETS['AU'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['AU'],
   mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['AU'],
@@ -35,6 +42,7 @@ export const australia: RcepCountry = {
   stockExchange: 'Australian Securities Exchange (ASX)',
   bondMarkets: RCEP_BOND_MARKETS['AU'],
   mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['AU'],
+  mainInternationalSeaport: RCEP_MAIN_INTERNATIONAL_SEAPORTS['AU'],
   intellectualPropertyDepartments: RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS['AU'],
   securitiesExchangeCommission: RCEP_SECURITIES_EXCHANGE_COMMISSIONS['AU'],
 }

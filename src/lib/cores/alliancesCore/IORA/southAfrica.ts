@@ -1,5 +1,8 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { IORA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { IORA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { IORA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const southAfrica: IoraCountry = {
   name: 'South Africa',
@@ -27,6 +31,9 @@ export const southAfrica: IoraCountry = {
   cryptocurrencyExchanges: ['Luno RSA onboarding; FSCA crypto-asset licences — informational'],
   stablecoin: 'ZAR thin digital issuance; OTC USDT overlays — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['ZA'],
+  domesticPostService: IORA_DOMESTIC_POST_SERVICES['ZA'],
+  nationalBankingInstitutions: IORA_NATIONAL_BANKING_INSTITUTIONS['ZA'],
+  corporationFormationOffice: IORA_CORPORATION_FORMATION_OFFICES['ZA'],
   newsOutlets: IORA_NEWS_OUTLETS['ZA'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['ZA'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['ZA'],
@@ -35,6 +42,7 @@ export const southAfrica: IoraCountry = {
   stockExchange: 'Johannesburg Stock Exchange JSE',
   bondMarkets: IORA_BOND_MARKETS['ZA'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['ZA'],
+  mainInternationalSeaport: IORA_MAIN_INTERNATIONAL_SEAPORTS['ZA'],
   intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['ZA'],
   securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['ZA'],
 }

@@ -4,12 +4,19 @@ export type {
   AmuOrganizationInfo,
   BondMarketVenue,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   IntellectualPropertyDepartment,
   IntellectualPropertyDepartmentKind,
   IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NewsOutlet,
   NewsOutletsRoster,
   NotableUniversity,
@@ -18,6 +25,10 @@ export type {
 } from './types'
 export { AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { AMU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { AMU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { AMU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { AMU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { AMU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 export { AMU_MEMBER_ISO_CODES } from './amuMemberIsoCodes'
 export type { AmuMemberIsoCode } from './amuMemberIsoCodes'
 

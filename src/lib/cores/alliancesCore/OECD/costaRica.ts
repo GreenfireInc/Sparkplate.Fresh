@@ -1,5 +1,8 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const costaRica: OecdCountry = {
   name: 'Costa Rica',
@@ -27,6 +31,9 @@ export const costaRica: OecdCountry = {
   cryptocurrencyExchanges: ['Retail fiat ramps; banking-sector supervision overlays — informational'],
   stablecoin: 'USD-stable predominant; CB digital payment pilots — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['CR'],
+  domesticPostService: OECD_DOMESTIC_POST_SERVICES['CR'],
+  nationalBankingInstitutions: OECD_NATIONAL_BANKING_INSTITUTIONS['CR'],
+  corporationFormationOffice: OECD_CORPORATION_FORMATION_OFFICES['CR'],
   newsOutlets: OECD_NEWS_OUTLETS['CR'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['CR'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['CR'],
@@ -35,6 +42,7 @@ export const costaRica: OecdCountry = {
   stockExchange: 'Bolsa Nacional de Valores (BNV Costa Rica)',
   bondMarkets: OECD_BOND_MARKETS['CR'],
   mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['CR'],
+  mainInternationalSeaport: OECD_MAIN_INTERNATIONAL_SEAPORTS['CR'],
   intellectualPropertyDepartments: OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS['CR'],
   securitiesExchangeCommission: OECD_SECURITIES_EXCHANGE_COMMISSIONS['CR'],
 }

@@ -1,5 +1,8 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const australia: OecdCountry = {
   name: 'Australia',
@@ -27,6 +31,9 @@ export const australia: OecdCountry = {
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'CoinSpot (ASIC-regulated context — informational)'],
   stablecoin: 'AUD stablecoins (private); Treasury/ASIC supervisory evolution — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['AU'],
+  domesticPostService: OECD_DOMESTIC_POST_SERVICES['AU'],
+  nationalBankingInstitutions: OECD_NATIONAL_BANKING_INSTITUTIONS['AU'],
+  corporationFormationOffice: OECD_CORPORATION_FORMATION_OFFICES['AU'],
   newsOutlets: OECD_NEWS_OUTLETS['AU'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['AU'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['AU'],
@@ -35,6 +42,7 @@ export const australia: OecdCountry = {
   stockExchange: 'Australian Securities Exchange (ASX, Sydney)',
   bondMarkets: OECD_BOND_MARKETS['AU'],
   mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['AU'],
+  mainInternationalSeaport: OECD_MAIN_INTERNATIONAL_SEAPORTS['AU'],
   intellectualPropertyDepartments: OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS['AU'],
   securitiesExchangeCommission: OECD_SECURITIES_EXCHANGE_COMMISSIONS['AU'],
 }

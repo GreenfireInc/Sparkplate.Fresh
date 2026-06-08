@@ -1,5 +1,8 @@
 import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OPEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OPEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OPEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OPEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OPEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const iraq: OpecCountry = {
   name: 'Iraq',
@@ -28,6 +32,9 @@ export const iraq: OpecCountry = {
   cryptocurrencyExchanges: ['CBI cautious posture; OTC informal dollarisation — informational'],
   stablecoin: 'USD settlement oil exports; IQD volatility — informational',
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['IQ'],
+  domesticPostService: OPEC_DOMESTIC_POST_SERVICES['IQ'],
+  nationalBankingInstitutions: OPEC_NATIONAL_BANKING_INSTITUTIONS['IQ'],
+  corporationFormationOffice: OPEC_CORPORATION_FORMATION_OFFICES['IQ'],
   newsOutlets: OPEC_NEWS_OUTLETS['IQ'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['IQ'],
   mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['IQ'],
@@ -36,6 +43,7 @@ export const iraq: OpecCountry = {
   stockExchange: 'Iraq Stock Exchange Baghdad (liquidity episodic — informational)',
   bondMarkets: OPEC_BOND_MARKETS['IQ'],
   mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['IQ'],
+  mainInternationalSeaport: OPEC_MAIN_INTERNATIONAL_SEAPORTS['IQ'],
   intellectualPropertyDepartments: OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['IQ'],
   securitiesExchangeCommission: OPEC_SECURITIES_EXCHANGE_COMMISSIONS['IQ'],
 }

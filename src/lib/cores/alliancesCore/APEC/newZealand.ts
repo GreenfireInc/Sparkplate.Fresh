@@ -1,5 +1,8 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { APEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { APEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { APEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const newZealand: ApecCountry = {
   name: 'New Zealand',
@@ -27,6 +31,9 @@ export const newZealand: ApecCountry = {
   cryptocurrencyExchanges: ['Easy Crypto FMCA onboarding — informational'],
   stablecoin: 'NZD digital policy evolution Reserve Bank — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['NZ'],
+  domesticPostService: APEC_DOMESTIC_POST_SERVICES['NZ'],
+  nationalBankingInstitutions: APEC_NATIONAL_BANKING_INSTITUTIONS['NZ'],
+  corporationFormationOffice: APEC_CORPORATION_FORMATION_OFFICES['NZ'],
   newsOutlets: APEC_NEWS_OUTLETS['NZ'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['NZ'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['NZ'],
@@ -37,4 +44,5 @@ export const newZealand: ApecCountry = {
   intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['NZ'],
   securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['NZ'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['NZ'],
+  mainInternationalSeaport: APEC_MAIN_INTERNATIONAL_SEAPORTS['NZ'],
 }

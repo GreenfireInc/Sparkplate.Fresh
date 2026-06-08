@@ -1,5 +1,8 @@
 import type { GccCountry } from './types'
 import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { GCC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { GCC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { GCC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { GCC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { GCC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { GCC_BOND_MARKETS } from './bondMarketsByIso'
 import { GCC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { GCC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { GCC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { GCC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const unitedArabEmirates: GccCountry = {
   name: 'United Arab Emirates',
@@ -29,6 +33,9 @@ export const unitedArabEmirates: GccCountry = {
   cryptocurrencyExchanges: ['VARA Dubai regime', 'ADGM FSRA digital-asset licences', 'MENA OTC liquidity — informational'],
   stablecoin: 'AED-referenced issuance (private); CBUAE stablecoin supervisory pilots — informational',
   domesticCourierServices: GCC_DOMESTIC_COURIERS['AE'],
+  domesticPostService: GCC_DOMESTIC_POST_SERVICES['AE'],
+  nationalBankingInstitutions: GCC_NATIONAL_BANKING_INSTITUTIONS['AE'],
+  corporationFormationOffice: GCC_CORPORATION_FORMATION_OFFICES['AE'],
   newsOutlets: GCC_NEWS_OUTLETS['AE'],
   notableUniversities: GCC_NOTABLE_UNIVERSITIES['AE'],
   mainExportCommodities: GCC_MAIN_EXPORT_COMMODITIES['AE'],
@@ -37,6 +44,7 @@ export const unitedArabEmirates: GccCountry = {
   stockExchange: 'Abu Dhabi Securities Exchange (ADX); Dubai Financial Market (DFM)',
   bondMarkets: GCC_BOND_MARKETS['AE'],
   mainInternationalAirport: GCC_MAIN_INTERNATIONAL_AIRPORTS['AE'],
+  mainInternationalSeaport: GCC_MAIN_INTERNATIONAL_SEAPORTS['AE'],
   intellectualPropertyDepartments: GCC_INTELLECTUAL_PROPERTY_DEPARTMENTS['AE'],
   securitiesExchangeCommission: GCC_SECURITIES_EXCHANGE_COMMISSIONS['AE'],
 }

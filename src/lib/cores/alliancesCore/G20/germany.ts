@@ -1,5 +1,8 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const germany: G20Country = {
   name: 'Germany',
@@ -27,6 +31,9 @@ export const germany: G20Country = {
   cryptocurrencyExchanges: ['Bitstamp EU', 'Börse Stuttgart Digital Custody narratives', 'MiCA licences'],
   stablecoin: 'EUR stablecoins; ECB digital euro projects — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['DE'],
+  domesticPostService: G20_DOMESTIC_POST_SERVICES['DE'],
+  nationalBankingInstitutions: G20_NATIONAL_BANKING_INSTITUTIONS['DE'],
+  corporationFormationOffice: G20_CORPORATION_FORMATION_OFFICES['DE'],
   newsOutlets: G20_NEWS_OUTLETS['DE'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['DE'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['DE'],
@@ -35,6 +42,7 @@ export const germany: G20Country = {
   stockExchange: 'Deutsche Börse (Frankfurt)',
   bondMarkets: G20_BOND_MARKETS['DE'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['DE'],
+  mainInternationalSeaport: G20_MAIN_INTERNATIONAL_SEAPORTS['DE'],
   intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['DE'],
   securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['DE'],
 }

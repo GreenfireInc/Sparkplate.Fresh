@@ -1,5 +1,8 @@
 import type { CommonwealthCountry } from './types'
 import { COMMONWEALTH_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMMONWEALTH_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMMONWEALTH_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMMONWEALTH_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMMONWEALTH_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMMONWEALTH_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMMONWEALTH_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -8,6 +11,7 @@ import { COMMONWEALTH_RARE_EARTHS } from './rareEarthsByIso'
 import { COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMMONWEALTH_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const australia: CommonwealthCountry = {
   name: 'Australia',
@@ -26,6 +30,9 @@ export const australia: CommonwealthCountry = {
   cryptocurrencyExchanges: ['Independent Reserve', 'BTC Markets', 'Binance AU'],
   stablecoin: 'AUD stablecoins limited; USDC/USDT common',
   domesticCourierServices: COMMONWEALTH_DOMESTIC_COURIERS['AU'],
+  domesticPostService: COMMONWEALTH_DOMESTIC_POST_SERVICES['AU'],
+  nationalBankingInstitutions: COMMONWEALTH_NATIONAL_BANKING_INSTITUTIONS['AU'],
+  corporationFormationOffice: COMMONWEALTH_CORPORATION_FORMATION_OFFICES['AU'],
   newsOutlets: COMMONWEALTH_NEWS_OUTLETS['AU'],
   notableUniversities: COMMONWEALTH_NOTABLE_UNIVERSITIES['AU'],
   mainExportCommodities: COMMONWEALTH_MAIN_EXPORT_COMMODITIES['AU'],
@@ -35,4 +42,5 @@ export const australia: CommonwealthCountry = {
   intellectualPropertyDepartments: COMMONWEALTH_INTELLECTUAL_PROPERTY_DEPARTMENTS['AU'],
   securitiesExchangeCommission: COMMONWEALTH_SECURITIES_EXCHANGE_COMMISSIONS['AU'],
   mainInternationalAirport: COMMONWEALTH_MAIN_INTERNATIONAL_AIRPORTS['AU'],
+  mainInternationalSeaport: COMMONWEALTH_MAIN_INTERNATIONAL_SEAPORTS['AU'],
 }

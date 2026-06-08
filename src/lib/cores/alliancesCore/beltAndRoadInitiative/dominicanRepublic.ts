@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const dominicanRepublic: BeltAndRoadInitiativeCountry = {
   name: 'Dominican Republic',
   iso3166Alpha2: 'DO',
@@ -26,6 +30,9 @@ export const dominicanRepublic: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: [ 'Binance (P2P)', 'International OTC', 'Local regulation varies' ],
   stablecoin: 'USDT / USDC common globally; legality varies by jurisdiction',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['DO'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['DO'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['DO'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['DO'],
   newsOutlets: BRI_NEWS_OUTLETS['DO'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['DO'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['DO'],
@@ -36,4 +43,5 @@ export const dominicanRepublic: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['DO'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['DO'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['DO'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['DO'],
 }

@@ -1,5 +1,8 @@
 import type { G7Country } from './types'
 import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G7_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G7_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G7_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G7_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G7_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G7_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G7_BOND_MARKETS } from './bondMarketsByIso'
 import { G7_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G7_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G7_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G7_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const unitedStates: G7Country = {
   name: 'United States',
@@ -28,6 +32,9 @@ export const unitedStates: G7Country = {
   cryptocurrencyExchanges: ['Coinbase', 'Kraken', 'Gemini state MSB/licensing patchwork — informational'],
   stablecoin: 'USDT/USDC and USD fiat-backed issuance (federal/stablecoin legislation evolution — informational)',
   domesticCourierServices: G7_DOMESTIC_COURIERS['US'],
+  domesticPostService: G7_DOMESTIC_POST_SERVICES['US'],
+  nationalBankingInstitutions: G7_NATIONAL_BANKING_INSTITUTIONS['US'],
+  corporationFormationOffice: G7_CORPORATION_FORMATION_OFFICES['US'],
   newsOutlets: G7_NEWS_OUTLETS['US'],
   notableUniversities: G7_NOTABLE_UNIVERSITIES['US'],
   mainExportCommodities: G7_MAIN_EXPORT_COMMODITIES['US'],
@@ -36,6 +43,7 @@ export const unitedStates: G7Country = {
   stockExchange: 'NYSE/Nasdaq consolidated US equity liquidity (dual listing customary — informational)',
   bondMarkets: G7_BOND_MARKETS['US'],
   mainInternationalAirport: G7_MAIN_INTERNATIONAL_AIRPORTS['US'],
+  mainInternationalSeaport: G7_MAIN_INTERNATIONAL_SEAPORTS['US'],
   intellectualPropertyDepartments: G7_INTELLECTUAL_PROPERTY_DEPARTMENTS['US'],
   securitiesExchangeCommission: G7_SECURITIES_EXCHANGE_COMMISSIONS['US'],
 }

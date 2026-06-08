@@ -1,5 +1,8 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMESA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMESA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMESA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const kenya: ComesaCountry = {
   name: 'Kenya',
@@ -26,6 +30,9 @@ export const kenya: ComesaCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local startups'],
   stablecoin: 'USDT / USDC; regulatory stance evolving — verify',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['KE'],
+  domesticPostService: COMESA_DOMESTIC_POST_SERVICES['KE'],
+  nationalBankingInstitutions: COMESA_NATIONAL_BANKING_INSTITUTIONS['KE'],
+  corporationFormationOffice: COMESA_CORPORATION_FORMATION_OFFICES['KE'],
   newsOutlets: COMESA_NEWS_OUTLETS['KE'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['KE'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['KE'],
@@ -36,4 +43,5 @@ export const kenya: ComesaCountry = {
   intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['KE'],
   securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['KE'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['KE'],
+  mainInternationalSeaport: COMESA_MAIN_INTERNATIONAL_SEAPORTS['KE'],
 }

@@ -1,5 +1,8 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { APEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { APEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { APEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const unitedStates: ApecCountry = {
   name: 'United States',
@@ -28,6 +32,9 @@ export const unitedStates: ApecCountry = {
   cryptocurrencyExchanges: ['Coinbase Kraken Gemini regulatory patchwork — informational'],
   stablecoin: 'USDT USDC fiat-backed issuance congressional evolution — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['US'],
+  domesticPostService: APEC_DOMESTIC_POST_SERVICES['US'],
+  nationalBankingInstitutions: APEC_NATIONAL_BANKING_INSTITUTIONS['US'],
+  corporationFormationOffice: APEC_CORPORATION_FORMATION_OFFICES['US'],
   newsOutlets: APEC_NEWS_OUTLETS['US'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['US'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['US'],
@@ -38,4 +45,5 @@ export const unitedStates: ApecCountry = {
   intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['US'],
   securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['US'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['US'],
+  mainInternationalSeaport: APEC_MAIN_INTERNATIONAL_SEAPORTS['US'],
 }

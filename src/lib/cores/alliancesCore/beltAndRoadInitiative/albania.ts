@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const albania: BeltAndRoadInitiativeCountry = {
   name: 'Albania',
   iso3166Alpha2: 'AL',
@@ -26,6 +30,9 @@ export const albania: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: [ 'Binance (P2P)', 'International OTC', 'Local regulation varies' ],
   stablecoin: 'USDT / USDC common globally; legality varies by jurisdiction',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['AL'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['AL'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['AL'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['AL'],
   newsOutlets: BRI_NEWS_OUTLETS['AL'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['AL'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['AL'],
@@ -36,4 +43,5 @@ export const albania: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['AL'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['AL'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['AL'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['AL'],
 }

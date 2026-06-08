@@ -1,5 +1,8 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMESA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMESA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMESA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const eritrea: ComesaCountry = {
   name: 'Eritrea',
@@ -26,6 +30,9 @@ export const eritrea: ComesaCountry = {
   cryptocurrencyExchanges: ['Limited formal venues; diaspora P2P', 'Binance (P2P, informal)'],
   stablecoin: 'USDT minimal formal access; cash economy strong',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['ER'],
+  domesticPostService: COMESA_DOMESTIC_POST_SERVICES['ER'],
+  nationalBankingInstitutions: COMESA_NATIONAL_BANKING_INSTITUTIONS['ER'],
+  corporationFormationOffice: COMESA_CORPORATION_FORMATION_OFFICES['ER'],
   newsOutlets: COMESA_NEWS_OUTLETS['ER'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['ER'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['ER'],
@@ -36,4 +43,5 @@ export const eritrea: ComesaCountry = {
   intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['ER'],
   securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['ER'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['ER'],
+  mainInternationalSeaport: COMESA_MAIN_INTERNATIONAL_SEAPORTS['ER'],
 }

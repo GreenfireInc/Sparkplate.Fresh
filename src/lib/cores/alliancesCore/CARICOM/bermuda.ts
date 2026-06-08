@@ -1,5 +1,8 @@
 import type { CaricomCountry } from './types'
 import { CARICOM_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CARICOM_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CARICOM_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CARICOM_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CARICOM_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CARICOM_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CARICOM_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CARICOM_BOND_MARKETS } from './bondMarketsByIso'
 import { CARICOM_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CARICOM_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const bermuda: CaricomCountry = {
   name: 'Bermuda',
@@ -27,6 +31,9 @@ export const bermuda: CaricomCountry = {
   cryptocurrencyExchanges: ['Bermuda Monetary Authority licensed venues', 'Regional OTC'],
   stablecoin: 'BMD/USD peg; USDT offshore',
   domesticCourierServices: CARICOM_DOMESTIC_COURIERS['BM'],
+  domesticPostService: CARICOM_DOMESTIC_POST_SERVICES['BM'],
+  nationalBankingInstitutions: CARICOM_NATIONAL_BANKING_INSTITUTIONS['BM'],
+  corporationFormationOffice: CARICOM_CORPORATION_FORMATION_OFFICES['BM'],
   newsOutlets: CARICOM_NEWS_OUTLETS['BM'],
   notableUniversities: CARICOM_NOTABLE_UNIVERSITIES['BM'],
   mainExportCommodities: CARICOM_MAIN_EXPORT_COMMODITIES['BM'],
@@ -37,4 +44,5 @@ export const bermuda: CaricomCountry = {
   intellectualPropertyDepartments: CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS['BM'],
   securitiesExchangeCommission: CARICOM_SECURITIES_EXCHANGE_COMMISSIONS['BM'],
   mainInternationalAirport: CARICOM_MAIN_INTERNATIONAL_AIRPORTS['BM'],
+  mainInternationalSeaport: CARICOM_MAIN_INTERNATIONAL_SEAPORTS['BM'],
 }

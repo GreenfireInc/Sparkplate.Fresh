@@ -1,5 +1,8 @@
 import type { GccCountry } from './types'
 import { GCC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { GCC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { GCC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { GCC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { GCC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { GCC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { GCC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { GCC_BOND_MARKETS } from './bondMarketsByIso'
 import { GCC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { GCC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { GCC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { GCC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const qatar: GccCountry = {
   name: 'Qatar',
@@ -28,6 +32,9 @@ export const qatar: GccCountry = {
   cryptocurrencyExchanges: ['QFCRA licensing evolution; regional institutional custody narratives — informational'],
   stablecoin: 'QCB fintech sandbox; USD/QAR-stable experiments — informational',
   domesticCourierServices: GCC_DOMESTIC_COURIERS['QA'],
+  domesticPostService: GCC_DOMESTIC_POST_SERVICES['QA'],
+  nationalBankingInstitutions: GCC_NATIONAL_BANKING_INSTITUTIONS['QA'],
+  corporationFormationOffice: GCC_CORPORATION_FORMATION_OFFICES['QA'],
   newsOutlets: GCC_NEWS_OUTLETS['QA'],
   notableUniversities: GCC_NOTABLE_UNIVERSITIES['QA'],
   mainExportCommodities: GCC_MAIN_EXPORT_COMMODITIES['QA'],
@@ -36,6 +43,7 @@ export const qatar: GccCountry = {
   stockExchange: 'Qatar Stock Exchange',
   bondMarkets: GCC_BOND_MARKETS['QA'],
   mainInternationalAirport: GCC_MAIN_INTERNATIONAL_AIRPORTS['QA'],
+  mainInternationalSeaport: GCC_MAIN_INTERNATIONAL_SEAPORTS['QA'],
   intellectualPropertyDepartments: GCC_INTELLECTUAL_PROPERTY_DEPARTMENTS['QA'],
   securitiesExchangeCommission: GCC_SECURITIES_EXCHANGE_COMMISSIONS['QA'],
 }

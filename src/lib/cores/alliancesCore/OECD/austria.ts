@@ -1,5 +1,8 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const austria: OecdCountry = {
   name: 'Austria',
@@ -27,6 +31,9 @@ export const austria: OecdCountry = {
   cryptocurrencyExchanges: ['European MiCA-aligned providers; Kraken EUR', 'Bitpanda (AT)'],
   stablecoin: 'EUR-stable tokens under MiCA; USDC/USDT EUR pairs',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['AT'],
+  domesticPostService: OECD_DOMESTIC_POST_SERVICES['AT'],
+  nationalBankingInstitutions: OECD_NATIONAL_BANKING_INSTITUTIONS['AT'],
+  corporationFormationOffice: OECD_CORPORATION_FORMATION_OFFICES['AT'],
   newsOutlets: OECD_NEWS_OUTLETS['AT'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['AT'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['AT'],
@@ -35,6 +42,7 @@ export const austria: OecdCountry = {
   stockExchange: 'Wiener Börse (Vienna Stock Exchange)',
   bondMarkets: OECD_BOND_MARKETS['AT'],
   mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['AT'],
+  mainInternationalSeaport: OECD_MAIN_INTERNATIONAL_SEAPORTS['AT'],
   intellectualPropertyDepartments: OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS['AT'],
   securitiesExchangeCommission: OECD_SECURITIES_EXCHANGE_COMMISSIONS['AT'],
 }

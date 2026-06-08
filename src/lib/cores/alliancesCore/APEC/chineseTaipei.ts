@@ -1,5 +1,8 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { APEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { APEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { APEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 /**
  * Listed as **Chinese Taipei** in official APEC fora — informational.
@@ -31,6 +35,9 @@ export const chineseTaipei: ApecCountry = {
   cryptocurrencyExchanges: ['MaiCoin MAX regulated VA platforms — informational'],
   stablecoin: 'Taiwan-dollar stable experiments FinTech Sandbox — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['TW'],
+  domesticPostService: APEC_DOMESTIC_POST_SERVICES['TW'],
+  nationalBankingInstitutions: APEC_NATIONAL_BANKING_INSTITUTIONS['TW'],
+  corporationFormationOffice: APEC_CORPORATION_FORMATION_OFFICES['TW'],
   newsOutlets: APEC_NEWS_OUTLETS['TW'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['TW'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['TW'],
@@ -41,4 +48,5 @@ export const chineseTaipei: ApecCountry = {
   intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['TW'],
   securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['TW'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['TW'],
+  mainInternationalSeaport: APEC_MAIN_INTERNATIONAL_SEAPORTS['TW'],
 }

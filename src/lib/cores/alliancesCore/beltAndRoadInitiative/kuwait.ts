@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const kuwait: BeltAndRoadInitiativeCountry = {
   name: 'Kuwait',
   iso3166Alpha2: 'KW',
@@ -26,6 +30,9 @@ export const kuwait: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Regional OTC', 'International brokers; no major local spot exchange'],
   stablecoin: 'USDT / USDC informal; oil-economy USD links',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['KW'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['KW'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['KW'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['KW'],
   newsOutlets: BRI_NEWS_OUTLETS['KW'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['KW'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['KW'],
@@ -36,4 +43,5 @@ export const kuwait: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['KW'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['KW'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['KW'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['KW'],
 }

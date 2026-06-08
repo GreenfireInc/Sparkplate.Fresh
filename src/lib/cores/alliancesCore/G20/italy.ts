@@ -1,5 +1,8 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const italy: G20Country = {
   name: 'Italy',
@@ -28,6 +32,9 @@ export const italy: G20Country = {
   cryptocurrencyExchanges: ['Conio', 'Young Platform', 'MiCA-aligned CASPs'],
   stablecoin: 'EUR stablecoins; ECB digital euro pilots — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['IT'],
+  domesticPostService: G20_DOMESTIC_POST_SERVICES['IT'],
+  nationalBankingInstitutions: G20_NATIONAL_BANKING_INSTITUTIONS['IT'],
+  corporationFormationOffice: G20_CORPORATION_FORMATION_OFFICES['IT'],
   newsOutlets: G20_NEWS_OUTLETS['IT'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['IT'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['IT'],
@@ -36,6 +43,7 @@ export const italy: G20Country = {
   stockExchange: 'Euronext Milan (Borsa Italiana legacy)',
   bondMarkets: G20_BOND_MARKETS['IT'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['IT'],
+  mainInternationalSeaport: G20_MAIN_INTERNATIONAL_SEAPORTS['IT'],
   intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['IT'],
   securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['IT'],
 }

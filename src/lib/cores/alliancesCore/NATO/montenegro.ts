@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const montenegro: NatoCountry = {
   name: 'Montenegro',
@@ -27,6 +31,9 @@ export const montenegro: NatoCountry = {
   cryptocurrencyExchanges: ['EU-adjacent brokers; regional OTC — informational'],
   stablecoin: 'EUR informal dominant; USDT overlays — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['ME'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['ME'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['ME'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['ME'],
   newsOutlets: NATO_NEWS_OUTLETS['ME'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['ME'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['ME'],
@@ -35,6 +42,7 @@ export const montenegro: NatoCountry = {
   stockExchange: 'Montenegro Stock Exchange (thin — informational)',
   bondMarkets: NATO_BOND_MARKETS['ME'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['ME'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['ME'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['ME'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['ME'],
 }

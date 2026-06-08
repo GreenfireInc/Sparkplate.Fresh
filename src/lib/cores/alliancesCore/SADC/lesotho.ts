@@ -1,5 +1,8 @@
 import type { SadcCountry } from './types'
 import { SADC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { SADC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { SADC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { SADC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { SADC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { SADC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { SADC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { SADC_BOND_MARKETS } from './bondMarketsByIso'
 import { SADC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { SADC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { SADC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const lesotho: SadcCountry = {
   name: 'Lesotho',
@@ -26,6 +30,9 @@ export const lesotho: SadcCountry = {
   cryptocurrencyExchanges: ['Regional OTC informal'],
   stablecoin: 'Rand-pegged framework; informal USDT',
   domesticCourierServices: SADC_DOMESTIC_COURIERS['LS'],
+  domesticPostService: SADC_DOMESTIC_POST_SERVICES['LS'],
+  nationalBankingInstitutions: SADC_NATIONAL_BANKING_INSTITUTIONS['LS'],
+  corporationFormationOffice: SADC_CORPORATION_FORMATION_OFFICES['LS'],
   newsOutlets: SADC_NEWS_OUTLETS['LS'],
   notableUniversities: SADC_NOTABLE_UNIVERSITIES['LS'],
   mainExportCommodities: SADC_MAIN_EXPORT_COMMODITIES['LS'],
@@ -34,6 +41,7 @@ export const lesotho: SadcCountry = {
   stockExchange: 'Maseru Securities Market — verify',
   bondMarkets: SADC_BOND_MARKETS['LS'],
   mainInternationalAirport: SADC_MAIN_INTERNATIONAL_AIRPORTS['LS'],
+  mainInternationalSeaport: SADC_MAIN_INTERNATIONAL_SEAPORTS['LS'],
   intellectualPropertyDepartments: SADC_INTELLECTUAL_PROPERTY_DEPARTMENTS['LS'],
   securitiesExchangeCommission: SADC_SECURITIES_EXCHANGE_COMMISSIONS['LS'],
 }

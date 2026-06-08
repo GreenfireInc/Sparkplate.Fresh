@@ -1,5 +1,8 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const southKorea: G20Country = {
   name: 'South Korea',
@@ -28,6 +32,9 @@ export const southKorea: G20Country = {
   cryptocurrencyExchanges: ['Upbit', 'Bithumb', 'Coinone / Korbit FSC VASP registration regime — informational'],
   stablecoin: 'KRW-pegged issuance constrained by FSC; offshore USDT/USDC liquidity — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['KR'],
+  domesticPostService: G20_DOMESTIC_POST_SERVICES['KR'],
+  nationalBankingInstitutions: G20_NATIONAL_BANKING_INSTITUTIONS['KR'],
+  corporationFormationOffice: G20_CORPORATION_FORMATION_OFFICES['KR'],
   newsOutlets: G20_NEWS_OUTLETS['KR'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['KR'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['KR'],
@@ -36,6 +43,7 @@ export const southKorea: G20Country = {
   stockExchange: 'Korea Exchange KRX (KOSPI / KOSDAQ)',
   bondMarkets: G20_BOND_MARKETS['KR'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['KR'],
+  mainInternationalSeaport: G20_MAIN_INTERNATIONAL_SEAPORTS['KR'],
   intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['KR'],
   securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['KR'],
 }

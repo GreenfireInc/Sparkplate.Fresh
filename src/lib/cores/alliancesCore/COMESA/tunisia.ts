@@ -1,5 +1,8 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMESA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMESA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMESA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const tunisia: ComesaCountry = {
   name: 'Tunisia',
@@ -26,6 +30,9 @@ export const tunisia: ComesaCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional brokers', 'OTC'],
   stablecoin: 'USDT informal; e-dinar discussions',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['TN'],
+  domesticPostService: COMESA_DOMESTIC_POST_SERVICES['TN'],
+  nationalBankingInstitutions: COMESA_NATIONAL_BANKING_INSTITUTIONS['TN'],
+  corporationFormationOffice: COMESA_CORPORATION_FORMATION_OFFICES['TN'],
   newsOutlets: COMESA_NEWS_OUTLETS['TN'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['TN'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['TN'],
@@ -36,4 +43,5 @@ export const tunisia: ComesaCountry = {
   intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['TN'],
   securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['TN'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['TN'],
+  mainInternationalSeaport: COMESA_MAIN_INTERNATIONAL_SEAPORTS['TN'],
 }

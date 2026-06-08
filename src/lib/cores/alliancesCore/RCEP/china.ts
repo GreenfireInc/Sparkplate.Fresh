@@ -1,5 +1,8 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { RCEP_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { RCEP_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { RCEP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { RCEP_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const china: RcepCountry = {
   name: 'China',
@@ -29,6 +33,9 @@ export const china: RcepCountry = {
   cryptocurrencyExchanges: ['Onshore trading prohibited; Hong Kong SAR adjacent venues — informational'],
   stablecoin: 'e-CNY pilot; offshore USDT OTC narratives — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['CN'],
+  domesticPostService: RCEP_DOMESTIC_POST_SERVICES['CN'],
+  nationalBankingInstitutions: RCEP_NATIONAL_BANKING_INSTITUTIONS['CN'],
+  corporationFormationOffice: RCEP_CORPORATION_FORMATION_OFFICES['CN'],
   newsOutlets: RCEP_NEWS_OUTLETS['CN'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['CN'],
   mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['CN'],
@@ -38,6 +45,7 @@ export const china: RcepCountry = {
     'Shanghai Stock Exchange; Shenzhen Stock Exchange; Beijing Stock Exchange context — informational',
   bondMarkets: RCEP_BOND_MARKETS['CN'],
   mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['CN'],
+  mainInternationalSeaport: RCEP_MAIN_INTERNATIONAL_SEAPORTS['CN'],
   intellectualPropertyDepartments: RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS['CN'],
   securitiesExchangeCommission: RCEP_SECURITIES_EXCHANGE_COMMISSIONS['CN'],
 }

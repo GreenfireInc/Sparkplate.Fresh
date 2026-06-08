@@ -3,12 +3,19 @@ export type {
   CensadCountry,
   CensadOrganizationInfo,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   IntellectualPropertyDepartment,
   IntellectualPropertyDepartmentKind,
   IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,  RareEarths,
@@ -16,6 +23,10 @@ export type {
 } from './types'
 export { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { CENSAD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { CENSAD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { CENSAD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { CENSAD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 
 import type { CensadCountry, CensadOrganizationInfo } from './types'
 import { CENSAD_MEMBER_ISO_CODES } from './censadMemberIsoCodes'

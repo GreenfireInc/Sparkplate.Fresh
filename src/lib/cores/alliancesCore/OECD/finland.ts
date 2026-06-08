@@ -1,5 +1,8 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const finland: OecdCountry = {
   name: 'Finland',
@@ -27,6 +31,9 @@ export const finland: OecdCountry = {
   cryptocurrencyExchanges: ['Nordic-friendly EU brokers; Finnish FSA supervise — informational'],
   stablecoin: 'EUR stablecoins; MiCA passport — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['FI'],
+  domesticPostService: OECD_DOMESTIC_POST_SERVICES['FI'],
+  nationalBankingInstitutions: OECD_NATIONAL_BANKING_INSTITUTIONS['FI'],
+  corporationFormationOffice: OECD_CORPORATION_FORMATION_OFFICES['FI'],
   newsOutlets: OECD_NEWS_OUTLETS['FI'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['FI'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['FI'],
@@ -35,6 +42,7 @@ export const finland: OecdCountry = {
   stockExchange: 'Nasdaq Helsinki',
   bondMarkets: OECD_BOND_MARKETS['FI'],
   mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['FI'],
+  mainInternationalSeaport: OECD_MAIN_INTERNATIONAL_SEAPORTS['FI'],
   intellectualPropertyDepartments: OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS['FI'],
   securitiesExchangeCommission: OECD_SECURITIES_EXCHANGE_COMMISSIONS['FI'],
 }

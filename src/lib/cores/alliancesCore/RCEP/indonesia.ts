@@ -1,5 +1,8 @@
 import type { RcepCountry } from './types'
 import { RCEP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { RCEP_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { RCEP_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { RCEP_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { RCEP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { RCEP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { RCEP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { RCEP_BOND_MARKETS } from './bondMarketsByIso'
 import { RCEP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { RCEP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { RCEP_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const indonesia: RcepCountry = {
   name: 'Indonesia',
@@ -27,6 +31,9 @@ export const indonesia: RcepCountry = {
   cryptocurrencyExchanges: ['OJK supervised digital-asset routes (licensing evolution — informational)'],
   stablecoin: 'IDR payment pilots; OTC USDT — informational',
   domesticCourierServices: RCEP_DOMESTIC_COURIERS['ID'],
+  domesticPostService: RCEP_DOMESTIC_POST_SERVICES['ID'],
+  nationalBankingInstitutions: RCEP_NATIONAL_BANKING_INSTITUTIONS['ID'],
+  corporationFormationOffice: RCEP_CORPORATION_FORMATION_OFFICES['ID'],
   newsOutlets: RCEP_NEWS_OUTLETS['ID'],
   notableUniversities: RCEP_NOTABLE_UNIVERSITIES['ID'],
   mainExportCommodities: RCEP_MAIN_EXPORT_COMMODITIES['ID'],
@@ -35,6 +42,7 @@ export const indonesia: RcepCountry = {
   stockExchange: 'Indonesia Stock Exchange (IDX)',
   bondMarkets: RCEP_BOND_MARKETS['ID'],
   mainInternationalAirport: RCEP_MAIN_INTERNATIONAL_AIRPORTS['ID'],
+  mainInternationalSeaport: RCEP_MAIN_INTERNATIONAL_SEAPORTS['ID'],
   intellectualPropertyDepartments: RCEP_INTELLECTUAL_PROPERTY_DEPARTMENTS['ID'],
   securitiesExchangeCommission: RCEP_SECURITIES_EXCHANGE_COMMISSIONS['ID'],
 }

@@ -1,5 +1,8 @@
 import type { G7Country } from './types'
 import { G7_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G7_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G7_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G7_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G7_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G7_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G7_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G7_BOND_MARKETS } from './bondMarketsByIso'
 import { G7_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G7_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G7_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G7_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const germany: G7Country = {
   name: 'Germany',
@@ -27,6 +31,9 @@ export const germany: G7Country = {
   cryptocurrencyExchanges: ['Bitstamp EU', 'Börse Stuttgart Digital Custody narratives', 'MiCA licences'],
   stablecoin: 'EUR stablecoins; ECB digital euro projects — informational',
   domesticCourierServices: G7_DOMESTIC_COURIERS['DE'],
+  domesticPostService: G7_DOMESTIC_POST_SERVICES['DE'],
+  nationalBankingInstitutions: G7_NATIONAL_BANKING_INSTITUTIONS['DE'],
+  corporationFormationOffice: G7_CORPORATION_FORMATION_OFFICES['DE'],
   newsOutlets: G7_NEWS_OUTLETS['DE'],
   notableUniversities: G7_NOTABLE_UNIVERSITIES['DE'],
   mainExportCommodities: G7_MAIN_EXPORT_COMMODITIES['DE'],
@@ -35,6 +42,7 @@ export const germany: G7Country = {
   stockExchange: 'Deutsche Börse (Frankfurt)',
   bondMarkets: G7_BOND_MARKETS['DE'],
   mainInternationalAirport: G7_MAIN_INTERNATIONAL_AIRPORTS['DE'],
+  mainInternationalSeaport: G7_MAIN_INTERNATIONAL_SEAPORTS['DE'],
   intellectualPropertyDepartments: G7_INTELLECTUAL_PROPERTY_DEPARTMENTS['DE'],
   securitiesExchangeCommission: G7_SECURITIES_EXCHANGE_COMMISSIONS['DE'],
 }

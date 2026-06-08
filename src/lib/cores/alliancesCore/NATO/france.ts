@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const france: NatoCountry = {
   name: 'France',
@@ -27,6 +31,9 @@ export const france: NatoCountry = {
   cryptocurrencyExchanges: ['Coinhouse', 'MiCA-compliant CASPs', 'Paymium'],
   stablecoin: 'EUR stablecoins; ECB digital euro pilots — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['FR'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['FR'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['FR'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['FR'],
   newsOutlets: NATO_NEWS_OUTLETS['FR'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['FR'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['FR'],
@@ -35,6 +42,7 @@ export const france: NatoCountry = {
   stockExchange: 'Euronext Paris',
   bondMarkets: NATO_BOND_MARKETS['FR'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['FR'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['FR'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['FR'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['FR'],
 }

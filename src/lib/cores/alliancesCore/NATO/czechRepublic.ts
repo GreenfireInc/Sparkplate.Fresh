@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const czechRepublic: NatoCountry = {
   name: 'Czech Republic',
@@ -27,6 +31,9 @@ export const czechRepublic: NatoCountry = {
   cryptocurrencyExchanges: ['European brokers; cautious Czech National Bank stance — informational'],
   stablecoin: 'CZK OTC; EUR-stable dominant — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['CZ'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['CZ'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['CZ'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['CZ'],
   newsOutlets: NATO_NEWS_OUTLETS['CZ'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['CZ'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['CZ'],
@@ -35,6 +42,7 @@ export const czechRepublic: NatoCountry = {
   stockExchange: 'Prague Stock Exchange (PX)',
   bondMarkets: NATO_BOND_MARKETS['CZ'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['CZ'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['CZ'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['CZ'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['CZ'],
 }

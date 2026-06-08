@@ -1,5 +1,8 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CENSAD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CENSAD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CENSAD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const sudan: CensadCountry = {
   name: 'Sudan',
@@ -27,6 +31,9 @@ export const sudan: CensadCountry = {
   cryptocurrencyExchanges: ['Sanctions regime; OTC informal dominant'],
   stablecoin: 'Informal USD and stablecoins amidst banking stress',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['SD'],
+  domesticPostService: CENSAD_DOMESTIC_POST_SERVICES['SD'],
+  nationalBankingInstitutions: CENSAD_NATIONAL_BANKING_INSTITUTIONS['SD'],
+  corporationFormationOffice: CENSAD_CORPORATION_FORMATION_OFFICES['SD'],
   newsOutlets: CENSAD_NEWS_OUTLETS['SD'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['SD'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['SD'],
@@ -37,4 +44,5 @@ export const sudan: CensadCountry = {
   intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['SD'],
   securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['SD'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['SD'],
+  mainInternationalSeaport: CENSAD_MAIN_INTERNATIONAL_SEAPORTS['SD'],
 }

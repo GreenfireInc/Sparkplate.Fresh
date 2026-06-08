@@ -3,12 +3,19 @@ export type {
   ComesaCountry,
   ComesaOrganizationInfo,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   IntellectualPropertyDepartment,
   IntellectualPropertyDepartmentKind,
   IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,  RareEarths,
@@ -16,6 +23,10 @@ export type {
 } from './types'
 export { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { COMESA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { COMESA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { COMESA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { COMESA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 
 import type { ComesaCountry, ComesaOrganizationInfo } from './types'
 import { COMESA_MEMBER_ISO_CODES } from './comesaMemberIsoCodes'

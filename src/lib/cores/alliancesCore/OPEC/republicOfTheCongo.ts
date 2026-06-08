@@ -1,5 +1,8 @@
 import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OPEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OPEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OPEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OPEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OPEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const republicOfTheCongo: OpecCountry = {
   name: 'Republic of the Congo',
@@ -27,6 +31,9 @@ export const republicOfTheCongo: OpecCountry = {
   cryptocurrencyExchanges: ['Regional OTC; banking USD rails — informational'],
   stablecoin: 'EUR-pegged XAF; informal USDT overlays — informational',
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['CG'],
+  domesticPostService: OPEC_DOMESTIC_POST_SERVICES['CG'],
+  nationalBankingInstitutions: OPEC_NATIONAL_BANKING_INSTITUTIONS['CG'],
+  corporationFormationOffice: OPEC_CORPORATION_FORMATION_OFFICES['CG'],
   newsOutlets: OPEC_NEWS_OUTLETS['CG'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['CG'],
   mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['CG'],
@@ -35,6 +42,7 @@ export const republicOfTheCongo: OpecCountry = {
   stockExchange: 'Brazaafrica listings thin; Congo regional bourse narratives — informational',
   bondMarkets: OPEC_BOND_MARKETS['CG'],
   mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['CG'],
+  mainInternationalSeaport: OPEC_MAIN_INTERNATIONAL_SEAPORTS['CG'],
   intellectualPropertyDepartments: OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['CG'],
   securitiesExchangeCommission: OPEC_SECURITIES_EXCHANGE_COMMISSIONS['CG'],
 }

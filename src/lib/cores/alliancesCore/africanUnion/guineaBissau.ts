@@ -1,5 +1,8 @@
 import type { AfricanUnionCountry } from './types'
 import { AU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AU_BOND_MARKETS } from './bondMarketsByIso'
 import { AU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const guineaBissau: AfricanUnionCountry = {
   name: 'Guinea-Bissau',
   iso3166Alpha2: 'GW',
@@ -26,6 +30,9 @@ export const guineaBissau: AfricanUnionCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional P2P'],
   stablecoin: 'USDT P2P; XOF peg',
   domesticCourierServices: AU_DOMESTIC_COURIERS['GW'],
+  domesticPostService: AU_DOMESTIC_POST_SERVICES['GW'],
+  nationalBankingInstitutions: AU_NATIONAL_BANKING_INSTITUTIONS['GW'],
+  corporationFormationOffice: AU_CORPORATION_FORMATION_OFFICES['GW'],
   newsOutlets: AU_NEWS_OUTLETS['GW'],
   notableUniversities: AU_NOTABLE_UNIVERSITIES['GW'],
   mainExportCommodities: AU_MAIN_EXPORT_COMMODITIES['GW'],
@@ -36,4 +43,5 @@ export const guineaBissau: AfricanUnionCountry = {
   intellectualPropertyDepartments: AU_INTELLECTUAL_PROPERTY_DEPARTMENTS['GW'],
   securitiesExchangeCommission: AU_SECURITIES_EXCHANGE_COMMISSIONS['GW'],
   mainInternationalAirport: AU_MAIN_INTERNATIONAL_AIRPORTS['GW'],
+  mainInternationalSeaport: AU_MAIN_INTERNATIONAL_SEAPORTS['GW'],
 }

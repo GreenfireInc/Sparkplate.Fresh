@@ -1,5 +1,8 @@
 import type { CensadCountry } from './types'
 import { CENSAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CENSAD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CENSAD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CENSAD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CENSAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CENSAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CENSAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CENSAD_BOND_MARKETS } from './bondMarketsByIso'
 import { CENSAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CENSAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CENSAD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const senegal: CensadCountry = {
   name: 'Senegal',
@@ -26,6 +30,9 @@ export const senegal: CensadCountry = {
   cryptocurrencyExchanges: ['Regional P2P', 'Partnership/licensing evolution'],
   stablecoin: 'USDT informal; CFA peg',
   domesticCourierServices: CENSAD_DOMESTIC_COURIERS['SN'],
+  domesticPostService: CENSAD_DOMESTIC_POST_SERVICES['SN'],
+  nationalBankingInstitutions: CENSAD_NATIONAL_BANKING_INSTITUTIONS['SN'],
+  corporationFormationOffice: CENSAD_CORPORATION_FORMATION_OFFICES['SN'],
   newsOutlets: CENSAD_NEWS_OUTLETS['SN'],
   notableUniversities: CENSAD_NOTABLE_UNIVERSITIES['SN'],
   mainExportCommodities: CENSAD_MAIN_EXPORT_COMMODITIES['SN'],
@@ -36,4 +43,5 @@ export const senegal: CensadCountry = {
   intellectualPropertyDepartments: CENSAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['SN'],
   securitiesExchangeCommission: CENSAD_SECURITIES_EXCHANGE_COMMISSIONS['SN'],
   mainInternationalAirport: CENSAD_MAIN_INTERNATIONAL_AIRPORTS['SN'],
+  mainInternationalSeaport: CENSAD_MAIN_INTERNATIONAL_SEAPORTS['SN'],
 }

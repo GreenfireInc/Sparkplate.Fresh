@@ -1,5 +1,8 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { EU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { EU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { EU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const lithuania: EuCountry = {
   name: 'Lithuania',
@@ -26,6 +30,9 @@ export const lithuania: EuCountry = {
   cryptocurrencyExchanges: ['EU-licensed onboarding; Baltic fintech'],
   stablecoin: 'EUR stablecoins; ECB digital euro research participation',
   domesticCourierServices: EU_DOMESTIC_COURIERS['LT'],
+  domesticPostService: EU_DOMESTIC_POST_SERVICES['LT'],
+  nationalBankingInstitutions: EU_NATIONAL_BANKING_INSTITUTIONS['LT'],
+  corporationFormationOffice: EU_CORPORATION_FORMATION_OFFICES['LT'],
   newsOutlets: EU_NEWS_OUTLETS['LT'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['LT'],
   mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['LT'],
@@ -37,4 +44,5 @@ export const lithuania: EuCountry = {
 
   securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['LT'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['LT'],
+  mainInternationalSeaport: EU_MAIN_INTERNATIONAL_SEAPORTS['LT'],
 }

@@ -1,5 +1,8 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { EU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { EU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { EU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const poland: EuCountry = {
   name: 'Poland',
@@ -26,6 +30,9 @@ export const poland: EuCountry = {
   cryptocurrencyExchanges: ['Zonda (BitBay legacy)', 'European MiCA passporting'],
   stablecoin: 'PLN pairs; EUR-stable conversion common',
   domesticCourierServices: EU_DOMESTIC_COURIERS['PL'],
+  domesticPostService: EU_DOMESTIC_POST_SERVICES['PL'],
+  nationalBankingInstitutions: EU_NATIONAL_BANKING_INSTITUTIONS['PL'],
+  corporationFormationOffice: EU_CORPORATION_FORMATION_OFFICES['PL'],
   newsOutlets: EU_NEWS_OUTLETS['PL'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['PL'],
   mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['PL'],
@@ -37,4 +44,5 @@ export const poland: EuCountry = {
 
   securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['PL'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['PL'],
+  mainInternationalSeaport: EU_MAIN_INTERNATIONAL_SEAPORTS['PL'],
 }

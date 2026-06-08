@@ -1,5 +1,8 @@
 import type { AllianceOfSahelStatesCountry } from './types'
 import { AES_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AES_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AES_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AES_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AES_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AES_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AES_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AES_BOND_MARKETS } from './bondMarketsByIso'
 import { AES_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AES_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AES_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AES_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const niger: AllianceOfSahelStatesCountry = {
   name: 'Niger',
@@ -27,6 +31,9 @@ export const niger: AllianceOfSahelStatesCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'OTC'],
   stablecoin: 'USDT P2P; XOF peg',
   domesticCourierServices: AES_DOMESTIC_COURIERS['NE'],
+  domesticPostService: AES_DOMESTIC_POST_SERVICES['NE'],
+  nationalBankingInstitutions: AES_NATIONAL_BANKING_INSTITUTIONS['NE'],
+  corporationFormationOffice: AES_CORPORATION_FORMATION_OFFICES['NE'],
   newsOutlets: AES_NEWS_OUTLETS['NE'],
   notableUniversities: AES_NOTABLE_UNIVERSITIES['NE'],
   mainExportCommodities: AES_MAIN_EXPORT_COMMODITIES['NE'],
@@ -37,4 +44,5 @@ export const niger: AllianceOfSahelStatesCountry = {
   intellectualPropertyDepartments: AES_INTELLECTUAL_PROPERTY_DEPARTMENTS['NE'],
   securitiesExchangeCommission: AES_SECURITIES_EXCHANGE_COMMISSIONS['NE'],
   mainInternationalAirport: AES_MAIN_INTERNATIONAL_AIRPORTS['NE'],
+  mainInternationalSeaport: AES_MAIN_INTERNATIONAL_SEAPORTS['NE'],
 }

@@ -1,5 +1,8 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ECOWAS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ECOWAS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ECOWAS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const guinea: EcowasCountry = {
   name: 'Guinea',
@@ -26,6 +30,9 @@ export const guinea: EcowasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card (regional)', 'OTC'],
   stablecoin: 'USDT informal',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['GN'],
+  domesticPostService: ECOWAS_DOMESTIC_POST_SERVICES['GN'],
+  nationalBankingInstitutions: ECOWAS_NATIONAL_BANKING_INSTITUTIONS['GN'],
+  corporationFormationOffice: ECOWAS_CORPORATION_FORMATION_OFFICES['GN'],
   newsOutlets: ECOWAS_NEWS_OUTLETS['GN'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['GN'],
   mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['GN'],
@@ -37,4 +44,5 @@ export const guinea: EcowasCountry = {
 
   securitiesExchangeCommission: ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS['GN'],
   mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['GN'],
+  mainInternationalSeaport: ECOWAS_MAIN_INTERNATIONAL_SEAPORTS['GN'],
 }

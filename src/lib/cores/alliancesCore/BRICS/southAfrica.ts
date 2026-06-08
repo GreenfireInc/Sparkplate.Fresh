@@ -1,5 +1,8 @@
 import type { BricsCountry } from './types'
 import { BRICS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRICS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRICS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRICS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRICS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRICS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRICS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -8,6 +11,7 @@ import { BRICS_RARE_EARTHS } from './rareEarthsByIso'
 import { BRICS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRICS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRICS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRICS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const southAfrica: BricsCountry = {
   name: 'South Africa',
@@ -26,6 +30,9 @@ export const southAfrica: BricsCountry = {
   cryptocurrencyExchanges: ['VALR', 'Luno', 'Binance (P2P)', 'Regional OTC'],
   stablecoin: 'No official ZAR stablecoin at retail scale; USDT/USDC used in crypto markets',
   domesticCourierServices: BRICS_DOMESTIC_COURIERS['ZA'],
+  domesticPostService: BRICS_DOMESTIC_POST_SERVICES['ZA'],
+  nationalBankingInstitutions: BRICS_NATIONAL_BANKING_INSTITUTIONS['ZA'],
+  corporationFormationOffice: BRICS_CORPORATION_FORMATION_OFFICES['ZA'],
   newsOutlets: BRICS_NEWS_OUTLETS['ZA'],
   notableUniversities: BRICS_NOTABLE_UNIVERSITIES['ZA'],
   mainExportCommodities: BRICS_MAIN_EXPORT_COMMODITIES['ZA'],
@@ -35,4 +42,5 @@ export const southAfrica: BricsCountry = {
   intellectualPropertyDepartments: BRICS_INTELLECTUAL_PROPERTY_DEPARTMENTS['ZA'],
   securitiesExchangeCommission: BRICS_SECURITIES_EXCHANGE_COMMISSIONS['ZA'],
   mainInternationalAirport: BRICS_MAIN_INTERNATIONAL_AIRPORTS['ZA'],
+  mainInternationalSeaport: BRICS_MAIN_INTERNATIONAL_SEAPORTS['ZA'],
 }

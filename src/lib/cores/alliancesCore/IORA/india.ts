@@ -1,5 +1,8 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { IORA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { IORA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { IORA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const india: IoraCountry = {
   name: 'India',
@@ -28,6 +32,9 @@ export const india: IoraCountry = {
   cryptocurrencyExchanges: ['RBI prohibition retail bank crypto routes; offshore P2P — informational'],
   stablecoin: 'CBDC pilots e-₹ narratives; predominant INR fiat rails — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['IN'],
+  domesticPostService: IORA_DOMESTIC_POST_SERVICES['IN'],
+  nationalBankingInstitutions: IORA_NATIONAL_BANKING_INSTITUTIONS['IN'],
+  corporationFormationOffice: IORA_CORPORATION_FORMATION_OFFICES['IN'],
   newsOutlets: IORA_NEWS_OUTLETS['IN'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['IN'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['IN'],
@@ -36,6 +43,7 @@ export const india: IoraCountry = {
   stockExchange: 'National Stock Exchange (NSE); BSE Bombay context — informational',
   bondMarkets: IORA_BOND_MARKETS['IN'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['IN'],
+  mainInternationalSeaport: IORA_MAIN_INTERNATIONAL_SEAPORTS['IN'],
   intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['IN'],
   securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['IN'],
 }

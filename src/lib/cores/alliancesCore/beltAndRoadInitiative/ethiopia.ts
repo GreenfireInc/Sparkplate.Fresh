@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const ethiopia: BeltAndRoadInitiativeCountry = {
   name: 'Ethiopia',
   iso3166Alpha2: 'ET',
@@ -26,6 +30,9 @@ export const ethiopia: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC P2P; National Bank cautious on crypto',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['ET'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['ET'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['ET'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['ET'],
   newsOutlets: BRI_NEWS_OUTLETS['ET'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['ET'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['ET'],
@@ -36,4 +43,5 @@ export const ethiopia: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['ET'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['ET'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['ET'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['ET'],
 }

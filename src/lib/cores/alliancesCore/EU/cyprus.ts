@@ -1,5 +1,8 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { EU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { EU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { EU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const cyprus: EuCountry = {
   name: 'Cyprus',
@@ -26,6 +30,9 @@ export const cyprus: EuCountry = {
   cryptocurrencyExchanges: ['EU-licensed brokerage hub; CFD/crypto retail supervised'],
   stablecoin: 'EUR stablecoins; offshore sector legacy — informational',
   domesticCourierServices: EU_DOMESTIC_COURIERS['CY'],
+  domesticPostService: EU_DOMESTIC_POST_SERVICES['CY'],
+  nationalBankingInstitutions: EU_NATIONAL_BANKING_INSTITUTIONS['CY'],
+  corporationFormationOffice: EU_CORPORATION_FORMATION_OFFICES['CY'],
   newsOutlets: EU_NEWS_OUTLETS['CY'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['CY'],
   mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['CY'],
@@ -37,4 +44,5 @@ export const cyprus: EuCountry = {
 
   securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['CY'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['CY'],
+  mainInternationalSeaport: EU_MAIN_INTERNATIONAL_SEAPORTS['CY'],
 }

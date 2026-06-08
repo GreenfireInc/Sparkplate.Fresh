@@ -1,5 +1,8 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CPTPP_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CPTPP_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 import { CPTPP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CPTPP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CPTPP_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const japan: CptppCountry = {
   name: 'Japan',
@@ -26,6 +30,9 @@ export const japan: CptppCountry = {
   cryptocurrencyExchanges: ['bitFlyer', 'Coincheck', 'GMO Coin', 'Global institutional participation'],
   stablecoin: 'Stablecoin issuance rules evolving — verify ; USDT limited domestic retail',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['JP'],
+  domesticPostService: CPTPP_DOMESTIC_POST_SERVICES['JP'],
+  nationalBankingInstitutions: CPTPP_NATIONAL_BANKING_INSTITUTIONS['JP'],
+  corporationFormationOffice: CPTPP_CORPORATION_FORMATION_OFFICES['JP'],
   newsOutlets: CPTPP_NEWS_OUTLETS['JP'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['JP'],
   mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['JP'],
@@ -36,4 +43,5 @@ export const japan: CptppCountry = {
   intellectualPropertyDepartments: CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS['JP'],
   securitiesExchangeCommission: CPTPP_SECURITIES_EXCHANGE_COMMISSIONS['JP'],
   mainInternationalAirport: CPTPP_MAIN_INTERNATIONAL_AIRPORTS['JP'],
+  mainInternationalSeaport: CPTPP_MAIN_INTERNATIONAL_SEAPORTS['JP'],
 }

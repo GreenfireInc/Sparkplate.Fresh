@@ -1,5 +1,8 @@
 import type { AmuCountry } from './types'
 import { AMU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AMU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AMU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AMU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AMU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AMU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AMU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AMU_BOND_MARKETS } from './bondMarketsByIso'
 import { AMU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AMU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AMU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const libya: AmuCountry = {
   name: 'Libya',
@@ -27,6 +31,9 @@ export const libya: AmuCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC; fragmented regulatory environment'],
   stablecoin: 'USDT informal; banking fragmentation',
   domesticCourierServices: AMU_DOMESTIC_COURIERS['LY'],
+  domesticPostService: AMU_DOMESTIC_POST_SERVICES['LY'],
+  nationalBankingInstitutions: AMU_NATIONAL_BANKING_INSTITUTIONS['LY'],
+  corporationFormationOffice: AMU_CORPORATION_FORMATION_OFFICES['LY'],
   newsOutlets: AMU_NEWS_OUTLETS['LY'],
   notableUniversities: AMU_NOTABLE_UNIVERSITIES['LY'],
   mainExportCommodities: AMU_MAIN_EXPORT_COMMODITIES['LY'],
@@ -37,4 +44,5 @@ export const libya: AmuCountry = {
   intellectualPropertyDepartments: AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS['LY'],
   securitiesExchangeCommission: AMU_SECURITIES_EXCHANGE_COMMISSIONS['LY'],
   mainInternationalAirport: AMU_MAIN_INTERNATIONAL_AIRPORTS['LY'],
+  mainInternationalSeaport: AMU_MAIN_INTERNATIONAL_SEAPORTS['LY'],
 }

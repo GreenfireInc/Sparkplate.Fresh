@@ -1,5 +1,8 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ECOWAS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ECOWAS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ECOWAS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const capeVerde: EcowasCountry = {
   name: 'Cape Verde',
@@ -26,6 +30,9 @@ export const capeVerde: EcowasCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'European-facing brokers'],
   stablecoin: 'EUR-linked usage; USDT via international rails',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['CV'],
+  domesticPostService: ECOWAS_DOMESTIC_POST_SERVICES['CV'],
+  nationalBankingInstitutions: ECOWAS_NATIONAL_BANKING_INSTITUTIONS['CV'],
+  corporationFormationOffice: ECOWAS_CORPORATION_FORMATION_OFFICES['CV'],
   newsOutlets: ECOWAS_NEWS_OUTLETS['CV'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['CV'],
   mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['CV'],
@@ -37,4 +44,5 @@ export const capeVerde: EcowasCountry = {
 
   securitiesExchangeCommission: ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS['CV'],
   mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['CV'],
+  mainInternationalSeaport: ECOWAS_MAIN_INTERNATIONAL_SEAPORTS['CV'],
 }

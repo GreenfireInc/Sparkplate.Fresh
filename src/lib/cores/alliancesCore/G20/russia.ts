@@ -1,5 +1,8 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const russia: G20Country = {
   name: 'Russia',
@@ -28,6 +32,9 @@ export const russia: G20Country = {
   cryptocurrencyExchanges: ['Garantex (sanctioned context — informational)', 'Domestic OTC / P2P USDT corridors — informational'],
   stablecoin: 'Digital ruble Bank of Russia CBDC pilots; sanctions-era stablecoin payment narratives — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['RU'],
+  domesticPostService: G20_DOMESTIC_POST_SERVICES['RU'],
+  nationalBankingInstitutions: G20_NATIONAL_BANKING_INSTITUTIONS['RU'],
+  corporationFormationOffice: G20_CORPORATION_FORMATION_OFFICES['RU'],
   newsOutlets: G20_NEWS_OUTLETS['RU'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['RU'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['RU'],
@@ -36,6 +43,7 @@ export const russia: G20Country = {
   stockExchange: 'Moscow Exchange (MOEX)',
   bondMarkets: G20_BOND_MARKETS['RU'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['RU'],
+  mainInternationalSeaport: G20_MAIN_INTERNATIONAL_SEAPORTS['RU'],
   intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['RU'],
   securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['RU'],
 }

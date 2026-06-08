@@ -4,12 +4,19 @@ export type {
   CaricomMembership,
   CaricomOrganizationInfo,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   IntellectualPropertyDepartment,
   IntellectualPropertyDepartmentKind,
   IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
+  CustomsOffice,
   NotableUniversity,
   NewsOutlet,
   NewsOutletsRoster,  RareEarths,
@@ -17,6 +24,10 @@ export type {
 } from './types'
 export { CARICOM_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { CARICOM_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { CARICOM_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { CARICOM_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { CARICOM_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { CARICOM_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 
 import type { CaricomCountry, CaricomOrganizationInfo } from './types'
 import {

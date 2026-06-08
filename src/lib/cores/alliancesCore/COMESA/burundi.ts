@@ -1,5 +1,8 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMESA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMESA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMESA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const burundi: ComesaCountry = {
   name: 'Burundi',
@@ -26,6 +30,9 @@ export const burundi: ComesaCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card (regional)', 'Local OTC'],
   stablecoin: 'USDT informal',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['BI'],
+  domesticPostService: COMESA_DOMESTIC_POST_SERVICES['BI'],
+  nationalBankingInstitutions: COMESA_NATIONAL_BANKING_INSTITUTIONS['BI'],
+  corporationFormationOffice: COMESA_CORPORATION_FORMATION_OFFICES['BI'],
   newsOutlets: COMESA_NEWS_OUTLETS['BI'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['BI'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['BI'],
@@ -36,4 +43,5 @@ export const burundi: ComesaCountry = {
   intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['BI'],
   securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['BI'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['BI'],
+  mainInternationalSeaport: COMESA_MAIN_INTERNATIONAL_SEAPORTS['BI'],
 }

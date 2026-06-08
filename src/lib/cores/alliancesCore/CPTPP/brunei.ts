@@ -1,5 +1,8 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CPTPP_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CPTPP_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 import { CPTPP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CPTPP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CPTPP_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const brunei: CptppCountry = {
   name: 'Brunei',
@@ -26,6 +30,9 @@ export const brunei: CptppCountry = {
   cryptocurrencyExchanges: ['Limited domestic venues; regional Singapore rails'],
   stablecoin: 'BND / SGD peg context; USDT informal access',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['BN'],
+  domesticPostService: CPTPP_DOMESTIC_POST_SERVICES['BN'],
+  nationalBankingInstitutions: CPTPP_NATIONAL_BANKING_INSTITUTIONS['BN'],
+  corporationFormationOffice: CPTPP_CORPORATION_FORMATION_OFFICES['BN'],
   newsOutlets: CPTPP_NEWS_OUTLETS['BN'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['BN'],
   mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['BN'],
@@ -36,4 +43,5 @@ export const brunei: CptppCountry = {
   intellectualPropertyDepartments: CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS['BN'],
   securitiesExchangeCommission: CPTPP_SECURITIES_EXCHANGE_COMMISSIONS['BN'],
   mainInternationalAirport: CPTPP_MAIN_INTERNATIONAL_AIRPORTS['BN'],
+  mainInternationalSeaport: CPTPP_MAIN_INTERNATIONAL_SEAPORTS['BN'],
 }

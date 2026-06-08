@@ -1,5 +1,8 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { EU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { EU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { EU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const finland: EuCountry = {
   name: 'Finland',
@@ -26,6 +30,9 @@ export const finland: EuCountry = {
   cryptocurrencyExchanges: ['Nordics-friendly EU brokers; Finnish FSA supervise'],
   stablecoin: 'EUR stablecoins; MiCA passport',
   domesticCourierServices: EU_DOMESTIC_COURIERS['FI'],
+  domesticPostService: EU_DOMESTIC_POST_SERVICES['FI'],
+  nationalBankingInstitutions: EU_NATIONAL_BANKING_INSTITUTIONS['FI'],
+  corporationFormationOffice: EU_CORPORATION_FORMATION_OFFICES['FI'],
   newsOutlets: EU_NEWS_OUTLETS['FI'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['FI'],
   mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['FI'],
@@ -37,4 +44,5 @@ export const finland: EuCountry = {
 
   securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['FI'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['FI'],
+  mainInternationalSeaport: EU_MAIN_INTERNATIONAL_SEAPORTS['FI'],
 }

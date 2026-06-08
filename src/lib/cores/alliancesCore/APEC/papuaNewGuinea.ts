@@ -1,5 +1,8 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { APEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { APEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { APEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const papuaNewGuinea: ApecCountry = {
   name: 'Papua New Guinea',
@@ -28,6 +32,9 @@ export const papuaNewGuinea: ApecCountry = {
   cryptocurrencyExchanges: ['Bank Papua New Guinea cautious; informal OTC — informational'],
   stablecoin: 'PGK thin; AUD informal adjacent — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['PG'],
+  domesticPostService: APEC_DOMESTIC_POST_SERVICES['PG'],
+  nationalBankingInstitutions: APEC_NATIONAL_BANKING_INSTITUTIONS['PG'],
+  corporationFormationOffice: APEC_CORPORATION_FORMATION_OFFICES['PG'],
   newsOutlets: APEC_NEWS_OUTLETS['PG'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['PG'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['PG'],
@@ -38,4 +45,5 @@ export const papuaNewGuinea: ApecCountry = {
   intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['PG'],
   securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['PG'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['PG'],
+  mainInternationalSeaport: APEC_MAIN_INTERNATIONAL_SEAPORTS['PG'],
 }

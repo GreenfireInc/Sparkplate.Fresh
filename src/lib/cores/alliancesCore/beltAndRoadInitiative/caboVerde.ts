@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const caboVerde: BeltAndRoadInitiativeCountry = {
   name: 'Cabo Verde',
   iso3166Alpha2: 'CV',
@@ -26,6 +30,9 @@ export const caboVerde: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'European-facing brokers'],
   stablecoin: 'EUR-linked usage; USDT via international apps',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['CV'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['CV'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['CV'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['CV'],
   newsOutlets: BRI_NEWS_OUTLETS['CV'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['CV'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['CV'],
@@ -36,4 +43,5 @@ export const caboVerde: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['CV'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['CV'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['CV'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['CV'],
 }

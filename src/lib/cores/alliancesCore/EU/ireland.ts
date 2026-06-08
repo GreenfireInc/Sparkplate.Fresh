@@ -1,5 +1,8 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { EU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { EU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { EU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const ireland: EuCountry = {
   name: 'Ireland',
@@ -26,6 +30,9 @@ export const ireland: EuCountry = {
   cryptocurrencyExchanges: ['Kraken EU', 'European brokers; IDA tech hub onboarding'],
   stablecoin: 'EUR stablecoins; MiCA-aligned issuers referencing IE vehicles',
   domesticCourierServices: EU_DOMESTIC_COURIERS['IE'],
+  domesticPostService: EU_DOMESTIC_POST_SERVICES['IE'],
+  nationalBankingInstitutions: EU_NATIONAL_BANKING_INSTITUTIONS['IE'],
+  corporationFormationOffice: EU_CORPORATION_FORMATION_OFFICES['IE'],
   newsOutlets: EU_NEWS_OUTLETS['IE'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['IE'],
   mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['IE'],
@@ -37,4 +44,5 @@ export const ireland: EuCountry = {
 
   securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['IE'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['IE'],
+  mainInternationalSeaport: EU_MAIN_INTERNATIONAL_SEAPORTS['IE'],
 }

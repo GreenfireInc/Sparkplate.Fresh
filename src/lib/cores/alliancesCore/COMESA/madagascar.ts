@@ -1,5 +1,8 @@
 import type { ComesaCountry } from './types'
 import { COMESA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { COMESA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { COMESA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { COMESA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { COMESA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { COMESA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { COMESA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { COMESA_BOND_MARKETS } from './bondMarketsByIso'
 import { COMESA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { COMESA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { COMESA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const madagascar: ComesaCountry = {
   name: 'Madagascar',
@@ -27,6 +31,9 @@ export const madagascar: ComesaCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Local P2P', 'International brokers'],
   stablecoin: 'USDT informal; no MGA stablecoin',
   domesticCourierServices: COMESA_DOMESTIC_COURIERS['MG'],
+  domesticPostService: COMESA_DOMESTIC_POST_SERVICES['MG'],
+  nationalBankingInstitutions: COMESA_NATIONAL_BANKING_INSTITUTIONS['MG'],
+  corporationFormationOffice: COMESA_CORPORATION_FORMATION_OFFICES['MG'],
   newsOutlets: COMESA_NEWS_OUTLETS['MG'],
   notableUniversities: COMESA_NOTABLE_UNIVERSITIES['MG'],
   mainExportCommodities: COMESA_MAIN_EXPORT_COMMODITIES['MG'],
@@ -37,4 +44,5 @@ export const madagascar: ComesaCountry = {
   intellectualPropertyDepartments: COMESA_INTELLECTUAL_PROPERTY_DEPARTMENTS['MG'],
   securitiesExchangeCommission: COMESA_SECURITIES_EXCHANGE_COMMISSIONS['MG'],
   mainInternationalAirport: COMESA_MAIN_INTERNATIONAL_AIRPORTS['MG'],
+  mainInternationalSeaport: COMESA_MAIN_INTERNATIONAL_SEAPORTS['MG'],
 }

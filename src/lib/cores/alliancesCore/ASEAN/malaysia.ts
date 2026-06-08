@@ -1,5 +1,8 @@
 import type { AseanCountry } from './types'
 import { ASEAN_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ASEAN_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ASEAN_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ASEAN_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ASEAN_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ASEAN_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ASEAN_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ASEAN_BOND_MARKETS } from './bondMarketsByIso'
 import { ASEAN_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ASEAN_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ASEAN_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const malaysia: AseanCountry = {
   name: 'Malaysia',
@@ -28,6 +32,9 @@ export const malaysia: AseanCountry = {
   cryptocurrencyExchanges: ['SC-registered digital exchanges pilot evolution — informational'],
   stablecoin: 'MYR digital bank pilots; ringgit non-internationalised policy — informational',
   domesticCourierServices: ASEAN_DOMESTIC_COURIERS['MY'],
+  domesticPostService: ASEAN_DOMESTIC_POST_SERVICES['MY'],
+  nationalBankingInstitutions: ASEAN_NATIONAL_BANKING_INSTITUTIONS['MY'],
+  corporationFormationOffice: ASEAN_CORPORATION_FORMATION_OFFICES['MY'],
   newsOutlets: ASEAN_NEWS_OUTLETS['MY'],
   notableUniversities: ASEAN_NOTABLE_UNIVERSITIES['MY'],
   mainExportCommodities: ASEAN_MAIN_EXPORT_COMMODITIES['MY'],
@@ -38,4 +45,5 @@ export const malaysia: AseanCountry = {
   intellectualPropertyDepartments: ASEAN_INTELLECTUAL_PROPERTY_DEPARTMENTS['MY'],
   securitiesExchangeCommission: ASEAN_SECURITIES_EXCHANGE_COMMISSIONS['MY'],
   mainInternationalAirport: ASEAN_MAIN_INTERNATIONAL_AIRPORTS['MY'],
+  mainInternationalSeaport: ASEAN_MAIN_INTERNATIONAL_SEAPORTS['MY'],
 }

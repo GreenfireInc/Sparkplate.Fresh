@@ -1,5 +1,8 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ECOWAS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ECOWAS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ECOWAS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const ghana: EcowasCountry = {
   name: 'Ghana',
@@ -26,6 +30,9 @@ export const ghana: EcowasCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Quidax', 'Licensed VASP evolution'],
   stablecoin: 'USDT / USDC; Bank of Ghana eCedi CBDC pilots — verify',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['GH'],
+  domesticPostService: ECOWAS_DOMESTIC_POST_SERVICES['GH'],
+  nationalBankingInstitutions: ECOWAS_NATIONAL_BANKING_INSTITUTIONS['GH'],
+  corporationFormationOffice: ECOWAS_CORPORATION_FORMATION_OFFICES['GH'],
   newsOutlets: ECOWAS_NEWS_OUTLETS['GH'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['GH'],
   mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['GH'],
@@ -37,4 +44,5 @@ export const ghana: EcowasCountry = {
 
   securitiesExchangeCommission: ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS['GH'],
   mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['GH'],
+  mainInternationalSeaport: ECOWAS_MAIN_INTERNATIONAL_SEAPORTS['GH'],
 }

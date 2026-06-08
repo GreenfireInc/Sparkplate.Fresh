@@ -1,5 +1,8 @@
 import type { EuCountry } from './types'
 import { EU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { EU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { EU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { EU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { EU_BOND_MARKETS } from './bondMarketsByIso'
 import { EU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { EU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { EU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { EU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const hungary: EuCountry = {
   name: 'Hungary',
@@ -26,6 +30,9 @@ export const hungary: EuCountry = {
   cryptocurrencyExchanges: ['Regional EU onboarding; Hungarian central bank skeptic tone — informational'],
   stablecoin: 'HUF OTC; predominant EUR/USDT rails',
   domesticCourierServices: EU_DOMESTIC_COURIERS['HU'],
+  domesticPostService: EU_DOMESTIC_POST_SERVICES['HU'],
+  nationalBankingInstitutions: EU_NATIONAL_BANKING_INSTITUTIONS['HU'],
+  corporationFormationOffice: EU_CORPORATION_FORMATION_OFFICES['HU'],
   newsOutlets: EU_NEWS_OUTLETS['HU'],
   notableUniversities: EU_NOTABLE_UNIVERSITIES['HU'],
   mainExportCommodities: EU_MAIN_EXPORT_COMMODITIES['HU'],
@@ -37,4 +44,5 @@ export const hungary: EuCountry = {
 
   securitiesExchangeCommission: EU_SECURITIES_EXCHANGE_COMMISSIONS['HU'],
   mainInternationalAirport: EU_MAIN_INTERNATIONAL_AIRPORTS['HU'],
+  mainInternationalSeaport: EU_MAIN_INTERNATIONAL_SEAPORTS['HU'],
 }

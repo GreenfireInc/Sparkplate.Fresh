@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const colombia: BeltAndRoadInitiativeCountry = {
   name: 'Colombia',
   iso3166Alpha2: 'CO',
@@ -26,6 +30,9 @@ export const colombia: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: [ 'Binance (P2P)', 'International OTC', 'Local regulation varies' ],
   stablecoin: 'USDT / USDC common globally; legality varies by jurisdiction',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['CO'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['CO'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['CO'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['CO'],
   newsOutlets: BRI_NEWS_OUTLETS['CO'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['CO'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['CO'],
@@ -36,4 +43,5 @@ export const colombia: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['CO'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['CO'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['CO'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['CO'],
 }

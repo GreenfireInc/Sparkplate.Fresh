@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const algeria: BeltAndRoadInitiativeCountry = {
   name: 'Algeria',
   iso3166Alpha2: 'DZ',
@@ -26,6 +30,9 @@ export const algeria: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'KuCoin', 'Regional OTC brokers'],
   stablecoin: 'USDT / USDC common in informal crypto markets; no official DZD stablecoin',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['DZ'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['DZ'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['DZ'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['DZ'],
   newsOutlets: BRI_NEWS_OUTLETS['DZ'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['DZ'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['DZ'],
@@ -36,4 +43,5 @@ export const algeria: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['DZ'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['DZ'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['DZ'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['DZ'],
 }

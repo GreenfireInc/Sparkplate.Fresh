@@ -1,5 +1,8 @@
 import type { EcowasCountry } from './types'
 import { ECOWAS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { ECOWAS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { ECOWAS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { ECOWAS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { ECOWAS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { ECOWAS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { ECOWAS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { ECOWAS_BOND_MARKETS } from './bondMarketsByIso'
 import { ECOWAS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { ECOWAS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { ECOWAS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const senegal: EcowasCountry = {
   name: 'Senegal',
@@ -26,6 +30,9 @@ export const senegal: EcowasCountry = {
   cryptocurrencyExchanges: ['Yellow Card', 'Binance (P2P)', 'Wave-linked fintech'],
   stablecoin: 'USDT / USDC; XOF CFA peg via BCEAO',
   domesticCourierServices: ECOWAS_DOMESTIC_COURIERS['SN'],
+  domesticPostService: ECOWAS_DOMESTIC_POST_SERVICES['SN'],
+  nationalBankingInstitutions: ECOWAS_NATIONAL_BANKING_INSTITUTIONS['SN'],
+  corporationFormationOffice: ECOWAS_CORPORATION_FORMATION_OFFICES['SN'],
   newsOutlets: ECOWAS_NEWS_OUTLETS['SN'],
   notableUniversities: ECOWAS_NOTABLE_UNIVERSITIES['SN'],
   mainExportCommodities: ECOWAS_MAIN_EXPORT_COMMODITIES['SN'],
@@ -37,4 +44,5 @@ export const senegal: EcowasCountry = {
 
   securitiesExchangeCommission: ECOWAS_SECURITIES_EXCHANGE_COMMISSIONS['SN'],
   mainInternationalAirport: ECOWAS_MAIN_INTERNATIONAL_AIRPORTS['SN'],
+  mainInternationalSeaport: ECOWAS_MAIN_INTERNATIONAL_SEAPORTS['SN'],
 }

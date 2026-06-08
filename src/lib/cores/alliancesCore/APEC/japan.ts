@@ -1,5 +1,8 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { APEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { APEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { APEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const japan: ApecCountry = {
   name: 'Japan',
@@ -28,6 +32,9 @@ export const japan: ApecCountry = {
   cryptocurrencyExchanges: ['bitFlyer', 'Coincheck PSAP context — informational'],
   stablecoin: 'JPY digital pilots Bank of Japan — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['JP'],
+  domesticPostService: APEC_DOMESTIC_POST_SERVICES['JP'],
+  nationalBankingInstitutions: APEC_NATIONAL_BANKING_INSTITUTIONS['JP'],
+  corporationFormationOffice: APEC_CORPORATION_FORMATION_OFFICES['JP'],
   newsOutlets: APEC_NEWS_OUTLETS['JP'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['JP'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['JP'],
@@ -38,4 +45,5 @@ export const japan: ApecCountry = {
   intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['JP'],
   securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['JP'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['JP'],
+  mainInternationalSeaport: APEC_MAIN_INTERNATIONAL_SEAPORTS['JP'],
 }

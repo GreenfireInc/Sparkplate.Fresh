@@ -1,5 +1,8 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const argentina: G20Country = {
   name: 'Argentina',
@@ -28,6 +32,9 @@ export const argentina: G20Country = {
   cryptocurrencyExchanges: ['Lemon Cash', 'Ripio', 'Belo / CNV-evolving VASP register — informational'],
   stablecoin: 'USDT dominant retail savings instrument vs ARS depreciation; ARS-backed issuance thin — informational',
   domesticCourierServices: G20_DOMESTIC_COURIERS['AR'],
+  domesticPostService: G20_DOMESTIC_POST_SERVICES['AR'],
+  nationalBankingInstitutions: G20_NATIONAL_BANKING_INSTITUTIONS['AR'],
+  corporationFormationOffice: G20_CORPORATION_FORMATION_OFFICES['AR'],
   newsOutlets: G20_NEWS_OUTLETS['AR'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['AR'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['AR'],
@@ -36,6 +43,7 @@ export const argentina: G20Country = {
   stockExchange: 'Bolsas y Mercados Argentinos BYMA (Buenos Aires)',
   bondMarkets: G20_BOND_MARKETS['AR'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['AR'],
+  mainInternationalSeaport: G20_MAIN_INTERNATIONAL_SEAPORTS['AR'],
   intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['AR'],
   securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['AR'],
 }

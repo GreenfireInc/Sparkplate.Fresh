@@ -1,5 +1,8 @@
 import type { IoraCountry } from './types'
 import { IORA_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IORA_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { IORA_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { IORA_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { IORA_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IORA_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IORA_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { IORA_BOND_MARKETS } from './bondMarketsByIso'
 import { IORA_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { IORA_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { IORA_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const yemen: IoraCountry = {
   name: 'Yemen',
@@ -28,6 +32,9 @@ export const yemen: IoraCountry = {
   cryptocurrencyExchanges: ['Infrastructure collapse; OTC informal hawala predominant — informational'],
   stablecoin: 'USD predominant informal economy — informational',
   domesticCourierServices: IORA_DOMESTIC_COURIERS['YE'],
+  domesticPostService: IORA_DOMESTIC_POST_SERVICES['YE'],
+  nationalBankingInstitutions: IORA_NATIONAL_BANKING_INSTITUTIONS['YE'],
+  corporationFormationOffice: IORA_CORPORATION_FORMATION_OFFICES['YE'],
   newsOutlets: IORA_NEWS_OUTLETS['YE'],
   notableUniversities: IORA_NOTABLE_UNIVERSITIES['YE'],
   mainExportCommodities: IORA_MAIN_EXPORT_COMMODITIES['YE'],
@@ -36,6 +43,7 @@ export const yemen: IoraCountry = {
   stockExchange: 'Aden Securities micro-market disruptions — informational',
   bondMarkets: IORA_BOND_MARKETS['YE'],
   mainInternationalAirport: IORA_MAIN_INTERNATIONAL_AIRPORTS['YE'],
+  mainInternationalSeaport: IORA_MAIN_INTERNATIONAL_SEAPORTS['YE'],
   intellectualPropertyDepartments: IORA_INTELLECTUAL_PROPERTY_DEPARTMENTS['YE'],
   securitiesExchangeCommission: IORA_SECURITIES_EXCHANGE_COMMISSIONS['YE'],
 }

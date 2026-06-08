@@ -1,5 +1,8 @@
 import type { G20Country } from './types'
 import { G20_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { G20_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { G20_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { G20_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { G20_NEWS_OUTLETS } from './newsOutletsByIso'
 import { G20_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { G20_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { G20_BOND_MARKETS } from './bondMarketsByIso'
 import { G20_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { G20_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { G20_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { G20_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const canada: G20Country = {
   name: 'Canada',
@@ -27,6 +31,9 @@ export const canada: G20Country = {
   cryptocurrencyExchanges: ['Bitbuy', 'Newton', 'CSA/PRU provincial licensing environment — informational'],
   stablecoin: 'CAD fiat-backed tokens (regulated money services / evolving OSFI guidance — informational)',
   domesticCourierServices: G20_DOMESTIC_COURIERS['CA'],
+  domesticPostService: G20_DOMESTIC_POST_SERVICES['CA'],
+  nationalBankingInstitutions: G20_NATIONAL_BANKING_INSTITUTIONS['CA'],
+  corporationFormationOffice: G20_CORPORATION_FORMATION_OFFICES['CA'],
   newsOutlets: G20_NEWS_OUTLETS['CA'],
   notableUniversities: G20_NOTABLE_UNIVERSITIES['CA'],
   mainExportCommodities: G20_MAIN_EXPORT_COMMODITIES['CA'],
@@ -35,6 +42,7 @@ export const canada: G20Country = {
   stockExchange: 'Toronto Stock Exchange (TMX)',
   bondMarkets: G20_BOND_MARKETS['CA'],
   mainInternationalAirport: G20_MAIN_INTERNATIONAL_AIRPORTS['CA'],
+  mainInternationalSeaport: G20_MAIN_INTERNATIONAL_SEAPORTS['CA'],
   intellectualPropertyDepartments: G20_INTELLECTUAL_PROPERTY_DEPARTMENTS['CA'],
   securitiesExchangeCommission: G20_SECURITIES_EXCHANGE_COMMISSIONS['CA'],
 }

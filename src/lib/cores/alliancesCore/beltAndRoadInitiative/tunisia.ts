@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const tunisia: BeltAndRoadInitiativeCountry = {
   name: 'Tunisia',
   iso3166Alpha2: 'TN',
@@ -26,6 +30,9 @@ export const tunisia: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional brokers', 'OTC'],
   stablecoin: 'USDT informal; e-dinar discussions',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['TN'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['TN'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['TN'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['TN'],
   newsOutlets: BRI_NEWS_OUTLETS['TN'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['TN'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['TN'],
@@ -36,4 +43,5 @@ export const tunisia: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['TN'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['TN'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['TN'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['TN'],
 }

@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const canada: NatoCountry = {
   name: 'Canada',
@@ -27,6 +31,9 @@ export const canada: NatoCountry = {
   cryptocurrencyExchanges: ['Bitbuy', 'Newton', 'CSA provincial licensing — informational'],
   stablecoin: 'CAD fiat-backed tokens; OSFI guidance evolution — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['CA'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['CA'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['CA'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['CA'],
   newsOutlets: NATO_NEWS_OUTLETS['CA'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['CA'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['CA'],
@@ -35,6 +42,7 @@ export const canada: NatoCountry = {
   stockExchange: 'Toronto Stock Exchange (TMX)',
   bondMarkets: NATO_BOND_MARKETS['CA'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['CA'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['CA'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['CA'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['CA'],
 }

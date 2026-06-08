@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const iceland: NatoCountry = {
   name: 'Iceland',
@@ -27,6 +31,9 @@ export const iceland: NatoCountry = {
   cryptocurrencyExchanges: ['Nordic EU passport venues; thin licensed retail — informational'],
   stablecoin: 'ISK thin; USD/EUR-stable informal — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['IS'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['IS'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['IS'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['IS'],
   newsOutlets: NATO_NEWS_OUTLETS['IS'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['IS'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['IS'],
@@ -35,6 +42,7 @@ export const iceland: NatoCountry = {
   stockExchange: 'Nasdaq Iceland',
   bondMarkets: NATO_BOND_MARKETS['IS'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['IS'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['IS'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['IS'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['IS'],
 }

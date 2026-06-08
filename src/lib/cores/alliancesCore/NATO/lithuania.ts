@@ -1,5 +1,8 @@
 import type { NatoCountry } from './types'
 import { NATO_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { NATO_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { NATO_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { NATO_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { NATO_NEWS_OUTLETS } from './newsOutletsByIso'
 import { NATO_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { NATO_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { NATO_BOND_MARKETS } from './bondMarketsByIso'
 import { NATO_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { NATO_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { NATO_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const lithuania: NatoCountry = {
   name: 'Lithuania',
@@ -27,6 +31,9 @@ export const lithuania: NatoCountry = {
   cryptocurrencyExchanges: ['EU onboarding; Baltic fintech — informational'],
   stablecoin: 'EUR stablecoins — informational',
   domesticCourierServices: NATO_DOMESTIC_COURIERS['LT'],
+  domesticPostService: NATO_DOMESTIC_POST_SERVICES['LT'],
+  nationalBankingInstitutions: NATO_NATIONAL_BANKING_INSTITUTIONS['LT'],
+  corporationFormationOffice: NATO_CORPORATION_FORMATION_OFFICES['LT'],
   newsOutlets: NATO_NEWS_OUTLETS['LT'],
   notableUniversities: NATO_NOTABLE_UNIVERSITIES['LT'],
   mainExportCommodities: NATO_MAIN_EXPORT_COMMODITIES['LT'],
@@ -35,6 +42,7 @@ export const lithuania: NatoCountry = {
   stockExchange: 'Nasdaq Vilnius',
   bondMarkets: NATO_BOND_MARKETS['LT'],
   mainInternationalAirport: NATO_MAIN_INTERNATIONAL_AIRPORTS['LT'],
+  mainInternationalSeaport: NATO_MAIN_INTERNATIONAL_SEAPORTS['LT'],
   intellectualPropertyDepartments: NATO_INTELLECTUAL_PROPERTY_DEPARTMENTS['LT'],
   securitiesExchangeCommission: NATO_SECURITIES_EXCHANGE_COMMISSIONS['LT'],
 }

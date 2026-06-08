@@ -1,5 +1,8 @@
 import type { OpecCountry } from './types'
 import { OPEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OPEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OPEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OPEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OPEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OPEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OPEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OPEC_BOND_MARKETS } from './bondMarketsByIso'
 import { OPEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OPEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OPEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const nigeria: OpecCountry = {
   name: 'Nigeria',
@@ -27,6 +31,9 @@ export const nigeria: OpecCountry = {
   cryptocurrencyExchanges: ['SEC cautious licensing; Patricia / Nigerian P2P with CBN evolution — informational'],
   stablecoin: 'e-Naira CBDC experimentation; informal USDT pricing — informational',
   domesticCourierServices: OPEC_DOMESTIC_COURIERS['NG'],
+  domesticPostService: OPEC_DOMESTIC_POST_SERVICES['NG'],
+  nationalBankingInstitutions: OPEC_NATIONAL_BANKING_INSTITUTIONS['NG'],
+  corporationFormationOffice: OPEC_CORPORATION_FORMATION_OFFICES['NG'],
   newsOutlets: OPEC_NEWS_OUTLETS['NG'],
   notableUniversities: OPEC_NOTABLE_UNIVERSITIES['NG'],
   mainExportCommodities: OPEC_MAIN_EXPORT_COMMODITIES['NG'],
@@ -35,6 +42,7 @@ export const nigeria: OpecCountry = {
   stockExchange: 'Nigerian Exchange Group NGX (Lagos equities)',
   bondMarkets: OPEC_BOND_MARKETS['NG'],
   mainInternationalAirport: OPEC_MAIN_INTERNATIONAL_AIRPORTS['NG'],
+  mainInternationalSeaport: OPEC_MAIN_INTERNATIONAL_SEAPORTS['NG'],
   intellectualPropertyDepartments: OPEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['NG'],
   securitiesExchangeCommission: OPEC_SECURITIES_EXCHANGE_COMMISSIONS['NG'],
 }

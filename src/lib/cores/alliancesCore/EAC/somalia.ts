@@ -1,5 +1,8 @@
 import type { EacCountry } from './types'
 import { EAC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { EAC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { EAC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { EAC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { EAC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { EAC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { EAC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { EAC_BOND_MARKETS } from './bondMarketsByIso'
 import { EAC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { EAC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { EAC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { EAC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const somalia: EacCountry = {
   name: 'Somalia',
@@ -28,6 +32,9 @@ export const somalia: EacCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Hawala-linked OTC', 'Diaspora remittance apps'],
   stablecoin: 'USDT informal; USD cash economy',
   domesticCourierServices: EAC_DOMESTIC_COURIERS['SO'],
+  domesticPostService: EAC_DOMESTIC_POST_SERVICES['SO'],
+  nationalBankingInstitutions: EAC_NATIONAL_BANKING_INSTITUTIONS['SO'],
+  corporationFormationOffice: EAC_CORPORATION_FORMATION_OFFICES['SO'],
   newsOutlets: EAC_NEWS_OUTLETS['SO'],
   notableUniversities: EAC_NOTABLE_UNIVERSITIES['SO'],
   mainExportCommodities: EAC_MAIN_EXPORT_COMMODITIES['SO'],
@@ -39,4 +46,5 @@ export const somalia: EacCountry = {
 
   securitiesExchangeCommission: EAC_SECURITIES_EXCHANGE_COMMISSIONS['SO'],
   mainInternationalAirport: EAC_MAIN_INTERNATIONAL_AIRPORTS['SO'],
+  mainInternationalSeaport: EAC_MAIN_INTERNATIONAL_SEAPORTS['SO'],
 }

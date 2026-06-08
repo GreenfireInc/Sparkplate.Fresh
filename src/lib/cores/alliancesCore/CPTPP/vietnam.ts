@@ -1,5 +1,8 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CPTPP_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CPTPP_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 import { CPTPP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CPTPP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CPTPP_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const vietnam: CptppCountry = {
   name: 'Vietnam',
@@ -26,6 +30,9 @@ export const vietnam: CptppCountry = {
   cryptocurrencyExchanges: ['Trading not legal tender; peer OTC despite restrictions — informational'],
   stablecoin: 'No official retail stablecoin; USD cash economy parallels',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['VN'],
+  domesticPostService: CPTPP_DOMESTIC_POST_SERVICES['VN'],
+  nationalBankingInstitutions: CPTPP_NATIONAL_BANKING_INSTITUTIONS['VN'],
+  corporationFormationOffice: CPTPP_CORPORATION_FORMATION_OFFICES['VN'],
   newsOutlets: CPTPP_NEWS_OUTLETS['VN'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['VN'],
   mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['VN'],
@@ -36,4 +43,5 @@ export const vietnam: CptppCountry = {
   intellectualPropertyDepartments: CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS['VN'],
   securitiesExchangeCommission: CPTPP_SECURITIES_EXCHANGE_COMMISSIONS['VN'],
   mainInternationalAirport: CPTPP_MAIN_INTERNATIONAL_AIRPORTS['VN'],
+  mainInternationalSeaport: CPTPP_MAIN_INTERNATIONAL_SEAPORTS['VN'],
 }

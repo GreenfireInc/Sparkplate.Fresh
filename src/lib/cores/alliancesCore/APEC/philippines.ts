@@ -1,5 +1,8 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { APEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { APEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { APEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const philippines: ApecCountry = {
   name: 'Philippines',
@@ -27,6 +31,9 @@ export const philippines: ApecCountry = {
   cryptocurrencyExchanges: ['BSP VASP registry evolution — informational'],
   stablecoin: 'PHP pilots; USDT remittance overlays — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['PH'],
+  domesticPostService: APEC_DOMESTIC_POST_SERVICES['PH'],
+  nationalBankingInstitutions: APEC_NATIONAL_BANKING_INSTITUTIONS['PH'],
+  corporationFormationOffice: APEC_CORPORATION_FORMATION_OFFICES['PH'],
   newsOutlets: APEC_NEWS_OUTLETS['PH'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['PH'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['PH'],
@@ -37,4 +44,5 @@ export const philippines: ApecCountry = {
   intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['PH'],
   securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['PH'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['PH'],
+  mainInternationalSeaport: APEC_MAIN_INTERNATIONAL_SEAPORTS['PH'],
 }

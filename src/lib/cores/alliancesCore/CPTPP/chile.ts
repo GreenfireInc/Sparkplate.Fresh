@@ -1,5 +1,8 @@
 import type { CptppCountry } from './types'
 import { CPTPP_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { CPTPP_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { CPTPP_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { CPTPP_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { CPTPP_NEWS_OUTLETS } from './newsOutletsByIso'
 import { CPTPP_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { CPTPP_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { CPTPP_BOND_MARKETS } from './bondMarketsByIso'
 import { CPTPP_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { CPTPP_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { CPTPP_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const chile: CptppCountry = {
   name: 'Chile',
@@ -26,6 +30,9 @@ export const chile: CptppCountry = {
   cryptocurrencyExchanges: ['Buda.com', 'Orionx', 'Global exchanges (travel context)'],
   stablecoin: 'USDT/USDC OTC; constitutional reform narratives — verify',
   domesticCourierServices: CPTPP_DOMESTIC_COURIERS['CL'],
+  domesticPostService: CPTPP_DOMESTIC_POST_SERVICES['CL'],
+  nationalBankingInstitutions: CPTPP_NATIONAL_BANKING_INSTITUTIONS['CL'],
+  corporationFormationOffice: CPTPP_CORPORATION_FORMATION_OFFICES['CL'],
   newsOutlets: CPTPP_NEWS_OUTLETS['CL'],
   notableUniversities: CPTPP_NOTABLE_UNIVERSITIES['CL'],
   mainExportCommodities: CPTPP_MAIN_EXPORT_COMMODITIES['CL'],
@@ -36,4 +43,5 @@ export const chile: CptppCountry = {
   intellectualPropertyDepartments: CPTPP_INTELLECTUAL_PROPERTY_DEPARTMENTS['CL'],
   securitiesExchangeCommission: CPTPP_SECURITIES_EXCHANGE_COMMISSIONS['CL'],
   mainInternationalAirport: CPTPP_MAIN_INTERNATIONAL_AIRPORTS['CL'],
+  mainInternationalSeaport: CPTPP_MAIN_INTERNATIONAL_SEAPORTS['CL'],
 }

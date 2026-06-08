@@ -1,5 +1,8 @@
 import type { AmuCountry } from './types'
 import { AMU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AMU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AMU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AMU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AMU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AMU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AMU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AMU_BOND_MARKETS } from './bondMarketsByIso'
 import { AMU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AMU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AMU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const mauritania: AmuCountry = {
   name: 'Mauritania',
@@ -27,6 +31,9 @@ export const mauritania: AmuCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional OTC', 'Peer-to-peer networks'],
   stablecoin: 'USDT informal; no MRU stablecoin',
   domesticCourierServices: AMU_DOMESTIC_COURIERS['MR'],
+  domesticPostService: AMU_DOMESTIC_POST_SERVICES['MR'],
+  nationalBankingInstitutions: AMU_NATIONAL_BANKING_INSTITUTIONS['MR'],
+  corporationFormationOffice: AMU_CORPORATION_FORMATION_OFFICES['MR'],
   newsOutlets: AMU_NEWS_OUTLETS['MR'],
   notableUniversities: AMU_NOTABLE_UNIVERSITIES['MR'],
   mainExportCommodities: AMU_MAIN_EXPORT_COMMODITIES['MR'],
@@ -37,4 +44,5 @@ export const mauritania: AmuCountry = {
   intellectualPropertyDepartments: AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS['MR'],
   securitiesExchangeCommission: AMU_SECURITIES_EXCHANGE_COMMISSIONS['MR'],
   mainInternationalAirport: AMU_MAIN_INTERNATIONAL_AIRPORTS['MR'],
+  mainInternationalSeaport: AMU_MAIN_INTERNATIONAL_SEAPORTS['MR'],
 }

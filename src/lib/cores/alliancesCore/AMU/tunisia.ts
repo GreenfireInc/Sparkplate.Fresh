@@ -1,5 +1,8 @@
 import type { AmuCountry } from './types'
 import { AMU_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { AMU_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { AMU_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { AMU_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { AMU_NEWS_OUTLETS } from './newsOutletsByIso'
 import { AMU_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { AMU_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { AMU_BOND_MARKETS } from './bondMarketsByIso'
 import { AMU_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { AMU_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { AMU_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const tunisia: AmuCountry = {
   name: 'Tunisia',
@@ -27,6 +31,9 @@ export const tunisia: AmuCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Regional brokers', 'OTC'],
   stablecoin: 'USDT informal; e-dinar discussions',
   domesticCourierServices: AMU_DOMESTIC_COURIERS['TN'],
+  domesticPostService: AMU_DOMESTIC_POST_SERVICES['TN'],
+  nationalBankingInstitutions: AMU_NATIONAL_BANKING_INSTITUTIONS['TN'],
+  corporationFormationOffice: AMU_CORPORATION_FORMATION_OFFICES['TN'],
   newsOutlets: AMU_NEWS_OUTLETS['TN'],
   notableUniversities: AMU_NOTABLE_UNIVERSITIES['TN'],
   mainExportCommodities: AMU_MAIN_EXPORT_COMMODITIES['TN'],
@@ -37,4 +44,5 @@ export const tunisia: AmuCountry = {
   intellectualPropertyDepartments: AMU_INTELLECTUAL_PROPERTY_DEPARTMENTS['TN'],
   securitiesExchangeCommission: AMU_SECURITIES_EXCHANGE_COMMISSIONS['TN'],
   mainInternationalAirport: AMU_MAIN_INTERNATIONAL_AIRPORTS['TN'],
+  mainInternationalSeaport: AMU_MAIN_INTERNATIONAL_SEAPORTS['TN'],
 }

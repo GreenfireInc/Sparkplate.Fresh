@@ -1,5 +1,8 @@
 import type { OecdCountry } from './types'
 import { OECD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { OECD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { OECD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { OECD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { OECD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { OECD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { OECD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { OECD_BOND_MARKETS } from './bondMarketsByIso'
 import { OECD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { OECD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { OECD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const chile: OecdCountry = {
   name: 'Chile',
@@ -27,6 +31,9 @@ export const chile: OecdCountry = {
   cryptocurrencyExchanges: ['Buda.com', 'CMF-registered onboarding evolution — informational'],
   stablecoin: 'CLP digital pilots; predominant USD OTC rails — informational',
   domesticCourierServices: OECD_DOMESTIC_COURIERS['CL'],
+  domesticPostService: OECD_DOMESTIC_POST_SERVICES['CL'],
+  nationalBankingInstitutions: OECD_NATIONAL_BANKING_INSTITUTIONS['CL'],
+  corporationFormationOffice: OECD_CORPORATION_FORMATION_OFFICES['CL'],
   newsOutlets: OECD_NEWS_OUTLETS['CL'],
   notableUniversities: OECD_NOTABLE_UNIVERSITIES['CL'],
   mainExportCommodities: OECD_MAIN_EXPORT_COMMODITIES['CL'],
@@ -35,6 +42,7 @@ export const chile: OecdCountry = {
   stockExchange: 'Bolsa de Santiago (Bolsa Electrónica de Chile contextual listings — informational)',
   bondMarkets: OECD_BOND_MARKETS['CL'],
   mainInternationalAirport: OECD_MAIN_INTERNATIONAL_AIRPORTS['CL'],
+  mainInternationalSeaport: OECD_MAIN_INTERNATIONAL_SEAPORTS['CL'],
   intellectualPropertyDepartments: OECD_INTELLECTUAL_PROPERTY_DEPARTMENTS['CL'],
   securitiesExchangeCommission: OECD_SECURITIES_EXCHANGE_COMMISSIONS['CL'],
 }

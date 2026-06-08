@@ -1,5 +1,8 @@
 import type { MintCountry } from './types'
 import { MINT_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { MINT_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { MINT_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { MINT_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { MINT_NEWS_OUTLETS } from './newsOutletsByIso'
 import { MINT_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { MINT_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { MINT_BOND_MARKETS } from './bondMarketsByIso'
 import { MINT_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { MINT_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { MINT_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { MINT_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const turkey: MintCountry = {
   name: 'Turkey',
@@ -28,6 +32,9 @@ export const turkey: MintCountry = {
   cryptocurrencyExchanges: ['BtcTurk', 'Paribu', 'MASAK anti-money laundering registration — informational'],
   stablecoin: 'TRY fiat-backed issuance thin; TRY volatility vs USD-stable informal — informational',
   domesticCourierServices: MINT_DOMESTIC_COURIERS['TR'],
+  domesticPostService: MINT_DOMESTIC_POST_SERVICES['TR'],
+  nationalBankingInstitutions: MINT_NATIONAL_BANKING_INSTITUTIONS['TR'],
+  corporationFormationOffice: MINT_CORPORATION_FORMATION_OFFICES['TR'],
   newsOutlets: MINT_NEWS_OUTLETS['TR'],
   notableUniversities: MINT_NOTABLE_UNIVERSITIES['TR'],
   mainExportCommodities: MINT_MAIN_EXPORT_COMMODITIES['TR'],
@@ -36,6 +43,7 @@ export const turkey: MintCountry = {
   stockExchange: 'Borsa Istanbul (BİST equities / debt)',
   bondMarkets: MINT_BOND_MARKETS['TR'],
   mainInternationalAirport: MINT_MAIN_INTERNATIONAL_AIRPORTS['TR'],
+  mainInternationalSeaport: MINT_MAIN_INTERNATIONAL_SEAPORTS['TR'],
   intellectualPropertyDepartments: MINT_INTELLECTUAL_PROPERTY_DEPARTMENTS['TR'],
   securitiesExchangeCommission: MINT_SECURITIES_EXCHANGE_COMMISSIONS['TR'],
 }

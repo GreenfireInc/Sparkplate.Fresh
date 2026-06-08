@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const equatorialGuinea: BeltAndRoadInitiativeCountry = {
   name: 'Equatorial Guinea',
   iso3166Alpha2: 'GQ',
@@ -26,6 +30,9 @@ export const equatorialGuinea: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'OTC', 'International brokers'],
   stablecoin: 'USDT informal; XAF peg',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['GQ'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['GQ'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['GQ'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['GQ'],
   newsOutlets: BRI_NEWS_OUTLETS['GQ'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['GQ'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['GQ'],
@@ -36,4 +43,5 @@ export const equatorialGuinea: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['GQ'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['GQ'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['GQ'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['GQ'],
 }

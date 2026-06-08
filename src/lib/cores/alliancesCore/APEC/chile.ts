@@ -1,5 +1,8 @@
 import type { ApecCountry } from './types'
 import { APEC_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { APEC_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { APEC_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { APEC_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { APEC_NEWS_OUTLETS } from './newsOutletsByIso'
 import { APEC_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { APEC_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { APEC_BOND_MARKETS } from './bondMarketsByIso'
 import { APEC_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { APEC_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { APEC_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const chile: ApecCountry = {
   name: 'Chile',
@@ -27,6 +31,9 @@ export const chile: ApecCountry = {
   cryptocurrencyExchanges: ['Buda LATAM onboarding; CMF supervision — informational'],
   stablecoin: 'CLP digital pilots thin — informational',
   domesticCourierServices: APEC_DOMESTIC_COURIERS['CL'],
+  domesticPostService: APEC_DOMESTIC_POST_SERVICES['CL'],
+  nationalBankingInstitutions: APEC_NATIONAL_BANKING_INSTITUTIONS['CL'],
+  corporationFormationOffice: APEC_CORPORATION_FORMATION_OFFICES['CL'],
   newsOutlets: APEC_NEWS_OUTLETS['CL'],
   notableUniversities: APEC_NOTABLE_UNIVERSITIES['CL'],
   mainExportCommodities: APEC_MAIN_EXPORT_COMMODITIES['CL'],
@@ -37,4 +44,5 @@ export const chile: ApecCountry = {
   intellectualPropertyDepartments: APEC_INTELLECTUAL_PROPERTY_DEPARTMENTS['CL'],
   securitiesExchangeCommission: APEC_SECURITIES_EXCHANGE_COMMISSIONS['CL'],
   mainInternationalAirport: APEC_MAIN_INTERNATIONAL_AIRPORTS['CL'],
+  mainInternationalSeaport: APEC_MAIN_INTERNATIONAL_SEAPORTS['CL'],
 }

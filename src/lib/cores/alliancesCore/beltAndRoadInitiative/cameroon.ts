@@ -1,5 +1,8 @@
 import type { BeltAndRoadInitiativeCountry } from './types'
 import { BRI_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRI_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRI_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRI_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRI_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRI_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRI_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { BRI_BOND_MARKETS } from './bondMarketsByIso'
 import { BRI_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRI_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRI_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 export const cameroon: BeltAndRoadInitiativeCountry = {
   name: 'Cameroon',
   iso3166Alpha2: 'CM',
@@ -26,6 +30,9 @@ export const cameroon: BeltAndRoadInitiativeCountry = {
   cryptocurrencyExchanges: ['Binance (P2P)', 'Yellow Card', 'Local OTC'],
   stablecoin: 'USDT / USDC P2P; XAF CFA peg',
   domesticCourierServices: BRI_DOMESTIC_COURIERS['CM'],
+  domesticPostService: BRI_DOMESTIC_POST_SERVICES['CM'],
+  nationalBankingInstitutions: BRI_NATIONAL_BANKING_INSTITUTIONS['CM'],
+  corporationFormationOffice: BRI_CORPORATION_FORMATION_OFFICES['CM'],
   newsOutlets: BRI_NEWS_OUTLETS['CM'],
   notableUniversities: BRI_NOTABLE_UNIVERSITIES['CM'],
   mainExportCommodities: BRI_MAIN_EXPORT_COMMODITIES['CM'],
@@ -36,4 +43,5 @@ export const cameroon: BeltAndRoadInitiativeCountry = {
   intellectualPropertyDepartments: BRI_INTELLECTUAL_PROPERTY_DEPARTMENTS['CM'],
   securitiesExchangeCommission: BRI_SECURITIES_EXCHANGE_COMMISSIONS['CM'],
   mainInternationalAirport: BRI_MAIN_INTERNATIONAL_AIRPORTS['CM'],
+  mainInternationalSeaport: BRI_MAIN_INTERNATIONAL_SEAPORTS['CM'],
 }

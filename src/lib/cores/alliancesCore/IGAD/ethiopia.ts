@@ -1,5 +1,8 @@
 import type { IgadCountry } from './types'
 import { IGAD_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { IGAD_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { IGAD_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { IGAD_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { IGAD_NEWS_OUTLETS } from './newsOutletsByIso'
 import { IGAD_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { IGAD_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -9,6 +12,7 @@ import { IGAD_BOND_MARKETS } from './bondMarketsByIso'
 import { IGAD_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { IGAD_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { IGAD_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const ethiopia: IgadCountry = {
   name: 'Ethiopia',
@@ -27,6 +31,9 @@ export const ethiopia: IgadCountry = {
   cryptocurrencyExchanges: ['Ethiopian Securities Exchange digital pilots; peer informal — informational'],
   stablecoin: 'ETB-referenced digital payments; CBDC study narratives — informational',
   domesticCourierServices: IGAD_DOMESTIC_COURIERS['ET'],
+  domesticPostService: IGAD_DOMESTIC_POST_SERVICES['ET'],
+  nationalBankingInstitutions: IGAD_NATIONAL_BANKING_INSTITUTIONS['ET'],
+  corporationFormationOffice: IGAD_CORPORATION_FORMATION_OFFICES['ET'],
   newsOutlets: IGAD_NEWS_OUTLETS['ET'],
   notableUniversities: IGAD_NOTABLE_UNIVERSITIES['ET'],
   mainExportCommodities: IGAD_MAIN_EXPORT_COMMODITIES['ET'],
@@ -35,6 +42,7 @@ export const ethiopia: IgadCountry = {
   stockExchange: 'Ethiopian Securities Exchange Addis debut-era listings — informational',
   bondMarkets: IGAD_BOND_MARKETS['ET'],
   mainInternationalAirport: IGAD_MAIN_INTERNATIONAL_AIRPORTS['ET'],
+  mainInternationalSeaport: IGAD_MAIN_INTERNATIONAL_SEAPORTS['ET'],
   intellectualPropertyDepartments: IGAD_INTELLECTUAL_PROPERTY_DEPARTMENTS['ET'],
   securitiesExchangeCommission: IGAD_SECURITIES_EXCHANGE_COMMISSIONS['ET'],
 }

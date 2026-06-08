@@ -4,20 +4,31 @@ export type {
   AllianceOfSahelStatesOrganizationInfo,
   BondMarketVenue,
   DomesticCourierService,
+  DomesticPostService,
+  PostalCodeSchema,
   IntellectualPropertyDepartment,
   IntellectualPropertyDepartmentKind,
   IntellectualPropertyDepartmentsRoster,
   MainExportCommodities,
   MainExportedElements,
   MainInternationalAirport,
+  MainInternationalSeaport,
+  CustomsOffice,
   NewsOutlet,
   NewsOutletsRoster,
+  NationalBankingInstitution,
+  NationalBankingInstitutions,
+  CorporationFormationOffice,
   NotableUniversity,
   RareEarths,
   SecuritiesExchangeCommission,
 } from './types'
 export { AES_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 export { AES_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+export { AES_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
+export { AES_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+export { AES_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+export { AES_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 export { AES_MEMBER_ISO_CODES } from './aesMemberIsoCodes'
 export type { AesMemberIsoCode } from './aesMemberIsoCodes'
 

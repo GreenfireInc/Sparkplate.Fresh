@@ -1,5 +1,8 @@
 import type { BricsCountry } from './types'
 import { BRICS_DOMESTIC_COURIERS } from './domesticCouriersByIso'
+import { BRICS_DOMESTIC_POST_SERVICES } from './domesticPostServicesByIso'
+import { BRICS_NATIONAL_BANKING_INSTITUTIONS } from './nationalBankingInstitutionsByIso'
+import { BRICS_CORPORATION_FORMATION_OFFICES } from './corporationFormationOfficesByIso'
 import { BRICS_NEWS_OUTLETS } from './newsOutletsByIso'
 import { BRICS_NOTABLE_UNIVERSITIES } from './notableUniversitiesByIso'
 import { BRICS_MAIN_EXPORT_COMMODITIES } from './mainExportCommoditiesByIso'
@@ -8,6 +11,7 @@ import { BRICS_RARE_EARTHS } from './rareEarthsByIso'
 import { BRICS_MAIN_INTERNATIONAL_AIRPORTS } from './mainInternationalAirportsByIso'
 import { BRICS_INTELLECTUAL_PROPERTY_DEPARTMENTS } from './intellectualPropertyDepartmentsByIso'
 import { BRICS_SECURITIES_EXCHANGE_COMMISSIONS } from './securitiesExchangeCommissionByIso'
+import { BRICS_MAIN_INTERNATIONAL_SEAPORTS } from './mainInternationalSeaportsByIso'
 
 export const india: BricsCountry = {
   name: 'India',
@@ -26,6 +30,9 @@ export const india: BricsCountry = {
   cryptocurrencyExchanges: ['CoinDCX', 'WazirX', 'ZebPay', 'International P2P (regulatory environment evolving)'],
   stablecoin: 'No INR official stablecoin at central-bank retail scale; USDT/USDC common on global platforms',
   domesticCourierServices: BRICS_DOMESTIC_COURIERS['IN'],
+  domesticPostService: BRICS_DOMESTIC_POST_SERVICES['IN'],
+  nationalBankingInstitutions: BRICS_NATIONAL_BANKING_INSTITUTIONS['IN'],
+  corporationFormationOffice: BRICS_CORPORATION_FORMATION_OFFICES['IN'],
   newsOutlets: BRICS_NEWS_OUTLETS['IN'],
   notableUniversities: BRICS_NOTABLE_UNIVERSITIES['IN'],
   mainExportCommodities: BRICS_MAIN_EXPORT_COMMODITIES['IN'],
@@ -35,4 +42,5 @@ export const india: BricsCountry = {
   intellectualPropertyDepartments: BRICS_INTELLECTUAL_PROPERTY_DEPARTMENTS['IN'],
   securitiesExchangeCommission: BRICS_SECURITIES_EXCHANGE_COMMISSIONS['IN'],
   mainInternationalAirport: BRICS_MAIN_INTERNATIONAL_AIRPORTS['IN'],
+  mainInternationalSeaport: BRICS_MAIN_INTERNATIONAL_SEAPORTS['IN'],
 }
