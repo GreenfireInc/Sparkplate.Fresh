@@ -2,6 +2,7 @@ import './polyfills' // Import polyfills first
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import { pinia } from './stores'
 import moment from 'moment'
 
 import './style.css'
@@ -36,6 +37,7 @@ const initApp = (appData?: any) => {
     }
     
     app
+      .use(pinia)   // before router so route guards can read stores
       .use(router)
       .mount('#app')
       .$nextTick(() => {

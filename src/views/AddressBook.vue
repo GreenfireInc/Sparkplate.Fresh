@@ -182,6 +182,7 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, nextTick } from 'vue'
+import { storeToRefs } from 'pinia'
 import {
   TabsRoot, TabsList, TabsTrigger, TabsContent,
   Separator, Label,
@@ -201,10 +202,11 @@ import WalletTab from '@/components/pageTabs/addressbook/tab.addressBook.Wallet.
 import CompaniesTab from '@/components/pageTabs/addressbook/tab.addressBook.Company.vue'
 import ContactsTab from '@/components/pageTabs/addressbook/tab.addressBook.Contact.vue'
 import { deleteCompany } from '@/services/addressBook/service.addressBook.Company'
-import { getContacts, addContact, deleteContact, type Contact } from '@/services/addressBook/service.addressBook.Contact'
+import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
 import { deleteExchange } from '@/services/addressBook/service.addressBook.Exchange'
 import { deleteStandaloneWallet } from '@/services/addressBook/service.addressBook.StandaloneWallet'
-import { addWallet, getWalletCountForContact } from '@/services/addressBook/service.addressBook.Wallet'
+import { addWallet } from '@/services/addressBook/service.addressBook.Wallet'
+import { useContactsStore, type DisplayContact } from '@/stores/useContactsStore'
 import { getExchanges, addExchange, type ExchangeRecord } from '@/services/addressBook/service.addressBook.Exchange'
 import {
   getStandaloneWallets,
@@ -215,13 +217,12 @@ import type { ImportedWallet } from '@/lib/cores/importStandard/importWallet.jso
 
 defineOptions({ name: 'AddressBookView' })
 
-interface DisplayContact extends Contact {
-  wallets: number
-}
+const contactsStore = useContactsStore()
+/** Reactive contacts list owned by the Pinia store (service-backed, see useContactsStore). */
+const { contacts } = storeToRefs(contactsStore)
 
 const tabs = ['Contacts', 'Exchanges', 'Wallets', 'Companies'] as const
 const activeTab = ref<(typeof tabs)[number]>('Contacts')
-const contacts = ref<DisplayContact[]>([] as DisplayContact[])
 const exchanges = ref<ExchangeRecord[]>([])
 const wallets = ref<StandaloneWalletRecord[]>([])
 
@@ -260,14 +261,13 @@ onMounted(async () => {
 })
 
 async function loadContacts() {
-  const dbContacts = await getContacts()
-  const displayContacts: DisplayContact[] = []
-  for (const contact of dbContacts) {
-    const walletCount = await getWalletCountForContact(contact.id!)
-    displayContacts.push({ ...contact, wallets: walletCount })
-  }
-  contacts.value = displayContacts
+  await contactsStore.loadContacts()
   closeConfirmModal()
+  await refreshDerivedTabs()
+}
+
+/** Companies are derived from contacts, so refresh that tab after any contact change. */
+async function refreshDerivedTabs() {
   await nextTick()
   await companiesTabRef.value?.loadCompanies?.()
 }
@@ -339,36 +339,10 @@ const exportSelectedIds = computed<number[]>(() => {
 })
 
 const addContacts = async (newContacts: any[]) => {
-  for (const c of newContacts) {
-    /* Forward optional fields from importers (`fileImports.addressBook.contacts.csv.ts`
-     * and friends) so phone / website / relationship / social handles persist instead of
-     * being silently dropped. Only set keys when they're actually present so we don't
-     * write empty strings into otherwise-undefined optional columns. */
-    const added = await addContact({
-      type: 'regular',
-      firstname: c.firstname || '',
-      lastname: c.lastname || '',
-      company: c.company || '',
-      email: c.email || '',
-      notes: c.notes || '',
-      ...(c.phone ? { phone: c.phone } : {}),
-      ...(c.website ? { website: c.website } : {}),
-      ...(c.relationship ? { relationship: c.relationship } : {}),
-      ...(c.twitter ? { twitter: c.twitter } : {}),
-      ...(c.linkedin ? { linkedin: c.linkedin } : {}),
-      ...(c.instagram ? { instagram: c.instagram } : {}),
-      ...(c.facebook ? { facebook: c.facebook } : {}),
-    })
-    if (c.wallets) {
-      for (const wallet of c.wallets.split(',')) {
-        const [coinTicker, address] = wallet.split('://')
-        if (coinTicker && address) {
-          await addWallet({ contactId: added.id!, coinTicker, address })
-        }
-      }
-    }
-  }
-  await loadContacts()
+  // Forward optional fields from importers (phone / website / social handles); the store persists
+  // each contact via the service and splits the `coin://address` wallet column into wallet records.
+  await contactsStore.importRows(newContacts)
+  await refreshDerivedTabs()
 }
 
 const selectAllContacts = (event: Event) => {
@@ -451,10 +425,11 @@ const onConfirmDelete = async () => {
     closeConfirmModal()
     return
   }
-  for (const id of contactsToDelete.value) await deleteContact(id)
+  await contactsStore.removeContacts(contactsToDelete.value)
   selectedContacts.value = []
   contactsToDelete.value = []
-  await loadContacts()
+  closeConfirmModal()
+  await refreshDerivedTabs()
 }
 
 const openAddContactModal = (
