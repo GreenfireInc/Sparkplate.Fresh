@@ -117,13 +117,17 @@ import SignupModal from '../registration/01.registration.signUp.vue'
 import UserModal from '../user/UserModal.vue'
 import LoginOptions from './LoginOptions.vue'
 import { useUnifiedTranslations } from '@/composables/useUnifiedTranslations'
-import { useAuth } from '@/composables/useAuth'
+import { storeToRefs } from 'pinia'
+import { useAccountsStore } from '@/stores/useAccountsStore'
 import packageJson from '../../../../package.json'
 
 const version = packageJson.version
 
 const { t, locale, changeLanguage, languages, currentLanguageInfo } = useUnifiedTranslations()
-const { mockUsers } = useAuth()
+
+// Real saved accounts (service-backed). Empty on a fresh install → only "Create Account" shows.
+const accounts = useAccountsStore()
+const { all: users } = storeToRefs(accounts)
 
 const selectedUser = ref('')
 const selectedUserEmail = ref('')
@@ -133,7 +137,7 @@ const showLanguageMenu = ref(false)
 const languageSelector = ref<HTMLElement | null>(null)
 
 const displayUsers = computed(() => [
-  ...mockUsers,
+  ...users.value,
   { id: 0, name: t('createAccount'), email: '' }
 ])
 
@@ -145,7 +149,7 @@ const onUserSelect = (userName: string) => {
   if (userName === t('createAccount')) {
     showSignupModal.value = true
   } else {
-    const user = mockUsers.find(u => u.name === userName)
+    const user = users.value.find(u => u.name === userName)
     selectedUser.value = userName
     selectedUserEmail.value = user?.email || ''
     showUserModal.value = true
@@ -174,6 +178,7 @@ const handleClickOutside = (event: Event) => {
 }
 
 onMounted(() => {
+  accounts.loadUsers()
   document.addEventListener('click', handleClickOutside)
 })
 

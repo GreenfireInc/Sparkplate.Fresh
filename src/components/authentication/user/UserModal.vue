@@ -40,6 +40,8 @@
               </div>
             </div>
 
+            <p v-if="authError" class="um-error">{{ authError }}</p>
+
             <div class="um-actions">
               <button
                 type="button"
@@ -101,7 +103,7 @@ import {
 } from 'radix-vue'
 import { User, Lock, Eye, EyeOff, ChevronLeft } from 'lucide-vue-next'
 import { useI18n } from '@/composables/useI18n'
-import { useAuth } from '@/composables/useAuth'
+import { useAccountsStore } from '@/stores/useAccountsStore'
 
 defineOptions({ name: 'UserModal' })
 
@@ -123,13 +125,14 @@ const openModel = computed({
       showPassword.value = false
       showStegPanel.value = false
       revealedPassword.value = ''
+      authError.value = ''
     }
     emit('update:open', val)
   },
 })
 
 const { t } = useI18n()
-const { login, mockUsers } = useAuth()
+const accounts = useAccountsStore()
 
 const password = ref('')
 const showPassword = ref(false)
@@ -137,6 +140,7 @@ const passwordInput = ref<HTMLInputElement | null>(null)
 const showStegPanel = ref(false)
 const revealedPassword = ref('')
 const stegFileInput = ref<HTMLInputElement | null>(null)
+const authError = ref('')
 
 function handleLoadSteg() {
   stegFileInput.value?.click()
@@ -155,13 +159,15 @@ const handleClose = () => {
   openModel.value = false
 }
 
-const handleSignIn = () => {
-  if (password.value) {
-    const user = mockUsers.find((u) => u.name === props.userName)
-    if (user) {
-      login(user)
-    }
+const handleSignIn = async () => {
+  if (!password.value) return
+  authError.value = ''
+  const ok = await accounts.authenticate(props.userEmail, password.value)
+  if (ok) {
     handleClose()
+  } else {
+    authError.value = 'Invalid email or password.'
+    password.value = ''
   }
 }
 
@@ -181,6 +187,12 @@ watch(
 /* Scoped styles for content inside um-body */
 .um-field {
   margin-bottom: 1rem;
+}
+
+.um-error {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  color: #fca5a5;
 }
 
 .um-label {

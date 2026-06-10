@@ -6,43 +6,61 @@
  *
  * It absorbs the pre-existing `src/composables/useAuth.ts` singleton into a single source of truth — the
  * same pattern `useSettingsStore` used for `useMenuState` / `useDashboardCurrencies`. `useAuth.ts` is now
- * a thin shim delegating here, so its consumers (`App.vue`, `dropdown.authentication.vue`,
- * `LoginStandard.vue`, `UserModal.vue`, `tab.Settings.User.vue`) are unchanged.
+ * a thin shim delegating here, so its read-only consumers (`App.vue`, `dropdown.authentication.vue`,
+ * `tab.Settings.User.vue`) are unchanged; the auth flow (`LoginStandard.vue`, `UserModal.vue`,
+ * `01.registration.signUp.vue`) calls this store directly.
+ *
+ * Real accounts (§9): credential persistence + password hashing live in the service-owned
+ * `src/services/account/service.account.User.ts` (the store never holds a hash/salt — only sanitized
+ * `PublicUser` profiles), consistent with the contacts "service-owned persistence" decision (§5).
  *
  * Vuex → Pinia mapping (Greenery `accountsModule`):
  *   - `state.active`                         → `active` ref (the logged-in user; was `useAuth.currentUser`)
- *   - `state.all`                            → `all` ref (selectable users; was `useAuth.mockUsers`)
+ *   - `state.all`                            → `all` ref (saved users; loaded from the account service)
  *   - `state.authenticated`                  → `authenticated` ref
  *   - `state.ip`                             → `ip` ref (reserved; `fetchIP` deferred to Phase 4)
- *   - mutations `setCurrentUser`/`setAuthenticated`/`setAllUsers`/`addUser`/`resetAccountState`
+ *   - actions `signup`/`login`               → `signup()` / `authenticate()` (service-backed)
+ *   - mutations `setCurrentUser`/`setAuthenticated`/`setAllUsers`/`resetAccountState`
  *                                            → same-named actions (mutate refs directly)
  *   - root `user` getter / mixin `loggedIn` / `loggedUserData` → `user` / `loggedIn` getters
  *
- * Persistence: NOT persisted — matching Greenery (only `settings`/`coins` were persisted, never accounts)
- * and the current `useAuth` behavior (auth state resets on reload). The real `signup`/`login` crypto and
- * `fetchIP` remain a Phase 4 concern gated on the account/crypto bridges.
+ * Persistence: the store enables NO `persist` — matching Greenery (only `settings`/`coins` were persisted,
+ * never accounts) and the current `useAuth` (session resets on reload). Accounts themselves persist via the
+ * service's `localStorage` key. The HD seed/secret custody and `fetchIP` remain Phase 4 concerns.
  */
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
+import {
+  createUser,
+  listUsers,
+  verifyLogin,
+  type CreateUserInput,
+  type PublicUser,
+} from '@/services/account/service.account.User'
 
 export interface User {
   id: number
   name: string
   email: string
+  firstName?: string
+  lastName?: string
 }
 
-/** Built-in selectable users (was `useAuth.mockUsers`). Real account loading is a Phase 4 concern. */
-const MOCK_USERS: User[] = [
-  { id: 1, name: 'Goldie', email: 'goldie@greenfire.io' },
-  { id: 2, name: 'Francis', email: 'francis@greenfire.io' },
-  { id: 3, name: 'Elizabeth', email: 'elizabeth@greenfire.io' },
-  { id: 4, name: 'Guest', email: 'guest@greenfire.io' },
-]
+/** Map the service's credential-free profile to the store's display-oriented `User`. */
+function toUser(pub: PublicUser): User {
+  return {
+    id: pub.id,
+    name: `${pub.firstName} ${pub.lastName}`.trim() || pub.email,
+    email: pub.email,
+    firstName: pub.firstName,
+    lastName: pub.lastName,
+  }
+}
 
 export const useAccountsStore = defineStore('accounts', () => {
   // ── state ──────────────────────────────────────────────────────────────────
   const active = ref<User | null>(null)
-  const all = ref<User[]>([...MOCK_USERS])
+  const all = ref<User[]>([])
   const authenticated = ref(false)
   /** Reserved for the Phase 4 `fetchIP` bridge (Greenery `accounts.ip`). */
   const ip = ref<string>('')
@@ -69,16 +87,37 @@ export const useAccountsStore = defineStore('accounts', () => {
   function setAllUsers(users: User[]): void {
     all.value = users
   }
-  function addUser(target: User): void {
-    if (!all.value.some((u) => u.id === target.id)) {
-      all.value = [...all.value, target]
-    }
+
+  /** Load saved accounts from the service into `all` (credential-free). Safe to call repeatedly. */
+  async function loadUsers(): Promise<void> {
+    all.value = (await listUsers()).map(toUser)
   }
-  /** Restore defaults (parity with Greenery `resetAccountState`, for the logout flow). */
+
+  /**
+   * Create a real account (service hashes + persists the password), refresh `all`, and auto-login.
+   * Throws on duplicate email / missing fields — callers surface the message.
+   */
+  async function signup(input: CreateUserInput): Promise<User> {
+    const created = await createUser(input)
+    await loadUsers()
+    const user = toUser(created)
+    login(user)
+    return user
+  }
+
+  /** Verify credentials via the service and log in on success. Returns `false` on bad email/password. */
+  async function authenticate(email: string, password: string): Promise<boolean> {
+    const verified = await verifyLogin(email, password)
+    if (!verified) return false
+    login(toUser(verified))
+    return true
+  }
+
+  /** Clear the in-memory session (parity with Greenery `resetAccountState`). Saved accounts are
+   * service-owned and untouched — mirroring the contacts `reset()` decision (§5). */
   function reset(): void {
     active.value = null
     authenticated.value = false
-    all.value = [...MOCK_USERS]
     ip.value = ''
   }
 
@@ -97,7 +136,9 @@ export const useAccountsStore = defineStore('accounts', () => {
     setCurrentUser,
     setAuthenticated,
     setAllUsers,
-    addUser,
+    loadUsers,
+    signup,
+    authenticate,
     reset,
   }
 })
