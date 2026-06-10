@@ -41,18 +41,18 @@ import { computed } from 'vue'
 import { useMenuState } from '@/composables/useMenuState'
 import AuthenticationDropdown from '@/components/dropdowns/dropdown.authentication.vue'
 
-const { menuType, toggleMenuType } = useMenuState()
-
-const totalAssets = computed(() => {
-  return '$0.00' // Placeholder value
-})
-
 export default {
   name: 'NavBar',
   components: {
     AuthenticationDropdown,
   },
   setup() {
+    const { menuType, toggleMenuType } = useMenuState()
+
+    const totalAssets = computed(() => {
+      return '$0.00' // Placeholder value
+    })
+
     return {
       menuType,
       totalAssets,

@@ -1,40 +1,28 @@
-import { ref, computed } from 'vue'
+/**
+ * useAuth — thin shim over `useAccountsStore` (Pinia).
+ *
+ * The account/session state moved into `src/stores/useAccountsStore.ts` as part of Phase 1 of the
+ * Vuex→Pinia migration (`docs/methodologies/06032026.methodology...md`). This composable is kept so
+ * existing consumers (`App.vue`, `dropdown.authentication.vue`, `LoginStandard.vue`, `UserModal.vue`,
+ * `tab.Settings.User.vue`) need no change — it preserves the original return shape.
+ *
+ * NOTE: like every store-backed composable, this must be called from within `setup()` / `<script setup>`
+ * (where an active Pinia instance exists), which is already the case for all current callers.
+ */
+import { storeToRefs } from 'pinia'
+import { useAccountsStore, type User } from '@/stores/useAccountsStore'
 
-export interface User {
-  id: number
-  name: string
-  email: string
-}
-
-const authenticated = ref(false)
-const currentUser = ref<User | null>(null)
+export type { User }
 
 export function useAuth() {
-  const isAuthenticated = computed(() => authenticated.value)
-  
-  const login = (user: User) => {
-    currentUser.value = user
-    authenticated.value = true
-  }
-  
-  const logout = () => {
-    currentUser.value = null
-    authenticated.value = false
-  }
-  
-  const mockUsers: User[] = [
-    { id: 1, name: 'Goldie', email: 'goldie@greenfire.io' },
-    { id: 2, name: 'Francis', email: 'francis@greenfire.io' },
-    { id: 3, name: 'Elizabeth', email: 'elizabeth@greenfire.io' },
-    { id: 4, name: 'Guest', email: 'guest@greenfire.io' }
-  ]
-  
+  const store = useAccountsStore()
+  const { active, authenticated } = storeToRefs(store)
+
   return {
-    isAuthenticated,
-    currentUser,
-    mockUsers,
-    login,
-    logout
+    isAuthenticated: authenticated,
+    currentUser: active,
+    mockUsers: store.all,
+    login: store.login,
+    logout: store.logout,
   }
 }
-

@@ -76,7 +76,8 @@
           </button>
 
           <ButtonDashboardNewWallet
-            :disabled="!activeCurrency"
+            :disabled="!activeCurrency || walletBusy"
+            :label="walletBusy ? 'Generating…' : 'New Wallet'"
             @from-mnemonic="onNewWalletFromMnemonic"
             @throwaway-wallet="onNewWalletThrowaway"
           />
@@ -104,7 +105,40 @@
         class="dashboard-wallets"
         role="tabpanel"
       >
-        <div class="dashboard-wallets__empty">
+        <!-- Persisted public addresses for the active currency -->
+        <ul v-if="activeWallets.length" class="dashboard-wallets__list">
+          <li
+            v-for="wallet in activeWallets"
+            :key="wallet.address"
+            class="dashboard-wallets__row"
+          >
+            <div class="dashboard-wallets__row-main">
+              <span class="dashboard-wallets__addr" :title="wallet.address">
+                {{ wallet.address }}
+              </span>
+              <span class="dashboard-wallets__badges">
+                <span
+                  v-if="wallet.isHDWallet"
+                  class="dashboard-wallets__badge dashboard-wallets__badge--hd"
+                >HD</span>
+                <span v-if="wallet.nickname" class="dashboard-wallets__badge">
+                  {{ wallet.nickname }}
+                </span>
+              </span>
+            </div>
+            <button
+              type="button"
+              class="dashboard-wallets__remove"
+              title="Remove this address from the Dashboard"
+              @click="walletsStore.removeWallet(wallet.ticker, wallet.address)"
+            >
+              Remove
+            </button>
+          </li>
+        </ul>
+
+        <!-- Empty state -->
+        <div v-else class="dashboard-wallets__empty">
           <h3 class="dashboard-wallets__empty-title">
             No {{ activeCurrency.basicInfo.name }} wallets yet
           </h3>
@@ -116,7 +150,10 @@
           </p>
           <ButtonDashboardNewWallet
             class="dashboard-wallets__cta"
-            :label="`Generate ${activeCurrency.basicInfo.name} Wallet`"
+            :disabled="walletBusy"
+            :label="walletBusy
+              ? 'Generating…'
+              : `Generate ${activeCurrency.basicInfo.name} Wallet`"
             @from-mnemonic="onNewWalletFromMnemonic"
             @throwaway-wallet="onNewWalletThrowaway"
           />
@@ -255,6 +292,7 @@ import { RouterLink } from 'vue-router'
 import { Download as DownloadIcon } from 'lucide-vue-next'
 import { NETWORKS, type CurrencyData } from '@/lib/cores/currencyCore/currencies'
 import { useDashboardCurrencies } from '@/composables/useDashboardCurrencies'
+import { useWalletsStore, type StoredWallet } from '@/stores/useWalletsStore'
 import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
 import ButtonDashboardNewWallet from '@/components/buttons/dashboard/button.dashboard.newWallet.vue'
@@ -270,17 +308,28 @@ const STORAGE_KEY_DEFAULT_TICKER = 'sparkplate_dashboard_default_ticker'
 // state tab.Settings.Dashboard.vue mutates via its toggle controls.
 const { visibleCurrencies, currenciesOrdered } = useDashboardCurrencies()
 
+// Persisted public wallet addresses (see §8.6 of the Pinia execution doc). The plugin rehydrates
+// `byTicker` from `sparkplate_wallets` on store creation and re-writes it on every mutation.
+const walletsStore = useWalletsStore()
+
 type ContentTab = 'wallets' | 'history' | 'information'
 const contentTabs: ContentTab[] = ['wallets', 'history', 'information']
 const activeContentTab = ref<ContentTab>('wallets')
 
 const activeTicker = ref<string>('')
 const showImportModal = ref(false)
+// True while a seed-phrase derivation is in flight (derivation is async + CPU-heavy).
+const walletBusy = ref(false)
 
 const activeCurrency = computed<CurrencyData | undefined>(() =>
   visibleCurrencies.value.find(
     (c) => c.basicInfo.symbolTicker === activeTicker.value,
   ),
+)
+
+// Public addresses for the currently-focused currency — reactive + persisted.
+const activeWallets = computed<StoredWallet[]>(() =>
+  activeTicker.value ? walletsStore.walletsFor(activeTicker.value) : [],
 )
 
 function getIcon(ticker: string): string | null {
@@ -348,21 +397,39 @@ watch(
 )
 
 function onWalletImported(payload: DashboardImportedWallet): void {
-  /* TODO: persist imported wallet once the V2 wallet store lands. */
-  console.info('[Dashboard] wallet imported:', {
-    dashboardTicker: activeTicker.value,
-    ...payload,
+  // Persist only the public material of the imported (watch-only) wallet.
+  walletsStore.addWallet({
+    ticker: payload.ticker || activeTicker.value,
+    address: payload.walletAddress,
+    publicKey: payload.publicKey,
+    isHDWallet: false,
+    balance: 0,
   })
 }
 
+/**
+ * Generate a fresh wallet for the active currency and persist its PUBLIC address. Both dropdown
+ * actions land here because the button carries no phrase — the store mints a throwaway mnemonic,
+ * derives the public address, and discards the secret material.
+ */
+async function generateWallet(options: { isHDWallet: boolean; nickname?: string }): Promise<void> {
+  if (!activeTicker.value || walletBusy.value) return
+  walletBusy.value = true
+  try {
+    await walletsStore.generateAndAddWallet(activeTicker.value, options)
+  } catch (error) {
+    alert(error instanceof Error ? error.message : 'Could not generate a wallet. Please try again.')
+  } finally {
+    walletBusy.value = false
+  }
+}
+
 function onNewWalletFromMnemonic(): void {
-  /* TODO: wire up mnemonic → wallet flow once the V2 wallet store lands. */
-  console.info('[Dashboard] new wallet from mnemonic:', activeTicker.value)
+  void generateWallet({ isHDWallet: true })
 }
 
 function onNewWalletThrowaway(): void {
-  /* TODO: wire up throwaway wallet flow once the V2 wallet store lands. */
-  console.info('[Dashboard] new throwaway wallet:', activeTicker.value)
+  void generateWallet({ isHDWallet: false, nickname: 'Throwaway' })
 }
 </script>
 
@@ -643,6 +710,85 @@ function onNewWalletThrowaway(): void {
 }
 
 // ── Wallets panel ─────────────────────────────────────────────────────────────
+
+.dashboard-wallets__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dashboard-wallets__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0.85rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.dashboard-wallets__row-main {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.dashboard-wallets__addr {
+  font-family: ui-monospace, 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.8125rem;
+  color: #111827;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dashboard-wallets__badges {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.dashboard-wallets__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.05rem 0.4rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #4b5563;
+  background: #f3f4f6;
+  border-radius: 0.25rem;
+}
+
+.dashboard-wallets__badge--hd {
+  color: #047857;
+  background: #d1fae5;
+}
+
+.dashboard-wallets__remove {
+  flex-shrink: 0;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #b91c1c;
+  background: #fff;
+  border: 1px solid #fecaca;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    background: #fef2f2;
+    border-color: #f87171;
+  }
+}
 
 .dashboard-wallets__empty {
   display: flex;
