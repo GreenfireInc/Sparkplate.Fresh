@@ -34,6 +34,7 @@
           v-for="user in displayUsers"
           :key="user.id"
           :name="user.name"
+          :email="user.email"
           :is-selected="selectedUser === user.name"
           @click="onUserSelect(user.name)"
         />

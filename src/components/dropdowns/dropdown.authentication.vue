@@ -5,7 +5,16 @@
       :class="{ 'auth-dropdown-trigger--authenticated': isAuthenticated }"
       :title="isAuthenticated ? currentUser?.name : t('account')"
     >
-      <User :size="20" /> <!-- Will add gravatar support here once we have the user's email -->
+      <div class="auth-dropdown-avatar-wrap">
+        <img
+          v-if="showTriggerGravatar"
+          :src="triggerAvatarUrl!"
+          alt=""
+          class="auth-dropdown-avatar"
+          @error="triggerGravatarFailed = true"
+        />
+        <User v-else :size="20" />
+      </div>
       <span class="auth-dropdown-label">
         {{ isAuthenticated ? currentUser?.name : t('account') }}
       </span>
@@ -33,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { LogOut, User, ChevronDown } from 'lucide-vue-next'
 import {
   DropdownMenuRoot,
@@ -46,12 +55,29 @@ import {
 import LogoutAlert from '@/components/modals/alerts/alerts.logout.vue'
 import { useAuth } from '@/composables/useAuth'
 import { useI18n } from '@/composables/useI18n'
+import { gravatarUrl } from '@/lib/cores/displayStandard/display.image.gravatar'
 
 const { logout, currentUser, isAuthenticated } = useAuth()
 const { t } = useI18n()
 
 const userMenuOpen = ref(false)
 const logoutDialogOpen = ref(false)
+const triggerGravatarFailed = ref(false)
+
+const triggerAvatarUrl = computed(() => {
+  const email = currentUser.value?.email
+  if (!email) return null
+  return gravatarUrl(email, { size: 20, defaultImg: '404' })
+})
+
+const showTriggerGravatar = computed(() => Boolean(triggerAvatarUrl.value && !triggerGravatarFailed.value))
+
+watch(
+  () => currentUser.value?.email,
+  () => {
+    triggerGravatarFailed.value = false
+  },
+)
 
 function closeMenu() {
   userMenuOpen.value = false
@@ -94,6 +120,24 @@ function confirmLogout() {
 
 .auth-dropdown-label {
   font-weight: 500;
+}
+
+.auth-dropdown-avatar-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.auth-dropdown-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .auth-dropdown-chevron {
