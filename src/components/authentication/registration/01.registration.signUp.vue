@@ -92,6 +92,8 @@
                 </div>
               </div>
 
+              <p v-if="signupError" class="sgn-error">{{ signupError }}</p>
+
               <div class="sgn-actions">
                 <button
                   type="button"
@@ -138,6 +140,7 @@ import {
 import { User, Mail, Lock, Eye, EyeOff } from 'lucide-vue-next'
 import { useI18n } from '@/composables/useI18n'
 import { gravatarUrl } from '@/lib/cores/displayStandard/display.image.gravatar'
+import { useAccountsStore } from '@/stores/useAccountsStore'
 import EulaStep from './02.registration.eula.vue'
 import MnemonicStep from './03.registration.mnemonicHDSeedPhrase.vue'
 
@@ -152,6 +155,7 @@ const openModel = computed({
 })
 
 const { t } = useI18n()
+const accounts = useAccountsStore()
 
 const step         = ref<'form' | 'eula' | 'mnemonic'>('form')
 const firstName    = ref('')
@@ -160,9 +164,11 @@ const email        = ref('')
 const password     = ref('')
 const showPassword = ref(false)
 const avatarUrl    = ref('')
+const signupError  = ref('')
 
 const handleEmailChange = () => {
   avatarUrl.value = gravatarUrl(email.value, { size: 56 }) ?? ''
+  signupError.value = ''
 }
 
 const direction = ref<'fwd' | 'back'>('fwd')
@@ -201,17 +207,27 @@ const closeModal = () => {
   password.value     = ''
   showPassword.value = false
   avatarUrl.value    = ''
+  signupError.value  = ''
 }
 
-const handleSignup = (mnemonic?: string) => {
-  console.log('Creating account:', {
-    firstName: firstName.value,
-    lastName:  lastName.value,
-    email:     email.value,
-    password:  password.value,
-    mnemonic:  mnemonic ?? '(generated)',
-  })
-  closeModal()
+// The generated HD seed phrase is intentionally NOT persisted on the account record (see §9.5);
+// encrypted seed custody is a separate Phase 4 concern. Signup persists only the profile + hashed password.
+const handleSignup = async (_mnemonic?: string) => {
+  try {
+    await accounts.signup({
+      firstName: firstName.value,
+      lastName:  lastName.value,
+      email:     email.value,
+      password:  password.value,
+    })
+    closeModal() // account created + auto-logged-in
+  } catch (error) {
+    // e.g. duplicate email — return to the form so the user can correct it.
+    signupError.value =
+      error instanceof Error ? error.message : 'Could not create account. Please try again.'
+    direction.value = 'back'
+    step.value = 'form'
+  }
 }
 </script>
 
@@ -374,6 +390,13 @@ const handleSignup = (mnemonic?: string) => {
   &:hover {
     color: #6b7280;
   }
+}
+
+/* ── Error ───────────────────────────────────────────────────────────────── */
+.sgn-error {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #b91c1c;
 }
 
 /* ── Actions ─────────────────────────────────────────────────────────────── */
