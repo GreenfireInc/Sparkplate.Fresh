@@ -55,9 +55,10 @@ import {
 import LogoutAlert from '@/components/modals/alerts/alerts.logout.vue'
 import { useAuth } from '@/composables/useAuth'
 import { useI18n } from '@/composables/useI18n'
+import { resetStoresOnLogout } from '@/stores/resetStores'
 import { gravatarUrl } from '@/lib/cores/displayStandard/display.image.gravatar'
 
-const { logout, currentUser, isAuthenticated } = useAuth()
+const { currentUser, isAuthenticated } = useAuth()
 const { t } = useI18n()
 
 const userMenuOpen = ref(false)
@@ -89,7 +90,7 @@ function openLogoutDialog() {
 }
 
 function confirmLogout() {
-  logout()
+  resetStoresOnLogout()
   closeMenu()
 }
 </script>

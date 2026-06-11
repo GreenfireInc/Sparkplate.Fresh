@@ -340,7 +340,8 @@ import { ChartPie, List, Search, X } from 'lucide-vue-next'
 import * as IndexComposites from '@/lib/cores/currencyCore/indexComposites'
 import CurrencyDetailModal from '@/components/modals/cryptocurrency/modal.indicies.currencyDetail.vue'
 import IndexSelector, { type IndexOption, type CurrencyItem } from '@/components/dropdowns/dropdown.currency.indexSelector.vue'
-import { fetchCurrencyPrices, formatPrice } from '@/lib/cores/currencyCore/indexComposites'
+import { formatPrice } from '@/lib/cores/currencyCore/indexComposites'
+import { useCoinsStore } from '@/stores/useCoinsStore'
 
 // Define component name
 defineOptions({
@@ -355,7 +356,10 @@ const hoveredSegment = ref<number | null>(null)
 const searchQuery = ref<string>('')
 const isModalOpen = ref<boolean>(false)
 const selectedCurrency = ref<any>(null)
-const currencyPrices = ref<Record<string, { price: number; priceChange: number; marketCap: number }>>({})
+// Market data is owned by the shared useCoinsStore (single cache + persisted warm-start); this view
+// reads its merged price map and writes into it via `fetchCoinPrices`.
+const coinsStore = useCoinsStore()
+const currencyPrices = computed(() => coinsStore.prices)
 const priceLoading = ref<boolean>(false)
 
 // Chart configuration
@@ -714,15 +718,9 @@ const fetchPrices = async () => {
   if (currencies.length === 0) return
 
   priceLoading.value = true
-  
-  try {
-    const prices = await fetchCurrencyPrices(currencies, {
-      timeout: 10000,
-      vs_currency: 'usd',
-      per_page: currencies.length
-    })
 
-    currencyPrices.value = { ...currencyPrices.value, ...prices }
+  try {
+    await coinsStore.fetchCoinPrices(currencies)
   } catch (error) {
     console.error('[Indices] Failed to fetch prices:', error)
   } finally {

@@ -72,6 +72,7 @@ export const coinGeckoIdMap: Record<string, string> = {
  */
 export const mapCurrenciesToCoinGeckoFormat = (
   currencies: Array<{
+    id?: string;
     symbol?: string;
     tickerSymbol?: string;
     ticker?: string;
@@ -84,8 +85,10 @@ export const mapCurrenciesToCoinGeckoFormat = (
 }> => {
   return currencies.map((currency) => {
     const symbol = currency.symbol || currency.tickerSymbol || currency.ticker || ''
-    const id = coinGeckoIdMap[symbol.toLowerCase()] || symbol.toLowerCase()
-    
+    // Prefer an explicit CoinGecko id (e.g. COINBASE50 items carry `id: 'bitcoin'`); fall back to the
+    // symbol→id map, then the lowercased symbol. Lets callers with accurate ids avoid the lossy map.
+    const id = currency.id || coinGeckoIdMap[symbol.toLowerCase()] || symbol.toLowerCase()
+
     return {
       id,
       symbol: symbol.toLowerCase(),
@@ -104,6 +107,7 @@ export const mapCurrenciesToCoinGeckoFormat = (
  */
 export const fetchCurrencyPrices = async (
   currencies: Array<{
+    id?: string;
     symbol?: string;
     tickerSymbol?: string;
     ticker?: string;
