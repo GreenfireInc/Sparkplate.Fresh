@@ -6,7 +6,14 @@
         <!-- Header -->
         <div class="um-header">
           <div class="um-avatar">
-            <User :size="32" class="um-avatar-icon" />
+            <img
+              v-if="showGravatar"
+              :src="avatarUrl!"
+              alt=""
+              class="um-avatar-img"
+              @error="gravatarFailed = true"
+            />
+            <User v-else :size="32" class="um-avatar-icon" />
           </div>
           <DialogTitle class="um-title">{{ userName }}</DialogTitle>
           <p class="um-subtitle">{{ userEmail }}</p>
@@ -104,6 +111,7 @@ import {
 import { User, Lock, Eye, EyeOff, ChevronLeft } from 'lucide-vue-next'
 import { useI18n } from '@/composables/useI18n'
 import { useAccountsStore } from '@/stores/useAccountsStore'
+import { gravatarUrl } from '@/lib/cores/displayStandard/display.image.gravatar'
 
 defineOptions({ name: 'UserModal' })
 
@@ -141,6 +149,21 @@ const showStegPanel = ref(false)
 const revealedPassword = ref('')
 const stegFileInput = ref<HTMLInputElement | null>(null)
 const authError = ref('')
+const gravatarFailed = ref(false)
+
+const avatarUrl = computed(() => {
+  if (!props.userEmail) return null
+  return gravatarUrl(props.userEmail, { size: 64, defaultImg: '404' })
+})
+
+const showGravatar = computed(() => Boolean(avatarUrl.value && !gravatarFailed.value))
+
+watch(
+  () => props.userEmail,
+  () => {
+    gravatarFailed.value = false
+  },
+)
 
 function handleLoadSteg() {
   stegFileInput.value?.click()
@@ -356,6 +379,13 @@ watch(
   justify-content: center;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
+  overflow: hidden;
+}
+
+.um-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .um-avatar-icon {

@@ -11,8 +11,15 @@
       { 'from-blue-700/60 to-blue-800/60 border-blue-600/70': isSelected }
     ]"
   >
-    <div class="w-8 h-8 rounded-full bg-blue-700/50 flex items-center justify-center">
-      <User :size="16" class="text-white" />
+    <div class="w-8 h-8 rounded-full bg-blue-700/50 flex items-center justify-center overflow-hidden">
+      <img
+        v-if="showGravatar"
+        :src="avatarUrl!"
+        alt=""
+        class="w-full h-full object-cover"
+        @error="gravatarFailed = true"
+      />
+      <User v-else :size="16" class="text-white" />
     </div>
     <span class="text-white font-medium text-sm">
       {{ name }}
@@ -21,15 +28,34 @@
 </template>
 
 <script setup lang="ts">
+import { computed, ref, watch } from 'vue'
 import { User } from 'lucide-vue-next'
+import { gravatarUrl } from '@/lib/cores/displayStandard/display.image.gravatar'
 
-defineProps<{
+const props = defineProps<{
   name: string
+  email?: string
   isSelected: boolean
 }>()
 
 defineEmits<{
   click: []
 }>()
+
+const gravatarFailed = ref(false)
+
+watch(
+  () => props.email,
+  () => {
+    gravatarFailed.value = false
+  },
+)
+
+const avatarUrl = computed(() => {
+  if (!props.email) return null
+  return gravatarUrl(props.email, { size: 32, defaultImg: '404' })
+})
+
+const showGravatar = computed(() => Boolean(avatarUrl.value && !gravatarFailed.value))
 </script>
 
