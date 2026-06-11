@@ -31,6 +31,8 @@ export interface CoinPrice {
 
 /** Minimal currency descriptor accepted by {@link useCoinsStore.fetchCoinPrices}. */
 export interface CoinPriceQuery {
+  /** Explicit CoinGecko id (e.g. `'bitcoin'`); preferred over the symbol→id map when present. */
+  id?: string
   ticker?: string
   symbol?: string
   name?: string

@@ -92,6 +92,8 @@ const pathMap = {
 }
 
 import { useMenuState } from '../../composables/useMenuState'
+import { useAccountsStore } from '@/stores/useAccountsStore'
+import { resetStoresOnLogout } from '@/stores/resetStores'
 
 export default {
   name: 'KeyboardShortcuts',
@@ -101,7 +103,8 @@ export default {
   }),
   setup() {
     const { toggleMenuType } = useMenuState()
-    return { toggleMenuType }
+    const accounts = useAccountsStore()
+    return { toggleMenuType, accounts }
   },
   methods: {
     showModal() {
@@ -208,7 +211,7 @@ export default {
       }
     },
     logout(isAuthenticated) {
-      if (isAuthenticated) this.$store.dispatch('accounts/logout')
+      if (isAuthenticated) resetStoresOnLogout()
     },
     goBack() {
       this.$router.go(-1)

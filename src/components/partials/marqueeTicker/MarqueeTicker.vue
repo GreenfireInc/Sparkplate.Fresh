@@ -76,7 +76,7 @@
 import { useI18n } from '@/composables/useI18n'
 import ModalMarqueeTicker from '@/components/modals/login/modal.marqueeTicker.vue'
 import { COINBASE50 } from '@/lib/cores/currencyCore/indexComposites/coinbase50'
-import { coinGeckoAPI } from '@/lib/cores/currencyCore/aggregators/coinGeckoAPI'
+import { useCoinsStore } from '@/stores/useCoinsStore'
 
 export default {
   name: 'MarqueeTicker',
@@ -85,7 +85,8 @@ export default {
   },
   setup() {
     const { t } = useI18n()
-    return { t }
+    const coinsStore = useCoinsStore()
+    return { t, coinsStore }
   },
   data() {
     return {
@@ -117,26 +118,18 @@ export default {
         // Randomize the coin list order before fetching
         const randomizedCoins = this.shuffleArray(COINBASE50)
 
-        // Use CoinGecko API module
-        const coinIds = randomizedCoins.map((coin) => coin.id)
-        const data = await coinGeckoAPI.utils.fetchMarketData({
-          ids: coinIds,
-          vs_currency: 'usd',
-          order: 'market_cap_desc',
-          per_page: 50,
-          page: 1,
-          sparkline: false,
-          price_change_percentage: '24h'
-        })
+        // Source prices through the shared useCoinsStore cache (one fetch + warm-start across the app).
+        // COINBASE50 items carry accurate CoinGecko ids, so the aggregator resolves them directly.
+        await this.coinsStore.fetchCoinPrices(randomizedCoins)
 
-        // Map the data to our coins array, using only local icons
+        // Read the merged store cache (keyed by lowercase symbol) back into the display list.
         this.coins = randomizedCoins.map((coin) => {
-          const coinData = data.find((item) => item.id === coin.id)
+          const coinData = this.coinsStore.prices[coin.symbol.toLowerCase()]
           return {
             ...coin,
-            price: coinData?.current_price || 0,
-            priceChange: coinData?.price_change_percentage_24h || 0,
-            marketCap: coinData?.market_cap || 0
+            price: coinData?.price || 0,
+            priceChange: coinData?.priceChange || 0,
+            marketCap: coinData?.marketCap || 0
           }
         })
 
