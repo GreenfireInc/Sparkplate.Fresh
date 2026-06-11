@@ -207,9 +207,9 @@ import { deleteExchange } from '@/services/addressBook/service.addressBook.Excha
 import { deleteStandaloneWallet } from '@/services/addressBook/service.addressBook.StandaloneWallet'
 import { addWallet } from '@/services/addressBook/service.addressBook.Wallet'
 import { useContactsStore, type DisplayContact } from '@/stores/useContactsStore'
-import { getExchanges, addExchange, type ExchangeRecord } from '@/services/addressBook/service.addressBook.Exchange'
+import { useAddressBookStore } from '@/stores/useAddressBookStore'
+import { addExchange, type ExchangeRecord } from '@/services/addressBook/service.addressBook.Exchange'
 import {
-  getStandaloneWallets,
   addStandaloneWallet,
   type StandaloneWalletRecord,
 } from '@/services/addressBook/service.addressBook.StandaloneWallet'
@@ -221,10 +221,12 @@ const contactsStore = useContactsStore()
 /** Reactive contacts list owned by the Pinia store (service-backed, see useContactsStore). */
 const { contacts } = storeToRefs(contactsStore)
 
+/** Exchanges / standalone wallets are owned by useAddressBookStore (service-backed companion). */
+const addressBookStore = useAddressBookStore()
+const { exchanges, wallets } = storeToRefs(addressBookStore)
+
 const tabs = ['Contacts', 'Exchanges', 'Wallets', 'Companies'] as const
 const activeTab = ref<(typeof tabs)[number]>('Contacts')
-const exchanges = ref<ExchangeRecord[]>([])
-const wallets = ref<StandaloneWalletRecord[]>([])
 
 const showAddContactModal = ref(false)
 const showContactDetailsModal = ref(false)
@@ -273,11 +275,11 @@ async function refreshDerivedTabs() {
 }
 
 async function loadExchanges() {
-  exchanges.value = await getExchanges()
+  await addressBookStore.loadExchanges()
 }
 
 async function loadStandaloneWallets() {
-  wallets.value = await getStandaloneWallets()
+  await addressBookStore.loadWallets()
 }
 
 const filteredContacts = computed(() => {

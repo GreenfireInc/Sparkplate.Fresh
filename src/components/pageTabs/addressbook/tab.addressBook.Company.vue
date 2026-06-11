@@ -138,9 +138,11 @@
 
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
+import { storeToRefs } from 'pinia'
 import { TabsContent } from 'radix-vue'
-import { getCompanies, deleteCompany, type Company } from '@/services/addressBook/service.addressBook.Company'
+import type { Company } from '@/services/addressBook/service.addressBook.Company'
 import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
+import { useAddressBookStore } from '@/stores/useAddressBookStore'
 import ActionsDropdown from '@/components/dropdowns/dropdown.actions.vue'
 import CompanyDetailsModal from '@/components/modals/addressbook/modal.details.Company.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
@@ -157,7 +159,9 @@ import {
 
 defineOptions({ name: 'TabAddressBookCompany' })
 
-const companies = ref<Company[]>([])
+const addressBookStore = useAddressBookStore()
+/** Companies are derived from contacts by the service; owned here by useAddressBookStore. */
+const { companies } = storeToRefs(addressBookStore)
 const selectedCompany = ref<Company | null>(null)
 const showConfirmModal = ref(false)
 const confirmModalTitle = ref('')
@@ -214,10 +218,9 @@ onMounted(async () => {
 
 async function loadCompanies() {
   try {
-    companies.value = await getCompanies()
+    await addressBookStore.loadCompanies()
   } catch (err) {
     console.error('CompaniesTab: failed to load companies', err)
-    companies.value = []
   }
   closeConfirmModal()
 }
@@ -273,9 +276,9 @@ const confirmDeleteCompany = (company: Company) => {
 
 const onConfirmDelete = async () => {
   if (companyToDelete.value) {
-    await deleteCompany(companyToDelete.value.id)
+    await addressBookStore.removeCompany(companyToDelete.value.id)
   }
-  await loadCompanies()
+  closeConfirmModal()
 }
 
 const closeConfirmModal = () => {
