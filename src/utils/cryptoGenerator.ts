@@ -18,22 +18,23 @@ interface CryptoAddress {
   derivationPath: string;
 }
 
-export async function generateAddressesFromMnemonic(
-  mnemonic: string,
-  indices: Record<string, number> = {}
+/**
+ * Derive addresses from an already-computed BIP-39 seed buffer (no PBKDF2).
+ * Pass `onlyTicker` to derive a single coin — avoids running every encoder on Dashboard clicks.
+ */
+export async function generateAddressesFromSeed(
+  seed: Buffer,
+  indices: Record<string, number> = {},
+  onlyTicker?: string,
 ): Promise<CryptoAddress[]> {
-  if (!bip39.validateMnemonic(mnemonic)) {
-    // For custom word counts, we'll proceed anyway
-    console.warn("Non-standard mnemonic detected, proceeding...");
-  }
-
-  const seed = await bip39.mnemonicToSeed(mnemonic);
   const root = bip32.BIP32Factory(ecc).fromSeed(seed);
+  const ticker = onlyTicker?.toUpperCase();
+  const want = (symbol: string) => !ticker || ticker === symbol;
 
   const addresses: CryptoAddress[] = [];
 
   // BTC - Bitcoin (Legacy P2PKH)
-  try {
+  if (want("BTC")) try {
     const btcIndex = indices["BTC"] ?? 0;
     const btcPath = root.derivePath(`m/44'/0'/0'/0/${btcIndex}`);
     const payment = bitcoin.payments.p2pkh({
@@ -60,7 +61,7 @@ export async function generateAddressesFromMnemonic(
   }
 
   // LTC - Litecoin
-  try {
+  if (want("LTC")) try {
     const ltcIndex = indices["LTC"] ?? 0;
     const ltcPath = root.derivePath(`m/44'/2'/0'/0/${ltcIndex}`);
     const ltcNetwork = {
@@ -95,7 +96,7 @@ export async function generateAddressesFromMnemonic(
   }
 
   // DOGE - Dogecoin
-  try {
+  if (want("DOGE")) try {
     const dogeIndex = indices["DOGE"] ?? 0;
     const dogePath = root.derivePath(`m/44'/3'/0'/0/${dogeIndex}`);
     const dogeNetwork = {
@@ -130,7 +131,7 @@ export async function generateAddressesFromMnemonic(
   }
 
   // ETH - Ethereum
-  try {
+  if (want("ETH")) try {
     const ethIndex = indices["ETH"] ?? 0;
     const ethPath = root.derivePath(`m/44'/60'/0'/0/${ethIndex}`);
     const ethPrivateKeyHex = ethPath.privateKey ? Buffer.from(ethPath.privateKey).toString("hex") : "";
@@ -154,7 +155,7 @@ export async function generateAddressesFromMnemonic(
   }
 
   // TRX - Tron (uses same derivation as ETH)
-  try {
+  if (want("TRX")) try {
     const trxIndex = indices["TRX"] ?? 0;
     const trxPath = root.derivePath(`m/44'/195'/0'/0/${trxIndex}`);
     const trxPrivateKey = trxPath.privateKey ? Buffer.from(trxPath.privateKey).toString("hex") : "";
@@ -178,7 +179,7 @@ export async function generateAddressesFromMnemonic(
   }
 
   // SOL - Solana
-  try {
+  if (want("SOL")) try {
     const solIndex = indices["SOL"] ?? 0;
     const solPath = root.derivePath(`m/44'/501'/${solIndex}'/0'`);
     const solPrivateKeyBuffer = solPath.privateKey || Buffer.alloc(32);
@@ -202,7 +203,7 @@ export async function generateAddressesFromMnemonic(
   }
 
   // XTZ - Tezos
-  try {
+  if (want("XTZ")) try {
     const xtzIndex = indices["XTZ"] ?? 0;
     const xtzPath = root.derivePath(`m/44'/1729'/${xtzIndex}'/0'`);
     const xtzPrivateKey = xtzPath.privateKey ? Buffer.from(xtzPath.privateKey).toString("hex") : "";
@@ -225,7 +226,7 @@ export async function generateAddressesFromMnemonic(
   }
 
   // LUNC - Terra Classic (uses Cosmos derivation)
-  try {
+  if (want("LUNC")) try {
     const luncIndex = indices["LUNC"] ?? 0;
     const luncPath = root.derivePath(`m/44'/330'/0'/0/${luncIndex}`);
     const luncPrivateKey = luncPath.privateKey ? Buffer.from(luncPath.privateKey).toString("hex") : "";
@@ -248,5 +249,29 @@ export async function generateAddressesFromMnemonic(
   }
 
   return addresses;
+}
+
+/** Derive a single ticker's address from a precomputed seed (preferred Dashboard hot path). */
+export async function generateAddressForTickerFromSeed(
+  seed: Buffer,
+  ticker: string,
+  index = 0,
+): Promise<CryptoAddress | null> {
+  const key = ticker.toUpperCase();
+  const derived = await generateAddressesFromSeed(seed, { [key]: index }, key);
+  return derived.find((d) => d.currency.toUpperCase() === key) ?? null;
+}
+
+/** Convenience wrapper — runs PBKDF2 then delegates to {@link generateAddressesFromSeed}. */
+export async function generateAddressesFromMnemonic(
+  mnemonic: string,
+  indices: Record<string, number> = {},
+  onlyTicker?: string,
+): Promise<CryptoAddress[]> {
+  if (!bip39.validateMnemonic(mnemonic)) {
+    console.warn("Non-standard mnemonic detected, proceeding...");
+  }
+  const seed = await bip39.mnemonicToSeed(mnemonic);
+  return generateAddressesFromSeed(seed, indices, onlyTicker);
 }
 

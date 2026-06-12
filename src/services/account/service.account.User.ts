@@ -21,16 +21,27 @@ export interface StoredUser {
   passwordHash: string
   salt: string
   createdAt: number
+  /**
+   * The account's BIP-39 recovery phrase, AES-encrypted with a key derived from the user's
+   * password (see {@link encryptMnemonic}). Never stored in plaintext, never leaves this module.
+   * Optional so legacy accounts created before seed custody remain valid.
+   */
+  mnemonicCipher?: string
 }
 
 /** Credential-free projection — the only shape the store / UI ever see. */
-export type PublicUser = Omit<StoredUser, 'passwordHash' | 'salt'>
+export type PublicUser = Omit<StoredUser, 'passwordHash' | 'salt' | 'mnemonicCipher'>
 
 export interface CreateUserInput {
   firstName: string
   lastName: string
   email: string
   password: string
+  /**
+   * The recovery phrase generated + verified during registration
+   * (`03.registration.mnemonicHDSeedPhrase.vue`). Persisted encrypted at rest.
+   */
+  mnemonic?: string
 }
 
 const STORAGE_KEY = 'sparkplate.accounts.users.v1'
@@ -57,7 +68,12 @@ function nextId(): number {
 }
 
 function sanitize(user: StoredUser): PublicUser {
-  const { passwordHash: _passwordHash, salt: _salt, ...pub } = user
+  const {
+    passwordHash: _passwordHash,
+    salt: _salt,
+    mnemonicCipher: _mnemonicCipher,
+    ...pub
+  } = user
   return pub
 }
 
@@ -71,6 +87,23 @@ function hashPassword(password: string, saltHex: string): string {
     iterations: PBKDF2_ITERATIONS,
     hasher: CryptoJS.algo.SHA256,
   }).toString(CryptoJS.enc.Hex)
+}
+
+/**
+ * Derive the AES key used to encrypt the recovery phrase. Domain-separated from {@link hashPassword}
+ * (different input prefix) so the at-rest seed key is never equal to the stored verification hash.
+ */
+function deriveSeedKey(password: string, saltHex: string): string {
+  return CryptoJS.PBKDF2(`seed-custody|${password}`, CryptoJS.enc.Hex.parse(saltHex), {
+    keySize: KEY_SIZE_WORDS,
+    iterations: PBKDF2_ITERATIONS,
+    hasher: CryptoJS.algo.SHA256,
+  }).toString(CryptoJS.enc.Hex)
+}
+
+/** Encrypt a recovery phrase for at-rest storage (key derived from the password — never persisted). */
+function encryptMnemonic(mnemonic: string, password: string, saltHex: string): string {
+  return CryptoJS.AES.encrypt(mnemonic, deriveSeedKey(password, saltHex)).toString()
 }
 
 /** Length-safe comparison to avoid trivially leaking match progress via early-exit timing. */
@@ -108,6 +141,7 @@ export async function createUser(input: CreateUserInput): Promise<PublicUser> {
   }
 
   const salt = CryptoJS.lib.WordArray.random(16).toString(CryptoJS.enc.Hex)
+  const mnemonic = input.mnemonic?.trim()
   const user: StoredUser = {
     id: nextId(),
     firstName: input.firstName.trim(),
@@ -115,6 +149,7 @@ export async function createUser(input: CreateUserInput): Promise<PublicUser> {
     email,
     salt,
     passwordHash: hashPassword(input.password, salt),
+    mnemonicCipher: mnemonic ? encryptMnemonic(mnemonic, input.password, salt) : undefined,
     createdAt: Date.now(),
   }
 
@@ -132,6 +167,28 @@ export async function verifyLogin(email: string, password: string): Promise<Publ
   if (!found) return null
   const candidate = hashPassword(password, found.salt)
   return constantTimeEqual(candidate, found.passwordHash) ? sanitize(found) : null
+}
+
+/**
+ * Decrypt and return the account's recovery phrase, gated on a correct password (so the secret is
+ * only ever recoverable by re-supplying the credential that encrypted it). Returns `null` for an
+ * unknown email, a bad password, or an account that has no stored seed (legacy / seedless accounts).
+ * The plaintext phrase is returned only to the in-memory session holder (`useAccountsStore`); it is
+ * never persisted or surfaced through {@link PublicUser}.
+ */
+export async function decryptMnemonic(email: string, password: string): Promise<string | null> {
+  const found = users.find((u) => u.email === normalizeEmail(email))
+  if (!found || !found.mnemonicCipher) return null
+  if (!constantTimeEqual(hashPassword(password, found.salt), found.passwordHash)) return null
+  try {
+    const text = CryptoJS.AES.decrypt(
+      found.mnemonicCipher,
+      deriveSeedKey(password, found.salt),
+    ).toString(CryptoJS.enc.Utf8)
+    return text || null
+  } catch {
+    return null
+  }
 }
 
 /** Remove an account by id. */

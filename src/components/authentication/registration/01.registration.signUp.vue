@@ -210,15 +210,18 @@ const closeModal = () => {
   signupError.value  = ''
 }
 
-// The generated HD seed phrase is intentionally NOT persisted on the account record (see §9.5);
-// encrypted seed custody is a separate Phase 4 concern. Signup persists only the profile + hashed password.
-const handleSignup = async (_mnemonic?: string) => {
+// Forward the recovery phrase the user just generated + verified in MnemonicStep so it becomes the
+// account's HD seed. The service stores it ENCRYPTED (key derived from the password, never plaintext)
+// and the session store retains the decrypted copy in memory so the Dashboard can derive HD wallets.
+// See docs/findings/20260612.findings.dashboard.wallet.address.generation.discarded.registration.mnemonic.md.
+const handleSignup = async (mnemonic?: string) => {
   try {
     await accounts.signup({
       firstName: firstName.value,
       lastName:  lastName.value,
       email:     email.value,
       password:  password.value,
+      mnemonic,
     })
     closeModal() // account created + auto-logged-in
   } catch (error) {
