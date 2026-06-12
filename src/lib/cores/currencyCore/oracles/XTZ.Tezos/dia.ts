@@ -105,7 +105,7 @@ async function getHistoricalPrice(symbol: string, timestamp: number) {
       \`\${DIA_API_BASE}/v1/quotation/\${symbol}/\${timestamp}\`
     );
     
-    console.log(\`Historical \${symbol} Price:`, response.data);
+    console.log(\`Historical \${symbol} Price:\`, response.data);
     return response.data;
   } catch (error) {
     console.error('Error fetching historical price:', error);
@@ -118,7 +118,7 @@ async function getSupplyData(symbol: string) {
   try {
     const response = await axios.get(\`\${DIA_API_BASE}/v1/supply/\${symbol}\`);
     
-    console.log(\`\${symbol} Supply:`, response.data);
+    console.log(\`\${symbol} Supply:\`, response.data);
     return response.data;
   } catch (error) {
     console.error('Error fetching supply data:', error);

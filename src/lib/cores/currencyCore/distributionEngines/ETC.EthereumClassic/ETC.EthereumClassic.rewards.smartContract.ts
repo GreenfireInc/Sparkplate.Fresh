@@ -11,7 +11,7 @@
 
 import { ethers } from 'ethers';
 
-export const REWARD_CONTRACT_SOLIDITY = \`
+export const REWARD_CONTRACT_SOLIDITY = `
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -70,7 +70,7 @@ contract ETCGameReward {
         return address(this).balance;
     }
 }
-\`;
+`;
 
 export interface RewardAttestation {
   playerAddress: string;
@@ -103,7 +103,7 @@ export class EthereumClassicRewardBackend {
 
       return { playerAddress, amount: amountWei.toString(), signature };
     } catch (error) {
-      throw new Error(\`Failed to sign attestation: \${error instanceof Error ? error.message : 'Unknown error'}\`);
+      throw new Error(`Failed to sign attestation: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   }
 
@@ -156,7 +156,7 @@ export class EthereumClassicRewardContractClient {
       }
 
       const tx = await contractWithSigner.claimReward(attestation.amount, attestation.signature);
-      console.log(\`Claim transaction sent: \${tx.hash}\`);
+      console.log(`Claim transaction sent: ${tx.hash}`);
       
       const receipt = await tx.wait();
 

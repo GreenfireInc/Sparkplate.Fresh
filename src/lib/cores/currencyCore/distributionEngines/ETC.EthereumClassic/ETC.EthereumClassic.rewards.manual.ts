@@ -96,7 +96,7 @@ export class EthereumClassicRewarder {
       
       // Send transaction
       const txResponse = await wallet.sendTransaction(tx);
-      console.log(\`Transaction sent: \${txResponse.hash}\`);
+      console.log(`Transaction sent: ${txResponse.hash}`);
       
       // Wait for confirmation
       const receipt = await txResponse.wait();
@@ -161,7 +161,7 @@ export class EthereumClassicRewarder {
       
       // Send tokens
       const tx = await tokenContract.transfer(toAddress, amountWithDecimals);
-      console.log(\`Token transfer sent: \${tx.hash}\`);
+      console.log(`Token transfer sent: ${tx.hash}`);
       
       // Wait for confirmation
       const receipt = await tx.wait();
@@ -268,7 +268,7 @@ export class EthereumClassicGameRewardManager {
 
     this.players.set(address, player);
 
-    console.log(\`Game started for player: \${address}\`);
+    console.log(`Game started for player: ${address}`);
     return player;
   }
 
@@ -297,7 +297,7 @@ export class EthereumClassicGameRewardManager {
 
       if (rewardResult.success) {
         player.hasBeenRewarded = true;
-        console.log(\`Reward sent to \${player.address}. Transaction: \${rewardResult.txHash}\`);
+        console.log(`Reward sent to ${player.address}. Transaction: ${rewardResult.txHash}`);
       }
 
       return { player, rewardSent: rewardResult };

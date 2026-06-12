@@ -13,7 +13,7 @@ const ECPair = ECPairFactory(ecc);
  * Bitcoin Script for 2-of-3 multisig escrow
  * Players + Server as arbiter
  */
-export const MULTISIG_ESCROW_SCRIPT_EXAMPLE = \`
+export const MULTISIG_ESCROW_SCRIPT_EXAMPLE = `
 # 2-of-3 MultiSig Escrow
 # Requires 2 of 3 signatures: player1, player2, server
 
@@ -23,13 +23,13 @@ OP_2                    # Require 2 signatures
 <server_pubkey>
 OP_3                    # Out of 3 keys
 OP_CHECKMULTISIG
-\`;
+`;
 
 /**
  * Hash Time-Locked Contract (HTLC) for escrow
  * Used in Lightning Network, adaptable for gaming
  */
-export const HTLC_ESCROW_SCRIPT_EXAMPLE = \`
+export const HTLC_ESCROW_SCRIPT_EXAMPLE = `
 # HTLC Escrow Script
 # Either: revealed secret + user sig, OR: timeout + refund
 
@@ -46,7 +46,7 @@ OP_ELSE
     <refund_pubkey>
     OP_CHECKSIG
 OP_ENDIF
-\`;
+`;
 
 export interface MultiSigConfig {
   player1PubKey: Buffer;

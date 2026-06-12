@@ -5,7 +5,7 @@
 
 import { ethers } from 'ethers';
 
-export const ESCROW_CONTRACT_SOLIDITY = \`
+export const ESCROW_CONTRACT_SOLIDITY = `
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -113,7 +113,7 @@ contract EthereumGameEscrow {
         return (player1Deposited, player2Deposited, gameStarted, gameEnded, totalPot);
     }
 }
-\`;
+`;
 
 export class EthereumEscrowContractClient {
   private provider: ethers.JsonRpcProvider;

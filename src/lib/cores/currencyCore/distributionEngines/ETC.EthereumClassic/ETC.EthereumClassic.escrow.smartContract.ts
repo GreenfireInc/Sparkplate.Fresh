@@ -6,7 +6,7 @@
 
 import { ethers } from 'ethers';
 
-export const ESCROW_CONTRACT_SOLIDITY = \`
+export const ESCROW_CONTRACT_SOLIDITY = `
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -114,7 +114,7 @@ contract ETCGameEscrow {
         return (player1Deposited, player2Deposited, gameStarted, gameEnded, totalPot);
     }
 }
-\`;
+`;
 
 export class EthereumClassicEscrowContractClient {
   private provider: ethers.JsonRpcProvider;
@@ -152,7 +152,7 @@ export class EthereumClassicEscrowContractClient {
     
     const betAmountWei = ethers.parseEther(betAmountETC);
     const tx = await contractWithSigner.deposit({ value: betAmountWei });
-    console.log(\`Deposit transaction sent: \${tx.hash}\`);
+    console.log(`Deposit transaction sent: ${tx.hash}`);
     
     const receipt = await tx.wait();
     return receipt.hash;
@@ -171,7 +171,7 @@ export class EthereumClassicEscrowContractClient {
     
     const contractWithSigner = this.contract.connect(serverWallet);
     const tx = await contractWithSigner.payoutWinner(winnerAddress, signature);
-    console.log(\`Payout transaction sent: \${tx.hash}\`);
+    console.log(`Payout transaction sent: ${tx.hash}`);
     
     const receipt = await tx.wait();
     return receipt.hash;

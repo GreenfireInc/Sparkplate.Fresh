@@ -205,7 +205,7 @@ async function getMarketVolume(asset: string, quote: string = 'usd') {
       price: d.price
     }));
     
-    console.log(\`\${asset.toUpperCase()} Volume Data:`, volumeData);
+    console.log(\`\${asset.toUpperCase()} Volume Data:\`, volumeData);
     
     return volumeData;
   } catch (error) {

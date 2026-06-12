@@ -320,7 +320,7 @@ async function monitorAstroportLUNAPrice(
       if (lastPrice !== null) {
         const change = ((data.price - lastPrice) / lastPrice) * 100;
         console.log(
-          \`Price: $\${data.price.toFixed(4)} (\${change >= 0 ? '+' : ''}\${change.toFixed(2)}%) | ` +
+          \`Price: $\${data.price.toFixed(4)} (\${change >= 0 ? '+' : ''}\${change.toFixed(2)}%) | \` +
           \`Liquidity: $\${(data.liquidity / 1e6).toFixed(2)}M\`
         );
       } else {

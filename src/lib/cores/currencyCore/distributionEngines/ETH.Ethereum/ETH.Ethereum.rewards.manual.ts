@@ -199,7 +199,7 @@ export class EthereumGameRewardManager {
     };
 
     this.players.set(address, player);
-    console.log(\`Game started for player: \${address}\`);
+    console.log(`Game started for player: ${address}`);
     return player;
   }
 
@@ -224,7 +224,7 @@ export class EthereumGameRewardManager {
 
       if (rewardResult.success) {
         player.hasBeenRewarded = true;
-        console.log(\`Reward sent to \${player.address}. Transaction: \${rewardResult.txHash}\`);
+        console.log(`Reward sent to ${player.address}. Transaction: ${rewardResult.txHash}`);
       }
 
       return { player, rewardSent: rewardResult };

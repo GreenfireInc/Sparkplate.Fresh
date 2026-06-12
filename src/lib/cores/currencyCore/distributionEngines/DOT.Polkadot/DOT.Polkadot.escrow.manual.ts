@@ -111,8 +111,8 @@ export class PolkadotGameEscrow {
       encryptedMnemonic,
     };
 
-    console.log(\`✅ Escrow wallet created: \${address}\`);
-    console.log(\`💰 Players should deposit \${this.config.betAmountDOT} DOT each\`);
+    console.log(`✅ Escrow wallet created: ${address}`);
+    console.log(`💰 Players should deposit ${this.config.betAmountDOT} DOT each`);
     return this.gameState.escrowWallet;
   }
 
@@ -129,13 +129,13 @@ export class PolkadotGameEscrow {
     
     if (playerAddress === this.config.player1Address && currentBalanceDOT >= expectedAmount) {
       this.gameState.player1Deposited = true;
-      console.log(\`✅ Player 1 deposit confirmed\`);
+      console.log(`✅ Player 1 deposit confirmed`);
       return true;
     }
     
     if (playerAddress === this.config.player2Address && currentBalanceDOT >= expectedAmount * 2) {
       this.gameState.player2Deposited = true;
-      console.log(\`✅ Player 2 deposit confirmed\`);
+      console.log(`✅ Player 2 deposit confirmed`);
       return true;
     }
     
@@ -195,8 +195,8 @@ export class PolkadotGameEscrow {
               reject(new Error('Transaction failed'));
             } else {
               this.gameState.winner = winnerAddress;
-              console.log(\`✅ Pot distributed to winner: \${winnerAddress}\`);
-              console.log(\`   Transaction: \${txHash.toString()}\`);
+              console.log(`✅ Pot distributed to winner: ${winnerAddress}`);
+              console.log(`   Transaction: ${txHash.toString()}`);
               resolve(txHash.toString());
             }
           }
@@ -225,7 +225,7 @@ export class PolkadotGameServer {
 
   async handleGameEnd(winnerAddress: string): Promise<void> {
     const txHash = await this.escrow.distributePot(winnerAddress);
-    console.log(\`🎯 Game ended. Winner: \${winnerAddress}, TX: \${txHash}\`);
+    console.log(`🎯 Game ended. Winner: ${winnerAddress}, TX: ${txHash}`);
   }
 
   async shutdown(): Promise<void> {

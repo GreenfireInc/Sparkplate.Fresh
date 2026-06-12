@@ -38,9 +38,7 @@ export const bnbApi3Oracle = {
     directAPIConnections: true,
     daoGoverned: true,
     noMiddlemen: true,
-    quantifiableSecur
-
-ity: true,
+    quantifiableSecurity: true,
     multiChain: true,
   },
   

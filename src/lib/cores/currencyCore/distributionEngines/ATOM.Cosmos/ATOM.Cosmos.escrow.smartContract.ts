@@ -6,7 +6,7 @@
 import { SigningCosmWasmClient } from '@cosmjs/cosmwasm-stargate';
 import { DirectSecp256k1HdWallet } from '@cosmjs/proto-signing';
 
-export const ESCROW_CONTRACT_RUST = \`
+export const ESCROW_CONTRACT_RUST = `
 // CosmWasm Escrow Contract (Rust)
 use cosmwasm_std::{entry_point, BankMsg, Coin, CosmosMsg, Response, StdResult, Uint128};
 
@@ -23,7 +23,7 @@ pub fn execute_distribute_pot(winner: String) -> StdResult<Response> {
   };
   Ok(Response::new().add_message(CosmosMsg::Bank(send_msg)))
 }
-\`;
+`;
 
 export class CosmosEscrowContractClient {
   private client: SigningCosmWasmClient | null = null;

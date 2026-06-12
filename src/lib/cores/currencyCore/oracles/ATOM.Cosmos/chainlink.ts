@@ -317,7 +317,7 @@ async function main() {
     dataProviders: "Premium data from trusted sources",
     cryptographicProofs: "Tamper-proof data delivery",
     reputationSystem: "Node performance tracking",
-    valueSec ured: "$75B+ across multiple chains",
+    valueSecured: "$75B+ across multiple chains",
   },
 };
 

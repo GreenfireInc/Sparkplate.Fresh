@@ -198,7 +198,7 @@ async function getETCOHLC(days: number = 7) {
       close,
     }));
     
-    console.log(\`OHLC data for last \${days} days:`, ohlcData.length, 'entries');
+    console.log(\`OHLC data for last \${days} days:\`, ohlcData.length, 'entries');
     return ohlcData;
   } catch (error) {
     console.error('Error fetching OHLC data:', error);

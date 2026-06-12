@@ -158,22 +158,23 @@ async function getExchangeAmount(
     throw error;
   }
 }
+`,
 
-// Create exchange
-@DataSources: [
-  {
-    name: 'StealthEX API',
-    type: 'REST API',
-    url: 'https://api.stealthex.io/api/v2',
-    description: 'Official API for exchange rates, orders, and status tracking',
-    endpoints: [
-      '/currency - Get supported currencies',
-      '/exchange/amount - Get exchange rates',
-      '/exchange - Create and manage exchanges',
-      '/exchange/{id} - Get exchange status',
-    ],
-  },
-],
+  // Data sources
+  dataSources: [
+    {
+      name: 'StealthEX API',
+      type: 'REST API',
+      url: 'https://api.stealthex.io/api/v2',
+      description: 'Official API for exchange rates, orders, and status tracking',
+      endpoints: [
+        '/currency - Get supported currencies',
+        '/exchange/amount - Get exchange rates',
+        '/exchange - Create and manage exchanges',
+        '/exchange/{id} - Get exchange status',
+      ],
+    },
+  ],
 
   // Exchange Process
   exchangeProcess: [
