@@ -96,7 +96,7 @@ async function getReflectorPrices(
       prices.set(asset, priceData.price);
       console.log(\`✓ \${asset}: \${priceData.price}\`);
     } catch (error) {
-      console.warn(\`✗ Failed to get price for \${asset}:`, error);
+      console.warn(\`✗ Failed to get price for \${asset}:\`, error);
     }
   }
 

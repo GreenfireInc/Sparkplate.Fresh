@@ -7,7 +7,7 @@
  * CashScript Escrow Contract
  * File: escrow_contract.cash
  */
-export const ESCROW_CONTRACT_CASHSCRIPT = \`
+export const ESCROW_CONTRACT_CASHSCRIPT = `
 pragma cashscript ^0.8.0;
 
 contract GameEscrow(
@@ -29,7 +29,7 @@ contract GameEscrow(
         require(checkSig(player2Sig, player2PubKey));
     }
 }
-\`;
+`;
 
 import { Contract } from 'cashscript';
 import * as bch from '@psf/bch-js';
@@ -55,13 +55,13 @@ export class BitcoinCashEscrowContractClient {
 
   async depositToEscrow(playerWIF: string, amount: number): Promise<string> {
     // Deposit to contract address
-    console.log(\`Depositing \${amount} BCH to escrow\`);
+    console.log(`Depositing ${amount} BCH to escrow`);
     return 'placeholder_txid';
   }
 
   async payoutWinner(serverWIF: string, winnerAddress: string): Promise<string> {
     // Server signs and pays out to winner
-    console.log(\`Paying out to winner: \${winnerAddress}\`);
+    console.log(`Paying out to winner: ${winnerAddress}`);
     return 'placeholder_txid';
   }
 

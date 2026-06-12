@@ -313,7 +313,7 @@ export class BitcoinSmartContractRewarder {
  * RSK (Rootstock) Smart Contract Support
  * RSK is an EVM-compatible Bitcoin sidechain
  */
-export const RSK_REWARD_CONTRACT_SOLIDITY = \`
+export const RSK_REWARD_CONTRACT_SOLIDITY = `
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -350,6 +350,6 @@ contract RSKGameReward {
         return ecrecover(ethSignedHash, v, r, s);
     }
 }
-\`;
+`;
 
 export default BitcoinSmartContractRewarder;

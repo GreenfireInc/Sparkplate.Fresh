@@ -8,7 +8,7 @@ import { ethers } from 'ethers';
 /**
  * Solidity Escrow Contract for BSC
  */
-export const ESCROW_CONTRACT_SOLIDITY = \`
+export const ESCROW_CONTRACT_SOLIDITY = `
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -128,7 +128,7 @@ contract GameEscrow {
         return (player1Deposited, player2Deposited, gameStarted, gameEnded, totalPot);
     }
 }
-\`;
+`;
 
 export class BinanceEscrowContractClient {
   private provider: ethers.JsonRpcProvider;
@@ -166,7 +166,7 @@ export class BinanceEscrowContractClient {
     
     const betAmountWei = ethers.parseEther(betAmountBNB);
     const tx = await contractWithSigner.deposit({ value: betAmountWei });
-    console.log(\`Deposit transaction sent: \${tx.hash}\`);
+    console.log(`Deposit transaction sent: ${tx.hash}`);
     
     const receipt = await tx.wait();
     return receipt.hash;
@@ -186,7 +186,7 @@ export class BinanceEscrowContractClient {
     
     const contractWithSigner = this.contract.connect(serverWallet);
     const tx = await contractWithSigner.payoutWinner(winnerAddress, signature);
-    console.log(\`Payout transaction sent: \${tx.hash}\`);
+    console.log(`Payout transaction sent: ${tx.hash}`);
     
     const receipt = await tx.wait();
     return receipt.hash;

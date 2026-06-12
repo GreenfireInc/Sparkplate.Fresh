@@ -30,7 +30,7 @@ const dogecoinNetwork: bitcoin.Network = {
 /**
  * Example Bitcoin Script for Dogecoin reward claim
  */
-export const DOGECOIN_SCRIPT_TIMELOCK_EXAMPLE = \`
+export const DOGECOIN_SCRIPT_TIMELOCK_EXAMPLE = `
 # Time-locked reward script for Dogecoin
 # Allows claim after specific block height
 # Much secure! Very script! Wow!
@@ -43,12 +43,12 @@ OP_HASH160
 <pubkey_hash>
 OP_EQUALVERIFY
 OP_CHECKSIG
-\`;
+`;
 
 /**
  * Example P2SH script for authorized rewards
  */
-export const DOGECOIN_SCRIPT_AUTHORIZED_EXAMPLE = \`
+export const DOGECOIN_SCRIPT_AUTHORIZED_EXAMPLE = `
 # Server-authorized reward script
 # Requires server signature + user signature
 # Much trust! Very verify! Wow!
@@ -57,7 +57,7 @@ export const DOGECOIN_SCRIPT_AUTHORIZED_EXAMPLE = \`
 OP_CHECKSIGVERIFY
 <user_pubkey>
 OP_CHECKSIG
-\`;
+`;
 
 export interface RewardAttestation {
   userAddress: string;
@@ -279,7 +279,7 @@ export class DogecoinSmartContractRewarder {
  * Dogethereum Bridge Support (Experimental)
  * Allows Ethereum-compatible smart contracts for Dogecoin
  */
-export const DOGETHEREUM_REWARD_CONTRACT_SOLIDITY = \`
+export const DOGETHEREUM_REWARD_CONTRACT_SOLIDITY = `
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -327,6 +327,6 @@ contract DogethereumGameReward {
         return ecrecover(ethSignedHash, v, r, s);
     }
 }
-\`;
+`;
 
 export default DogecoinSmartContractRewarder;

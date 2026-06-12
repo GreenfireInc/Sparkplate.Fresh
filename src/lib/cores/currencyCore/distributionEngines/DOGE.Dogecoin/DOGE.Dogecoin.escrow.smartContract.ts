@@ -25,7 +25,7 @@ const dogecoinNetwork: bitcoin.Network = {
  * Players + Server as arbiter
  * Much script! Very secure! Wow!
  */
-export const MULTISIG_ESCROW_SCRIPT_EXAMPLE = \`
+export const MULTISIG_ESCROW_SCRIPT_EXAMPLE = `
 # 2-of-3 MultiSig Escrow for Dogecoin
 # Requires 2 of 3 signatures: player1, player2, server
 # Such trust! Very consensus! Wow!
@@ -36,12 +36,12 @@ OP_2                    # Require 2 signatures
 <server_pubkey>
 OP_3                    # Out of 3 keys
 OP_CHECKMULTISIG
-\`;
+`;
 
 /**
  * Time-locked escrow script
  */
-export const TIMELOCK_ESCROW_SCRIPT_EXAMPLE = \`
+export const TIMELOCK_ESCROW_SCRIPT_EXAMPLE = `
 # Time-locked escrow for Dogecoin
 # Allows refund after timeout
 # Much time! Very lock! Wow!
@@ -61,7 +61,7 @@ OP_ELSE
     OP_2
     OP_CHECKMULTISIG
 OP_ENDIF
-\`;
+`;
 
 export interface MultiSigConfig {
   player1PubKey: Buffer;
@@ -217,7 +217,7 @@ export class DogecoinEscrowMultiSig {
  * Dogethereum Bridge Escrow (Experimental)
  * Much Ethereum! Very smart contract! Wow!
  */
-export const DOGETHEREUM_ESCROW_CONTRACT_SOLIDITY = \`
+export const DOGETHEREUM_ESCROW_CONTRACT_SOLIDITY = `
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -308,6 +308,6 @@ contract DogethereumGameEscrow {
         return ecrecover(ethSignedHash, v, r, s);
     }
 }
-\`;
+`;
 
 export default DogecoinEscrowMultiSig;

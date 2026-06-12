@@ -88,8 +88,8 @@ export class EthereumClassicGameEscrow {
       encryptedPrivateKey,
     };
 
-    console.log(\`✅ Escrow wallet created: \${wallet.address}\`);
-    console.log(\`💰 Players should deposit \${this.config.betAmount} ETC each\`);
+    console.log(`✅ Escrow wallet created: ${wallet.address}`);
+    console.log(`💰 Players should deposit ${this.config.betAmount} ETC each`);
     return this.gameState.escrowWallet;
   }
 
@@ -103,13 +103,13 @@ export class EthereumClassicGameEscrow {
     
     if (playerAddress.toLowerCase() === this.config.player1Address.toLowerCase() && currentBalanceNum >= expectedAmount) {
       this.gameState.player1Deposited = true;
-      console.log(\`✅ Player 1 deposit confirmed\`);
+      console.log(`✅ Player 1 deposit confirmed`);
       return true;
     }
     
     if (playerAddress.toLowerCase() === this.config.player2Address.toLowerCase() && currentBalanceNum >= expectedAmount * 2) {
       this.gameState.player2Deposited = true;
-      console.log(\`✅ Player 2 deposit confirmed\`);
+      console.log(`✅ Player 2 deposit confirmed`);
       return true;
     }
     
@@ -172,7 +172,7 @@ export class EthereumClassicGameEscrow {
     };
     
     const txResponse = await wallet.sendTransaction(tx);
-    console.log(\`Transaction sent: \${txResponse.hash}\`);
+    console.log(`Transaction sent: ${txResponse.hash}`);
     
     const receipt = await txResponse.wait();
     
@@ -181,8 +181,8 @@ export class EthereumClassicGameEscrow {
     }
 
     this.gameState.winner = winnerAddress;
-    console.log(\`✅ Pot distributed to winner: \${winnerAddress}\`);
-    console.log(\`   Transaction: \${receipt.hash}\`);
+    console.log(`✅ Pot distributed to winner: ${winnerAddress}`);
+    console.log(`   Transaction: ${receipt.hash}`);
 
     return receipt.hash;
   }
@@ -206,7 +206,7 @@ export class EthereumClassicGameServer {
 
   async handleGameEnd(winnerAddress: string): Promise<void> {
     const txHash = await this.escrow.distributePot(winnerAddress);
-    console.log(\`🎯 Game ended. Winner: \${winnerAddress}, TX: \${txHash}\`);
+    console.log(`🎯 Game ended. Winner: ${winnerAddress}, TX: ${txHash}`);
   }
 
   getGameState(): GameState {

@@ -18,7 +18,7 @@ import { cryptoWaitReady } from '@polkadot/util-crypto';
  * ink! Smart Contract for reward distribution
  * File: reward_contract.rs
  */
-export const REWARD_CONTRACT_INK = \`
+export const REWARD_CONTRACT_INK = `
 #![cfg_attr(not(feature = "std"), no_std)]
 
 use ink_lang as ink;
@@ -114,7 +114,7 @@ mod game_reward {
         InvalidSignature,
     }
 }
-\`;
+`;
 
 export interface RewardAttestation {
   playerAddress: string;
@@ -174,7 +174,7 @@ export class PolkadotRewardBackend {
     amountDOT: number
   ): Promise<RewardAttestation> {
     const amountPlanck = BigInt(Math.floor(amountDOT * 10_000_000_000));
-    const message = \`reward:\${playerAddress}:\${amountPlanck}\`;
+    const message = `reward:${playerAddress}:${amountPlanck}`;
     
     // Sign message with server account
     const signature = this.serverPair.sign(message);

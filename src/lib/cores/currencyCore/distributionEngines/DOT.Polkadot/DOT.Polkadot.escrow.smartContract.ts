@@ -10,7 +10,7 @@ import { cryptoWaitReady } from '@polkadot/util-crypto';
 /**
  * ink! Escrow Contract
  */
-export const ESCROW_CONTRACT_INK = \`
+export const ESCROW_CONTRACT_INK = `
 #![cfg_attr(not(feature = "std"), no_std)]
 
 use ink_lang as ink;
@@ -159,7 +159,7 @@ mod game_escrow {
         InvalidSignature,
     }
 }
-\`;
+`;
 
 export class PolkadotEscrowContractClient {
   private api: ApiPromise | null = null;
@@ -215,7 +215,7 @@ export class PolkadotEscrowContractClient {
             if (dispatchError) {
               reject(new Error('Transaction failed'));
             } else {
-              console.log(\`Deposit transaction finalized: \${txHash.toString()}\`);
+              console.log(`Deposit transaction finalized: ${txHash.toString()}`);
               resolve(txHash.toString());
             }
           }
@@ -237,7 +237,7 @@ export class PolkadotEscrowContractClient {
     const server = keyring.addFromMnemonic(serverMnemonic);
     
     // Create signature
-    const message = \`winner:\${winnerAddress}\`;
+    const message = `winner:${winnerAddress}`;
     const signature = server.sign(message);
     
     return new Promise((resolve, reject) => {
@@ -248,7 +248,7 @@ export class PolkadotEscrowContractClient {
             if (dispatchError) {
               reject(new Error('Transaction failed'));
             } else {
-              console.log(\`Payout transaction finalized: \${txHash.toString()}\`);
+              console.log(`Payout transaction finalized: ${txHash.toString()}`);
               resolve(txHash.toString());
             }
           }
