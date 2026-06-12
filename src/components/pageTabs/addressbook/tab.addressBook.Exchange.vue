@@ -145,8 +145,9 @@ defineOptions({ name: 'TabAddressBookExchange' })
 import ExchangeModal from '@/components/modals/addressbook/modal.details.Exchange.vue'
 import ActionsDropdown from '@/components/dropdowns/dropdown.actions.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
-import { deleteExchange, updateExchange, type ExchangeRecord } from '@/services/addressBook/service.addressBook.Exchange'
+import type { ExchangeRecord } from '@/services/addressBook/service.addressBook.Exchange'
 import type { Contact } from '@/services/addressBook/service.addressBook.Contact'
+import { useAddressBookStore } from '@/stores/useAddressBookStore'
 import {
   exportExchangeQrPng,
   exportExchangeQrSvg,
@@ -170,6 +171,8 @@ const emit = defineEmits<{
   'exchanges-changed': []
   'update:selectedExchangeIds': [value: number[]]
 }>()
+
+const addressBookStore = useAddressBookStore()
 
 const selectedExchangeIdsProxy = computed({
   get: () => props.selectedExchangeIds,
@@ -257,7 +260,7 @@ const closeExchangeModal = () => {
 
 async function onExchangeDetailSaved(saved: ExchangeRecord & { id?: number }) {
   if (saved.id != null) {
-    await updateExchange({ ...saved, id: saved.id })
+    await addressBookStore.saveExchange({ ...saved, id: saved.id })
   }
   closeExchangeModal()
   emit('exchanges-changed')
@@ -272,7 +275,7 @@ const confirmDeleteExchange = (exchange: ExchangeRecord) => {
 
 const onConfirmDelete = async () => {
   if (exchangeToDelete.value) {
-    await deleteExchange(exchangeToDelete.value.id)
+    await addressBookStore.removeExchange(exchangeToDelete.value.id)
     emit('exchanges-changed')
   }
   closeConfirmModal()

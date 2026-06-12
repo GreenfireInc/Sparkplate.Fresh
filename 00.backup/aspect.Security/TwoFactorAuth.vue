@@ -41,8 +41,8 @@ Description: This component handles the left hand Two Factor Authentication
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import accountMixins from '@/utils/mixins/accountMixins'
-import { useAccountsStore } from '@/stores/useAccountsStore'
 
 import VerifyModal from '@/service/VerifyModal.vue'
 
@@ -50,31 +50,22 @@ export default {
   name: 'TwoFactorAuth',
   components: { VerifyModal },
   mixins: [accountMixins],
-  setup() {
-    // Pinia replacement for the former Vuex `accounts` module.
-    return { accountsStore: useAccountsStore() }
-  },
   data: () => ({
     googleAuthQr: '',
     qrScanned: false
   }),
   computed: {
     user() {
-      // Render against the active account from Pinia (was `this.$store.state.accounts.active`),
-      // falling back to an empty object so the QR/secret flow can render before login.
-      return this.accountsStore.active ?? {}
+      // Since Signup/Login is currently disabled, a default user object will be used to render this page.
+      return {}
+      // return this.$store.state.accounts.active
     }
   },
   methods: {
-    // Former Vuex actions (`userSettings/toggleSetting`, `accounts/updateUser`). No V2 user-settings
-    // store exists yet and persisting the MFA secret is a Phase 4 concern, so these are local no-op
-    // stubs that drop the Vuex dependency without changing current behavior.
-    toggleSetting(_setting) {
-      console.warn('[TwoFactorAuth] toggleSetting has no V2 user-settings store yet.')
-    },
-    updateUser(_user) {
-      console.warn('[TwoFactorAuth] updateUser is not yet wired to a Pinia store (Phase 4).')
-    },
+    ...mapActions({
+      toggleSetting: 'userSettings/toggleSetting',
+      updateUser: 'accounts/updateUser'
+    }),
     toggle2FA(e) {
       if (e.value === false) {
         this.disable2FA(e)

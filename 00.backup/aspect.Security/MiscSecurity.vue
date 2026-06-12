@@ -29,43 +29,27 @@ Description: This component conisits of the misc settings column
 <script>
 import { UserService } from '@/service/UserService'
 import accountMixins from '@/utils/mixins/accountMixins'
-import { useAccountsStore } from '@/stores/useAccountsStore'
-import { useWalletsStore } from '@/stores/useWalletsStore'
+import { mapActions } from 'vuex'
 import moment from 'moment'
 import bcrypt from 'bcryptjs'
 
 export default {
   name: 'MiscSecurity',
   mixins: [accountMixins],
-  setup() {
-    // Pinia replacements for the former Vuex `accounts` / `userSettings` modules.
-    return {
-      accountsStore: useAccountsStore(),
-      walletsStore: useWalletsStore(),
-    }
-  },
   data: () => ({
     revealedHDWallet: ''
   }),
   computed: {
     user() {
-      // Was `this.$store.state.accounts.active`.
-      return this.accountsStore.active
+      return this.$store.state.accounts.active
     }
   },
   methods: {
-    // Former Vuex actions (`accounts/resetPassword`, `userSettings/toggle|updateSetting`). There is no
-    // V2 user-settings store yet and account password reset is a Phase 4 (secret-custody) concern, so
-    // these are local no-op stubs that drop the Vuex dependency without changing current behavior.
-    async resetPassword(_password) {
-      console.warn('[MiscSecurity] resetPassword is not yet wired to a Pinia store (Phase 4).')
-    },
-    toggleSetting(_setting) {
-      console.warn('[MiscSecurity] toggleSetting has no V2 user-settings store yet.')
-    },
-    updateSetting(_payload) {
-      console.warn('[MiscSecurity] updateSetting has no V2 user-settings store yet.')
-    },
+    ...mapActions({
+      resetPassword: 'accounts/resetPassword',
+      toggleSetting: 'userSettings/toggleSetting',
+      updateSetting: 'userSettings/updateSetting'
+    }),
     initRevealHDWallet() {
       // Prompt user to confirm their password then this.showHDWallet on success
       this.confirmPassword(this.showHDWallet)
@@ -140,10 +124,7 @@ export default {
       }
     },
     privateKeyCSV() {
-      // Was `this.$store.getters.allWallets`. V2's useWalletsStore groups public wallets by ticker and
-      // intentionally stores no private key / WIF (those await the Phase 4 encrypted-secret custody),
-      // so `privateKey` / `wif` are emitted blank here.
-      const wallets = Object.values(this.walletsStore.byTicker).flat()
+      const wallets = this.$store.getters.allWallets
       if (!wallets.length) {
         this.$toast.error(
           'You currently have no wallets to export.',
@@ -153,11 +134,11 @@ export default {
       }
       const csvData = wallets.map((w, i) => ({
         '#': i + 1,
-        coinTicker: w.ticker,
+        coinTicker: w.coinTicker,
         publicAddress: w.address,
         type: w.isHDWallet ? 'trunk' : 'foreign',
-        privateKey: w.privateKey ?? '',
-        wif: w.wif ?? ''
+        privateKey: w.privateKey,
+        wif: w.wif
       }))
       return csvData
     },

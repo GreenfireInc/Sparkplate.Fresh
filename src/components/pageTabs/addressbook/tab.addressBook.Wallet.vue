@@ -129,12 +129,8 @@ import WalletModal from '@/components/modals/addressbook/modal.details.Wallet.vu
 import SubModalAddCurrency from '@/components/modals/addressbook/subModals/subModal.add.Currency.vue'
 import ModalConfirmDeleteGeneral from '@/components/modals/confirmations/modal.confirm.delete.general.vue'
 import type { ImportedWallet } from '@/lib/cores/importStandard/importWallet.json'
-import {
-  getStandaloneWallets,
-  deleteStandaloneWallet,
-  updateStandaloneWallet,
-  type StandaloneWalletRecord,
-} from '@/services/addressBook/service.addressBook.StandaloneWallet'
+import type { StandaloneWalletRecord } from '@/services/addressBook/service.addressBook.StandaloneWallet'
+import { useAddressBookStore } from '@/stores/useAddressBookStore'
 import {
   exportWalletQrPng,
   exportWalletQrSvg,
@@ -160,6 +156,8 @@ const emit = defineEmits<{
   'wallets-changed': []
   'update:selectedWalletIds': [value: number[]]
 }>()
+
+const addressBookStore = useAddressBookStore()
 
 const selectedWalletIdsProxy = computed({
   get: () => props.selectedWalletIds,
@@ -269,8 +267,7 @@ async function onAddCurrencyToStandaloneWallet(currency: {
   network: string
   address: string
 }) {
-  const all = await getStandaloneWallets()
-  const w = all.find((x) => x.id === currency.contactId)
+  const w = addressBookStore.wallets.find((x) => x.id === currency.contactId)
   if (!w) return
   const newCurrencies = [
     ...w.currencies.map((c) => ({ ...c })),
@@ -281,7 +278,7 @@ async function onAddCurrencyToStandaloneWallet(currency: {
     },
   ]
   const updated: StandaloneWalletRecord = { ...w, currencies: newCurrencies }
-  await updateStandaloneWallet(updated)
+  await addressBookStore.saveWallet(updated)
   emit('wallets-changed')
   syncOpenModalWith(updated)
 }
@@ -294,8 +291,7 @@ async function onStandaloneCurrenciesBulkImport(payload: {
   targetId: number
   items: ImportedWallet[]
 }) {
-  const all = await getStandaloneWallets()
-  const w = all.find((x) => x.id === payload.targetId)
+  const w = addressBookStore.wallets.find((x) => x.id === payload.targetId)
   if (!w || payload.items.length === 0) return
   const newCurrencies = [
     ...w.currencies.map((c) => ({ ...c })),
@@ -306,7 +302,7 @@ async function onStandaloneCurrenciesBulkImport(payload: {
     })),
   ]
   const updated: StandaloneWalletRecord = { ...w, currencies: newCurrencies }
-  await updateStandaloneWallet(updated)
+  await addressBookStore.saveWallet(updated)
   emit('wallets-changed')
   syncOpenModalWith(updated)
 }
@@ -337,7 +333,7 @@ async function onWalletCurrencyRemoved(currencyIndex: number) {
   const w = selectedWallet.value
   if (!w || currencyIndex < 0 || currencyIndex >= w.currencies.length) return
   w.currencies.splice(currencyIndex, 1)
-  await updateStandaloneWallet({ ...w, currencies: w.currencies.map((c) => ({ ...c })) })
+  await addressBookStore.saveWallet({ ...w, currencies: w.currencies.map((c) => ({ ...c })) })
   emit('wallets-changed')
 }
 
@@ -358,7 +354,7 @@ const onWalletModalDeleteRequested = (wallet: StandaloneWalletRecord) => {
 
 const onConfirmDelete = async () => {
   if (walletToDelete.value) {
-    await deleteStandaloneWallet(walletToDelete.value.id)
+    await addressBookStore.removeWallet(walletToDelete.value.id)
     emit('wallets-changed')
   }
   closeConfirmModal()

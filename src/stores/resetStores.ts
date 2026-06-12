@@ -23,6 +23,7 @@
  */
 import { useAccountsStore } from './useAccountsStore'
 import { useContactsStore } from './useContactsStore'
+import { useAddressBookStore } from './useAddressBookStore'
 import { useWalletsStore } from './useWalletsStore'
 import { useCoinsStore } from './useCoinsStore'
 import { useSettingsStore } from './useSettingsStore'
@@ -46,8 +47,10 @@ export interface LogoutResetOptions {
  */
 export function resetStoresOnLogout(options: LogoutResetOptions = {}): void {
   // Session-scoped — always cleared. `accounts.reset()` is a superset of `logout()` (also clears `ip`).
+  // The contacts / address-book resets clear in-memory lists only; the localStorage services are untouched.
   useAccountsStore().reset()
   useContactsStore().reset()
+  useAddressBookStore().reset()
 
   // Device-level — retained unless explicitly opted into.
   if (options.clearWallets) useWalletsStore().reset()
