@@ -17,8 +17,9 @@
  *   - DB rehydrate via `fetchDBWallets(userId)` → persistedstate plugin rehydrates `byTicker` on init
  *
  * Derivation is delegated to the existing, proven renderer-side core:
- *   - mnemonic → public address : `@/utils/cryptoGenerator` `generateAddressesFromMnemonic`
- *   - imported private key      : already derived by `ModalDashboardImport` (we store the public parts)
+ *   - precomputed seed → public address : `@/utils/cryptoGenerator` `generateAddressForTickerFromSeed`
+ *   - mnemonic (throwaway / fallback)   : `generateAddressesFromMnemonic`
+ *   - imported private key                : already derived by `ModalDashboardImport`
  * Both heavy crypto paths are lazy-imported so the Dashboard bundle stays light until a wallet is made.
  */
 import { defineStore } from 'pinia'
@@ -121,22 +122,19 @@ export const useWalletsStore = defineStore(
     }
 
     /**
-     * Derive the **public** address for `ticker` from a BIP-39 `mnemonic` and store it.
-     * Delegates to the shared `generateAddressesFromMnemonic` core (lazy-imported), then keeps
-     * only the public material. Throws when the ticker is not supported by that core (currently
-     * BTC, LTC, DOGE, ETH, TRX, SOL, XTZ, LUNC). Returns the stored wallet, or `null` on duplicate.
+     * Derive the **public** address for `ticker` from a precomputed BIP-39 seed buffer and store it.
+     * Preferred Dashboard path — avoids repeat PBKDF2 (see `useAccountsStore.getActiveSeed`).
      */
-    async function addFromMnemonic(
+    async function addFromSeed(
       ticker: string,
-      mnemonic: string,
+      seed: Buffer,
       options: GenerateWalletOptions = {},
     ): Promise<StoredWallet | null> {
       const key = ticker.toUpperCase()
       const index = options.index ?? 0
 
-      const { generateAddressesFromMnemonic } = await import('@/utils/cryptoGenerator')
-      const derived = await generateAddressesFromMnemonic(mnemonic, { [key]: index })
-      const match = derived.find((d) => d.currency.toUpperCase() === key)
+      const { generateAddressForTickerFromSeed } = await import('@/utils/cryptoGenerator')
+      const match = await generateAddressForTickerFromSeed(seed, key, index)
 
       if (!match || !match.address) {
         throw new Error(
@@ -153,6 +151,20 @@ export const useWalletsStore = defineStore(
         nickname: options.nickname,
         balance: 0,
       })
+    }
+
+    /**
+     * Derive the **public** address for `ticker` from a BIP-39 `mnemonic` and store it.
+     * Runs PBKDF2 once — use {@link addFromSeed} when the session seed is already available.
+     */
+    async function addFromMnemonic(
+      ticker: string,
+      mnemonic: string,
+      options: GenerateWalletOptions = {},
+    ): Promise<StoredWallet | null> {
+      const bip39 = await import('bip39')
+      const seed = await bip39.mnemonicToSeed(mnemonic)
+      return addFromSeed(ticker, seed, options)
     }
 
     /**
@@ -193,6 +205,7 @@ export const useWalletsStore = defineStore(
       count,
       // actions
       addWallet,
+      addFromSeed,
       addFromMnemonic,
       generateAndAddWallet,
       removeWallet,

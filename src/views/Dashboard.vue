@@ -76,8 +76,12 @@
           </button>
 
           <ButtonDashboardNewWallet
-            :disabled="!activeCurrency || walletBusy"
-            :label="walletBusy ? 'Generating…' : 'New Wallet'"
+            :disabled="!activeCurrency || walletBusy || !canGenerateActive"
+            :label="walletBusy
+              ? 'Generating…'
+              : canGenerateActive
+                ? 'New Wallet'
+                : 'Not supported'"
             @from-mnemonic="onNewWalletFromMnemonic"
             @throwaway-wallet="onNewWalletThrowaway"
           />
@@ -150,13 +154,20 @@
           </p>
           <ButtonDashboardNewWallet
             class="dashboard-wallets__cta"
-            :disabled="walletBusy"
+            :disabled="walletBusy || !canGenerateActive"
             :label="walletBusy
               ? 'Generating…'
-              : `Generate ${activeCurrency.basicInfo.name} Wallet`"
+              : canGenerateActive
+                ? `Generate ${activeCurrency.basicInfo.name} Wallet`
+                : 'Not supported in this build'"
             @from-mnemonic="onNewWalletFromMnemonic"
             @throwaway-wallet="onNewWalletThrowaway"
           />
+          <p v-if="!canGenerateActive" class="dashboard-wallets__empty-note">
+            Wallet generation for
+            <strong>{{ activeCurrency.basicInfo.symbolTicker.toUpperCase() }}</strong>
+            is not supported in this build yet.
+          </p>
         </div>
       </div>
 
@@ -293,6 +304,7 @@ import { Download as DownloadIcon } from 'lucide-vue-next'
 import { NETWORKS, type CurrencyData } from '@/lib/cores/currencyCore/currencies'
 import { useDashboardCurrencies } from '@/composables/useDashboardCurrencies'
 import { useWalletsStore, type StoredWallet } from '@/stores/useWalletsStore'
+import { useAccountsStore } from '@/stores/useAccountsStore'
 import TabComponent from '@/components/global/TabComponent.vue'
 import TabsWrapper from '@/components/global/TabsWrapper.vue'
 import ButtonDashboardNewWallet from '@/components/buttons/dashboard/button.dashboard.newWallet.vue'
@@ -312,6 +324,18 @@ const { visibleCurrencies, currenciesOrdered } = useDashboardCurrencies()
 // `byTicker` from `sparkplate_wallets` on store creation and re-writes it on every mutation.
 const walletsStore = useWalletsStore()
 
+// The logged-in account owns the HD seed (`getActiveMnemonic`). "From Mnemonic" derives deterministic,
+// recoverable addresses from it — see docs/findings/20260612.findings.dashboard.wallet.address.generation.discarded.registration.mnemonic.md.
+const accountsStore = useAccountsStore()
+
+// Tickers `@/utils/cryptoGenerator` derives VALID public addresses for today. TRX/XTZ/LUNC use
+// non-standard encoders (companion finding §2.2/§6.5) so we gate them off rather than persist a
+// malformed address. Expand as encoders are fixed.
+const GENERATABLE = new Set(['BTC', 'LTC', 'DOGE', 'ETH', 'SOL'])
+
+/** Max HD wallets per ticker, matching Greenery's `initCreateWallet` guard. */
+const MAX_HD_WALLETS = 5
+
 type ContentTab = 'wallets' | 'history' | 'information'
 const contentTabs: ContentTab[] = ['wallets', 'history', 'information']
 const activeContentTab = ref<ContentTab>('wallets')
@@ -330,6 +354,11 @@ const activeCurrency = computed<CurrencyData | undefined>(() =>
 // Public addresses for the currently-focused currency — reactive + persisted.
 const activeWallets = computed<StoredWallet[]>(() =>
   activeTicker.value ? walletsStore.walletsFor(activeTicker.value) : [],
+)
+
+// True only when the active ticker can be derived to a valid address by the current build.
+const canGenerateActive = computed<boolean>(
+  () => !!activeTicker.value && GENERATABLE.has(activeTicker.value.toUpperCase()),
 )
 
 function getIcon(ticker: string): string | null {
@@ -408,15 +437,47 @@ function onWalletImported(payload: DashboardImportedWallet): void {
 }
 
 /**
- * Generate a fresh wallet for the active currency and persist its PUBLIC address. Both dropdown
- * actions land here because the button carries no phrase — the store mints a throwaway mnemonic,
- * derives the public address, and discards the secret material.
+ * Next BIP-44 address index for the active ticker — the count of existing HD wallets so each
+ * "From Mnemonic" click derives the *next* deterministic address (Greenery's incrementing counter).
  */
-async function generateWallet(options: { isHDWallet: boolean; nickname?: string }): Promise<void> {
+function nextHdIndex(ticker: string): number {
+  return walletsStore.walletsFor(ticker).filter((w) => w.isHDWallet).length
+}
+
+/** Greenery caps HD wallets at 5 per coin; mirror that before deriving another. */
+function canCreateHdWallet(ticker: string): boolean {
+  return nextHdIndex(ticker) < MAX_HD_WALLETS
+}
+
+/**
+ * "From Mnemonic": derive a deterministic, recoverable address from the active account's seed phrase
+ * — the BIP-39 recovery phrase the user generated + verified during registration
+ * (`03.registration.mnemonicHDSeedPhrase.vue`), persisted encrypted and restored into the session at
+ * signup/login — at the next HD index. The seed comes ONLY from that account record; if it isn't
+ * loaded, the user must sign in to the account that owns it.
+ */
+async function onNewWalletFromMnemonic(): Promise<void> {
   if (!activeTicker.value || walletBusy.value) return
+  if (!canGenerateActive.value) {
+    alert('Generating a wallet for this currency is not supported in this build yet.')
+    return
+  }
+  if (!canCreateHdWallet(activeTicker.value)) {
+    alert(`You cannot have more than ${MAX_HD_WALLETS} wallets at one time!`)
+    return
+  }
   walletBusy.value = true
   try {
-    await walletsStore.generateAndAddWallet(activeTicker.value, options)
+    const seed = accountsStore.getActiveSeed()
+    if (!seed) {
+      throw new Error(
+        'No account seed available. Please sign in to the account whose recovery phrase you set at registration.',
+      )
+    }
+    await walletsStore.addFromSeed(activeTicker.value, seed, {
+      isHDWallet: true,
+      index: nextHdIndex(activeTicker.value),
+    })
   } catch (error) {
     alert(error instanceof Error ? error.message : 'Could not generate a wallet. Please try again.')
   } finally {
@@ -424,12 +485,28 @@ async function generateWallet(options: { isHDWallet: boolean; nickname?: string 
   }
 }
 
-function onNewWalletFromMnemonic(): void {
-  void generateWallet({ isHDWallet: true })
-}
-
-function onNewWalletThrowaway(): void {
-  void generateWallet({ isHDWallet: false, nickname: 'Throwaway' })
+/**
+ * "Throwaway": an independent random keypair, unrelated to the account seed (Greenery's
+ * `generateBasicWallet` semantic). NOTE: only the public address is retained today — to make it
+ * spendable/recoverable the secret must be persisted (companion finding §6.6).
+ */
+async function onNewWalletThrowaway(): Promise<void> {
+  if (!activeTicker.value || walletBusy.value) return
+  if (!canGenerateActive.value) {
+    alert('Generating a wallet for this currency is not supported in this build yet.')
+    return
+  }
+  walletBusy.value = true
+  try {
+    await walletsStore.generateAndAddWallet(activeTicker.value, {
+      isHDWallet: false,
+      nickname: 'Throwaway',
+    })
+  } catch (error) {
+    alert(error instanceof Error ? error.message : 'Could not generate a wallet. Please try again.')
+  } finally {
+    walletBusy.value = false
+  }
 }
 </script>
 
@@ -819,6 +896,12 @@ function onNewWalletThrowaway(): void {
 
 .dashboard-wallets__cta {
   align-self: center;
+}
+
+.dashboard-wallets__empty-note {
+  margin: 0.75rem 0 0 0;
+  font-size: 0.8125rem;
+  color: #b45309;
 }
 
 // ── Information card ──────────────────────────────────────────────────────────

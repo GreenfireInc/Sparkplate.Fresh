@@ -26,17 +26,25 @@
  *
  * Persistence: the store enables NO `persist` — matching Greenery (only `settings`/`coins` were persisted,
  * never accounts) and the current `useAuth` (session resets on reload). Accounts themselves persist via the
- * service's `localStorage` key. The HD seed/secret custody and `fetchIP` remain Phase 4 concerns.
+ * service's `localStorage` key. The account's recovery phrase and precomputed BIP-39 seed buffer
+ * live in session only (`mnemonic`, `hdWallet`) — set at signup, restored at login — and power HD
+ * wallet derivation on the Dashboard (`getActiveMnemonic` / `getActiveSeed`). `fetchIP` remains
+ * a Phase 4 concern.
  */
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import {
   createUser,
+  decryptMnemonic,
   listUsers,
   verifyLogin,
   type CreateUserInput,
   type PublicUser,
 } from '@/services/account/service.account.User'
+import {
+  createHDWalletContext,
+  type HDWalletContext,
+} from '@/services/wallet/service.wallet.HDWallet'
 
 export interface User {
   id: number
@@ -64,6 +72,16 @@ export const useAccountsStore = defineStore('accounts', () => {
   const authenticated = ref(false)
   /** Reserved for the Phase 4 `fetchIP` bridge (Greenery `accounts.ip`). */
   const ip = ref<string>('')
+  /**
+   * The active account's decrypted BIP-39 recovery phrase, held in memory for the session only.
+   * Kept in sync with {@link hdWallet}; prefer `getActiveMnemonic()` / `getActiveSeed()`.
+   */
+  const mnemonic = ref<string | null>(null)
+  /**
+   * Greenery `accounts.hdWallet` equivalent — phrase + precomputed 64-byte seed (PBKDF2 run once at
+   * signup/login). Session only; never persisted.
+   */
+  const hdWallet = ref<HDWalletContext | null>(null)
 
   // ── getters (Greenery root `user` / mixin `loggedIn` / `loggedUserData`) ─────
   const user = computed<User | null>(() => active.value)
@@ -77,6 +95,33 @@ export const useAccountsStore = defineStore('accounts', () => {
   function logout(): void {
     active.value = null
     authenticated.value = false
+    mnemonic.value = null
+    hdWallet.value = null
+  }
+
+  /**
+   * Precompute the BIP-39 seed buffer and install session HD context (Greenery login/signup path).
+   * Clears both refs when phrase is empty or invalid.
+   */
+  async function setHDWalletFromPhrase(phrase: string, email: string): Promise<void> {
+    const trimmed = phrase?.trim()
+    if (!trimmed) {
+      mnemonic.value = null
+      hdWallet.value = null
+      return
+    }
+    hdWallet.value = await createHDWalletContext(trimmed, email)
+    mnemonic.value = hdWallet.value.getPhrase()
+  }
+
+  /** The active account's recovery phrase (or `null` when unavailable). */
+  function getActiveMnemonic(): string | null {
+    return hdWallet.value?.getPhrase() ?? mnemonic.value
+  }
+
+  /** Precomputed 64-byte BIP-39 seed for the session — use for HD derivation (no repeat PBKDF2). */
+  function getActiveSeed(): Buffer | null {
+    return hdWallet.value?.getSeed() ?? null
   }
   function setCurrentUser(target: User | null): void {
     active.value = target
@@ -102,6 +147,12 @@ export const useAccountsStore = defineStore('accounts', () => {
     await loadUsers()
     const user = toUser(created)
     login(user)
+    if (input.mnemonic?.trim()) {
+      await setHDWalletFromPhrase(input.mnemonic, created.email)
+    } else {
+      mnemonic.value = null
+      hdWallet.value = null
+    }
     return user
   }
 
@@ -110,6 +161,13 @@ export const useAccountsStore = defineStore('accounts', () => {
     const verified = await verifyLogin(email, password)
     if (!verified) return false
     login(toUser(verified))
+    const phrase = await decryptMnemonic(email, password)
+    if (phrase) {
+      await setHDWalletFromPhrase(phrase, email)
+    } else {
+      mnemonic.value = null
+      hdWallet.value = null
+    }
     return true
   }
 
@@ -119,6 +177,8 @@ export const useAccountsStore = defineStore('accounts', () => {
     active.value = null
     authenticated.value = false
     ip.value = ''
+    mnemonic.value = null
+    hdWallet.value = null
   }
 
   return {
@@ -127,12 +187,17 @@ export const useAccountsStore = defineStore('accounts', () => {
     all,
     authenticated,
     ip,
+    mnemonic,
+    hdWallet,
     // getters
     user,
     loggedIn,
     // actions
     login,
     logout,
+    getActiveMnemonic,
+    getActiveSeed,
+    setHDWalletFromPhrase,
     setCurrentUser,
     setAuthenticated,
     setAllUsers,
